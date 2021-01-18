@@ -19,6 +19,10 @@ TODO: add
 - libedax (TODO: add)
 - [edax](https://sensuikan1973.github.io/edax-reversi/)
 
+## Reference
+- python version: https://github.com/lavox/libedax4py
+- java version: https://github.com/lavox/libedax4j
+
 ## Development
 ![dartfmt](https://github.com/sensuikan1973/libedax4dart/workflows/dartfmt/badge.svg)
 ![dartanalyzer](https://github.com/sensuikan1973/libedax4dart/workflows/dartanalyzer/badge.svg)
