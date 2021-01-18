@@ -1,5 +1,5 @@
 # NOTE: require some environment variables.
-# libedax_build_command (e.g. make build ARCH=x64-modern COMP=gcc OS=osx)
+# libedax_build_command (e.g. make libbuild ARCH=x64-modern COMP=gcc OS=osx)
 # dst: (e.g. build)
 
 git clone https://github.com/lavox/edax-reversi
