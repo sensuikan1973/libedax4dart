@@ -23,3 +23,6 @@ doc/api/
 
 # Mac
 .DS_Store
+
+# libedax4dart
+edax-reversi

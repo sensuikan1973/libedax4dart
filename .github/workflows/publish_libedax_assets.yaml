@@ -1,0 +1,65 @@
+name: publish_libedax_assets
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    env:
+      OUTPUT_DIR: libedax_output
+      PUBLISH_DIR: dst
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+        include:
+          - os: ubuntu-latest
+            libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=linux
+          - os: windows-latest
+            libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=windows
+          - os: macOS-latest
+            libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=osx
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: cedx/setup-dart@v2
+        with:
+            architecture: x64
+            release-channel: beta
+      - name: install dependencies
+        run: pub get
+
+      - name: cache edax-reversi/libedax
+        id: cache-edax-reversi-libedax
+        uses: actions/cache@v2
+        with:
+          path: edax-reversi
+          key: ${{ runner.os }}-edax-reversi-${{ hashFiles('scripts/build_libedax.sh') }}
+
+      - name: build libedax
+        env:
+          dst: ${{ env.OUTPUT_DIR }}
+          libedax_build_command: ${{ matrix.libedax_build_command }}
+        run: sh scripts/build_libedax.sh
+
+      - name: output build info
+        run: scripts/output_build_info.sh ${{ env.OUTPUT_DIR }} gcc
+
+      - name: zip files (Windows)
+        if: runner.os == 'Windows'
+        run: mkdir -p ${{ env.PUBLISH_DIR }} && powershell Compress-Archive -Path ${{ env.OUTPUT_DIR }} -DestinationPath ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
+      - name: zip files (Linux, MacOS)
+        if: runner.os == 'macOS' || runner.os == 'Linux'
+        run: mkdir -p ${{ env.PUBLISH_DIR }} && zip -r ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip ${{ env.OUTPUT_DIR }}
+
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
+          asset_name: libedax_${{ runner.os }}.zip
+          asset_content_type: application/zip
