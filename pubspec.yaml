@@ -1,8 +1,8 @@
-name: dart_boilerplate
+name: libedax4dart
 version: 0.0.1
-description: template repository for Dart project
+description: dart wrapper for libedax
 author: Naoki Shimizu
-homepage: https://github.com/sensuikan1973/dart-boilerplate
+homepage: https://github.com/sensuikan1973/libedax4dart
 
 environment:
   sdk: '>2.11.0 <3.0.0'
