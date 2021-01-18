@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import 'package:dart_boilerplate/hello.dart';
+import 'package:libedax4dart/hello.dart';
 
 void main() {
   test('hello', () {
