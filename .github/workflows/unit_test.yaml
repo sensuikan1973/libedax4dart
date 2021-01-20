@@ -2,19 +2,64 @@ name: unit_test
 
 on:
   pull_request:
-    paths: ['**.dart', 'pubspec.*', '.github/workflows/unit_test.yaml']
+    paths: ['**.dart', 'pubspec.*', '.github/workflows/unit_test.yaml', 'scripts/build_libedax.sh']
   push:
     branches: [ main ]
-    paths: ['**.dart', 'pubspec.*', '.github/workflows/unit_test.yaml']
+    paths: ['**.dart', 'pubspec.*', '.github/workflows/unit_test.yaml', 'scripts/build_libedax.sh']
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    container:
-      image: google/dart:beta
+    env:
+      cache_ver: 3
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        include:
+          - os: ubuntu-latest
+            libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=linux
+            libedax_bin: libedax.so
+          - os: windows-latest
+            libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=windows
+            libedax_bin: libedax-x64.dll
+          - os: macos-latest
+            libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=osx
+            libedax_bin: libedax.dylib
     steps:
     - uses: actions/checkout@v2
+
+    - uses: cedx/setup-dart@v2
+      with:
+        architecture: x64
+        release-channel: beta
+
+    - name: cache libedax assets for test
+      id: cache-libedax-assets
+      uses: actions/cache@v2
+      with:
+        path: |
+          ${{ matrix.libedax_bin }}
+          data
+        key: ${{ env.cache_ver }}-${{ runner.os }}-libedax-assets-${{ hashFiles('scripts/build_libedax.sh') }}
+
+    - name: build libedax
+      if: steps.cache-libedax-assets.outputs.cache-hit != 'true'
+      env:
+        dst: '.'
+        libedax_build_command: ${{ matrix.libedax_build_command }}
+      run: sh scripts/build_libedax.sh
+
+    - name: mv libedax bin for test
+      if: steps.cache-libedax-assets.outputs.cache-hit != 'true'
+      shell: bash
+      run: mv bin/${{ matrix.libedax_bin }} ./${{ matrix.libedax_bin }}
+
+    # # DEBUG
+    # - name: setup tmate session for debug
+    #   uses: mxschmitt/action-tmate@v3
+
     - name: install dependencies
       run: pub get
     - name: test
-      run: pub run test ./
+      run: pub run test .
