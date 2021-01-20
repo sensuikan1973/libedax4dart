@@ -1,5 +1,5 @@
 import 'dart:ffi';
-import 'dart:io' show Platform;
+import 'dart:io' show Directory, Platform;
 
 String get _libName {
   if (Platform.isLinux || Platform.isAndroid) return 'libedax.so';
@@ -8,4 +8,6 @@ String get _libName {
   throw Exception('${Platform.operatingSystem} is not supported');
 }
 
-DynamicLibrary dlopenPlatformSpecific({String path = ''}) => DynamicLibrary.open('$path$_libName');
+DynamicLibrary dlopenPlatformSpecific({String dir = ''}) => dir.isEmpty ?
+  DynamicLibrary.open('${Directory.current.path}/$_libName'):
+  DynamicLibrary.open('$dir/$_libName');
