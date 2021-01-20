@@ -38,7 +38,7 @@ jobs:
       run: sh scripts/build_libedax.sh
     - name: mv libedax.so for pub test
       if: steps.cache-libedax-assets.outputs.cache-hit != 'true'
-      run: mv bin/${{ env.libedax_bin }} ./${{ env.libedax_bin }} && ls
+      run: mv bin/${{ env.libedax_bin }} ./${{ env.libedax_bin }}
 
     # # DEBUG
     # - name: setup tmate session for debug ssh
