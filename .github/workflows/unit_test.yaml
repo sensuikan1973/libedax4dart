@@ -38,6 +38,10 @@ jobs:
       if: steps.cache-libedax-assets.outputs.cache-hit != 'true'
       run: mv bin/libedax.so ./libedax.so && ls
 
+    # DEBUG
+    - name: setup tmate session for debug ssh
+      uses: mxschmitt/action-tmate@v3
+
     - name: install dependencies
       run: pub get
     - name: test
