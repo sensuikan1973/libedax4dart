@@ -24,9 +24,9 @@ jobs:
       uses: actions/cache@v2
       with:
         path: |
-          libedax.dylib
+          libedax.so
           data
-        key: ${{ runner.os }}-libedax-assets-${{ hashFiles('libedax.dylib', 'data/*.dat') }}
+        key: ${{ runner.os }}-libedax-assets-${{ hashFiles('libedax.so', 'data/*.dat') }}
 
     - name: build libedax
       if: steps.cache-libedax-assets.outputs.cache-hit != 'true'
@@ -34,9 +34,9 @@ jobs:
         dst: '.'
         libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=linux
       run: sh scripts/build_libedax.sh
-    - name: mv libedax.dylib for pub test
+    - name: mv libedax.so for pub test
       if: steps.cache-libedax-assets.outputs.cache-hit != 'true'
-      run: mv bin/libedax.dylib ./libedax.dylib
+      run: mv bin/libedax.so ./libedax.so
 
     - name: install dependencies
       run: pub get
