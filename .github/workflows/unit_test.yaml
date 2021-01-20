@@ -11,10 +11,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    container:
-      image: google/dart:beta
     steps:
     - uses: actions/checkout@v2
+
+    - uses: cedx/setup-dart@v2
+      with:
+        architecture: x64
+        release-channel: beta
 
     - name: cache libedax assets for test
       id: cache-libedax-assets
@@ -26,11 +29,13 @@ jobs:
         key: ${{ runner.os }}-libedax-assets-${{ hashFiles('libedax.dylib', 'data/*.dat') }}
 
     - name: build libedax
+      if: steps.cache-libedax-assets.outputs.cache-hit != 'true'
       env:
         dst: '.'
         libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=linux
       run: sh scripts/build_libedax.sh
     - name: mv libedax.dylib for pub test
+      if: steps.cache-libedax-assets.outputs.cache-hit != 'true'
       run: mv bin/libedax.dylib ./libedax.dylib
 
     - name: install dependencies
