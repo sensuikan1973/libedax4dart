@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     env:
-      cache_ver: 2
+      cache_ver: 3
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
     strategy:
