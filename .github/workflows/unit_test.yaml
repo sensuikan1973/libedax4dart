@@ -2,19 +2,38 @@ name: unit_test
 
 on:
   pull_request:
-    paths: ['**.dart', 'pubspec.*', '.github/workflows/unit_test.yaml']
+    paths: ['**.dart', 'pubspec.*', '.github/workflows/unit_test.yaml', 'scripts/build_libedax.sh']
   push:
     branches: [ main ]
-    paths: ['**.dart', 'pubspec.*', '.github/workflows/unit_test.yaml']
+    paths: ['**.dart', 'pubspec.*', '.github/workflows/unit_test.yaml', 'scripts/build_libedax.sh']
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     container:
       image: google/dart:beta
     steps:
     - uses: actions/checkout@v2
+
+    - name: cache libedax assets for test
+      id: cache-libedax-assets
+      uses: actions/cache@v2
+      with:
+        path: |
+          libedax.dylib
+          data
+        key: ${{ runner.os }}-libedax-assets-${{ hashFiles('libedax.dylib', 'data/*.dat') }}
+    - name: mv libedax.dylib for pub test
+      run: mv bin/libedax.dylib ./libedax.dylib
+
+    - name: build libedax
+      env:
+        dst: '.'
+        libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=linux
+      run: sh scripts/build_libedax.sh
+
     - name: install dependencies
       run: pub get
     - name: test
-      run: pub run test ./
+      run: pub run test .
