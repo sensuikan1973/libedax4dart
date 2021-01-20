@@ -9,7 +9,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    env:
+      libedax_bin: libedax.dylib
+    runs-on: macos-latest
     timeout-minutes: 60
     steps:
     - uses: actions/checkout@v2
@@ -24,7 +26,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: |
-          libedax.so
+          ${{ env.libedax_bin }}
           data
         key: ${{ runner.os }}-libedax-assets-${{ hashFiles('scripts/build_libedax.sh') }}
 
@@ -32,11 +34,11 @@ jobs:
       if: steps.cache-libedax-assets.outputs.cache-hit != 'true'
       env:
         dst: '.'
-        libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=linux
+        libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=osx
       run: sh scripts/build_libedax.sh
     - name: mv libedax.so for pub test
       if: steps.cache-libedax-assets.outputs.cache-hit != 'true'
-      run: mv bin/libedax.so ./libedax.so && ls
+      run: mv bin/${{ env.libedax_bin }} ./${{ env.libedax_bin }} && ls
 
     # DEBUG
     - name: setup tmate session for debug ssh
