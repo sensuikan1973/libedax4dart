@@ -26,7 +26,7 @@ jobs:
         path: |
           libedax.so
           data
-        key: ${{ runner.os }}-libedax-assets-${{ hashFiles('libedax.so', 'data/*.dat') }}
+        key: ${{ runner.os }}-libedax-assets-${{ hashFiles('scripts/build_libedax.sh') }}
 
     - name: build libedax
       if: steps.cache-libedax-assets.outputs.cache-hit != 'true'
