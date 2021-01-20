@@ -2,7 +2,7 @@
 # libedax_build_command (e.g. make libbuild ARCH=x64-modern COMP=gcc OS=osx)
 # dst: (e.g. build)
 
-# TODO: https://github.com/lavox/edax-reversi/pull/2 がマージされたら参照先を返る
+# TODO: https://github.com/lavox/edax-reversi/pull/2 がマージされたら参照先を変える
 git clone https://github.com/sensuikan1973/edax-reversi
 cd edax-reversi
 git switch fix_command_shared_lib_for_linux
