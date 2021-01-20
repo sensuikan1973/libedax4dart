@@ -10,10 +10,22 @@ on:
 jobs:
   build:
     env:
-      libedax_bin: libedax.dylib
-      cache_ver: 1
-    runs-on: macos-latest
+      cache_ver: 2
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 10
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        include:
+          - os: ubuntu-latest
+            libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=linux
+            libedax_bin: libedax.so
+          - os: windows-latest
+            libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=windows
+            libedax_bin: libeda-x64.dll
+          - os: macos-latest
+            libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=osx
+            libedax_bin: libedax.dylib
     steps:
     - uses: actions/checkout@v2
 
@@ -27,7 +39,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: |
-          ${{ env.libedax_bin }}
+          ${{ matrix.libedax_bin }}
           data
         key: ${{ env.cache_ver }}-${{ runner.os }}-libedax-assets-${{ hashFiles('scripts/build_libedax.sh') }}
 
@@ -38,7 +50,7 @@ jobs:
         libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=osx
       run: |-
         sh scripts/build_libedax.sh
-        mv bin/${{ env.libedax_bin }} ./${{ env.libedax_bin }} # for test
+        mv bin/${{ matrix.libedax_bin }} ./${{ matrix.libedax_bin }} # for test
 
     - name: install dependencies
       run: pub get
