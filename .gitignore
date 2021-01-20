@@ -26,3 +26,7 @@ doc/api/
 
 # libedax4dart
 edax-reversi
+data/
+*.dylib
+*.so
+*.dll
