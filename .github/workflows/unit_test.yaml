@@ -24,14 +24,14 @@ jobs:
           libedax.dylib
           data
         key: ${{ runner.os }}-libedax-assets-${{ hashFiles('libedax.dylib', 'data/*.dat') }}
-    - name: mv libedax.dylib for pub test
-      run: mv bin/libedax.dylib ./libedax.dylib
 
     - name: build libedax
       env:
         dst: '.'
         libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=linux
       run: sh scripts/build_libedax.sh
+    - name: mv libedax.dylib for pub test
+      run: mv bin/libedax.dylib ./libedax.dylib
 
     - name: install dependencies
       run: pub get
