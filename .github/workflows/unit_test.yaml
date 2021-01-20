@@ -52,6 +52,7 @@ jobs:
       run: sh scripts/build_libedax.sh
 
     - name: mv libedax bin for test
+      if: steps.cache-libedax-assets.outputs.cache-hit != 'true'
       run: mv bin/${{ matrix.libedax_bin }} ./${{ matrix.libedax_bin }}
 
     - name: install dependencies
