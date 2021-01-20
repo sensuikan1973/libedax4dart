@@ -36,7 +36,7 @@ jobs:
       run: sh scripts/build_libedax.sh
     - name: mv libedax.so for pub test
       if: steps.cache-libedax-assets.outputs.cache-hit != 'true'
-      run: mv bin/libedax.so ./libedax.so
+      run: mv bin/libedax.so ./libedax.so && ls
 
     - name: install dependencies
       run: pub get
