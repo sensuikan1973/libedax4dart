@@ -8,6 +8,5 @@ String get _libName {
   throw Exception('${Platform.operatingSystem} is not supported');
 }
 
-DynamicLibrary dlopenPlatformSpecific({String dir = ''}) => dir.isEmpty ?
-  DynamicLibrary.open('${Directory.current.path}/$_libName'):
-  DynamicLibrary.open('$dir/$_libName');
+DynamicLibrary dlopenPlatformSpecific({String dir = ''}) =>
+    dir.isEmpty ? DynamicLibrary.open('${Directory.current.path}/$_libName') : DynamicLibrary.open('$dir/$_libName');
