@@ -56,6 +56,11 @@ jobs:
       shell: bash
       run: mv bin/${{ matrix.libedax_bin }} ./${{ matrix.libedax_bin }}
 
+    # DEBUG
+    - name: setup tmate session for debug ssh
+      if: runner.os == 'Linux'
+      uses: mxschmitt/action-tmate@v3
+
     - name: install dependencies
       run: pub get
     - name: test
