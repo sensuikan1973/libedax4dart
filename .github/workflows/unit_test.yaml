@@ -53,6 +53,7 @@ jobs:
 
     - name: mv libedax bin for test
       if: steps.cache-libedax-assets.outputs.cache-hit != 'true'
+      shell: bash
       run: mv bin/${{ matrix.libedax_bin }} ./${{ matrix.libedax_bin }}
 
     - name: install dependencies
