@@ -24,23 +24,23 @@ class LibEdax {
   /// Be careful that the first argument in [args] is ignored.
   /// ```dart
   /// const edax = LibEdax();
-  /// edax.initialize(['', '-eval-file', 'data/eval.dat', '-book-file', 'data/book.dat', '-level', '16']);
+  /// edax.libedaxInitialize(['', '-eval-file', 'data/eval.dat', '-book-file', 'data/book.dat', '-level', '16']);
   /// ```
   ///
   /// If you want to know more, See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
-  void initialize([List<String> args = const []]) {
+  void libedaxInitialize([List<String> args = const []]) {
     final argsPointers = args.map(Utf8.toUtf8).toList();
     final pointerPointer = allocate<Pointer<Utf8>>(count: argsPointers.length);
     for (var k = 0; k < argsPointers.length; k++) {
       pointerPointer[k] = argsPointers[k];
     }
-    bindings.initialize(args.length, pointerPointer);
+    bindings.libedaxInitialize(args.length, pointerPointer);
     free(pointerPointer);
   }
 
   /// Terminate libedax.
-  void terminate() => bindings.terminate();
+  void libedaxTerminate() => bindings.libedaxTerminate();
 
   /// print version
-  void version() => bindings.version();
+  void edaxVersion() => bindings.edaxVersion();
 }

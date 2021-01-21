@@ -14,14 +14,14 @@ class _LibEdaxBindings {
 
   late DynamicLibrary libedax;
 
-  late int Function(int argc, Pointer<Pointer<Utf8>> argv) initialize;
-  late int Function() terminate;
-  late int Function() version;
+  late int Function(int argc, Pointer<Pointer<Utf8>> argv) libedaxInitialize;
+  late int Function() libedaxTerminate;
+  late int Function() edaxVersion;
 
   void _bindFunctions() {
-    initialize = libedax.lookup<NativeFunction<libedax_initialize_native_t>>('libedax_initialize').asFunction();
-    terminate = libedax.lookup<NativeFunction<libedax_terminate_native_t>>('libedax_terminate').asFunction();
-    version = libedax.lookup<NativeFunction<edax_version_native_t>>('edax_version').asFunction();
+    libedaxInitialize = libedax.lookup<NativeFunction<libedax_initialize_native_t>>('libedax_initialize').asFunction();
+    libedaxTerminate = libedax.lookup<NativeFunction<libedax_terminate_native_t>>('libedax_terminate').asFunction();
+    edaxVersion = libedax.lookup<NativeFunction<edax_version_native_t>>('edax_version').asFunction();
     // TODO: implement another function
   }
 }
