@@ -6,6 +6,7 @@ void main() {
     const initParams = ['', '-eval-file', 'data/eval.dat', '-book-file', 'data/book.dat', '-level', '16'];
     const LibEdax()
       ..initialize(initParams)
+      ..version()
       ..terminate();
   });
 }

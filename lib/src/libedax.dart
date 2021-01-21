@@ -40,4 +40,7 @@ class LibEdax {
 
   /// Terminate libedax.
   void terminate() => bindings.terminate();
+
+  /// print version
+  void version() => bindings.version();
 }
