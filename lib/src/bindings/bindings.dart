@@ -20,11 +20,11 @@ class _LibEdaxBindings {
   late final int Function() edaxNew;
   late final int Function() edaxUndo;
   late final int Function() edaxRedo;
-  late final int Function() edaxVersion;
   late final int Function(int mode) edaxMode;
   late final int Function(Pointer<Utf8> board) edaxSetboard;
   late final int Function() edaxVmirror;
   late final int Function(Pointer<Utf8> moves) edaxPlay;
+  late final int Function() edaxVersion;
   late final int Function(Pointer<Utf8> moves) edaxMove;
   late final int Function() edaxIsGameOver;
 
@@ -39,9 +39,8 @@ class _LibEdaxBindings {
     edaxSetboard = libedax.lookup<NativeFunction<edax_setboard_native_t>>('edax_setboard').asFunction();
     edaxVmirror = libedax.lookup<NativeFunction<edax_vmirror_native_t>>('edax_vmirror').asFunction();
     edaxPlay = libedax.lookup<NativeFunction<edax_play_native_t>>('edax_play').asFunction();
-    edaxIsGameOver = libedax.lookup<NativeFunction<edax_is_game_over_native_t>>('edax_is_game_over').asFunction();
-    edaxMove = libedax.lookup<NativeFunction<edax_move_native_t>>('edax_move').asFunction();
-
     edaxVersion = libedax.lookup<NativeFunction<edax_version_native_t>>('edax_version').asFunction();
+    edaxMove = libedax.lookup<NativeFunction<edax_move_native_t>>('edax_move').asFunction();
+    edaxIsGameOver = libedax.lookup<NativeFunction<edax_is_game_over_native_t>>('edax_is_game_over').asFunction();
   }
 }

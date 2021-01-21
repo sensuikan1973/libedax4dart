@@ -70,13 +70,13 @@ class LibEdax {
   /// you can also pass opening name. (e.g. `play brightwell`)
   void edaxPlay(String moves) => bindings.edaxPlay(Utf8.toUtf8(moves));
 
+  /// print version.
+  void edaxVersion() => bindings.edaxVersion();
+
   /// Play move.
   /// you can pass Lower case or Upper case. `f5` `F5` is OK.
   void edaxMove(String move) => bindings.edaxMove(Utf8.toUtf8(move));
 
   /// Check if the current game is over.
   bool edaxIsGameOver() => bindings.edaxIsGameOver() == 1;
-
-  /// print version.
-  void edaxVersion() => bindings.edaxVersion();
 }
