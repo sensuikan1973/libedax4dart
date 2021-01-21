@@ -37,28 +37,29 @@ class _LibEdaxBindings {
   late final int Function(int color) edaxGetMobilityCount;
 
   void _bindFunctions() {
-    libedaxInitialize = libedax.lookup<NativeFunction<libedax_initialize_native_t>>('libedax_initialize').asFunction();
-    libedaxTerminate = libedax.lookup<NativeFunction<libedax_terminate_native_t>>('libedax_terminate').asFunction();
-    edaxInit = libedax.lookup<NativeFunction<edax_init_native_t>>('edax_init').asFunction();
-    edaxNew = libedax.lookup<NativeFunction<edax_new_native_t>>('edax_new').asFunction();
-    edaxUndo = libedax.lookup<NativeFunction<edax_undo_native_t>>('edax_undo').asFunction();
-    edaxRedo = libedax.lookup<NativeFunction<edax_redo_native_t>>('edax_redo').asFunction();
-    edaxMode = libedax.lookup<NativeFunction<edax_mode_native_t>>('edax_mode').asFunction();
-    edaxSetboard = libedax.lookup<NativeFunction<edax_setboard_native_t>>('edax_setboard').asFunction();
-    edaxVmirror = libedax.lookup<NativeFunction<edax_vmirror_native_t>>('edax_vmirror').asFunction();
-    edaxPlay = libedax.lookup<NativeFunction<edax_play_native_t>>('edax_play').asFunction();
-    edaxGo = libedax.lookup<NativeFunction<edax_go_native_t>>('edax_go').asFunction();
-    edaxStop = libedax.lookup<NativeFunction<edax_stop_native_t>>('edax_stop').asFunction();
-    edaxVersion = libedax.lookup<NativeFunction<edax_version_native_t>>('edax_version').asFunction();
-    edaxMove = libedax.lookup<NativeFunction<edax_move_native_t>>('edax_move').asFunction();
-    edaxOpening = libedax.lookup<NativeFunction<edax_opening_native_t>>('edax_opening').asFunction();
-    edaxBookOn = libedax.lookup<NativeFunction<edax_book_on_native_t>>('edax_book_on').asFunction();
-    edaxBookOff = libedax.lookup<NativeFunction<edax_book_off_native_t>>('edax_book_off').asFunction();
-    edaxBookRandomness =
-        libedax.lookup<NativeFunction<edax_book_randomness_native_t>>('edax_book_randomness').asFunction();
-    edaxIsGameOver = libedax.lookup<NativeFunction<edax_is_game_over_native_t>>('edax_is_game_over').asFunction();
-    edaxGetDisc = libedax.lookup<NativeFunction<edax_get_disc_native_t>>('edax_get_disc').asFunction();
-    edaxGetMobilityCount =
-        libedax.lookup<NativeFunction<edax_get_mobility_count_native_t>>('edax_get_mobility_count').asFunction();
+    libedaxInitialize = _lookupNativeFunc<libedax_initialize_native_t>('libedax_initialize').asFunction();
+    libedaxTerminate = _lookupNativeFunc<libedax_terminate_native_t>('libedax_terminate').asFunction();
+    edaxInit = _lookupNativeFunc<edax_init_native_t>('edax_init').asFunction();
+    edaxNew = _lookupNativeFunc<edax_new_native_t>('edax_new').asFunction();
+    edaxUndo = _lookupNativeFunc<edax_undo_native_t>('edax_undo').asFunction();
+    edaxRedo = _lookupNativeFunc<edax_redo_native_t>('edax_redo').asFunction();
+    edaxMode = _lookupNativeFunc<edax_mode_native_t>('edax_mode').asFunction();
+    edaxSetboard = _lookupNativeFunc<edax_setboard_native_t>('edax_setboard').asFunction();
+    edaxVmirror = _lookupNativeFunc<edax_vmirror_native_t>('edax_vmirror').asFunction();
+    edaxPlay = _lookupNativeFunc<edax_play_native_t>('edax_play').asFunction();
+    edaxGo = _lookupNativeFunc<edax_go_native_t>('edax_go').asFunction();
+    edaxStop = _lookupNativeFunc<edax_stop_native_t>('edax_stop').asFunction();
+    edaxVersion = _lookupNativeFunc<edax_version_native_t>('edax_version').asFunction();
+    edaxMove = _lookupNativeFunc<edax_move_native_t>('edax_move').asFunction();
+    edaxOpening = _lookupNativeFunc<edax_opening_native_t>('edax_opening').asFunction();
+    edaxBookOn = _lookupNativeFunc<edax_book_on_native_t>('edax_book_on').asFunction();
+    edaxBookOff = _lookupNativeFunc<edax_book_off_native_t>('edax_book_off').asFunction();
+    edaxBookRandomness = _lookupNativeFunc<edax_book_randomness_native_t>('edax_book_randomness').asFunction();
+    edaxIsGameOver = _lookupNativeFunc<edax_is_game_over_native_t>('edax_is_game_over').asFunction();
+    edaxGetDisc = _lookupNativeFunc<edax_get_disc_native_t>('edax_get_disc').asFunction();
+    edaxGetMobilityCount = _lookupNativeFunc<edax_get_mobility_count_native_t>('edax_get_mobility_count').asFunction();
   }
+
+  Pointer<NativeFunction<T>> _lookupNativeFunc<T extends Function>(String symbolName) =>
+      libedax.lookup<NativeFunction<T>>(symbolName);
 }
