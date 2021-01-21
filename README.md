@@ -15,8 +15,9 @@ TODO: add
 TODO: add
 
 ## Document
-- libedax4dart (TODO: add)
-- libedax (TODO: add)
+- [libedax4dart](https://sensuikan1973.github.io/libedax4dart/)
+- [libedax](https://lavox.github.io/libedax4py/html/libedax_8c.html)
+  - There's possibility that thelink is old. In case of that, See: [source code](https://github.com/lavox/edax-reversi/tree/libedax).
 - [edax](https://sensuikan1973.github.io/edax-reversi/)
 
 ## Reference
