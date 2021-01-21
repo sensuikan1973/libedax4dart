@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   test('experimental test', () {
-    LibEdax()
+    const LibEdax()
       ..initialize()
       ..terminate();
   });
