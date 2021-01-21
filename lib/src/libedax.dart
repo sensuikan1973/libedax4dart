@@ -7,16 +7,16 @@ import 'bindings/bindings.dart';
 class LibEdax {
   const LibEdax();
 
-  /// BLACK turn
+  /// BLACK turn.
   int get black => 0;
 
-  /// WHITE turn
+  /// WHITE turn.
   int get white => 1;
 
-  /// PASS Move
+  /// PASS Move.
   int get pass => 64;
 
-  /// No Move
+  /// No Move.
   int get noMove => 65;
 
   /// Initialize libedax.
@@ -47,6 +47,32 @@ class LibEdax {
   /// Init board based on setboard command.
   void edaxNew() => bindings.edaxNew();
 
-  /// print version
+  /// Undo.
+  /// If mode is 0 or 2, undo until human's turn.
+  void edaxUndo() => bindings.edaxUndo();
+
+  /// Redo.
+  /// If mode is 0 or 2, redo until human's turn.
+  void edaxRedo() => bindings.edaxRedo();
+
+  /// Set mode.
+  /// * 0: Human(B) vs  Edax(W)
+  /// * 1: Edax(B)  vs  Human(W)
+  /// * 2: Edax(B)  vs  Edax(W)
+  /// * 3: Human(B) vs  Human(W)
+  void edaxMode(int mode) => bindings.edaxMode(mode);
+
+  /// Flip vertical.
+  void edaxVmirror() => bindings.edaxVmirror();
+
+  /// Play moves.
+  ///
+  /// you can also pass opening name. (e.g. `play brightwell`)
+  void edaxPlay(String moves) => bindings.edaxPlay(Utf8.toUtf8(moves));
+
+  /// Check if the current game is over.
+  bool edaxIsGameOver() => bindings.edaxIsGameOver() == 1;
+
+  /// print version.
   void edaxVersion() => bindings.edaxVersion();
 }
