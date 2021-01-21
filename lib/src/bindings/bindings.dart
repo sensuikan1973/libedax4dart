@@ -33,6 +33,7 @@ class _LibEdaxBindings {
   late final int Function() edaxBookOff;
   late final int Function(int randomness) edaxBookRandomness;
   late final int Function() edaxIsGameOver;
+  late final int Function(int color) edaxGetDisc;
   late final int Function(int color) edaxGetMobilityCount;
 
   void _bindFunctions() {
@@ -56,6 +57,7 @@ class _LibEdaxBindings {
     edaxBookRandomness =
         libedax.lookup<NativeFunction<edax_book_randomness_native_t>>('edax_book_randomness').asFunction();
     edaxIsGameOver = libedax.lookup<NativeFunction<edax_is_game_over_native_t>>('edax_is_game_over').asFunction();
+    edaxGetDisc = libedax.lookup<NativeFunction<edax_get_disc_native_t>>('edax_get_disc').asFunction();
     edaxGetMobilityCount =
         libedax.lookup<NativeFunction<edax_get_mobility_count_native_t>>('edax_get_mobility_count').asFunction();
   }

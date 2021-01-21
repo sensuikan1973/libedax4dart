@@ -102,6 +102,9 @@ class LibEdax {
   /// Check if the current game is over.
   bool edaxIsGameOver() => bindings.edaxIsGameOver() == 1;
 
+  /// Get the current number of discs.
+  int edaxGetDisc(int color) => bindings.edaxGetDisc(color);
+
   /// Get the legal move count.
   int edaxGetMobilityCount(int color) => bindings.edaxGetMobilityCount(color);
 }

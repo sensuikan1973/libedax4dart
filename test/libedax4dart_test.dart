@@ -25,6 +25,15 @@ void main() {
     edax.libedaxTerminate();
   });
 
+  test('check number of discs count', () {
+    final edax = const LibEdax()
+      ..libedaxInitialize()
+      ..edaxGo();
+    expect(edax.edaxGetDisc(edax.black), 4);
+    expect(edax.edaxGetDisc(edax.white), 1);
+    edax.libedaxTerminate();
+  });
+
   test('play a short game until game over', () {
     const initParams = ['', '-eval-file', 'data/eval.dat', '-book-file', 'data/book.dat', '-level', '16'];
     final edax = const LibEdax()
