@@ -17,6 +17,14 @@ void main() {
     edax.libedaxTerminate();
   });
 
+  test('check mobility count', () {
+    final edax = const LibEdax()
+      ..libedaxInitialize()
+      ..edaxGo();
+    expect(edax.edaxGetMobilityCount(edax.white), 3);
+    edax.libedaxTerminate();
+  });
+
   test('play a short game until game over', () {
     const initParams = ['', '-eval-file', 'data/eval.dat', '-book-file', 'data/book.dat', '-level', '16'];
     final edax = const LibEdax()

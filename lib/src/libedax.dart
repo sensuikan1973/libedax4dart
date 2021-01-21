@@ -70,6 +70,9 @@ class LibEdax {
   /// you can also pass opening name. (e.g. `play brightwell`)
   void edaxPlay(String moves) => bindings.edaxPlay(Utf8.toUtf8(moves));
 
+  /// Let edax move.
+  void edaxGo() => bindings.edaxGo();
+
   /// Stop edax search process, and set mode 3.
   void edaxStop() => bindings.edaxStop();
 
@@ -91,6 +94,14 @@ class LibEdax {
   /// Don't use book on `edaxGo`, `edaxHint`, `mode 2`.
   void edaxBookOff() => bindings.edaxBookOff();
 
+  /// Set randomness on `edaxGo`, `mode 2`.
+  /// edax will choose move with the randomness width.
+  /// default is 0.
+  void edaxBookRandomness(int randomness) => bindings.edaxBookRandomness(randomness);
+
   /// Check if the current game is over.
   bool edaxIsGameOver() => bindings.edaxIsGameOver() == 1;
+
+  /// Get the legal move count.
+  int edaxGetMobilityCount(int color) => bindings.edaxGetMobilityCount(color);
 }
