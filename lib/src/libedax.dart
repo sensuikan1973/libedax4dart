@@ -7,11 +7,19 @@ import 'bindings/bindings.dart';
 class LibEdax {
   const LibEdax();
 
-  void initialize() {
-    final argv = allocate<Pointer<Utf8>>();
-    bindings.initialize(0, argv);
-    free(argv);
+  /// Initialize libedax.
+  ///
+  /// TODO: describe
+  void initialize([List<String> args = const []]) {
+    final argsPointers = args.map(Utf8.toUtf8).toList();
+    final pointerPointer = allocate<Pointer<Utf8>>(count: argsPointers.length);
+    for (var k = 0; k < argsPointers.length; k++) {
+      pointerPointer[k] = argsPointers[k];
+    }
+    bindings.initialize(args.length, pointerPointer);
+    free(pointerPointer);
   }
 
+  /// Terminate libedax.
   void terminate() => bindings.terminate();
 }
