@@ -84,6 +84,13 @@ class LibEdax {
   /// e.g. brightwell, tiger, rose, ....
   String edaxOpening() => Utf8.fromUtf8(bindings.edaxOpening());
 
+  /// Use book on `edaxGo`, `edaxHint`, `mode 2`.
+  /// default is on.
+  void edaxBookOn() => bindings.edaxBookOn();
+
+  /// Don't use book on `edaxGo`, `edaxHint`, `mode 2`.
+  void edaxBookOff() => bindings.edaxBookOff();
+
   /// Check if the current game is over.
   bool edaxIsGameOver() => bindings.edaxIsGameOver() == 1;
 }

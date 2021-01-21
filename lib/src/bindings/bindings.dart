@@ -28,6 +28,8 @@ class _LibEdaxBindings {
   late final int Function() edaxVersion;
   late final int Function(Pointer<Utf8> moves) edaxMove;
   late final Pointer<Utf8> Function() edaxOpening;
+  late final int Function() edaxBookOn;
+  late final int Function() edaxBookOff;
   late final int Function() edaxIsGameOver;
 
   void _bindFunctions() {
@@ -45,6 +47,8 @@ class _LibEdaxBindings {
     edaxVersion = libedax.lookup<NativeFunction<edax_version_native_t>>('edax_version').asFunction();
     edaxMove = libedax.lookup<NativeFunction<edax_move_native_t>>('edax_move').asFunction();
     edaxOpening = libedax.lookup<NativeFunction<edax_opening_native_t>>('edax_opening').asFunction();
+    edaxBookOn = libedax.lookup<NativeFunction<edax_book_on_native_t>>('edax_book_on').asFunction();
+    edaxBookOff = libedax.lookup<NativeFunction<edax_book_off_native_t>>('edax_book_off').asFunction();
     edaxIsGameOver = libedax.lookup<NativeFunction<edax_is_game_over_native_t>>('edax_is_game_over').asFunction();
   }
 }
