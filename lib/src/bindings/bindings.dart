@@ -24,6 +24,7 @@ class _LibEdaxBindings {
   late final int Function(Pointer<Utf8> board) edaxSetboard;
   late final int Function() edaxVmirror;
   late final int Function(Pointer<Utf8> moves) edaxPlay;
+  late final int Function() edaxStop;
   late final int Function() edaxVersion;
   late final int Function(Pointer<Utf8> moves) edaxMove;
   late final Pointer<Utf8> Function() edaxOpening;
@@ -40,6 +41,7 @@ class _LibEdaxBindings {
     edaxSetboard = libedax.lookup<NativeFunction<edax_setboard_native_t>>('edax_setboard').asFunction();
     edaxVmirror = libedax.lookup<NativeFunction<edax_vmirror_native_t>>('edax_vmirror').asFunction();
     edaxPlay = libedax.lookup<NativeFunction<edax_play_native_t>>('edax_play').asFunction();
+    edaxStop = libedax.lookup<NativeFunction<edax_stop_native_t>>('edax_stop').asFunction();
     edaxVersion = libedax.lookup<NativeFunction<edax_version_native_t>>('edax_version').asFunction();
     edaxMove = libedax.lookup<NativeFunction<edax_move_native_t>>('edax_move').asFunction();
     edaxOpening = libedax.lookup<NativeFunction<edax_opening_native_t>>('edax_opening').asFunction();

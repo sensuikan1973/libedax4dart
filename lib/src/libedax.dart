@@ -70,6 +70,9 @@ class LibEdax {
   /// you can also pass opening name. (e.g. `play brightwell`)
   void edaxPlay(String moves) => bindings.edaxPlay(Utf8.toUtf8(moves));
 
+  /// Stop edax search process, and set mode 3.
+  void edaxStop() => bindings.edaxStop();
+
   /// print version.
   void edaxVersion() => bindings.edaxVersion();
 
