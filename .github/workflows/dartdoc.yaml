@@ -1,0 +1,21 @@
+name: dartdoc
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  upload_dart_docs:
+    runs-on: ubuntu-latest
+    container:
+      image: google/dart:beta
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v2
+      - name: generate dart docs
+        run: dartdoc
+      - name: upload to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./doc
