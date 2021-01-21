@@ -5,6 +5,7 @@ void main() {
   test('initialize without args', () {
     const LibEdax()
       ..libedaxInitialize()
+      ..edaxVersion()
       ..libedaxTerminate();
   });
 
@@ -12,11 +13,10 @@ void main() {
     const initParams = ['', '-eval-file', 'data/eval.dat', '-book-file', 'data/book.dat', '-level', '16'];
     final edax = const LibEdax()
       ..libedaxInitialize(initParams)
-      ..edaxVersion()
       ..edaxInit()
-      ..edaxPlay('f5');
+      ..edaxMove('f5');
     expect(edax.edaxIsGameOver(), false);
-    edax.edaxPlay('d6C5F4e3f6g5e6e7'); // famous perfect game
+    edax.edaxPlay('d6C5F4e3f6g5e6e7'); // famous perfect game. BLACK win.
     expect(edax.edaxIsGameOver(), true);
     edax.libedaxTerminate();
   });

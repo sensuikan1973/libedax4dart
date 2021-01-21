@@ -66,9 +66,13 @@ class LibEdax {
   void edaxVmirror() => bindings.edaxVmirror();
 
   /// Play moves.
-  ///
+  /// you can pass Lower case or Upper case. `f5F6F6g7` is OK.
   /// you can also pass opening name. (e.g. `play brightwell`)
   void edaxPlay(String moves) => bindings.edaxPlay(Utf8.toUtf8(moves));
+
+  /// Play move.
+  /// you can pass Lower case or Upper case. `f5` `F5` is OK.
+  void edaxMove(String move) => bindings.edaxMove(Utf8.toUtf8(move));
 
   /// Check if the current game is over.
   bool edaxIsGameOver() => bindings.edaxIsGameOver() == 1;
