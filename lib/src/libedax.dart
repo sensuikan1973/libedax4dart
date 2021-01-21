@@ -77,6 +77,10 @@ class LibEdax {
   /// you can pass Lower case or Upper case. `f5` `F5` is OK.
   void edaxMove(String move) => bindings.edaxMove(Utf8.toUtf8(move));
 
+  /// Get the opening name of the current game, in English.
+  /// e.g. brightwell, tiger, rose, ....
+  String edaxOpening() => Utf8.fromUtf8(bindings.edaxOpening());
+
   /// Check if the current game is over.
   bool edaxIsGameOver() => bindings.edaxIsGameOver() == 1;
 }
