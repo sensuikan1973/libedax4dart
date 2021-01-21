@@ -2,22 +2,17 @@
 dart wrapper for [libedax](https://github.com/lavox/edax-reversi/tree/libedax).  
 With using libedax4dart, you can execute functions equivalent to edax commands from dart.
 
-To use libedax4dart, you need libedax (C library). Download the asset from latest release.
-
-## Installation
-TODO: add  
-TODO: publish to https://pub.dev/
+To use libedax4dart, you need libedax (C library).
 
 ## Usage
-TODO: add
-
-## Example
-TODO: add
+TODO: publish to https://pub.dev/  
+TODO: describe  
+(you can download libedax assets for this repo release)
 
 ## Document
 - [libedax4dart](https://sensuikan1973.github.io/libedax4dart/)
 - [libedax](https://lavox.github.io/libedax4py/html/libedax_8c.html)
-  - There's possibility that thelink is old. In case of that, See: [source code](https://github.com/lavox/edax-reversi/tree/libedax).
+  - There's possibility that the link is old. In case of that, See: [source code](https://github.com/lavox/edax-reversi/tree/libedax).
 - [edax](https://sensuikan1973.github.io/edax-reversi/)
 
 ## Reference
