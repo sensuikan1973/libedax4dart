@@ -15,9 +15,11 @@ class _LibEdaxBindings {
   late DynamicLibrary libedax;
 
   late int Function(int argc, Pointer<Pointer<Utf8>> argv) initialize;
+  late int Function() terminate;
 
   void _bindFunctions() {
     initialize = libedax.lookup<NativeFunction<libedax_initialize_native_t>>('libedax_initialize').asFunction();
+    terminate = libedax.lookup<NativeFunction<libedax_terminate_native_t>>('libedax_terminate').asFunction();
     // TODO: implement another function
   }
 }
