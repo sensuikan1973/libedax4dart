@@ -3,6 +3,7 @@ name: dartdoc
 on:
   push:
     branches: [main]
+    paths: ['**.dart', 'pubspec.*', 'README.md', '.github/workflows/dartdoc.yaml']
 
 jobs:
   upload_dart_docs:
