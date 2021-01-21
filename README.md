@@ -36,7 +36,7 @@ dartfmt ./ -w -l 120
 
 ### document
 ```sh
-dartdoc
+dartdoc && open doc/api/index.html
 ```
 
 ### reference
