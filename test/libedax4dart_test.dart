@@ -7,6 +7,8 @@ void main() {
     const LibEdax()
       ..libedaxInitialize(initParams)
       ..edaxVersion()
+      ..edaxInit()
+      ..edaxNew()
       ..libedaxTerminate();
   });
 }

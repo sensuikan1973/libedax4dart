@@ -41,6 +41,12 @@ class LibEdax {
   /// Terminate libedax.
   void libedaxTerminate() => bindings.libedaxTerminate();
 
+  /// Init board.
+  void edaxInit() => bindings.edaxInit();
+
+  /// Init board based on setboard command.
+  void edaxNew() => bindings.edaxNew();
+
   /// print version
   void edaxVersion() => bindings.edaxVersion();
 }
