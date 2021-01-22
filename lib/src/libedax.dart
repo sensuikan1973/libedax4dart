@@ -13,10 +13,10 @@ class LibEdax {
   /// WHITE turn.
   int get white => 1;
 
-  /// PASS Move.
+  /// PASS move.
   int get pass => 64;
 
-  /// No Move.
+  /// No move.
   int get noMove => 65;
 
   /// Initialize libedax.
