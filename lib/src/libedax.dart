@@ -90,7 +90,12 @@ class LibEdax {
 
   /// Set board from string.
   ///
-  /// e.g. "-W----W--------------------WB------WBB-----W--------------------B" is BLACK turn.
+  /// e.g. `-W----W--------------------WB------WBB-----W--------------------B`.
+  /// * BLACK: `B`,`b`,`x`,`X`,`*`
+  /// * WHITE: `o`,`O`,`w`,`W`
+  /// * EMPTY: `-`,`.`
+  ///
+  /// Last char is turn.
   void edaxSetboard(String board) => bindings.edaxSetboard(Utf8.toUtf8(board));
 
   /// Get the opening name of the current game, in English.
