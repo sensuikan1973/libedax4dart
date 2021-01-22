@@ -97,10 +97,18 @@
       </dl>
     </section>
 
-    <section class="summary offset-anchor inherited" id="instance-properties">
+    <section class="summary offset-anchor" id="instance-properties">
       <h2>Properties</h2>
 
       <dl class="properties">
+        <dt id="black" class="property">
+          <span class="name"><a href="../libedax4dart/LibEdax/black.html">black</a></span>
+          <span class="signature">&#8594; <a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/int-class.html">int</a></span>         
+        </dt>
+        <dd>
+          BLACK turn. 
+                  <div class="features">read-only</div>
+</dd>
         <dt id="hashCode" class="property inherited">
           <span class="name"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/Object/hashCode.html">hashCode</a></span>
           <span class="signature">&#8594; <a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/int-class.html">int</a></span>         
@@ -108,6 +116,22 @@
         <dd class="inherited">
           The hash code for this object. <a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/Object/hashCode.html">[...]</a>
                   <div class="features">read-only, inherited</div>
+</dd>
+        <dt id="noMove" class="property">
+          <span class="name"><a href="../libedax4dart/LibEdax/noMove.html">noMove</a></span>
+          <span class="signature">&#8594; <a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/int-class.html">int</a></span>         
+        </dt>
+        <dd>
+          No Move. 
+                  <div class="features">read-only</div>
+</dd>
+        <dt id="pass" class="property">
+          <span class="name"><a href="../libedax4dart/LibEdax/pass.html">pass</a></span>
+          <span class="signature">&#8594; <a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/int-class.html">int</a></span>         
+        </dt>
+        <dd>
+          PASS Move. 
+                  <div class="features">read-only</div>
 </dd>
         <dt id="runtimeType" class="property inherited">
           <span class="name"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/Object/runtimeType.html">runtimeType</a></span>
@@ -117,19 +141,245 @@
           A representation of the runtime type of the object. 
                   <div class="features">read-only, inherited</div>
 </dd>
+        <dt id="white" class="property">
+          <span class="name"><a href="../libedax4dart/LibEdax/white.html">white</a></span>
+          <span class="signature">&#8594; <a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/int-class.html">int</a></span>         
+        </dt>
+        <dd>
+          WHITE turn. 
+                  <div class="features">read-only</div>
+</dd>
       </dl>
     </section>
 
     <section class="summary offset-anchor" id="instance-methods">
       <h2>Methods</h2>
       <dl class="callables">
-        <dt id="initialize" class="callable">
-          <span class="name"><a href="../libedax4dart/LibEdax/initialize.html">initialize</a></span><span class="signature">(<wbr><span class="parameter" id="initialize-param-args">[<span class="type-annotation"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">args</span> = <span class="default-value">const []</span>]</span>)
+        <dt id="edaxBookOff" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxBookOff.html">edaxBookOff</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; void</span>
           </span>
                   </dt>
         <dd>
-          Initialize libedax. <a href="../libedax4dart/LibEdax/initialize.html">[...]</a>
+          Don't use book on <code>edaxGo</code>, <code>edaxHint</code>, <code>mode 2</code>. 
+                  
+</dd>
+        <dt id="edaxBookOn" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxBookOn.html">edaxBookOn</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd>
+          Use book on <code>edaxGo</code>, <code>edaxHint</code>, <code>mode 2</code>.
+default is on. 
+                  
+</dd>
+        <dt id="edaxBookRandomness" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxBookRandomness.html">edaxBookRandomness</a></span><span class="signature">(<wbr><span class="parameter" id="edaxBookRandomness-param-randomness"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/int-class.html">int</a></span> <span class="parameter-name">randomness</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd>
+          Set randomness on <code>edaxGo</code>, <code>mode 2</code>.
+edax will choose move with the randomness width.
+default is 0. 
+                  
+</dd>
+        <dt id="edaxCanMove" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxCanMove.html">edaxCanMove</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/bool-class.html">bool</a></span>
+          </span>
+                  </dt>
+        <dd>
+          Check if the current player can move. 
+                  
+</dd>
+        <dt id="edaxGetCurrentPlayer" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxGetCurrentPlayer.html">edaxGetCurrentPlayer</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/int-class.html">int</a></span>
+          </span>
+                  </dt>
+        <dd>
+          Get the current player. <a href="../libedax4dart/LibEdax/edaxGetCurrentPlayer.html">[...]</a>
+                  
+</dd>
+        <dt id="edaxGetDisc" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxGetDisc.html">edaxGetDisc</a></span><span class="signature">(<wbr><span class="parameter" id="edaxGetDisc-param-color"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/int-class.html">int</a></span> <span class="parameter-name">color</span></span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/int-class.html">int</a></span>
+          </span>
+                  </dt>
+        <dd>
+          Get the current number of discs. 
+                  
+</dd>
+        <dt id="edaxGetMobilityCount" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxGetMobilityCount.html">edaxGetMobilityCount</a></span><span class="signature">(<wbr><span class="parameter" id="edaxGetMobilityCount-param-color"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/int-class.html">int</a></span> <span class="parameter-name">color</span></span>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/int-class.html">int</a></span>
+          </span>
+                  </dt>
+        <dd>
+          Get the legal move count. 
+                  
+</dd>
+        <dt id="edaxGo" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxGo.html">edaxGo</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd>
+          Let edax move. 
+                  
+</dd>
+        <dt id="edaxInit" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxInit.html">edaxInit</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd>
+          Init board. 
+                  
+</dd>
+        <dt id="edaxIsGameOver" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxIsGameOver.html">edaxIsGameOver</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/bool-class.html">bool</a></span>
+          </span>
+                  </dt>
+        <dd>
+          Check if the current game is over. 
+                  
+</dd>
+        <dt id="edaxMode" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxMode.html">edaxMode</a></span><span class="signature">(<wbr><span class="parameter" id="edaxMode-param-mode"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/int-class.html">int</a></span> <span class="parameter-name">mode</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd>
+          Set mode. <a href="../libedax4dart/LibEdax/edaxMode.html">[...]</a>
+                  
+</dd>
+        <dt id="edaxMove" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxMove.html">edaxMove</a></span><span class="signature">(<wbr><span class="parameter" id="edaxMove-param-move"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/String-class.html">String</a></span> <span class="parameter-name">move</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd>
+          Play move.
+you can pass Lower case or Upper case. <code>f5</code> <code>F5</code> is OK. 
+                  
+</dd>
+        <dt id="edaxNew" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxNew.html">edaxNew</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd>
+          Init board based on setboard command. 
+                  
+</dd>
+        <dt id="edaxOpening" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxOpening.html">edaxOpening</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/String-class.html">String</a></span>
+          </span>
+                  </dt>
+        <dd>
+          Get the opening name of the current game, in English.
+e.g. brightwell, tiger, rose, .... 
+                  
+</dd>
+        <dt id="edaxPlay" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxPlay.html">edaxPlay</a></span><span class="signature">(<wbr><span class="parameter" id="edaxPlay-param-moves"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/String-class.html">String</a></span> <span class="parameter-name">moves</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd>
+          Play moves.
+you can pass Lower case or Upper case. <code>f5F6F6g7</code> is OK.
+you can also pass opening name. (e.g. <code>play brightwell</code>) 
+                  
+</dd>
+        <dt id="edaxRedo" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxRedo.html">edaxRedo</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd>
+          Redo.
+If mode is 0 or 2, redo until human's turn. 
+                  
+</dd>
+        <dt id="edaxSetboard" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxSetboard.html">edaxSetboard</a></span><span class="signature">(<wbr><span class="parameter" id="edaxSetboard-param-board"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/String-class.html">String</a></span> <span class="parameter-name">board</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd>
+          Set board from string.
+e.g. "-W----W--------------------WB------WBB-----W--------------------B" is BLACK turn. 
+                  
+</dd>
+        <dt id="edaxSetOption" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxSetOption.html">edaxSetOption</a></span><span class="signature">(<wbr><span class="parameter" id="edaxSetOption-param-optionName"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/String-class.html">String</a></span> <span class="parameter-name">optionName</span>, </span><span class="parameter" id="edaxSetOption-param-val"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/String-class.html">String</a></span> <span class="parameter-name">val</span></span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd>
+          Set option.
+See <a href="https://sensuikan1973.github.io/edax-reversi/structOptions.html">Options Document</a>. 
+                  
+</dd>
+        <dt id="edaxStop" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxStop.html">edaxStop</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd>
+          Stop edax search process, and set mode 3. 
+                  
+</dd>
+        <dt id="edaxUndo" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxUndo.html">edaxUndo</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd>
+          Undo.
+If mode is 0 or 2, undo until human's turn. 
+                  
+</dd>
+        <dt id="edaxVersion" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxVersion.html">edaxVersion</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd>
+          print version. 
+                  
+</dd>
+        <dt id="edaxVmirror" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxVmirror.html">edaxVmirror</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd>
+          Flip vertical. 
+                  
+</dd>
+        <dt id="libedaxInitialize" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/libedaxInitialize.html">libedaxInitialize</a></span><span class="signature">(<wbr><span class="parameter" id="libedaxInitialize-param-args">[<span class="type-annotation"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">args</span> = <span class="default-value">const []</span>]</span>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd>
+          Initialize libedax. <a href="../libedax4dart/LibEdax/libedaxInitialize.html">[...]</a>
+                  
+</dd>
+        <dt id="libedaxTerminate" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/libedaxTerminate.html">libedaxTerminate</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; void</span>
+          </span>
+                  </dt>
+        <dd>
+          Terminate libedax. 
                   
 </dd>
         <dt id="noSuchMethod" class="callable inherited">
@@ -140,15 +390,6 @@
         <dd class="inherited">
           Invoked when a non-existent method or property is accessed. <a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/Object/noSuchMethod.html">[...]</a>
                   <div class="features">inherited</div>
-</dd>
-        <dt id="terminate" class="callable">
-          <span class="name"><a href="../libedax4dart/LibEdax/terminate.html">terminate</a></span><span class="signature">(<wbr>)
-            <span class="returntype parameter">&#8594; void</span>
-          </span>
-                  </dt>
-        <dd>
-          Terminate libedax. 
-                  
 </dd>
         <dt id="toString" class="callable inherited">
           <span class="name"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
@@ -188,16 +429,42 @@
       <li class="section-title"><a href="../libedax4dart/LibEdax-class.html#constructors">Constructors</a></li>
       <li><a href="../libedax4dart/LibEdax/LibEdax.html">LibEdax</a></li>
     
-      <li class="section-title inherited">
+      <li class="section-title">
         <a href="../libedax4dart/LibEdax-class.html#instance-properties">Properties</a>
       </li>
+      <li><a href="../libedax4dart/LibEdax/black.html">black</a></li>
       <li class="inherited"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/Object/hashCode.html">hashCode</a></li>
+      <li><a href="../libedax4dart/LibEdax/noMove.html">noMove</a></li>
+      <li><a href="../libedax4dart/LibEdax/pass.html">pass</a></li>
       <li class="inherited"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/Object/runtimeType.html">runtimeType</a></li>
+      <li><a href="../libedax4dart/LibEdax/white.html">white</a></li>
     
       <li class="section-title"><a href="../libedax4dart/LibEdax-class.html#instance-methods">Methods</a></li>
-      <li><a href="../libedax4dart/LibEdax/initialize.html">initialize</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxBookOff.html">edaxBookOff</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxBookOn.html">edaxBookOn</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxBookRandomness.html">edaxBookRandomness</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxCanMove.html">edaxCanMove</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxGetCurrentPlayer.html">edaxGetCurrentPlayer</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxGetDisc.html">edaxGetDisc</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxGetMobilityCount.html">edaxGetMobilityCount</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxGo.html">edaxGo</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxInit.html">edaxInit</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxIsGameOver.html">edaxIsGameOver</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxMode.html">edaxMode</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxMove.html">edaxMove</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxNew.html">edaxNew</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxOpening.html">edaxOpening</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxPlay.html">edaxPlay</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxRedo.html">edaxRedo</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxSetboard.html">edaxSetboard</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxSetOption.html">edaxSetOption</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxStop.html">edaxStop</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxUndo.html">edaxUndo</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxVersion.html">edaxVersion</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxVmirror.html">edaxVmirror</a></li>
+      <li><a href="../libedax4dart/LibEdax/libedaxInitialize.html">libedaxInitialize</a></li>
+      <li><a href="../libedax4dart/LibEdax/libedaxTerminate.html">libedaxTerminate</a></li>
       <li class="inherited"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-      <li><a href="../libedax4dart/LibEdax/terminate.html">terminate</a></li>
       <li class="inherited"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/Object/toString.html">toString</a></li>
     
       <li class="section-title inherited"><a href="../libedax4dart/LibEdax-class.html#operators">Operators</a></li>
