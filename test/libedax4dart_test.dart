@@ -13,6 +13,7 @@ void main() {
   test('play "horse" opening', () {
     final edax = const LibEdax()
       ..libedaxInitialize()
+      ..edaxBookOn()
       ..edaxPlay('f5d6c5f4d3');
     expect(edax.edaxOpening(), 'horse');
     edax.libedaxTerminate();
