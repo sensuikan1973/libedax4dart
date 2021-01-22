@@ -2,6 +2,8 @@ import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
 import 'bindings/bindings.dart';
+import 'bindings/structs/board.dart';
+import 'bindings/structs/move.dart';
 
 @immutable
 class LibEdax {
@@ -13,10 +15,10 @@ class LibEdax {
   /// WHITE turn.
   int get white => 1;
 
-  /// PASS Move.
+  /// PASS move.
   int get pass => 64;
 
-  /// No Move.
+  /// No move.
   int get noMove => 65;
 
   /// Initialize libedax.
@@ -70,7 +72,8 @@ class LibEdax {
   /// Play moves.
   ///
   /// you can pass Lower case or Upper case. `f5F6F6g7` is OK. <br>
-  /// you can also pass opening name. (e.g. `play brightwell`)
+  /// you can also pass opening name. (e.g. `brightwell`) <br>
+  /// opening names are listed on [opening.c](https://github.com/lavox/edax-reversi/blob/libedax/src/opening.c).
   void edaxPlay(String moves) => bindings.edaxPlay(Utf8.toUtf8(moves));
 
   /// Let edax move.
@@ -89,7 +92,12 @@ class LibEdax {
 
   /// Set board from string.
   ///
-  /// e.g. "-W----W--------------------WB------WBB-----W--------------------B" is BLACK turn.
+  /// e.g. `-W----W--------------------WB------WBB-----W--------------------B`.
+  /// * BLACK: `B`,`b`,`x`,`X`,`*`
+  /// * WHITE: `o`,`O`,`w`,`W`
+  /// * EMPTY: `-`,`.`
+  ///
+  /// Last char is turn.
   void edaxSetboard(String board) => bindings.edaxSetboard(Utf8.toUtf8(board));
 
   /// Get the opening name of the current game, in English.
@@ -117,10 +125,32 @@ class LibEdax {
       bindings.edaxSetOption(Utf8.toUtf8(optionName), Utf8.toUtf8(val));
 
   /// Check if the current game is over.
+  String edaxGetMoves() {
+    final moves = allocate<Uint8>(count: 80 * 2 + 1);
+    final result = Utf8.fromUtf8(bindings.edaxGetMoves(moves));
+    free(moves);
+    return result;
+  }
+
+  /// Check if the current game is over.
   bool edaxIsGameOver() => bindings.edaxIsGameOver() == 1;
 
   /// Check if the current player can move.
   bool edaxCanMove() => bindings.edaxCanMove() == 1;
+
+  /// Get the last move.
+  Move edaxGetLastMove() {
+    final move = allocate<Move>();
+    bindings.edaxGetLastMove(move);
+    return move.ref;
+  }
+
+  /// Get the current board.
+  Board edaxGetBoard() {
+    final board = allocate<Board>();
+    bindings.edaxGetBoard(board);
+    return board.ref;
+  }
 
   /// Get the current player.
   /// * 0: BLACK

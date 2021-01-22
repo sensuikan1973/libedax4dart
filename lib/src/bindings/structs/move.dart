@@ -18,18 +18,18 @@ class Move extends Struct {
 
   /// bitboard representation of flipped squares.
   @Uint64()
-  int? flipped;
+  external int flipped;
 
   /// played square.
   @Int32()
-  int? x;
+  external int x;
 
   @Int32()
-  int? score;
+  external int score;
 
   /// move cost.
   @Int32()
-  int? cost;
+  external int cost;
 
   /// next move in a MoveList.
   Pointer<Move>? next;

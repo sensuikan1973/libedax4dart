@@ -2,6 +2,8 @@ import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 import '../ffi/dylib_utils.dart';
 import 'signatures.dart';
+import 'structs/board.dart';
+import 'structs/move.dart';
 
 _LibEdaxBindings? _cachedBindings;
 _LibEdaxBindings get bindings => _cachedBindings ??= _LibEdaxBindings();
@@ -33,8 +35,11 @@ class _LibEdaxBindings {
   late final int Function() edaxBookOff;
   late final int Function(int randomness) edaxBookRandomness;
   late final int Function(Pointer<Utf8> optionName, Pointer<Utf8> val) edaxSetOption;
+  late final Pointer<Utf8> Function(Pointer<Uint8> str) edaxGetMoves;
   late final int Function() edaxIsGameOver;
   late final int Function() edaxCanMove;
+  late final int Function(Pointer<Move> move) edaxGetLastMove;
+  late final int Function(Pointer<Board> board) edaxGetBoard;
   late final int Function() edaxGetCurrentPlayer;
   late final int Function(int color) edaxGetDisc;
   late final int Function(int color) edaxGetMobilityCount;
@@ -59,8 +64,11 @@ class _LibEdaxBindings {
     edaxBookOff = _lookupNativeFunc<edax_book_off_native_t>('edax_book_off').asFunction();
     edaxBookRandomness = _lookupNativeFunc<edax_book_randomness_native_t>('edax_book_randomness').asFunction();
     edaxSetOption = _lookupNativeFunc<edax_set_option_native_t>('edax_set_option').asFunction();
+    edaxGetMoves = _lookupNativeFunc<edax_get_moves_native_t>('edax_get_moves').asFunction();
     edaxIsGameOver = _lookupNativeFunc<edax_is_game_over_native_t>('edax_is_game_over').asFunction();
     edaxCanMove = _lookupNativeFunc<edax_can_move_native_t>('edax_can_move').asFunction();
+    edaxGetLastMove = _lookupNativeFunc<edax_get_last_move_native_t>('edax_get_last_move').asFunction();
+    edaxGetBoard = _lookupNativeFunc<edax_get_board_native_t>('edax_get_board').asFunction();
     edaxGetCurrentPlayer = _lookupNativeFunc<edax_get_current_player_native_t>('edax_get_current_player').asFunction();
     edaxGetDisc = _lookupNativeFunc<edax_get_disc_native_t>('edax_get_disc').asFunction();
     edaxGetMobilityCount = _lookupNativeFunc<edax_get_mobility_count_native_t>('edax_get_mobility_count').asFunction();
