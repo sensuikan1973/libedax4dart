@@ -2,6 +2,7 @@ import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
 import 'bindings/bindings.dart';
+import 'bindings/structs/board.dart';
 import 'bindings/structs/move.dart';
 
 @immutable
@@ -134,6 +135,13 @@ class LibEdax {
     final move = allocate<Move>();
     bindings.edaxGetLastMove(move);
     return move.ref;
+  }
+
+  /// Get the current board.
+  Board edaxGetBoard() {
+    final board = allocate<Board>();
+    bindings.edaxGetBoard(board);
+    return board.ref;
   }
 
   /// Get the current player.

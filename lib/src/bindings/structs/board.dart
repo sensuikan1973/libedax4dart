@@ -7,8 +7,8 @@ class Board extends Struct {
     ..opponent = opponent;
 
   @Uint64()
-  int? player;
+  external int player;
 
   @Uint64()
-  int? opponent;
+  external int opponent;
 }

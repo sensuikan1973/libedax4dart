@@ -53,8 +53,14 @@ void main() {
     expect(edax.edaxIsGameOver(), true);
     expect(edax.edaxGetDisc(edax.white), 0);
     expect(edax.edaxGetDisc(edax.black), 13);
+    expect(_radix16board(edax.edaxGetBoard().player), List<String>.filled(16, '0').join()); // white bitboard
+    expect(_radix16board(edax.edaxGetBoard().opponent), '0010387c38100000'); // black bitboard
     expect(edax.edaxCanMove(), false);
     expect(edax.edaxGetLastMove().x, 52); // e7 is 52th. (a1 is 0th)
     edax.libedaxTerminate();
   });
 }
+
+// Convert bitboard to String with radix 16 and 0 padding.
+// e.g. `0010387c38100000`.
+String _radix16board(int bit) => bit.toRadixString(16).padLeft(16, '0');
