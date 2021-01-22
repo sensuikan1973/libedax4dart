@@ -125,6 +125,13 @@ class LibEdax {
       bindings.edaxSetOption(Utf8.toUtf8(optionName), Utf8.toUtf8(val));
 
   /// Check if the current game is over.
+  String edaxGetMoves() {
+    final moves = allocate<Utf8>();
+    final result = bindings.edaxGetMoves(moves);
+    return Utf8.fromUtf8(result);
+  }
+
+  /// Check if the current game is over.
   bool edaxIsGameOver() => bindings.edaxIsGameOver() == 1;
 
   /// Check if the current player can move.
