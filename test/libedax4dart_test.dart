@@ -62,7 +62,7 @@ void main() {
   });
 
   test('get book move', () {
-    final edax = const LibEdax()
+    const LibEdax()
       ..libedaxInitialize()
       ..edaxInit()
       ..edaxBookNew(10, 20)
