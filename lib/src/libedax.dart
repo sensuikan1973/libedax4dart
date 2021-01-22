@@ -70,7 +70,8 @@ class LibEdax {
   /// Play moves.
   ///
   /// you can pass Lower case or Upper case. `f5F6F6g7` is OK. <br>
-  /// you can also pass opening name. (e.g. `play brightwell`)
+  /// you can also pass opening name. (e.g. `brightwell`) <br>
+  /// opening names are listed on [opening.c](https://github.com/lavox/edax-reversi/blob/libedax/src/opening.c).
   void edaxPlay(String moves) => bindings.edaxPlay(Utf8.toUtf8(moves));
 
   /// Let edax move.
