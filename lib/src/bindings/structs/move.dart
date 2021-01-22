@@ -32,5 +32,5 @@ class Move extends Struct {
   external int cost;
 
   /// next move in a MoveList.
-  Pointer<Move>? next;
+  external Pointer<Move> next;
 }

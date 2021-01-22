@@ -60,6 +60,18 @@ void main() {
     expect(edax.edaxGetMoves(), 'F5d6C5f4E3f6G5e6E7'); // edax return moves with upper scale B move and lower scale W.
     edax.libedaxTerminate();
   });
+
+  test('get book move', () {
+    const LibEdax()
+      ..libedaxInitialize()
+      ..edaxInit()
+      ..edaxBookNew(10, 20) // create shallow book
+      ..libedaxTerminate();
+    // TODO: run
+    // final moveList = edax.edaxGetBookMove();
+    // expect(moveList.n_moves, 1);
+    // expect(moveList.move.elementAt(0).ref.flipped, 1);
+  });
 }
 
 // Convert bitboard to String with radix 16 and 0 padding.
