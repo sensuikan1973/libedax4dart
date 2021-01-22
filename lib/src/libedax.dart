@@ -1,8 +1,8 @@
 import 'dart:ffi';
 import 'package:ffi/ffi.dart';
-import 'package:libedax4dart/src/bindings/structs/move.dart';
 import 'package:meta/meta.dart';
 import 'bindings/bindings.dart';
+import 'bindings/structs/move.dart';
 
 @immutable
 class LibEdax {
