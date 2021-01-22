@@ -102,6 +102,11 @@ class LibEdax {
   /// Check if the current game is over.
   bool edaxIsGameOver() => bindings.edaxIsGameOver() == 1;
 
+  /// Get the current player.
+  /// * 0: BLACK
+  /// * 1: WHITE
+  int edaxGetCurrentPlayer() => bindings.edaxGetCurrentPlayer();
+
   /// Get the current number of discs.
   int edaxGetDisc(int color) => bindings.edaxGetDisc(color);
 
