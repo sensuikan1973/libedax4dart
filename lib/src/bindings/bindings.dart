@@ -35,7 +35,7 @@ class _LibEdaxBindings {
   late final int Function() edaxBookOff;
   late final int Function(int randomness) edaxBookRandomness;
   late final int Function(Pointer<Utf8> optionName, Pointer<Utf8> val) edaxSetOption;
-  late final Pointer<Utf8> Function(Pointer<Utf8> str) edaxGetMoves;
+  late final Pointer<Utf8> Function(Pointer<Int8> str) edaxGetMoves;
   late final int Function() edaxIsGameOver;
   late final int Function() edaxCanMove;
   late final int Function(Pointer<Move> move) edaxGetLastMove;
