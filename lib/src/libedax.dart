@@ -99,6 +99,11 @@ class LibEdax {
   /// default is 0.
   void edaxBookRandomness(int randomness) => bindings.edaxBookRandomness(randomness);
 
+  /// Set option.
+  /// See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
+  void edaxSetOption(String optionName, String val) =>
+      bindings.edaxSetOption(Utf8.toUtf8(optionName), Utf8.toUtf8(val));
+
   /// Check if the current game is over.
   bool edaxIsGameOver() => bindings.edaxIsGameOver() == 1;
 

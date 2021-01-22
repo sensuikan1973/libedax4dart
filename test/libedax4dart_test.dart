@@ -2,10 +2,11 @@ import 'package:libedax4dart/libedax4dart.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('initialize without args', () {
+  test('initialize without args, and set option', () {
     const LibEdax()
       ..libedaxInitialize()
       ..edaxVersion()
+      ..edaxSetOption('level', '15')
       ..libedaxTerminate();
   });
 
