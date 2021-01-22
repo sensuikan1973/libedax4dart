@@ -65,8 +65,8 @@ void main() {
     const LibEdax()
       ..libedaxInitialize()
       ..edaxInit()
-      ..edaxBookNew(10, 20)
-      ..libedaxTerminate(); // create shallow book
+      ..edaxBookNew(10, 20) // create shallow book
+      ..libedaxTerminate();
     // TODO: run
     // final moveList = edax.edaxGetBookMove();
     // expect(moveList.n_moves, 1);

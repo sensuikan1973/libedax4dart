@@ -80,7 +80,7 @@ class LibEdax {
   /// Let edax move.
   void edaxGo() => bindings.edaxGo();
 
-  /// Let edax move.
+  /// Get book move list.
   MoveList edaxGetBookMove() {
     final moveList = allocate<MoveList>();
     bindings.edaxGetBookMove(moveList);
