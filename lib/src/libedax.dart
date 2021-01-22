@@ -4,6 +4,7 @@ import 'package:meta/meta.dart';
 import 'bindings/bindings.dart';
 import 'bindings/structs/board.dart';
 import 'bindings/structs/move.dart';
+import 'bindings/structs/move_list.dart';
 
 @immutable
 class LibEdax {
@@ -79,6 +80,13 @@ class LibEdax {
   /// Let edax move.
   void edaxGo() => bindings.edaxGo();
 
+  /// Let edax move.
+  MoveList edaxGetBookMove() {
+    final moveList = allocate<MoveList>();
+    bindings.edaxGetBookMove(moveList);
+    return moveList.ref;
+  }
+
   /// Stop edax search process, and set mode 3.
   void edaxStop() => bindings.edaxStop();
 
@@ -117,6 +125,9 @@ class LibEdax {
   ///
   /// edax will choose move with the randomness width.
   void edaxBookRandomness(int randomness) => bindings.edaxBookRandomness(randomness);
+
+  /// Create a new book.
+  void edaxBookNew(int level, int depth) => bindings.edaxBookNew(level, depth);
 
   /// Set option.
   ///
