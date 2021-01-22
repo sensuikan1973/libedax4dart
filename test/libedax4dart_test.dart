@@ -33,6 +33,7 @@ void main() {
   test('check mobility count', () {
     final edax = const LibEdax()
       ..libedaxInitialize()
+      ..edaxBookRandomness(2)
       ..edaxGo();
     expect(edax.edaxGetMobilityCount(edax.white), 3);
     edax.libedaxTerminate();
