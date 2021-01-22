@@ -129,7 +129,7 @@ class LibEdax {
   /// Check if the current player can move.
   bool edaxCanMove() => bindings.edaxCanMove() == 1;
 
-  /// Get last move.
+  /// Get the last move.
   Move edaxGetLastMove() {
     final move = allocate<Move>();
     bindings.edaxGetLastMove(move);
