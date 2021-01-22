@@ -19,20 +19,22 @@ void main() {
     edax.libedaxTerminate();
   });
 
+  test('setBoard', () {
+    const boardString = '-W----W--------------------WB------WBB-----W--------------------B';
+    final edax = const LibEdax()
+      ..libedaxInitialize()
+      ..edaxSetboard(boardString);
+    expect(edax.edaxGetDisc(edax.white), 'W'.allMatches(boardString).length);
+    expect(edax.edaxGetDisc(edax.black), 'B'.allMatches(boardString).length - 1);
+    expect(edax.edaxGetCurrentPlayer(), edax.black);
+    edax.libedaxTerminate();
+  });
+
   test('check mobility count', () {
     final edax = const LibEdax()
       ..libedaxInitialize()
       ..edaxGo();
     expect(edax.edaxGetMobilityCount(edax.white), 3);
-    edax.libedaxTerminate();
-  });
-
-  test('check number of discs count', () {
-    final edax = const LibEdax()
-      ..libedaxInitialize()
-      ..edaxGo();
-    expect(edax.edaxGetDisc(edax.black), 4);
-    expect(edax.edaxGetDisc(edax.white), 1);
     edax.libedaxTerminate();
   });
 

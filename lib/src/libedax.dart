@@ -83,6 +83,10 @@ class LibEdax {
   /// you can pass Lower case or Upper case. `f5` `F5` is OK.
   void edaxMove(String move) => bindings.edaxMove(Utf8.toUtf8(move));
 
+  /// Set board from string.
+  /// e.g. "-W----W--------------------WB------WBB-----W--------------------B" is BLACK turn.
+  void edaxSetboard(String board) => bindings.edaxSetboard(Utf8.toUtf8(board));
+
   /// Get the opening name of the current game, in English.
   /// e.g. brightwell, tiger, rose, ....
   String edaxOpening() => Utf8.fromUtf8(bindings.edaxOpening());
