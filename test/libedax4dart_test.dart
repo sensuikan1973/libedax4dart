@@ -41,10 +41,12 @@ void main() {
       ..edaxInit()
       ..edaxMode(3) // human vs human
       ..edaxMove('f5');
+    expect(edax.edaxCanMove(), true);
     expect(edax.edaxGetCurrentPlayer(), edax.white);
     expect(edax.edaxIsGameOver(), false);
     edax.edaxPlay('d6C5F4e3f6g5e6e7'); // famous perfect game. BLACK win.
     expect(edax.edaxIsGameOver(), true);
+    expect(edax.edaxCanMove(), false);
     edax.libedaxTerminate();
   });
 }

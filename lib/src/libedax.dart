@@ -102,6 +102,9 @@ class LibEdax {
   /// Check if the current game is over.
   bool edaxIsGameOver() => bindings.edaxIsGameOver() == 1;
 
+  /// Check if the current player can move.
+  bool edaxCanMove() => bindings.edaxCanMove() == 1;
+
   /// Get the current player.
   /// * 0: BLACK
   /// * 1: WHITE
