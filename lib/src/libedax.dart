@@ -48,10 +48,12 @@ class LibEdax {
   void edaxNew() => bindings.edaxNew();
 
   /// Undo.
+  ///
   /// If mode is 0 or 2, undo until human's turn.
   void edaxUndo() => bindings.edaxUndo();
 
   /// Redo.
+  ///
   /// If mode is 0 or 2, redo until human's turn.
   void edaxRedo() => bindings.edaxRedo();
 
@@ -66,7 +68,8 @@ class LibEdax {
   void edaxVmirror() => bindings.edaxVmirror();
 
   /// Play moves.
-  /// you can pass Lower case or Upper case. `f5F6F6g7` is OK.
+  ///
+  /// you can pass Lower case or Upper case. `f5F6F6g7` is OK. <br>
   /// you can also pass opening name. (e.g. `play brightwell`)
   void edaxPlay(String moves) => bindings.edaxPlay(Utf8.toUtf8(moves));
 
@@ -80,30 +83,35 @@ class LibEdax {
   void edaxVersion() => bindings.edaxVersion();
 
   /// Play move.
+  ///
   /// you can pass Lower case or Upper case. `f5` `F5` is OK.
   void edaxMove(String move) => bindings.edaxMove(Utf8.toUtf8(move));
 
   /// Set board from string.
+  ///
   /// e.g. "-W----W--------------------WB------WBB-----W--------------------B" is BLACK turn.
   void edaxSetboard(String board) => bindings.edaxSetboard(Utf8.toUtf8(board));
 
   /// Get the opening name of the current game, in English.
+  ///
   /// e.g. brightwell, tiger, rose, ....
   String edaxOpening() => Utf8.fromUtf8(bindings.edaxOpening());
 
-  /// Use book on `edaxGo`, `edaxHint`, `mode 2`.
+  /// Use book on `edaxGo`, `edaxHint`, `mode 2`.<br>
   /// default is on.
   void edaxBookOn() => bindings.edaxBookOn();
 
   /// Don't use book on `edaxGo`, `edaxHint`, `mode 2`.
   void edaxBookOff() => bindings.edaxBookOff();
 
-  /// Set randomness on `edaxGo`, `mode 2`.
-  /// edax will choose move with the randomness width.
+  /// Set randomness on `edaxGo`, `mode 2`. <br>
   /// default is 0.
+  ///
+  /// edax will choose move with the randomness width.
   void edaxBookRandomness(int randomness) => bindings.edaxBookRandomness(randomness);
 
   /// Set option.
+  ///
   /// See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
   void edaxSetOption(String optionName, String val) =>
       bindings.edaxSetOption(Utf8.toUtf8(optionName), Utf8.toUtf8(val));
