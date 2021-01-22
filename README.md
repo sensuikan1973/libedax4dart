@@ -25,12 +25,23 @@ TODO: describe
 ![unit_test](https://github.com/sensuikan1973/libedax4dart/workflows/unit_test/badge.svg)  
 ![publish_libedax_assets](https://github.com/sensuikan1973/libedax4dart/workflows/publish_libedax_assets/badge.svg)
 
-### format
+### commands
+#### format
 ```sh
 dartfmt ./ -w -l 120
 ```
 
-### document
+#### test
+```sh
+pub run test .
+```
+
+#### analyze
+```sh
+dartanalyzer .
+```
+
+#### document
 ```sh
 dartdoc && open doc/api/index.html
 ```
