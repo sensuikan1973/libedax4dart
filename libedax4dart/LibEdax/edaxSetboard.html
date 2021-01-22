@@ -72,9 +72,12 @@
         <li><a href="../../libedax4dart/LibEdax/edaxBookOn.html">edaxBookOn</a></li>
         <li><a href="../../libedax4dart/LibEdax/edaxBookRandomness.html">edaxBookRandomness</a></li>
         <li><a href="../../libedax4dart/LibEdax/edaxCanMove.html">edaxCanMove</a></li>
+        <li><a href="../../libedax4dart/LibEdax/edaxGetBoard.html">edaxGetBoard</a></li>
         <li><a href="../../libedax4dart/LibEdax/edaxGetCurrentPlayer.html">edaxGetCurrentPlayer</a></li>
         <li><a href="../../libedax4dart/LibEdax/edaxGetDisc.html">edaxGetDisc</a></li>
+        <li><a href="../../libedax4dart/LibEdax/edaxGetLastMove.html">edaxGetLastMove</a></li>
         <li><a href="../../libedax4dart/LibEdax/edaxGetMobilityCount.html">edaxGetMobilityCount</a></li>
+        <li><a href="../../libedax4dart/LibEdax/edaxGetMoves.html">edaxGetMoves</a></li>
         <li><a href="../../libedax4dart/LibEdax/edaxGo.html">edaxGo</a></li>
         <li><a href="../../libedax4dart/LibEdax/edaxInit.html">edaxInit</a></li>
         <li><a href="../../libedax4dart/LibEdax/edaxIsGameOver.html">edaxIsGameOver</a></li>
@@ -118,7 +121,13 @@
     </section>
     <section class="desc markdown">
       <p>Set board from string.</p>
-<p>e.g. "-W----W--------------------WB------WBB-----W--------------------B" is BLACK turn.</p>
+<p>e.g. <code>-W----W--------------------WB------WBB-----W--------------------B</code>.</p>
+<ul>
+<li>BLACK: <code>B</code>,<code>b</code>,<code>x</code>,<code>X</code>,<code>*</code></li>
+<li>WHITE: <code>o</code>,<code>O</code>,<code>w</code>,<code>W</code></li>
+<li>EMPTY: <code>-</code>,<code>.</code></li>
+</ul>
+<p>Last char is turn.</p>
     </section>
     
     <section class="summary source-code" id="source">

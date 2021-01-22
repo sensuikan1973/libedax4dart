@@ -52,7 +52,13 @@
     <h5>libedax4dart library</h5>
     <ol>
       <li class="section-title"><a href="../libedax4dart/libedax4dart-library.html#classes">Classes</a></li>
+      <li><a href="../libedax4dart/Board-class.html">Board</a></li>
+      <li><a href="../libedax4dart/Hint-class.html">Hint</a></li>
       <li><a href="../libedax4dart/LibEdax-class.html">LibEdax</a></li>
+      <li><a href="../libedax4dart/Move-class.html">Move</a></li>
+      <li><a href="../libedax4dart/MoveList-class.html">MoveList</a></li>
+      <li><a href="../libedax4dart/Position-class.html">Position</a></li>
+      <li><a href="../libedax4dart/Score-class.html">Score</a></li>
     
     
     
@@ -122,7 +128,7 @@
           <span class="signature">&#8594; <a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/int-class.html">int</a></span>         
         </dt>
         <dd>
-          No Move. 
+          No move. 
                   <div class="features">read-only</div>
 </dd>
         <dt id="pass" class="property">
@@ -130,7 +136,7 @@
           <span class="signature">&#8594; <a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/int-class.html">int</a></span>         
         </dt>
         <dd>
-          PASS Move. 
+          PASS move. 
                   <div class="features">read-only</div>
 </dd>
         <dt id="runtimeType" class="property inherited">
@@ -193,6 +199,15 @@ default is 0. <a href="../libedax4dart/LibEdax/edaxBookRandomness.html">[...]</a
           Check if the current player can move. 
                   
 </dd>
+        <dt id="edaxGetBoard" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxGetBoard.html">edaxGetBoard</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="../libedax4dart/Board-class.html">Board</a></span>
+          </span>
+                  </dt>
+        <dd>
+          Get the current board. 
+                  
+</dd>
         <dt id="edaxGetCurrentPlayer" class="callable">
           <span class="name"><a href="../libedax4dart/LibEdax/edaxGetCurrentPlayer.html">edaxGetCurrentPlayer</a></span><span class="signature">(<wbr>)
             <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/int-class.html">int</a></span>
@@ -211,6 +226,15 @@ default is 0. <a href="../libedax4dart/LibEdax/edaxBookRandomness.html">[...]</a
           Get the current number of discs. 
                   
 </dd>
+        <dt id="edaxGetLastMove" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxGetLastMove.html">edaxGetLastMove</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="../libedax4dart/Move-class.html">Move</a></span>
+          </span>
+                  </dt>
+        <dd>
+          Get the last move. 
+                  
+</dd>
         <dt id="edaxGetMobilityCount" class="callable">
           <span class="name"><a href="../libedax4dart/LibEdax/edaxGetMobilityCount.html">edaxGetMobilityCount</a></span><span class="signature">(<wbr><span class="parameter" id="edaxGetMobilityCount-param-color"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/int-class.html">int</a></span> <span class="parameter-name">color</span></span>)
             <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/int-class.html">int</a></span>
@@ -218,6 +242,15 @@ default is 0. <a href="../libedax4dart/LibEdax/edaxBookRandomness.html">[...]</a
                   </dt>
         <dd>
           Get the legal move count. 
+                  
+</dd>
+        <dt id="edaxGetMoves" class="callable">
+          <span class="name"><a href="../libedax4dart/LibEdax/edaxGetMoves.html">edaxGetMoves</a></span><span class="signature">(<wbr>)
+            <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/beta/2.12.0-133.7.beta/dart-core/String-class.html">String</a></span>
+          </span>
+                  </dt>
+        <dd>
+          Check if the current game is over. 
                   
 </dd>
         <dt id="edaxGo" class="callable">
@@ -435,9 +468,12 @@ default is 0. <a href="../libedax4dart/LibEdax/edaxBookRandomness.html">[...]</a
       <li><a href="../libedax4dart/LibEdax/edaxBookOn.html">edaxBookOn</a></li>
       <li><a href="../libedax4dart/LibEdax/edaxBookRandomness.html">edaxBookRandomness</a></li>
       <li><a href="../libedax4dart/LibEdax/edaxCanMove.html">edaxCanMove</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxGetBoard.html">edaxGetBoard</a></li>
       <li><a href="../libedax4dart/LibEdax/edaxGetCurrentPlayer.html">edaxGetCurrentPlayer</a></li>
       <li><a href="../libedax4dart/LibEdax/edaxGetDisc.html">edaxGetDisc</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxGetLastMove.html">edaxGetLastMove</a></li>
       <li><a href="../libedax4dart/LibEdax/edaxGetMobilityCount.html">edaxGetMobilityCount</a></li>
+      <li><a href="../libedax4dart/LibEdax/edaxGetMoves.html">edaxGetMoves</a></li>
       <li><a href="../libedax4dart/LibEdax/edaxGo.html">edaxGo</a></li>
       <li><a href="../libedax4dart/LibEdax/edaxInit.html">edaxInit</a></li>
       <li><a href="../libedax4dart/LibEdax/edaxIsGameOver.html">edaxIsGameOver</a></li>
