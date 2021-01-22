@@ -16,7 +16,7 @@ class _LibEdaxBindings {
 
   late final DynamicLibrary libedax;
 
-  late final int Function(int argc, Pointer<Pointer<Utf8>> argv) libedaxInitialize;
+  late final int Function(int argc, Pointer<Pointer<Uint8>> argv) libedaxInitialize;
   late final int Function() libedaxTerminate;
   late final int Function() edaxInit;
   late final int Function() edaxNew;

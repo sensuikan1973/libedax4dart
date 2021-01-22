@@ -31,10 +31,9 @@ class LibEdax {
   ///
   /// If you want to know more, See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
   void libedaxInitialize([List<String> args = const []]) {
-    final argsPointers = args.map(Utf8.toUtf8).toList();
-    final pointerPointer = allocate<Pointer<Utf8>>(count: argsPointers.length);
-    for (var k = 0; k < argsPointers.length; k++) {
-      pointerPointer[k] = argsPointers[k];
+    final pointerPointer = allocate<Pointer<Uint8>>(count: args.length);
+    for (var k = 0; k < args.length; k++) {
+      pointerPointer[k] = Utf8.toUtf8(args[k]).cast<Uint8>();
     }
     bindings.libedaxInitialize(args.length, pointerPointer);
     free(pointerPointer);
