@@ -126,9 +126,10 @@ class LibEdax {
 
   /// Check if the current game is over.
   String edaxGetMoves() {
-    final moves = allocate<Utf8>();
-    final result = bindings.edaxGetMoves(moves);
-    return Utf8.fromUtf8(result);
+    final moves = allocate<Utf8>(count: 80 * 2 + 1);
+    final result = Utf8.fromUtf8(bindings.edaxGetMoves(moves));
+    free(moves);
+    return result;
   }
 
   /// Check if the current game is over.
