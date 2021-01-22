@@ -73,7 +73,7 @@ class LibEdax {
   /// you can pass Lower case or Upper case. `f5F6F6g7` is OK. <br>
   /// you can also pass opening name. (e.g. `brightwell`) <br>
   /// opening names are listed on [opening.c](https://github.com/lavox/edax-reversi/blob/libedax/src/opening.c).
-  void edaxPlay(String moves) => bindings.edaxPlay(Utf8.toUtf8(moves));
+  void edaxPlay(String moves) => bindings.edaxPlay(Utf8.toUtf8(moves).cast<Uint8>());
 
   /// Let edax move.
   void edaxGo() => bindings.edaxGo();
@@ -87,7 +87,7 @@ class LibEdax {
   /// Play move.
   ///
   /// you can pass Lower case or Upper case. `f5` `F5` is OK.
-  void edaxMove(String move) => bindings.edaxMove(Utf8.toUtf8(move));
+  void edaxMove(String move) => bindings.edaxMove(Utf8.toUtf8(move).cast<Uint8>());
 
   /// Set board from string.
   ///
@@ -97,7 +97,7 @@ class LibEdax {
   /// * EMPTY: `-`,`.`
   ///
   /// Last char is turn.
-  void edaxSetboard(String board) => bindings.edaxSetboard(Utf8.toUtf8(board));
+  void edaxSetboard(String board) => bindings.edaxSetboard(Utf8.toUtf8(board).cast<Uint8>());
 
   /// Get the opening name of the current game, in English.
   ///
@@ -121,12 +121,12 @@ class LibEdax {
   ///
   /// See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
   void edaxSetOption(String optionName, String val) =>
-      bindings.edaxSetOption(Utf8.toUtf8(optionName), Utf8.toUtf8(val));
+      bindings.edaxSetOption(Utf8.toUtf8(optionName).cast<Uint8>(), Utf8.toUtf8(val).cast<Uint8>());
 
   /// Check if the current game is over.
   String edaxGetMoves() {
     final moves = allocate<Uint8>(count: 80 * 2 + 1);
-    final result = Utf8.fromUtf8(bindings.edaxGetMoves(moves));
+    final result = Utf8.fromUtf8(bindings.edaxGetMoves(moves).cast<Utf8>());
     free(moves);
     return result;
   }
