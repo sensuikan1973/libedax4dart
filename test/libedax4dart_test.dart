@@ -52,6 +52,7 @@ void main() {
     edax.edaxPlay('d6C5F4e3f6g5e6e7'); // famous perfect game. BLACK win.
     expect(edax.edaxIsGameOver(), true);
     expect(edax.edaxCanMove(), false);
+    expect(edax.edaxGetLastMove().x, 52); // e7 is 52th. (a1 is 0th)
     edax.libedaxTerminate();
   });
 }

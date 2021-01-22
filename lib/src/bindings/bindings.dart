@@ -2,6 +2,7 @@ import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 import '../ffi/dylib_utils.dart';
 import 'signatures.dart';
+import 'structs/move.dart';
 
 _LibEdaxBindings? _cachedBindings;
 _LibEdaxBindings get bindings => _cachedBindings ??= _LibEdaxBindings();
@@ -35,6 +36,7 @@ class _LibEdaxBindings {
   late final int Function(Pointer<Utf8> optionName, Pointer<Utf8> val) edaxSetOption;
   late final int Function() edaxIsGameOver;
   late final int Function() edaxCanMove;
+  late final int Function(Pointer<Move> move) edaxGetLastMove;
   late final int Function() edaxGetCurrentPlayer;
   late final int Function(int color) edaxGetDisc;
   late final int Function(int color) edaxGetMobilityCount;
@@ -61,6 +63,7 @@ class _LibEdaxBindings {
     edaxSetOption = _lookupNativeFunc<edax_set_option_native_t>('edax_set_option').asFunction();
     edaxIsGameOver = _lookupNativeFunc<edax_is_game_over_native_t>('edax_is_game_over').asFunction();
     edaxCanMove = _lookupNativeFunc<edax_can_move_native_t>('edax_can_move').asFunction();
+    edaxGetLastMove = _lookupNativeFunc<edax_get_last_move_native_t>('edax_get_last_move').asFunction();
     edaxGetCurrentPlayer = _lookupNativeFunc<edax_get_current_player_native_t>('edax_get_current_player').asFunction();
     edaxGetDisc = _lookupNativeFunc<edax_get_disc_native_t>('edax_get_disc').asFunction();
     edaxGetMobilityCount = _lookupNativeFunc<edax_get_mobility_count_native_t>('edax_get_mobility_count').asFunction();

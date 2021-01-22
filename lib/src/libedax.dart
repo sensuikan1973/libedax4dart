@@ -1,5 +1,6 @@
 import 'dart:ffi';
 import 'package:ffi/ffi.dart';
+import 'package:libedax4dart/src/bindings/structs/move.dart';
 import 'package:meta/meta.dart';
 import 'bindings/bindings.dart';
 
@@ -127,6 +128,13 @@ class LibEdax {
 
   /// Check if the current player can move.
   bool edaxCanMove() => bindings.edaxCanMove() == 1;
+
+  /// Get last move.
+  Move edaxGetLastMove() {
+    final move = allocate<Move>();
+    bindings.edaxGetLastMove(move);
+    return move.ref;
+  }
 
   /// Get the current player.
   /// * 0: BLACK
