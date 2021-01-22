@@ -72,8 +72,8 @@ typedef edax_book_show_native_t = Int32 Function(Pointer<Position> position);
 // typedef edax_book_play_native_t = Int32 Function(); // TODO: implement if you need
 // typedef edax_book_deepen_native_t = Int32 Function(); // NOTE: don't work at edax v4.4
 // typedef edax_book_feed_hash_native_t = Int32 Function(); // TODO: implement if you need
-typedef edax_base_problem_native_t = Int32 Function(
-    Pointer<Utf8> base_file, Int32 n_empties, Pointer<Utf8> problem_file);
+// typedef edax_base_problem_native_t = Int32 Function(
+//     Pointer<Utf8> base_file, Int32 n_empties, Pointer<Utf8> problem_file); // TODO: implement if you need
 // typedef edax_base_tofen_native_t = Int32 Function(Pointer<Utf8> base_file, Int32 n_empties, Pointer<Utf8> problem_file); // TODO: implement if you need
 // typedef edax_base_correct_native_t = Int32 Function(Pointer<Utf8> base_file, Int32 n_empties); // TODO: implement if you need
 // typedef edax_base_complete_native_t = Int32 Function(Pointer<Utf8> base_file); // TODO: implement if you need
