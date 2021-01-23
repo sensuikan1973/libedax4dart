@@ -10,6 +10,20 @@ class LibEdaxBindings {
   /// The symbols are looked up in [dynamicLibrary].
   LibEdaxBindings(ffi.DynamicLibrary dynamicLibrary) : _dylib = dynamicLibrary;
 
+  late final ffi.Pointer<ffi.Pointer<ffi.Uint64>> _X_TO_BIT =
+      _dylib.lookup<ffi.Pointer<ffi.Uint64>>('X_TO_BIT');
+
+  ffi.Pointer<ffi.Uint64> get X_TO_BIT => _X_TO_BIT.value;
+
+  set X_TO_BIT(ffi.Pointer<ffi.Uint64> value) => _X_TO_BIT.value = value;
+
+  late final ffi.Pointer<ffi.Pointer<ffi.Uint64>> _NEIGHBOUR =
+      _dylib.lookup<ffi.Pointer<ffi.Uint64>>('NEIGHBOUR');
+
+  ffi.Pointer<ffi.Uint64> get NEIGHBOUR => _NEIGHBOUR.value;
+
+  set NEIGHBOUR(ffi.Pointer<ffi.Uint64> value) => _NEIGHBOUR.value = value;
+
   int renameat(
     int arg0,
     ffi.Pointer<ffi.Int8> arg1,
@@ -60,6 +74,27 @@ class LibEdaxBindings {
   }
 
   _dart_renameatx_np? _renameatx_np;
+
+  late final ffi.Pointer<ffi.Pointer<FILE>> ___stdinp =
+      _dylib.lookup<ffi.Pointer<FILE>>('__stdinp');
+
+  ffi.Pointer<FILE> get __stdinp => ___stdinp.value;
+
+  set __stdinp(ffi.Pointer<FILE> value) => ___stdinp.value = value;
+
+  late final ffi.Pointer<ffi.Pointer<FILE>> ___stdoutp =
+      _dylib.lookup<ffi.Pointer<FILE>>('__stdoutp');
+
+  ffi.Pointer<FILE> get __stdoutp => ___stdoutp.value;
+
+  set __stdoutp(ffi.Pointer<FILE> value) => ___stdoutp.value = value;
+
+  late final ffi.Pointer<ffi.Pointer<FILE>> ___stderrp =
+      _dylib.lookup<ffi.Pointer<FILE>>('__stderrp');
+
+  ffi.Pointer<FILE> get __stderrp => ___stderrp.value;
+
+  set __stderrp(ffi.Pointer<FILE> value) => ___stderrp.value = value;
 
   void clearerr(
     ffi.Pointer<FILE> arg0,
@@ -970,6 +1005,20 @@ class LibEdaxBindings {
 
   _dart_open_memstream? _open_memstream;
 
+  late final ffi.Pointer<int> _sys_nerr = _dylib.lookup<ffi.Int32>('sys_nerr');
+
+  int get sys_nerr => _sys_nerr.value;
+
+  set sys_nerr(int value) => _sys_nerr.value = value;
+
+  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>> _sys_errlist =
+      _dylib.lookup<ffi.Pointer<ffi.Pointer<ffi.Int8>>>('sys_errlist');
+
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> get sys_errlist => _sys_errlist.value;
+
+  set sys_errlist(ffi.Pointer<ffi.Pointer<ffi.Int8>> value) =>
+      _sys_errlist.value = value;
+
   int asprintf(
     ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
     ffi.Pointer<ffi.Int8> arg1,
@@ -1598,6 +1647,18 @@ class LibEdaxBindings {
 
   _dart_count_last_flip? _count_last_flip;
 
+  late final ffi
+          .Pointer<ffi.Pointer<ffi.Pointer<ffi.NativeFunction<_typedefC_10>>>>
+      _flip =
+      _dylib.lookup<ffi.Pointer<ffi.Pointer<ffi.NativeFunction<_typedefC_10>>>>(
+          'flip');
+
+  ffi.Pointer<ffi.Pointer<ffi.NativeFunction<_typedefC_10>>> get flip =>
+      _flip.value;
+
+  set flip(ffi.Pointer<ffi.Pointer<ffi.NativeFunction<_typedefC_10>>> value) =>
+      _flip.value = value;
+
   int get_moves(
     int arg0,
     int arg1,
@@ -1739,6 +1800,14 @@ class LibEdaxBindings {
   }
 
   _dart_get_corner_stability? _get_corner_stability;
+
+  late final ffi.Pointer<Move> _MOVE_INIT = _dylib.lookup<Move>('MOVE_INIT');
+
+  Move get MOVE_INIT => _MOVE_INIT.ref;
+
+  late final ffi.Pointer<Move> _MOVE_PASS = _dylib.lookup<Move>('MOVE_PASS');
+
+  Move get MOVE_PASS => _MOVE_PASS.ref;
 
   int symetry(
     int arg0,
@@ -2839,6 +2908,17 @@ class LibEdaxBindings {
 
   _dart_empty_restore? _empty_restore;
 
+  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int16>>>>
+      _EVAL_WEIGHT =
+      _dylib.lookup<ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int16>>>>(
+          'EVAL_WEIGHT');
+
+  ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int16>>> get EVAL_WEIGHT =>
+      _EVAL_WEIGHT.value;
+
+  set EVAL_WEIGHT(ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int16>>> value) =>
+      _EVAL_WEIGHT.value = value;
+
   void eval_open(
     ffi.Pointer<ffi.Int8> arg0,
   ) {
@@ -2944,9 +3024,9 @@ class LibEdaxBindings {
 
   _dart_eval_sigma? _eval_sigma;
 
-  ffi.Pointer<ffi.NativeFunction<_typedefC_12>> signal(
+  ffi.Pointer<ffi.NativeFunction<_typedefC_13>> signal(
     int arg0,
-    ffi.Pointer<ffi.NativeFunction<_typedefC_13>> arg1,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_14>> arg1,
   ) {
     return (_signal ??=
         _dylib.lookupFunction<_c_signal, _dart_signal>('signal'))(
@@ -3170,6 +3250,13 @@ class LibEdaxBindings {
 
   _dart_alloca? _alloca;
 
+  late final ffi.Pointer<int> ___mb_cur_max =
+      _dylib.lookup<ffi.Int32>('__mb_cur_max');
+
+  int get __mb_cur_max => ___mb_cur_max.value;
+
+  set __mb_cur_max(int value) => ___mb_cur_max.value = value;
+
   ffi.Pointer<ffi.Void> malloc(
     int __size,
   ) {
@@ -3275,7 +3362,7 @@ class LibEdaxBindings {
   _dart_abs? _abs;
 
   int atexit(
-    ffi.Pointer<ffi.NativeFunction<_typedefC_14>> arg0,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_15>> arg0,
   ) {
     return (_atexit ??=
         _dylib.lookupFunction<_c_atexit, _dart_atexit>('atexit'))(
@@ -3330,7 +3417,7 @@ class LibEdaxBindings {
     ffi.Pointer<ffi.Void> __base,
     int __nel,
     int __width,
-    ffi.Pointer<ffi.NativeFunction<_typedefC_15>> __compar,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_16>> __compar,
   ) {
     return (_bsearch ??=
         _dylib.lookupFunction<_c_bsearch, _dart_bsearch>('bsearch'))(
@@ -3343,6 +3430,18 @@ class LibEdaxBindings {
   }
 
   _dart_bsearch? _bsearch;
+
+  div_t div(
+    int arg0,
+    int arg1,
+  ) {
+    return (_div ??= _dylib.lookupFunction<_c_div, _dart_div>('div'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_div? _div;
 
   void exit(
     int arg0,
@@ -3375,6 +3474,18 @@ class LibEdaxBindings {
 
   _dart_labs? _labs;
 
+  ldiv_t ldiv(
+    int arg0,
+    int arg1,
+  ) {
+    return (_ldiv ??= _dylib.lookupFunction<_c_ldiv, _dart_ldiv>('ldiv'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_ldiv? _ldiv;
+
   int llabs(
     int arg0,
   ) {
@@ -3384,6 +3495,18 @@ class LibEdaxBindings {
   }
 
   _dart_llabs? _llabs;
+
+  lldiv_t lldiv(
+    int arg0,
+    int arg1,
+  ) {
+    return (_lldiv ??= _dylib.lookupFunction<_c_lldiv, _dart_lldiv>('lldiv'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_lldiv? _lldiv;
 
   int mblen(
     ffi.Pointer<ffi.Int8> __s,
@@ -3431,7 +3554,7 @@ class LibEdaxBindings {
     ffi.Pointer<ffi.Void> __base,
     int __nel,
     int __width,
-    ffi.Pointer<ffi.NativeFunction<_typedefC_16>> __compar,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_17>> __compar,
   ) {
     return (_qsort ??= _dylib.lookupFunction<_c_qsort, _dart_qsort>('qsort'))(
       __base,
@@ -4237,7 +4360,7 @@ class LibEdaxBindings {
     ffi.Pointer<ffi.Void> __base,
     int __nel,
     int __width,
-    ffi.Pointer<ffi.NativeFunction<_typedefC_17>> __compar,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_18>> __compar,
   ) {
     return (_heapsort ??=
         _dylib.lookupFunction<_c_heapsort, _dart_heapsort>('heapsort'))(
@@ -4254,7 +4377,7 @@ class LibEdaxBindings {
     ffi.Pointer<ffi.Void> __base,
     int __nel,
     int __width,
-    ffi.Pointer<ffi.NativeFunction<_typedefC_18>> __compar,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_19>> __compar,
   ) {
     return (_mergesort ??=
         _dylib.lookupFunction<_c_mergesort, _dart_mergesort>('mergesort'))(
@@ -4271,7 +4394,7 @@ class LibEdaxBindings {
     ffi.Pointer<ffi.Void> __base,
     int __nel,
     int __width,
-    ffi.Pointer<ffi.NativeFunction<_typedefC_19>> __compar,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_20>> __compar,
   ) {
     return (_psort ??= _dylib.lookupFunction<_c_psort, _dart_psort>('psort'))(
       __base,
@@ -4288,7 +4411,7 @@ class LibEdaxBindings {
     int __nel,
     int __width,
     ffi.Pointer<ffi.Void> arg3,
-    ffi.Pointer<ffi.NativeFunction<_typedefC_20>> __compar,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_21>> __compar,
   ) {
     return (_psort_r ??=
         _dylib.lookupFunction<_c_psort_r, _dart_psort_r>('psort_r'))(
@@ -4307,7 +4430,7 @@ class LibEdaxBindings {
     int __nel,
     int __width,
     ffi.Pointer<ffi.Void> arg3,
-    ffi.Pointer<ffi.NativeFunction<_typedefC_21>> __compar,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_22>> __compar,
   ) {
     return (_qsort_r ??=
         _dylib.lookupFunction<_c_qsort_r, _dart_qsort_r>('qsort_r'))(
@@ -4422,6 +4545,13 @@ class LibEdaxBindings {
   }
 
   _dart_strtouq? _strtouq;
+
+  late final ffi.Pointer<ffi.Pointer<ffi.Int8>> _suboptarg =
+      _dylib.lookup<ffi.Pointer<ffi.Int8>>('suboptarg');
+
+  ffi.Pointer<ffi.Int8> get suboptarg => _suboptarg.value;
+
+  set suboptarg(ffi.Pointer<ffi.Int8> value) => _suboptarg.value = value;
 
   ffi.Pointer<ffi.Int32> __error() {
     return (___error ??=
@@ -5202,6 +5332,16 @@ class LibEdaxBindings {
 
   _dart_flsll? _flsll;
 
+  late final ffi.Pointer<ffi.Pointer<ffi.NativeFunction<_typedefC_23>>>
+      _time_clock = _dylib
+          .lookup<ffi.Pointer<ffi.NativeFunction<_typedefC_23>>>('time_clock');
+
+  ffi.Pointer<ffi.NativeFunction<_typedefC_23>> get time_clock =>
+      _time_clock.value;
+
+  set time_clock(ffi.Pointer<ffi.NativeFunction<_typedefC_23>> value) =>
+      _time_clock.value = value;
+
   int real_clock() {
     return (_real_clock ??=
         _dylib.lookupFunction<_c_real_clock, _dart_real_clock>('real_clock'))();
@@ -5709,6 +5849,32 @@ class LibEdaxBindings {
 
   _dart_sched_get_priority_max? _sched_get_priority_max;
 
+  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>> _tzname =
+      _dylib.lookup<ffi.Pointer<ffi.Pointer<ffi.Int8>>>('tzname');
+
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> get tzname => _tzname.value;
+
+  set tzname(ffi.Pointer<ffi.Pointer<ffi.Int8>> value) => _tzname.value = value;
+
+  late final ffi.Pointer<int> _getdate_err =
+      _dylib.lookup<ffi.Int32>('getdate_err');
+
+  int get getdate_err => _getdate_err.value;
+
+  set getdate_err(int value) => _getdate_err.value = value;
+
+  late final ffi.Pointer<int> _timezone = _dylib.lookup<ffi.Int64>('timezone');
+
+  int get timezone => _timezone.value;
+
+  set timezone(int value) => _timezone.value = value;
+
+  late final ffi.Pointer<int> _daylight = _dylib.lookup<ffi.Int32>('daylight');
+
+  int get daylight => _daylight.value;
+
+  set daylight(int value) => _daylight.value = value;
+
   ffi.Pointer<ffi.Int8> asctime(
     ffi.Pointer<tm> arg0,
   ) {
@@ -6133,9 +6299,9 @@ class LibEdaxBindings {
   _dart_pthread_override_qos_class_end_np? _pthread_override_qos_class_end_np;
 
   int pthread_atfork(
-    ffi.Pointer<ffi.NativeFunction<_typedefC_22>> arg0,
-    ffi.Pointer<ffi.NativeFunction<_typedefC_23>> arg1,
-    ffi.Pointer<ffi.NativeFunction<_typedefC_24>> arg2,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_24>> arg0,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_25>> arg1,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_26>> arg2,
   ) {
     return (_pthread_atfork ??=
         _dylib.lookupFunction<_c_pthread_atfork, _dart_pthread_atfork>(
@@ -6575,7 +6741,7 @@ class LibEdaxBindings {
   int pthread_create(
     ffi.Pointer<ffi.Pointer<_opaque_pthread_t>> arg0,
     ffi.Pointer<_opaque_pthread_attr_t> arg1,
-    ffi.Pointer<ffi.NativeFunction<_typedefC_25>> arg2,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_27>> arg2,
     ffi.Pointer<ffi.Void> arg3,
   ) {
     return (_pthread_create ??=
@@ -6678,7 +6844,7 @@ class LibEdaxBindings {
 
   int pthread_key_create(
     ffi.Pointer<ffi.Uint64> arg0,
-    ffi.Pointer<ffi.NativeFunction<_typedefC_26>> arg1,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_28>> arg1,
   ) {
     return (_pthread_key_create ??=
         _dylib.lookupFunction<_c_pthread_key_create, _dart_pthread_key_create>(
@@ -6964,7 +7130,7 @@ class LibEdaxBindings {
 
   int pthread_once(
     ffi.Pointer<_opaque_pthread_once_t> arg0,
-    ffi.Pointer<ffi.NativeFunction<_typedefC_27>> arg1,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_29>> arg1,
   ) {
     return (_pthread_once ??= _dylib
         .lookupFunction<_c_pthread_once, _dart_pthread_once>('pthread_once'))(
@@ -7326,7 +7492,7 @@ class LibEdaxBindings {
   int pthread_create_suspended_np(
     ffi.Pointer<ffi.Pointer<_opaque_pthread_t>> arg0,
     ffi.Pointer<_opaque_pthread_attr_t> arg1,
-    ffi.Pointer<ffi.NativeFunction<_typedefC_28>> arg2,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_30>> arg2,
     ffi.Pointer<ffi.Void> arg3,
   ) {
     return (_pthread_create_suspended_np ??= _dylib.lookupFunction<
@@ -8036,7 +8202,7 @@ class LibEdaxBindings {
 
   void thread_create2(
     ffi.Pointer<ffi.Pointer<_opaque_pthread_t>> arg0,
-    ffi.Pointer<ffi.NativeFunction<_typedefC_29>> f,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_31>> f,
     ffi.Pointer<ffi.Void> arg2,
   ) {
     return (_thread_create2 ??=
@@ -8109,6 +8275,11 @@ class LibEdaxBindings {
   }
 
   _dart_get_cpu_number? _get_cpu_number;
+
+  late final ffi.Pointer<Statistics> _statistics =
+      _dylib.lookup<Statistics>('statistics');
+
+  Statistics get statistics => _statistics.ref;
 
   void statistics_init() {
     return (_statistics_init ??=
@@ -8359,6 +8530,81 @@ class LibEdaxBindings {
   }
 
   _dart_writeable_level? _writeable_level;
+
+  late final ffi.Pointer<HashData> _HASH_DATA_INIT =
+      _dylib.lookup<HashData>('HASH_DATA_INIT');
+
+  HashData get HASH_DATA_INIT => _HASH_DATA_INIT.ref;
+
+  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Uint64>>> _hash_rank =
+      _dylib.lookup<ffi.Pointer<ffi.Pointer<ffi.Uint64>>>('hash_rank');
+
+  ffi.Pointer<ffi.Pointer<ffi.Uint64>> get hash_rank => _hash_rank.value;
+
+  set hash_rank(ffi.Pointer<ffi.Pointer<ffi.Uint64>> value) =>
+      _hash_rank.value = value;
+
+  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Uint64>>> _hash_move =
+      _dylib.lookup<ffi.Pointer<ffi.Pointer<ffi.Uint64>>>('hash_move');
+
+  ffi.Pointer<ffi.Pointer<ffi.Uint64>> get hash_move => _hash_move.value;
+
+  set hash_move(ffi.Pointer<ffi.Pointer<ffi.Uint64>> value) =>
+      _hash_move.value = value;
+
+  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<Level>>> _LEVEL =
+      _dylib.lookup<ffi.Pointer<ffi.Pointer<Level>>>('LEVEL');
+
+  ffi.Pointer<ffi.Pointer<Level>> get LEVEL => _LEVEL.value;
+
+  set LEVEL(ffi.Pointer<ffi.Pointer<Level>> value) => _LEVEL.value = value;
+
+  late final ffi.Pointer<ffi.Pointer<ffi.Int32>> _QUADRANT_ID =
+      _dylib.lookup<ffi.Pointer<ffi.Int32>>('QUADRANT_ID');
+
+  ffi.Pointer<ffi.Int32> get QUADRANT_ID => _QUADRANT_ID.value;
+
+  set QUADRANT_ID(ffi.Pointer<ffi.Int32> value) => _QUADRANT_ID.value = value;
+
+  late final ffi.Pointer<ffi.Pointer<Selectivity>> _selectivity_table =
+      _dylib.lookup<ffi.Pointer<Selectivity>>('selectivity_table');
+
+  ffi.Pointer<Selectivity> get selectivity_table => _selectivity_table.value;
+
+  set selectivity_table(ffi.Pointer<Selectivity> value) =>
+      _selectivity_table.value = value;
+
+  late final ffi.Pointer<int> _NO_SELECTIVITY =
+      _dylib.lookup<ffi.Int32>('NO_SELECTIVITY');
+
+  int get NO_SELECTIVITY => _NO_SELECTIVITY.value;
+
+  set NO_SELECTIVITY(int value) => _NO_SELECTIVITY.value = value;
+
+  late final ffi.Pointer<ffi.Pointer<ffi.Int32>> _NWS_STABILITY_THRESHOLD =
+      _dylib.lookup<ffi.Pointer<ffi.Int32>>('NWS_STABILITY_THRESHOLD');
+
+  ffi.Pointer<ffi.Int32> get NWS_STABILITY_THRESHOLD =>
+      _NWS_STABILITY_THRESHOLD.value;
+
+  set NWS_STABILITY_THRESHOLD(ffi.Pointer<ffi.Int32> value) =>
+      _NWS_STABILITY_THRESHOLD.value = value;
+
+  late final ffi.Pointer<ffi.Pointer<ffi.Int32>> _PVS_STABILITY_THRESHOLD =
+      _dylib.lookup<ffi.Pointer<ffi.Int32>>('PVS_STABILITY_THRESHOLD');
+
+  ffi.Pointer<ffi.Int32> get PVS_STABILITY_THRESHOLD =>
+      _PVS_STABILITY_THRESHOLD.value;
+
+  set PVS_STABILITY_THRESHOLD(ffi.Pointer<ffi.Int32> value) =>
+      _PVS_STABILITY_THRESHOLD.value = value;
+
+  late final ffi.Pointer<ffi.Pointer<ffi.Int32>> _SQUARE_TYPE =
+      _dylib.lookup<ffi.Pointer<ffi.Int32>>('SQUARE_TYPE');
+
+  ffi.Pointer<ffi.Int32> get SQUARE_TYPE => _SQUARE_TYPE.value;
+
+  set SQUARE_TYPE(ffi.Pointer<ffi.Int32> value) => _SQUARE_TYPE.value = value;
 
   void search_global_init() {
     return (_search_global_init ??=
@@ -9272,7 +9518,7 @@ class LibEdaxBindings {
 
   void search_set_observer(
     ffi.Pointer<Search> arg0,
-    ffi.Pointer<ffi.NativeFunction<_typedefC_30>> Observer,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_32>> Observer,
   ) {
     return (_search_set_observer ??= _dylib.lookupFunction<
         _c_search_set_observer,
@@ -10544,7 +10790,7 @@ class LibEdaxBindings {
 
   ffi.Pointer<ffi.Int8> play_show_opening_name(
     ffi.Pointer<Play> arg0,
-    ffi.Pointer<ffi.NativeFunction<_typedefC_31>> opening_get_name,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_33>> opening_get_name,
   ) {
     return (_play_show_opening_name ??= _dylib.lookupFunction<
         _c_play_show_opening_name,
@@ -72077,7 +72323,153 @@ class __sbuf extends ffi.Struct {
 
 class __sFILEX extends ffi.Struct {}
 
-class FILE extends ffi.Struct {}
+class FILE extends ffi.Struct {
+  external ffi.Pointer<ffi.Uint8> _p;
+
+  @ffi.Int32()
+  external int _r;
+
+  @ffi.Int32()
+  external int _w;
+
+  @ffi.Int16()
+  external int _flags;
+
+  @ffi.Int16()
+  external int _file;
+
+  external __sbuf _bf;
+
+  @ffi.Int32()
+  external int _lbfsize;
+
+  external ffi.Pointer<ffi.Void> _cookie;
+
+  external ffi.Pointer<ffi.NativeFunction<_typedefC_2>> _close;
+
+  external ffi.Pointer<ffi.NativeFunction<_typedefC_3>> _read;
+
+  external ffi.Pointer<ffi.NativeFunction<_typedefC_4>> _seek;
+
+  external ffi.Pointer<ffi.NativeFunction<_typedefC_5>> _write;
+
+  external __sbuf _ub;
+
+  external ffi.Pointer<__sFILEX> _extra;
+
+  @ffi.Int32()
+  external int _ur;
+
+  @ffi.Uint8()
+  external int _unique__ubuf_item_0;
+  @ffi.Uint8()
+  external int _unique__ubuf_item_1;
+  @ffi.Uint8()
+  external int _unique__ubuf_item_2;
+
+  /// Helper for array `_ubuf`.
+  ArrayHelper_FILE__ubuf_level0 get _ubuf =>
+      ArrayHelper_FILE__ubuf_level0(this, [3], 0, 0);
+  @ffi.Uint8()
+  external int _unique__nbuf_item_0;
+
+  /// Helper for array `_nbuf`.
+  ArrayHelper_FILE__nbuf_level0 get _nbuf =>
+      ArrayHelper_FILE__nbuf_level0(this, [1], 0, 0);
+  external __sbuf _lb;
+
+  @ffi.Int32()
+  external int _blksize;
+
+  @ffi.Int64()
+  external int _offset;
+}
+
+/// Helper for array `_ubuf` in struct `FILE`.
+class ArrayHelper_FILE__ubuf_level0 {
+  final FILE _struct;
+  final List<int> dimensions;
+  final int level;
+  final int _absoluteIndex;
+  int get length => dimensions[level];
+  ArrayHelper_FILE__ubuf_level0(
+      this._struct, this.dimensions, this.level, this._absoluteIndex);
+  void _checkBounds(int index) {
+    if (index >= length || index < 0) {
+      throw RangeError(
+          'Dimension $level: index not in range 0..${length} exclusive.');
+    }
+  }
+
+  int operator [](int index) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        return _struct._unique__ubuf_item_0;
+      case 1:
+        return _struct._unique__ubuf_item_1;
+      case 2:
+        return _struct._unique__ubuf_item_2;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+
+  void operator []=(int index, int value) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        _struct._unique__ubuf_item_0 = value;
+        break;
+      case 1:
+        _struct._unique__ubuf_item_1 = value;
+        break;
+      case 2:
+        _struct._unique__ubuf_item_2 = value;
+        break;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+}
+
+/// Helper for array `_nbuf` in struct `FILE`.
+class ArrayHelper_FILE__nbuf_level0 {
+  final FILE _struct;
+  final List<int> dimensions;
+  final int level;
+  final int _absoluteIndex;
+  int get length => dimensions[level];
+  ArrayHelper_FILE__nbuf_level0(
+      this._struct, this.dimensions, this.level, this._absoluteIndex);
+  void _checkBounds(int index) {
+    if (index >= length || index < 0) {
+      throw RangeError(
+          'Dimension $level: index not in range 0..${length} exclusive.');
+    }
+  }
+
+  int operator [](int index) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        return _struct._unique__nbuf_item_0;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+
+  void operator []=(int index, int value) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        _struct._unique__nbuf_item_0 = value;
+        break;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+}
 
 class __va_list_tag extends ffi.Struct {
   @ffi.Uint32()
@@ -72107,7 +72499,251 @@ class Move extends ffi.Struct {}
 class Random extends ffi.Struct {}
 
 /// (simple) list of a legal moves
-class MoveList extends ffi.Struct {}
+class MoveList extends ffi.Struct {
+  external Move _unique_move_item_0;
+  external Move _unique_move_item_1;
+  external Move _unique_move_item_2;
+  external Move _unique_move_item_3;
+  external Move _unique_move_item_4;
+  external Move _unique_move_item_5;
+  external Move _unique_move_item_6;
+  external Move _unique_move_item_7;
+  external Move _unique_move_item_8;
+  external Move _unique_move_item_9;
+  external Move _unique_move_item_10;
+  external Move _unique_move_item_11;
+  external Move _unique_move_item_12;
+  external Move _unique_move_item_13;
+  external Move _unique_move_item_14;
+  external Move _unique_move_item_15;
+  external Move _unique_move_item_16;
+  external Move _unique_move_item_17;
+  external Move _unique_move_item_18;
+  external Move _unique_move_item_19;
+  external Move _unique_move_item_20;
+  external Move _unique_move_item_21;
+  external Move _unique_move_item_22;
+  external Move _unique_move_item_23;
+  external Move _unique_move_item_24;
+  external Move _unique_move_item_25;
+  external Move _unique_move_item_26;
+  external Move _unique_move_item_27;
+  external Move _unique_move_item_28;
+  external Move _unique_move_item_29;
+  external Move _unique_move_item_30;
+  external Move _unique_move_item_31;
+  external Move _unique_move_item_32;
+  external Move _unique_move_item_33;
+
+  /// Helper for array `move`.
+  ArrayHelper_MoveList_move_level0 get move =>
+      ArrayHelper_MoveList_move_level0(this, [34], 0, 0);
+  @ffi.Int32()
+  external int n_moves;
+}
+
+/// Helper for array `move` in struct `MoveList`.
+class ArrayHelper_MoveList_move_level0 {
+  final MoveList _struct;
+  final List<int> dimensions;
+  final int level;
+  final int _absoluteIndex;
+  int get length => dimensions[level];
+  ArrayHelper_MoveList_move_level0(
+      this._struct, this.dimensions, this.level, this._absoluteIndex);
+  void _checkBounds(int index) {
+    if (index >= length || index < 0) {
+      throw RangeError(
+          'Dimension $level: index not in range 0..${length} exclusive.');
+    }
+  }
+
+  Move operator [](int index) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        return _struct._unique_move_item_0;
+      case 1:
+        return _struct._unique_move_item_1;
+      case 2:
+        return _struct._unique_move_item_2;
+      case 3:
+        return _struct._unique_move_item_3;
+      case 4:
+        return _struct._unique_move_item_4;
+      case 5:
+        return _struct._unique_move_item_5;
+      case 6:
+        return _struct._unique_move_item_6;
+      case 7:
+        return _struct._unique_move_item_7;
+      case 8:
+        return _struct._unique_move_item_8;
+      case 9:
+        return _struct._unique_move_item_9;
+      case 10:
+        return _struct._unique_move_item_10;
+      case 11:
+        return _struct._unique_move_item_11;
+      case 12:
+        return _struct._unique_move_item_12;
+      case 13:
+        return _struct._unique_move_item_13;
+      case 14:
+        return _struct._unique_move_item_14;
+      case 15:
+        return _struct._unique_move_item_15;
+      case 16:
+        return _struct._unique_move_item_16;
+      case 17:
+        return _struct._unique_move_item_17;
+      case 18:
+        return _struct._unique_move_item_18;
+      case 19:
+        return _struct._unique_move_item_19;
+      case 20:
+        return _struct._unique_move_item_20;
+      case 21:
+        return _struct._unique_move_item_21;
+      case 22:
+        return _struct._unique_move_item_22;
+      case 23:
+        return _struct._unique_move_item_23;
+      case 24:
+        return _struct._unique_move_item_24;
+      case 25:
+        return _struct._unique_move_item_25;
+      case 26:
+        return _struct._unique_move_item_26;
+      case 27:
+        return _struct._unique_move_item_27;
+      case 28:
+        return _struct._unique_move_item_28;
+      case 29:
+        return _struct._unique_move_item_29;
+      case 30:
+        return _struct._unique_move_item_30;
+      case 31:
+        return _struct._unique_move_item_31;
+      case 32:
+        return _struct._unique_move_item_32;
+      case 33:
+        return _struct._unique_move_item_33;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+
+  void operator []=(int index, Move value) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        _struct._unique_move_item_0 = value;
+        break;
+      case 1:
+        _struct._unique_move_item_1 = value;
+        break;
+      case 2:
+        _struct._unique_move_item_2 = value;
+        break;
+      case 3:
+        _struct._unique_move_item_3 = value;
+        break;
+      case 4:
+        _struct._unique_move_item_4 = value;
+        break;
+      case 5:
+        _struct._unique_move_item_5 = value;
+        break;
+      case 6:
+        _struct._unique_move_item_6 = value;
+        break;
+      case 7:
+        _struct._unique_move_item_7 = value;
+        break;
+      case 8:
+        _struct._unique_move_item_8 = value;
+        break;
+      case 9:
+        _struct._unique_move_item_9 = value;
+        break;
+      case 10:
+        _struct._unique_move_item_10 = value;
+        break;
+      case 11:
+        _struct._unique_move_item_11 = value;
+        break;
+      case 12:
+        _struct._unique_move_item_12 = value;
+        break;
+      case 13:
+        _struct._unique_move_item_13 = value;
+        break;
+      case 14:
+        _struct._unique_move_item_14 = value;
+        break;
+      case 15:
+        _struct._unique_move_item_15 = value;
+        break;
+      case 16:
+        _struct._unique_move_item_16 = value;
+        break;
+      case 17:
+        _struct._unique_move_item_17 = value;
+        break;
+      case 18:
+        _struct._unique_move_item_18 = value;
+        break;
+      case 19:
+        _struct._unique_move_item_19 = value;
+        break;
+      case 20:
+        _struct._unique_move_item_20 = value;
+        break;
+      case 21:
+        _struct._unique_move_item_21 = value;
+        break;
+      case 22:
+        _struct._unique_move_item_22 = value;
+        break;
+      case 23:
+        _struct._unique_move_item_23 = value;
+        break;
+      case 24:
+        _struct._unique_move_item_24 = value;
+        break;
+      case 25:
+        _struct._unique_move_item_25 = value;
+        break;
+      case 26:
+        _struct._unique_move_item_26 = value;
+        break;
+      case 27:
+        _struct._unique_move_item_27 = value;
+        break;
+      case 28:
+        _struct._unique_move_item_28 = value;
+        break;
+      case 29:
+        _struct._unique_move_item_29 = value;
+        break;
+      case 30:
+        _struct._unique_move_item_30 = value;
+        break;
+      case 31:
+        _struct._unique_move_item_31 = value;
+        break;
+      case 32:
+        _struct._unique_move_item_32 = value;
+        break;
+      case 33:
+        _struct._unique_move_item_33 = value;
+        break;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+}
 
 /// (simple) sequence of a legal moves
 class Line extends ffi.Struct {
@@ -73735,7 +74371,72 @@ class WthorHeader extends ffi.Struct {
   external int n_games;
 }
 
-class WthorBase extends ffi.Struct {}
+class WthorBase extends ffi.Struct {
+  external WthorHeader _unique_header_item_0;
+
+  /// Helper for array `header`.
+  ArrayHelper_WthorBase_header_level0 get header =>
+      ArrayHelper_WthorBase_header_level0(this, [1], 0, 0);
+
+  /// Header
+  external ffi.Pointer<ffi.Pointer<ffi.Int8>> tournament;
+
+  /// tournaments
+  @ffi.Int32()
+  external int n_tournaments;
+
+  /// tournament number
+  external ffi.Pointer<ffi.Pointer<ffi.Int8>> player;
+
+  /// players
+  @ffi.Int32()
+  external int n_players;
+
+  /// tournament players
+  external ffi.Pointer<WthorGame> game;
+
+  /// games
+  @ffi.Int32()
+  external int n_games;
+}
+
+/// Helper for array `header` in struct `WthorBase`.
+class ArrayHelper_WthorBase_header_level0 {
+  final WthorBase _struct;
+  final List<int> dimensions;
+  final int level;
+  final int _absoluteIndex;
+  int get length => dimensions[level];
+  ArrayHelper_WthorBase_header_level0(
+      this._struct, this.dimensions, this.level, this._absoluteIndex);
+  void _checkBounds(int index) {
+    if (index >= length || index < 0) {
+      throw RangeError(
+          'Dimension $level: index not in range 0..${length} exclusive.');
+    }
+  }
+
+  WthorHeader operator [](int index) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        return _struct._unique_header_item_0;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+
+  void operator []=(int index, WthorHeader value) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        _struct._unique_header_item_0 = value;
+        break;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+}
 
 class Base extends ffi.Struct {
   external ffi.Pointer<Game> game;
@@ -75143,7 +75844,21 @@ class __darwin_x86_thread_state64 extends ffi.Struct {
   external int __gs;
 }
 
-class __darwin_x86_thread_full_state64 extends ffi.Struct {}
+class __darwin_x86_thread_full_state64 extends ffi.Struct {
+  external __darwin_x86_thread_state64 __ss64;
+
+  @ffi.Uint64()
+  external int __ds;
+
+  @ffi.Uint64()
+  external int __es;
+
+  @ffi.Uint64()
+  external int __ss;
+
+  @ffi.Uint64()
+  external int __gsbase;
+}
 
 class __darwin_x86_float_state64 extends ffi.Struct {}
 
@@ -75371,7 +76086,22 @@ class __darwin_sigaltstack extends ffi.Struct {
   external int ss_flags;
 }
 
-class __darwin_ucontext extends ffi.Struct {}
+class __darwin_ucontext extends ffi.Struct {
+  @ffi.Int32()
+  external int uc_onstack;
+
+  @ffi.Uint32()
+  external int uc_sigmask;
+
+  external __darwin_sigaltstack uc_stack;
+
+  external ffi.Pointer<__darwin_ucontext> uc_link;
+
+  @ffi.Uint64()
+  external int uc_mcsize;
+
+  external ffi.Pointer<__darwin_mcontext64> uc_mcontext;
+}
 
 class sigevent extends ffi.Struct {}
 
@@ -75382,7 +76112,7 @@ class __sigaction extends ffi.Struct {}
 class sigaction extends ffi.Struct {}
 
 class sigvec extends ffi.Struct {
-  external ffi.Pointer<ffi.NativeFunction<_typedefC_11>> sv_handler;
+  external ffi.Pointer<ffi.NativeFunction<_typedefC_12>> sv_handler;
 
   @ffi.Int32()
   external int sv_mask;
@@ -75406,7 +76136,53 @@ class timeval extends ffi.Struct {
   external int tv_usec;
 }
 
-class rusage extends ffi.Struct {}
+class rusage extends ffi.Struct {
+  external timeval ru_utime;
+
+  external timeval ru_stime;
+
+  @ffi.Int64()
+  external int ru_maxrss;
+
+  @ffi.Int64()
+  external int ru_ixrss;
+
+  @ffi.Int64()
+  external int ru_idrss;
+
+  @ffi.Int64()
+  external int ru_isrss;
+
+  @ffi.Int64()
+  external int ru_minflt;
+
+  @ffi.Int64()
+  external int ru_majflt;
+
+  @ffi.Int64()
+  external int ru_nswap;
+
+  @ffi.Int64()
+  external int ru_inblock;
+
+  @ffi.Int64()
+  external int ru_oublock;
+
+  @ffi.Int64()
+  external int ru_msgsnd;
+
+  @ffi.Int64()
+  external int ru_msgrcv;
+
+  @ffi.Int64()
+  external int ru_nsignals;
+
+  @ffi.Int64()
+  external int ru_nvcsw;
+
+  @ffi.Int64()
+  external int ru_nivcsw;
+}
 
 class rusage_info_v0 extends ffi.Struct {
   @ffi.Uint8()
@@ -76664,7 +77440,11 @@ class OSFifoQueueHead extends ffi.Struct {
 }
 
 /// @brief LogFile.
-class Log extends ffi.Struct {}
+class Log extends ffi.Struct {
+  external ffi.Pointer<FILE> f;
+
+  external _opaque_pthread_mutex_t lock;
+}
 
 /// \struct Statistics
 class Statistics extends ffi.Struct {
@@ -87913,7 +88693,11 @@ class ArrayHelper_Statistics_n_good_square_level1 {
 }
 
 /// Hash  : item stored in the hash table
-class Hash extends ffi.Struct {}
+class Hash extends ffi.Struct {
+  external Board board;
+
+  external HashData data;
+}
 
 /// HashLock : lock for table entries
 class HashLock extends ffi.Struct {
@@ -87982,19 +88766,859 @@ class Bound extends ffi.Struct {
 }
 
 /// Result
-class Result extends ffi.Struct {}
+class Result extends ffi.Struct {
+  /// < searched depth
+  @ffi.Int32()
+  external int depth;
+
+  /// < searched selectivity
+  @ffi.Int32()
+  external int selectivity;
+
+  /// < best move found
+  @ffi.Int32()
+  external int move;
+
+  /// < best score
+  @ffi.Int32()
+  external int score;
+
+  external Bound _unique_bound_item_0;
+  external Bound _unique_bound_item_1;
+  external Bound _unique_bound_item_2;
+  external Bound _unique_bound_item_3;
+  external Bound _unique_bound_item_4;
+  external Bound _unique_bound_item_5;
+  external Bound _unique_bound_item_6;
+  external Bound _unique_bound_item_7;
+  external Bound _unique_bound_item_8;
+  external Bound _unique_bound_item_9;
+  external Bound _unique_bound_item_10;
+  external Bound _unique_bound_item_11;
+  external Bound _unique_bound_item_12;
+  external Bound _unique_bound_item_13;
+  external Bound _unique_bound_item_14;
+  external Bound _unique_bound_item_15;
+  external Bound _unique_bound_item_16;
+  external Bound _unique_bound_item_17;
+  external Bound _unique_bound_item_18;
+  external Bound _unique_bound_item_19;
+  external Bound _unique_bound_item_20;
+  external Bound _unique_bound_item_21;
+  external Bound _unique_bound_item_22;
+  external Bound _unique_bound_item_23;
+  external Bound _unique_bound_item_24;
+  external Bound _unique_bound_item_25;
+  external Bound _unique_bound_item_26;
+  external Bound _unique_bound_item_27;
+  external Bound _unique_bound_item_28;
+  external Bound _unique_bound_item_29;
+  external Bound _unique_bound_item_30;
+  external Bound _unique_bound_item_31;
+  external Bound _unique_bound_item_32;
+  external Bound _unique_bound_item_33;
+  external Bound _unique_bound_item_34;
+  external Bound _unique_bound_item_35;
+  external Bound _unique_bound_item_36;
+  external Bound _unique_bound_item_37;
+  external Bound _unique_bound_item_38;
+  external Bound _unique_bound_item_39;
+  external Bound _unique_bound_item_40;
+  external Bound _unique_bound_item_41;
+  external Bound _unique_bound_item_42;
+  external Bound _unique_bound_item_43;
+  external Bound _unique_bound_item_44;
+  external Bound _unique_bound_item_45;
+  external Bound _unique_bound_item_46;
+  external Bound _unique_bound_item_47;
+  external Bound _unique_bound_item_48;
+  external Bound _unique_bound_item_49;
+  external Bound _unique_bound_item_50;
+  external Bound _unique_bound_item_51;
+  external Bound _unique_bound_item_52;
+  external Bound _unique_bound_item_53;
+  external Bound _unique_bound_item_54;
+  external Bound _unique_bound_item_55;
+  external Bound _unique_bound_item_56;
+  external Bound _unique_bound_item_57;
+  external Bound _unique_bound_item_58;
+  external Bound _unique_bound_item_59;
+  external Bound _unique_bound_item_60;
+  external Bound _unique_bound_item_61;
+  external Bound _unique_bound_item_62;
+  external Bound _unique_bound_item_63;
+  external Bound _unique_bound_item_64;
+  external Bound _unique_bound_item_65;
+
+  /// Helper for array `bound`.
+  ArrayHelper_Result_bound_level0 get bound =>
+      ArrayHelper_Result_bound_level0(this, [66], 0, 0);
+  external Line _unique_pv_item_0;
+
+  /// Helper for array `pv`.
+  ArrayHelper_Result_pv_level0 get pv =>
+      ArrayHelper_Result_pv_level0(this, [1], 0, 0);
+
+  /// < searched time
+  @ffi.Int64()
+  external int time;
+
+  /// < searched node count
+  @ffi.Uint64()
+  external int n_nodes;
+
+  /// < book move origin
+  @ffi.Int32()
+  external int book_move;
+
+  /// < total moves to search
+  @ffi.Int32()
+  external int n_moves;
+
+  /// < left moves to search
+  @ffi.Int32()
+  external int n_moves_left;
+
+  @ffi.Int32()
+  external int spin;
+}
+
+/// Helper for array `bound` in struct `Result`.
+class ArrayHelper_Result_bound_level0 {
+  final Result _struct;
+  final List<int> dimensions;
+  final int level;
+  final int _absoluteIndex;
+  int get length => dimensions[level];
+  ArrayHelper_Result_bound_level0(
+      this._struct, this.dimensions, this.level, this._absoluteIndex);
+  void _checkBounds(int index) {
+    if (index >= length || index < 0) {
+      throw RangeError(
+          'Dimension $level: index not in range 0..${length} exclusive.');
+    }
+  }
+
+  Bound operator [](int index) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        return _struct._unique_bound_item_0;
+      case 1:
+        return _struct._unique_bound_item_1;
+      case 2:
+        return _struct._unique_bound_item_2;
+      case 3:
+        return _struct._unique_bound_item_3;
+      case 4:
+        return _struct._unique_bound_item_4;
+      case 5:
+        return _struct._unique_bound_item_5;
+      case 6:
+        return _struct._unique_bound_item_6;
+      case 7:
+        return _struct._unique_bound_item_7;
+      case 8:
+        return _struct._unique_bound_item_8;
+      case 9:
+        return _struct._unique_bound_item_9;
+      case 10:
+        return _struct._unique_bound_item_10;
+      case 11:
+        return _struct._unique_bound_item_11;
+      case 12:
+        return _struct._unique_bound_item_12;
+      case 13:
+        return _struct._unique_bound_item_13;
+      case 14:
+        return _struct._unique_bound_item_14;
+      case 15:
+        return _struct._unique_bound_item_15;
+      case 16:
+        return _struct._unique_bound_item_16;
+      case 17:
+        return _struct._unique_bound_item_17;
+      case 18:
+        return _struct._unique_bound_item_18;
+      case 19:
+        return _struct._unique_bound_item_19;
+      case 20:
+        return _struct._unique_bound_item_20;
+      case 21:
+        return _struct._unique_bound_item_21;
+      case 22:
+        return _struct._unique_bound_item_22;
+      case 23:
+        return _struct._unique_bound_item_23;
+      case 24:
+        return _struct._unique_bound_item_24;
+      case 25:
+        return _struct._unique_bound_item_25;
+      case 26:
+        return _struct._unique_bound_item_26;
+      case 27:
+        return _struct._unique_bound_item_27;
+      case 28:
+        return _struct._unique_bound_item_28;
+      case 29:
+        return _struct._unique_bound_item_29;
+      case 30:
+        return _struct._unique_bound_item_30;
+      case 31:
+        return _struct._unique_bound_item_31;
+      case 32:
+        return _struct._unique_bound_item_32;
+      case 33:
+        return _struct._unique_bound_item_33;
+      case 34:
+        return _struct._unique_bound_item_34;
+      case 35:
+        return _struct._unique_bound_item_35;
+      case 36:
+        return _struct._unique_bound_item_36;
+      case 37:
+        return _struct._unique_bound_item_37;
+      case 38:
+        return _struct._unique_bound_item_38;
+      case 39:
+        return _struct._unique_bound_item_39;
+      case 40:
+        return _struct._unique_bound_item_40;
+      case 41:
+        return _struct._unique_bound_item_41;
+      case 42:
+        return _struct._unique_bound_item_42;
+      case 43:
+        return _struct._unique_bound_item_43;
+      case 44:
+        return _struct._unique_bound_item_44;
+      case 45:
+        return _struct._unique_bound_item_45;
+      case 46:
+        return _struct._unique_bound_item_46;
+      case 47:
+        return _struct._unique_bound_item_47;
+      case 48:
+        return _struct._unique_bound_item_48;
+      case 49:
+        return _struct._unique_bound_item_49;
+      case 50:
+        return _struct._unique_bound_item_50;
+      case 51:
+        return _struct._unique_bound_item_51;
+      case 52:
+        return _struct._unique_bound_item_52;
+      case 53:
+        return _struct._unique_bound_item_53;
+      case 54:
+        return _struct._unique_bound_item_54;
+      case 55:
+        return _struct._unique_bound_item_55;
+      case 56:
+        return _struct._unique_bound_item_56;
+      case 57:
+        return _struct._unique_bound_item_57;
+      case 58:
+        return _struct._unique_bound_item_58;
+      case 59:
+        return _struct._unique_bound_item_59;
+      case 60:
+        return _struct._unique_bound_item_60;
+      case 61:
+        return _struct._unique_bound_item_61;
+      case 62:
+        return _struct._unique_bound_item_62;
+      case 63:
+        return _struct._unique_bound_item_63;
+      case 64:
+        return _struct._unique_bound_item_64;
+      case 65:
+        return _struct._unique_bound_item_65;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+
+  void operator []=(int index, Bound value) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        _struct._unique_bound_item_0 = value;
+        break;
+      case 1:
+        _struct._unique_bound_item_1 = value;
+        break;
+      case 2:
+        _struct._unique_bound_item_2 = value;
+        break;
+      case 3:
+        _struct._unique_bound_item_3 = value;
+        break;
+      case 4:
+        _struct._unique_bound_item_4 = value;
+        break;
+      case 5:
+        _struct._unique_bound_item_5 = value;
+        break;
+      case 6:
+        _struct._unique_bound_item_6 = value;
+        break;
+      case 7:
+        _struct._unique_bound_item_7 = value;
+        break;
+      case 8:
+        _struct._unique_bound_item_8 = value;
+        break;
+      case 9:
+        _struct._unique_bound_item_9 = value;
+        break;
+      case 10:
+        _struct._unique_bound_item_10 = value;
+        break;
+      case 11:
+        _struct._unique_bound_item_11 = value;
+        break;
+      case 12:
+        _struct._unique_bound_item_12 = value;
+        break;
+      case 13:
+        _struct._unique_bound_item_13 = value;
+        break;
+      case 14:
+        _struct._unique_bound_item_14 = value;
+        break;
+      case 15:
+        _struct._unique_bound_item_15 = value;
+        break;
+      case 16:
+        _struct._unique_bound_item_16 = value;
+        break;
+      case 17:
+        _struct._unique_bound_item_17 = value;
+        break;
+      case 18:
+        _struct._unique_bound_item_18 = value;
+        break;
+      case 19:
+        _struct._unique_bound_item_19 = value;
+        break;
+      case 20:
+        _struct._unique_bound_item_20 = value;
+        break;
+      case 21:
+        _struct._unique_bound_item_21 = value;
+        break;
+      case 22:
+        _struct._unique_bound_item_22 = value;
+        break;
+      case 23:
+        _struct._unique_bound_item_23 = value;
+        break;
+      case 24:
+        _struct._unique_bound_item_24 = value;
+        break;
+      case 25:
+        _struct._unique_bound_item_25 = value;
+        break;
+      case 26:
+        _struct._unique_bound_item_26 = value;
+        break;
+      case 27:
+        _struct._unique_bound_item_27 = value;
+        break;
+      case 28:
+        _struct._unique_bound_item_28 = value;
+        break;
+      case 29:
+        _struct._unique_bound_item_29 = value;
+        break;
+      case 30:
+        _struct._unique_bound_item_30 = value;
+        break;
+      case 31:
+        _struct._unique_bound_item_31 = value;
+        break;
+      case 32:
+        _struct._unique_bound_item_32 = value;
+        break;
+      case 33:
+        _struct._unique_bound_item_33 = value;
+        break;
+      case 34:
+        _struct._unique_bound_item_34 = value;
+        break;
+      case 35:
+        _struct._unique_bound_item_35 = value;
+        break;
+      case 36:
+        _struct._unique_bound_item_36 = value;
+        break;
+      case 37:
+        _struct._unique_bound_item_37 = value;
+        break;
+      case 38:
+        _struct._unique_bound_item_38 = value;
+        break;
+      case 39:
+        _struct._unique_bound_item_39 = value;
+        break;
+      case 40:
+        _struct._unique_bound_item_40 = value;
+        break;
+      case 41:
+        _struct._unique_bound_item_41 = value;
+        break;
+      case 42:
+        _struct._unique_bound_item_42 = value;
+        break;
+      case 43:
+        _struct._unique_bound_item_43 = value;
+        break;
+      case 44:
+        _struct._unique_bound_item_44 = value;
+        break;
+      case 45:
+        _struct._unique_bound_item_45 = value;
+        break;
+      case 46:
+        _struct._unique_bound_item_46 = value;
+        break;
+      case 47:
+        _struct._unique_bound_item_47 = value;
+        break;
+      case 48:
+        _struct._unique_bound_item_48 = value;
+        break;
+      case 49:
+        _struct._unique_bound_item_49 = value;
+        break;
+      case 50:
+        _struct._unique_bound_item_50 = value;
+        break;
+      case 51:
+        _struct._unique_bound_item_51 = value;
+        break;
+      case 52:
+        _struct._unique_bound_item_52 = value;
+        break;
+      case 53:
+        _struct._unique_bound_item_53 = value;
+        break;
+      case 54:
+        _struct._unique_bound_item_54 = value;
+        break;
+      case 55:
+        _struct._unique_bound_item_55 = value;
+        break;
+      case 56:
+        _struct._unique_bound_item_56 = value;
+        break;
+      case 57:
+        _struct._unique_bound_item_57 = value;
+        break;
+      case 58:
+        _struct._unique_bound_item_58 = value;
+        break;
+      case 59:
+        _struct._unique_bound_item_59 = value;
+        break;
+      case 60:
+        _struct._unique_bound_item_60 = value;
+        break;
+      case 61:
+        _struct._unique_bound_item_61 = value;
+        break;
+      case 62:
+        _struct._unique_bound_item_62 = value;
+        break;
+      case 63:
+        _struct._unique_bound_item_63 = value;
+        break;
+      case 64:
+        _struct._unique_bound_item_64 = value;
+        break;
+      case 65:
+        _struct._unique_bound_item_65 = value;
+        break;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+}
+
+/// Helper for array `pv` in struct `Result`.
+class ArrayHelper_Result_pv_level0 {
+  final Result _struct;
+  final List<int> dimensions;
+  final int level;
+  final int _absoluteIndex;
+  int get length => dimensions[level];
+  ArrayHelper_Result_pv_level0(
+      this._struct, this.dimensions, this.level, this._absoluteIndex);
+  void _checkBounds(int index) {
+    if (index >= length || index < 0) {
+      throw RangeError(
+          'Dimension $level: index not in range 0..${length} exclusive.');
+    }
+  }
+
+  Line operator [](int index) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        return _struct._unique_pv_item_0;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+
+  void operator []=(int index, Line value) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        _struct._unique_pv_item_0 = value;
+        break;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+}
 
 /// Hint (for libEdax)
 ///
 /// @author lavox
 /// @date 2018/1/17
-class Hint extends ffi.Struct {}
+class Hint extends ffi.Struct {
+  /// < searched depth(except book moves)
+  @ffi.Int32()
+  external int depth;
+
+  /// < searched selectivity(except book moves)
+  @ffi.Int32()
+  external int selectivity;
+
+  /// < best move found
+  @ffi.Int32()
+  external int move;
+
+  /// < best score
+  @ffi.Int32()
+  external int score;
+
+  /// < upper score(except book moves)
+  @ffi.Int32()
+  external int upper;
+
+  /// < lower score(except book moves)
+  @ffi.Int32()
+  external int lower;
+
+  external Line _unique_pv_item_0;
+
+  /// Helper for array `pv`.
+  ArrayHelper_Hint_pv_level0 get pv =>
+      ArrayHelper_Hint_pv_level0(this, [1], 0, 0);
+
+  /// < searched time(except book moves)
+  @ffi.Int64()
+  external int time;
+
+  /// < searched node count(except book moves)
+  @ffi.Uint64()
+  external int n_nodes;
+
+  /// < book move origin
+  @ffi.Int32()
+  external int book_move;
+}
+
+/// Helper for array `pv` in struct `Hint`.
+class ArrayHelper_Hint_pv_level0 {
+  final Hint _struct;
+  final List<int> dimensions;
+  final int level;
+  final int _absoluteIndex;
+  int get length => dimensions[level];
+  ArrayHelper_Hint_pv_level0(
+      this._struct, this.dimensions, this.level, this._absoluteIndex);
+  void _checkBounds(int index) {
+    if (index >= length || index < 0) {
+      throw RangeError(
+          'Dimension $level: index not in range 0..${length} exclusive.');
+    }
+  }
+
+  Line operator [](int index) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        return _struct._unique_pv_item_0;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+
+  void operator []=(int index, Line value) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        _struct._unique_pv_item_0 = value;
+        break;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+}
 
 /// Hint list (for libEdax)
 ///
 /// @author lavox
 /// @date 2018/1/17
-class HintList extends ffi.Struct {}
+class HintList extends ffi.Struct {
+  external Hint _unique_hint_item_0;
+  external Hint _unique_hint_item_1;
+  external Hint _unique_hint_item_2;
+  external Hint _unique_hint_item_3;
+  external Hint _unique_hint_item_4;
+  external Hint _unique_hint_item_5;
+  external Hint _unique_hint_item_6;
+  external Hint _unique_hint_item_7;
+  external Hint _unique_hint_item_8;
+  external Hint _unique_hint_item_9;
+  external Hint _unique_hint_item_10;
+  external Hint _unique_hint_item_11;
+  external Hint _unique_hint_item_12;
+  external Hint _unique_hint_item_13;
+  external Hint _unique_hint_item_14;
+  external Hint _unique_hint_item_15;
+  external Hint _unique_hint_item_16;
+  external Hint _unique_hint_item_17;
+  external Hint _unique_hint_item_18;
+  external Hint _unique_hint_item_19;
+  external Hint _unique_hint_item_20;
+  external Hint _unique_hint_item_21;
+  external Hint _unique_hint_item_22;
+  external Hint _unique_hint_item_23;
+  external Hint _unique_hint_item_24;
+  external Hint _unique_hint_item_25;
+  external Hint _unique_hint_item_26;
+  external Hint _unique_hint_item_27;
+  external Hint _unique_hint_item_28;
+  external Hint _unique_hint_item_29;
+  external Hint _unique_hint_item_30;
+  external Hint _unique_hint_item_31;
+  external Hint _unique_hint_item_32;
+  external Hint _unique_hint_item_33;
+
+  /// Helper for array `hint`.
+  ArrayHelper_HintList_hint_level0 get hint =>
+      ArrayHelper_HintList_hint_level0(this, [34], 0, 0);
+  @ffi.Int32()
+  external int n_hints;
+}
+
+/// Helper for array `hint` in struct `HintList`.
+class ArrayHelper_HintList_hint_level0 {
+  final HintList _struct;
+  final List<int> dimensions;
+  final int level;
+  final int _absoluteIndex;
+  int get length => dimensions[level];
+  ArrayHelper_HintList_hint_level0(
+      this._struct, this.dimensions, this.level, this._absoluteIndex);
+  void _checkBounds(int index) {
+    if (index >= length || index < 0) {
+      throw RangeError(
+          'Dimension $level: index not in range 0..${length} exclusive.');
+    }
+  }
+
+  Hint operator [](int index) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        return _struct._unique_hint_item_0;
+      case 1:
+        return _struct._unique_hint_item_1;
+      case 2:
+        return _struct._unique_hint_item_2;
+      case 3:
+        return _struct._unique_hint_item_3;
+      case 4:
+        return _struct._unique_hint_item_4;
+      case 5:
+        return _struct._unique_hint_item_5;
+      case 6:
+        return _struct._unique_hint_item_6;
+      case 7:
+        return _struct._unique_hint_item_7;
+      case 8:
+        return _struct._unique_hint_item_8;
+      case 9:
+        return _struct._unique_hint_item_9;
+      case 10:
+        return _struct._unique_hint_item_10;
+      case 11:
+        return _struct._unique_hint_item_11;
+      case 12:
+        return _struct._unique_hint_item_12;
+      case 13:
+        return _struct._unique_hint_item_13;
+      case 14:
+        return _struct._unique_hint_item_14;
+      case 15:
+        return _struct._unique_hint_item_15;
+      case 16:
+        return _struct._unique_hint_item_16;
+      case 17:
+        return _struct._unique_hint_item_17;
+      case 18:
+        return _struct._unique_hint_item_18;
+      case 19:
+        return _struct._unique_hint_item_19;
+      case 20:
+        return _struct._unique_hint_item_20;
+      case 21:
+        return _struct._unique_hint_item_21;
+      case 22:
+        return _struct._unique_hint_item_22;
+      case 23:
+        return _struct._unique_hint_item_23;
+      case 24:
+        return _struct._unique_hint_item_24;
+      case 25:
+        return _struct._unique_hint_item_25;
+      case 26:
+        return _struct._unique_hint_item_26;
+      case 27:
+        return _struct._unique_hint_item_27;
+      case 28:
+        return _struct._unique_hint_item_28;
+      case 29:
+        return _struct._unique_hint_item_29;
+      case 30:
+        return _struct._unique_hint_item_30;
+      case 31:
+        return _struct._unique_hint_item_31;
+      case 32:
+        return _struct._unique_hint_item_32;
+      case 33:
+        return _struct._unique_hint_item_33;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+
+  void operator []=(int index, Hint value) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        _struct._unique_hint_item_0 = value;
+        break;
+      case 1:
+        _struct._unique_hint_item_1 = value;
+        break;
+      case 2:
+        _struct._unique_hint_item_2 = value;
+        break;
+      case 3:
+        _struct._unique_hint_item_3 = value;
+        break;
+      case 4:
+        _struct._unique_hint_item_4 = value;
+        break;
+      case 5:
+        _struct._unique_hint_item_5 = value;
+        break;
+      case 6:
+        _struct._unique_hint_item_6 = value;
+        break;
+      case 7:
+        _struct._unique_hint_item_7 = value;
+        break;
+      case 8:
+        _struct._unique_hint_item_8 = value;
+        break;
+      case 9:
+        _struct._unique_hint_item_9 = value;
+        break;
+      case 10:
+        _struct._unique_hint_item_10 = value;
+        break;
+      case 11:
+        _struct._unique_hint_item_11 = value;
+        break;
+      case 12:
+        _struct._unique_hint_item_12 = value;
+        break;
+      case 13:
+        _struct._unique_hint_item_13 = value;
+        break;
+      case 14:
+        _struct._unique_hint_item_14 = value;
+        break;
+      case 15:
+        _struct._unique_hint_item_15 = value;
+        break;
+      case 16:
+        _struct._unique_hint_item_16 = value;
+        break;
+      case 17:
+        _struct._unique_hint_item_17 = value;
+        break;
+      case 18:
+        _struct._unique_hint_item_18 = value;
+        break;
+      case 19:
+        _struct._unique_hint_item_19 = value;
+        break;
+      case 20:
+        _struct._unique_hint_item_20 = value;
+        break;
+      case 21:
+        _struct._unique_hint_item_21 = value;
+        break;
+      case 22:
+        _struct._unique_hint_item_22 = value;
+        break;
+      case 23:
+        _struct._unique_hint_item_23 = value;
+        break;
+      case 24:
+        _struct._unique_hint_item_24 = value;
+        break;
+      case 25:
+        _struct._unique_hint_item_25 = value;
+        break;
+      case 26:
+        _struct._unique_hint_item_26 = value;
+        break;
+      case 27:
+        _struct._unique_hint_item_27 = value;
+        break;
+      case 28:
+        _struct._unique_hint_item_28 = value;
+        break;
+      case 29:
+        _struct._unique_hint_item_29 = value;
+        break;
+      case 30:
+        _struct._unique_hint_item_30 = value;
+        break;
+      case 31:
+        _struct._unique_hint_item_31 = value;
+        break;
+      case 32:
+        _struct._unique_hint_item_32 = value;
+        break;
+      case 33:
+        _struct._unique_hint_item_33 = value;
+        break;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+}
 
 /// levels
 class Level extends ffi.Struct {
@@ -88053,7 +89677,39 @@ class Link extends ffi.Struct {
 class Position extends ffi.Struct {}
 
 /// Event management data
-class Event extends ffi.Struct {}
+class Event extends ffi.Struct {
+  /// !< flag allowing to loop, waiting for events
+  @ffi.Int32()
+  external int loop;
+
+  /// !< ring of buffers
+  external ffi.Pointer<ffi.Pointer<ffi.Int8>> ring;
+
+  /// !< size of the buffer ring
+  @ffi.Int32()
+  external int size;
+
+  /// !< first position in the ring
+  @ffi.Int32()
+  external int first;
+
+  /// !< one past the last position in the ring
+  @ffi.Int32()
+  external int end;
+
+  /// !< thread
+  external ffi.Pointer<_opaque_pthread_t> thread;
+
+  /// !< spin lock
+  @ffi.Int32()
+  external int spin;
+
+  /// !< lock
+  external _opaque_pthread_mutex_t lock;
+
+  /// !< condition
+  external _opaque_pthread_cond_t cond;
+}
 
 /// play structure
 class Play extends ffi.Struct {}
@@ -88061,10 +89717,182 @@ class Play extends ffi.Struct {}
 class GGSClient extends ffi.Struct {}
 
 /// UI structure
-class UI extends ffi.Struct {}
+class UI extends ffi.Struct {
+  external Play _unique_play_item_0;
+  external Play _unique_play_item_1;
+
+  /// Helper for array `play`.
+  ArrayHelper_UI_play_level0 get play =>
+      ArrayHelper_UI_play_level0(this, [2], 0, 0);
+  external Book _unique_book_item_0;
+
+  /// Helper for array `book`.
+  ArrayHelper_UI_book_level0 get book =>
+      ArrayHelper_UI_book_level0(this, [1], 0, 0);
+
+  /// < GGS Client
+  external ffi.Pointer<GGSClient> ggs;
+
+  /// < true if play[0] == play[1]
+  @ffi.Int32()
+  external int is_same_play;
+
+  /// < type of UI
+  @ffi.Int32()
+  external int type;
+
+  /// < computer's color mode TODO: remove me
+  @ffi.Int32()
+  external int mode;
+
+  external Event _unique_event_item_0;
+
+  /// Helper for array `event`.
+  ArrayHelper_UI_event_level0 get event =>
+      ArrayHelper_UI_event_level0(this, [1], 0, 0);
+
+  /// < init function
+  external ffi.Pointer<ffi.NativeFunction<_typedefC_34>> init;
+
+  /// < main loop function
+  external ffi.Pointer<ffi.NativeFunction<_typedefC_35>> loop;
+
+  /// < free resources function
+  external ffi.Pointer<ffi.NativeFunction<_typedefC_36>> free;
+}
+
+/// Helper for array `play` in struct `UI`.
+class ArrayHelper_UI_play_level0 {
+  final UI _struct;
+  final List<int> dimensions;
+  final int level;
+  final int _absoluteIndex;
+  int get length => dimensions[level];
+  ArrayHelper_UI_play_level0(
+      this._struct, this.dimensions, this.level, this._absoluteIndex);
+  void _checkBounds(int index) {
+    if (index >= length || index < 0) {
+      throw RangeError(
+          'Dimension $level: index not in range 0..${length} exclusive.');
+    }
+  }
+
+  Play operator [](int index) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        return _struct._unique_play_item_0;
+      case 1:
+        return _struct._unique_play_item_1;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+
+  void operator []=(int index, Play value) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        _struct._unique_play_item_0 = value;
+        break;
+      case 1:
+        _struct._unique_play_item_1 = value;
+        break;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+}
+
+/// Helper for array `book` in struct `UI`.
+class ArrayHelper_UI_book_level0 {
+  final UI _struct;
+  final List<int> dimensions;
+  final int level;
+  final int _absoluteIndex;
+  int get length => dimensions[level];
+  ArrayHelper_UI_book_level0(
+      this._struct, this.dimensions, this.level, this._absoluteIndex);
+  void _checkBounds(int index) {
+    if (index >= length || index < 0) {
+      throw RangeError(
+          'Dimension $level: index not in range 0..${length} exclusive.');
+    }
+  }
+
+  Book operator [](int index) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        return _struct._unique_book_item_0;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+
+  void operator []=(int index, Book value) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        _struct._unique_book_item_0 = value;
+        break;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+}
+
+/// Helper for array `event` in struct `UI`.
+class ArrayHelper_UI_event_level0 {
+  final UI _struct;
+  final List<int> dimensions;
+  final int level;
+  final int _absoluteIndex;
+  int get length => dimensions[level];
+  ArrayHelper_UI_event_level0(
+      this._struct, this.dimensions, this.level, this._absoluteIndex);
+  void _checkBounds(int index) {
+    if (index >= length || index < 0) {
+      throw RangeError(
+          'Dimension $level: index not in range 0..${length} exclusive.');
+    }
+  }
+
+  Event operator [](int index) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        return _struct._unique_event_item_0;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+
+  void operator []=(int index, Event value) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        _struct._unique_event_item_0 = value;
+        break;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+}
 
 /// Bench result structure
-class BenchResult extends ffi.Struct {}
+class BenchResult extends ffi.Struct {
+  @ffi.Uint64()
+  external int T;
+
+  @ffi.Uint64()
+  external int n_nodes;
+
+  @ffi.Int32()
+  external int positions;
+
+  external _opaque_pthread_mutex_t lock;
+}
 
 const int A1 = 0;
 
@@ -90770,6 +92598,11 @@ typedef _dart_count_last_flip = int Function(
   int arg1,
 );
 
+typedef _typedefC_10 = ffi.Uint64 Function(
+  ffi.Uint64,
+  ffi.Uint64,
+);
+
 typedef _c_get_moves = ffi.Uint64 Function(
   ffi.Uint64 arg0,
   ffi.Uint64 arg1,
@@ -91758,22 +93591,22 @@ typedef _dart_eval_sigma = double Function(
   int arg2,
 );
 
-typedef _typedefC_12 = ffi.Void Function(
-  ffi.Int32,
-);
-
 typedef _typedefC_13 = ffi.Void Function(
   ffi.Int32,
 );
 
-typedef _c_signal = ffi.Pointer<ffi.NativeFunction<_typedefC_12>> Function(
-  ffi.Int32 arg0,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_13>> arg1,
+typedef _typedefC_14 = ffi.Void Function(
+  ffi.Int32,
 );
 
-typedef _dart_signal = ffi.Pointer<ffi.NativeFunction<_typedefC_12>> Function(
+typedef _c_signal = ffi.Pointer<ffi.NativeFunction<_typedefC_13>> Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_14>> arg1,
+);
+
+typedef _dart_signal = ffi.Pointer<ffi.NativeFunction<_typedefC_13>> Function(
   int arg0,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_13>> arg1,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_14>> arg1,
 );
 
 typedef _c_getpriority = ffi.Int32 Function(
@@ -92020,14 +93853,14 @@ typedef _dart_abs = int Function(
   int arg0,
 );
 
-typedef _typedefC_14 = ffi.Void Function();
+typedef _typedefC_15 = ffi.Void Function();
 
 typedef _c_atexit = ffi.Int32 Function(
-  ffi.Pointer<ffi.NativeFunction<_typedefC_14>> arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_15>> arg0,
 );
 
 typedef _dart_atexit = int Function(
-  ffi.Pointer<ffi.NativeFunction<_typedefC_14>> arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_15>> arg0,
 );
 
 typedef _c_atof = ffi.Double Function(
@@ -92062,7 +93895,7 @@ typedef _dart_atoll = int Function(
   ffi.Pointer<ffi.Int8> arg0,
 );
 
-typedef _typedefC_15 = ffi.Int32 Function(
+typedef _typedefC_16 = ffi.Int32 Function(
   ffi.Pointer<ffi.Void>,
   ffi.Pointer<ffi.Void>,
 );
@@ -92072,7 +93905,7 @@ typedef _c_bsearch = ffi.Pointer<ffi.Void> Function(
   ffi.Pointer<ffi.Void> __base,
   ffi.Uint64 __nel,
   ffi.Uint64 __width,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_15>> __compar,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_16>> __compar,
 );
 
 typedef _dart_bsearch = ffi.Pointer<ffi.Void> Function(
@@ -92080,7 +93913,17 @@ typedef _dart_bsearch = ffi.Pointer<ffi.Void> Function(
   ffi.Pointer<ffi.Void> __base,
   int __nel,
   int __width,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_15>> __compar,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_16>> __compar,
+);
+
+typedef _c_div = div_t Function(
+  ffi.Int32 arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_div = div_t Function(
+  int arg0,
+  int arg1,
 );
 
 typedef _c_exit = ffi.Void Function(
@@ -92107,12 +93950,32 @@ typedef _dart_labs = int Function(
   int arg0,
 );
 
+typedef _c_ldiv = ldiv_t Function(
+  ffi.Int64 arg0,
+  ffi.Int64 arg1,
+);
+
+typedef _dart_ldiv = ldiv_t Function(
+  int arg0,
+  int arg1,
+);
+
 typedef _c_llabs = ffi.Int64 Function(
   ffi.Int64 arg0,
 );
 
 typedef _dart_llabs = int Function(
   int arg0,
+);
+
+typedef _c_lldiv = lldiv_t Function(
+  ffi.Int64 arg0,
+  ffi.Int64 arg1,
+);
+
+typedef _dart_lldiv = lldiv_t Function(
+  int arg0,
+  int arg1,
 );
 
 typedef _c_mblen = ffi.Int32 Function(
@@ -92149,7 +94012,7 @@ typedef _dart_mbtowc = int Function(
   int arg2,
 );
 
-typedef _typedefC_16 = ffi.Int32 Function(
+typedef _typedefC_17 = ffi.Int32 Function(
   ffi.Pointer<ffi.Void>,
   ffi.Pointer<ffi.Void>,
 );
@@ -92158,14 +94021,14 @@ typedef _c_qsort = ffi.Void Function(
   ffi.Pointer<ffi.Void> __base,
   ffi.Uint64 __nel,
   ffi.Uint64 __width,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_16>> __compar,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_17>> __compar,
 );
 
 typedef _dart_qsort = void Function(
   ffi.Pointer<ffi.Void> __base,
   int __nel,
   int __width,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_16>> __compar,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_17>> __compar,
 );
 
 typedef _c_rand = ffi.Int32 Function();
@@ -92764,7 +94627,7 @@ typedef _dart_setprogname = void Function(
   ffi.Pointer<ffi.Int8> arg0,
 );
 
-typedef _typedefC_17 = ffi.Int32 Function(
+typedef _typedefC_18 = ffi.Int32 Function(
   ffi.Pointer<ffi.Void>,
   ffi.Pointer<ffi.Void>,
 );
@@ -92773,29 +94636,10 @@ typedef _c_heapsort = ffi.Int32 Function(
   ffi.Pointer<ffi.Void> __base,
   ffi.Uint64 __nel,
   ffi.Uint64 __width,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_17>> __compar,
-);
-
-typedef _dart_heapsort = int Function(
-  ffi.Pointer<ffi.Void> __base,
-  int __nel,
-  int __width,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_17>> __compar,
-);
-
-typedef _typedefC_18 = ffi.Int32 Function(
-  ffi.Pointer<ffi.Void>,
-  ffi.Pointer<ffi.Void>,
-);
-
-typedef _c_mergesort = ffi.Int32 Function(
-  ffi.Pointer<ffi.Void> __base,
-  ffi.Uint64 __nel,
-  ffi.Uint64 __width,
   ffi.Pointer<ffi.NativeFunction<_typedefC_18>> __compar,
 );
 
-typedef _dart_mergesort = int Function(
+typedef _dart_heapsort = int Function(
   ffi.Pointer<ffi.Void> __base,
   int __nel,
   int __width,
@@ -92807,14 +94651,14 @@ typedef _typedefC_19 = ffi.Int32 Function(
   ffi.Pointer<ffi.Void>,
 );
 
-typedef _c_psort = ffi.Void Function(
+typedef _c_mergesort = ffi.Int32 Function(
   ffi.Pointer<ffi.Void> __base,
   ffi.Uint64 __nel,
   ffi.Uint64 __width,
   ffi.Pointer<ffi.NativeFunction<_typedefC_19>> __compar,
 );
 
-typedef _dart_psort = void Function(
+typedef _dart_mergesort = int Function(
   ffi.Pointer<ffi.Void> __base,
   int __nel,
   int __width,
@@ -92822,6 +94666,25 @@ typedef _dart_psort = void Function(
 );
 
 typedef _typedefC_20 = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void>,
+  ffi.Pointer<ffi.Void>,
+);
+
+typedef _c_psort = ffi.Void Function(
+  ffi.Pointer<ffi.Void> __base,
+  ffi.Uint64 __nel,
+  ffi.Uint64 __width,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_20>> __compar,
+);
+
+typedef _dart_psort = void Function(
+  ffi.Pointer<ffi.Void> __base,
+  int __nel,
+  int __width,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_20>> __compar,
+);
+
+typedef _typedefC_21 = ffi.Int32 Function(
   ffi.Pointer<ffi.Void>,
   ffi.Pointer<ffi.Void>,
   ffi.Pointer<ffi.Void>,
@@ -92832,7 +94695,7 @@ typedef _c_psort_r = ffi.Void Function(
   ffi.Uint64 __nel,
   ffi.Uint64 __width,
   ffi.Pointer<ffi.Void> arg3,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_20>> __compar,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_21>> __compar,
 );
 
 typedef _dart_psort_r = void Function(
@@ -92840,10 +94703,10 @@ typedef _dart_psort_r = void Function(
   int __nel,
   int __width,
   ffi.Pointer<ffi.Void> arg3,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_20>> __compar,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_21>> __compar,
 );
 
-typedef _typedefC_21 = ffi.Int32 Function(
+typedef _typedefC_22 = ffi.Int32 Function(
   ffi.Pointer<ffi.Void>,
   ffi.Pointer<ffi.Void>,
   ffi.Pointer<ffi.Void>,
@@ -92854,7 +94717,7 @@ typedef _c_qsort_r = ffi.Void Function(
   ffi.Uint64 __nel,
   ffi.Uint64 __width,
   ffi.Pointer<ffi.Void> arg3,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_21>> __compar,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_22>> __compar,
 );
 
 typedef _dart_qsort_r = void Function(
@@ -92862,7 +94725,7 @@ typedef _dart_qsort_r = void Function(
   int __nel,
   int __width,
   ffi.Pointer<ffi.Void> arg3,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_21>> __compar,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_22>> __compar,
 );
 
 typedef _c_radixsort = ffi.Int32 Function(
@@ -93555,6 +95418,8 @@ typedef _dart_flsll = int Function(
   int arg0,
 );
 
+typedef _typedefC_23 = ffi.Int64 Function();
+
 typedef _c_real_clock = ffi.Int64 Function();
 
 typedef _dart_real_clock = int Function();
@@ -94233,22 +96098,22 @@ typedef _dart_pthread_override_qos_class_end_np = int Function(
   ffi.Pointer<pthread_override_s> __override,
 );
 
-typedef _typedefC_22 = ffi.Void Function();
-
-typedef _typedefC_23 = ffi.Void Function();
-
 typedef _typedefC_24 = ffi.Void Function();
 
+typedef _typedefC_25 = ffi.Void Function();
+
+typedef _typedefC_26 = ffi.Void Function();
+
 typedef _c_pthread_atfork = ffi.Int32 Function(
-  ffi.Pointer<ffi.NativeFunction<_typedefC_22>> arg0,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_23>> arg1,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_24>> arg2,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_24>> arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_25>> arg1,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_26>> arg2,
 );
 
 typedef _dart_pthread_atfork = int Function(
-  ffi.Pointer<ffi.NativeFunction<_typedefC_22>> arg0,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_23>> arg1,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_24>> arg2,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_24>> arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_25>> arg1,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_26>> arg2,
 );
 
 typedef _c_pthread_attr_destroy = ffi.Int32 Function(
@@ -94551,21 +96416,21 @@ typedef _dart_pthread_condattr_setpshared = int Function(
   int arg1,
 );
 
-typedef _typedefC_25 = ffi.Pointer<ffi.Void> Function(
+typedef _typedefC_27 = ffi.Pointer<ffi.Void> Function(
   ffi.Pointer<ffi.Void>,
 );
 
 typedef _c_pthread_create = ffi.Int32 Function(
   ffi.Pointer<ffi.Pointer<_opaque_pthread_t>> arg0,
   ffi.Pointer<_opaque_pthread_attr_t> arg1,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_25>> arg2,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_27>> arg2,
   ffi.Pointer<ffi.Void> arg3,
 );
 
 typedef _dart_pthread_create = int Function(
   ffi.Pointer<ffi.Pointer<_opaque_pthread_t>> arg0,
   ffi.Pointer<_opaque_pthread_attr_t> arg1,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_25>> arg2,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_27>> arg2,
   ffi.Pointer<ffi.Void> arg3,
 );
 
@@ -94629,18 +96494,18 @@ typedef _dart_pthread_join = int Function(
   ffi.Pointer<ffi.Pointer<ffi.Void>> arg1,
 );
 
-typedef _typedefC_26 = ffi.Void Function(
+typedef _typedefC_28 = ffi.Void Function(
   ffi.Pointer<ffi.Void>,
 );
 
 typedef _c_pthread_key_create = ffi.Int32 Function(
   ffi.Pointer<ffi.Uint64> arg0,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_26>> arg1,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_28>> arg1,
 );
 
 typedef _dart_pthread_key_create = int Function(
   ffi.Pointer<ffi.Uint64> arg0,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_26>> arg1,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_28>> arg1,
 );
 
 typedef _c_pthread_key_delete = ffi.Int32 Function(
@@ -94831,16 +96696,16 @@ typedef _dart_pthread_mutexattr_setpolicy_np = int Function(
   int arg1,
 );
 
-typedef _typedefC_27 = ffi.Void Function();
+typedef _typedefC_29 = ffi.Void Function();
 
 typedef _c_pthread_once = ffi.Int32 Function(
   ffi.Pointer<_opaque_pthread_once_t> arg0,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_27>> arg1,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_29>> arg1,
 );
 
 typedef _dart_pthread_once = int Function(
   ffi.Pointer<_opaque_pthread_once_t> arg0,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_27>> arg1,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_29>> arg1,
 );
 
 typedef _c_pthread_rwlock_destroy = ffi.Int32 Function(
@@ -95079,21 +96944,21 @@ typedef _dart_pthread_cond_timedwait_relative_np = int Function(
   ffi.Pointer<timespec> arg2,
 );
 
-typedef _typedefC_28 = ffi.Pointer<ffi.Void> Function(
+typedef _typedefC_30 = ffi.Pointer<ffi.Void> Function(
   ffi.Pointer<ffi.Void>,
 );
 
 typedef _c_pthread_create_suspended_np = ffi.Int32 Function(
   ffi.Pointer<ffi.Pointer<_opaque_pthread_t>> arg0,
   ffi.Pointer<_opaque_pthread_attr_t> arg1,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_28>> arg2,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_30>> arg2,
   ffi.Pointer<ffi.Void> arg3,
 );
 
 typedef _dart_pthread_create_suspended_np = int Function(
   ffi.Pointer<ffi.Pointer<_opaque_pthread_t>> arg0,
   ffi.Pointer<_opaque_pthread_attr_t> arg1,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_28>> arg2,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_30>> arg2,
   ffi.Pointer<ffi.Void> arg3,
 );
 
@@ -95589,19 +97454,19 @@ typedef _dart_OSAtomicFifoDequeue = ffi.Pointer<ffi.Void> Function(
   int __offset,
 );
 
-typedef _typedefC_29 = ffi.Pointer<ffi.Void> Function(
+typedef _typedefC_31 = ffi.Pointer<ffi.Void> Function(
   ffi.Pointer<ffi.Void>,
 );
 
 typedef _c_thread_create2 = ffi.Void Function(
   ffi.Pointer<ffi.Pointer<_opaque_pthread_t>> arg0,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_29>> f,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_31>> f,
   ffi.Pointer<ffi.Void> arg2,
 );
 
 typedef _dart_thread_create2 = void Function(
   ffi.Pointer<ffi.Pointer<_opaque_pthread_t>> arg0,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_29>> f,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_31>> f,
   ffi.Pointer<ffi.Void> arg2,
 );
 
@@ -96517,18 +98382,18 @@ typedef _dart_search_observer = void Function(
   ffi.Pointer<Result> arg0,
 );
 
-typedef _typedefC_30 = ffi.Void Function(
+typedef _typedefC_32 = ffi.Void Function(
   ffi.Pointer<Result>,
 );
 
 typedef _c_search_set_observer = ffi.Void Function(
   ffi.Pointer<Search> arg0,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_30>> Observer,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_32>> Observer,
 );
 
 typedef _dart_search_set_observer = void Function(
   ffi.Pointer<Search> arg0,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_30>> Observer,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_32>> Observer,
 );
 
 typedef _c_search_share = ffi.Void Function(
@@ -97457,18 +99322,18 @@ typedef _dart_play_symetry = void Function(
   int arg1,
 );
 
-typedef _typedefC_31 = ffi.Pointer<ffi.Int8> Function(
+typedef _typedefC_33 = ffi.Pointer<ffi.Int8> Function(
   ffi.Pointer<Board>,
 );
 
 typedef _c_play_show_opening_name = ffi.Pointer<ffi.Int8> Function(
   ffi.Pointer<Play> arg0,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_31>> opening_get_name,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_33>> opening_get_name,
 );
 
 typedef _dart_play_show_opening_name = ffi.Pointer<ffi.Int8> Function(
   ffi.Pointer<Play> arg0,
-  ffi.Pointer<ffi.NativeFunction<_typedefC_31>> opening_get_name,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_33>> opening_get_name,
 );
 
 typedef _c_ui_switch = ffi.Int32 Function(
@@ -98249,6 +100114,40 @@ typedef _typedefC_1 = ffi.Void Function(
   ffi.Pointer<ffi.Void>,
 );
 
-typedef _typedefC_11 = ffi.Void Function(
+typedef _typedefC_2 = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void>,
+);
+
+typedef _typedefC_3 = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void>,
+  ffi.Pointer<ffi.Int8>,
   ffi.Int32,
+);
+
+typedef _typedefC_4 = ffi.Int64 Function(
+  ffi.Pointer<ffi.Void>,
+  ffi.Int64,
+  ffi.Int32,
+);
+
+typedef _typedefC_5 = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void>,
+  ffi.Pointer<ffi.Int8>,
+  ffi.Int32,
+);
+
+typedef _typedefC_12 = ffi.Void Function(
+  ffi.Int32,
+);
+
+typedef _typedefC_34 = ffi.Void Function(
+  ffi.Pointer<UI>,
+);
+
+typedef _typedefC_35 = ffi.Void Function(
+  ffi.Pointer<UI>,
+);
+
+typedef _typedefC_36 = ffi.Void Function(
+  ffi.Pointer<UI>,
 );
