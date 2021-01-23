@@ -5,6 +5,7 @@ import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 import 'structs/board.dart';
 import 'structs/hint.dart';
+import 'structs/hint_list.dart';
 import 'structs/move.dart';
 import 'structs/move_list.dart';
 import 'structs/position.dart';
@@ -32,10 +33,10 @@ typedef edax_play_native_t = Int32 Function(Pointer<Utf8> moves);
 // typedef edax_bench_native_t = Int32 Function(Pointer<BenchResult> result, Int32 n); // TODO: implement if you need
 // typedef edax_bench_get_result_native_t = Int32 Function(Pointer<BenchResult> result); // TODO: implemen if you need
 typedef edax_go_native_t = Int32 Function();
-// typedef edax_hint_native_t = Int32 Function(Int32 n, Pointer<HintList> hintlist); // FIXME: implement
-typedef edax_get_bookmove_native_t = Int32 Function(Pointer<MoveList> move_list);
+typedef edax_hint_native_t = Int32 Function(Int32 n, Pointer<HintList> hintlist); // FIXME: implement
+typedef edax_get_bookmove_native_t = Int32 Function(Pointer<MoveList> move_list); // TODO: implement
 typedef edax_get_bookmove_with_position_native_t = Int32 Function(
-    Pointer<MoveList> move_list, Pointer<Position> position);
+    Pointer<MoveList> move_list, Pointer<Position> position); // TODO: implement
 typedef edax_hint_prepare_native_t = Int32 Function(Pointer<MoveList> exclude_list);
 typedef edax_hint_next_native_t = Int32 Function(Pointer<Hint> hint);
 typedef edax_hint_next_no_multipv_depth_native_t = Int32 Function(Pointer<Hint> hint);
