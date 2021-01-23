@@ -2,9 +2,11 @@ import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
 import 'bindings/bindings.dart';
-import 'bindings/structs/board.dart';
-import 'bindings/structs/move.dart';
-import 'bindings/structs/move_list.dart';
+import 'bindings/structs/board.dart' as c_board;
+import 'bindings/structs/move.dart' as c_move;
+import 'bindings/structs/move_list.dart' as c_movelist;
+import 'board.dart';
+import 'move.dart';
 
 @immutable
 class LibEdax {
@@ -81,10 +83,17 @@ class LibEdax {
   void edaxGo() => bindings.edaxGo();
 
   /// Get book move list.
-  MoveList edaxGetBookMove() {
-    final moveList = allocate<MoveList>();
-    bindings.edaxGetBookMove(moveList);
-    return moveList.ref;
+  List<Move> edaxGetBookMove() {
+    final dst = allocate<c_movelist.MoveList>();
+    bindings.edaxGetBookMove(dst);
+    final moveList = dst.ref;
+    final result = <Move>[];
+    for (var k = 0; k < moveList.n_moves; k++) {
+      final m = moveList.move[k + 1];
+      result.add(Move(m.flipped, m.x, m.score, m.cost));
+    }
+    free(dst);
+    return result;
   }
 
   /// Stop edax search process, and set mode 3.
@@ -151,16 +160,22 @@ class LibEdax {
 
   /// Get the last move.
   Move edaxGetLastMove() {
-    final move = allocate<Move>();
-    bindings.edaxGetLastMove(move);
-    return move.ref;
+    final dst = allocate<c_move.Move>();
+    bindings.edaxGetLastMove(dst);
+    final move = dst.ref;
+    final result = Move(move.flipped, move.x, move.score, move.cost);
+    free(dst);
+    return result;
   }
 
   /// Get the current board.
   Board edaxGetBoard() {
-    final board = allocate<Board>();
-    bindings.edaxGetBoard(board);
-    return board.ref;
+    final dst = allocate<c_board.Board>();
+    bindings.edaxGetBoard(dst);
+    final board = dst.ref;
+    final result = Board(board.player, board.opponent);
+    free(dst);
+    return result;
   }
 
   /// Get the current player.

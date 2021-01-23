@@ -1,10 +1,18 @@
+import 'dart:io';
+
 import 'package:libedax4dart/libedax4dart.dart';
 import 'package:test/test.dart';
 
 void main() {
+  tearDown(() {
+    final sleepSec = Platform.environment['sleepSec'];
+    if (sleepSec != null) sleep(Duration(seconds: int.parse(sleepSec)));
+  });
+
   test('initialize without args, and set option', () {
     const LibEdax()
       ..libedaxInitialize()
+      ..edaxInit()
       ..edaxVersion()
       ..edaxSetOption('level', '15')
       ..libedaxTerminate();
@@ -13,6 +21,7 @@ void main() {
   test('play "horse" opening', () {
     final edax = const LibEdax()
       ..libedaxInitialize()
+      ..edaxInit()
       ..edaxBookOn()
       ..edaxPlay('f5d6c5f4d3');
     expect(edax.edaxOpening(), 'horse');
@@ -23,6 +32,7 @@ void main() {
     const boardString = '-W----W--------------------WB------WBB-----W--------------------B';
     final edax = const LibEdax()
       ..libedaxInitialize()
+      ..edaxInit()
       ..edaxSetboard(boardString);
     expect(edax.edaxGetDisc(edax.white), 'W'.allMatches(boardString).length);
     expect(edax.edaxGetDisc(edax.black), 'B'.allMatches(boardString).length - 1);
@@ -33,6 +43,7 @@ void main() {
   test('check mobility count', () {
     final edax = const LibEdax()
       ..libedaxInitialize()
+      ..edaxInit()
       ..edaxBookRandomness(2)
       ..edaxGo();
     expect(edax.edaxGetMobilityCount(edax.white), 3);
@@ -67,9 +78,8 @@ void main() {
       ..edaxInit()
       ..edaxBookNew(21, 24); // create shallow book
     final moveList = edax.edaxGetBookMove();
-    expect(moveList.n_moves, 1);
-    expect(moveList.move.length, 34); // edax return move list with legal move max size "32 + 2".
-    expect(moveList.move[1].x, 19); // when book new, firstly book has "D3" position.
+    expect(moveList.length, 1);
+    expect(moveList.first.x, 19); // when book new, firstly book has "D3" position.
     edax.libedaxTerminate();
   });
 }

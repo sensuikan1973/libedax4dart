@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     env:
-      cache_ver: 3
+      cache_ver: 4
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
     strategy:
@@ -61,4 +61,6 @@ jobs:
     - name: install dependencies
       run: pub get
     - name: test
+      env:
+        sleepSec: 2
       run: pub run test .
