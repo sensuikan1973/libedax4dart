@@ -42,7 +42,7 @@ void main() {
   test('play a short game until game over', () {
     const initParams = ['', '-eval-file', 'data/eval.dat', '-book-file', 'data/book.dat', '-level', '16'];
     final edax = const LibEdax()
-      ..libedaxInitialize()
+      ..libedaxInitialize(initParams)
       ..edaxInit()
       ..edaxMode(3) // human vs human
       ..edaxMove('f5');
