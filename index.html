@@ -4,12 +4,13 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="generator" content="made with love by dartdoc 0.37.0">
+  <meta name="generator" content="made with love by dartdoc 0.39.0">
   <meta name="description" content="libedax4dart API docs, for the Dart programming language.">
   <title>libedax4dart - Dart API docs</title>
 
   
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="static-assets/github.css">
   <link rel="stylesheet" href="static-assets/styles.css">
@@ -35,7 +36,7 @@
 
 <main>
 
-  <div id="dartdoc-sidebar-left" class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
     <header id="header-search-sidebar" class="hidden-l">
       <form class="search-sidebar" role="search">
         <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
@@ -53,7 +54,7 @@
     </ol>
   </div>
 
-  <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
+  <div id="dartdoc-main-content" class="main-content">
       <section class="desc markdown">
         <h1 id="libedax4dart">libedax4dart</h1>
 <p>dart wrapper for <a href="https://github.com/lavox/edax-reversi/tree/libedax">libedax</a>.<br>
@@ -79,19 +80,20 @@ TODO: describe<br>
 <li>java version: <a href="https://github.com/lavox/libedax4j">https://github.com/lavox/libedax4j</a></li>
 </ul>
 <h2 id="development">Development</h2>
-<p><img src="https://github.com/sensuikan1973/libedax4dart/workflows/dartfmt/badge.svg" alt="dartfmt">
+<p><a href="https://dart.dev/get-dart#release-channels"><img src="https://img.shields.io/badge/Dart-dev-64B5F6.svg?logo=dart" alt="dart-channel"></a><br>
+<img src="https://github.com/sensuikan1973/libedax4dart/workflows/dartfmt/badge.svg" alt="dartfmt">
 <img src="https://github.com/sensuikan1973/libedax4dart/workflows/dartanalyzer/badge.svg" alt="dartanalyzer">
 <img src="https://github.com/sensuikan1973/libedax4dart/workflows/unit_test/badge.svg" alt="unit_test"><br>
 <img src="https://github.com/sensuikan1973/libedax4dart/workflows/publish_libedax_assets/badge.svg" alt="publish_libedax_assets"></p>
 <h3 id="commands">commands</h3>
 <h4 id="format">format</h4>
-<pre class="language-sh"><code class="language-sh">dartfmt ./ -w -l 120
+<pre class="language-sh"><code class="language-sh">dart format --fix -l 120 .
 </code></pre>
 <h4 id="test">test</h4>
 <pre class="language-sh"><code class="language-sh">pub run test .
 </code></pre>
 <h4 id="analyze">analyze</h4>
-<pre class="language-sh"><code class="language-sh">dartanalyzer .
+<pre class="language-sh"><code class="language-sh">dart analyze .
 </code></pre>
 <h4 id="document-2">document</h4>
 <pre class="language-sh"><code class="language-sh">dartdoc &amp;&amp; open doc/api/index.html
@@ -122,7 +124,7 @@ TODO: describe<br>
 
   </div> <!-- /.main-content -->
 
-  <div id="dartdoc-sidebar-right" class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
   </div>
 
 </main>
@@ -138,7 +140,6 @@ TODO: describe<br>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="static-assets/typeahead.bundle.min.js"></script>
 <script src="static-assets/highlight.pack.js"></script>
-<script src="static-assets/URI.js"></script>
 <script src="static-assets/script.js"></script>
 
 
