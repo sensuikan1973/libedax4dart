@@ -2,10 +2,10 @@ name: Dart Integration Test
 
 on:
   pull_request:
-    paths: ['**.dart', 'pubspec.*', '.github/workflows/unit_test.yaml', 'scripts/build_libedax.sh']
+    paths: ['**.dart', 'pubspec.*', '.github/workflows/dart_integration_test.yaml', 'scripts/build_libedax.sh']
   push:
     branches: [ main ]
-    paths: ['**.dart', 'pubspec.*', '.github/workflows/unit_test.yaml', 'scripts/build_libedax.sh']
+    paths: ['**.dart', 'pubspec.*', '.github/workflows/dart_integration_test.yaml', 'scripts/build_libedax.sh']
 
 jobs:
   build:
