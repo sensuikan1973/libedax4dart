@@ -6,7 +6,7 @@ import 'package:test/test.dart';
 void main() {
   tearDown(() {
     final sleepSec = Platform.environment['sleepSec'];
-    if(sleepSec != null) sleep(Duration(seconds: int.parse(sleepSec)));
+    if (sleepSec != null) sleep(Duration(seconds: int.parse(sleepSec)));
   });
 
   test('initialize without args, and set option', () {
