@@ -7,12 +7,10 @@ class Move {
   /// player's bitboard.
   final int flipped;
 
-  /// opponent's bitboard.
+  /// played square.
   final int x;
 
-  /// opponent's bitboard.
   final int score;
 
-  /// opponent's bitboard.
   final int cost;
 }
