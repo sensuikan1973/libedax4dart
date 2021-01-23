@@ -4,6 +4,8 @@ import 'package:libedax4dart/libedax4dart.dart';
 import 'package:test/test.dart';
 
 void main() {
+  tearDown(() => sleep(const Duration(seconds: 2)));
+
   test('initialize without args, and set option', () {
     const LibEdax()
       ..libedaxInitialize()
@@ -12,7 +14,6 @@ void main() {
       ..edaxSetOption('level', '15')
       ..libedaxTerminate();
   });
-  sleep(const Duration(seconds: 2));
 
   test('play "horse" opening', () {
     final edax = const LibEdax()
@@ -23,7 +24,6 @@ void main() {
     expect(edax.edaxOpening(), 'horse');
     edax.libedaxTerminate();
   });
-  sleep(const Duration(seconds: 2));
 
   test('setBoard', () {
     const boardString = '-W----W--------------------WB------WBB-----W--------------------B';
@@ -36,7 +36,6 @@ void main() {
     expect(edax.edaxGetCurrentPlayer(), edax.black);
     edax.libedaxTerminate();
   });
-  sleep(const Duration(seconds: 2));
 
   test('check mobility count', () {
     final edax = const LibEdax()
@@ -47,7 +46,6 @@ void main() {
     expect(edax.edaxGetMobilityCount(edax.white), 3);
     edax.libedaxTerminate();
   });
-  sleep(const Duration(seconds: 2));
 
   test('play a short game until game over', () {
     const initParams = ['', '-eval-file', 'data/eval.dat', '-book-file', 'data/book.dat', '-level', '16'];
