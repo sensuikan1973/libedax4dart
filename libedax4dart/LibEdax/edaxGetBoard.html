@@ -129,9 +129,12 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">Board edaxGetBoard() {
-  final board = allocate&lt;Board&gt;();
-  bindings.edaxGetBoard(board);
-  return board.ref;
+  final dst = allocate&lt;c_board.Board&gt;();
+  bindings.edaxGetBoard(dst);
+  final board = dst.ref;
+  final result = Board(board.player, board.opponent);
+  free(dst);
+  return result;
 }</code></pre>
     </section>
 
