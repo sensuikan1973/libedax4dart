@@ -91,8 +91,8 @@ typedef edax_get_disc_native_t = Int32 Function(Int32 color);
 typedef edax_get_mobility_count_native_t = Int32 Function(Int32 color);
 
 typedef bit_count_native_t = Int32 Function(Uint64 b);
-typedef first_bit_native_t = Int32 Function(Uint64 b); // TODO: implement if you need
-typedef last_bit_native_t = Int32 Function(Uint64 b); // TODO: implement if you need
+// typedef first_bit_native_t = Int32 Function(Uint64 b); // TODO: implement if you need
+// typedef last_bit_native_t = Int32 Function(Uint64 b); // TODO: implement if you need
 
-typedef get_moves_native_t = Int32 Function(Uint64 p, Uint64 o); // TODO: implement if you need
-typedef can_move_native_t = bool Function(Uint64 p, Uint64 o); // TODO: implement if you need
+// typedef get_moves_native_t = Int32 Function(Uint64 p, Uint64 o); // TODO: implement if you need
+// typedef can_move_native_t = bool Function(Uint64 p, Uint64 o); // TODO: implement if you need
