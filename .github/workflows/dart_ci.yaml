@@ -10,7 +10,6 @@ on:
 
 jobs:
   format:
-    needs: analyze
     runs-on: ubuntu-latest
     container:
       image: google/dart:dev
