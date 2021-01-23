@@ -3,9 +3,10 @@ import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
 import 'bindings/bindings.dart';
 import 'bindings/structs/board.dart' as c_board;
-import 'bindings/structs/move.dart';
+import 'bindings/structs/move.dart' as c_move;
 import 'bindings/structs/move_list.dart';
 import 'board.dart';
+import 'move.dart';
 
 @immutable
 class LibEdax {
@@ -152,9 +153,14 @@ class LibEdax {
 
   /// Get the last move.
   Move edaxGetLastMove() {
-    final move = allocate<Move>();
+    final move = allocate<c_move.Move>();
     bindings.edaxGetLastMove(move);
-    return move.ref;
+    return Move(
+      move.ref.flipped,
+      move.ref.x,
+      move.ref.score,
+      move.ref.cost,
+    );
   }
 
   /// Get the current board.
