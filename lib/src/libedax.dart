@@ -3,6 +3,7 @@ import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
 import 'bindings/bindings.dart';
 import 'bindings/structs/board.dart' as c_board;
+import 'bindings/structs/hint.dart' as c_hint;
 import 'bindings/structs/hint_list.dart' as c_hintlist;
 import 'bindings/structs/move.dart' as c_move;
 import 'bindings/structs/move_list.dart' as c_movelist;
@@ -117,6 +118,19 @@ class LibEdax {
   /// __Call edaxHintNext after calling this function__.
   // TODO: implement exclude list if you need.
   void edaxHintPrepare() => bindings.edaxHintPrepare(nullptr);
+
+  /// Get a hint.
+  ///
+  /// __Call edaxHintPrepare before calling this function__. <br>
+  /// If there are no more hints, hint will be noMove.
+  Hint edaxHintNext() {
+    final dst = allocate<c_hint.Hint>();
+    bindings.edaxHintNext(dst);
+    final h = dst.ref;
+    final result = Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
+    free(dst);
+    return result;
+  }
 
   /// Stop edax search process, and set mode 3.
   void edaxStop() => bindings.edaxStop();

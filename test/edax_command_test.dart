@@ -99,8 +99,19 @@ void main() {
     final edax = const LibEdax()
       ..libedaxInitialize()
       ..edaxInit()
+      ..edaxPlay('f5')
       ..edaxHintPrepare();
-    // ignore: cascade_invocations
+    final moveList = [29 /*f4*/, 43 /*d6*/, 45 /*f6*/];
+    final hint1 = edax.edaxHintNext();
+    expect(hint1.move, isIn(moveList));
+    final hint2 = edax.edaxHintNext();
+    expect(hint2.move, isIn(moveList));
+    final hint3 = edax.edaxHintNext();
+    expect(hint3.move, isIn(moveList));
+    expect(hint3.move, 29); // f4. it's because f6 is the lowest score.
+    expect(hint3.score, lessThan(0)); // mouse opening. BLACK has an advantage.
+    final hint4 = edax.edaxHintNext();
+    expect(hint4.move, edax.noMove);
     edax.libedaxTerminate();
   });
 }
