@@ -4,13 +4,13 @@ name: LibEdaxBindings
 output: 'generated_bindings.dart'
 headers:
   entry-points: ['edax-reversi/include/stdbool.h', 'edax-reversi/src/ui.h']
-functions:
-  include:
-    - libedax_.*
-    - edax_.*
-    - bit_count
-    - first_bit
-    - last_bit
-    - get_moves
-    - can_move
+# functions:
+#   include:
+#     - libedax_.*
+#     - edax_.*
+#     - bit_count
+#     - first_bit
+#     - last_bit
+#     - get_moves
+#     - can_move
 array-workaround: true

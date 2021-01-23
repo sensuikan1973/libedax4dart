@@ -10,6 +10,1594 @@ class LibEdaxBindings {
   /// The symbols are looked up in [dynamicLibrary].
   LibEdaxBindings(ffi.DynamicLibrary dynamicLibrary) : _dylib = dynamicLibrary;
 
+  int renameat(
+    int arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    int arg2,
+    ffi.Pointer<ffi.Int8> arg3,
+  ) {
+    return (_renameat ??=
+        _dylib.lookupFunction<_c_renameat, _dart_renameat>('renameat'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_renameat? _renameat;
+
+  int renamex_np(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    int arg2,
+  ) {
+    return (_renamex_np ??=
+        _dylib.lookupFunction<_c_renamex_np, _dart_renamex_np>('renamex_np'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_renamex_np? _renamex_np;
+
+  int renameatx_np(
+    int arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    int arg2,
+    ffi.Pointer<ffi.Int8> arg3,
+    int arg4,
+  ) {
+    return (_renameatx_np ??= _dylib
+        .lookupFunction<_c_renameatx_np, _dart_renameatx_np>('renameatx_np'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+    );
+  }
+
+  _dart_renameatx_np? _renameatx_np;
+
+  void clearerr(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_clearerr ??=
+        _dylib.lookupFunction<_c_clearerr, _dart_clearerr>('clearerr'))(
+      arg0,
+    );
+  }
+
+  _dart_clearerr? _clearerr;
+
+  int fclose(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_fclose ??=
+        _dylib.lookupFunction<_c_fclose, _dart_fclose>('fclose'))(
+      arg0,
+    );
+  }
+
+  _dart_fclose? _fclose;
+
+  int feof(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_feof ??= _dylib.lookupFunction<_c_feof, _dart_feof>('feof'))(
+      arg0,
+    );
+  }
+
+  _dart_feof? _feof;
+
+  int ferror(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_ferror ??=
+        _dylib.lookupFunction<_c_ferror, _dart_ferror>('ferror'))(
+      arg0,
+    );
+  }
+
+  _dart_ferror? _ferror;
+
+  int fflush(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_fflush ??=
+        _dylib.lookupFunction<_c_fflush, _dart_fflush>('fflush'))(
+      arg0,
+    );
+  }
+
+  _dart_fflush? _fflush;
+
+  int fgetc(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_fgetc ??= _dylib.lookupFunction<_c_fgetc, _dart_fgetc>('fgetc'))(
+      arg0,
+    );
+  }
+
+  _dart_fgetc? _fgetc;
+
+  int fgetpos(
+    ffi.Pointer<FILE> arg0,
+    ffi.Pointer<ffi.Int64> arg1,
+  ) {
+    return (_fgetpos ??=
+        _dylib.lookupFunction<_c_fgetpos, _dart_fgetpos>('fgetpos'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_fgetpos? _fgetpos;
+
+  ffi.Pointer<ffi.Int8> fgets(
+    ffi.Pointer<ffi.Int8> arg0,
+    int arg1,
+    ffi.Pointer<FILE> arg2,
+  ) {
+    return (_fgets ??= _dylib.lookupFunction<_c_fgets, _dart_fgets>('fgets'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_fgets? _fgets;
+
+  ffi.Pointer<FILE> fopen(
+    ffi.Pointer<ffi.Int8> __filename,
+    ffi.Pointer<ffi.Int8> __mode,
+  ) {
+    return (_fopen ??= _dylib.lookupFunction<_c_fopen, _dart_fopen>('fopen'))(
+      __filename,
+      __mode,
+    );
+  }
+
+  _dart_fopen? _fopen;
+
+  int fprintf(
+    ffi.Pointer<FILE> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_fprintf ??=
+        _dylib.lookupFunction<_c_fprintf, _dart_fprintf>('fprintf'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_fprintf? _fprintf;
+
+  int fputc(
+    int arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_fputc ??= _dylib.lookupFunction<_c_fputc, _dart_fputc>('fputc'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_fputc? _fputc;
+
+  int fputs(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_fputs ??= _dylib.lookupFunction<_c_fputs, _dart_fputs>('fputs'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_fputs? _fputs;
+
+  int fread(
+    ffi.Pointer<ffi.Void> __ptr,
+    int __size,
+    int __nitems,
+    ffi.Pointer<FILE> __stream,
+  ) {
+    return (_fread ??= _dylib.lookupFunction<_c_fread, _dart_fread>('fread'))(
+      __ptr,
+      __size,
+      __nitems,
+      __stream,
+    );
+  }
+
+  _dart_fread? _fread;
+
+  ffi.Pointer<FILE> freopen(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    ffi.Pointer<FILE> arg2,
+  ) {
+    return (_freopen ??=
+        _dylib.lookupFunction<_c_freopen, _dart_freopen>('freopen'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_freopen? _freopen;
+
+  int fscanf(
+    ffi.Pointer<FILE> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_fscanf ??=
+        _dylib.lookupFunction<_c_fscanf, _dart_fscanf>('fscanf'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_fscanf? _fscanf;
+
+  int fseek(
+    ffi.Pointer<FILE> arg0,
+    int arg1,
+    int arg2,
+  ) {
+    return (_fseek ??= _dylib.lookupFunction<_c_fseek, _dart_fseek>('fseek'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_fseek? _fseek;
+
+  int fsetpos(
+    ffi.Pointer<FILE> arg0,
+    ffi.Pointer<ffi.Int64> arg1,
+  ) {
+    return (_fsetpos ??=
+        _dylib.lookupFunction<_c_fsetpos, _dart_fsetpos>('fsetpos'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_fsetpos? _fsetpos;
+
+  int ftell(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_ftell ??= _dylib.lookupFunction<_c_ftell, _dart_ftell>('ftell'))(
+      arg0,
+    );
+  }
+
+  _dart_ftell? _ftell;
+
+  int fwrite(
+    ffi.Pointer<ffi.Void> __ptr,
+    int __size,
+    int __nitems,
+    ffi.Pointer<FILE> __stream,
+  ) {
+    return (_fwrite ??=
+        _dylib.lookupFunction<_c_fwrite, _dart_fwrite>('fwrite'))(
+      __ptr,
+      __size,
+      __nitems,
+      __stream,
+    );
+  }
+
+  _dart_fwrite? _fwrite;
+
+  int getc(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_getc ??= _dylib.lookupFunction<_c_getc, _dart_getc>('getc'))(
+      arg0,
+    );
+  }
+
+  _dart_getc? _getc;
+
+  int getchar() {
+    return (_getchar ??=
+        _dylib.lookupFunction<_c_getchar, _dart_getchar>('getchar'))();
+  }
+
+  _dart_getchar? _getchar;
+
+  ffi.Pointer<ffi.Int8> gets(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_gets ??= _dylib.lookupFunction<_c_gets, _dart_gets>('gets'))(
+      arg0,
+    );
+  }
+
+  _dart_gets? _gets;
+
+  void perror(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_perror ??=
+        _dylib.lookupFunction<_c_perror, _dart_perror>('perror'))(
+      arg0,
+    );
+  }
+
+  _dart_perror? _perror;
+
+  int printf(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_printf ??=
+        _dylib.lookupFunction<_c_printf, _dart_printf>('printf'))(
+      arg0,
+    );
+  }
+
+  _dart_printf? _printf;
+
+  int putc(
+    int arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_putc ??= _dylib.lookupFunction<_c_putc, _dart_putc>('putc'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_putc? _putc;
+
+  int putchar(
+    int arg0,
+  ) {
+    return (_putchar ??=
+        _dylib.lookupFunction<_c_putchar, _dart_putchar>('putchar'))(
+      arg0,
+    );
+  }
+
+  _dart_putchar? _putchar;
+
+  int puts(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_puts ??= _dylib.lookupFunction<_c_puts, _dart_puts>('puts'))(
+      arg0,
+    );
+  }
+
+  _dart_puts? _puts;
+
+  int remove(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_remove ??=
+        _dylib.lookupFunction<_c_remove, _dart_remove>('remove'))(
+      arg0,
+    );
+  }
+
+  _dart_remove? _remove;
+
+  int rename(
+    ffi.Pointer<ffi.Int8> __old,
+    ffi.Pointer<ffi.Int8> __new,
+  ) {
+    return (_rename ??=
+        _dylib.lookupFunction<_c_rename, _dart_rename>('rename'))(
+      __old,
+      __new,
+    );
+  }
+
+  _dart_rename? _rename;
+
+  void rewind(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_rewind ??=
+        _dylib.lookupFunction<_c_rewind, _dart_rewind>('rewind'))(
+      arg0,
+    );
+  }
+
+  _dart_rewind? _rewind;
+
+  int scanf(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_scanf ??= _dylib.lookupFunction<_c_scanf, _dart_scanf>('scanf'))(
+      arg0,
+    );
+  }
+
+  _dart_scanf? _scanf;
+
+  void setbuf(
+    ffi.Pointer<FILE> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_setbuf ??=
+        _dylib.lookupFunction<_c_setbuf, _dart_setbuf>('setbuf'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_setbuf? _setbuf;
+
+  int setvbuf(
+    ffi.Pointer<FILE> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    int arg2,
+    int arg3,
+  ) {
+    return (_setvbuf ??=
+        _dylib.lookupFunction<_c_setvbuf, _dart_setvbuf>('setvbuf'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_setvbuf? _setvbuf;
+
+  int sprintf(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_sprintf ??=
+        _dylib.lookupFunction<_c_sprintf, _dart_sprintf>('sprintf'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_sprintf? _sprintf;
+
+  int sscanf(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_sscanf ??=
+        _dylib.lookupFunction<_c_sscanf, _dart_sscanf>('sscanf'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_sscanf? _sscanf;
+
+  ffi.Pointer<FILE> tmpfile() {
+    return (_tmpfile ??=
+        _dylib.lookupFunction<_c_tmpfile, _dart_tmpfile>('tmpfile'))();
+  }
+
+  _dart_tmpfile? _tmpfile;
+
+  ffi.Pointer<ffi.Int8> tmpnam(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_tmpnam ??=
+        _dylib.lookupFunction<_c_tmpnam, _dart_tmpnam>('tmpnam'))(
+      arg0,
+    );
+  }
+
+  _dart_tmpnam? _tmpnam;
+
+  int ungetc(
+    int arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_ungetc ??=
+        _dylib.lookupFunction<_c_ungetc, _dart_ungetc>('ungetc'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_ungetc? _ungetc;
+
+  int vfprintf(
+    ffi.Pointer<FILE> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    ffi.Pointer<__va_list_tag> arg2,
+  ) {
+    return (_vfprintf ??=
+        _dylib.lookupFunction<_c_vfprintf, _dart_vfprintf>('vfprintf'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_vfprintf? _vfprintf;
+
+  int vprintf(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<__va_list_tag> arg1,
+  ) {
+    return (_vprintf ??=
+        _dylib.lookupFunction<_c_vprintf, _dart_vprintf>('vprintf'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_vprintf? _vprintf;
+
+  int vsprintf(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    ffi.Pointer<__va_list_tag> arg2,
+  ) {
+    return (_vsprintf ??=
+        _dylib.lookupFunction<_c_vsprintf, _dart_vsprintf>('vsprintf'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_vsprintf? _vsprintf;
+
+  ffi.Pointer<ffi.Int8> ctermid(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_ctermid ??=
+        _dylib.lookupFunction<_c_ctermid, _dart_ctermid>('ctermid'))(
+      arg0,
+    );
+  }
+
+  _dart_ctermid? _ctermid;
+
+  ffi.Pointer<FILE> fdopen(
+    int arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_fdopen ??=
+        _dylib.lookupFunction<_c_fdopen, _dart_fdopen>('fdopen'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_fdopen? _fdopen;
+
+  int fileno(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_fileno ??=
+        _dylib.lookupFunction<_c_fileno, _dart_fileno>('fileno'))(
+      arg0,
+    );
+  }
+
+  _dart_fileno? _fileno;
+
+  int pclose(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_pclose ??=
+        _dylib.lookupFunction<_c_pclose, _dart_pclose>('pclose'))(
+      arg0,
+    );
+  }
+
+  _dart_pclose? _pclose;
+
+  ffi.Pointer<FILE> popen(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_popen ??= _dylib.lookupFunction<_c_popen, _dart_popen>('popen'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_popen? _popen;
+
+  int __srget(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (___srget ??=
+        _dylib.lookupFunction<_c___srget, _dart___srget>('__srget'))(
+      arg0,
+    );
+  }
+
+  _dart___srget? ___srget;
+
+  int __svfscanf(
+    ffi.Pointer<FILE> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    ffi.Pointer<__va_list_tag> arg2,
+  ) {
+    return (___svfscanf ??=
+        _dylib.lookupFunction<_c___svfscanf, _dart___svfscanf>('__svfscanf'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart___svfscanf? ___svfscanf;
+
+  int __swbuf(
+    int arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (___swbuf ??=
+        _dylib.lookupFunction<_c___swbuf, _dart___swbuf>('__swbuf'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart___swbuf? ___swbuf;
+
+  int __sputc(
+    int _c,
+    ffi.Pointer<FILE> _p,
+  ) {
+    return (___sputc ??=
+        _dylib.lookupFunction<_c___sputc, _dart___sputc>('__sputc'))(
+      _c,
+      _p,
+    );
+  }
+
+  _dart___sputc? ___sputc;
+
+  void flockfile(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_flockfile ??=
+        _dylib.lookupFunction<_c_flockfile, _dart_flockfile>('flockfile'))(
+      arg0,
+    );
+  }
+
+  _dart_flockfile? _flockfile;
+
+  int ftrylockfile(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_ftrylockfile ??= _dylib
+        .lookupFunction<_c_ftrylockfile, _dart_ftrylockfile>('ftrylockfile'))(
+      arg0,
+    );
+  }
+
+  _dart_ftrylockfile? _ftrylockfile;
+
+  void funlockfile(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_funlockfile ??= _dylib
+        .lookupFunction<_c_funlockfile, _dart_funlockfile>('funlockfile'))(
+      arg0,
+    );
+  }
+
+  _dart_funlockfile? _funlockfile;
+
+  int getc_unlocked(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_getc_unlocked ??=
+        _dylib.lookupFunction<_c_getc_unlocked, _dart_getc_unlocked>(
+            'getc_unlocked'))(
+      arg0,
+    );
+  }
+
+  _dart_getc_unlocked? _getc_unlocked;
+
+  int getchar_unlocked() {
+    return (_getchar_unlocked ??=
+        _dylib.lookupFunction<_c_getchar_unlocked, _dart_getchar_unlocked>(
+            'getchar_unlocked'))();
+  }
+
+  _dart_getchar_unlocked? _getchar_unlocked;
+
+  int putc_unlocked(
+    int arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_putc_unlocked ??=
+        _dylib.lookupFunction<_c_putc_unlocked, _dart_putc_unlocked>(
+            'putc_unlocked'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_putc_unlocked? _putc_unlocked;
+
+  int putchar_unlocked(
+    int arg0,
+  ) {
+    return (_putchar_unlocked ??=
+        _dylib.lookupFunction<_c_putchar_unlocked, _dart_putchar_unlocked>(
+            'putchar_unlocked'))(
+      arg0,
+    );
+  }
+
+  _dart_putchar_unlocked? _putchar_unlocked;
+
+  int getw(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_getw ??= _dylib.lookupFunction<_c_getw, _dart_getw>('getw'))(
+      arg0,
+    );
+  }
+
+  _dart_getw? _getw;
+
+  int putw(
+    int arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_putw ??= _dylib.lookupFunction<_c_putw, _dart_putw>('putw'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_putw? _putw;
+
+  ffi.Pointer<ffi.Int8> tempnam(
+    ffi.Pointer<ffi.Int8> __dir,
+    ffi.Pointer<ffi.Int8> __prefix,
+  ) {
+    return (_tempnam ??=
+        _dylib.lookupFunction<_c_tempnam, _dart_tempnam>('tempnam'))(
+      __dir,
+      __prefix,
+    );
+  }
+
+  _dart_tempnam? _tempnam;
+
+  int fseeko(
+    ffi.Pointer<FILE> __stream,
+    int __offset,
+    int __whence,
+  ) {
+    return (_fseeko ??=
+        _dylib.lookupFunction<_c_fseeko, _dart_fseeko>('fseeko'))(
+      __stream,
+      __offset,
+      __whence,
+    );
+  }
+
+  _dart_fseeko? _fseeko;
+
+  int ftello(
+    ffi.Pointer<FILE> __stream,
+  ) {
+    return (_ftello ??=
+        _dylib.lookupFunction<_c_ftello, _dart_ftello>('ftello'))(
+      __stream,
+    );
+  }
+
+  _dart_ftello? _ftello;
+
+  int snprintf(
+    ffi.Pointer<ffi.Int8> __str,
+    int __size,
+    ffi.Pointer<ffi.Int8> __format,
+  ) {
+    return (_snprintf ??=
+        _dylib.lookupFunction<_c_snprintf, _dart_snprintf>('snprintf'))(
+      __str,
+      __size,
+      __format,
+    );
+  }
+
+  _dart_snprintf? _snprintf;
+
+  int vfscanf(
+    ffi.Pointer<FILE> __stream,
+    ffi.Pointer<ffi.Int8> __format,
+    ffi.Pointer<__va_list_tag> arg2,
+  ) {
+    return (_vfscanf ??=
+        _dylib.lookupFunction<_c_vfscanf, _dart_vfscanf>('vfscanf'))(
+      __stream,
+      __format,
+      arg2,
+    );
+  }
+
+  _dart_vfscanf? _vfscanf;
+
+  int vscanf(
+    ffi.Pointer<ffi.Int8> __format,
+    ffi.Pointer<__va_list_tag> arg1,
+  ) {
+    return (_vscanf ??=
+        _dylib.lookupFunction<_c_vscanf, _dart_vscanf>('vscanf'))(
+      __format,
+      arg1,
+    );
+  }
+
+  _dart_vscanf? _vscanf;
+
+  int vsnprintf(
+    ffi.Pointer<ffi.Int8> __str,
+    int __size,
+    ffi.Pointer<ffi.Int8> __format,
+    ffi.Pointer<__va_list_tag> arg3,
+  ) {
+    return (_vsnprintf ??=
+        _dylib.lookupFunction<_c_vsnprintf, _dart_vsnprintf>('vsnprintf'))(
+      __str,
+      __size,
+      __format,
+      arg3,
+    );
+  }
+
+  _dart_vsnprintf? _vsnprintf;
+
+  int vsscanf(
+    ffi.Pointer<ffi.Int8> __str,
+    ffi.Pointer<ffi.Int8> __format,
+    ffi.Pointer<__va_list_tag> arg2,
+  ) {
+    return (_vsscanf ??=
+        _dylib.lookupFunction<_c_vsscanf, _dart_vsscanf>('vsscanf'))(
+      __str,
+      __format,
+      arg2,
+    );
+  }
+
+  _dart_vsscanf? _vsscanf;
+
+  int dprintf(
+    int arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_dprintf ??=
+        _dylib.lookupFunction<_c_dprintf, _dart_dprintf>('dprintf'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_dprintf? _dprintf;
+
+  int vdprintf(
+    int arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    ffi.Pointer<__va_list_tag> arg2,
+  ) {
+    return (_vdprintf ??=
+        _dylib.lookupFunction<_c_vdprintf, _dart_vdprintf>('vdprintf'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_vdprintf? _vdprintf;
+
+  int getdelim(
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> __linep,
+    ffi.Pointer<ffi.Uint64> __linecapp,
+    int __delimiter,
+    ffi.Pointer<FILE> __stream,
+  ) {
+    return (_getdelim ??=
+        _dylib.lookupFunction<_c_getdelim, _dart_getdelim>('getdelim'))(
+      __linep,
+      __linecapp,
+      __delimiter,
+      __stream,
+    );
+  }
+
+  _dart_getdelim? _getdelim;
+
+  int getline(
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> __linep,
+    ffi.Pointer<ffi.Uint64> __linecapp,
+    ffi.Pointer<FILE> __stream,
+  ) {
+    return (_getline ??=
+        _dylib.lookupFunction<_c_getline, _dart_getline>('getline'))(
+      __linep,
+      __linecapp,
+      __stream,
+    );
+  }
+
+  _dart_getline? _getline;
+
+  ffi.Pointer<FILE> fmemopen(
+    ffi.Pointer<ffi.Void> __buf,
+    int __size,
+    ffi.Pointer<ffi.Int8> __mode,
+  ) {
+    return (_fmemopen ??=
+        _dylib.lookupFunction<_c_fmemopen, _dart_fmemopen>('fmemopen'))(
+      __buf,
+      __size,
+      __mode,
+    );
+  }
+
+  _dart_fmemopen? _fmemopen;
+
+  ffi.Pointer<FILE> open_memstream(
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> __bufp,
+    ffi.Pointer<ffi.Uint64> __sizep,
+  ) {
+    return (_open_memstream ??=
+        _dylib.lookupFunction<_c_open_memstream, _dart_open_memstream>(
+            'open_memstream'))(
+      __bufp,
+      __sizep,
+    );
+  }
+
+  _dart_open_memstream? _open_memstream;
+
+  int asprintf(
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_asprintf ??=
+        _dylib.lookupFunction<_c_asprintf, _dart_asprintf>('asprintf'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_asprintf? _asprintf;
+
+  ffi.Pointer<ffi.Int8> ctermid_r(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_ctermid_r ??=
+        _dylib.lookupFunction<_c_ctermid_r, _dart_ctermid_r>('ctermid_r'))(
+      arg0,
+    );
+  }
+
+  _dart_ctermid_r? _ctermid_r;
+
+  ffi.Pointer<ffi.Int8> fgetln(
+    ffi.Pointer<FILE> arg0,
+    ffi.Pointer<ffi.Uint64> arg1,
+  ) {
+    return (_fgetln ??=
+        _dylib.lookupFunction<_c_fgetln, _dart_fgetln>('fgetln'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_fgetln? _fgetln;
+
+  ffi.Pointer<ffi.Int8> fmtcheck(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_fmtcheck ??=
+        _dylib.lookupFunction<_c_fmtcheck, _dart_fmtcheck>('fmtcheck'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_fmtcheck? _fmtcheck;
+
+  int fpurge(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_fpurge ??=
+        _dylib.lookupFunction<_c_fpurge, _dart_fpurge>('fpurge'))(
+      arg0,
+    );
+  }
+
+  _dart_fpurge? _fpurge;
+
+  void setbuffer(
+    ffi.Pointer<FILE> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    int arg2,
+  ) {
+    return (_setbuffer ??=
+        _dylib.lookupFunction<_c_setbuffer, _dart_setbuffer>('setbuffer'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_setbuffer? _setbuffer;
+
+  int setlinebuf(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_setlinebuf ??=
+        _dylib.lookupFunction<_c_setlinebuf, _dart_setlinebuf>('setlinebuf'))(
+      arg0,
+    );
+  }
+
+  _dart_setlinebuf? _setlinebuf;
+
+  int vasprintf(
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    ffi.Pointer<__va_list_tag> arg2,
+  ) {
+    return (_vasprintf ??=
+        _dylib.lookupFunction<_c_vasprintf, _dart_vasprintf>('vasprintf'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_vasprintf? _vasprintf;
+
+  ffi.Pointer<FILE> zopen(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    int arg2,
+  ) {
+    return (_zopen ??= _dylib.lookupFunction<_c_zopen, _dart_zopen>('zopen'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_zopen? _zopen;
+
+  ffi.Pointer<FILE> funopen(
+    ffi.Pointer<ffi.Void> arg0,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_6>> arg1,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_7>> arg2,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_8>> arg3,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_9>> arg4,
+  ) {
+    return (_funopen ??=
+        _dylib.lookupFunction<_c_funopen, _dart_funopen>('funopen'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+    );
+  }
+
+  _dart_funopen? _funopen;
+
+  int __sprintf_chk(
+    ffi.Pointer<ffi.Int8> arg0,
+    int arg1,
+    int arg2,
+    ffi.Pointer<ffi.Int8> arg3,
+  ) {
+    return (___sprintf_chk ??=
+        _dylib.lookupFunction<_c___sprintf_chk, _dart___sprintf_chk>(
+            '__sprintf_chk'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart___sprintf_chk? ___sprintf_chk;
+
+  int __snprintf_chk(
+    ffi.Pointer<ffi.Int8> arg0,
+    int arg1,
+    int arg2,
+    int arg3,
+    ffi.Pointer<ffi.Int8> arg4,
+  ) {
+    return (___snprintf_chk ??=
+        _dylib.lookupFunction<_c___snprintf_chk, _dart___snprintf_chk>(
+            '__snprintf_chk'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+    );
+  }
+
+  _dart___snprintf_chk? ___snprintf_chk;
+
+  int __vsprintf_chk(
+    ffi.Pointer<ffi.Int8> arg0,
+    int arg1,
+    int arg2,
+    ffi.Pointer<ffi.Int8> arg3,
+    ffi.Pointer<__va_list_tag> arg4,
+  ) {
+    return (___vsprintf_chk ??=
+        _dylib.lookupFunction<_c___vsprintf_chk, _dart___vsprintf_chk>(
+            '__vsprintf_chk'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+    );
+  }
+
+  _dart___vsprintf_chk? ___vsprintf_chk;
+
+  int __vsnprintf_chk(
+    ffi.Pointer<ffi.Int8> arg0,
+    int arg1,
+    int arg2,
+    int arg3,
+    ffi.Pointer<ffi.Int8> arg4,
+    ffi.Pointer<__va_list_tag> arg5,
+  ) {
+    return (___vsnprintf_chk ??=
+        _dylib.lookupFunction<_c___vsnprintf_chk, _dart___vsnprintf_chk>(
+            '__vsnprintf_chk'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+      arg5,
+    );
+  }
+
+  _dart___vsnprintf_chk? ___vsnprintf_chk;
+
+  void board_init(
+    ffi.Pointer<Board> arg0,
+  ) {
+    return (_board_init ??=
+        _dylib.lookupFunction<_c_board_init, _dart_board_init>('board_init'))(
+      arg0,
+    );
+  }
+
+  _dart_board_init? _board_init;
+
+  int board_set(
+    ffi.Pointer<Board> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_board_set ??=
+        _dylib.lookupFunction<_c_board_set, _dart_board_set>('board_set'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_board_set? _board_set;
+
+  int board_from_FEN(
+    ffi.Pointer<Board> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_board_from_FEN ??=
+        _dylib.lookupFunction<_c_board_from_FEN, _dart_board_from_FEN>(
+            'board_from_FEN'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_board_from_FEN? _board_from_FEN;
+
+  int board_from_obj(
+    ffi.Pointer<Board> arg0,
+    ffi.Pointer<Board> arg1,
+    int arg2,
+  ) {
+    return (_board_from_obj ??=
+        _dylib.lookupFunction<_c_board_from_obj, _dart_board_from_obj>(
+            'board_from_obj'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_board_from_obj? _board_from_obj;
+
+  int board_compare(
+    ffi.Pointer<Board> arg0,
+    ffi.Pointer<Board> arg1,
+  ) {
+    return (_board_compare ??=
+        _dylib.lookupFunction<_c_board_compare, _dart_board_compare>(
+            'board_compare'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_board_compare? _board_compare;
+
+  int board_equal(
+    ffi.Pointer<Board> arg0,
+    ffi.Pointer<Board> arg1,
+  ) {
+    return (_board_equal ??= _dylib
+        .lookupFunction<_c_board_equal, _dart_board_equal>('board_equal'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_board_equal? _board_equal;
+
+  void board_symetry(
+    ffi.Pointer<Board> arg0,
+    int arg1,
+    ffi.Pointer<Board> arg2,
+  ) {
+    return (_board_symetry ??=
+        _dylib.lookupFunction<_c_board_symetry, _dart_board_symetry>(
+            'board_symetry'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_board_symetry? _board_symetry;
+
+  int board_unique(
+    ffi.Pointer<Board> arg0,
+    ffi.Pointer<Board> arg1,
+  ) {
+    return (_board_unique ??= _dylib
+        .lookupFunction<_c_board_unique, _dart_board_unique>('board_unique'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_board_unique? _board_unique;
+
+  void board_check(
+    ffi.Pointer<Board> arg0,
+  ) {
+    return (_board_check ??= _dylib
+        .lookupFunction<_c_board_check, _dart_board_check>('board_check'))(
+      arg0,
+    );
+  }
+
+  _dart_board_check? _board_check;
+
+  void board_rand(
+    ffi.Pointer<Board> arg0,
+    int arg1,
+    ffi.Pointer<Random> arg2,
+  ) {
+    return (_board_rand ??=
+        _dylib.lookupFunction<_c_board_rand, _dart_board_rand>('board_rand'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_board_rand? _board_rand;
+
+  int board_count_last_flips(
+    ffi.Pointer<Board> arg0,
+    int arg1,
+  ) {
+    return (_board_count_last_flips ??= _dylib.lookupFunction<
+        _c_board_count_last_flips,
+        _dart_board_count_last_flips>('board_count_last_flips'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_board_count_last_flips? _board_count_last_flips;
+
+  int board_get_move(
+    ffi.Pointer<Board> arg0,
+    int arg1,
+    ffi.Pointer<Move> arg2,
+  ) {
+    return (_board_get_move ??=
+        _dylib.lookupFunction<_c_board_get_move, _dart_board_get_move>(
+            'board_get_move'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_board_get_move? _board_get_move;
+
+  int board_check_move(
+    ffi.Pointer<Board> arg0,
+    ffi.Pointer<Move> arg1,
+  ) {
+    return (_board_check_move ??=
+        _dylib.lookupFunction<_c_board_check_move, _dart_board_check_move>(
+            'board_check_move'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_board_check_move? _board_check_move;
+
+  void board_swap_players(
+    ffi.Pointer<Board> arg0,
+  ) {
+    return (_board_swap_players ??=
+        _dylib.lookupFunction<_c_board_swap_players, _dart_board_swap_players>(
+            'board_swap_players'))(
+      arg0,
+    );
+  }
+
+  _dart_board_swap_players? _board_swap_players;
+
+  void board_update(
+    ffi.Pointer<Board> arg0,
+    ffi.Pointer<Move> arg1,
+  ) {
+    return (_board_update ??= _dylib
+        .lookupFunction<_c_board_update, _dart_board_update>('board_update'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_board_update? _board_update;
+
+  void board_restore(
+    ffi.Pointer<Board> arg0,
+    ffi.Pointer<Move> arg1,
+  ) {
+    return (_board_restore ??=
+        _dylib.lookupFunction<_c_board_restore, _dart_board_restore>(
+            'board_restore'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_board_restore? _board_restore;
+
+  void board_pass(
+    ffi.Pointer<Board> arg0,
+  ) {
+    return (_board_pass ??=
+        _dylib.lookupFunction<_c_board_pass, _dart_board_pass>('board_pass'))(
+      arg0,
+    );
+  }
+
+  _dart_board_pass? _board_pass;
+
+  int board_next(
+    ffi.Pointer<Board> arg0,
+    int arg1,
+    ffi.Pointer<Board> arg2,
+  ) {
+    return (_board_next ??=
+        _dylib.lookupFunction<_c_board_next, _dart_board_next>('board_next'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_board_next? _board_next;
+
+  int board_pass_next(
+    ffi.Pointer<Board> arg0,
+    int arg1,
+    ffi.Pointer<Board> arg2,
+  ) {
+    return (_board_pass_next ??=
+        _dylib.lookupFunction<_c_board_pass_next, _dart_board_pass_next>(
+            'board_pass_next'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_board_pass_next? _board_pass_next;
+
+  int board_get_hash_code(
+    ffi.Pointer<Board> arg0,
+  ) {
+    return (_board_get_hash_code ??= _dylib.lookupFunction<
+        _c_board_get_hash_code,
+        _dart_board_get_hash_code>('board_get_hash_code'))(
+      arg0,
+    );
+  }
+
+  _dart_board_get_hash_code? _board_get_hash_code;
+
+  int board_get_square_color(
+    ffi.Pointer<Board> arg0,
+    int arg1,
+  ) {
+    return (_board_get_square_color ??= _dylib.lookupFunction<
+        _c_board_get_square_color,
+        _dart_board_get_square_color>('board_get_square_color'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_board_get_square_color? _board_get_square_color;
+
+  int board_is_occupied(
+    ffi.Pointer<Board> arg0,
+    int arg1,
+  ) {
+    return (_board_is_occupied ??=
+        _dylib.lookupFunction<_c_board_is_occupied, _dart_board_is_occupied>(
+            'board_is_occupied'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_board_is_occupied? _board_is_occupied;
+
+  void board_print(
+    ffi.Pointer<Board> arg0,
+    int arg1,
+    ffi.Pointer<FILE> arg2,
+  ) {
+    return (_board_print ??= _dylib
+        .lookupFunction<_c_board_print, _dart_board_print>('board_print'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_board_print? _board_print;
+
+  ffi.Pointer<ffi.Int8> board_to_string(
+    ffi.Pointer<Board> arg0,
+    int arg1,
+    ffi.Pointer<ffi.Int8> arg2,
+  ) {
+    return (_board_to_string ??=
+        _dylib.lookupFunction<_c_board_to_string, _dart_board_to_string>(
+            'board_to_string'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_board_to_string? _board_to_string;
+
+  void board_print_FEN(
+    ffi.Pointer<Board> arg0,
+    int arg1,
+    ffi.Pointer<FILE> arg2,
+  ) {
+    return (_board_print_FEN ??=
+        _dylib.lookupFunction<_c_board_print_FEN, _dart_board_print_FEN>(
+            'board_print_FEN'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_board_print_FEN? _board_print_FEN;
+
+  ffi.Pointer<ffi.Int8> board_to_FEN(
+    ffi.Pointer<Board> arg0,
+    int arg1,
+    ffi.Pointer<ffi.Int8> arg2,
+  ) {
+    return (_board_to_FEN ??= _dylib
+        .lookupFunction<_c_board_to_FEN, _dart_board_to_FEN>('board_to_FEN'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_board_to_FEN? _board_to_FEN;
+
+  int board_is_pass(
+    ffi.Pointer<Board> arg0,
+  ) {
+    return (_board_is_pass ??=
+        _dylib.lookupFunction<_c_board_is_pass, _dart_board_is_pass>(
+            'board_is_pass'))(
+      arg0,
+    );
+  }
+
+  _dart_board_is_pass? _board_is_pass;
+
+  int board_is_game_over(
+    ffi.Pointer<Board> arg0,
+  ) {
+    return (_board_is_game_over ??=
+        _dylib.lookupFunction<_c_board_is_game_over, _dart_board_is_game_over>(
+            'board_is_game_over'))(
+      arg0,
+    );
+  }
+
+  _dart_board_is_game_over? _board_is_game_over;
+
+  int board_count_empties(
+    ffi.Pointer<Board> board,
+  ) {
+    return (_board_count_empties ??= _dylib.lookupFunction<
+        _c_board_count_empties,
+        _dart_board_count_empties>('board_count_empties'))(
+      board,
+    );
+  }
+
+  _dart_board_count_empties? _board_count_empties;
+
+  int count_last_flip(
+    int arg0,
+    int arg1,
+  ) {
+    return (_count_last_flip ??=
+        _dylib.lookupFunction<_c_count_last_flip, _dart_count_last_flip>(
+            'count_last_flip'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_count_last_flip? _count_last_flip;
+
   int get_moves(
     int arg0,
     int arg1,
@@ -35,6 +1623,9237 @@ class LibEdaxBindings {
   }
 
   _dart_can_move? _can_move;
+
+  int get_moves_6x6(
+    int arg0,
+    int arg1,
+  ) {
+    return (_get_moves_6x6 ??=
+        _dylib.lookupFunction<_c_get_moves_6x6, _dart_get_moves_6x6>(
+            'get_moves_6x6'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_get_moves_6x6? _get_moves_6x6;
+
+  int can_move_6x6(
+    int arg0,
+    int arg1,
+  ) {
+    return (_can_move_6x6 ??= _dylib
+        .lookupFunction<_c_can_move_6x6, _dart_can_move_6x6>('can_move_6x6'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_can_move_6x6? _can_move_6x6;
+
+  int get_mobility(
+    int arg0,
+    int arg1,
+  ) {
+    return (_get_mobility ??= _dylib
+        .lookupFunction<_c_get_mobility, _dart_get_mobility>('get_mobility'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_get_mobility? _get_mobility;
+
+  int get_weighted_mobility(
+    int arg0,
+    int arg1,
+  ) {
+    return (_get_weighted_mobility ??= _dylib.lookupFunction<
+        _c_get_weighted_mobility,
+        _dart_get_weighted_mobility>('get_weighted_mobility'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_get_weighted_mobility? _get_weighted_mobility;
+
+  int get_potential_mobility(
+    int arg0,
+    int arg1,
+  ) {
+    return (_get_potential_mobility ??= _dylib.lookupFunction<
+        _c_get_potential_mobility,
+        _dart_get_potential_mobility>('get_potential_mobility'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_get_potential_mobility? _get_potential_mobility;
+
+  void edge_stability_init() {
+    return (_edge_stability_init ??= _dylib.lookupFunction<
+        _c_edge_stability_init,
+        _dart_edge_stability_init>('edge_stability_init'))();
+  }
+
+  _dart_edge_stability_init? _edge_stability_init;
+
+  int get_stability(
+    int arg0,
+    int arg1,
+  ) {
+    return (_get_stability ??=
+        _dylib.lookupFunction<_c_get_stability, _dart_get_stability>(
+            'get_stability'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_get_stability? _get_stability;
+
+  int get_edge_stability(
+    int arg0,
+    int arg1,
+  ) {
+    return (_get_edge_stability ??=
+        _dylib.lookupFunction<_c_get_edge_stability, _dart_get_edge_stability>(
+            'get_edge_stability'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_get_edge_stability? _get_edge_stability;
+
+  int get_corner_stability(
+    int arg0,
+  ) {
+    return (_get_corner_stability ??= _dylib.lookupFunction<
+        _c_get_corner_stability,
+        _dart_get_corner_stability>('get_corner_stability'))(
+      arg0,
+    );
+  }
+
+  _dart_get_corner_stability? _get_corner_stability;
+
+  int symetry(
+    int arg0,
+    int arg1,
+  ) {
+    return (_symetry ??=
+        _dylib.lookupFunction<_c_symetry, _dart_symetry>('symetry'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_symetry? _symetry;
+
+  void move_print(
+    int arg0,
+    int arg1,
+    ffi.Pointer<FILE> arg2,
+  ) {
+    return (_move_print ??=
+        _dylib.lookupFunction<_c_move_print, _dart_move_print>('move_print'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_move_print? _move_print;
+
+  int move_wipeout(
+    ffi.Pointer<Move> arg0,
+    ffi.Pointer<Board> arg1,
+  ) {
+    return (_move_wipeout ??= _dylib
+        .lookupFunction<_c_move_wipeout, _dart_move_wipeout>('move_wipeout'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_move_wipeout? _move_wipeout;
+
+  ffi.Pointer<Move> move_next_best(
+    ffi.Pointer<Move> arg0,
+  ) {
+    return (_move_next_best ??=
+        _dylib.lookupFunction<_c_move_next_best, _dart_move_next_best>(
+            'move_next_best'))(
+      arg0,
+    );
+  }
+
+  _dart_move_next_best? _move_next_best;
+
+  ffi.Pointer<Move> move_next(
+    ffi.Pointer<Move> arg0,
+  ) {
+    return (_move_next ??=
+        _dylib.lookupFunction<_c_move_next, _dart_move_next>('move_next'))(
+      arg0,
+    );
+  }
+
+  _dart_move_next? _move_next;
+
+  ffi.Pointer<ffi.Int8> move_to_string(
+    int arg0,
+    int arg1,
+    ffi.Pointer<ffi.Int8> arg2,
+  ) {
+    return (_move_to_string ??=
+        _dylib.lookupFunction<_c_move_to_string, _dart_move_to_string>(
+            'move_to_string'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_move_to_string? _move_to_string;
+
+  void tune_move_evaluate(
+    ffi.Pointer<Search> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    ffi.Pointer<ffi.Int8> arg2,
+  ) {
+    return (_tune_move_evaluate ??=
+        _dylib.lookupFunction<_c_tune_move_evaluate, _dart_tune_move_evaluate>(
+            'tune_move_evaluate'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_tune_move_evaluate? _tune_move_evaluate;
+
+  int movelist_get_moves(
+    ffi.Pointer<MoveList> arg0,
+    ffi.Pointer<Board> arg1,
+  ) {
+    return (_movelist_get_moves ??=
+        _dylib.lookupFunction<_c_movelist_get_moves, _dart_movelist_get_moves>(
+            'movelist_get_moves'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_movelist_get_moves? _movelist_get_moves;
+
+  void movelist_print(
+    ffi.Pointer<MoveList> arg0,
+    int arg1,
+    ffi.Pointer<FILE> arg2,
+  ) {
+    return (_movelist_print ??=
+        _dylib.lookupFunction<_c_movelist_print, _dart_movelist_print>(
+            'movelist_print'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_movelist_print? _movelist_print;
+
+  ffi.Pointer<Move> movelist_sort_bestmove(
+    ffi.Pointer<MoveList> arg0,
+    int arg1,
+  ) {
+    return (_movelist_sort_bestmove ??= _dylib.lookupFunction<
+        _c_movelist_sort_bestmove,
+        _dart_movelist_sort_bestmove>('movelist_sort_bestmove'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_movelist_sort_bestmove? _movelist_sort_bestmove;
+
+  void movelist_evaluate(
+    ffi.Pointer<MoveList> arg0,
+    ffi.Pointer<Search> arg1,
+    ffi.Pointer<HashData> arg2,
+    int arg3,
+    int arg4,
+  ) {
+    return (_movelist_evaluate ??=
+        _dylib.lookupFunction<_c_movelist_evaluate, _dart_movelist_evaluate>(
+            'movelist_evaluate'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+    );
+  }
+
+  _dart_movelist_evaluate? _movelist_evaluate;
+
+  void movelist_evaluate_fast(
+    ffi.Pointer<MoveList> arg0,
+    ffi.Pointer<Search> arg1,
+  ) {
+    return (_movelist_evaluate_fast ??= _dylib.lookupFunction<
+        _c_movelist_evaluate_fast,
+        _dart_movelist_evaluate_fast>('movelist_evaluate_fast'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_movelist_evaluate_fast? _movelist_evaluate_fast;
+
+  ffi.Pointer<Move> movelist_best(
+    ffi.Pointer<MoveList> arg0,
+  ) {
+    return (_movelist_best ??=
+        _dylib.lookupFunction<_c_movelist_best, _dart_movelist_best>(
+            'movelist_best'))(
+      arg0,
+    );
+  }
+
+  _dart_movelist_best? _movelist_best;
+
+  ffi.Pointer<Move> movelist_first(
+    ffi.Pointer<MoveList> arg0,
+  ) {
+    return (_movelist_first ??=
+        _dylib.lookupFunction<_c_movelist_first, _dart_movelist_first>(
+            'movelist_first'))(
+      arg0,
+    );
+  }
+
+  _dart_movelist_first? _movelist_first;
+
+  ffi.Pointer<Move> movelist_exclude(
+    ffi.Pointer<MoveList> arg0,
+    int arg1,
+  ) {
+    return (_movelist_exclude ??=
+        _dylib.lookupFunction<_c_movelist_exclude, _dart_movelist_exclude>(
+            'movelist_exclude'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_movelist_exclude? _movelist_exclude;
+
+  void movelist_restore(
+    ffi.Pointer<MoveList> arg0,
+    ffi.Pointer<Move> arg1,
+  ) {
+    return (_movelist_restore ??=
+        _dylib.lookupFunction<_c_movelist_restore, _dart_movelist_restore>(
+            'movelist_restore'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_movelist_restore? _movelist_restore;
+
+  void movelist_sort(
+    ffi.Pointer<MoveList> arg0,
+  ) {
+    return (_movelist_sort ??=
+        _dylib.lookupFunction<_c_movelist_sort, _dart_movelist_sort>(
+            'movelist_sort'))(
+      arg0,
+    );
+  }
+
+  _dart_movelist_sort? _movelist_sort;
+
+  void movelist_sort_cost(
+    ffi.Pointer<MoveList> arg0,
+    ffi.Pointer<HashData> arg1,
+  ) {
+    return (_movelist_sort_cost ??=
+        _dylib.lookupFunction<_c_movelist_sort_cost, _dart_movelist_sort_cost>(
+            'movelist_sort_cost'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_movelist_sort_cost? _movelist_sort_cost;
+
+  int movelist_is_empty(
+    ffi.Pointer<MoveList> arg0,
+  ) {
+    return (_movelist_is_empty ??=
+        _dylib.lookupFunction<_c_movelist_is_empty, _dart_movelist_is_empty>(
+            'movelist_is_empty'))(
+      arg0,
+    );
+  }
+
+  _dart_movelist_is_empty? _movelist_is_empty;
+
+  int movelist_is_single(
+    ffi.Pointer<MoveList> arg0,
+  ) {
+    return (_movelist_is_single ??=
+        _dylib.lookupFunction<_c_movelist_is_single, _dart_movelist_is_single>(
+            'movelist_is_single'))(
+      arg0,
+    );
+  }
+
+  _dart_movelist_is_single? _movelist_is_single;
+
+  void line_init(
+    ffi.Pointer<Line> arg0,
+    int arg1,
+  ) {
+    return (_line_init ??=
+        _dylib.lookupFunction<_c_line_init, _dart_line_init>('line_init'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_line_init? _line_init;
+
+  void line_push(
+    ffi.Pointer<Line> arg0,
+    int arg1,
+  ) {
+    return (_line_push ??=
+        _dylib.lookupFunction<_c_line_push, _dart_line_push>('line_push'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_line_push? _line_push;
+
+  void line_pop(
+    ffi.Pointer<Line> arg0,
+  ) {
+    return (_line_pop ??=
+        _dylib.lookupFunction<_c_line_pop, _dart_line_pop>('line_pop'))(
+      arg0,
+    );
+  }
+
+  _dart_line_pop? _line_pop;
+
+  void line_copy(
+    ffi.Pointer<Line> arg0,
+    ffi.Pointer<Line> arg1,
+    int arg2,
+  ) {
+    return (_line_copy ??=
+        _dylib.lookupFunction<_c_line_copy, _dart_line_copy>('line_copy'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_line_copy? _line_copy;
+
+  void line_print(
+    ffi.Pointer<Line> arg0,
+    int arg1,
+    ffi.Pointer<ffi.Int8> arg2,
+    ffi.Pointer<FILE> arg3,
+  ) {
+    return (_line_print ??=
+        _dylib.lookupFunction<_c_line_print, _dart_line_print>('line_print'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_line_print? _line_print;
+
+  ffi.Pointer<ffi.Int8> line_to_string(
+    ffi.Pointer<Line> line,
+    int n,
+    ffi.Pointer<ffi.Int8> arg2,
+    ffi.Pointer<ffi.Int8> string,
+  ) {
+    return (_line_to_string ??=
+        _dylib.lookupFunction<_c_line_to_string, _dart_line_to_string>(
+            'line_to_string'))(
+      line,
+      n,
+      arg2,
+      string,
+    );
+  }
+
+  _dart_line_to_string? _line_to_string;
+
+  void movehash_init(
+    ffi.Pointer<MoveHash> arg0,
+    int arg1,
+  ) {
+    return (_movehash_init ??=
+        _dylib.lookupFunction<_c_movehash_init, _dart_movehash_init>(
+            'movehash_init'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_movehash_init? _movehash_init;
+
+  void movehash_delete(
+    ffi.Pointer<MoveHash> arg0,
+  ) {
+    return (_movehash_delete ??=
+        _dylib.lookupFunction<_c_movehash_delete, _dart_movehash_delete>(
+            'movehash_delete'))(
+      arg0,
+    );
+  }
+
+  _dart_movehash_delete? _movehash_delete;
+
+  int movehash_append(
+    ffi.Pointer<MoveHash> arg0,
+    ffi.Pointer<Board> arg1,
+    int arg2,
+  ) {
+    return (_movehash_append ??=
+        _dylib.lookupFunction<_c_movehash_append, _dart_movehash_append>(
+            'movehash_append'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_movehash_append? _movehash_append;
+
+  void game_init(
+    ffi.Pointer<Game> arg0,
+  ) {
+    return (_game_init ??=
+        _dylib.lookupFunction<_c_game_init, _dart_game_init>('game_init'))(
+      arg0,
+    );
+  }
+
+  _dart_game_init? _game_init;
+
+  void game_copy(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<Game> arg1,
+  ) {
+    return (_game_copy ??=
+        _dylib.lookupFunction<_c_game_copy, _dart_game_copy>('game_copy'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_copy? _game_copy;
+
+  int game_get_board(
+    ffi.Pointer<Game> arg0,
+    int arg1,
+    ffi.Pointer<Board> arg2,
+  ) {
+    return (_game_get_board ??=
+        _dylib.lookupFunction<_c_game_get_board, _dart_game_get_board>(
+            'game_get_board'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_game_get_board? _game_get_board;
+
+  int game_update_board(
+    ffi.Pointer<Board> board,
+    int x,
+  ) {
+    return (_game_update_board ??=
+        _dylib.lookupFunction<_c_game_update_board, _dart_game_update_board>(
+            'game_update_board'))(
+      board,
+      x,
+    );
+  }
+
+  _dart_game_update_board? _game_update_board;
+
+  int game_check(
+    ffi.Pointer<Game> arg0,
+  ) {
+    return (_game_check ??=
+        _dylib.lookupFunction<_c_game_check, _dart_game_check>('game_check'))(
+      arg0,
+    );
+  }
+
+  _dart_game_check? _game_check;
+
+  int game_equals(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<Game> arg1,
+  ) {
+    return (_game_equals ??= _dylib
+        .lookupFunction<_c_game_equals, _dart_game_equals>('game_equals'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_equals? _game_equals;
+
+  void wthor_to_game(
+    ffi.Pointer<WthorGame> arg0,
+    ffi.Pointer<Game> arg1,
+  ) {
+    return (_wthor_to_game ??=
+        _dylib.lookupFunction<_c_wthor_to_game, _dart_wthor_to_game>(
+            'wthor_to_game'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_wthor_to_game? _wthor_to_game;
+
+  void game_to_wthor(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<WthorGame> arg1,
+  ) {
+    return (_game_to_wthor ??=
+        _dylib.lookupFunction<_c_game_to_wthor, _dart_game_to_wthor>(
+            'game_to_wthor'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_to_wthor? _game_to_wthor;
+
+  void game_read(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_game_read ??=
+        _dylib.lookupFunction<_c_game_read, _dart_game_read>('game_read'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_read? _game_read;
+
+  void game_write(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_game_write ??=
+        _dylib.lookupFunction<_c_game_write, _dart_game_write>('game_write'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_write? _game_write;
+
+  void game_import_text(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_game_import_text ??=
+        _dylib.lookupFunction<_c_game_import_text, _dart_game_import_text>(
+            'game_import_text'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_import_text? _game_import_text;
+
+  void game_import_wthor(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_game_import_wthor ??=
+        _dylib.lookupFunction<_c_game_import_wthor, _dart_game_import_wthor>(
+            'game_import_wthor'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_import_wthor? _game_import_wthor;
+
+  void game_import_ggf(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_game_import_ggf ??=
+        _dylib.lookupFunction<_c_game_import_ggf, _dart_game_import_ggf>(
+            'game_import_ggf'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_import_ggf? _game_import_ggf;
+
+  void game_import_sgf(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_game_import_sgf ??=
+        _dylib.lookupFunction<_c_game_import_sgf, _dart_game_import_sgf>(
+            'game_import_sgf'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_import_sgf? _game_import_sgf;
+
+  ffi.Pointer<ffi.Int8> parse_ggf(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_parse_ggf ??=
+        _dylib.lookupFunction<_c_parse_ggf, _dart_parse_ggf>('parse_ggf'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_parse_ggf? _parse_ggf;
+
+  void game_import_pgn(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_game_import_pgn ??=
+        _dylib.lookupFunction<_c_game_import_pgn, _dart_game_import_pgn>(
+            'game_import_pgn'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_import_pgn? _game_import_pgn;
+
+  void game_export_text(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_game_export_text ??=
+        _dylib.lookupFunction<_c_game_export_text, _dart_game_export_text>(
+            'game_export_text'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_export_text? _game_export_text;
+
+  void game_export_ggf(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_game_export_ggf ??=
+        _dylib.lookupFunction<_c_game_export_ggf, _dart_game_export_ggf>(
+            'game_export_ggf'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_export_ggf? _game_export_ggf;
+
+  void game_save_sgf(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<FILE> arg1,
+    int bool,
+  ) {
+    return (_game_save_sgf ??=
+        _dylib.lookupFunction<_c_game_save_sgf, _dart_game_save_sgf>(
+            'game_save_sgf'))(
+      arg0,
+      arg1,
+      bool,
+    );
+  }
+
+  _dart_game_save_sgf? _game_save_sgf;
+
+  void game_export_sgf(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_game_export_sgf ??=
+        _dylib.lookupFunction<_c_game_export_sgf, _dart_game_export_sgf>(
+            'game_export_sgf'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_export_sgf? _game_export_sgf;
+
+  void game_export_pgn(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_game_export_pgn ??=
+        _dylib.lookupFunction<_c_game_export_pgn, _dart_game_export_pgn>(
+            'game_export_pgn'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_export_pgn? _game_export_pgn;
+
+  void game_export_wthor(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_game_export_wthor ??=
+        _dylib.lookupFunction<_c_game_export_wthor, _dart_game_export_wthor>(
+            'game_export_wthor'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_export_wthor? _game_export_wthor;
+
+  void game_export_eps(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_game_export_eps ??=
+        _dylib.lookupFunction<_c_game_export_eps, _dart_game_export_eps>(
+            'game_export_eps'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_export_eps? _game_export_eps;
+
+  void game_export_svg(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_game_export_svg ??=
+        _dylib.lookupFunction<_c_game_export_svg, _dart_game_export_svg>(
+            'game_export_svg'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_export_svg? _game_export_svg;
+
+  void game_import_oko(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_game_import_oko ??=
+        _dylib.lookupFunction<_c_game_import_oko, _dart_game_import_oko>(
+            'game_import_oko'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_import_oko? _game_import_oko;
+
+  void game_import_gam(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_game_import_gam ??=
+        _dylib.lookupFunction<_c_game_import_gam, _dart_game_import_gam>(
+            'game_import_gam'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_import_gam? _game_import_gam;
+
+  void game_rand(
+    ffi.Pointer<Game> arg0,
+    int arg1,
+    ffi.Pointer<Random> arg2,
+  ) {
+    return (_game_rand ??=
+        _dylib.lookupFunction<_c_game_rand, _dart_game_rand>('game_rand'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_game_rand? _game_rand;
+
+  int game_analyze(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<Search> arg1,
+    int arg2,
+    int bool,
+  ) {
+    return (_game_analyze ??= _dylib
+        .lookupFunction<_c_game_analyze, _dart_game_analyze>('game_analyze'))(
+      arg0,
+      arg1,
+      arg2,
+      bool,
+    );
+  }
+
+  _dart_game_analyze? _game_analyze;
+
+  int game_complete(
+    ffi.Pointer<Game> arg0,
+    ffi.Pointer<Search> arg1,
+  ) {
+    return (_game_complete ??=
+        _dylib.lookupFunction<_c_game_complete, _dart_game_complete>(
+            'game_complete'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_game_complete? _game_complete;
+
+  void line_to_game(
+    ffi.Pointer<Board> arg0,
+    ffi.Pointer<Line> arg1,
+    ffi.Pointer<Game> arg2,
+  ) {
+    return (_line_to_game ??= _dylib
+        .lookupFunction<_c_line_to_game, _dart_line_to_game>('line_to_game'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_line_to_game? _line_to_game;
+
+  int game_score(
+    ffi.Pointer<Game> arg0,
+  ) {
+    return (_game_score ??=
+        _dylib.lookupFunction<_c_game_score, _dart_game_score>('game_score'))(
+      arg0,
+    );
+  }
+
+  _dart_game_score? _game_score;
+
+  int move_from_wthor(
+    int arg0,
+  ) {
+    return (_move_from_wthor ??=
+        _dylib.lookupFunction<_c_move_from_wthor, _dart_move_from_wthor>(
+            'move_from_wthor'))(
+      arg0,
+    );
+  }
+
+  _dart_move_from_wthor? _move_from_wthor;
+
+  void wthor_init(
+    ffi.Pointer<WthorBase> arg0,
+  ) {
+    return (_wthor_init ??=
+        _dylib.lookupFunction<_c_wthor_init, _dart_wthor_init>('wthor_init'))(
+      arg0,
+    );
+  }
+
+  _dart_wthor_init? _wthor_init;
+
+  int wthor_load(
+    ffi.Pointer<WthorBase> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_wthor_load ??=
+        _dylib.lookupFunction<_c_wthor_load, _dart_wthor_load>('wthor_load'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_wthor_load? _wthor_load;
+
+  int wthor_save(
+    ffi.Pointer<WthorBase> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_wthor_save ??=
+        _dylib.lookupFunction<_c_wthor_save, _dart_wthor_save>('wthor_save'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_wthor_save? _wthor_save;
+
+  void wthor_test(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<Search> arg1,
+  ) {
+    return (_wthor_test ??=
+        _dylib.lookupFunction<_c_wthor_test, _dart_wthor_test>('wthor_test'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_wthor_test? _wthor_test;
+
+  void wthor_eval(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<Search> arg1,
+    ffi.Pointer<ffi.Pointer<ffi.Uint64>> histogram,
+  ) {
+    return (_wthor_eval ??=
+        _dylib.lookupFunction<_c_wthor_eval, _dart_wthor_eval>('wthor_eval'))(
+      arg0,
+      arg1,
+      histogram,
+    );
+  }
+
+  _dart_wthor_eval? _wthor_eval;
+
+  void wthor_edaxify(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_wthor_edaxify ??=
+        _dylib.lookupFunction<_c_wthor_edaxify, _dart_wthor_edaxify>(
+            'wthor_edaxify'))(
+      arg0,
+    );
+  }
+
+  _dart_wthor_edaxify? _wthor_edaxify;
+
+  void base_init(
+    ffi.Pointer<Base> arg0,
+  ) {
+    return (_base_init ??=
+        _dylib.lookupFunction<_c_base_init, _dart_base_init>('base_init'))(
+      arg0,
+    );
+  }
+
+  _dart_base_init? _base_init;
+
+  void base_free(
+    ffi.Pointer<Base> arg0,
+  ) {
+    return (_base_free ??=
+        _dylib.lookupFunction<_c_base_free, _dart_base_free>('base_free'))(
+      arg0,
+    );
+  }
+
+  _dart_base_free? _base_free;
+
+  int base_load(
+    ffi.Pointer<Base> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_base_load ??=
+        _dylib.lookupFunction<_c_base_load, _dart_base_load>('base_load'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_base_load? _base_load;
+
+  void base_save(
+    ffi.Pointer<Base> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_base_save ??=
+        _dylib.lookupFunction<_c_base_save, _dart_base_save>('base_save'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_base_save? _base_save;
+
+  void base_append(
+    ffi.Pointer<Base> arg0,
+    ffi.Pointer<Game> arg1,
+  ) {
+    return (_base_append ??= _dylib
+        .lookupFunction<_c_base_append, _dart_base_append>('base_append'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_base_append? _base_append;
+
+  void base_to_problem(
+    ffi.Pointer<Base> arg0,
+    int arg1,
+    ffi.Pointer<ffi.Int8> arg2,
+  ) {
+    return (_base_to_problem ??=
+        _dylib.lookupFunction<_c_base_to_problem, _dart_base_to_problem>(
+            'base_to_problem'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_base_to_problem? _base_to_problem;
+
+  void base_to_FEN(
+    ffi.Pointer<Base> arg0,
+    int arg1,
+    ffi.Pointer<ffi.Int8> arg2,
+  ) {
+    return (_base_to_FEN ??= _dylib
+        .lookupFunction<_c_base_to_FEN, _dart_base_to_FEN>('base_to_FEN'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_base_to_FEN? _base_to_FEN;
+
+  void base_analyze(
+    ffi.Pointer<Base> arg0,
+    ffi.Pointer<Search> arg1,
+    int arg2,
+    int bool,
+  ) {
+    return (_base_analyze ??= _dylib
+        .lookupFunction<_c_base_analyze, _dart_base_analyze>('base_analyze'))(
+      arg0,
+      arg1,
+      arg2,
+      bool,
+    );
+  }
+
+  _dart_base_analyze? _base_analyze;
+
+  void base_complete(
+    ffi.Pointer<Base> arg0,
+    ffi.Pointer<Search> arg1,
+  ) {
+    return (_base_complete ??=
+        _dylib.lookupFunction<_c_base_complete, _dart_base_complete>(
+            'base_complete'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_base_complete? _base_complete;
+
+  void base_unique(
+    ffi.Pointer<Base> arg0,
+  ) {
+    return (_base_unique ??= _dylib
+        .lookupFunction<_c_base_unique, _dart_base_unique>('base_unique'))(
+      arg0,
+    );
+  }
+
+  _dart_base_unique? _base_unique;
+
+  void base_compare(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_base_compare ??= _dylib
+        .lookupFunction<_c_base_compare, _dart_base_compare>('base_compare'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_base_compare? _base_compare;
+
+  /// @brief remove an empty square from the list.
+  ///
+  /// @param empty  empty square.
+  void empty_remove(
+    ffi.Pointer<SquareList> empty,
+  ) {
+    return (_empty_remove ??= _dylib
+        .lookupFunction<_c_empty_remove, _dart_empty_remove>('empty_remove'))(
+      empty,
+    );
+  }
+
+  _dart_empty_remove? _empty_remove;
+
+  /// @brief restore the list of empty squares
+  ///
+  /// @param empty  empty square.
+  void empty_restore(
+    ffi.Pointer<SquareList> empty,
+  ) {
+    return (_empty_restore ??=
+        _dylib.lookupFunction<_c_empty_restore, _dart_empty_restore>(
+            'empty_restore'))(
+      empty,
+    );
+  }
+
+  _dart_empty_restore? _empty_restore;
+
+  void eval_open(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_eval_open ??=
+        _dylib.lookupFunction<_c_eval_open, _dart_eval_open>('eval_open'))(
+      arg0,
+    );
+  }
+
+  _dart_eval_open? _eval_open;
+
+  void eval_close() {
+    return (_eval_close ??=
+        _dylib.lookupFunction<_c_eval_close, _dart_eval_close>('eval_close'))();
+  }
+
+  _dart_eval_close? _eval_close;
+
+  void eval_init(
+    ffi.Pointer<Eval> arg0,
+  ) {
+    return (_eval_init ??=
+        _dylib.lookupFunction<_c_eval_init, _dart_eval_init>('eval_init'))(
+      arg0,
+    );
+  }
+
+  _dart_eval_init? _eval_init;
+
+  void eval_free(
+    ffi.Pointer<Eval> arg0,
+  ) {
+    return (_eval_free ??=
+        _dylib.lookupFunction<_c_eval_free, _dart_eval_free>('eval_free'))(
+      arg0,
+    );
+  }
+
+  _dart_eval_free? _eval_free;
+
+  void eval_set(
+    ffi.Pointer<Eval> arg0,
+    ffi.Pointer<Board> arg1,
+  ) {
+    return (_eval_set ??=
+        _dylib.lookupFunction<_c_eval_set, _dart_eval_set>('eval_set'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_eval_set? _eval_set;
+
+  void eval_update(
+    ffi.Pointer<Eval> arg0,
+    ffi.Pointer<Move> arg1,
+  ) {
+    return (_eval_update ??= _dylib
+        .lookupFunction<_c_eval_update, _dart_eval_update>('eval_update'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_eval_update? _eval_update;
+
+  void eval_restore(
+    ffi.Pointer<Eval> arg0,
+    ffi.Pointer<Move> arg1,
+  ) {
+    return (_eval_restore ??= _dylib
+        .lookupFunction<_c_eval_restore, _dart_eval_restore>('eval_restore'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_eval_restore? _eval_restore;
+
+  void eval_pass(
+    ffi.Pointer<Eval> arg0,
+  ) {
+    return (_eval_pass ??=
+        _dylib.lookupFunction<_c_eval_pass, _dart_eval_pass>('eval_pass'))(
+      arg0,
+    );
+  }
+
+  _dart_eval_pass? _eval_pass;
+
+  double eval_sigma(
+    int arg0,
+    int arg1,
+    int arg2,
+  ) {
+    return (_eval_sigma ??=
+        _dylib.lookupFunction<_c_eval_sigma, _dart_eval_sigma>('eval_sigma'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_eval_sigma? _eval_sigma;
+
+  ffi.Pointer<ffi.NativeFunction<_typedefC_12>> signal(
+    int arg0,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_13>> arg1,
+  ) {
+    return (_signal ??=
+        _dylib.lookupFunction<_c_signal, _dart_signal>('signal'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_signal? _signal;
+
+  int getpriority(
+    int arg0,
+    int arg1,
+  ) {
+    return (_getpriority ??= _dylib
+        .lookupFunction<_c_getpriority, _dart_getpriority>('getpriority'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_getpriority? _getpriority;
+
+  int getiopolicy_np(
+    int arg0,
+    int arg1,
+  ) {
+    return (_getiopolicy_np ??=
+        _dylib.lookupFunction<_c_getiopolicy_np, _dart_getiopolicy_np>(
+            'getiopolicy_np'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_getiopolicy_np? _getiopolicy_np;
+
+  int getrlimit(
+    int arg0,
+    ffi.Pointer<rlimit> arg1,
+  ) {
+    return (_getrlimit ??=
+        _dylib.lookupFunction<_c_getrlimit, _dart_getrlimit>('getrlimit'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_getrlimit? _getrlimit;
+
+  int getrusage(
+    int arg0,
+    ffi.Pointer<rusage> arg1,
+  ) {
+    return (_getrusage ??=
+        _dylib.lookupFunction<_c_getrusage, _dart_getrusage>('getrusage'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_getrusage? _getrusage;
+
+  int setpriority(
+    int arg0,
+    int arg1,
+    int arg2,
+  ) {
+    return (_setpriority ??= _dylib
+        .lookupFunction<_c_setpriority, _dart_setpriority>('setpriority'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_setpriority? _setpriority;
+
+  int setiopolicy_np(
+    int arg0,
+    int arg1,
+    int arg2,
+  ) {
+    return (_setiopolicy_np ??=
+        _dylib.lookupFunction<_c_setiopolicy_np, _dart_setiopolicy_np>(
+            'setiopolicy_np'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_setiopolicy_np? _setiopolicy_np;
+
+  int setrlimit(
+    int arg0,
+    ffi.Pointer<rlimit> arg1,
+  ) {
+    return (_setrlimit ??=
+        _dylib.lookupFunction<_c_setrlimit, _dart_setrlimit>('setrlimit'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_setrlimit? _setrlimit;
+
+  int _OSSwapInt16(
+    int _data,
+  ) {
+    return (__OSSwapInt16 ??= _dylib
+        .lookupFunction<_c__OSSwapInt16, _dart__OSSwapInt16>('_OSSwapInt16'))(
+      _data,
+    );
+  }
+
+  _dart__OSSwapInt16? __OSSwapInt16;
+
+  int _OSSwapInt32(
+    int _data,
+  ) {
+    return (__OSSwapInt32 ??= _dylib
+        .lookupFunction<_c__OSSwapInt32, _dart__OSSwapInt32>('_OSSwapInt32'))(
+      _data,
+    );
+  }
+
+  _dart__OSSwapInt32? __OSSwapInt32;
+
+  int _OSSwapInt64(
+    int _data,
+  ) {
+    return (__OSSwapInt64 ??= _dylib
+        .lookupFunction<_c__OSSwapInt64, _dart__OSSwapInt64>('_OSSwapInt64'))(
+      _data,
+    );
+  }
+
+  _dart__OSSwapInt64? __OSSwapInt64;
+
+  int wait(
+    ffi.Pointer<ffi.Int32> arg0,
+  ) {
+    return (_wait ??= _dylib.lookupFunction<_c_wait, _dart_wait>('wait'))(
+      arg0,
+    );
+  }
+
+  _dart_wait? _wait;
+
+  int waitpid(
+    int arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+    int arg2,
+  ) {
+    return (_waitpid ??=
+        _dylib.lookupFunction<_c_waitpid, _dart_waitpid>('waitpid'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_waitpid? _waitpid;
+
+  int waitid(
+    int arg0,
+    int arg1,
+    ffi.Pointer<siginfo_t> arg2,
+    int arg3,
+  ) {
+    return (_waitid ??=
+        _dylib.lookupFunction<_c_waitid, _dart_waitid>('waitid'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_waitid? _waitid;
+
+  int wait3(
+    ffi.Pointer<ffi.Int32> arg0,
+    int arg1,
+    ffi.Pointer<rusage> arg2,
+  ) {
+    return (_wait3 ??= _dylib.lookupFunction<_c_wait3, _dart_wait3>('wait3'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_wait3? _wait3;
+
+  int wait4(
+    int arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+    int arg2,
+    ffi.Pointer<rusage> arg3,
+  ) {
+    return (_wait4 ??= _dylib.lookupFunction<_c_wait4, _dart_wait4>('wait4'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_wait4? _wait4;
+
+  ffi.Pointer<ffi.Void> alloca(
+    int arg0,
+  ) {
+    return (_alloca ??=
+        _dylib.lookupFunction<_c_alloca, _dart_alloca>('alloca'))(
+      arg0,
+    );
+  }
+
+  _dart_alloca? _alloca;
+
+  ffi.Pointer<ffi.Void> malloc(
+    int __size,
+  ) {
+    return (_malloc ??=
+        _dylib.lookupFunction<_c_malloc, _dart_malloc>('malloc'))(
+      __size,
+    );
+  }
+
+  _dart_malloc? _malloc;
+
+  ffi.Pointer<ffi.Void> calloc(
+    int __count,
+    int __size,
+  ) {
+    return (_calloc ??=
+        _dylib.lookupFunction<_c_calloc, _dart_calloc>('calloc'))(
+      __count,
+      __size,
+    );
+  }
+
+  _dart_calloc? _calloc;
+
+  void free(
+    ffi.Pointer<ffi.Void> arg0,
+  ) {
+    return (_free ??= _dylib.lookupFunction<_c_free, _dart_free>('free'))(
+      arg0,
+    );
+  }
+
+  _dart_free? _free;
+
+  ffi.Pointer<ffi.Void> realloc(
+    ffi.Pointer<ffi.Void> __ptr,
+    int __size,
+  ) {
+    return (_realloc ??=
+        _dylib.lookupFunction<_c_realloc, _dart_realloc>('realloc'))(
+      __ptr,
+      __size,
+    );
+  }
+
+  _dart_realloc? _realloc;
+
+  ffi.Pointer<ffi.Void> valloc(
+    int arg0,
+  ) {
+    return (_valloc ??=
+        _dylib.lookupFunction<_c_valloc, _dart_valloc>('valloc'))(
+      arg0,
+    );
+  }
+
+  _dart_valloc? _valloc;
+
+  ffi.Pointer<ffi.Void> aligned_alloc(
+    int __alignment,
+    int __size,
+  ) {
+    return (_aligned_alloc ??=
+        _dylib.lookupFunction<_c_aligned_alloc, _dart_aligned_alloc>(
+            'aligned_alloc'))(
+      __alignment,
+      __size,
+    );
+  }
+
+  _dart_aligned_alloc? _aligned_alloc;
+
+  int posix_memalign(
+    ffi.Pointer<ffi.Pointer<ffi.Void>> __memptr,
+    int __alignment,
+    int __size,
+  ) {
+    return (_posix_memalign ??=
+        _dylib.lookupFunction<_c_posix_memalign, _dart_posix_memalign>(
+            'posix_memalign'))(
+      __memptr,
+      __alignment,
+      __size,
+    );
+  }
+
+  _dart_posix_memalign? _posix_memalign;
+
+  void abort() {
+    return (_abort ??= _dylib.lookupFunction<_c_abort, _dart_abort>('abort'))();
+  }
+
+  _dart_abort? _abort;
+
+  int abs(
+    int arg0,
+  ) {
+    return (_abs ??= _dylib.lookupFunction<_c_abs, _dart_abs>('abs'))(
+      arg0,
+    );
+  }
+
+  _dart_abs? _abs;
+
+  int atexit(
+    ffi.Pointer<ffi.NativeFunction<_typedefC_14>> arg0,
+  ) {
+    return (_atexit ??=
+        _dylib.lookupFunction<_c_atexit, _dart_atexit>('atexit'))(
+      arg0,
+    );
+  }
+
+  _dart_atexit? _atexit;
+
+  double atof(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_atof ??= _dylib.lookupFunction<_c_atof, _dart_atof>('atof'))(
+      arg0,
+    );
+  }
+
+  _dart_atof? _atof;
+
+  int atoi(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_atoi ??= _dylib.lookupFunction<_c_atoi, _dart_atoi>('atoi'))(
+      arg0,
+    );
+  }
+
+  _dart_atoi? _atoi;
+
+  int atol(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_atol ??= _dylib.lookupFunction<_c_atol, _dart_atol>('atol'))(
+      arg0,
+    );
+  }
+
+  _dart_atol? _atol;
+
+  int atoll(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_atoll ??= _dylib.lookupFunction<_c_atoll, _dart_atoll>('atoll'))(
+      arg0,
+    );
+  }
+
+  _dart_atoll? _atoll;
+
+  ffi.Pointer<ffi.Void> bsearch(
+    ffi.Pointer<ffi.Void> __key,
+    ffi.Pointer<ffi.Void> __base,
+    int __nel,
+    int __width,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_15>> __compar,
+  ) {
+    return (_bsearch ??=
+        _dylib.lookupFunction<_c_bsearch, _dart_bsearch>('bsearch'))(
+      __key,
+      __base,
+      __nel,
+      __width,
+      __compar,
+    );
+  }
+
+  _dart_bsearch? _bsearch;
+
+  void exit(
+    int arg0,
+  ) {
+    return (_exit ??= _dylib.lookupFunction<_c_exit, _dart_exit>('exit'))(
+      arg0,
+    );
+  }
+
+  _dart_exit? _exit;
+
+  ffi.Pointer<ffi.Int8> getenv(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_getenv ??=
+        _dylib.lookupFunction<_c_getenv, _dart_getenv>('getenv'))(
+      arg0,
+    );
+  }
+
+  _dart_getenv? _getenv;
+
+  int labs(
+    int arg0,
+  ) {
+    return (_labs ??= _dylib.lookupFunction<_c_labs, _dart_labs>('labs'))(
+      arg0,
+    );
+  }
+
+  _dart_labs? _labs;
+
+  int llabs(
+    int arg0,
+  ) {
+    return (_llabs ??= _dylib.lookupFunction<_c_llabs, _dart_llabs>('llabs'))(
+      arg0,
+    );
+  }
+
+  _dart_llabs? _llabs;
+
+  int mblen(
+    ffi.Pointer<ffi.Int8> __s,
+    int __n,
+  ) {
+    return (_mblen ??= _dylib.lookupFunction<_c_mblen, _dart_mblen>('mblen'))(
+      __s,
+      __n,
+    );
+  }
+
+  _dart_mblen? _mblen;
+
+  int mbstowcs(
+    ffi.Pointer<ffi.Int32> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    int arg2,
+  ) {
+    return (_mbstowcs ??=
+        _dylib.lookupFunction<_c_mbstowcs, _dart_mbstowcs>('mbstowcs'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_mbstowcs? _mbstowcs;
+
+  int mbtowc(
+    ffi.Pointer<ffi.Int32> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    int arg2,
+  ) {
+    return (_mbtowc ??=
+        _dylib.lookupFunction<_c_mbtowc, _dart_mbtowc>('mbtowc'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_mbtowc? _mbtowc;
+
+  void qsort(
+    ffi.Pointer<ffi.Void> __base,
+    int __nel,
+    int __width,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_16>> __compar,
+  ) {
+    return (_qsort ??= _dylib.lookupFunction<_c_qsort, _dart_qsort>('qsort'))(
+      __base,
+      __nel,
+      __width,
+      __compar,
+    );
+  }
+
+  _dart_qsort? _qsort;
+
+  int rand() {
+    return (_rand ??= _dylib.lookupFunction<_c_rand, _dart_rand>('rand'))();
+  }
+
+  _dart_rand? _rand;
+
+  void srand(
+    int arg0,
+  ) {
+    return (_srand ??= _dylib.lookupFunction<_c_srand, _dart_srand>('srand'))(
+      arg0,
+    );
+  }
+
+  _dart_srand? _srand;
+
+  double strtod(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+  ) {
+    return (_strtod ??=
+        _dylib.lookupFunction<_c_strtod, _dart_strtod>('strtod'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_strtod? _strtod;
+
+  double strtof(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+  ) {
+    return (_strtof ??=
+        _dylib.lookupFunction<_c_strtof, _dart_strtof>('strtof'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_strtof? _strtof;
+
+  int strtol(
+    ffi.Pointer<ffi.Int8> __str,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> __endptr,
+    int __base,
+  ) {
+    return (_strtol ??=
+        _dylib.lookupFunction<_c_strtol, _dart_strtol>('strtol'))(
+      __str,
+      __endptr,
+      __base,
+    );
+  }
+
+  _dart_strtol? _strtol;
+
+  int strtoll(
+    ffi.Pointer<ffi.Int8> __str,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> __endptr,
+    int __base,
+  ) {
+    return (_strtoll ??=
+        _dylib.lookupFunction<_c_strtoll, _dart_strtoll>('strtoll'))(
+      __str,
+      __endptr,
+      __base,
+    );
+  }
+
+  _dart_strtoll? _strtoll;
+
+  int strtoul(
+    ffi.Pointer<ffi.Int8> __str,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> __endptr,
+    int __base,
+  ) {
+    return (_strtoul ??=
+        _dylib.lookupFunction<_c_strtoul, _dart_strtoul>('strtoul'))(
+      __str,
+      __endptr,
+      __base,
+    );
+  }
+
+  _dart_strtoul? _strtoul;
+
+  int strtoull(
+    ffi.Pointer<ffi.Int8> __str,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> __endptr,
+    int __base,
+  ) {
+    return (_strtoull ??=
+        _dylib.lookupFunction<_c_strtoull, _dart_strtoull>('strtoull'))(
+      __str,
+      __endptr,
+      __base,
+    );
+  }
+
+  _dart_strtoull? _strtoull;
+
+  int system(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_system ??=
+        _dylib.lookupFunction<_c_system, _dart_system>('system'))(
+      arg0,
+    );
+  }
+
+  _dart_system? _system;
+
+  int wcstombs(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+    int arg2,
+  ) {
+    return (_wcstombs ??=
+        _dylib.lookupFunction<_c_wcstombs, _dart_wcstombs>('wcstombs'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_wcstombs? _wcstombs;
+
+  int wctomb(
+    ffi.Pointer<ffi.Int8> arg0,
+    int arg1,
+  ) {
+    return (_wctomb ??=
+        _dylib.lookupFunction<_c_wctomb, _dart_wctomb>('wctomb'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_wctomb? _wctomb;
+
+  void _Exit(
+    int arg0,
+  ) {
+    return (__Exit ??= _dylib.lookupFunction<_c__Exit, _dart__Exit>('_Exit'))(
+      arg0,
+    );
+  }
+
+  _dart__Exit? __Exit;
+
+  int a64l(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_a64l ??= _dylib.lookupFunction<_c_a64l, _dart_a64l>('a64l'))(
+      arg0,
+    );
+  }
+
+  _dart_a64l? _a64l;
+
+  double drand48() {
+    return (_drand48 ??=
+        _dylib.lookupFunction<_c_drand48, _dart_drand48>('drand48'))();
+  }
+
+  _dart_drand48? _drand48;
+
+  ffi.Pointer<ffi.Int8> ecvt(
+    double arg0,
+    int arg1,
+    ffi.Pointer<ffi.Int32> arg2,
+    ffi.Pointer<ffi.Int32> arg3,
+  ) {
+    return (_ecvt ??= _dylib.lookupFunction<_c_ecvt, _dart_ecvt>('ecvt'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_ecvt? _ecvt;
+
+  double erand48(
+    ffi.Pointer<ffi.Uint16> arg0,
+  ) {
+    return (_erand48 ??=
+        _dylib.lookupFunction<_c_erand48, _dart_erand48>('erand48'))(
+      arg0,
+    );
+  }
+
+  _dart_erand48? _erand48;
+
+  ffi.Pointer<ffi.Int8> fcvt(
+    double arg0,
+    int arg1,
+    ffi.Pointer<ffi.Int32> arg2,
+    ffi.Pointer<ffi.Int32> arg3,
+  ) {
+    return (_fcvt ??= _dylib.lookupFunction<_c_fcvt, _dart_fcvt>('fcvt'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_fcvt? _fcvt;
+
+  ffi.Pointer<ffi.Int8> gcvt(
+    double arg0,
+    int arg1,
+    ffi.Pointer<ffi.Int8> arg2,
+  ) {
+    return (_gcvt ??= _dylib.lookupFunction<_c_gcvt, _dart_gcvt>('gcvt'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_gcvt? _gcvt;
+
+  int getsubopt(
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg2,
+  ) {
+    return (_getsubopt ??=
+        _dylib.lookupFunction<_c_getsubopt, _dart_getsubopt>('getsubopt'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_getsubopt? _getsubopt;
+
+  int grantpt(
+    int arg0,
+  ) {
+    return (_grantpt ??=
+        _dylib.lookupFunction<_c_grantpt, _dart_grantpt>('grantpt'))(
+      arg0,
+    );
+  }
+
+  _dart_grantpt? _grantpt;
+
+  ffi.Pointer<ffi.Int8> initstate(
+    int arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    int arg2,
+  ) {
+    return (_initstate ??=
+        _dylib.lookupFunction<_c_initstate, _dart_initstate>('initstate'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_initstate? _initstate;
+
+  int jrand48(
+    ffi.Pointer<ffi.Uint16> arg0,
+  ) {
+    return (_jrand48 ??=
+        _dylib.lookupFunction<_c_jrand48, _dart_jrand48>('jrand48'))(
+      arg0,
+    );
+  }
+
+  _dart_jrand48? _jrand48;
+
+  ffi.Pointer<ffi.Int8> l64a(
+    int arg0,
+  ) {
+    return (_l64a ??= _dylib.lookupFunction<_c_l64a, _dart_l64a>('l64a'))(
+      arg0,
+    );
+  }
+
+  _dart_l64a? _l64a;
+
+  void lcong48(
+    ffi.Pointer<ffi.Uint16> arg0,
+  ) {
+    return (_lcong48 ??=
+        _dylib.lookupFunction<_c_lcong48, _dart_lcong48>('lcong48'))(
+      arg0,
+    );
+  }
+
+  _dart_lcong48? _lcong48;
+
+  int lrand48() {
+    return (_lrand48 ??=
+        _dylib.lookupFunction<_c_lrand48, _dart_lrand48>('lrand48'))();
+  }
+
+  _dart_lrand48? _lrand48;
+
+  ffi.Pointer<ffi.Int8> mktemp(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_mktemp ??=
+        _dylib.lookupFunction<_c_mktemp, _dart_mktemp>('mktemp'))(
+      arg0,
+    );
+  }
+
+  _dart_mktemp? _mktemp;
+
+  int mkstemp(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_mkstemp ??=
+        _dylib.lookupFunction<_c_mkstemp, _dart_mkstemp>('mkstemp'))(
+      arg0,
+    );
+  }
+
+  _dart_mkstemp? _mkstemp;
+
+  int mrand48() {
+    return (_mrand48 ??=
+        _dylib.lookupFunction<_c_mrand48, _dart_mrand48>('mrand48'))();
+  }
+
+  _dart_mrand48? _mrand48;
+
+  int nrand48(
+    ffi.Pointer<ffi.Uint16> arg0,
+  ) {
+    return (_nrand48 ??=
+        _dylib.lookupFunction<_c_nrand48, _dart_nrand48>('nrand48'))(
+      arg0,
+    );
+  }
+
+  _dart_nrand48? _nrand48;
+
+  int posix_openpt(
+    int arg0,
+  ) {
+    return (_posix_openpt ??= _dylib
+        .lookupFunction<_c_posix_openpt, _dart_posix_openpt>('posix_openpt'))(
+      arg0,
+    );
+  }
+
+  _dart_posix_openpt? _posix_openpt;
+
+  ffi.Pointer<ffi.Int8> ptsname(
+    int arg0,
+  ) {
+    return (_ptsname ??=
+        _dylib.lookupFunction<_c_ptsname, _dart_ptsname>('ptsname'))(
+      arg0,
+    );
+  }
+
+  _dart_ptsname? _ptsname;
+
+  int ptsname_r(
+    int fildes,
+    ffi.Pointer<ffi.Int8> buffer,
+    int buflen,
+  ) {
+    return (_ptsname_r ??=
+        _dylib.lookupFunction<_c_ptsname_r, _dart_ptsname_r>('ptsname_r'))(
+      fildes,
+      buffer,
+      buflen,
+    );
+  }
+
+  _dart_ptsname_r? _ptsname_r;
+
+  int putenv(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_putenv ??=
+        _dylib.lookupFunction<_c_putenv, _dart_putenv>('putenv'))(
+      arg0,
+    );
+  }
+
+  _dart_putenv? _putenv;
+
+  int random() {
+    return (_random ??=
+        _dylib.lookupFunction<_c_random, _dart_random>('random'))();
+  }
+
+  _dart_random? _random;
+
+  int rand_r(
+    ffi.Pointer<ffi.Uint32> arg0,
+  ) {
+    return (_rand_r ??=
+        _dylib.lookupFunction<_c_rand_r, _dart_rand_r>('rand_r'))(
+      arg0,
+    );
+  }
+
+  _dart_rand_r? _rand_r;
+
+  ffi.Pointer<ffi.Int8> realpath(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_realpath ??=
+        _dylib.lookupFunction<_c_realpath, _dart_realpath>('realpath'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_realpath? _realpath;
+
+  ffi.Pointer<ffi.Uint16> seed48(
+    ffi.Pointer<ffi.Uint16> arg0,
+  ) {
+    return (_seed48 ??=
+        _dylib.lookupFunction<_c_seed48, _dart_seed48>('seed48'))(
+      arg0,
+    );
+  }
+
+  _dart_seed48? _seed48;
+
+  int setenv(
+    ffi.Pointer<ffi.Int8> __name,
+    ffi.Pointer<ffi.Int8> __value,
+    int __overwrite,
+  ) {
+    return (_setenv ??=
+        _dylib.lookupFunction<_c_setenv, _dart_setenv>('setenv'))(
+      __name,
+      __value,
+      __overwrite,
+    );
+  }
+
+  _dart_setenv? _setenv;
+
+  void setkey(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_setkey ??=
+        _dylib.lookupFunction<_c_setkey, _dart_setkey>('setkey'))(
+      arg0,
+    );
+  }
+
+  _dart_setkey? _setkey;
+
+  ffi.Pointer<ffi.Int8> setstate(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_setstate ??=
+        _dylib.lookupFunction<_c_setstate, _dart_setstate>('setstate'))(
+      arg0,
+    );
+  }
+
+  _dart_setstate? _setstate;
+
+  void srand48(
+    int arg0,
+  ) {
+    return (_srand48 ??=
+        _dylib.lookupFunction<_c_srand48, _dart_srand48>('srand48'))(
+      arg0,
+    );
+  }
+
+  _dart_srand48? _srand48;
+
+  void srandom(
+    int arg0,
+  ) {
+    return (_srandom ??=
+        _dylib.lookupFunction<_c_srandom, _dart_srandom>('srandom'))(
+      arg0,
+    );
+  }
+
+  _dart_srandom? _srandom;
+
+  int unlockpt(
+    int arg0,
+  ) {
+    return (_unlockpt ??=
+        _dylib.lookupFunction<_c_unlockpt, _dart_unlockpt>('unlockpt'))(
+      arg0,
+    );
+  }
+
+  _dart_unlockpt? _unlockpt;
+
+  int unsetenv(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_unsetenv ??=
+        _dylib.lookupFunction<_c_unsetenv, _dart_unsetenv>('unsetenv'))(
+      arg0,
+    );
+  }
+
+  _dart_unsetenv? _unsetenv;
+
+  int arc4random() {
+    return (_arc4random ??=
+        _dylib.lookupFunction<_c_arc4random, _dart_arc4random>('arc4random'))();
+  }
+
+  _dart_arc4random? _arc4random;
+
+  void arc4random_addrandom(
+    ffi.Pointer<ffi.Uint8> arg0,
+    int arg1,
+  ) {
+    return (_arc4random_addrandom ??= _dylib.lookupFunction<
+        _c_arc4random_addrandom,
+        _dart_arc4random_addrandom>('arc4random_addrandom'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_arc4random_addrandom? _arc4random_addrandom;
+
+  void arc4random_buf(
+    ffi.Pointer<ffi.Void> __buf,
+    int __nbytes,
+  ) {
+    return (_arc4random_buf ??=
+        _dylib.lookupFunction<_c_arc4random_buf, _dart_arc4random_buf>(
+            'arc4random_buf'))(
+      __buf,
+      __nbytes,
+    );
+  }
+
+  _dart_arc4random_buf? _arc4random_buf;
+
+  void arc4random_stir() {
+    return (_arc4random_stir ??=
+        _dylib.lookupFunction<_c_arc4random_stir, _dart_arc4random_stir>(
+            'arc4random_stir'))();
+  }
+
+  _dart_arc4random_stir? _arc4random_stir;
+
+  int arc4random_uniform(
+    int __upper_bound,
+  ) {
+    return (_arc4random_uniform ??=
+        _dylib.lookupFunction<_c_arc4random_uniform, _dart_arc4random_uniform>(
+            'arc4random_uniform'))(
+      __upper_bound,
+    );
+  }
+
+  _dart_arc4random_uniform? _arc4random_uniform;
+
+  ffi.Pointer<ffi.Int8> cgetcap(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    int arg2,
+  ) {
+    return (_cgetcap ??=
+        _dylib.lookupFunction<_c_cgetcap, _dart_cgetcap>('cgetcap'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_cgetcap? _cgetcap;
+
+  int cgetclose() {
+    return (_cgetclose ??=
+        _dylib.lookupFunction<_c_cgetclose, _dart_cgetclose>('cgetclose'))();
+  }
+
+  _dart_cgetclose? _cgetclose;
+
+  int cgetent(
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+    ffi.Pointer<ffi.Int8> arg2,
+  ) {
+    return (_cgetent ??=
+        _dylib.lookupFunction<_c_cgetent, _dart_cgetent>('cgetent'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_cgetent? _cgetent;
+
+  int cgetfirst(
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+  ) {
+    return (_cgetfirst ??=
+        _dylib.lookupFunction<_c_cgetfirst, _dart_cgetfirst>('cgetfirst'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_cgetfirst? _cgetfirst;
+
+  int cgetmatch(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_cgetmatch ??=
+        _dylib.lookupFunction<_c_cgetmatch, _dart_cgetmatch>('cgetmatch'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_cgetmatch? _cgetmatch;
+
+  int cgetnext(
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+  ) {
+    return (_cgetnext ??=
+        _dylib.lookupFunction<_c_cgetnext, _dart_cgetnext>('cgetnext'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_cgetnext? _cgetnext;
+
+  int cgetnum(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    ffi.Pointer<ffi.Int64> arg2,
+  ) {
+    return (_cgetnum ??=
+        _dylib.lookupFunction<_c_cgetnum, _dart_cgetnum>('cgetnum'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_cgetnum? _cgetnum;
+
+  int cgetset(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_cgetset ??=
+        _dylib.lookupFunction<_c_cgetset, _dart_cgetset>('cgetset'))(
+      arg0,
+    );
+  }
+
+  _dart_cgetset? _cgetset;
+
+  int cgetstr(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg2,
+  ) {
+    return (_cgetstr ??=
+        _dylib.lookupFunction<_c_cgetstr, _dart_cgetstr>('cgetstr'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_cgetstr? _cgetstr;
+
+  int cgetustr(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg2,
+  ) {
+    return (_cgetustr ??=
+        _dylib.lookupFunction<_c_cgetustr, _dart_cgetustr>('cgetustr'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_cgetustr? _cgetustr;
+
+  int daemon(
+    int arg0,
+    int arg1,
+  ) {
+    return (_daemon ??=
+        _dylib.lookupFunction<_c_daemon, _dart_daemon>('daemon'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_daemon? _daemon;
+
+  ffi.Pointer<ffi.Int8> devname(
+    int arg0,
+    int arg1,
+  ) {
+    return (_devname ??=
+        _dylib.lookupFunction<_c_devname, _dart_devname>('devname'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_devname? _devname;
+
+  ffi.Pointer<ffi.Int8> devname_r(
+    int arg0,
+    int arg1,
+    ffi.Pointer<ffi.Int8> buf,
+    int len,
+  ) {
+    return (_devname_r ??=
+        _dylib.lookupFunction<_c_devname_r, _dart_devname_r>('devname_r'))(
+      arg0,
+      arg1,
+      buf,
+      len,
+    );
+  }
+
+  _dart_devname_r? _devname_r;
+
+  ffi.Pointer<ffi.Int8> getbsize(
+    ffi.Pointer<ffi.Int32> arg0,
+    ffi.Pointer<ffi.Int64> arg1,
+  ) {
+    return (_getbsize ??=
+        _dylib.lookupFunction<_c_getbsize, _dart_getbsize>('getbsize'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_getbsize? _getbsize;
+
+  int getloadavg(
+    ffi.Pointer<ffi.Double> arg0,
+    int arg1,
+  ) {
+    return (_getloadavg ??=
+        _dylib.lookupFunction<_c_getloadavg, _dart_getloadavg>('getloadavg'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_getloadavg? _getloadavg;
+
+  ffi.Pointer<ffi.Int8> getprogname() {
+    return (_getprogname ??= _dylib
+        .lookupFunction<_c_getprogname, _dart_getprogname>('getprogname'))();
+  }
+
+  _dart_getprogname? _getprogname;
+
+  void setprogname(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_setprogname ??= _dylib
+        .lookupFunction<_c_setprogname, _dart_setprogname>('setprogname'))(
+      arg0,
+    );
+  }
+
+  _dart_setprogname? _setprogname;
+
+  int heapsort(
+    ffi.Pointer<ffi.Void> __base,
+    int __nel,
+    int __width,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_17>> __compar,
+  ) {
+    return (_heapsort ??=
+        _dylib.lookupFunction<_c_heapsort, _dart_heapsort>('heapsort'))(
+      __base,
+      __nel,
+      __width,
+      __compar,
+    );
+  }
+
+  _dart_heapsort? _heapsort;
+
+  int mergesort(
+    ffi.Pointer<ffi.Void> __base,
+    int __nel,
+    int __width,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_18>> __compar,
+  ) {
+    return (_mergesort ??=
+        _dylib.lookupFunction<_c_mergesort, _dart_mergesort>('mergesort'))(
+      __base,
+      __nel,
+      __width,
+      __compar,
+    );
+  }
+
+  _dart_mergesort? _mergesort;
+
+  void psort(
+    ffi.Pointer<ffi.Void> __base,
+    int __nel,
+    int __width,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_19>> __compar,
+  ) {
+    return (_psort ??= _dylib.lookupFunction<_c_psort, _dart_psort>('psort'))(
+      __base,
+      __nel,
+      __width,
+      __compar,
+    );
+  }
+
+  _dart_psort? _psort;
+
+  void psort_r(
+    ffi.Pointer<ffi.Void> __base,
+    int __nel,
+    int __width,
+    ffi.Pointer<ffi.Void> arg3,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_20>> __compar,
+  ) {
+    return (_psort_r ??=
+        _dylib.lookupFunction<_c_psort_r, _dart_psort_r>('psort_r'))(
+      __base,
+      __nel,
+      __width,
+      arg3,
+      __compar,
+    );
+  }
+
+  _dart_psort_r? _psort_r;
+
+  void qsort_r(
+    ffi.Pointer<ffi.Void> __base,
+    int __nel,
+    int __width,
+    ffi.Pointer<ffi.Void> arg3,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_21>> __compar,
+  ) {
+    return (_qsort_r ??=
+        _dylib.lookupFunction<_c_qsort_r, _dart_qsort_r>('qsort_r'))(
+      __base,
+      __nel,
+      __width,
+      arg3,
+      __compar,
+    );
+  }
+
+  _dart_qsort_r? _qsort_r;
+
+  int radixsort(
+    ffi.Pointer<ffi.Pointer<ffi.Uint8>> __base,
+    int __nel,
+    ffi.Pointer<ffi.Uint8> __table,
+    int __endbyte,
+  ) {
+    return (_radixsort ??=
+        _dylib.lookupFunction<_c_radixsort, _dart_radixsort>('radixsort'))(
+      __base,
+      __nel,
+      __table,
+      __endbyte,
+    );
+  }
+
+  _dart_radixsort? _radixsort;
+
+  int rpmatch(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_rpmatch ??=
+        _dylib.lookupFunction<_c_rpmatch, _dart_rpmatch>('rpmatch'))(
+      arg0,
+    );
+  }
+
+  _dart_rpmatch? _rpmatch;
+
+  int sradixsort(
+    ffi.Pointer<ffi.Pointer<ffi.Uint8>> __base,
+    int __nel,
+    ffi.Pointer<ffi.Uint8> __table,
+    int __endbyte,
+  ) {
+    return (_sradixsort ??=
+        _dylib.lookupFunction<_c_sradixsort, _dart_sradixsort>('sradixsort'))(
+      __base,
+      __nel,
+      __table,
+      __endbyte,
+    );
+  }
+
+  _dart_sradixsort? _sradixsort;
+
+  void sranddev() {
+    return (_sranddev ??=
+        _dylib.lookupFunction<_c_sranddev, _dart_sranddev>('sranddev'))();
+  }
+
+  _dart_sranddev? _sranddev;
+
+  void srandomdev() {
+    return (_srandomdev ??=
+        _dylib.lookupFunction<_c_srandomdev, _dart_srandomdev>('srandomdev'))();
+  }
+
+  _dart_srandomdev? _srandomdev;
+
+  ffi.Pointer<ffi.Void> reallocf(
+    ffi.Pointer<ffi.Void> __ptr,
+    int __size,
+  ) {
+    return (_reallocf ??=
+        _dylib.lookupFunction<_c_reallocf, _dart_reallocf>('reallocf'))(
+      __ptr,
+      __size,
+    );
+  }
+
+  _dart_reallocf? _reallocf;
+
+  int strtoq(
+    ffi.Pointer<ffi.Int8> __str,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> __endptr,
+    int __base,
+  ) {
+    return (_strtoq ??=
+        _dylib.lookupFunction<_c_strtoq, _dart_strtoq>('strtoq'))(
+      __str,
+      __endptr,
+      __base,
+    );
+  }
+
+  _dart_strtoq? _strtoq;
+
+  int strtouq(
+    ffi.Pointer<ffi.Int8> __str,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> __endptr,
+    int __base,
+  ) {
+    return (_strtouq ??=
+        _dylib.lookupFunction<_c_strtouq, _dart_strtouq>('strtouq'))(
+      __str,
+      __endptr,
+      __base,
+    );
+  }
+
+  _dart_strtouq? _strtouq;
+
+  ffi.Pointer<ffi.Int32> __error() {
+    return (___error ??=
+        _dylib.lookupFunction<_c___error, _dart___error>('__error'))();
+  }
+
+  _dart___error? ___error;
+
+  ffi.Pointer<ffi.Void> memchr(
+    ffi.Pointer<ffi.Void> __s,
+    int __c,
+    int __n,
+  ) {
+    return (_memchr ??=
+        _dylib.lookupFunction<_c_memchr, _dart_memchr>('memchr'))(
+      __s,
+      __c,
+      __n,
+    );
+  }
+
+  _dart_memchr? _memchr;
+
+  int memcmp(
+    ffi.Pointer<ffi.Void> __s1,
+    ffi.Pointer<ffi.Void> __s2,
+    int __n,
+  ) {
+    return (_memcmp ??=
+        _dylib.lookupFunction<_c_memcmp, _dart_memcmp>('memcmp'))(
+      __s1,
+      __s2,
+      __n,
+    );
+  }
+
+  _dart_memcmp? _memcmp;
+
+  ffi.Pointer<ffi.Void> memcpy(
+    ffi.Pointer<ffi.Void> __dst,
+    ffi.Pointer<ffi.Void> __src,
+    int __n,
+  ) {
+    return (_memcpy ??=
+        _dylib.lookupFunction<_c_memcpy, _dart_memcpy>('memcpy'))(
+      __dst,
+      __src,
+      __n,
+    );
+  }
+
+  _dart_memcpy? _memcpy;
+
+  ffi.Pointer<ffi.Void> memmove(
+    ffi.Pointer<ffi.Void> __dst,
+    ffi.Pointer<ffi.Void> __src,
+    int __len,
+  ) {
+    return (_memmove ??=
+        _dylib.lookupFunction<_c_memmove, _dart_memmove>('memmove'))(
+      __dst,
+      __src,
+      __len,
+    );
+  }
+
+  _dart_memmove? _memmove;
+
+  ffi.Pointer<ffi.Void> memset(
+    ffi.Pointer<ffi.Void> __b,
+    int __c,
+    int __len,
+  ) {
+    return (_memset ??=
+        _dylib.lookupFunction<_c_memset, _dart_memset>('memset'))(
+      __b,
+      __c,
+      __len,
+    );
+  }
+
+  _dart_memset? _memset;
+
+  ffi.Pointer<ffi.Int8> strcat(
+    ffi.Pointer<ffi.Int8> __s1,
+    ffi.Pointer<ffi.Int8> __s2,
+  ) {
+    return (_strcat ??=
+        _dylib.lookupFunction<_c_strcat, _dart_strcat>('strcat'))(
+      __s1,
+      __s2,
+    );
+  }
+
+  _dart_strcat? _strcat;
+
+  ffi.Pointer<ffi.Int8> strchr(
+    ffi.Pointer<ffi.Int8> __s,
+    int __c,
+  ) {
+    return (_strchr ??=
+        _dylib.lookupFunction<_c_strchr, _dart_strchr>('strchr'))(
+      __s,
+      __c,
+    );
+  }
+
+  _dart_strchr? _strchr;
+
+  int strcmp(
+    ffi.Pointer<ffi.Int8> __s1,
+    ffi.Pointer<ffi.Int8> __s2,
+  ) {
+    return (_strcmp ??=
+        _dylib.lookupFunction<_c_strcmp, _dart_strcmp>('strcmp'))(
+      __s1,
+      __s2,
+    );
+  }
+
+  _dart_strcmp? _strcmp;
+
+  int strcoll(
+    ffi.Pointer<ffi.Int8> __s1,
+    ffi.Pointer<ffi.Int8> __s2,
+  ) {
+    return (_strcoll ??=
+        _dylib.lookupFunction<_c_strcoll, _dart_strcoll>('strcoll'))(
+      __s1,
+      __s2,
+    );
+  }
+
+  _dart_strcoll? _strcoll;
+
+  ffi.Pointer<ffi.Int8> strcpy(
+    ffi.Pointer<ffi.Int8> __dst,
+    ffi.Pointer<ffi.Int8> __src,
+  ) {
+    return (_strcpy ??=
+        _dylib.lookupFunction<_c_strcpy, _dart_strcpy>('strcpy'))(
+      __dst,
+      __src,
+    );
+  }
+
+  _dart_strcpy? _strcpy;
+
+  int strcspn(
+    ffi.Pointer<ffi.Int8> __s,
+    ffi.Pointer<ffi.Int8> __charset,
+  ) {
+    return (_strcspn ??=
+        _dylib.lookupFunction<_c_strcspn, _dart_strcspn>('strcspn'))(
+      __s,
+      __charset,
+    );
+  }
+
+  _dart_strcspn? _strcspn;
+
+  ffi.Pointer<ffi.Int8> strerror(
+    int __errnum,
+  ) {
+    return (_strerror ??=
+        _dylib.lookupFunction<_c_strerror, _dart_strerror>('strerror'))(
+      __errnum,
+    );
+  }
+
+  _dart_strerror? _strerror;
+
+  int strlen(
+    ffi.Pointer<ffi.Int8> __s,
+  ) {
+    return (_strlen ??=
+        _dylib.lookupFunction<_c_strlen, _dart_strlen>('strlen'))(
+      __s,
+    );
+  }
+
+  _dart_strlen? _strlen;
+
+  ffi.Pointer<ffi.Int8> strncat(
+    ffi.Pointer<ffi.Int8> __s1,
+    ffi.Pointer<ffi.Int8> __s2,
+    int __n,
+  ) {
+    return (_strncat ??=
+        _dylib.lookupFunction<_c_strncat, _dart_strncat>('strncat'))(
+      __s1,
+      __s2,
+      __n,
+    );
+  }
+
+  _dart_strncat? _strncat;
+
+  int strncmp(
+    ffi.Pointer<ffi.Int8> __s1,
+    ffi.Pointer<ffi.Int8> __s2,
+    int __n,
+  ) {
+    return (_strncmp ??=
+        _dylib.lookupFunction<_c_strncmp, _dart_strncmp>('strncmp'))(
+      __s1,
+      __s2,
+      __n,
+    );
+  }
+
+  _dart_strncmp? _strncmp;
+
+  ffi.Pointer<ffi.Int8> strncpy(
+    ffi.Pointer<ffi.Int8> __dst,
+    ffi.Pointer<ffi.Int8> __src,
+    int __n,
+  ) {
+    return (_strncpy ??=
+        _dylib.lookupFunction<_c_strncpy, _dart_strncpy>('strncpy'))(
+      __dst,
+      __src,
+      __n,
+    );
+  }
+
+  _dart_strncpy? _strncpy;
+
+  ffi.Pointer<ffi.Int8> strpbrk(
+    ffi.Pointer<ffi.Int8> __s,
+    ffi.Pointer<ffi.Int8> __charset,
+  ) {
+    return (_strpbrk ??=
+        _dylib.lookupFunction<_c_strpbrk, _dart_strpbrk>('strpbrk'))(
+      __s,
+      __charset,
+    );
+  }
+
+  _dart_strpbrk? _strpbrk;
+
+  ffi.Pointer<ffi.Int8> strrchr(
+    ffi.Pointer<ffi.Int8> __s,
+    int __c,
+  ) {
+    return (_strrchr ??=
+        _dylib.lookupFunction<_c_strrchr, _dart_strrchr>('strrchr'))(
+      __s,
+      __c,
+    );
+  }
+
+  _dart_strrchr? _strrchr;
+
+  int strspn(
+    ffi.Pointer<ffi.Int8> __s,
+    ffi.Pointer<ffi.Int8> __charset,
+  ) {
+    return (_strspn ??=
+        _dylib.lookupFunction<_c_strspn, _dart_strspn>('strspn'))(
+      __s,
+      __charset,
+    );
+  }
+
+  _dart_strspn? _strspn;
+
+  ffi.Pointer<ffi.Int8> strstr(
+    ffi.Pointer<ffi.Int8> __big,
+    ffi.Pointer<ffi.Int8> __little,
+  ) {
+    return (_strstr ??=
+        _dylib.lookupFunction<_c_strstr, _dart_strstr>('strstr'))(
+      __big,
+      __little,
+    );
+  }
+
+  _dart_strstr? _strstr;
+
+  ffi.Pointer<ffi.Int8> strtok(
+    ffi.Pointer<ffi.Int8> __str,
+    ffi.Pointer<ffi.Int8> __sep,
+  ) {
+    return (_strtok ??=
+        _dylib.lookupFunction<_c_strtok, _dart_strtok>('strtok'))(
+      __str,
+      __sep,
+    );
+  }
+
+  _dart_strtok? _strtok;
+
+  int strxfrm(
+    ffi.Pointer<ffi.Int8> __s1,
+    ffi.Pointer<ffi.Int8> __s2,
+    int __n,
+  ) {
+    return (_strxfrm ??=
+        _dylib.lookupFunction<_c_strxfrm, _dart_strxfrm>('strxfrm'))(
+      __s1,
+      __s2,
+      __n,
+    );
+  }
+
+  _dart_strxfrm? _strxfrm;
+
+  ffi.Pointer<ffi.Int8> strtok_r(
+    ffi.Pointer<ffi.Int8> __str,
+    ffi.Pointer<ffi.Int8> __sep,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> __lasts,
+  ) {
+    return (_strtok_r ??=
+        _dylib.lookupFunction<_c_strtok_r, _dart_strtok_r>('strtok_r'))(
+      __str,
+      __sep,
+      __lasts,
+    );
+  }
+
+  _dart_strtok_r? _strtok_r;
+
+  int strerror_r(
+    int __errnum,
+    ffi.Pointer<ffi.Int8> __strerrbuf,
+    int __buflen,
+  ) {
+    return (_strerror_r ??=
+        _dylib.lookupFunction<_c_strerror_r, _dart_strerror_r>('strerror_r'))(
+      __errnum,
+      __strerrbuf,
+      __buflen,
+    );
+  }
+
+  _dart_strerror_r? _strerror_r;
+
+  ffi.Pointer<ffi.Int8> strdup(
+    ffi.Pointer<ffi.Int8> __s1,
+  ) {
+    return (_strdup ??=
+        _dylib.lookupFunction<_c_strdup, _dart_strdup>('strdup'))(
+      __s1,
+    );
+  }
+
+  _dart_strdup? _strdup;
+
+  ffi.Pointer<ffi.Void> memccpy(
+    ffi.Pointer<ffi.Void> __dst,
+    ffi.Pointer<ffi.Void> __src,
+    int __c,
+    int __n,
+  ) {
+    return (_memccpy ??=
+        _dylib.lookupFunction<_c_memccpy, _dart_memccpy>('memccpy'))(
+      __dst,
+      __src,
+      __c,
+      __n,
+    );
+  }
+
+  _dart_memccpy? _memccpy;
+
+  ffi.Pointer<ffi.Int8> stpcpy(
+    ffi.Pointer<ffi.Int8> __dst,
+    ffi.Pointer<ffi.Int8> __src,
+  ) {
+    return (_stpcpy ??=
+        _dylib.lookupFunction<_c_stpcpy, _dart_stpcpy>('stpcpy'))(
+      __dst,
+      __src,
+    );
+  }
+
+  _dart_stpcpy? _stpcpy;
+
+  ffi.Pointer<ffi.Int8> stpncpy(
+    ffi.Pointer<ffi.Int8> __dst,
+    ffi.Pointer<ffi.Int8> __src,
+    int __n,
+  ) {
+    return (_stpncpy ??=
+        _dylib.lookupFunction<_c_stpncpy, _dart_stpncpy>('stpncpy'))(
+      __dst,
+      __src,
+      __n,
+    );
+  }
+
+  _dart_stpncpy? _stpncpy;
+
+  ffi.Pointer<ffi.Int8> strndup(
+    ffi.Pointer<ffi.Int8> __s1,
+    int __n,
+  ) {
+    return (_strndup ??=
+        _dylib.lookupFunction<_c_strndup, _dart_strndup>('strndup'))(
+      __s1,
+      __n,
+    );
+  }
+
+  _dart_strndup? _strndup;
+
+  int strnlen(
+    ffi.Pointer<ffi.Int8> __s1,
+    int __n,
+  ) {
+    return (_strnlen ??=
+        _dylib.lookupFunction<_c_strnlen, _dart_strnlen>('strnlen'))(
+      __s1,
+      __n,
+    );
+  }
+
+  _dart_strnlen? _strnlen;
+
+  ffi.Pointer<ffi.Int8> strsignal(
+    int __sig,
+  ) {
+    return (_strsignal ??=
+        _dylib.lookupFunction<_c_strsignal, _dart_strsignal>('strsignal'))(
+      __sig,
+    );
+  }
+
+  _dart_strsignal? _strsignal;
+
+  int memset_s(
+    ffi.Pointer<ffi.Void> __s,
+    int __smax,
+    int __c,
+    int __n,
+  ) {
+    return (_memset_s ??=
+        _dylib.lookupFunction<_c_memset_s, _dart_memset_s>('memset_s'))(
+      __s,
+      __smax,
+      __c,
+      __n,
+    );
+  }
+
+  _dart_memset_s? _memset_s;
+
+  ffi.Pointer<ffi.Void> memmem(
+    ffi.Pointer<ffi.Void> __big,
+    int __big_len,
+    ffi.Pointer<ffi.Void> __little,
+    int __little_len,
+  ) {
+    return (_memmem ??=
+        _dylib.lookupFunction<_c_memmem, _dart_memmem>('memmem'))(
+      __big,
+      __big_len,
+      __little,
+      __little_len,
+    );
+  }
+
+  _dart_memmem? _memmem;
+
+  void memset_pattern4(
+    ffi.Pointer<ffi.Void> __b,
+    ffi.Pointer<ffi.Void> __pattern4,
+    int __len,
+  ) {
+    return (_memset_pattern4 ??=
+        _dylib.lookupFunction<_c_memset_pattern4, _dart_memset_pattern4>(
+            'memset_pattern4'))(
+      __b,
+      __pattern4,
+      __len,
+    );
+  }
+
+  _dart_memset_pattern4? _memset_pattern4;
+
+  void memset_pattern8(
+    ffi.Pointer<ffi.Void> __b,
+    ffi.Pointer<ffi.Void> __pattern8,
+    int __len,
+  ) {
+    return (_memset_pattern8 ??=
+        _dylib.lookupFunction<_c_memset_pattern8, _dart_memset_pattern8>(
+            'memset_pattern8'))(
+      __b,
+      __pattern8,
+      __len,
+    );
+  }
+
+  _dart_memset_pattern8? _memset_pattern8;
+
+  void memset_pattern16(
+    ffi.Pointer<ffi.Void> __b,
+    ffi.Pointer<ffi.Void> __pattern16,
+    int __len,
+  ) {
+    return (_memset_pattern16 ??=
+        _dylib.lookupFunction<_c_memset_pattern16, _dart_memset_pattern16>(
+            'memset_pattern16'))(
+      __b,
+      __pattern16,
+      __len,
+    );
+  }
+
+  _dart_memset_pattern16? _memset_pattern16;
+
+  ffi.Pointer<ffi.Int8> strcasestr(
+    ffi.Pointer<ffi.Int8> __big,
+    ffi.Pointer<ffi.Int8> __little,
+  ) {
+    return (_strcasestr ??=
+        _dylib.lookupFunction<_c_strcasestr, _dart_strcasestr>('strcasestr'))(
+      __big,
+      __little,
+    );
+  }
+
+  _dart_strcasestr? _strcasestr;
+
+  ffi.Pointer<ffi.Int8> strnstr(
+    ffi.Pointer<ffi.Int8> __big,
+    ffi.Pointer<ffi.Int8> __little,
+    int __len,
+  ) {
+    return (_strnstr ??=
+        _dylib.lookupFunction<_c_strnstr, _dart_strnstr>('strnstr'))(
+      __big,
+      __little,
+      __len,
+    );
+  }
+
+  _dart_strnstr? _strnstr;
+
+  int strlcat(
+    ffi.Pointer<ffi.Int8> __dst,
+    ffi.Pointer<ffi.Int8> __source,
+    int __size,
+  ) {
+    return (_strlcat ??=
+        _dylib.lookupFunction<_c_strlcat, _dart_strlcat>('strlcat'))(
+      __dst,
+      __source,
+      __size,
+    );
+  }
+
+  _dart_strlcat? _strlcat;
+
+  int strlcpy(
+    ffi.Pointer<ffi.Int8> __dst,
+    ffi.Pointer<ffi.Int8> __source,
+    int __size,
+  ) {
+    return (_strlcpy ??=
+        _dylib.lookupFunction<_c_strlcpy, _dart_strlcpy>('strlcpy'))(
+      __dst,
+      __source,
+      __size,
+    );
+  }
+
+  _dart_strlcpy? _strlcpy;
+
+  void strmode(
+    int __mode,
+    ffi.Pointer<ffi.Int8> __bp,
+  ) {
+    return (_strmode ??=
+        _dylib.lookupFunction<_c_strmode, _dart_strmode>('strmode'))(
+      __mode,
+      __bp,
+    );
+  }
+
+  _dart_strmode? _strmode;
+
+  ffi.Pointer<ffi.Int8> strsep(
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> __stringp,
+    ffi.Pointer<ffi.Int8> __delim,
+  ) {
+    return (_strsep ??=
+        _dylib.lookupFunction<_c_strsep, _dart_strsep>('strsep'))(
+      __stringp,
+      __delim,
+    );
+  }
+
+  _dart_strsep? _strsep;
+
+  void swab(
+    ffi.Pointer<ffi.Void> arg0,
+    ffi.Pointer<ffi.Void> arg1,
+    int arg2,
+  ) {
+    return (_swab ??= _dylib.lookupFunction<_c_swab, _dart_swab>('swab'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_swab? _swab;
+
+  int timingsafe_bcmp(
+    ffi.Pointer<ffi.Void> __b1,
+    ffi.Pointer<ffi.Void> __b2,
+    int __len,
+  ) {
+    return (_timingsafe_bcmp ??=
+        _dylib.lookupFunction<_c_timingsafe_bcmp, _dart_timingsafe_bcmp>(
+            'timingsafe_bcmp'))(
+      __b1,
+      __b2,
+      __len,
+    );
+  }
+
+  _dart_timingsafe_bcmp? _timingsafe_bcmp;
+
+  int bcmp(
+    ffi.Pointer<ffi.Void> arg0,
+    ffi.Pointer<ffi.Void> arg1,
+    int arg2,
+  ) {
+    return (_bcmp ??= _dylib.lookupFunction<_c_bcmp, _dart_bcmp>('bcmp'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_bcmp? _bcmp;
+
+  void bcopy(
+    ffi.Pointer<ffi.Void> arg0,
+    ffi.Pointer<ffi.Void> arg1,
+    int arg2,
+  ) {
+    return (_bcopy ??= _dylib.lookupFunction<_c_bcopy, _dart_bcopy>('bcopy'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_bcopy? _bcopy;
+
+  void bzero(
+    ffi.Pointer<ffi.Void> arg0,
+    int arg1,
+  ) {
+    return (_bzero ??= _dylib.lookupFunction<_c_bzero, _dart_bzero>('bzero'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_bzero? _bzero;
+
+  ffi.Pointer<ffi.Int8> index(
+    ffi.Pointer<ffi.Int8> arg0,
+    int arg1,
+  ) {
+    return (_index ??= _dylib.lookupFunction<_c_index, _dart_index>('index'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_index? _index;
+
+  ffi.Pointer<ffi.Int8> rindex(
+    ffi.Pointer<ffi.Int8> arg0,
+    int arg1,
+  ) {
+    return (_rindex ??=
+        _dylib.lookupFunction<_c_rindex, _dart_rindex>('rindex'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_rindex? _rindex;
+
+  int ffs(
+    int arg0,
+  ) {
+    return (_ffs ??= _dylib.lookupFunction<_c_ffs, _dart_ffs>('ffs'))(
+      arg0,
+    );
+  }
+
+  _dart_ffs? _ffs;
+
+  int strcasecmp(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_strcasecmp ??=
+        _dylib.lookupFunction<_c_strcasecmp, _dart_strcasecmp>('strcasecmp'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_strcasecmp? _strcasecmp;
+
+  int strncasecmp(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    int arg2,
+  ) {
+    return (_strncasecmp ??= _dylib
+        .lookupFunction<_c_strncasecmp, _dart_strncasecmp>('strncasecmp'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_strncasecmp? _strncasecmp;
+
+  int ffsl(
+    int arg0,
+  ) {
+    return (_ffsl ??= _dylib.lookupFunction<_c_ffsl, _dart_ffsl>('ffsl'))(
+      arg0,
+    );
+  }
+
+  _dart_ffsl? _ffsl;
+
+  int ffsll(
+    int arg0,
+  ) {
+    return (_ffsll ??= _dylib.lookupFunction<_c_ffsll, _dart_ffsll>('ffsll'))(
+      arg0,
+    );
+  }
+
+  _dart_ffsll? _ffsll;
+
+  int fls(
+    int arg0,
+  ) {
+    return (_fls ??= _dylib.lookupFunction<_c_fls, _dart_fls>('fls'))(
+      arg0,
+    );
+  }
+
+  _dart_fls? _fls;
+
+  int flsl(
+    int arg0,
+  ) {
+    return (_flsl ??= _dylib.lookupFunction<_c_flsl, _dart_flsl>('flsl'))(
+      arg0,
+    );
+  }
+
+  _dart_flsl? _flsl;
+
+  int flsll(
+    int arg0,
+  ) {
+    return (_flsll ??= _dylib.lookupFunction<_c_flsll, _dart_flsll>('flsll'))(
+      arg0,
+    );
+  }
+
+  _dart_flsll? _flsll;
+
+  int real_clock() {
+    return (_real_clock ??=
+        _dylib.lookupFunction<_c_real_clock, _dart_real_clock>('real_clock'))();
+  }
+
+  _dart_real_clock? _real_clock;
+
+  int cpu_clock() {
+    return (_cpu_clock ??=
+        _dylib.lookupFunction<_c_cpu_clock, _dart_cpu_clock>('cpu_clock'))();
+  }
+
+  _dart_cpu_clock? _cpu_clock;
+
+  void time_print(
+    int arg0,
+    int bool,
+    ffi.Pointer<FILE> arg2,
+  ) {
+    return (_time_print ??=
+        _dylib.lookupFunction<_c_time_print, _dart_time_print>('time_print'))(
+      arg0,
+      bool,
+      arg2,
+    );
+  }
+
+  _dart_time_print? _time_print;
+
+  int time_read(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_time_read ??=
+        _dylib.lookupFunction<_c_time_read, _dart_time_read>('time_read'))(
+      arg0,
+    );
+  }
+
+  _dart_time_read? _time_read;
+
+  void time_stamp(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_time_stamp ??=
+        _dylib.lookupFunction<_c_time_stamp, _dart_time_stamp>('time_stamp'))(
+      arg0,
+    );
+  }
+
+  _dart_time_stamp? _time_stamp;
+
+  void relax(
+    int arg0,
+  ) {
+    return (_relax ??= _dylib.lookupFunction<_c_relax, _dart_relax>('relax'))(
+      arg0,
+    );
+  }
+
+  _dart_relax? _relax;
+
+  ffi.Pointer<ffi.Int8> format_scientific(
+    double arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    ffi.Pointer<ffi.Int8> arg2,
+  ) {
+    return (_format_scientific ??=
+        _dylib.lookupFunction<_c_format_scientific, _dart_format_scientific>(
+            'format_scientific'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_format_scientific? _format_scientific;
+
+  void print_scientific(
+    double arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    ffi.Pointer<FILE> arg2,
+  ) {
+    return (_print_scientific ??=
+        _dylib.lookupFunction<_c_print_scientific, _dart_print_scientific>(
+            'print_scientific'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_print_scientific? _print_scientific;
+
+  ffi.Pointer<ffi.Int8> string_duplicate(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_string_duplicate ??=
+        _dylib.lookupFunction<_c_string_duplicate, _dart_string_duplicate>(
+            'string_duplicate'))(
+      arg0,
+    );
+  }
+
+  _dart_string_duplicate? _string_duplicate;
+
+  int string_to_time(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_string_to_time ??=
+        _dylib.lookupFunction<_c_string_to_time, _dart_string_to_time>(
+            'string_to_time'))(
+      arg0,
+    );
+  }
+
+  _dart_string_to_time? _string_to_time;
+
+  ffi.Pointer<ffi.Int8> string_read_line(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_string_read_line ??=
+        _dylib.lookupFunction<_c_string_read_line, _dart_string_read_line>(
+            'string_read_line'))(
+      arg0,
+    );
+  }
+
+  _dart_string_read_line? _string_read_line;
+
+  ffi.Pointer<ffi.Int8> string_copy_line(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_string_copy_line ??=
+        _dylib.lookupFunction<_c_string_copy_line, _dart_string_copy_line>(
+            'string_copy_line'))(
+      arg0,
+    );
+  }
+
+  _dart_string_copy_line? _string_copy_line;
+
+  void string_to_lowercase(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_string_to_lowercase ??= _dylib.lookupFunction<
+        _c_string_to_lowercase,
+        _dart_string_to_lowercase>('string_to_lowercase'))(
+      arg0,
+    );
+  }
+
+  _dart_string_to_lowercase? _string_to_lowercase;
+
+  void string_to_uppercase(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_string_to_uppercase ??= _dylib.lookupFunction<
+        _c_string_to_uppercase,
+        _dart_string_to_uppercase>('string_to_uppercase'))(
+      arg0,
+    );
+  }
+
+  _dart_string_to_uppercase? _string_to_uppercase;
+
+  int string_to_coordinate(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_string_to_coordinate ??= _dylib.lookupFunction<
+        _c_string_to_coordinate,
+        _dart_string_to_coordinate>('string_to_coordinate'))(
+      arg0,
+    );
+  }
+
+  _dart_string_to_coordinate? _string_to_coordinate;
+
+  ffi.Pointer<ffi.Int8> string_to_word(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_string_to_word ??=
+        _dylib.lookupFunction<_c_string_to_word, _dart_string_to_word>(
+            'string_to_word'))(
+      arg0,
+    );
+  }
+
+  _dart_string_to_word? _string_to_word;
+
+  int string_to_boolean(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_string_to_boolean ??=
+        _dylib.lookupFunction<_c_string_to_boolean, _dart_string_to_boolean>(
+            'string_to_boolean'))(
+      arg0,
+    );
+  }
+
+  _dart_string_to_boolean? _string_to_boolean;
+
+  int string_to_int(
+    ffi.Pointer<ffi.Int8> arg0,
+    int arg1,
+  ) {
+    return (_string_to_int ??=
+        _dylib.lookupFunction<_c_string_to_int, _dart_string_to_int>(
+            'string_to_int'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_string_to_int? _string_to_int;
+
+  double string_to_real(
+    ffi.Pointer<ffi.Int8> arg0,
+    double arg1,
+  ) {
+    return (_string_to_real ??=
+        _dylib.lookupFunction<_c_string_to_real, _dart_string_to_real>(
+            'string_to_real'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_string_to_real? _string_to_real;
+
+  ffi.Pointer<ffi.Int8> parse_word(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    int arg2,
+  ) {
+    return (_parse_word ??=
+        _dylib.lookupFunction<_c_parse_word, _dart_parse_word>('parse_word'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_parse_word? _parse_word;
+
+  ffi.Pointer<ffi.Int8> parse_field(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    int arg2,
+    int arg3,
+  ) {
+    return (_parse_field ??= _dylib
+        .lookupFunction<_c_parse_field, _dart_parse_field>('parse_field'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_parse_field? _parse_field;
+
+  ffi.Pointer<ffi.Int8> parse_line(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    int arg2,
+  ) {
+    return (_parse_line ??=
+        _dylib.lookupFunction<_c_parse_line, _dart_parse_line>('parse_line'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_parse_line? _parse_line;
+
+  ffi.Pointer<ffi.Int8> parse_board(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<Board> arg1,
+    ffi.Pointer<ffi.Int32> arg2,
+  ) {
+    return (_parse_board ??= _dylib
+        .lookupFunction<_c_parse_board, _dart_parse_board>('parse_board'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_parse_board? _parse_board;
+
+  ffi.Pointer<ffi.Int8> parse_move(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<Board> arg1,
+    ffi.Pointer<Move> arg2,
+  ) {
+    return (_parse_move ??=
+        _dylib.lookupFunction<_c_parse_move, _dart_parse_move>('parse_move'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_parse_move? _parse_move;
+
+  ffi.Pointer<ffi.Int8> parse_game(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<Board> arg1,
+    ffi.Pointer<Line> arg2,
+  ) {
+    return (_parse_game ??=
+        _dylib.lookupFunction<_c_parse_game, _dart_parse_game>('parse_game'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_parse_game? _parse_game;
+
+  ffi.Pointer<ffi.Int8> parse_boolean(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+  ) {
+    return (_parse_boolean ??=
+        _dylib.lookupFunction<_c_parse_boolean, _dart_parse_boolean>(
+            'parse_boolean'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_parse_boolean? _parse_boolean;
+
+  ffi.Pointer<ffi.Int8> parse_int(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+  ) {
+    return (_parse_int ??=
+        _dylib.lookupFunction<_c_parse_int, _dart_parse_int>('parse_int'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_parse_int? _parse_int;
+
+  ffi.Pointer<ffi.Int8> parse_real(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Double> arg1,
+  ) {
+    return (_parse_real ??=
+        _dylib.lookupFunction<_c_parse_real, _dart_parse_real>('parse_real'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_parse_real? _parse_real;
+
+  ffi.Pointer<ffi.Int8> parse_command(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    ffi.Pointer<ffi.Int8> arg2,
+    int arg3,
+  ) {
+    return (_parse_command ??=
+        _dylib.lookupFunction<_c_parse_command, _dart_parse_command>(
+            'parse_command'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_parse_command? _parse_command;
+
+  ffi.Pointer<ffi.Int8> parse_find(
+    ffi.Pointer<ffi.Int8> arg0,
+    int arg1,
+  ) {
+    return (_parse_find ??=
+        _dylib.lookupFunction<_c_parse_find, _dart_parse_find>('parse_find'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_parse_find? _parse_find;
+
+  ffi.Pointer<ffi.Int8> parse_skip_spaces(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_parse_skip_spaces ??=
+        _dylib.lookupFunction<_c_parse_skip_spaces, _dart_parse_skip_spaces>(
+            'parse_skip_spaces'))(
+      arg0,
+    );
+  }
+
+  _dart_parse_skip_spaces? _parse_skip_spaces;
+
+  ffi.Pointer<ffi.Int8> parse_skip_word(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_parse_skip_word ??=
+        _dylib.lookupFunction<_c_parse_skip_word, _dart_parse_skip_word>(
+            'parse_skip_word'))(
+      arg0,
+    );
+  }
+
+  _dart_parse_skip_word? _parse_skip_word;
+
+  void path_get_dir(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_path_get_dir ??= _dylib
+        .lookupFunction<_c_path_get_dir, _dart_path_get_dir>('path_get_dir'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_path_get_dir? _path_get_dir;
+
+  ffi.Pointer<ffi.Int8> file_add_ext(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    ffi.Pointer<ffi.Int8> arg2,
+  ) {
+    return (_file_add_ext ??= _dylib
+        .lookupFunction<_c_file_add_ext, _dart_file_add_ext>('file_add_ext'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_file_add_ext? _file_add_ext;
+
+  int is_stdin_keyboard() {
+    return (_is_stdin_keyboard ??=
+        _dylib.lookupFunction<_c_is_stdin_keyboard, _dart_is_stdin_keyboard>(
+            'is_stdin_keyboard'))();
+  }
+
+  _dart_is_stdin_keyboard? _is_stdin_keyboard;
+
+  int random_get(
+    ffi.Pointer<Random> arg0,
+  ) {
+    return (_random_get ??=
+        _dylib.lookupFunction<_c_random_get, _dart_random_get>('random_get'))(
+      arg0,
+    );
+  }
+
+  _dart_random_get? _random_get;
+
+  void random_seed(
+    ffi.Pointer<Random> arg0,
+    int arg1,
+  ) {
+    return (_random_seed ??= _dylib
+        .lookupFunction<_c_random_seed, _dart_random_seed>('random_seed'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_random_seed? _random_seed;
+
+  int sched_yield() {
+    return (_sched_yield ??= _dylib
+        .lookupFunction<_c_sched_yield, _dart_sched_yield>('sched_yield'))();
+  }
+
+  _dart_sched_yield? _sched_yield;
+
+  int sched_get_priority_min(
+    int arg0,
+  ) {
+    return (_sched_get_priority_min ??= _dylib.lookupFunction<
+        _c_sched_get_priority_min,
+        _dart_sched_get_priority_min>('sched_get_priority_min'))(
+      arg0,
+    );
+  }
+
+  _dart_sched_get_priority_min? _sched_get_priority_min;
+
+  int sched_get_priority_max(
+    int arg0,
+  ) {
+    return (_sched_get_priority_max ??= _dylib.lookupFunction<
+        _c_sched_get_priority_max,
+        _dart_sched_get_priority_max>('sched_get_priority_max'))(
+      arg0,
+    );
+  }
+
+  _dart_sched_get_priority_max? _sched_get_priority_max;
+
+  ffi.Pointer<ffi.Int8> asctime(
+    ffi.Pointer<tm> arg0,
+  ) {
+    return (_asctime ??=
+        _dylib.lookupFunction<_c_asctime, _dart_asctime>('asctime'))(
+      arg0,
+    );
+  }
+
+  _dart_asctime? _asctime;
+
+  int clock() {
+    return (_clock ??= _dylib.lookupFunction<_c_clock, _dart_clock>('clock'))();
+  }
+
+  _dart_clock? _clock;
+
+  ffi.Pointer<ffi.Int8> ctime(
+    ffi.Pointer<ffi.Int64> arg0,
+  ) {
+    return (_ctime ??= _dylib.lookupFunction<_c_ctime, _dart_ctime>('ctime'))(
+      arg0,
+    );
+  }
+
+  _dart_ctime? _ctime;
+
+  double difftime(
+    int arg0,
+    int arg1,
+  ) {
+    return (_difftime ??=
+        _dylib.lookupFunction<_c_difftime, _dart_difftime>('difftime'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_difftime? _difftime;
+
+  ffi.Pointer<tm> getdate(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_getdate ??=
+        _dylib.lookupFunction<_c_getdate, _dart_getdate>('getdate'))(
+      arg0,
+    );
+  }
+
+  _dart_getdate? _getdate;
+
+  ffi.Pointer<tm> gmtime(
+    ffi.Pointer<ffi.Int64> arg0,
+  ) {
+    return (_gmtime ??=
+        _dylib.lookupFunction<_c_gmtime, _dart_gmtime>('gmtime'))(
+      arg0,
+    );
+  }
+
+  _dart_gmtime? _gmtime;
+
+  ffi.Pointer<tm> localtime(
+    ffi.Pointer<ffi.Int64> arg0,
+  ) {
+    return (_localtime ??=
+        _dylib.lookupFunction<_c_localtime, _dart_localtime>('localtime'))(
+      arg0,
+    );
+  }
+
+  _dart_localtime? _localtime;
+
+  int mktime(
+    ffi.Pointer<tm> arg0,
+  ) {
+    return (_mktime ??=
+        _dylib.lookupFunction<_c_mktime, _dart_mktime>('mktime'))(
+      arg0,
+    );
+  }
+
+  _dart_mktime? _mktime;
+
+  int strftime(
+    ffi.Pointer<ffi.Int8> arg0,
+    int arg1,
+    ffi.Pointer<ffi.Int8> arg2,
+    ffi.Pointer<tm> arg3,
+  ) {
+    return (_strftime ??=
+        _dylib.lookupFunction<_c_strftime, _dart_strftime>('strftime'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_strftime? _strftime;
+
+  ffi.Pointer<ffi.Int8> strptime(
+    ffi.Pointer<ffi.Int8> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    ffi.Pointer<tm> arg2,
+  ) {
+    return (_strptime ??=
+        _dylib.lookupFunction<_c_strptime, _dart_strptime>('strptime'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_strptime? _strptime;
+
+  int time(
+    ffi.Pointer<ffi.Int64> arg0,
+  ) {
+    return (_time ??= _dylib.lookupFunction<_c_time, _dart_time>('time'))(
+      arg0,
+    );
+  }
+
+  _dart_time? _time;
+
+  void tzset() {
+    return (_tzset ??= _dylib.lookupFunction<_c_tzset, _dart_tzset>('tzset'))();
+  }
+
+  _dart_tzset? _tzset;
+
+  ffi.Pointer<ffi.Int8> asctime_r(
+    ffi.Pointer<tm> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_asctime_r ??=
+        _dylib.lookupFunction<_c_asctime_r, _dart_asctime_r>('asctime_r'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_asctime_r? _asctime_r;
+
+  ffi.Pointer<ffi.Int8> ctime_r(
+    ffi.Pointer<ffi.Int64> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_ctime_r ??=
+        _dylib.lookupFunction<_c_ctime_r, _dart_ctime_r>('ctime_r'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_ctime_r? _ctime_r;
+
+  ffi.Pointer<tm> gmtime_r(
+    ffi.Pointer<ffi.Int64> arg0,
+    ffi.Pointer<tm> arg1,
+  ) {
+    return (_gmtime_r ??=
+        _dylib.lookupFunction<_c_gmtime_r, _dart_gmtime_r>('gmtime_r'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_gmtime_r? _gmtime_r;
+
+  ffi.Pointer<tm> localtime_r(
+    ffi.Pointer<ffi.Int64> arg0,
+    ffi.Pointer<tm> arg1,
+  ) {
+    return (_localtime_r ??= _dylib
+        .lookupFunction<_c_localtime_r, _dart_localtime_r>('localtime_r'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_localtime_r? _localtime_r;
+
+  int posix2time(
+    int arg0,
+  ) {
+    return (_posix2time ??=
+        _dylib.lookupFunction<_c_posix2time, _dart_posix2time>('posix2time'))(
+      arg0,
+    );
+  }
+
+  _dart_posix2time? _posix2time;
+
+  void tzsetwall() {
+    return (_tzsetwall ??=
+        _dylib.lookupFunction<_c_tzsetwall, _dart_tzsetwall>('tzsetwall'))();
+  }
+
+  _dart_tzsetwall? _tzsetwall;
+
+  int time2posix(
+    int arg0,
+  ) {
+    return (_time2posix ??=
+        _dylib.lookupFunction<_c_time2posix, _dart_time2posix>('time2posix'))(
+      arg0,
+    );
+  }
+
+  _dart_time2posix? _time2posix;
+
+  int timelocal(
+    ffi.Pointer<tm> arg0,
+  ) {
+    return (_timelocal ??=
+        _dylib.lookupFunction<_c_timelocal, _dart_timelocal>('timelocal'))(
+      arg0,
+    );
+  }
+
+  _dart_timelocal? _timelocal;
+
+  int timegm(
+    ffi.Pointer<tm> arg0,
+  ) {
+    return (_timegm ??=
+        _dylib.lookupFunction<_c_timegm, _dart_timegm>('timegm'))(
+      arg0,
+    );
+  }
+
+  _dart_timegm? _timegm;
+
+  int nanosleep(
+    ffi.Pointer<timespec> __rqtp,
+    ffi.Pointer<timespec> __rmtp,
+  ) {
+    return (_nanosleep ??=
+        _dylib.lookupFunction<_c_nanosleep, _dart_nanosleep>('nanosleep'))(
+      __rqtp,
+      __rmtp,
+    );
+  }
+
+  _dart_nanosleep? _nanosleep;
+
+  int clock_getres(
+    int __clock_id,
+    ffi.Pointer<timespec> __res,
+  ) {
+    return (_clock_getres ??= _dylib
+        .lookupFunction<_c_clock_getres, _dart_clock_getres>('clock_getres'))(
+      __clock_id,
+      __res,
+    );
+  }
+
+  _dart_clock_getres? _clock_getres;
+
+  int clock_gettime(
+    int __clock_id,
+    ffi.Pointer<timespec> __tp,
+  ) {
+    return (_clock_gettime ??=
+        _dylib.lookupFunction<_c_clock_gettime, _dart_clock_gettime>(
+            'clock_gettime'))(
+      __clock_id,
+      __tp,
+    );
+  }
+
+  _dart_clock_gettime? _clock_gettime;
+
+  int clock_gettime_nsec_np(
+    int __clock_id,
+  ) {
+    return (_clock_gettime_nsec_np ??= _dylib.lookupFunction<
+        _c_clock_gettime_nsec_np,
+        _dart_clock_gettime_nsec_np>('clock_gettime_nsec_np'))(
+      __clock_id,
+    );
+  }
+
+  _dart_clock_gettime_nsec_np? _clock_gettime_nsec_np;
+
+  int clock_settime(
+    int __clock_id,
+    ffi.Pointer<timespec> __tp,
+  ) {
+    return (_clock_settime ??=
+        _dylib.lookupFunction<_c_clock_settime, _dart_clock_settime>(
+            'clock_settime'))(
+      __clock_id,
+      __tp,
+    );
+  }
+
+  _dart_clock_settime? _clock_settime;
+
+  int timespec_get(
+    ffi.Pointer<timespec> ts,
+    int base,
+  ) {
+    return (_timespec_get ??= _dylib
+        .lookupFunction<_c_timespec_get, _dart_timespec_get>('timespec_get'))(
+      ts,
+      base,
+    );
+  }
+
+  _dart_timespec_get? _timespec_get;
+
+  int qos_class_self() {
+    return (_qos_class_self ??=
+        _dylib.lookupFunction<_c_qos_class_self, _dart_qos_class_self>(
+            'qos_class_self'))();
+  }
+
+  _dart_qos_class_self? _qos_class_self;
+
+  int qos_class_main() {
+    return (_qos_class_main ??=
+        _dylib.lookupFunction<_c_qos_class_main, _dart_qos_class_main>(
+            'qos_class_main'))();
+  }
+
+  _dart_qos_class_main? _qos_class_main;
+
+  int pthread_attr_set_qos_class_np(
+    ffi.Pointer<_opaque_pthread_attr_t> __attr,
+    int __qos_class,
+    int __relative_priority,
+  ) {
+    return (_pthread_attr_set_qos_class_np ??= _dylib.lookupFunction<
+        _c_pthread_attr_set_qos_class_np,
+        _dart_pthread_attr_set_qos_class_np>('pthread_attr_set_qos_class_np'))(
+      __attr,
+      __qos_class,
+      __relative_priority,
+    );
+  }
+
+  _dart_pthread_attr_set_qos_class_np? _pthread_attr_set_qos_class_np;
+
+  int pthread_attr_get_qos_class_np(
+    ffi.Pointer<_opaque_pthread_attr_t> __attr,
+    ffi.Pointer<ffi.Uint32> __qos_class,
+    ffi.Pointer<ffi.Int32> __relative_priority,
+  ) {
+    return (_pthread_attr_get_qos_class_np ??= _dylib.lookupFunction<
+        _c_pthread_attr_get_qos_class_np,
+        _dart_pthread_attr_get_qos_class_np>('pthread_attr_get_qos_class_np'))(
+      __attr,
+      __qos_class,
+      __relative_priority,
+    );
+  }
+
+  _dart_pthread_attr_get_qos_class_np? _pthread_attr_get_qos_class_np;
+
+  int pthread_set_qos_class_self_np(
+    int __qos_class,
+    int __relative_priority,
+  ) {
+    return (_pthread_set_qos_class_self_np ??= _dylib.lookupFunction<
+        _c_pthread_set_qos_class_self_np,
+        _dart_pthread_set_qos_class_self_np>('pthread_set_qos_class_self_np'))(
+      __qos_class,
+      __relative_priority,
+    );
+  }
+
+  _dart_pthread_set_qos_class_self_np? _pthread_set_qos_class_self_np;
+
+  int pthread_get_qos_class_np(
+    ffi.Pointer<_opaque_pthread_t> __pthread,
+    ffi.Pointer<ffi.Uint32> __qos_class,
+    ffi.Pointer<ffi.Int32> __relative_priority,
+  ) {
+    return (_pthread_get_qos_class_np ??= _dylib.lookupFunction<
+        _c_pthread_get_qos_class_np,
+        _dart_pthread_get_qos_class_np>('pthread_get_qos_class_np'))(
+      __pthread,
+      __qos_class,
+      __relative_priority,
+    );
+  }
+
+  _dart_pthread_get_qos_class_np? _pthread_get_qos_class_np;
+
+  ffi.Pointer<pthread_override_s> pthread_override_qos_class_start_np(
+    ffi.Pointer<_opaque_pthread_t> __pthread,
+    int __qos_class,
+    int __relative_priority,
+  ) {
+    return (_pthread_override_qos_class_start_np ??= _dylib.lookupFunction<
+            _c_pthread_override_qos_class_start_np,
+            _dart_pthread_override_qos_class_start_np>(
+        'pthread_override_qos_class_start_np'))(
+      __pthread,
+      __qos_class,
+      __relative_priority,
+    );
+  }
+
+  _dart_pthread_override_qos_class_start_np?
+      _pthread_override_qos_class_start_np;
+
+  int pthread_override_qos_class_end_np(
+    ffi.Pointer<pthread_override_s> __override,
+  ) {
+    return (_pthread_override_qos_class_end_np ??= _dylib.lookupFunction<
+            _c_pthread_override_qos_class_end_np,
+            _dart_pthread_override_qos_class_end_np>(
+        'pthread_override_qos_class_end_np'))(
+      __override,
+    );
+  }
+
+  _dart_pthread_override_qos_class_end_np? _pthread_override_qos_class_end_np;
+
+  int pthread_atfork(
+    ffi.Pointer<ffi.NativeFunction<_typedefC_22>> arg0,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_23>> arg1,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_24>> arg2,
+  ) {
+    return (_pthread_atfork ??=
+        _dylib.lookupFunction<_c_pthread_atfork, _dart_pthread_atfork>(
+            'pthread_atfork'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_pthread_atfork? _pthread_atfork;
+
+  int pthread_attr_destroy(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ) {
+    return (_pthread_attr_destroy ??= _dylib.lookupFunction<
+        _c_pthread_attr_destroy,
+        _dart_pthread_attr_destroy>('pthread_attr_destroy'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_attr_destroy? _pthread_attr_destroy;
+
+  int pthread_attr_getdetachstate(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+  ) {
+    return (_pthread_attr_getdetachstate ??= _dylib.lookupFunction<
+        _c_pthread_attr_getdetachstate,
+        _dart_pthread_attr_getdetachstate>('pthread_attr_getdetachstate'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_attr_getdetachstate? _pthread_attr_getdetachstate;
+
+  int pthread_attr_getguardsize(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+    ffi.Pointer<ffi.Uint64> arg1,
+  ) {
+    return (_pthread_attr_getguardsize ??= _dylib.lookupFunction<
+        _c_pthread_attr_getguardsize,
+        _dart_pthread_attr_getguardsize>('pthread_attr_getguardsize'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_attr_getguardsize? _pthread_attr_getguardsize;
+
+  int pthread_attr_getinheritsched(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+  ) {
+    return (_pthread_attr_getinheritsched ??= _dylib.lookupFunction<
+        _c_pthread_attr_getinheritsched,
+        _dart_pthread_attr_getinheritsched>('pthread_attr_getinheritsched'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_attr_getinheritsched? _pthread_attr_getinheritsched;
+
+  int pthread_attr_getschedparam(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+    ffi.Pointer<sched_param> arg1,
+  ) {
+    return (_pthread_attr_getschedparam ??= _dylib.lookupFunction<
+        _c_pthread_attr_getschedparam,
+        _dart_pthread_attr_getschedparam>('pthread_attr_getschedparam'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_attr_getschedparam? _pthread_attr_getschedparam;
+
+  int pthread_attr_getschedpolicy(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+  ) {
+    return (_pthread_attr_getschedpolicy ??= _dylib.lookupFunction<
+        _c_pthread_attr_getschedpolicy,
+        _dart_pthread_attr_getschedpolicy>('pthread_attr_getschedpolicy'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_attr_getschedpolicy? _pthread_attr_getschedpolicy;
+
+  int pthread_attr_getscope(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+  ) {
+    return (_pthread_attr_getscope ??= _dylib.lookupFunction<
+        _c_pthread_attr_getscope,
+        _dart_pthread_attr_getscope>('pthread_attr_getscope'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_attr_getscope? _pthread_attr_getscope;
+
+  int pthread_attr_getstack(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+    ffi.Pointer<ffi.Pointer<ffi.Void>> arg1,
+    ffi.Pointer<ffi.Uint64> arg2,
+  ) {
+    return (_pthread_attr_getstack ??= _dylib.lookupFunction<
+        _c_pthread_attr_getstack,
+        _dart_pthread_attr_getstack>('pthread_attr_getstack'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_pthread_attr_getstack? _pthread_attr_getstack;
+
+  int pthread_attr_getstackaddr(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+    ffi.Pointer<ffi.Pointer<ffi.Void>> arg1,
+  ) {
+    return (_pthread_attr_getstackaddr ??= _dylib.lookupFunction<
+        _c_pthread_attr_getstackaddr,
+        _dart_pthread_attr_getstackaddr>('pthread_attr_getstackaddr'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_attr_getstackaddr? _pthread_attr_getstackaddr;
+
+  int pthread_attr_getstacksize(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+    ffi.Pointer<ffi.Uint64> arg1,
+  ) {
+    return (_pthread_attr_getstacksize ??= _dylib.lookupFunction<
+        _c_pthread_attr_getstacksize,
+        _dart_pthread_attr_getstacksize>('pthread_attr_getstacksize'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_attr_getstacksize? _pthread_attr_getstacksize;
+
+  int pthread_attr_init(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ) {
+    return (_pthread_attr_init ??=
+        _dylib.lookupFunction<_c_pthread_attr_init, _dart_pthread_attr_init>(
+            'pthread_attr_init'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_attr_init? _pthread_attr_init;
+
+  int pthread_attr_setdetachstate(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+    int arg1,
+  ) {
+    return (_pthread_attr_setdetachstate ??= _dylib.lookupFunction<
+        _c_pthread_attr_setdetachstate,
+        _dart_pthread_attr_setdetachstate>('pthread_attr_setdetachstate'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_attr_setdetachstate? _pthread_attr_setdetachstate;
+
+  int pthread_attr_setguardsize(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+    int arg1,
+  ) {
+    return (_pthread_attr_setguardsize ??= _dylib.lookupFunction<
+        _c_pthread_attr_setguardsize,
+        _dart_pthread_attr_setguardsize>('pthread_attr_setguardsize'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_attr_setguardsize? _pthread_attr_setguardsize;
+
+  int pthread_attr_setinheritsched(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+    int arg1,
+  ) {
+    return (_pthread_attr_setinheritsched ??= _dylib.lookupFunction<
+        _c_pthread_attr_setinheritsched,
+        _dart_pthread_attr_setinheritsched>('pthread_attr_setinheritsched'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_attr_setinheritsched? _pthread_attr_setinheritsched;
+
+  int pthread_attr_setschedparam(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+    ffi.Pointer<sched_param> arg1,
+  ) {
+    return (_pthread_attr_setschedparam ??= _dylib.lookupFunction<
+        _c_pthread_attr_setschedparam,
+        _dart_pthread_attr_setschedparam>('pthread_attr_setschedparam'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_attr_setschedparam? _pthread_attr_setschedparam;
+
+  int pthread_attr_setschedpolicy(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+    int arg1,
+  ) {
+    return (_pthread_attr_setschedpolicy ??= _dylib.lookupFunction<
+        _c_pthread_attr_setschedpolicy,
+        _dart_pthread_attr_setschedpolicy>('pthread_attr_setschedpolicy'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_attr_setschedpolicy? _pthread_attr_setschedpolicy;
+
+  int pthread_attr_setscope(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+    int arg1,
+  ) {
+    return (_pthread_attr_setscope ??= _dylib.lookupFunction<
+        _c_pthread_attr_setscope,
+        _dart_pthread_attr_setscope>('pthread_attr_setscope'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_attr_setscope? _pthread_attr_setscope;
+
+  int pthread_attr_setstack(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+    ffi.Pointer<ffi.Void> arg1,
+    int arg2,
+  ) {
+    return (_pthread_attr_setstack ??= _dylib.lookupFunction<
+        _c_pthread_attr_setstack,
+        _dart_pthread_attr_setstack>('pthread_attr_setstack'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_pthread_attr_setstack? _pthread_attr_setstack;
+
+  int pthread_attr_setstackaddr(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+    ffi.Pointer<ffi.Void> arg1,
+  ) {
+    return (_pthread_attr_setstackaddr ??= _dylib.lookupFunction<
+        _c_pthread_attr_setstackaddr,
+        _dart_pthread_attr_setstackaddr>('pthread_attr_setstackaddr'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_attr_setstackaddr? _pthread_attr_setstackaddr;
+
+  int pthread_attr_setstacksize(
+    ffi.Pointer<_opaque_pthread_attr_t> arg0,
+    int arg1,
+  ) {
+    return (_pthread_attr_setstacksize ??= _dylib.lookupFunction<
+        _c_pthread_attr_setstacksize,
+        _dart_pthread_attr_setstacksize>('pthread_attr_setstacksize'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_attr_setstacksize? _pthread_attr_setstacksize;
+
+  int pthread_cancel(
+    ffi.Pointer<_opaque_pthread_t> arg0,
+  ) {
+    return (_pthread_cancel ??=
+        _dylib.lookupFunction<_c_pthread_cancel, _dart_pthread_cancel>(
+            'pthread_cancel'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_cancel? _pthread_cancel;
+
+  int pthread_cond_broadcast(
+    ffi.Pointer<_opaque_pthread_cond_t> arg0,
+  ) {
+    return (_pthread_cond_broadcast ??= _dylib.lookupFunction<
+        _c_pthread_cond_broadcast,
+        _dart_pthread_cond_broadcast>('pthread_cond_broadcast'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_cond_broadcast? _pthread_cond_broadcast;
+
+  int pthread_cond_destroy(
+    ffi.Pointer<_opaque_pthread_cond_t> arg0,
+  ) {
+    return (_pthread_cond_destroy ??= _dylib.lookupFunction<
+        _c_pthread_cond_destroy,
+        _dart_pthread_cond_destroy>('pthread_cond_destroy'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_cond_destroy? _pthread_cond_destroy;
+
+  int pthread_cond_init(
+    ffi.Pointer<_opaque_pthread_cond_t> arg0,
+    ffi.Pointer<_opaque_pthread_condattr_t> arg1,
+  ) {
+    return (_pthread_cond_init ??=
+        _dylib.lookupFunction<_c_pthread_cond_init, _dart_pthread_cond_init>(
+            'pthread_cond_init'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_cond_init? _pthread_cond_init;
+
+  int pthread_cond_signal(
+    ffi.Pointer<_opaque_pthread_cond_t> arg0,
+  ) {
+    return (_pthread_cond_signal ??= _dylib.lookupFunction<
+        _c_pthread_cond_signal,
+        _dart_pthread_cond_signal>('pthread_cond_signal'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_cond_signal? _pthread_cond_signal;
+
+  int pthread_cond_timedwait(
+    ffi.Pointer<_opaque_pthread_cond_t> arg0,
+    ffi.Pointer<_opaque_pthread_mutex_t> arg1,
+    ffi.Pointer<timespec> arg2,
+  ) {
+    return (_pthread_cond_timedwait ??= _dylib.lookupFunction<
+        _c_pthread_cond_timedwait,
+        _dart_pthread_cond_timedwait>('pthread_cond_timedwait'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_pthread_cond_timedwait? _pthread_cond_timedwait;
+
+  int pthread_cond_wait(
+    ffi.Pointer<_opaque_pthread_cond_t> arg0,
+    ffi.Pointer<_opaque_pthread_mutex_t> arg1,
+  ) {
+    return (_pthread_cond_wait ??=
+        _dylib.lookupFunction<_c_pthread_cond_wait, _dart_pthread_cond_wait>(
+            'pthread_cond_wait'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_cond_wait? _pthread_cond_wait;
+
+  int pthread_condattr_destroy(
+    ffi.Pointer<_opaque_pthread_condattr_t> arg0,
+  ) {
+    return (_pthread_condattr_destroy ??= _dylib.lookupFunction<
+        _c_pthread_condattr_destroy,
+        _dart_pthread_condattr_destroy>('pthread_condattr_destroy'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_condattr_destroy? _pthread_condattr_destroy;
+
+  int pthread_condattr_init(
+    ffi.Pointer<_opaque_pthread_condattr_t> arg0,
+  ) {
+    return (_pthread_condattr_init ??= _dylib.lookupFunction<
+        _c_pthread_condattr_init,
+        _dart_pthread_condattr_init>('pthread_condattr_init'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_condattr_init? _pthread_condattr_init;
+
+  int pthread_condattr_getpshared(
+    ffi.Pointer<_opaque_pthread_condattr_t> arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+  ) {
+    return (_pthread_condattr_getpshared ??= _dylib.lookupFunction<
+        _c_pthread_condattr_getpshared,
+        _dart_pthread_condattr_getpshared>('pthread_condattr_getpshared'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_condattr_getpshared? _pthread_condattr_getpshared;
+
+  int pthread_condattr_setpshared(
+    ffi.Pointer<_opaque_pthread_condattr_t> arg0,
+    int arg1,
+  ) {
+    return (_pthread_condattr_setpshared ??= _dylib.lookupFunction<
+        _c_pthread_condattr_setpshared,
+        _dart_pthread_condattr_setpshared>('pthread_condattr_setpshared'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_condattr_setpshared? _pthread_condattr_setpshared;
+
+  int pthread_create(
+    ffi.Pointer<ffi.Pointer<_opaque_pthread_t>> arg0,
+    ffi.Pointer<_opaque_pthread_attr_t> arg1,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_25>> arg2,
+    ffi.Pointer<ffi.Void> arg3,
+  ) {
+    return (_pthread_create ??=
+        _dylib.lookupFunction<_c_pthread_create, _dart_pthread_create>(
+            'pthread_create'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_pthread_create? _pthread_create;
+
+  int pthread_detach(
+    ffi.Pointer<_opaque_pthread_t> arg0,
+  ) {
+    return (_pthread_detach ??=
+        _dylib.lookupFunction<_c_pthread_detach, _dart_pthread_detach>(
+            'pthread_detach'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_detach? _pthread_detach;
+
+  int pthread_equal(
+    ffi.Pointer<_opaque_pthread_t> arg0,
+    ffi.Pointer<_opaque_pthread_t> arg1,
+  ) {
+    return (_pthread_equal ??=
+        _dylib.lookupFunction<_c_pthread_equal, _dart_pthread_equal>(
+            'pthread_equal'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_equal? _pthread_equal;
+
+  void pthread_exit(
+    ffi.Pointer<ffi.Void> arg0,
+  ) {
+    return (_pthread_exit ??= _dylib
+        .lookupFunction<_c_pthread_exit, _dart_pthread_exit>('pthread_exit'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_exit? _pthread_exit;
+
+  int pthread_getconcurrency() {
+    return (_pthread_getconcurrency ??= _dylib.lookupFunction<
+        _c_pthread_getconcurrency,
+        _dart_pthread_getconcurrency>('pthread_getconcurrency'))();
+  }
+
+  _dart_pthread_getconcurrency? _pthread_getconcurrency;
+
+  int pthread_getschedparam(
+    ffi.Pointer<_opaque_pthread_t> arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+    ffi.Pointer<sched_param> arg2,
+  ) {
+    return (_pthread_getschedparam ??= _dylib.lookupFunction<
+        _c_pthread_getschedparam,
+        _dart_pthread_getschedparam>('pthread_getschedparam'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_pthread_getschedparam? _pthread_getschedparam;
+
+  ffi.Pointer<ffi.Void> pthread_getspecific(
+    int arg0,
+  ) {
+    return (_pthread_getspecific ??= _dylib.lookupFunction<
+        _c_pthread_getspecific,
+        _dart_pthread_getspecific>('pthread_getspecific'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_getspecific? _pthread_getspecific;
+
+  int pthread_join(
+    ffi.Pointer<_opaque_pthread_t> arg0,
+    ffi.Pointer<ffi.Pointer<ffi.Void>> arg1,
+  ) {
+    return (_pthread_join ??= _dylib
+        .lookupFunction<_c_pthread_join, _dart_pthread_join>('pthread_join'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_join? _pthread_join;
+
+  int pthread_key_create(
+    ffi.Pointer<ffi.Uint64> arg0,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_26>> arg1,
+  ) {
+    return (_pthread_key_create ??=
+        _dylib.lookupFunction<_c_pthread_key_create, _dart_pthread_key_create>(
+            'pthread_key_create'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_key_create? _pthread_key_create;
+
+  int pthread_key_delete(
+    int arg0,
+  ) {
+    return (_pthread_key_delete ??=
+        _dylib.lookupFunction<_c_pthread_key_delete, _dart_pthread_key_delete>(
+            'pthread_key_delete'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_key_delete? _pthread_key_delete;
+
+  int pthread_mutex_destroy(
+    ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+  ) {
+    return (_pthread_mutex_destroy ??= _dylib.lookupFunction<
+        _c_pthread_mutex_destroy,
+        _dart_pthread_mutex_destroy>('pthread_mutex_destroy'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_mutex_destroy? _pthread_mutex_destroy;
+
+  int pthread_mutex_getprioceiling(
+    ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+  ) {
+    return (_pthread_mutex_getprioceiling ??= _dylib.lookupFunction<
+        _c_pthread_mutex_getprioceiling,
+        _dart_pthread_mutex_getprioceiling>('pthread_mutex_getprioceiling'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_mutex_getprioceiling? _pthread_mutex_getprioceiling;
+
+  int pthread_mutex_init(
+    ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+    ffi.Pointer<_opaque_pthread_mutexattr_t> arg1,
+  ) {
+    return (_pthread_mutex_init ??=
+        _dylib.lookupFunction<_c_pthread_mutex_init, _dart_pthread_mutex_init>(
+            'pthread_mutex_init'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_mutex_init? _pthread_mutex_init;
+
+  int pthread_mutex_lock(
+    ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+  ) {
+    return (_pthread_mutex_lock ??=
+        _dylib.lookupFunction<_c_pthread_mutex_lock, _dart_pthread_mutex_lock>(
+            'pthread_mutex_lock'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_mutex_lock? _pthread_mutex_lock;
+
+  int pthread_mutex_setprioceiling(
+    ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+    int arg1,
+    ffi.Pointer<ffi.Int32> arg2,
+  ) {
+    return (_pthread_mutex_setprioceiling ??= _dylib.lookupFunction<
+        _c_pthread_mutex_setprioceiling,
+        _dart_pthread_mutex_setprioceiling>('pthread_mutex_setprioceiling'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_pthread_mutex_setprioceiling? _pthread_mutex_setprioceiling;
+
+  int pthread_mutex_trylock(
+    ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+  ) {
+    return (_pthread_mutex_trylock ??= _dylib.lookupFunction<
+        _c_pthread_mutex_trylock,
+        _dart_pthread_mutex_trylock>('pthread_mutex_trylock'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_mutex_trylock? _pthread_mutex_trylock;
+
+  int pthread_mutex_unlock(
+    ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+  ) {
+    return (_pthread_mutex_unlock ??= _dylib.lookupFunction<
+        _c_pthread_mutex_unlock,
+        _dart_pthread_mutex_unlock>('pthread_mutex_unlock'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_mutex_unlock? _pthread_mutex_unlock;
+
+  int pthread_mutexattr_destroy(
+    ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  ) {
+    return (_pthread_mutexattr_destroy ??= _dylib.lookupFunction<
+        _c_pthread_mutexattr_destroy,
+        _dart_pthread_mutexattr_destroy>('pthread_mutexattr_destroy'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_mutexattr_destroy? _pthread_mutexattr_destroy;
+
+  int pthread_mutexattr_getprioceiling(
+    ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+  ) {
+    return (_pthread_mutexattr_getprioceiling ??= _dylib.lookupFunction<
+            _c_pthread_mutexattr_getprioceiling,
+            _dart_pthread_mutexattr_getprioceiling>(
+        'pthread_mutexattr_getprioceiling'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_mutexattr_getprioceiling? _pthread_mutexattr_getprioceiling;
+
+  int pthread_mutexattr_getprotocol(
+    ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+  ) {
+    return (_pthread_mutexattr_getprotocol ??= _dylib.lookupFunction<
+        _c_pthread_mutexattr_getprotocol,
+        _dart_pthread_mutexattr_getprotocol>('pthread_mutexattr_getprotocol'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_mutexattr_getprotocol? _pthread_mutexattr_getprotocol;
+
+  int pthread_mutexattr_getpshared(
+    ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+  ) {
+    return (_pthread_mutexattr_getpshared ??= _dylib.lookupFunction<
+        _c_pthread_mutexattr_getpshared,
+        _dart_pthread_mutexattr_getpshared>('pthread_mutexattr_getpshared'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_mutexattr_getpshared? _pthread_mutexattr_getpshared;
+
+  int pthread_mutexattr_gettype(
+    ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+  ) {
+    return (_pthread_mutexattr_gettype ??= _dylib.lookupFunction<
+        _c_pthread_mutexattr_gettype,
+        _dart_pthread_mutexattr_gettype>('pthread_mutexattr_gettype'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_mutexattr_gettype? _pthread_mutexattr_gettype;
+
+  int pthread_mutexattr_getpolicy_np(
+    ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+  ) {
+    return (_pthread_mutexattr_getpolicy_np ??= _dylib.lookupFunction<
+            _c_pthread_mutexattr_getpolicy_np,
+            _dart_pthread_mutexattr_getpolicy_np>(
+        'pthread_mutexattr_getpolicy_np'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_mutexattr_getpolicy_np? _pthread_mutexattr_getpolicy_np;
+
+  int pthread_mutexattr_init(
+    ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  ) {
+    return (_pthread_mutexattr_init ??= _dylib.lookupFunction<
+        _c_pthread_mutexattr_init,
+        _dart_pthread_mutexattr_init>('pthread_mutexattr_init'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_mutexattr_init? _pthread_mutexattr_init;
+
+  int pthread_mutexattr_setprioceiling(
+    ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+    int arg1,
+  ) {
+    return (_pthread_mutexattr_setprioceiling ??= _dylib.lookupFunction<
+            _c_pthread_mutexattr_setprioceiling,
+            _dart_pthread_mutexattr_setprioceiling>(
+        'pthread_mutexattr_setprioceiling'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_mutexattr_setprioceiling? _pthread_mutexattr_setprioceiling;
+
+  int pthread_mutexattr_setprotocol(
+    ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+    int arg1,
+  ) {
+    return (_pthread_mutexattr_setprotocol ??= _dylib.lookupFunction<
+        _c_pthread_mutexattr_setprotocol,
+        _dart_pthread_mutexattr_setprotocol>('pthread_mutexattr_setprotocol'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_mutexattr_setprotocol? _pthread_mutexattr_setprotocol;
+
+  int pthread_mutexattr_setpshared(
+    ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+    int arg1,
+  ) {
+    return (_pthread_mutexattr_setpshared ??= _dylib.lookupFunction<
+        _c_pthread_mutexattr_setpshared,
+        _dart_pthread_mutexattr_setpshared>('pthread_mutexattr_setpshared'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_mutexattr_setpshared? _pthread_mutexattr_setpshared;
+
+  int pthread_mutexattr_settype(
+    ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+    int arg1,
+  ) {
+    return (_pthread_mutexattr_settype ??= _dylib.lookupFunction<
+        _c_pthread_mutexattr_settype,
+        _dart_pthread_mutexattr_settype>('pthread_mutexattr_settype'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_mutexattr_settype? _pthread_mutexattr_settype;
+
+  int pthread_mutexattr_setpolicy_np(
+    ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+    int arg1,
+  ) {
+    return (_pthread_mutexattr_setpolicy_np ??= _dylib.lookupFunction<
+            _c_pthread_mutexattr_setpolicy_np,
+            _dart_pthread_mutexattr_setpolicy_np>(
+        'pthread_mutexattr_setpolicy_np'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_mutexattr_setpolicy_np? _pthread_mutexattr_setpolicy_np;
+
+  int pthread_once(
+    ffi.Pointer<_opaque_pthread_once_t> arg0,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_27>> arg1,
+  ) {
+    return (_pthread_once ??= _dylib
+        .lookupFunction<_c_pthread_once, _dart_pthread_once>('pthread_once'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_once? _pthread_once;
+
+  int pthread_rwlock_destroy(
+    ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+  ) {
+    return (_pthread_rwlock_destroy ??= _dylib.lookupFunction<
+        _c_pthread_rwlock_destroy,
+        _dart_pthread_rwlock_destroy>('pthread_rwlock_destroy'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_rwlock_destroy? _pthread_rwlock_destroy;
+
+  int pthread_rwlock_init(
+    ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+    ffi.Pointer<_opaque_pthread_rwlockattr_t> arg1,
+  ) {
+    return (_pthread_rwlock_init ??= _dylib.lookupFunction<
+        _c_pthread_rwlock_init,
+        _dart_pthread_rwlock_init>('pthread_rwlock_init'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_rwlock_init? _pthread_rwlock_init;
+
+  int pthread_rwlock_rdlock(
+    ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+  ) {
+    return (_pthread_rwlock_rdlock ??= _dylib.lookupFunction<
+        _c_pthread_rwlock_rdlock,
+        _dart_pthread_rwlock_rdlock>('pthread_rwlock_rdlock'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_rwlock_rdlock? _pthread_rwlock_rdlock;
+
+  int pthread_rwlock_tryrdlock(
+    ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+  ) {
+    return (_pthread_rwlock_tryrdlock ??= _dylib.lookupFunction<
+        _c_pthread_rwlock_tryrdlock,
+        _dart_pthread_rwlock_tryrdlock>('pthread_rwlock_tryrdlock'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_rwlock_tryrdlock? _pthread_rwlock_tryrdlock;
+
+  int pthread_rwlock_trywrlock(
+    ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+  ) {
+    return (_pthread_rwlock_trywrlock ??= _dylib.lookupFunction<
+        _c_pthread_rwlock_trywrlock,
+        _dart_pthread_rwlock_trywrlock>('pthread_rwlock_trywrlock'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_rwlock_trywrlock? _pthread_rwlock_trywrlock;
+
+  int pthread_rwlock_wrlock(
+    ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+  ) {
+    return (_pthread_rwlock_wrlock ??= _dylib.lookupFunction<
+        _c_pthread_rwlock_wrlock,
+        _dart_pthread_rwlock_wrlock>('pthread_rwlock_wrlock'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_rwlock_wrlock? _pthread_rwlock_wrlock;
+
+  int pthread_rwlock_unlock(
+    ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+  ) {
+    return (_pthread_rwlock_unlock ??= _dylib.lookupFunction<
+        _c_pthread_rwlock_unlock,
+        _dart_pthread_rwlock_unlock>('pthread_rwlock_unlock'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_rwlock_unlock? _pthread_rwlock_unlock;
+
+  int pthread_rwlockattr_destroy(
+    ffi.Pointer<_opaque_pthread_rwlockattr_t> arg0,
+  ) {
+    return (_pthread_rwlockattr_destroy ??= _dylib.lookupFunction<
+        _c_pthread_rwlockattr_destroy,
+        _dart_pthread_rwlockattr_destroy>('pthread_rwlockattr_destroy'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_rwlockattr_destroy? _pthread_rwlockattr_destroy;
+
+  int pthread_rwlockattr_getpshared(
+    ffi.Pointer<_opaque_pthread_rwlockattr_t> arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+  ) {
+    return (_pthread_rwlockattr_getpshared ??= _dylib.lookupFunction<
+        _c_pthread_rwlockattr_getpshared,
+        _dart_pthread_rwlockattr_getpshared>('pthread_rwlockattr_getpshared'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_rwlockattr_getpshared? _pthread_rwlockattr_getpshared;
+
+  int pthread_rwlockattr_init(
+    ffi.Pointer<_opaque_pthread_rwlockattr_t> arg0,
+  ) {
+    return (_pthread_rwlockattr_init ??= _dylib.lookupFunction<
+        _c_pthread_rwlockattr_init,
+        _dart_pthread_rwlockattr_init>('pthread_rwlockattr_init'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_rwlockattr_init? _pthread_rwlockattr_init;
+
+  int pthread_rwlockattr_setpshared(
+    ffi.Pointer<_opaque_pthread_rwlockattr_t> arg0,
+    int arg1,
+  ) {
+    return (_pthread_rwlockattr_setpshared ??= _dylib.lookupFunction<
+        _c_pthread_rwlockattr_setpshared,
+        _dart_pthread_rwlockattr_setpshared>('pthread_rwlockattr_setpshared'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_rwlockattr_setpshared? _pthread_rwlockattr_setpshared;
+
+  ffi.Pointer<_opaque_pthread_t> pthread_self() {
+    return (_pthread_self ??= _dylib
+        .lookupFunction<_c_pthread_self, _dart_pthread_self>('pthread_self'))();
+  }
+
+  _dart_pthread_self? _pthread_self;
+
+  int pthread_setcancelstate(
+    int arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+  ) {
+    return (_pthread_setcancelstate ??= _dylib.lookupFunction<
+        _c_pthread_setcancelstate,
+        _dart_pthread_setcancelstate>('pthread_setcancelstate'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_setcancelstate? _pthread_setcancelstate;
+
+  int pthread_setcanceltype(
+    int arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+  ) {
+    return (_pthread_setcanceltype ??= _dylib.lookupFunction<
+        _c_pthread_setcanceltype,
+        _dart_pthread_setcanceltype>('pthread_setcanceltype'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_setcanceltype? _pthread_setcanceltype;
+
+  int pthread_setconcurrency(
+    int arg0,
+  ) {
+    return (_pthread_setconcurrency ??= _dylib.lookupFunction<
+        _c_pthread_setconcurrency,
+        _dart_pthread_setconcurrency>('pthread_setconcurrency'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_setconcurrency? _pthread_setconcurrency;
+
+  int pthread_setschedparam(
+    ffi.Pointer<_opaque_pthread_t> arg0,
+    int arg1,
+    ffi.Pointer<sched_param> arg2,
+  ) {
+    return (_pthread_setschedparam ??= _dylib.lookupFunction<
+        _c_pthread_setschedparam,
+        _dart_pthread_setschedparam>('pthread_setschedparam'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_pthread_setschedparam? _pthread_setschedparam;
+
+  int pthread_setspecific(
+    int arg0,
+    ffi.Pointer<ffi.Void> arg1,
+  ) {
+    return (_pthread_setspecific ??= _dylib.lookupFunction<
+        _c_pthread_setspecific,
+        _dart_pthread_setspecific>('pthread_setspecific'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_setspecific? _pthread_setspecific;
+
+  void pthread_testcancel() {
+    return (_pthread_testcancel ??=
+        _dylib.lookupFunction<_c_pthread_testcancel, _dart_pthread_testcancel>(
+            'pthread_testcancel'))();
+  }
+
+  _dart_pthread_testcancel? _pthread_testcancel;
+
+  int pthread_is_threaded_np() {
+    return (_pthread_is_threaded_np ??= _dylib.lookupFunction<
+        _c_pthread_is_threaded_np,
+        _dart_pthread_is_threaded_np>('pthread_is_threaded_np'))();
+  }
+
+  _dart_pthread_is_threaded_np? _pthread_is_threaded_np;
+
+  int pthread_threadid_np(
+    ffi.Pointer<_opaque_pthread_t> arg0,
+    ffi.Pointer<ffi.Uint64> arg1,
+  ) {
+    return (_pthread_threadid_np ??= _dylib.lookupFunction<
+        _c_pthread_threadid_np,
+        _dart_pthread_threadid_np>('pthread_threadid_np'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_threadid_np? _pthread_threadid_np;
+
+  int pthread_getname_np(
+    ffi.Pointer<_opaque_pthread_t> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+    int arg2,
+  ) {
+    return (_pthread_getname_np ??=
+        _dylib.lookupFunction<_c_pthread_getname_np, _dart_pthread_getname_np>(
+            'pthread_getname_np'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_pthread_getname_np? _pthread_getname_np;
+
+  int pthread_setname_np(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return (_pthread_setname_np ??=
+        _dylib.lookupFunction<_c_pthread_setname_np, _dart_pthread_setname_np>(
+            'pthread_setname_np'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_setname_np? _pthread_setname_np;
+
+  int pthread_main_np() {
+    return (_pthread_main_np ??=
+        _dylib.lookupFunction<_c_pthread_main_np, _dart_pthread_main_np>(
+            'pthread_main_np'))();
+  }
+
+  _dart_pthread_main_np? _pthread_main_np;
+
+  int pthread_mach_thread_np(
+    ffi.Pointer<_opaque_pthread_t> arg0,
+  ) {
+    return (_pthread_mach_thread_np ??= _dylib.lookupFunction<
+        _c_pthread_mach_thread_np,
+        _dart_pthread_mach_thread_np>('pthread_mach_thread_np'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_mach_thread_np? _pthread_mach_thread_np;
+
+  int pthread_get_stacksize_np(
+    ffi.Pointer<_opaque_pthread_t> arg0,
+  ) {
+    return (_pthread_get_stacksize_np ??= _dylib.lookupFunction<
+        _c_pthread_get_stacksize_np,
+        _dart_pthread_get_stacksize_np>('pthread_get_stacksize_np'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_get_stacksize_np? _pthread_get_stacksize_np;
+
+  ffi.Pointer<ffi.Void> pthread_get_stackaddr_np(
+    ffi.Pointer<_opaque_pthread_t> arg0,
+  ) {
+    return (_pthread_get_stackaddr_np ??= _dylib.lookupFunction<
+        _c_pthread_get_stackaddr_np,
+        _dart_pthread_get_stackaddr_np>('pthread_get_stackaddr_np'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_get_stackaddr_np? _pthread_get_stackaddr_np;
+
+  int pthread_cond_signal_thread_np(
+    ffi.Pointer<_opaque_pthread_cond_t> arg0,
+    ffi.Pointer<_opaque_pthread_t> arg1,
+  ) {
+    return (_pthread_cond_signal_thread_np ??= _dylib.lookupFunction<
+        _c_pthread_cond_signal_thread_np,
+        _dart_pthread_cond_signal_thread_np>('pthread_cond_signal_thread_np'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_cond_signal_thread_np? _pthread_cond_signal_thread_np;
+
+  int pthread_cond_timedwait_relative_np(
+    ffi.Pointer<_opaque_pthread_cond_t> arg0,
+    ffi.Pointer<_opaque_pthread_mutex_t> arg1,
+    ffi.Pointer<timespec> arg2,
+  ) {
+    return (_pthread_cond_timedwait_relative_np ??= _dylib.lookupFunction<
+            _c_pthread_cond_timedwait_relative_np,
+            _dart_pthread_cond_timedwait_relative_np>(
+        'pthread_cond_timedwait_relative_np'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_pthread_cond_timedwait_relative_np? _pthread_cond_timedwait_relative_np;
+
+  int pthread_create_suspended_np(
+    ffi.Pointer<ffi.Pointer<_opaque_pthread_t>> arg0,
+    ffi.Pointer<_opaque_pthread_attr_t> arg1,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_28>> arg2,
+    ffi.Pointer<ffi.Void> arg3,
+  ) {
+    return (_pthread_create_suspended_np ??= _dylib.lookupFunction<
+        _c_pthread_create_suspended_np,
+        _dart_pthread_create_suspended_np>('pthread_create_suspended_np'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_pthread_create_suspended_np? _pthread_create_suspended_np;
+
+  int pthread_kill(
+    ffi.Pointer<_opaque_pthread_t> arg0,
+    int arg1,
+  ) {
+    return (_pthread_kill ??= _dylib
+        .lookupFunction<_c_pthread_kill, _dart_pthread_kill>('pthread_kill'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_pthread_kill? _pthread_kill;
+
+  ffi.Pointer<_opaque_pthread_t> pthread_from_mach_thread_np(
+    int arg0,
+  ) {
+    return (_pthread_from_mach_thread_np ??= _dylib.lookupFunction<
+        _c_pthread_from_mach_thread_np,
+        _dart_pthread_from_mach_thread_np>('pthread_from_mach_thread_np'))(
+      arg0,
+    );
+  }
+
+  _dart_pthread_from_mach_thread_np? _pthread_from_mach_thread_np;
+
+  int pthread_sigmask(
+    int arg0,
+    ffi.Pointer<ffi.Uint32> arg1,
+    ffi.Pointer<ffi.Uint32> arg2,
+  ) {
+    return (_pthread_sigmask ??=
+        _dylib.lookupFunction<_c_pthread_sigmask, _dart_pthread_sigmask>(
+            'pthread_sigmask'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_pthread_sigmask? _pthread_sigmask;
+
+  void pthread_yield_np() {
+    return (_pthread_yield_np ??=
+        _dylib.lookupFunction<_c_pthread_yield_np, _dart_pthread_yield_np>(
+            'pthread_yield_np'))();
+  }
+
+  _dart_pthread_yield_np? _pthread_yield_np;
+
+  int OSAtomicAdd32(
+    int __theAmount,
+    ffi.Pointer<ffi.Int32> __theValue,
+  ) {
+    return (_OSAtomicAdd32 ??=
+        _dylib.lookupFunction<_c_OSAtomicAdd32, _dart_OSAtomicAdd32>(
+            'OSAtomicAdd32'))(
+      __theAmount,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicAdd32? _OSAtomicAdd32;
+
+  int OSAtomicAdd32Barrier(
+    int __theAmount,
+    ffi.Pointer<ffi.Int32> __theValue,
+  ) {
+    return (_OSAtomicAdd32Barrier ??= _dylib.lookupFunction<
+        _c_OSAtomicAdd32Barrier,
+        _dart_OSAtomicAdd32Barrier>('OSAtomicAdd32Barrier'))(
+      __theAmount,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicAdd32Barrier? _OSAtomicAdd32Barrier;
+
+  int OSAtomicIncrement32(
+    ffi.Pointer<ffi.Int32> __theValue,
+  ) {
+    return (_OSAtomicIncrement32 ??= _dylib.lookupFunction<
+        _c_OSAtomicIncrement32,
+        _dart_OSAtomicIncrement32>('OSAtomicIncrement32'))(
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicIncrement32? _OSAtomicIncrement32;
+
+  int OSAtomicIncrement32Barrier(
+    ffi.Pointer<ffi.Int32> __theValue,
+  ) {
+    return (_OSAtomicIncrement32Barrier ??= _dylib.lookupFunction<
+        _c_OSAtomicIncrement32Barrier,
+        _dart_OSAtomicIncrement32Barrier>('OSAtomicIncrement32Barrier'))(
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicIncrement32Barrier? _OSAtomicIncrement32Barrier;
+
+  int OSAtomicDecrement32(
+    ffi.Pointer<ffi.Int32> __theValue,
+  ) {
+    return (_OSAtomicDecrement32 ??= _dylib.lookupFunction<
+        _c_OSAtomicDecrement32,
+        _dart_OSAtomicDecrement32>('OSAtomicDecrement32'))(
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicDecrement32? _OSAtomicDecrement32;
+
+  int OSAtomicDecrement32Barrier(
+    ffi.Pointer<ffi.Int32> __theValue,
+  ) {
+    return (_OSAtomicDecrement32Barrier ??= _dylib.lookupFunction<
+        _c_OSAtomicDecrement32Barrier,
+        _dart_OSAtomicDecrement32Barrier>('OSAtomicDecrement32Barrier'))(
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicDecrement32Barrier? _OSAtomicDecrement32Barrier;
+
+  int OSAtomicAdd64(
+    int __theAmount,
+    ffi.Pointer<ffi.Int64> __theValue,
+  ) {
+    return (_OSAtomicAdd64 ??=
+        _dylib.lookupFunction<_c_OSAtomicAdd64, _dart_OSAtomicAdd64>(
+            'OSAtomicAdd64'))(
+      __theAmount,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicAdd64? _OSAtomicAdd64;
+
+  int OSAtomicAdd64Barrier(
+    int __theAmount,
+    ffi.Pointer<ffi.Int64> __theValue,
+  ) {
+    return (_OSAtomicAdd64Barrier ??= _dylib.lookupFunction<
+        _c_OSAtomicAdd64Barrier,
+        _dart_OSAtomicAdd64Barrier>('OSAtomicAdd64Barrier'))(
+      __theAmount,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicAdd64Barrier? _OSAtomicAdd64Barrier;
+
+  int OSAtomicIncrement64(
+    ffi.Pointer<ffi.Int64> __theValue,
+  ) {
+    return (_OSAtomicIncrement64 ??= _dylib.lookupFunction<
+        _c_OSAtomicIncrement64,
+        _dart_OSAtomicIncrement64>('OSAtomicIncrement64'))(
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicIncrement64? _OSAtomicIncrement64;
+
+  int OSAtomicIncrement64Barrier(
+    ffi.Pointer<ffi.Int64> __theValue,
+  ) {
+    return (_OSAtomicIncrement64Barrier ??= _dylib.lookupFunction<
+        _c_OSAtomicIncrement64Barrier,
+        _dart_OSAtomicIncrement64Barrier>('OSAtomicIncrement64Barrier'))(
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicIncrement64Barrier? _OSAtomicIncrement64Barrier;
+
+  int OSAtomicDecrement64(
+    ffi.Pointer<ffi.Int64> __theValue,
+  ) {
+    return (_OSAtomicDecrement64 ??= _dylib.lookupFunction<
+        _c_OSAtomicDecrement64,
+        _dart_OSAtomicDecrement64>('OSAtomicDecrement64'))(
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicDecrement64? _OSAtomicDecrement64;
+
+  int OSAtomicDecrement64Barrier(
+    ffi.Pointer<ffi.Int64> __theValue,
+  ) {
+    return (_OSAtomicDecrement64Barrier ??= _dylib.lookupFunction<
+        _c_OSAtomicDecrement64Barrier,
+        _dart_OSAtomicDecrement64Barrier>('OSAtomicDecrement64Barrier'))(
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicDecrement64Barrier? _OSAtomicDecrement64Barrier;
+
+  int OSAtomicOr32(
+    int __theMask,
+    ffi.Pointer<ffi.Uint32> __theValue,
+  ) {
+    return (_OSAtomicOr32 ??= _dylib
+        .lookupFunction<_c_OSAtomicOr32, _dart_OSAtomicOr32>('OSAtomicOr32'))(
+      __theMask,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicOr32? _OSAtomicOr32;
+
+  int OSAtomicOr32Barrier(
+    int __theMask,
+    ffi.Pointer<ffi.Uint32> __theValue,
+  ) {
+    return (_OSAtomicOr32Barrier ??= _dylib.lookupFunction<
+        _c_OSAtomicOr32Barrier,
+        _dart_OSAtomicOr32Barrier>('OSAtomicOr32Barrier'))(
+      __theMask,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicOr32Barrier? _OSAtomicOr32Barrier;
+
+  int OSAtomicOr32Orig(
+    int __theMask,
+    ffi.Pointer<ffi.Uint32> __theValue,
+  ) {
+    return (_OSAtomicOr32Orig ??=
+        _dylib.lookupFunction<_c_OSAtomicOr32Orig, _dart_OSAtomicOr32Orig>(
+            'OSAtomicOr32Orig'))(
+      __theMask,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicOr32Orig? _OSAtomicOr32Orig;
+
+  int OSAtomicOr32OrigBarrier(
+    int __theMask,
+    ffi.Pointer<ffi.Uint32> __theValue,
+  ) {
+    return (_OSAtomicOr32OrigBarrier ??= _dylib.lookupFunction<
+        _c_OSAtomicOr32OrigBarrier,
+        _dart_OSAtomicOr32OrigBarrier>('OSAtomicOr32OrigBarrier'))(
+      __theMask,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicOr32OrigBarrier? _OSAtomicOr32OrigBarrier;
+
+  int OSAtomicAnd32(
+    int __theMask,
+    ffi.Pointer<ffi.Uint32> __theValue,
+  ) {
+    return (_OSAtomicAnd32 ??=
+        _dylib.lookupFunction<_c_OSAtomicAnd32, _dart_OSAtomicAnd32>(
+            'OSAtomicAnd32'))(
+      __theMask,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicAnd32? _OSAtomicAnd32;
+
+  int OSAtomicAnd32Barrier(
+    int __theMask,
+    ffi.Pointer<ffi.Uint32> __theValue,
+  ) {
+    return (_OSAtomicAnd32Barrier ??= _dylib.lookupFunction<
+        _c_OSAtomicAnd32Barrier,
+        _dart_OSAtomicAnd32Barrier>('OSAtomicAnd32Barrier'))(
+      __theMask,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicAnd32Barrier? _OSAtomicAnd32Barrier;
+
+  int OSAtomicAnd32Orig(
+    int __theMask,
+    ffi.Pointer<ffi.Uint32> __theValue,
+  ) {
+    return (_OSAtomicAnd32Orig ??=
+        _dylib.lookupFunction<_c_OSAtomicAnd32Orig, _dart_OSAtomicAnd32Orig>(
+            'OSAtomicAnd32Orig'))(
+      __theMask,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicAnd32Orig? _OSAtomicAnd32Orig;
+
+  int OSAtomicAnd32OrigBarrier(
+    int __theMask,
+    ffi.Pointer<ffi.Uint32> __theValue,
+  ) {
+    return (_OSAtomicAnd32OrigBarrier ??= _dylib.lookupFunction<
+        _c_OSAtomicAnd32OrigBarrier,
+        _dart_OSAtomicAnd32OrigBarrier>('OSAtomicAnd32OrigBarrier'))(
+      __theMask,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicAnd32OrigBarrier? _OSAtomicAnd32OrigBarrier;
+
+  int OSAtomicXor32(
+    int __theMask,
+    ffi.Pointer<ffi.Uint32> __theValue,
+  ) {
+    return (_OSAtomicXor32 ??=
+        _dylib.lookupFunction<_c_OSAtomicXor32, _dart_OSAtomicXor32>(
+            'OSAtomicXor32'))(
+      __theMask,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicXor32? _OSAtomicXor32;
+
+  int OSAtomicXor32Barrier(
+    int __theMask,
+    ffi.Pointer<ffi.Uint32> __theValue,
+  ) {
+    return (_OSAtomicXor32Barrier ??= _dylib.lookupFunction<
+        _c_OSAtomicXor32Barrier,
+        _dart_OSAtomicXor32Barrier>('OSAtomicXor32Barrier'))(
+      __theMask,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicXor32Barrier? _OSAtomicXor32Barrier;
+
+  int OSAtomicXor32Orig(
+    int __theMask,
+    ffi.Pointer<ffi.Uint32> __theValue,
+  ) {
+    return (_OSAtomicXor32Orig ??=
+        _dylib.lookupFunction<_c_OSAtomicXor32Orig, _dart_OSAtomicXor32Orig>(
+            'OSAtomicXor32Orig'))(
+      __theMask,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicXor32Orig? _OSAtomicXor32Orig;
+
+  int OSAtomicXor32OrigBarrier(
+    int __theMask,
+    ffi.Pointer<ffi.Uint32> __theValue,
+  ) {
+    return (_OSAtomicXor32OrigBarrier ??= _dylib.lookupFunction<
+        _c_OSAtomicXor32OrigBarrier,
+        _dart_OSAtomicXor32OrigBarrier>('OSAtomicXor32OrigBarrier'))(
+      __theMask,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicXor32OrigBarrier? _OSAtomicXor32OrigBarrier;
+
+  int OSAtomicCompareAndSwap32(
+    int __oldValue,
+    int __newValue,
+    ffi.Pointer<ffi.Int32> __theValue,
+  ) {
+    return (_OSAtomicCompareAndSwap32 ??= _dylib.lookupFunction<
+        _c_OSAtomicCompareAndSwap32,
+        _dart_OSAtomicCompareAndSwap32>('OSAtomicCompareAndSwap32'))(
+      __oldValue,
+      __newValue,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicCompareAndSwap32? _OSAtomicCompareAndSwap32;
+
+  int OSAtomicCompareAndSwap32Barrier(
+    int __oldValue,
+    int __newValue,
+    ffi.Pointer<ffi.Int32> __theValue,
+  ) {
+    return (_OSAtomicCompareAndSwap32Barrier ??= _dylib.lookupFunction<
+            _c_OSAtomicCompareAndSwap32Barrier,
+            _dart_OSAtomicCompareAndSwap32Barrier>(
+        'OSAtomicCompareAndSwap32Barrier'))(
+      __oldValue,
+      __newValue,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicCompareAndSwap32Barrier? _OSAtomicCompareAndSwap32Barrier;
+
+  int OSAtomicCompareAndSwapPtr(
+    ffi.Pointer<ffi.Void> __oldValue,
+    ffi.Pointer<ffi.Void> __newValue,
+    ffi.Pointer<ffi.Pointer<ffi.Void>> __theValue,
+  ) {
+    return (_OSAtomicCompareAndSwapPtr ??= _dylib.lookupFunction<
+        _c_OSAtomicCompareAndSwapPtr,
+        _dart_OSAtomicCompareAndSwapPtr>('OSAtomicCompareAndSwapPtr'))(
+      __oldValue,
+      __newValue,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicCompareAndSwapPtr? _OSAtomicCompareAndSwapPtr;
+
+  int OSAtomicCompareAndSwapPtrBarrier(
+    ffi.Pointer<ffi.Void> __oldValue,
+    ffi.Pointer<ffi.Void> __newValue,
+    ffi.Pointer<ffi.Pointer<ffi.Void>> __theValue,
+  ) {
+    return (_OSAtomicCompareAndSwapPtrBarrier ??= _dylib.lookupFunction<
+            _c_OSAtomicCompareAndSwapPtrBarrier,
+            _dart_OSAtomicCompareAndSwapPtrBarrier>(
+        'OSAtomicCompareAndSwapPtrBarrier'))(
+      __oldValue,
+      __newValue,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicCompareAndSwapPtrBarrier? _OSAtomicCompareAndSwapPtrBarrier;
+
+  int OSAtomicCompareAndSwapInt(
+    int __oldValue,
+    int __newValue,
+    ffi.Pointer<ffi.Int32> __theValue,
+  ) {
+    return (_OSAtomicCompareAndSwapInt ??= _dylib.lookupFunction<
+        _c_OSAtomicCompareAndSwapInt,
+        _dart_OSAtomicCompareAndSwapInt>('OSAtomicCompareAndSwapInt'))(
+      __oldValue,
+      __newValue,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicCompareAndSwapInt? _OSAtomicCompareAndSwapInt;
+
+  int OSAtomicCompareAndSwapIntBarrier(
+    int __oldValue,
+    int __newValue,
+    ffi.Pointer<ffi.Int32> __theValue,
+  ) {
+    return (_OSAtomicCompareAndSwapIntBarrier ??= _dylib.lookupFunction<
+            _c_OSAtomicCompareAndSwapIntBarrier,
+            _dart_OSAtomicCompareAndSwapIntBarrier>(
+        'OSAtomicCompareAndSwapIntBarrier'))(
+      __oldValue,
+      __newValue,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicCompareAndSwapIntBarrier? _OSAtomicCompareAndSwapIntBarrier;
+
+  int OSAtomicCompareAndSwapLong(
+    int __oldValue,
+    int __newValue,
+    ffi.Pointer<ffi.Int64> __theValue,
+  ) {
+    return (_OSAtomicCompareAndSwapLong ??= _dylib.lookupFunction<
+        _c_OSAtomicCompareAndSwapLong,
+        _dart_OSAtomicCompareAndSwapLong>('OSAtomicCompareAndSwapLong'))(
+      __oldValue,
+      __newValue,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicCompareAndSwapLong? _OSAtomicCompareAndSwapLong;
+
+  int OSAtomicCompareAndSwapLongBarrier(
+    int __oldValue,
+    int __newValue,
+    ffi.Pointer<ffi.Int64> __theValue,
+  ) {
+    return (_OSAtomicCompareAndSwapLongBarrier ??= _dylib.lookupFunction<
+            _c_OSAtomicCompareAndSwapLongBarrier,
+            _dart_OSAtomicCompareAndSwapLongBarrier>(
+        'OSAtomicCompareAndSwapLongBarrier'))(
+      __oldValue,
+      __newValue,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicCompareAndSwapLongBarrier? _OSAtomicCompareAndSwapLongBarrier;
+
+  int OSAtomicCompareAndSwap64(
+    int __oldValue,
+    int __newValue,
+    ffi.Pointer<ffi.Int64> __theValue,
+  ) {
+    return (_OSAtomicCompareAndSwap64 ??= _dylib.lookupFunction<
+        _c_OSAtomicCompareAndSwap64,
+        _dart_OSAtomicCompareAndSwap64>('OSAtomicCompareAndSwap64'))(
+      __oldValue,
+      __newValue,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicCompareAndSwap64? _OSAtomicCompareAndSwap64;
+
+  int OSAtomicCompareAndSwap64Barrier(
+    int __oldValue,
+    int __newValue,
+    ffi.Pointer<ffi.Int64> __theValue,
+  ) {
+    return (_OSAtomicCompareAndSwap64Barrier ??= _dylib.lookupFunction<
+            _c_OSAtomicCompareAndSwap64Barrier,
+            _dart_OSAtomicCompareAndSwap64Barrier>(
+        'OSAtomicCompareAndSwap64Barrier'))(
+      __oldValue,
+      __newValue,
+      __theValue,
+    );
+  }
+
+  _dart_OSAtomicCompareAndSwap64Barrier? _OSAtomicCompareAndSwap64Barrier;
+
+  int OSAtomicTestAndSet(
+    int __n,
+    ffi.Pointer<ffi.Void> __theAddress,
+  ) {
+    return (_OSAtomicTestAndSet ??=
+        _dylib.lookupFunction<_c_OSAtomicTestAndSet, _dart_OSAtomicTestAndSet>(
+            'OSAtomicTestAndSet'))(
+      __n,
+      __theAddress,
+    );
+  }
+
+  _dart_OSAtomicTestAndSet? _OSAtomicTestAndSet;
+
+  int OSAtomicTestAndSetBarrier(
+    int __n,
+    ffi.Pointer<ffi.Void> __theAddress,
+  ) {
+    return (_OSAtomicTestAndSetBarrier ??= _dylib.lookupFunction<
+        _c_OSAtomicTestAndSetBarrier,
+        _dart_OSAtomicTestAndSetBarrier>('OSAtomicTestAndSetBarrier'))(
+      __n,
+      __theAddress,
+    );
+  }
+
+  _dart_OSAtomicTestAndSetBarrier? _OSAtomicTestAndSetBarrier;
+
+  int OSAtomicTestAndClear(
+    int __n,
+    ffi.Pointer<ffi.Void> __theAddress,
+  ) {
+    return (_OSAtomicTestAndClear ??= _dylib.lookupFunction<
+        _c_OSAtomicTestAndClear,
+        _dart_OSAtomicTestAndClear>('OSAtomicTestAndClear'))(
+      __n,
+      __theAddress,
+    );
+  }
+
+  _dart_OSAtomicTestAndClear? _OSAtomicTestAndClear;
+
+  int OSAtomicTestAndClearBarrier(
+    int __n,
+    ffi.Pointer<ffi.Void> __theAddress,
+  ) {
+    return (_OSAtomicTestAndClearBarrier ??= _dylib.lookupFunction<
+        _c_OSAtomicTestAndClearBarrier,
+        _dart_OSAtomicTestAndClearBarrier>('OSAtomicTestAndClearBarrier'))(
+      __n,
+      __theAddress,
+    );
+  }
+
+  _dart_OSAtomicTestAndClearBarrier? _OSAtomicTestAndClearBarrier;
+
+  void OSMemoryBarrier() {
+    return (_OSMemoryBarrier ??=
+        _dylib.lookupFunction<_c_OSMemoryBarrier, _dart_OSMemoryBarrier>(
+            'OSMemoryBarrier'))();
+  }
+
+  _dart_OSMemoryBarrier? _OSMemoryBarrier;
+
+  int OSSpinLockTry(
+    ffi.Pointer<ffi.Int32> __lock,
+  ) {
+    return (_OSSpinLockTry ??=
+        _dylib.lookupFunction<_c_OSSpinLockTry, _dart_OSSpinLockTry>(
+            'OSSpinLockTry'))(
+      __lock,
+    );
+  }
+
+  _dart_OSSpinLockTry? _OSSpinLockTry;
+
+  void OSSpinLockLock(
+    ffi.Pointer<ffi.Int32> __lock,
+  ) {
+    return (_OSSpinLockLock ??=
+        _dylib.lookupFunction<_c_OSSpinLockLock, _dart_OSSpinLockLock>(
+            'OSSpinLockLock'))(
+      __lock,
+    );
+  }
+
+  _dart_OSSpinLockLock? _OSSpinLockLock;
+
+  void OSSpinLockUnlock(
+    ffi.Pointer<ffi.Int32> __lock,
+  ) {
+    return (_OSSpinLockUnlock ??=
+        _dylib.lookupFunction<_c_OSSpinLockUnlock, _dart_OSSpinLockUnlock>(
+            'OSSpinLockUnlock'))(
+      __lock,
+    );
+  }
+
+  _dart_OSSpinLockUnlock? _OSSpinLockUnlock;
+
+  void OSAtomicEnqueue(
+    ffi.Pointer<OSQueueHead> __list,
+    ffi.Pointer<ffi.Void> __new,
+    int __offset,
+  ) {
+    return (_OSAtomicEnqueue ??=
+        _dylib.lookupFunction<_c_OSAtomicEnqueue, _dart_OSAtomicEnqueue>(
+            'OSAtomicEnqueue'))(
+      __list,
+      __new,
+      __offset,
+    );
+  }
+
+  _dart_OSAtomicEnqueue? _OSAtomicEnqueue;
+
+  ffi.Pointer<ffi.Void> OSAtomicDequeue(
+    ffi.Pointer<OSQueueHead> __list,
+    int __offset,
+  ) {
+    return (_OSAtomicDequeue ??=
+        _dylib.lookupFunction<_c_OSAtomicDequeue, _dart_OSAtomicDequeue>(
+            'OSAtomicDequeue'))(
+      __list,
+      __offset,
+    );
+  }
+
+  _dart_OSAtomicDequeue? _OSAtomicDequeue;
+
+  void OSAtomicFifoEnqueue(
+    ffi.Pointer<OSFifoQueueHead> __list,
+    ffi.Pointer<ffi.Void> __new,
+    int __offset,
+  ) {
+    return (_OSAtomicFifoEnqueue ??= _dylib.lookupFunction<
+        _c_OSAtomicFifoEnqueue,
+        _dart_OSAtomicFifoEnqueue>('OSAtomicFifoEnqueue'))(
+      __list,
+      __new,
+      __offset,
+    );
+  }
+
+  _dart_OSAtomicFifoEnqueue? _OSAtomicFifoEnqueue;
+
+  ffi.Pointer<ffi.Void> OSAtomicFifoDequeue(
+    ffi.Pointer<OSFifoQueueHead> __list,
+    int __offset,
+  ) {
+    return (_OSAtomicFifoDequeue ??= _dylib.lookupFunction<
+        _c_OSAtomicFifoDequeue,
+        _dart_OSAtomicFifoDequeue>('OSAtomicFifoDequeue'))(
+      __list,
+      __offset,
+    );
+  }
+
+  _dart_OSAtomicFifoDequeue? _OSAtomicFifoDequeue;
+
+  void thread_create2(
+    ffi.Pointer<ffi.Pointer<_opaque_pthread_t>> arg0,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_29>> f,
+    ffi.Pointer<ffi.Void> arg2,
+  ) {
+    return (_thread_create2 ??=
+        _dylib.lookupFunction<_c_thread_create2, _dart_thread_create2>(
+            'thread_create2'))(
+      arg0,
+      f,
+      arg2,
+    );
+  }
+
+  _dart_thread_create2? _thread_create2;
+
+  void thread_join(
+    ffi.Pointer<_opaque_pthread_t> arg0,
+  ) {
+    return (_thread_join ??= _dylib
+        .lookupFunction<_c_thread_join, _dart_thread_join>('thread_join'))(
+      arg0,
+    );
+  }
+
+  _dart_thread_join? _thread_join;
+
+  void thread_set_cpu(
+    ffi.Pointer<_opaque_pthread_t> arg0,
+    int arg1,
+  ) {
+    return (_thread_set_cpu ??=
+        _dylib.lookupFunction<_c_thread_set_cpu, _dart_thread_set_cpu>(
+            'thread_set_cpu'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_thread_set_cpu? _thread_set_cpu;
+
+  ffi.Pointer<_opaque_pthread_t> thread_self() {
+    return (_thread_self ??= _dylib
+        .lookupFunction<_c_thread_self, _dart_thread_self>('thread_self'))();
+  }
+
+  _dart_thread_self? _thread_self;
+
+  /// atomic addition
+  void atomic_add(
+    ffi.Pointer<ffi.Uint64> value,
+    int i,
+  ) {
+    return (_atomic_add ??=
+        _dylib.lookupFunction<_c_atomic_add, _dart_atomic_add>('atomic_add'))(
+      value,
+      i,
+    );
+  }
+
+  _dart_atomic_add? _atomic_add;
+
+  void cpu() {
+    return (_cpu ??= _dylib.lookupFunction<_c_cpu, _dart_cpu>('cpu'))();
+  }
+
+  _dart_cpu? _cpu;
+
+  int get_cpu_number() {
+    return (_get_cpu_number ??=
+        _dylib.lookupFunction<_c_get_cpu_number, _dart_get_cpu_number>(
+            'get_cpu_number'))();
+  }
+
+  _dart_get_cpu_number? _get_cpu_number;
+
+  void statistics_init() {
+    return (_statistics_init ??=
+        _dylib.lookupFunction<_c_statistics_init, _dart_statistics_init>(
+            'statistics_init'))();
+  }
+
+  _dart_statistics_init? _statistics_init;
+
+  void statistics_sum_nodes(
+    ffi.Pointer<Search> arg0,
+  ) {
+    return (_statistics_sum_nodes ??= _dylib.lookupFunction<
+        _c_statistics_sum_nodes,
+        _dart_statistics_sum_nodes>('statistics_sum_nodes'))(
+      arg0,
+    );
+  }
+
+  _dart_statistics_sum_nodes? _statistics_sum_nodes;
+
+  void statistics_print(
+    ffi.Pointer<FILE> arg0,
+  ) {
+    return (_statistics_print ??=
+        _dylib.lookupFunction<_c_statistics_print, _dart_statistics_print>(
+            'statistics_print'))(
+      arg0,
+    );
+  }
+
+  _dart_statistics_print? _statistics_print;
+
+  void hash_code_init() {
+    return (_hash_code_init ??=
+        _dylib.lookupFunction<_c_hash_code_init, _dart_hash_code_init>(
+            'hash_code_init'))();
+  }
+
+  _dart_hash_code_init? _hash_code_init;
+
+  void hash_move_init() {
+    return (_hash_move_init ??=
+        _dylib.lookupFunction<_c_hash_move_init, _dart_hash_move_init>(
+            'hash_move_init'))();
+  }
+
+  _dart_hash_move_init? _hash_move_init;
+
+  void hash_init(
+    ffi.Pointer<HashTable> arg0,
+    int arg1,
+  ) {
+    return (_hash_init ??=
+        _dylib.lookupFunction<_c_hash_init, _dart_hash_init>('hash_init'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_hash_init? _hash_init;
+
+  void hash_cleanup(
+    ffi.Pointer<HashTable> arg0,
+  ) {
+    return (_hash_cleanup ??= _dylib
+        .lookupFunction<_c_hash_cleanup, _dart_hash_cleanup>('hash_cleanup'))(
+      arg0,
+    );
+  }
+
+  _dart_hash_cleanup? _hash_cleanup;
+
+  void hash_clear(
+    ffi.Pointer<HashTable> arg0,
+  ) {
+    return (_hash_clear ??=
+        _dylib.lookupFunction<_c_hash_clear, _dart_hash_clear>('hash_clear'))(
+      arg0,
+    );
+  }
+
+  _dart_hash_clear? _hash_clear;
+
+  void hash_free(
+    ffi.Pointer<HashTable> arg0,
+  ) {
+    return (_hash_free ??=
+        _dylib.lookupFunction<_c_hash_free, _dart_hash_free>('hash_free'))(
+      arg0,
+    );
+  }
+
+  _dart_hash_free? _hash_free;
+
+  void hash_store(
+    ffi.Pointer<HashTable> arg0,
+    ffi.Pointer<Board> arg1,
+    int arg2,
+    int arg3,
+    int arg4,
+    int arg5,
+    int arg6,
+    int arg7,
+    int arg8,
+    int arg9,
+  ) {
+    return (_hash_store ??=
+        _dylib.lookupFunction<_c_hash_store, _dart_hash_store>('hash_store'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+      arg5,
+      arg6,
+      arg7,
+      arg8,
+      arg9,
+    );
+  }
+
+  _dart_hash_store? _hash_store;
+
+  void hash_force(
+    ffi.Pointer<HashTable> arg0,
+    ffi.Pointer<Board> arg1,
+    int arg2,
+    int arg3,
+    int arg4,
+    int arg5,
+    int arg6,
+    int arg7,
+    int arg8,
+    int arg9,
+  ) {
+    return (_hash_force ??=
+        _dylib.lookupFunction<_c_hash_force, _dart_hash_force>('hash_force'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+      arg5,
+      arg6,
+      arg7,
+      arg8,
+      arg9,
+    );
+  }
+
+  _dart_hash_force? _hash_force;
+
+  int hash_get(
+    ffi.Pointer<HashTable> arg0,
+    ffi.Pointer<Board> arg1,
+    int arg2,
+    ffi.Pointer<HashData> arg3,
+  ) {
+    return (_hash_get ??=
+        _dylib.lookupFunction<_c_hash_get, _dart_hash_get>('hash_get'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_hash_get? _hash_get;
+
+  void hash_copy(
+    ffi.Pointer<HashTable> arg0,
+    ffi.Pointer<HashTable> arg1,
+  ) {
+    return (_hash_copy ??=
+        _dylib.lookupFunction<_c_hash_copy, _dart_hash_copy>('hash_copy'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_hash_copy? _hash_copy;
+
+  void hash_print(
+    ffi.Pointer<HashData> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_hash_print ??=
+        _dylib.lookupFunction<_c_hash_print, _dart_hash_print>('hash_print'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_hash_print? _hash_print;
+
+  void hash_feed(
+    ffi.Pointer<HashTable> arg0,
+    ffi.Pointer<Board> arg1,
+    int arg2,
+    int arg3,
+    int arg4,
+    int arg5,
+    int arg6,
+    int arg7,
+  ) {
+    return (_hash_feed ??=
+        _dylib.lookupFunction<_c_hash_feed, _dart_hash_feed>('hash_feed'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+      arg5,
+      arg6,
+      arg7,
+    );
+  }
+
+  _dart_hash_feed? _hash_feed;
+
+  void hash_exclude_move(
+    ffi.Pointer<HashTable> arg0,
+    ffi.Pointer<Board> arg1,
+    int arg2,
+    int arg3,
+  ) {
+    return (_hash_exclude_move ??=
+        _dylib.lookupFunction<_c_hash_exclude_move, _dart_hash_exclude_move>(
+            'hash_exclude_move'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_hash_exclude_move? _hash_exclude_move;
+
+  int writeable_level(
+    ffi.Pointer<HashData> data,
+  ) {
+    return (_writeable_level ??=
+        _dylib.lookupFunction<_c_writeable_level, _dart_writeable_level>(
+            'writeable_level'))(
+      data,
+    );
+  }
+
+  _dart_writeable_level? _writeable_level;
+
+  void search_global_init() {
+    return (_search_global_init ??=
+        _dylib.lookupFunction<_c_search_global_init, _dart_search_global_init>(
+            'search_global_init'))();
+  }
+
+  _dart_search_global_init? _search_global_init;
+
+  void search_init(
+    ffi.Pointer<Search> arg0,
+  ) {
+    return (_search_init ??= _dylib
+        .lookupFunction<_c_search_init, _dart_search_init>('search_init'))(
+      arg0,
+    );
+  }
+
+  _dart_search_init? _search_init;
+
+  void search_free(
+    ffi.Pointer<Search> arg0,
+  ) {
+    return (_search_free ??= _dylib
+        .lookupFunction<_c_search_free, _dart_search_free>('search_free'))(
+      arg0,
+    );
+  }
+
+  _dart_search_free? _search_free;
+
+  void search_cleanup(
+    ffi.Pointer<Search> arg0,
+  ) {
+    return (_search_cleanup ??=
+        _dylib.lookupFunction<_c_search_cleanup, _dart_search_cleanup>(
+            'search_cleanup'))(
+      arg0,
+    );
+  }
+
+  _dart_search_cleanup? _search_cleanup;
+
+  void search_setup(
+    ffi.Pointer<Search> arg0,
+  ) {
+    return (_search_setup ??= _dylib
+        .lookupFunction<_c_search_setup, _dart_search_setup>('search_setup'))(
+      arg0,
+    );
+  }
+
+  _dart_search_setup? _search_setup;
+
+  void search_clone(
+    ffi.Pointer<Search> arg0,
+    ffi.Pointer<Search> arg1,
+  ) {
+    return (_search_clone ??= _dylib
+        .lookupFunction<_c_search_clone, _dart_search_clone>('search_clone'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_search_clone? _search_clone;
+
+  void search_set_board(
+    ffi.Pointer<Search> arg0,
+    ffi.Pointer<Board> arg1,
+    int arg2,
+  ) {
+    return (_search_set_board ??=
+        _dylib.lookupFunction<_c_search_set_board, _dart_search_set_board>(
+            'search_set_board'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_search_set_board? _search_set_board;
+
+  void search_set_level(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+    int arg2,
+  ) {
+    return (_search_set_level ??=
+        _dylib.lookupFunction<_c_search_set_level, _dart_search_set_level>(
+            'search_set_level'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_search_set_level? _search_set_level;
+
+  void search_set_ponder_level(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+    int arg2,
+  ) {
+    return (_search_set_ponder_level ??= _dylib.lookupFunction<
+        _c_search_set_ponder_level,
+        _dart_search_set_ponder_level>('search_set_ponder_level'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_search_set_ponder_level? _search_set_ponder_level;
+
+  void search_resize_hashtable(
+    ffi.Pointer<Search> arg0,
+  ) {
+    return (_search_resize_hashtable ??= _dylib.lookupFunction<
+        _c_search_resize_hashtable,
+        _dart_search_resize_hashtable>('search_resize_hashtable'))(
+      arg0,
+    );
+  }
+
+  _dart_search_resize_hashtable? _search_resize_hashtable;
+
+  void search_set_game_time(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+  ) {
+    return (_search_set_game_time ??= _dylib.lookupFunction<
+        _c_search_set_game_time,
+        _dart_search_set_game_time>('search_set_game_time'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_search_set_game_time? _search_set_game_time;
+
+  void search_set_move_time(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+  ) {
+    return (_search_set_move_time ??= _dylib.lookupFunction<
+        _c_search_set_move_time,
+        _dart_search_set_move_time>('search_set_move_time'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_search_set_move_time? _search_set_move_time;
+
+  void search_time_init(
+    ffi.Pointer<Search> arg0,
+  ) {
+    return (_search_time_init ??=
+        _dylib.lookupFunction<_c_search_time_init, _dart_search_time_init>(
+            'search_time_init'))(
+      arg0,
+    );
+  }
+
+  _dart_search_time_init? _search_time_init;
+
+  void search_time_reset(
+    ffi.Pointer<Search> arg0,
+    ffi.Pointer<Board> arg1,
+  ) {
+    return (_search_time_reset ??=
+        _dylib.lookupFunction<_c_search_time_reset, _dart_search_time_reset>(
+            'search_time_reset'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_search_time_reset? _search_time_reset;
+
+  void search_adjust_time(
+    ffi.Pointer<Search> arg0,
+    int bool,
+  ) {
+    return (_search_adjust_time ??=
+        _dylib.lookupFunction<_c_search_adjust_time, _dart_search_adjust_time>(
+            'search_adjust_time'))(
+      arg0,
+      bool,
+    );
+  }
+
+  _dart_search_adjust_time? _search_adjust_time;
+
+  int search_continue(
+    ffi.Pointer<Search> arg0,
+  ) {
+    return (_search_continue ??=
+        _dylib.lookupFunction<_c_search_continue, _dart_search_continue>(
+            'search_continue'))(
+      arg0,
+    );
+  }
+
+  _dart_search_continue? _search_continue;
+
+  void search_check_timeout(
+    ffi.Pointer<Search> search,
+  ) {
+    return (_search_check_timeout ??= _dylib.lookupFunction<
+        _c_search_check_timeout,
+        _dart_search_check_timeout>('search_check_timeout'))(
+      search,
+    );
+  }
+
+  _dart_search_check_timeout? _search_check_timeout;
+
+  void search_set_task_number(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+  ) {
+    return (_search_set_task_number ??= _dylib.lookupFunction<
+        _c_search_set_task_number,
+        _dart_search_set_task_number>('search_set_task_number'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_search_set_task_number? _search_set_task_number;
+
+  void search_swap_parity(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+  ) {
+    return (_search_swap_parity ??=
+        _dylib.lookupFunction<_c_search_swap_parity, _dart_search_swap_parity>(
+            'search_swap_parity'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_search_swap_parity? _search_swap_parity;
+
+  void search_get_movelist(
+    ffi.Pointer<Search> arg0,
+    ffi.Pointer<MoveList> arg1,
+  ) {
+    return (_search_get_movelist ??= _dylib.lookupFunction<
+        _c_search_get_movelist,
+        _dart_search_get_movelist>('search_get_movelist'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_search_get_movelist? _search_get_movelist;
+
+  void search_update_endgame(
+    ffi.Pointer<Search> arg0,
+    ffi.Pointer<Move> arg1,
+  ) {
+    return (_search_update_endgame ??= _dylib.lookupFunction<
+        _c_search_update_endgame,
+        _dart_search_update_endgame>('search_update_endgame'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_search_update_endgame? _search_update_endgame;
+
+  void search_restore_endgame(
+    ffi.Pointer<Search> arg0,
+    ffi.Pointer<Move> arg1,
+  ) {
+    return (_search_restore_endgame ??= _dylib.lookupFunction<
+        _c_search_restore_endgame,
+        _dart_search_restore_endgame>('search_restore_endgame'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_search_restore_endgame? _search_restore_endgame;
+
+  void search_pass_endgame(
+    ffi.Pointer<Search> arg0,
+  ) {
+    return (_search_pass_endgame ??= _dylib.lookupFunction<
+        _c_search_pass_endgame,
+        _dart_search_pass_endgame>('search_pass_endgame'))(
+      arg0,
+    );
+  }
+
+  _dart_search_pass_endgame? _search_pass_endgame;
+
+  void search_update_midgame(
+    ffi.Pointer<Search> arg0,
+    ffi.Pointer<Move> arg1,
+  ) {
+    return (_search_update_midgame ??= _dylib.lookupFunction<
+        _c_search_update_midgame,
+        _dart_search_update_midgame>('search_update_midgame'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_search_update_midgame? _search_update_midgame;
+
+  void search_restore_midgame(
+    ffi.Pointer<Search> arg0,
+    ffi.Pointer<Move> arg1,
+  ) {
+    return (_search_restore_midgame ??= _dylib.lookupFunction<
+        _c_search_restore_midgame,
+        _dart_search_restore_midgame>('search_restore_midgame'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_search_restore_midgame? _search_restore_midgame;
+
+  void search_update_pass_midgame(
+    ffi.Pointer<Search> arg0,
+  ) {
+    return (_search_update_pass_midgame ??= _dylib.lookupFunction<
+        _c_search_update_pass_midgame,
+        _dart_search_update_pass_midgame>('search_update_pass_midgame'))(
+      arg0,
+    );
+  }
+
+  _dart_search_update_pass_midgame? _search_update_pass_midgame;
+
+  void search_restore_pass_midgame(
+    ffi.Pointer<Search> arg0,
+  ) {
+    return (_search_restore_pass_midgame ??= _dylib.lookupFunction<
+        _c_search_restore_pass_midgame,
+        _dart_search_restore_pass_midgame>('search_restore_pass_midgame'))(
+      arg0,
+    );
+  }
+
+  _dart_search_restore_pass_midgame? _search_restore_pass_midgame;
+
+  int search_clock(
+    ffi.Pointer<Search> arg0,
+  ) {
+    return (_search_clock ??= _dylib
+        .lookupFunction<_c_search_clock, _dart_search_clock>('search_clock'))(
+      arg0,
+    );
+  }
+
+  _dart_search_clock? _search_clock;
+
+  int search_time(
+    ffi.Pointer<Search> arg0,
+  ) {
+    return (_search_time ??= _dylib
+        .lookupFunction<_c_search_time, _dart_search_time>('search_time'))(
+      arg0,
+    );
+  }
+
+  _dart_search_time? _search_time;
+
+  int search_count_nodes(
+    ffi.Pointer<Search> arg0,
+  ) {
+    return (_search_count_nodes ??=
+        _dylib.lookupFunction<_c_search_count_nodes, _dart_search_count_nodes>(
+            'search_count_nodes'))(
+      arg0,
+    );
+  }
+
+  _dart_search_count_nodes? _search_count_nodes;
+
+  void search_print_pv(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+    ffi.Pointer<ffi.Int8> arg2,
+    ffi.Pointer<FILE> arg3,
+  ) {
+    return (_search_print_pv ??=
+        _dylib.lookupFunction<_c_search_print_pv, _dart_search_print_pv>(
+            'search_print_pv'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_search_print_pv? _search_print_pv;
+
+  void search_print(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+    int arg2,
+    int arg3,
+    ffi.Pointer<FILE> arg4,
+  ) {
+    return (_search_print ??= _dylib
+        .lookupFunction<_c_search_print, _dart_search_print>('search_print'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+    );
+  }
+
+  _dart_search_print? _search_print;
+
+  int get_pv_extension(
+    int arg0,
+    int arg1,
+  ) {
+    return (_get_pv_extension ??=
+        _dylib.lookupFunction<_c_get_pv_extension, _dart_get_pv_extension>(
+            'get_pv_extension'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_get_pv_extension? _get_pv_extension;
+
+  void result_print(
+    ffi.Pointer<Result> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_result_print ??= _dylib
+        .lookupFunction<_c_result_print, _dart_result_print>('result_print'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_result_print? _result_print;
+
+  int search_SC_PVS(
+    ffi.Pointer<Search> arg0,
+    ffi.Pointer<ffi.Int32> arg1,
+    ffi.Pointer<ffi.Int32> arg2,
+    ffi.Pointer<ffi.Int32> arg3,
+  ) {
+    return (_search_SC_PVS ??=
+        _dylib.lookupFunction<_c_search_SC_PVS, _dart_search_SC_PVS>(
+            'search_SC_PVS'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_search_SC_PVS? _search_SC_PVS;
+
+  int search_SC_NWS(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+    ffi.Pointer<ffi.Int32> arg2,
+  ) {
+    return (_search_SC_NWS ??=
+        _dylib.lookupFunction<_c_search_SC_NWS, _dart_search_SC_NWS>(
+            'search_SC_NWS'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_search_SC_NWS? _search_SC_NWS;
+
+  int search_TC_PVS(
+    ffi.Pointer<HashData> arg0,
+    int arg1,
+    int arg2,
+    ffi.Pointer<ffi.Int32> arg3,
+    ffi.Pointer<ffi.Int32> arg4,
+    ffi.Pointer<ffi.Int32> arg5,
+  ) {
+    return (_search_TC_PVS ??=
+        _dylib.lookupFunction<_c_search_TC_PVS, _dart_search_TC_PVS>(
+            'search_TC_PVS'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+      arg5,
+    );
+  }
+
+  _dart_search_TC_PVS? _search_TC_PVS;
+
+  int search_TC_NWS(
+    ffi.Pointer<HashData> arg0,
+    int arg1,
+    int arg2,
+    int arg3,
+    ffi.Pointer<ffi.Int32> arg4,
+  ) {
+    return (_search_TC_NWS ??=
+        _dylib.lookupFunction<_c_search_TC_NWS, _dart_search_TC_NWS>(
+            'search_TC_NWS'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+    );
+  }
+
+  _dart_search_TC_NWS? _search_TC_NWS;
+
+  int search_ETC_PVS(
+    ffi.Pointer<Search> arg0,
+    ffi.Pointer<MoveList> arg1,
+    int arg2,
+    int arg3,
+    int arg4,
+    ffi.Pointer<ffi.Int32> arg5,
+    ffi.Pointer<ffi.Int32> arg6,
+    ffi.Pointer<ffi.Int32> arg7,
+  ) {
+    return (_search_ETC_PVS ??=
+        _dylib.lookupFunction<_c_search_ETC_PVS, _dart_search_ETC_PVS>(
+            'search_ETC_PVS'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+      arg5,
+      arg6,
+      arg7,
+    );
+  }
+
+  _dart_search_ETC_PVS? _search_ETC_PVS;
+
+  int search_ETC_NWS(
+    ffi.Pointer<Search> arg0,
+    ffi.Pointer<MoveList> arg1,
+    int arg2,
+    int arg3,
+    int arg4,
+    int arg5,
+    ffi.Pointer<ffi.Int32> arg6,
+  ) {
+    return (_search_ETC_NWS ??=
+        _dylib.lookupFunction<_c_search_ETC_NWS, _dart_search_ETC_NWS>(
+            'search_ETC_NWS'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+      arg5,
+      arg6,
+    );
+  }
+
+  _dart_search_ETC_NWS? _search_ETC_NWS;
+
+  int next_node_type(
+    int parent,
+    int first_move,
+  ) {
+    return (_next_node_type ??=
+        _dylib.lookupFunction<_c_next_node_type, _dart_next_node_type>(
+            'next_node_type'))(
+      parent,
+      first_move,
+    );
+  }
+
+  _dart_next_node_type? _next_node_type;
+
+  int search_solve(
+    ffi.Pointer<Search> arg0,
+  ) {
+    return (_search_solve ??= _dylib
+        .lookupFunction<_c_search_solve, _dart_search_solve>('search_solve'))(
+      arg0,
+    );
+  }
+
+  _dart_search_solve? _search_solve;
+
+  int search_solve_0(
+    ffi.Pointer<Search> arg0,
+  ) {
+    return (_search_solve_0 ??=
+        _dylib.lookupFunction<_c_search_solve_0, _dart_search_solve_0>(
+            'search_solve_0'))(
+      arg0,
+    );
+  }
+
+  _dart_search_solve_0? _search_solve_0;
+
+  int board_score_1(
+    ffi.Pointer<Board> arg0,
+    int arg1,
+    int arg2,
+  ) {
+    return (_board_score_1 ??=
+        _dylib.lookupFunction<_c_board_score_1, _dart_board_score_1>(
+            'board_score_1'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_board_score_1? _board_score_1;
+
+  int NWS_endgame(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+  ) {
+    return (_NWS_endgame ??= _dylib
+        .lookupFunction<_c_NWS_endgame, _dart_NWS_endgame>('NWS_endgame'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_NWS_endgame? _NWS_endgame;
+
+  int search_eval_0(
+    ffi.Pointer<Search> arg0,
+  ) {
+    return (_search_eval_0 ??=
+        _dylib.lookupFunction<_c_search_eval_0, _dart_search_eval_0>(
+            'search_eval_0'))(
+      arg0,
+    );
+  }
+
+  _dart_search_eval_0? _search_eval_0;
+
+  int search_eval_1(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+    int arg2,
+  ) {
+    return (_search_eval_1 ??=
+        _dylib.lookupFunction<_c_search_eval_1, _dart_search_eval_1>(
+            'search_eval_1'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_search_eval_1? _search_eval_1;
+
+  int search_eval_2(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+    int arg2,
+  ) {
+    return (_search_eval_2 ??=
+        _dylib.lookupFunction<_c_search_eval_2, _dart_search_eval_2>(
+            'search_eval_2'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_search_eval_2? _search_eval_2;
+
+  int NWS_midgame(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+    int arg2,
+    ffi.Pointer<Node> arg3,
+  ) {
+    return (_NWS_midgame ??= _dylib
+        .lookupFunction<_c_NWS_midgame, _dart_NWS_midgame>('NWS_midgame'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_NWS_midgame? _NWS_midgame;
+
+  int PVS_midgame(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+    int arg2,
+    int arg3,
+    ffi.Pointer<Node> arg4,
+  ) {
+    return (_PVS_midgame ??= _dylib
+        .lookupFunction<_c_PVS_midgame, _dart_PVS_midgame>('PVS_midgame'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+    );
+  }
+
+  _dart_PVS_midgame? _PVS_midgame;
+
+  int NWS_shallow(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+    int arg2,
+    ffi.Pointer<HashTable> arg3,
+  ) {
+    return (_NWS_shallow ??= _dylib
+        .lookupFunction<_c_NWS_shallow, _dart_NWS_shallow>('NWS_shallow'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_NWS_shallow? _NWS_shallow;
+
+  int PVS_shallow(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+    int arg2,
+    int arg3,
+  ) {
+    return (_PVS_shallow ??= _dylib
+        .lookupFunction<_c_PVS_shallow, _dart_PVS_shallow>('PVS_shallow'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_PVS_shallow? _PVS_shallow;
+
+  int is_pv_ok(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+    int arg2,
+  ) {
+    return (_is_pv_ok ??=
+        _dylib.lookupFunction<_c_is_pv_ok, _dart_is_pv_ok>('is_pv_ok'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_is_pv_ok? _is_pv_ok;
+
+  void record_best_move(
+    ffi.Pointer<Search> arg0,
+    ffi.Pointer<Board> arg1,
+    ffi.Pointer<Move> arg2,
+    int arg3,
+    int arg4,
+    int arg5,
+  ) {
+    return (_record_best_move ??=
+        _dylib.lookupFunction<_c_record_best_move, _dart_record_best_move>(
+            'record_best_move'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+      arg5,
+    );
+  }
+
+  _dart_record_best_move? _record_best_move;
+
+  int PVS_root(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+    int arg2,
+    int arg3,
+  ) {
+    return (_PVS_root ??=
+        _dylib.lookupFunction<_c_PVS_root, _dart_PVS_root>('PVS_root'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_PVS_root? _PVS_root;
+
+  int aspiration_search(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+    int arg2,
+    int arg3,
+    int arg4,
+  ) {
+    return (_aspiration_search ??=
+        _dylib.lookupFunction<_c_aspiration_search, _dart_aspiration_search>(
+            'aspiration_search'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+    );
+  }
+
+  _dart_aspiration_search? _aspiration_search;
+
+  void iterative_deepening(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+    int arg2,
+  ) {
+    return (_iterative_deepening ??= _dylib.lookupFunction<
+        _c_iterative_deepening,
+        _dart_iterative_deepening>('iterative_deepening'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_iterative_deepening? _iterative_deepening;
+
+  ffi.Pointer<ffi.Void> search_run(
+    ffi.Pointer<ffi.Void> arg0,
+  ) {
+    return (_search_run ??=
+        _dylib.lookupFunction<_c_search_run, _dart_search_run>('search_run'))(
+      arg0,
+    );
+  }
+
+  _dart_search_run? _search_run;
+
+  int search_guess(
+    ffi.Pointer<Search> arg0,
+    ffi.Pointer<Board> arg1,
+  ) {
+    return (_search_guess ??= _dylib
+        .lookupFunction<_c_search_guess, _dart_search_guess>('search_guess'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_search_guess? _search_guess;
+
+  void search_stop_all(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+  ) {
+    return (_search_stop_all ??=
+        _dylib.lookupFunction<_c_search_stop_all, _dart_search_stop_all>(
+            'search_stop_all'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_search_stop_all? _search_stop_all;
+
+  void search_set_state(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+  ) {
+    return (_search_set_state ??=
+        _dylib.lookupFunction<_c_search_set_state, _dart_search_set_state>(
+            'search_set_state'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_search_set_state? _search_set_state;
+
+  void search_observer(
+    ffi.Pointer<Result> arg0,
+  ) {
+    return (_search_observer ??=
+        _dylib.lookupFunction<_c_search_observer, _dart_search_observer>(
+            'search_observer'))(
+      arg0,
+    );
+  }
+
+  _dart_search_observer? _search_observer;
+
+  void search_set_observer(
+    ffi.Pointer<Search> arg0,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_30>> Observer,
+  ) {
+    return (_search_set_observer ??= _dylib.lookupFunction<
+        _c_search_set_observer,
+        _dart_search_set_observer>('search_set_observer'))(
+      arg0,
+      Observer,
+    );
+  }
+
+  _dart_search_set_observer? _search_set_observer;
+
+  void search_share(
+    ffi.Pointer<Search> arg0,
+    ffi.Pointer<Search> arg1,
+  ) {
+    return (_search_share ??= _dylib
+        .lookupFunction<_c_search_share, _dart_search_share>('search_share'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_search_share? _search_share;
+
+  int search_count_tasks(
+    ffi.Pointer<Search> arg0,
+  ) {
+    return (_search_count_tasks ??=
+        _dylib.lookupFunction<_c_search_count_tasks, _dart_search_count_tasks>(
+            'search_count_tasks'))(
+      arg0,
+    );
+  }
+
+  _dart_search_count_tasks? _search_count_tasks;
+
+  int is_depth_solving(
+    int arg0,
+    int arg1,
+  ) {
+    return (_is_depth_solving ??=
+        _dylib.lookupFunction<_c_is_depth_solving, _dart_is_depth_solving>(
+            'is_depth_solving'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_is_depth_solving? _is_depth_solving;
+
+  int solvable_depth(
+    int arg0,
+    int arg1,
+  ) {
+    return (_solvable_depth ??=
+        _dylib.lookupFunction<_c_solvable_depth, _dart_solvable_depth>(
+            'solvable_depth'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_solvable_depth? _solvable_depth;
+
+  void pv_debug(
+    ffi.Pointer<Search> arg0,
+    ffi.Pointer<Move> arg1,
+    ffi.Pointer<FILE> arg2,
+  ) {
+    return (_pv_debug ??=
+        _dylib.lookupFunction<_c_pv_debug, _dart_pv_debug>('pv_debug'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_pv_debug? _pv_debug;
+
+  int search_get_pv_cost(
+    ffi.Pointer<Search> arg0,
+  ) {
+    return (_search_get_pv_cost ??=
+        _dylib.lookupFunction<_c_search_get_pv_cost, _dart_search_get_pv_cost>(
+            'search_get_pv_cost'))(
+      arg0,
+    );
+  }
+
+  _dart_search_get_pv_cost? _search_get_pv_cost;
+
+  void show_current_move(
+    ffi.Pointer<FILE> f,
+    ffi.Pointer<Search> arg1,
+    ffi.Pointer<Move> arg2,
+    int arg3,
+    int arg4,
+    int bool,
+  ) {
+    return (_show_current_move ??=
+        _dylib.lookupFunction<_c_show_current_move, _dart_show_current_move>(
+            'show_current_move'))(
+      f,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+      bool,
+    );
+  }
+
+  _dart_show_current_move? _show_current_move;
+
+  int search_bound(
+    ffi.Pointer<Search> arg0,
+    int arg1,
+  ) {
+    return (_search_bound ??= _dylib
+        .lookupFunction<_c_search_bound, _dart_search_bound>('search_bound'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_search_bound? _search_bound;
+
+  void book_init(
+    ffi.Pointer<Book> arg0,
+  ) {
+    return (_book_init ??=
+        _dylib.lookupFunction<_c_book_init, _dart_book_init>('book_init'))(
+      arg0,
+    );
+  }
+
+  _dart_book_init? _book_init;
+
+  void book_free(
+    ffi.Pointer<Book> arg0,
+  ) {
+    return (_book_free ??=
+        _dylib.lookupFunction<_c_book_free, _dart_book_free>('book_free'))(
+      arg0,
+    );
+  }
+
+  _dart_book_free? _book_free;
+
+  void book_new(
+    ffi.Pointer<Book> arg0,
+    int arg1,
+    int arg2,
+  ) {
+    return (_book_new ??=
+        _dylib.lookupFunction<_c_book_new, _dart_book_new>('book_new'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_book_new? _book_new;
+
+  void book_load(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_book_load ??=
+        _dylib.lookupFunction<_c_book_load, _dart_book_load>('book_load'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_book_load? _book_load;
+
+  void book_save(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_book_save ??=
+        _dylib.lookupFunction<_c_book_save, _dart_book_save>('book_save'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_book_save? _book_save;
+
+  void book_import(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_book_import ??= _dylib
+        .lookupFunction<_c_book_import, _dart_book_import>('book_import'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_book_import? _book_import;
+
+  void book_export(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_book_export ??= _dylib
+        .lookupFunction<_c_book_export, _dart_book_export>('book_export'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_book_export? _book_export;
+
+  void book_merge(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<Book> arg1,
+  ) {
+    return (_book_merge ??=
+        _dylib.lookupFunction<_c_book_merge, _dart_book_merge>('book_merge'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_book_merge? _book_merge;
+
+  void book_sort(
+    ffi.Pointer<Book> book,
+  ) {
+    return (_book_sort ??=
+        _dylib.lookupFunction<_c_book_sort, _dart_book_sort>('book_sort'))(
+      book,
+    );
+  }
+
+  _dart_book_sort? _book_sort;
+
+  void book_negamax(
+    ffi.Pointer<Book> arg0,
+  ) {
+    return (_book_negamax ??= _dylib
+        .lookupFunction<_c_book_negamax, _dart_book_negamax>('book_negamax'))(
+      arg0,
+    );
+  }
+
+  _dart_book_negamax? _book_negamax;
+
+  void book_prune(
+    ffi.Pointer<Book> arg0,
+  ) {
+    return (_book_prune ??=
+        _dylib.lookupFunction<_c_book_prune, _dart_book_prune>('book_prune'))(
+      arg0,
+    );
+  }
+
+  _dart_book_prune? _book_prune;
+
+  void book_deepen(
+    ffi.Pointer<Book> arg0,
+  ) {
+    return (_book_deepen ??= _dylib
+        .lookupFunction<_c_book_deepen, _dart_book_deepen>('book_deepen'))(
+      arg0,
+    );
+  }
+
+  _dart_book_deepen? _book_deepen;
+
+  void book_correct_solved(
+    ffi.Pointer<Book> arg0,
+  ) {
+    return (_book_correct_solved ??= _dylib.lookupFunction<
+        _c_book_correct_solved,
+        _dart_book_correct_solved>('book_correct_solved'))(
+      arg0,
+    );
+  }
+
+  _dart_book_correct_solved? _book_correct_solved;
+
+  void book_link(
+    ffi.Pointer<Book> arg0,
+  ) {
+    return (_book_link ??=
+        _dylib.lookupFunction<_c_book_link, _dart_book_link>('book_link'))(
+      arg0,
+    );
+  }
+
+  _dart_book_link? _book_link;
+
+  void book_fix(
+    ffi.Pointer<Book> arg0,
+  ) {
+    return (_book_fix ??=
+        _dylib.lookupFunction<_c_book_fix, _dart_book_fix>('book_fix'))(
+      arg0,
+    );
+  }
+
+  _dart_book_fix? _book_fix;
+
+  void book_fill(
+    ffi.Pointer<Book> book,
+    int arg1,
+  ) {
+    return (_book_fill ??=
+        _dylib.lookupFunction<_c_book_fill, _dart_book_fill>('book_fill'))(
+      book,
+      arg1,
+    );
+  }
+
+  _dart_book_fill? _book_fill;
+
+  void book_deviate(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<Board> arg1,
+    int arg2,
+    int arg3,
+  ) {
+    return (_book_deviate ??= _dylib
+        .lookupFunction<_c_book_deviate, _dart_book_deviate>('book_deviate'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_book_deviate? _book_deviate;
+
+  void book_enhance(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<Board> arg1,
+    int arg2,
+    int arg3,
+  ) {
+    return (_book_enhance ??= _dylib
+        .lookupFunction<_c_book_enhance, _dart_book_enhance>('book_enhance'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_book_enhance? _book_enhance;
+
+  void book_subtree(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<Board> arg1,
+  ) {
+    return (_book_subtree ??= _dylib
+        .lookupFunction<_c_book_subtree, _dart_book_subtree>('book_subtree'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_book_subtree? _book_subtree;
+
+  void book_play(
+    ffi.Pointer<Book> arg0,
+  ) {
+    return (_book_play ??=
+        _dylib.lookupFunction<_c_book_play, _dart_book_play>('book_play'))(
+      arg0,
+    );
+  }
+
+  _dart_book_play? _book_play;
+
+  void book_info(
+    ffi.Pointer<Book> arg0,
+  ) {
+    return (_book_info ??=
+        _dylib.lookupFunction<_c_book_info, _dart_book_info>('book_info'))(
+      arg0,
+    );
+  }
+
+  _dart_book_info? _book_info;
+
+  void book_show(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<Board> arg1,
+  ) {
+    return (_book_show ??=
+        _dylib.lookupFunction<_c_book_show, _dart_book_show>('book_show'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_book_show? _book_show;
+
+  ffi.Pointer<Position> book_show_for_api(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<Board> arg1,
+  ) {
+    return (_book_show_for_api ??=
+        _dylib.lookupFunction<_c_book_show_for_api, _dart_book_show_for_api>(
+            'book_show_for_api'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_book_show_for_api? _book_show_for_api;
+
+  void book_stats(
+    ffi.Pointer<Book> book,
+  ) {
+    return (_book_stats ??=
+        _dylib.lookupFunction<_c_book_stats, _dart_book_stats>('book_stats'))(
+      book,
+    );
+  }
+
+  _dart_book_stats? _book_stats;
+
+  int book_get_moves(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<Board> arg1,
+    ffi.Pointer<MoveList> arg2,
+  ) {
+    return (_book_get_moves ??=
+        _dylib.lookupFunction<_c_book_get_moves, _dart_book_get_moves>(
+            'book_get_moves'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_book_get_moves? _book_get_moves;
+
+  int book_get_moves_with_position(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<Board> arg1,
+    ffi.Pointer<MoveList> arg2,
+    ffi.Pointer<Position> arg3,
+  ) {
+    return (_book_get_moves_with_position ??= _dylib.lookupFunction<
+        _c_book_get_moves_with_position,
+        _dart_book_get_moves_with_position>('book_get_moves_with_position'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_book_get_moves_with_position? _book_get_moves_with_position;
+
+  int book_get_random_move(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<Board> arg1,
+    ffi.Pointer<Move> arg2,
+    int arg3,
+  ) {
+    return (_book_get_random_move ??= _dylib.lookupFunction<
+        _c_book_get_random_move,
+        _dart_book_get_random_move>('book_get_random_move'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_book_get_random_move? _book_get_random_move;
+
+  void book_get_game_stats(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<Board> arg1,
+    ffi.Pointer<GameStats> arg2,
+  ) {
+    return (_book_get_game_stats ??= _dylib.lookupFunction<
+        _c_book_get_game_stats,
+        _dart_book_get_game_stats>('book_get_game_stats'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_book_get_game_stats? _book_get_game_stats;
+
+  void book_get_line(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<Board> arg1,
+    ffi.Pointer<Move> arg2,
+    ffi.Pointer<Line> arg3,
+  ) {
+    return (_book_get_line ??=
+        _dylib.lookupFunction<_c_book_get_line, _dart_book_get_line>(
+            'book_get_line'))(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+    );
+  }
+
+  _dart_book_get_line? _book_get_line;
+
+  void book_add_board(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<Board> arg1,
+  ) {
+    return (_book_add_board ??=
+        _dylib.lookupFunction<_c_book_add_board, _dart_book_add_board>(
+            'book_add_board'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_book_add_board? _book_add_board;
+
+  void book_add_game(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<Game> arg1,
+  ) {
+    return (_book_add_game ??=
+        _dylib.lookupFunction<_c_book_add_game, _dart_book_add_game>(
+            'book_add_game'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_book_add_game? _book_add_game;
+
+  void book_add_base(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<Base> arg1,
+  ) {
+    return (_book_add_base ??=
+        _dylib.lookupFunction<_c_book_add_base, _dart_book_add_base>(
+            'book_add_base'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_book_add_base? _book_add_base;
+
+  void book_check_base(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<Base> arg1,
+  ) {
+    return (_book_check_base ??=
+        _dylib.lookupFunction<_c_book_check_base, _dart_book_check_base>(
+            'book_check_base'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_book_check_base? _book_check_base;
+
+  void book_extract_skeleton(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<Base> arg1,
+  ) {
+    return (_book_extract_skeleton ??= _dylib.lookupFunction<
+        _c_book_extract_skeleton,
+        _dart_book_extract_skeleton>('book_extract_skeleton'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_book_extract_skeleton? _book_extract_skeleton;
+
+  void book_extract_positions(
+    ffi.Pointer<Book> arg0,
+    int arg1,
+    int arg2,
+  ) {
+    return (_book_extract_positions ??= _dylib.lookupFunction<
+        _c_book_extract_positions,
+        _dart_book_extract_positions>('book_extract_positions'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_book_extract_positions? _book_extract_positions;
+
+  void book_feed_hash(
+    ffi.Pointer<Book> arg0,
+    ffi.Pointer<Board> arg1,
+    ffi.Pointer<Search> arg2,
+  ) {
+    return (_book_feed_hash ??=
+        _dylib.lookupFunction<_c_book_feed_hash, _dart_book_feed_hash>(
+            'book_feed_hash'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_book_feed_hash? _book_feed_hash;
+
+  void event_init(
+    ffi.Pointer<Event> arg0,
+  ) {
+    return (_event_init ??=
+        _dylib.lookupFunction<_c_event_init, _dart_event_init>('event_init'))(
+      arg0,
+    );
+  }
+
+  _dart_event_init? _event_init;
+
+  void event_free(
+    ffi.Pointer<Event> arg0,
+  ) {
+    return (_event_free ??=
+        _dylib.lookupFunction<_c_event_free, _dart_event_free>('event_free'))(
+      arg0,
+    );
+  }
+
+  _dart_event_free? _event_free;
+
+  void event_clear_messages(
+    ffi.Pointer<Event> arg0,
+  ) {
+    return (_event_clear_messages ??= _dylib.lookupFunction<
+        _c_event_clear_messages,
+        _dart_event_clear_messages>('event_clear_messages'))(
+      arg0,
+    );
+  }
+
+  _dart_event_clear_messages? _event_clear_messages;
+
+  void event_add_message(
+    ffi.Pointer<Event> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_event_add_message ??=
+        _dylib.lookupFunction<_c_event_add_message, _dart_event_add_message>(
+            'event_add_message'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_event_add_message? _event_add_message;
+
+  ffi.Pointer<ffi.Int8> event_peek_message(
+    ffi.Pointer<Event> arg0,
+  ) {
+    return (_event_peek_message ??=
+        _dylib.lookupFunction<_c_event_peek_message, _dart_event_peek_message>(
+            'event_peek_message'))(
+      arg0,
+    );
+  }
+
+  _dart_event_peek_message? _event_peek_message;
+
+  int event_exist(
+    ffi.Pointer<Event> arg0,
+  ) {
+    return (_event_exist ??= _dylib
+        .lookupFunction<_c_event_exist, _dart_event_exist>('event_exist'))(
+      arg0,
+    );
+  }
+
+  _dart_event_exist? _event_exist;
+
+  void event_wait(
+    ffi.Pointer<Event> arg0,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg2,
+  ) {
+    return (_event_wait ??=
+        _dylib.lookupFunction<_c_event_wait, _dart_event_wait>('event_wait'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_event_wait? _event_wait;
+
+  void event_wait_enter(
+    ffi.Pointer<Event> arg0,
+  ) {
+    return (_event_wait_enter ??=
+        _dylib.lookupFunction<_c_event_wait_enter, _dart_event_wait_enter>(
+            'event_wait_enter'))(
+      arg0,
+    );
+  }
+
+  _dart_event_wait_enter? _event_wait_enter;
+
+  int play_is_game_over(
+    ffi.Pointer<Play> arg0,
+  ) {
+    return (_play_is_game_over ??=
+        _dylib.lookupFunction<_c_play_is_game_over, _dart_play_is_game_over>(
+            'play_is_game_over'))(
+      arg0,
+    );
+  }
+
+  _dart_play_is_game_over? _play_is_game_over;
+
+  int play_must_pass(
+    ffi.Pointer<Play> play,
+  ) {
+    return (_play_must_pass ??=
+        _dylib.lookupFunction<_c_play_must_pass, _dart_play_must_pass>(
+            'play_must_pass'))(
+      play,
+    );
+  }
+
+  _dart_play_must_pass? _play_must_pass;
+
+  void play_init(
+    ffi.Pointer<Play> arg0,
+    ffi.Pointer<Book> arg1,
+  ) {
+    return (_play_init ??=
+        _dylib.lookupFunction<_c_play_init, _dart_play_init>('play_init'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_play_init? _play_init;
+
+  void play_free(
+    ffi.Pointer<Play> arg0,
+  ) {
+    return (_play_free ??=
+        _dylib.lookupFunction<_c_play_free, _dart_play_free>('play_free'))(
+      arg0,
+    );
+  }
+
+  _dart_play_free? _play_free;
+
+  void play_new(
+    ffi.Pointer<Play> arg0,
+  ) {
+    return (_play_new ??=
+        _dylib.lookupFunction<_c_play_new, _dart_play_new>('play_new'))(
+      arg0,
+    );
+  }
+
+  _dart_play_new? _play_new;
+
+  void play_ggs_init(
+    ffi.Pointer<Play> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_play_ggs_init ??=
+        _dylib.lookupFunction<_c_play_ggs_init, _dart_play_ggs_init>(
+            'play_ggs_init'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_play_ggs_init? _play_ggs_init;
+
+  int play_load(
+    ffi.Pointer<Play> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_play_load ??=
+        _dylib.lookupFunction<_c_play_load, _dart_play_load>('play_load'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_play_load? _play_load;
+
+  void play_save(
+    ffi.Pointer<Play> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_play_save ??=
+        _dylib.lookupFunction<_c_play_save, _dart_play_save>('play_save'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_play_save? _play_save;
+
+  void play_auto_save(
+    ffi.Pointer<Play> arg0,
+  ) {
+    return (_play_auto_save ??=
+        _dylib.lookupFunction<_c_play_auto_save, _dart_play_auto_save>(
+            'play_auto_save'))(
+      arg0,
+    );
+  }
+
+  _dart_play_auto_save? _play_auto_save;
+
+  void play_go(
+    ffi.Pointer<Play> arg0,
+    int bool,
+  ) {
+    return (_play_go ??=
+        _dylib.lookupFunction<_c_play_go, _dart_play_go>('play_go'))(
+      arg0,
+      bool,
+    );
+  }
+
+  _dart_play_go? _play_go;
+
+  void play_hint(
+    ffi.Pointer<Play> arg0,
+    int arg1,
+  ) {
+    return (_play_hint ??=
+        _dylib.lookupFunction<_c_play_hint, _dart_play_hint>('play_hint'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_play_hint? _play_hint;
+
+  void play_hint_for_lib(
+    ffi.Pointer<Play> arg0,
+    int arg1,
+    ffi.Pointer<HintList> arg2,
+  ) {
+    return (_play_hint_for_lib ??=
+        _dylib.lookupFunction<_c_play_hint_for_lib, _dart_play_hint_for_lib>(
+            'play_hint_for_lib'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_play_hint_for_lib? _play_hint_for_lib;
+
+  void play_get_bookmove(
+    ffi.Pointer<Play> arg0,
+    ffi.Pointer<MoveList> arg1,
+  ) {
+    return (_play_get_bookmove ??=
+        _dylib.lookupFunction<_c_play_get_bookmove, _dart_play_get_bookmove>(
+            'play_get_bookmove'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_play_get_bookmove? _play_get_bookmove;
+
+  void play_get_bookmove_with_position(
+    ffi.Pointer<Play> arg0,
+    ffi.Pointer<MoveList> arg1,
+    ffi.Pointer<Position> arg2,
+  ) {
+    return (_play_get_bookmove_with_position ??= _dylib.lookupFunction<
+            _c_play_get_bookmove_with_position,
+            _dart_play_get_bookmove_with_position>(
+        'play_get_bookmove_with_position'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_play_get_bookmove_with_position? _play_get_bookmove_with_position;
+
+  void play_hint_prepare(
+    ffi.Pointer<Play> arg0,
+    ffi.Pointer<MoveList> arg1,
+  ) {
+    return (_play_hint_prepare ??=
+        _dylib.lookupFunction<_c_play_hint_prepare, _dart_play_hint_prepare>(
+            'play_hint_prepare'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_play_hint_prepare? _play_hint_prepare;
+
+  void play_hint_next(
+    ffi.Pointer<Play> arg0,
+    ffi.Pointer<Hint> arg1,
+    int bool,
+  ) {
+    return (_play_hint_next ??=
+        _dylib.lookupFunction<_c_play_hint_next, _dart_play_hint_next>(
+            'play_hint_next'))(
+      arg0,
+      arg1,
+      bool,
+    );
+  }
+
+  _dart_play_hint_next? _play_hint_next;
+
+  void play_stop(
+    ffi.Pointer<Play> arg0,
+  ) {
+    return (_play_stop ??=
+        _dylib.lookupFunction<_c_play_stop, _dart_play_stop>('play_stop'))(
+      arg0,
+    );
+  }
+
+  _dart_play_stop? _play_stop;
+
+  ffi.Pointer<ffi.Void> play_ponder_run(
+    ffi.Pointer<ffi.Void> arg0,
+  ) {
+    return (_play_ponder_run ??=
+        _dylib.lookupFunction<_c_play_ponder_run, _dart_play_ponder_run>(
+            'play_ponder_run'))(
+      arg0,
+    );
+  }
+
+  _dart_play_ponder_run? _play_ponder_run;
+
+  void play_ponder(
+    ffi.Pointer<Play> arg0,
+  ) {
+    return (_play_ponder ??= _dylib
+        .lookupFunction<_c_play_ponder, _dart_play_ponder>('play_ponder'))(
+      arg0,
+    );
+  }
+
+  _dart_play_ponder? _play_ponder;
+
+  ffi.Pointer<ffi.Void> play_ponder_loop(
+    ffi.Pointer<ffi.Void> arg0,
+  ) {
+    return (_play_ponder_loop ??=
+        _dylib.lookupFunction<_c_play_ponder_loop, _dart_play_ponder_loop>(
+            'play_ponder_loop'))(
+      arg0,
+    );
+  }
+
+  _dart_play_ponder_loop? _play_ponder_loop;
+
+  void play_stop_pondering(
+    ffi.Pointer<Play> arg0,
+  ) {
+    return (_play_stop_pondering ??= _dylib.lookupFunction<
+        _c_play_stop_pondering,
+        _dart_play_stop_pondering>('play_stop_pondering'))(
+      arg0,
+    );
+  }
+
+  _dart_play_stop_pondering? _play_stop_pondering;
+
+  void play_update(
+    ffi.Pointer<Play> arg0,
+    ffi.Pointer<Move> arg1,
+  ) {
+    return (_play_update ??= _dylib
+        .lookupFunction<_c_play_update, _dart_play_update>('play_update'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_play_update? _play_update;
+
+  void play_pass(
+    ffi.Pointer<Play> arg0,
+  ) {
+    return (_play_pass ??=
+        _dylib.lookupFunction<_c_play_pass, _dart_play_pass>('play_pass'))(
+      arg0,
+    );
+  }
+
+  _dart_play_pass? _play_pass;
+
+  void play_undo(
+    ffi.Pointer<Play> arg0,
+  ) {
+    return (_play_undo ??=
+        _dylib.lookupFunction<_c_play_undo, _dart_play_undo>('play_undo'))(
+      arg0,
+    );
+  }
+
+  _dart_play_undo? _play_undo;
+
+  void play_redo(
+    ffi.Pointer<Play> arg0,
+  ) {
+    return (_play_redo ??=
+        _dylib.lookupFunction<_c_play_redo, _dart_play_redo>('play_redo'))(
+      arg0,
+    );
+  }
+
+  _dart_play_redo? _play_redo;
+
+  void play_set_board(
+    ffi.Pointer<Play> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_play_set_board ??=
+        _dylib.lookupFunction<_c_play_set_board, _dart_play_set_board>(
+            'play_set_board'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_play_set_board? _play_set_board;
+
+  void play_set_board_from_FEN(
+    ffi.Pointer<Play> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_play_set_board_from_FEN ??= _dylib.lookupFunction<
+        _c_play_set_board_from_FEN,
+        _dart_play_set_board_from_FEN>('play_set_board_from_FEN'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_play_set_board_from_FEN? _play_set_board_from_FEN;
+
+  void play_set_board_from_obj(
+    ffi.Pointer<Play> arg0,
+    ffi.Pointer<Board> arg1,
+    int arg2,
+  ) {
+    return (_play_set_board_from_obj ??= _dylib.lookupFunction<
+        _c_play_set_board_from_obj,
+        _dart_play_set_board_from_obj>('play_set_board_from_obj'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_play_set_board_from_obj? _play_set_board_from_obj;
+
+  void play_game(
+    ffi.Pointer<Play> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_play_game ??=
+        _dylib.lookupFunction<_c_play_game, _dart_play_game>('play_game'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_play_game? _play_game;
+
+  int play_move(
+    ffi.Pointer<Play> arg0,
+    int arg1,
+  ) {
+    return (_play_move ??=
+        _dylib.lookupFunction<_c_play_move, _dart_play_move>('play_move'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_play_move? _play_move;
+
+  int play_user_move(
+    ffi.Pointer<Play> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_play_user_move ??=
+        _dylib.lookupFunction<_c_play_user_move, _dart_play_user_move>(
+            'play_user_move'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_play_user_move? _play_user_move;
+
+  ffi.Pointer<Move> play_get_last_move(
+    ffi.Pointer<Play> arg0,
+  ) {
+    return (_play_get_last_move ??=
+        _dylib.lookupFunction<_c_play_get_last_move, _dart_play_get_last_move>(
+            'play_get_last_move'))(
+      arg0,
+    );
+  }
+
+  _dart_play_get_last_move? _play_get_last_move;
+
+  void play_analyze(
+    ffi.Pointer<Play> arg0,
+    int arg1,
+  ) {
+    return (_play_analyze ??= _dylib
+        .lookupFunction<_c_play_analyze, _dart_play_analyze>('play_analyze'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_play_analyze? _play_analyze;
+
+  void play_book_analyze(
+    ffi.Pointer<Play> arg0,
+    int arg1,
+  ) {
+    return (_play_book_analyze ??=
+        _dylib.lookupFunction<_c_play_book_analyze, _dart_play_book_analyze>(
+            'play_book_analyze'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_play_book_analyze? _play_book_analyze;
+
+  void play_learn(
+    ffi.Pointer<Play> arg0,
+  ) {
+    return (_play_learn ??=
+        _dylib.lookupFunction<_c_play_learn, _dart_play_learn>('play_learn'))(
+      arg0,
+    );
+  }
+
+  _dart_play_learn? _play_learn;
+
+  void play_store(
+    ffi.Pointer<Play> arg0,
+  ) {
+    return (_play_store ??=
+        _dylib.lookupFunction<_c_play_store, _dart_play_store>('play_store'))(
+      arg0,
+    );
+  }
+
+  _dart_play_store? _play_store;
+
+  void play_adjust_time(
+    ffi.Pointer<Play> arg0,
+    int arg1,
+    int arg2,
+  ) {
+    return (_play_adjust_time ??=
+        _dylib.lookupFunction<_c_play_adjust_time, _dart_play_adjust_time>(
+            'play_adjust_time'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_play_adjust_time? _play_adjust_time;
+
+  void play_print(
+    ffi.Pointer<Play> arg0,
+    ffi.Pointer<FILE> arg1,
+  ) {
+    return (_play_print ??=
+        _dylib.lookupFunction<_c_play_print, _dart_play_print>('play_print'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_play_print? _play_print;
+
+  void play_force_init(
+    ffi.Pointer<Play> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_play_force_init ??=
+        _dylib.lookupFunction<_c_play_force_init, _dart_play_force_init>(
+            'play_force_init'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_play_force_init? _play_force_init;
+
+  void play_force_update(
+    ffi.Pointer<Play> arg0,
+  ) {
+    return (_play_force_update ??=
+        _dylib.lookupFunction<_c_play_force_update, _dart_play_force_update>(
+            'play_force_update'))(
+      arg0,
+    );
+  }
+
+  _dart_play_force_update? _play_force_update;
+
+  void play_force_restore(
+    ffi.Pointer<Play> arg0,
+  ) {
+    return (_play_force_restore ??=
+        _dylib.lookupFunction<_c_play_force_restore, _dart_play_force_restore>(
+            'play_force_restore'))(
+      arg0,
+    );
+  }
+
+  _dart_play_force_restore? _play_force_restore;
+
+  int play_force_go(
+    ffi.Pointer<Play> arg0,
+    ffi.Pointer<Move> arg1,
+  ) {
+    return (_play_force_go ??=
+        _dylib.lookupFunction<_c_play_force_go, _dart_play_force_go>(
+            'play_force_go'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_play_force_go? _play_force_go;
+
+  void play_symetry(
+    ffi.Pointer<Play> arg0,
+    int arg1,
+  ) {
+    return (_play_symetry ??= _dylib
+        .lookupFunction<_c_play_symetry, _dart_play_symetry>('play_symetry'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_play_symetry? _play_symetry;
+
+  ffi.Pointer<ffi.Int8> play_show_opening_name(
+    ffi.Pointer<Play> arg0,
+    ffi.Pointer<ffi.NativeFunction<_typedefC_31>> opening_get_name,
+  ) {
+    return (_play_show_opening_name ??= _dylib.lookupFunction<
+        _c_play_show_opening_name,
+        _dart_play_show_opening_name>('play_show_opening_name'))(
+      arg0,
+      opening_get_name,
+    );
+  }
+
+  _dart_play_show_opening_name? _play_show_opening_name;
+
+  int ui_switch(
+    ffi.Pointer<UI> arg0,
+    ffi.Pointer<ffi.Int8> arg1,
+  ) {
+    return (_ui_switch ??=
+        _dylib.lookupFunction<_c_ui_switch, _dart_ui_switch>('ui_switch'))(
+      arg0,
+      arg1,
+    );
+  }
+
+  _dart_ui_switch? _ui_switch;
+
+  void ui_event_init(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_event_init ??=
+        _dylib.lookupFunction<_c_ui_event_init, _dart_ui_event_init>(
+            'ui_event_init'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_event_init? _ui_event_init;
+
+  int ui_event_peek(
+    ffi.Pointer<UI> arg0,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg2,
+  ) {
+    return (_ui_event_peek ??=
+        _dylib.lookupFunction<_c_ui_event_peek, _dart_ui_event_peek>(
+            'ui_event_peek'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_ui_event_peek? _ui_event_peek;
+
+  void ui_event_wait(
+    ffi.Pointer<UI> arg0,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg2,
+  ) {
+    return (_ui_event_wait ??=
+        _dylib.lookupFunction<_c_ui_event_wait, _dart_ui_event_wait>(
+            'ui_event_wait'))(
+      arg0,
+      arg1,
+      arg2,
+    );
+  }
+
+  _dart_ui_event_wait? _ui_event_wait;
+
+  int ui_event_exist(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_event_exist ??=
+        _dylib.lookupFunction<_c_ui_event_exist, _dart_ui_event_exist>(
+            'ui_event_exist'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_event_exist? _ui_event_exist;
+
+  void ui_event_free(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_event_free ??=
+        _dylib.lookupFunction<_c_ui_event_free, _dart_ui_event_free>(
+            'ui_event_free'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_event_free? _ui_event_free;
+
+  void ui_init_edax(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_init_edax ??= _dylib
+        .lookupFunction<_c_ui_init_edax, _dart_ui_init_edax>('ui_init_edax'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_init_edax? _ui_init_edax;
+
+  void ui_loop_edax(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_loop_edax ??= _dylib
+        .lookupFunction<_c_ui_loop_edax, _dart_ui_loop_edax>('ui_loop_edax'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_loop_edax? _ui_loop_edax;
+
+  void ui_free_edax(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_free_edax ??= _dylib
+        .lookupFunction<_c_ui_free_edax, _dart_ui_free_edax>('ui_free_edax'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_free_edax? _ui_free_edax;
+
+  void ui_init_gtp(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_init_gtp ??= _dylib
+        .lookupFunction<_c_ui_init_gtp, _dart_ui_init_gtp>('ui_init_gtp'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_init_gtp? _ui_init_gtp;
+
+  void ui_loop_gtp(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_loop_gtp ??= _dylib
+        .lookupFunction<_c_ui_loop_gtp, _dart_ui_loop_gtp>('ui_loop_gtp'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_loop_gtp? _ui_loop_gtp;
+
+  void ui_free_gtp(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_free_gtp ??= _dylib
+        .lookupFunction<_c_ui_free_gtp, _dart_ui_free_gtp>('ui_free_gtp'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_free_gtp? _ui_free_gtp;
+
+  void ui_init_nboard(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_init_nboard ??=
+        _dylib.lookupFunction<_c_ui_init_nboard, _dart_ui_init_nboard>(
+            'ui_init_nboard'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_init_nboard? _ui_init_nboard;
+
+  void ui_loop_nboard(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_loop_nboard ??=
+        _dylib.lookupFunction<_c_ui_loop_nboard, _dart_ui_loop_nboard>(
+            'ui_loop_nboard'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_loop_nboard? _ui_loop_nboard;
+
+  void ui_free_nboard(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_free_nboard ??=
+        _dylib.lookupFunction<_c_ui_free_nboard, _dart_ui_free_nboard>(
+            'ui_free_nboard'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_free_nboard? _ui_free_nboard;
+
+  void ui_init_xboard(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_init_xboard ??=
+        _dylib.lookupFunction<_c_ui_init_xboard, _dart_ui_init_xboard>(
+            'ui_init_xboard'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_init_xboard? _ui_init_xboard;
+
+  void ui_loop_xboard(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_loop_xboard ??=
+        _dylib.lookupFunction<_c_ui_loop_xboard, _dart_ui_loop_xboard>(
+            'ui_loop_xboard'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_loop_xboard? _ui_loop_xboard;
+
+  void ui_free_xboard(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_free_xboard ??=
+        _dylib.lookupFunction<_c_ui_free_xboard, _dart_ui_free_xboard>(
+            'ui_free_xboard'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_free_xboard? _ui_free_xboard;
+
+  void ui_init_ggs(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_init_ggs ??= _dylib
+        .lookupFunction<_c_ui_init_ggs, _dart_ui_init_ggs>('ui_init_ggs'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_init_ggs? _ui_init_ggs;
+
+  void ui_loop_ggs(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_loop_ggs ??= _dylib
+        .lookupFunction<_c_ui_loop_ggs, _dart_ui_loop_ggs>('ui_loop_ggs'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_loop_ggs? _ui_loop_ggs;
+
+  void ui_free_ggs(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_free_ggs ??= _dylib
+        .lookupFunction<_c_ui_free_ggs, _dart_ui_free_ggs>('ui_free_ggs'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_free_ggs? _ui_free_ggs;
+
+  void ui_init_cassio(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_init_cassio ??=
+        _dylib.lookupFunction<_c_ui_init_cassio, _dart_ui_init_cassio>(
+            'ui_init_cassio'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_init_cassio? _ui_init_cassio;
+
+  void ui_loop_cassio(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_loop_cassio ??=
+        _dylib.lookupFunction<_c_ui_loop_cassio, _dart_ui_loop_cassio>(
+            'ui_loop_cassio'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_loop_cassio? _ui_loop_cassio;
+
+  void ui_free_cassio(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_free_cassio ??=
+        _dylib.lookupFunction<_c_ui_free_cassio, _dart_ui_free_cassio>(
+            'ui_free_cassio'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_free_cassio? _ui_free_cassio;
+
+  void ui_book_init(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_book_init ??= _dylib
+        .lookupFunction<_c_ui_book_init, _dart_ui_book_init>('ui_book_init'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_book_init? _ui_book_init;
 
   void libedax_initialize(
     int arg0,
@@ -844,6 +11663,61 @@ class LibEdaxBindings {
   }
 
   _dart_libedax_observer? _libedax_observer;
+
+  void ui_init_libedax(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_init_libedax ??=
+        _dylib.lookupFunction<_c_ui_init_libedax, _dart_ui_init_libedax>(
+            'ui_init_libedax'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_init_libedax? _ui_init_libedax;
+
+  void ui_free_libedax(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_ui_free_libedax ??=
+        _dylib.lookupFunction<_c_ui_free_libedax, _dart_ui_free_libedax>(
+            'ui_free_libedax'))(
+      arg0,
+    );
+  }
+
+  _dart_ui_free_libedax? _ui_free_libedax;
+
+  void auto_go() {
+    return (_auto_go ??=
+        _dylib.lookupFunction<_c_auto_go, _dart_auto_go>('auto_go'))();
+  }
+
+  _dart_auto_go? _auto_go;
+
+  void book_cmd_pre_process(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_book_cmd_pre_process ??= _dylib.lookupFunction<
+        _c_book_cmd_pre_process,
+        _dart_book_cmd_pre_process>('book_cmd_pre_process'))(
+      arg0,
+    );
+  }
+
+  _dart_book_cmd_pre_process? _book_cmd_pre_process;
+
+  void book_cmd_post_process(
+    ffi.Pointer<UI> arg0,
+  ) {
+    return (_book_cmd_post_process ??= _dylib.lookupFunction<
+        _c_book_cmd_post_process,
+        _dart_book_cmd_post_process>('book_cmd_post_process'))(
+      arg0,
+    );
+  }
+
+  _dart_book_cmd_post_process? _book_cmd_post_process;
 }
 
 abstract class bool {
@@ -61205,6 +72079,18 @@ class __sFILEX extends ffi.Struct {}
 
 class FILE extends ffi.Struct {}
 
+class __va_list_tag extends ffi.Struct {
+  @ffi.Uint32()
+  external int gp_offset;
+
+  @ffi.Uint32()
+  external int fp_offset;
+
+  external ffi.Pointer<ffi.Void> overflow_arg_area;
+
+  external ffi.Pointer<ffi.Void> reg_save_area;
+}
+
 /// Board : board representation
 class Board extends ffi.Struct {
   /// < bitboard representation
@@ -64496,7 +75382,7 @@ class __sigaction extends ffi.Struct {}
 class sigaction extends ffi.Struct {}
 
 class sigvec extends ffi.Struct {
-  external ffi.Pointer<ffi.NativeFunction<_typedefC_7>> sv_handler;
+  external ffi.Pointer<ffi.NativeFunction<_typedefC_11>> sv_handler;
 
   @ffi.Int32()
   external int sv_mask;
@@ -78644,6 +89530,1246 @@ const int COUNT_NODES = 7;
 
 const int PLAY_MESSAGE_MAX_LENGTH = 4096;
 
+typedef _c_renameat = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Int32 arg2,
+  ffi.Pointer<ffi.Int8> arg3,
+);
+
+typedef _dart_renameat = int Function(
+  int arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  int arg2,
+  ffi.Pointer<ffi.Int8> arg3,
+);
+
+typedef _c_renamex_np = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Uint32 arg2,
+);
+
+typedef _dart_renamex_np = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  int arg2,
+);
+
+typedef _c_renameatx_np = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Int32 arg2,
+  ffi.Pointer<ffi.Int8> arg3,
+  ffi.Uint32 arg4,
+);
+
+typedef _dart_renameatx_np = int Function(
+  int arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  int arg2,
+  ffi.Pointer<ffi.Int8> arg3,
+  int arg4,
+);
+
+typedef _c_clearerr = ffi.Void Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_clearerr = void Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_fclose = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_fclose = int Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_feof = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_feof = int Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_ferror = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_ferror = int Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_fflush = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_fflush = int Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_fgetc = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_fgetc = int Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_fgetpos = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Int64> arg1,
+);
+
+typedef _dart_fgetpos = int Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Int64> arg1,
+);
+
+typedef _c_fgets = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<FILE> arg2,
+);
+
+typedef _dart_fgets = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  int arg1,
+  ffi.Pointer<FILE> arg2,
+);
+
+typedef _c_fopen = ffi.Pointer<FILE> Function(
+  ffi.Pointer<ffi.Int8> __filename,
+  ffi.Pointer<ffi.Int8> __mode,
+);
+
+typedef _dart_fopen = ffi.Pointer<FILE> Function(
+  ffi.Pointer<ffi.Int8> __filename,
+  ffi.Pointer<ffi.Int8> __mode,
+);
+
+typedef _c_fprintf = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_fprintf = int Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_fputc = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_fputc = int Function(
+  int arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_fputs = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_fputs = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_fread = ffi.Uint64 Function(
+  ffi.Pointer<ffi.Void> __ptr,
+  ffi.Uint64 __size,
+  ffi.Uint64 __nitems,
+  ffi.Pointer<FILE> __stream,
+);
+
+typedef _dart_fread = int Function(
+  ffi.Pointer<ffi.Void> __ptr,
+  int __size,
+  int __nitems,
+  ffi.Pointer<FILE> __stream,
+);
+
+typedef _c_freopen = ffi.Pointer<FILE> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<FILE> arg2,
+);
+
+typedef _dart_freopen = ffi.Pointer<FILE> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<FILE> arg2,
+);
+
+typedef _c_fscanf = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_fscanf = int Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_fseek = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Int64 arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_fseek = int Function(
+  ffi.Pointer<FILE> arg0,
+  int arg1,
+  int arg2,
+);
+
+typedef _c_fsetpos = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Int64> arg1,
+);
+
+typedef _dart_fsetpos = int Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Int64> arg1,
+);
+
+typedef _c_ftell = ffi.Int64 Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_ftell = int Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_fwrite = ffi.Uint64 Function(
+  ffi.Pointer<ffi.Void> __ptr,
+  ffi.Uint64 __size,
+  ffi.Uint64 __nitems,
+  ffi.Pointer<FILE> __stream,
+);
+
+typedef _dart_fwrite = int Function(
+  ffi.Pointer<ffi.Void> __ptr,
+  int __size,
+  int __nitems,
+  ffi.Pointer<FILE> __stream,
+);
+
+typedef _c_getc = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_getc = int Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_getchar = ffi.Int32 Function();
+
+typedef _dart_getchar = int Function();
+
+typedef _c_gets = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_gets = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_perror = ffi.Void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_perror = void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_printf = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_printf = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_putc = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_putc = int Function(
+  int arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_putchar = ffi.Int32 Function(
+  ffi.Int32 arg0,
+);
+
+typedef _dart_putchar = int Function(
+  int arg0,
+);
+
+typedef _c_puts = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_puts = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_remove = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_remove = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_rename = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> __old,
+  ffi.Pointer<ffi.Int8> __new,
+);
+
+typedef _dart_rename = int Function(
+  ffi.Pointer<ffi.Int8> __old,
+  ffi.Pointer<ffi.Int8> __new,
+);
+
+typedef _c_rewind = ffi.Void Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_rewind = void Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_scanf = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_scanf = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_setbuf = ffi.Void Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_setbuf = void Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_setvbuf = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Int32 arg2,
+  ffi.Uint64 arg3,
+);
+
+typedef _dart_setvbuf = int Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  int arg2,
+  int arg3,
+);
+
+typedef _c_sprintf = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_sprintf = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_sscanf = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_sscanf = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_tmpfile = ffi.Pointer<FILE> Function();
+
+typedef _dart_tmpfile = ffi.Pointer<FILE> Function();
+
+typedef _c_tmpnam = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_tmpnam = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_ungetc = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_ungetc = int Function(
+  int arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_vfprintf = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<__va_list_tag> arg2,
+);
+
+typedef _dart_vfprintf = int Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<__va_list_tag> arg2,
+);
+
+typedef _c_vprintf = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<__va_list_tag> arg1,
+);
+
+typedef _dart_vprintf = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<__va_list_tag> arg1,
+);
+
+typedef _c_vsprintf = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<__va_list_tag> arg2,
+);
+
+typedef _dart_vsprintf = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<__va_list_tag> arg2,
+);
+
+typedef _c_ctermid = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_ctermid = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_fdopen = ffi.Pointer<FILE> Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_fdopen = ffi.Pointer<FILE> Function(
+  int arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_fileno = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_fileno = int Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_pclose = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_pclose = int Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_popen = ffi.Pointer<FILE> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_popen = ffi.Pointer<FILE> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c___srget = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart___srget = int Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c___svfscanf = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<__va_list_tag> arg2,
+);
+
+typedef _dart___svfscanf = int Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<__va_list_tag> arg2,
+);
+
+typedef _c___swbuf = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart___swbuf = int Function(
+  int arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c___sputc = ffi.Int32 Function(
+  ffi.Int32 _c,
+  ffi.Pointer<FILE> _p,
+);
+
+typedef _dart___sputc = int Function(
+  int _c,
+  ffi.Pointer<FILE> _p,
+);
+
+typedef _c_flockfile = ffi.Void Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_flockfile = void Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_ftrylockfile = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_ftrylockfile = int Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_funlockfile = ffi.Void Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_funlockfile = void Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_getc_unlocked = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_getc_unlocked = int Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_getchar_unlocked = ffi.Int32 Function();
+
+typedef _dart_getchar_unlocked = int Function();
+
+typedef _c_putc_unlocked = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_putc_unlocked = int Function(
+  int arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_putchar_unlocked = ffi.Int32 Function(
+  ffi.Int32 arg0,
+);
+
+typedef _dart_putchar_unlocked = int Function(
+  int arg0,
+);
+
+typedef _c_getw = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_getw = int Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_putw = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_putw = int Function(
+  int arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_tempnam = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __dir,
+  ffi.Pointer<ffi.Int8> __prefix,
+);
+
+typedef _dart_tempnam = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __dir,
+  ffi.Pointer<ffi.Int8> __prefix,
+);
+
+typedef _c_fseeko = ffi.Int32 Function(
+  ffi.Pointer<FILE> __stream,
+  ffi.Int64 __offset,
+  ffi.Int32 __whence,
+);
+
+typedef _dart_fseeko = int Function(
+  ffi.Pointer<FILE> __stream,
+  int __offset,
+  int __whence,
+);
+
+typedef _c_ftello = ffi.Int64 Function(
+  ffi.Pointer<FILE> __stream,
+);
+
+typedef _dart_ftello = int Function(
+  ffi.Pointer<FILE> __stream,
+);
+
+typedef _c_snprintf = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Uint64 __size,
+  ffi.Pointer<ffi.Int8> __format,
+);
+
+typedef _dart_snprintf = int Function(
+  ffi.Pointer<ffi.Int8> __str,
+  int __size,
+  ffi.Pointer<ffi.Int8> __format,
+);
+
+typedef _c_vfscanf = ffi.Int32 Function(
+  ffi.Pointer<FILE> __stream,
+  ffi.Pointer<ffi.Int8> __format,
+  ffi.Pointer<__va_list_tag> arg2,
+);
+
+typedef _dart_vfscanf = int Function(
+  ffi.Pointer<FILE> __stream,
+  ffi.Pointer<ffi.Int8> __format,
+  ffi.Pointer<__va_list_tag> arg2,
+);
+
+typedef _c_vscanf = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> __format,
+  ffi.Pointer<__va_list_tag> arg1,
+);
+
+typedef _dart_vscanf = int Function(
+  ffi.Pointer<ffi.Int8> __format,
+  ffi.Pointer<__va_list_tag> arg1,
+);
+
+typedef _c_vsnprintf = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Uint64 __size,
+  ffi.Pointer<ffi.Int8> __format,
+  ffi.Pointer<__va_list_tag> arg3,
+);
+
+typedef _dart_vsnprintf = int Function(
+  ffi.Pointer<ffi.Int8> __str,
+  int __size,
+  ffi.Pointer<ffi.Int8> __format,
+  ffi.Pointer<__va_list_tag> arg3,
+);
+
+typedef _c_vsscanf = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Pointer<ffi.Int8> __format,
+  ffi.Pointer<__va_list_tag> arg2,
+);
+
+typedef _dart_vsscanf = int Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Pointer<ffi.Int8> __format,
+  ffi.Pointer<__va_list_tag> arg2,
+);
+
+typedef _c_dprintf = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_dprintf = int Function(
+  int arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_vdprintf = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<__va_list_tag> arg2,
+);
+
+typedef _dart_vdprintf = int Function(
+  int arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<__va_list_tag> arg2,
+);
+
+typedef _c_getdelim = ffi.Int64 Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __linep,
+  ffi.Pointer<ffi.Uint64> __linecapp,
+  ffi.Int32 __delimiter,
+  ffi.Pointer<FILE> __stream,
+);
+
+typedef _dart_getdelim = int Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __linep,
+  ffi.Pointer<ffi.Uint64> __linecapp,
+  int __delimiter,
+  ffi.Pointer<FILE> __stream,
+);
+
+typedef _c_getline = ffi.Int64 Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __linep,
+  ffi.Pointer<ffi.Uint64> __linecapp,
+  ffi.Pointer<FILE> __stream,
+);
+
+typedef _dart_getline = int Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __linep,
+  ffi.Pointer<ffi.Uint64> __linecapp,
+  ffi.Pointer<FILE> __stream,
+);
+
+typedef _c_fmemopen = ffi.Pointer<FILE> Function(
+  ffi.Pointer<ffi.Void> __buf,
+  ffi.Uint64 __size,
+  ffi.Pointer<ffi.Int8> __mode,
+);
+
+typedef _dart_fmemopen = ffi.Pointer<FILE> Function(
+  ffi.Pointer<ffi.Void> __buf,
+  int __size,
+  ffi.Pointer<ffi.Int8> __mode,
+);
+
+typedef _c_open_memstream = ffi.Pointer<FILE> Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __bufp,
+  ffi.Pointer<ffi.Uint64> __sizep,
+);
+
+typedef _dart_open_memstream = ffi.Pointer<FILE> Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __bufp,
+  ffi.Pointer<ffi.Uint64> __sizep,
+);
+
+typedef _c_asprintf = ffi.Int32 Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_asprintf = int Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_ctermid_r = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_ctermid_r = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_fgetln = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Uint64> arg1,
+);
+
+typedef _dart_fgetln = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Uint64> arg1,
+);
+
+typedef _c_fmtcheck = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_fmtcheck = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_fpurge = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_fpurge = int Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_setbuffer = ffi.Void Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_setbuffer = void Function(
+  ffi.Pointer<FILE> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  int arg2,
+);
+
+typedef _c_setlinebuf = ffi.Int32 Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_setlinebuf = int Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_vasprintf = ffi.Int32 Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<__va_list_tag> arg2,
+);
+
+typedef _dart_vasprintf = int Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<__va_list_tag> arg2,
+);
+
+typedef _c_zopen = ffi.Pointer<FILE> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_zopen = ffi.Pointer<FILE> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  int arg2,
+);
+
+typedef _typedefC_6 = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void>,
+  ffi.Pointer<ffi.Int8>,
+  ffi.Int32,
+);
+
+typedef _typedefC_7 = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void>,
+  ffi.Pointer<ffi.Int8>,
+  ffi.Int32,
+);
+
+typedef _typedefC_8 = ffi.Int64 Function(
+  ffi.Pointer<ffi.Void>,
+  ffi.Int64,
+  ffi.Int32,
+);
+
+typedef _typedefC_9 = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void>,
+);
+
+typedef _c_funopen = ffi.Pointer<FILE> Function(
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_6>> arg1,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_7>> arg2,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_8>> arg3,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_9>> arg4,
+);
+
+typedef _dart_funopen = ffi.Pointer<FILE> Function(
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_6>> arg1,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_7>> arg2,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_8>> arg3,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_9>> arg4,
+);
+
+typedef _c___sprintf_chk = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Int32 arg1,
+  ffi.Uint64 arg2,
+  ffi.Pointer<ffi.Int8> arg3,
+);
+
+typedef _dart___sprintf_chk = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  int arg1,
+  int arg2,
+  ffi.Pointer<ffi.Int8> arg3,
+);
+
+typedef _c___snprintf_chk = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Uint64 arg1,
+  ffi.Int32 arg2,
+  ffi.Uint64 arg3,
+  ffi.Pointer<ffi.Int8> arg4,
+);
+
+typedef _dart___snprintf_chk = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  int arg1,
+  int arg2,
+  int arg3,
+  ffi.Pointer<ffi.Int8> arg4,
+);
+
+typedef _c___vsprintf_chk = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Int32 arg1,
+  ffi.Uint64 arg2,
+  ffi.Pointer<ffi.Int8> arg3,
+  ffi.Pointer<__va_list_tag> arg4,
+);
+
+typedef _dart___vsprintf_chk = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  int arg1,
+  int arg2,
+  ffi.Pointer<ffi.Int8> arg3,
+  ffi.Pointer<__va_list_tag> arg4,
+);
+
+typedef _c___vsnprintf_chk = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Uint64 arg1,
+  ffi.Int32 arg2,
+  ffi.Uint64 arg3,
+  ffi.Pointer<ffi.Int8> arg4,
+  ffi.Pointer<__va_list_tag> arg5,
+);
+
+typedef _dart___vsnprintf_chk = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  int arg1,
+  int arg2,
+  int arg3,
+  ffi.Pointer<ffi.Int8> arg4,
+  ffi.Pointer<__va_list_tag> arg5,
+);
+
+typedef _c_board_init = ffi.Void Function(
+  ffi.Pointer<Board> arg0,
+);
+
+typedef _dart_board_init = void Function(
+  ffi.Pointer<Board> arg0,
+);
+
+typedef _c_board_set = ffi.Int32 Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_board_set = int Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_board_from_FEN = ffi.Int32 Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_board_from_FEN = int Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_board_from_obj = ffi.Int32 Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_board_from_obj = int Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<Board> arg1,
+  int arg2,
+);
+
+typedef _c_board_compare = ffi.Int32 Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _dart_board_compare = int Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _c_board_equal = ffi.Int32 Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _dart_board_equal = int Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _c_board_symetry = ffi.Void Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<Board> arg2,
+);
+
+typedef _dart_board_symetry = void Function(
+  ffi.Pointer<Board> arg0,
+  int arg1,
+  ffi.Pointer<Board> arg2,
+);
+
+typedef _c_board_unique = ffi.Int32 Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _dart_board_unique = int Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _c_board_check = ffi.Void Function(
+  ffi.Pointer<Board> arg0,
+);
+
+typedef _dart_board_check = void Function(
+  ffi.Pointer<Board> arg0,
+);
+
+typedef _c_board_rand = ffi.Void Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<Random> arg2,
+);
+
+typedef _dart_board_rand = void Function(
+  ffi.Pointer<Board> arg0,
+  int arg1,
+  ffi.Pointer<Random> arg2,
+);
+
+typedef _c_board_count_last_flips = ffi.Int32 Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_board_count_last_flips = int Function(
+  ffi.Pointer<Board> arg0,
+  int arg1,
+);
+
+typedef _c_board_get_move = ffi.Uint64 Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<Move> arg2,
+);
+
+typedef _dart_board_get_move = int Function(
+  ffi.Pointer<Board> arg0,
+  int arg1,
+  ffi.Pointer<Move> arg2,
+);
+
+typedef _c_board_check_move = ffi.Int32 Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _dart_board_check_move = int Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _c_board_swap_players = ffi.Void Function(
+  ffi.Pointer<Board> arg0,
+);
+
+typedef _dart_board_swap_players = void Function(
+  ffi.Pointer<Board> arg0,
+);
+
+typedef _c_board_update = ffi.Void Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _dart_board_update = void Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _c_board_restore = ffi.Void Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _dart_board_restore = void Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _c_board_pass = ffi.Void Function(
+  ffi.Pointer<Board> arg0,
+);
+
+typedef _dart_board_pass = void Function(
+  ffi.Pointer<Board> arg0,
+);
+
+typedef _c_board_next = ffi.Uint64 Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<Board> arg2,
+);
+
+typedef _dart_board_next = int Function(
+  ffi.Pointer<Board> arg0,
+  int arg1,
+  ffi.Pointer<Board> arg2,
+);
+
+typedef _c_board_pass_next = ffi.Uint64 Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<Board> arg2,
+);
+
+typedef _dart_board_pass_next = int Function(
+  ffi.Pointer<Board> arg0,
+  int arg1,
+  ffi.Pointer<Board> arg2,
+);
+
+typedef _c_board_get_hash_code = ffi.Uint64 Function(
+  ffi.Pointer<Board> arg0,
+);
+
+typedef _dart_board_get_hash_code = int Function(
+  ffi.Pointer<Board> arg0,
+);
+
+typedef _c_board_get_square_color = ffi.Int32 Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_board_get_square_color = int Function(
+  ffi.Pointer<Board> arg0,
+  int arg1,
+);
+
+typedef _c_board_is_occupied = ffi.Int32 Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_board_is_occupied = int Function(
+  ffi.Pointer<Board> arg0,
+  int arg1,
+);
+
+typedef _c_board_print = ffi.Void Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<FILE> arg2,
+);
+
+typedef _dart_board_print = void Function(
+  ffi.Pointer<Board> arg0,
+  int arg1,
+  ffi.Pointer<FILE> arg2,
+);
+
+typedef _c_board_to_string = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _dart_board_to_string = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<Board> arg0,
+  int arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _c_board_print_FEN = ffi.Void Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<FILE> arg2,
+);
+
+typedef _dart_board_print_FEN = void Function(
+  ffi.Pointer<Board> arg0,
+  int arg1,
+  ffi.Pointer<FILE> arg2,
+);
+
+typedef _c_board_to_FEN = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _dart_board_to_FEN = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<Board> arg0,
+  int arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _c_board_is_pass = ffi.Int32 Function(
+  ffi.Pointer<Board> arg0,
+);
+
+typedef _dart_board_is_pass = int Function(
+  ffi.Pointer<Board> arg0,
+);
+
+typedef _c_board_is_game_over = ffi.Int32 Function(
+  ffi.Pointer<Board> arg0,
+);
+
+typedef _dart_board_is_game_over = int Function(
+  ffi.Pointer<Board> arg0,
+);
+
+typedef _c_board_count_empties = ffi.Int32 Function(
+  ffi.Pointer<Board> board,
+);
+
+typedef _dart_board_count_empties = int Function(
+  ffi.Pointer<Board> board,
+);
+
+typedef _c_count_last_flip = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Uint64 arg1,
+);
+
+typedef _dart_count_last_flip = int Function(
+  int arg0,
+  int arg1,
+);
+
 typedef _c_get_moves = ffi.Uint64 Function(
   ffi.Uint64 arg0,
   ffi.Uint64 arg1,
@@ -78662,6 +90788,6897 @@ typedef _c_can_move = ffi.Int32 Function(
 typedef _dart_can_move = int Function(
   int arg0,
   int arg1,
+);
+
+typedef _c_get_moves_6x6 = ffi.Uint64 Function(
+  ffi.Uint64 arg0,
+  ffi.Uint64 arg1,
+);
+
+typedef _dart_get_moves_6x6 = int Function(
+  int arg0,
+  int arg1,
+);
+
+typedef _c_can_move_6x6 = ffi.Int32 Function(
+  ffi.Uint64 arg0,
+  ffi.Uint64 arg1,
+);
+
+typedef _dart_can_move_6x6 = int Function(
+  int arg0,
+  int arg1,
+);
+
+typedef _c_get_mobility = ffi.Int32 Function(
+  ffi.Uint64 arg0,
+  ffi.Uint64 arg1,
+);
+
+typedef _dart_get_mobility = int Function(
+  int arg0,
+  int arg1,
+);
+
+typedef _c_get_weighted_mobility = ffi.Int32 Function(
+  ffi.Uint64 arg0,
+  ffi.Uint64 arg1,
+);
+
+typedef _dart_get_weighted_mobility = int Function(
+  int arg0,
+  int arg1,
+);
+
+typedef _c_get_potential_mobility = ffi.Int32 Function(
+  ffi.Uint64 arg0,
+  ffi.Uint64 arg1,
+);
+
+typedef _dart_get_potential_mobility = int Function(
+  int arg0,
+  int arg1,
+);
+
+typedef _c_edge_stability_init = ffi.Void Function();
+
+typedef _dart_edge_stability_init = void Function();
+
+typedef _c_get_stability = ffi.Int32 Function(
+  ffi.Uint64 arg0,
+  ffi.Uint64 arg1,
+);
+
+typedef _dart_get_stability = int Function(
+  int arg0,
+  int arg1,
+);
+
+typedef _c_get_edge_stability = ffi.Int32 Function(
+  ffi.Uint64 arg0,
+  ffi.Uint64 arg1,
+);
+
+typedef _dart_get_edge_stability = int Function(
+  int arg0,
+  int arg1,
+);
+
+typedef _c_get_corner_stability = ffi.Int32 Function(
+  ffi.Uint64 arg0,
+);
+
+typedef _dart_get_corner_stability = int Function(
+  int arg0,
+);
+
+typedef _c_symetry = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_symetry = int Function(
+  int arg0,
+  int arg1,
+);
+
+typedef _c_move_print = ffi.Void Function(
+  ffi.Int32 arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<FILE> arg2,
+);
+
+typedef _dart_move_print = void Function(
+  int arg0,
+  int arg1,
+  ffi.Pointer<FILE> arg2,
+);
+
+typedef _c_move_wipeout = ffi.Int32 Function(
+  ffi.Pointer<Move> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _dart_move_wipeout = int Function(
+  ffi.Pointer<Move> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _c_move_next_best = ffi.Pointer<Move> Function(
+  ffi.Pointer<Move> arg0,
+);
+
+typedef _dart_move_next_best = ffi.Pointer<Move> Function(
+  ffi.Pointer<Move> arg0,
+);
+
+typedef _c_move_next = ffi.Pointer<Move> Function(
+  ffi.Pointer<Move> arg0,
+);
+
+typedef _dart_move_next = ffi.Pointer<Move> Function(
+  ffi.Pointer<Move> arg0,
+);
+
+typedef _c_move_to_string = ffi.Pointer<ffi.Int8> Function(
+  ffi.Int32 arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _dart_move_to_string = ffi.Pointer<ffi.Int8> Function(
+  int arg0,
+  int arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _c_tune_move_evaluate = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _dart_tune_move_evaluate = void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _c_movelist_get_moves = ffi.Int32 Function(
+  ffi.Pointer<MoveList> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _dart_movelist_get_moves = int Function(
+  ffi.Pointer<MoveList> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _c_movelist_print = ffi.Void Function(
+  ffi.Pointer<MoveList> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<FILE> arg2,
+);
+
+typedef _dart_movelist_print = void Function(
+  ffi.Pointer<MoveList> arg0,
+  int arg1,
+  ffi.Pointer<FILE> arg2,
+);
+
+typedef _c_movelist_sort_bestmove = ffi.Pointer<Move> Function(
+  ffi.Pointer<MoveList> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_movelist_sort_bestmove = ffi.Pointer<Move> Function(
+  ffi.Pointer<MoveList> arg0,
+  int arg1,
+);
+
+typedef _c_movelist_evaluate = ffi.Void Function(
+  ffi.Pointer<MoveList> arg0,
+  ffi.Pointer<Search> arg1,
+  ffi.Pointer<HashData> arg2,
+  ffi.Int32 arg3,
+  ffi.Int32 arg4,
+);
+
+typedef _dart_movelist_evaluate = void Function(
+  ffi.Pointer<MoveList> arg0,
+  ffi.Pointer<Search> arg1,
+  ffi.Pointer<HashData> arg2,
+  int arg3,
+  int arg4,
+);
+
+typedef _c_movelist_evaluate_fast = ffi.Void Function(
+  ffi.Pointer<MoveList> arg0,
+  ffi.Pointer<Search> arg1,
+);
+
+typedef _dart_movelist_evaluate_fast = void Function(
+  ffi.Pointer<MoveList> arg0,
+  ffi.Pointer<Search> arg1,
+);
+
+typedef _c_movelist_best = ffi.Pointer<Move> Function(
+  ffi.Pointer<MoveList> arg0,
+);
+
+typedef _dart_movelist_best = ffi.Pointer<Move> Function(
+  ffi.Pointer<MoveList> arg0,
+);
+
+typedef _c_movelist_first = ffi.Pointer<Move> Function(
+  ffi.Pointer<MoveList> arg0,
+);
+
+typedef _dart_movelist_first = ffi.Pointer<Move> Function(
+  ffi.Pointer<MoveList> arg0,
+);
+
+typedef _c_movelist_exclude = ffi.Pointer<Move> Function(
+  ffi.Pointer<MoveList> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_movelist_exclude = ffi.Pointer<Move> Function(
+  ffi.Pointer<MoveList> arg0,
+  int arg1,
+);
+
+typedef _c_movelist_restore = ffi.Void Function(
+  ffi.Pointer<MoveList> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _dart_movelist_restore = void Function(
+  ffi.Pointer<MoveList> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _c_movelist_sort = ffi.Void Function(
+  ffi.Pointer<MoveList> arg0,
+);
+
+typedef _dart_movelist_sort = void Function(
+  ffi.Pointer<MoveList> arg0,
+);
+
+typedef _c_movelist_sort_cost = ffi.Void Function(
+  ffi.Pointer<MoveList> arg0,
+  ffi.Pointer<HashData> arg1,
+);
+
+typedef _dart_movelist_sort_cost = void Function(
+  ffi.Pointer<MoveList> arg0,
+  ffi.Pointer<HashData> arg1,
+);
+
+typedef _c_movelist_is_empty = ffi.Int32 Function(
+  ffi.Pointer<MoveList> arg0,
+);
+
+typedef _dart_movelist_is_empty = int Function(
+  ffi.Pointer<MoveList> arg0,
+);
+
+typedef _c_movelist_is_single = ffi.Int32 Function(
+  ffi.Pointer<MoveList> arg0,
+);
+
+typedef _dart_movelist_is_single = int Function(
+  ffi.Pointer<MoveList> arg0,
+);
+
+typedef _c_line_init = ffi.Void Function(
+  ffi.Pointer<Line> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_line_init = void Function(
+  ffi.Pointer<Line> arg0,
+  int arg1,
+);
+
+typedef _c_line_push = ffi.Void Function(
+  ffi.Pointer<Line> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_line_push = void Function(
+  ffi.Pointer<Line> arg0,
+  int arg1,
+);
+
+typedef _c_line_pop = ffi.Void Function(
+  ffi.Pointer<Line> arg0,
+);
+
+typedef _dart_line_pop = void Function(
+  ffi.Pointer<Line> arg0,
+);
+
+typedef _c_line_copy = ffi.Void Function(
+  ffi.Pointer<Line> arg0,
+  ffi.Pointer<Line> arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_line_copy = void Function(
+  ffi.Pointer<Line> arg0,
+  ffi.Pointer<Line> arg1,
+  int arg2,
+);
+
+typedef _c_line_print = ffi.Void Function(
+  ffi.Pointer<Line> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+  ffi.Pointer<FILE> arg3,
+);
+
+typedef _dart_line_print = void Function(
+  ffi.Pointer<Line> arg0,
+  int arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+  ffi.Pointer<FILE> arg3,
+);
+
+typedef _c_line_to_string = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<Line> line,
+  ffi.Int32 n,
+  ffi.Pointer<ffi.Int8> arg2,
+  ffi.Pointer<ffi.Int8> string,
+);
+
+typedef _dart_line_to_string = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<Line> line,
+  int n,
+  ffi.Pointer<ffi.Int8> arg2,
+  ffi.Pointer<ffi.Int8> string,
+);
+
+typedef _c_movehash_init = ffi.Void Function(
+  ffi.Pointer<MoveHash> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_movehash_init = void Function(
+  ffi.Pointer<MoveHash> arg0,
+  int arg1,
+);
+
+typedef _c_movehash_delete = ffi.Void Function(
+  ffi.Pointer<MoveHash> arg0,
+);
+
+typedef _dart_movehash_delete = void Function(
+  ffi.Pointer<MoveHash> arg0,
+);
+
+typedef _c_movehash_append = ffi.Int32 Function(
+  ffi.Pointer<MoveHash> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_movehash_append = int Function(
+  ffi.Pointer<MoveHash> arg0,
+  ffi.Pointer<Board> arg1,
+  int arg2,
+);
+
+typedef _c_game_init = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+);
+
+typedef _dart_game_init = void Function(
+  ffi.Pointer<Game> arg0,
+);
+
+typedef _c_game_copy = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<Game> arg1,
+);
+
+typedef _dart_game_copy = void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<Game> arg1,
+);
+
+typedef _c_game_get_board = ffi.Int32 Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<Board> arg2,
+);
+
+typedef _dart_game_get_board = int Function(
+  ffi.Pointer<Game> arg0,
+  int arg1,
+  ffi.Pointer<Board> arg2,
+);
+
+typedef _c_game_update_board = ffi.Int32 Function(
+  ffi.Pointer<Board> board,
+  ffi.Int32 x,
+);
+
+typedef _dart_game_update_board = int Function(
+  ffi.Pointer<Board> board,
+  int x,
+);
+
+typedef _c_game_check = ffi.Int32 Function(
+  ffi.Pointer<Game> arg0,
+);
+
+typedef _dart_game_check = int Function(
+  ffi.Pointer<Game> arg0,
+);
+
+typedef _c_game_equals = ffi.Int32 Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<Game> arg1,
+);
+
+typedef _dart_game_equals = int Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<Game> arg1,
+);
+
+typedef _c_wthor_to_game = ffi.Void Function(
+  ffi.Pointer<WthorGame> arg0,
+  ffi.Pointer<Game> arg1,
+);
+
+typedef _dart_wthor_to_game = void Function(
+  ffi.Pointer<WthorGame> arg0,
+  ffi.Pointer<Game> arg1,
+);
+
+typedef _c_game_to_wthor = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<WthorGame> arg1,
+);
+
+typedef _dart_game_to_wthor = void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<WthorGame> arg1,
+);
+
+typedef _c_game_read = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_game_read = void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_game_write = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_game_write = void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_game_import_text = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_game_import_text = void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_game_import_wthor = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_game_import_wthor = void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_game_import_ggf = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_game_import_ggf = void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_game_import_sgf = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_game_import_sgf = void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_parse_ggf = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_parse_ggf = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_game_import_pgn = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_game_import_pgn = void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_game_export_text = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_game_export_text = void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_game_export_ggf = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_game_export_ggf = void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_game_save_sgf = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+  ffi.Int32 bool,
+);
+
+typedef _dart_game_save_sgf = void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+  int bool,
+);
+
+typedef _c_game_export_sgf = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_game_export_sgf = void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_game_export_pgn = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_game_export_pgn = void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_game_export_wthor = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_game_export_wthor = void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_game_export_eps = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_game_export_eps = void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_game_export_svg = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_game_export_svg = void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_game_import_oko = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_game_import_oko = void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_game_import_gam = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_game_import_gam = void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_game_rand = ffi.Void Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<Random> arg2,
+);
+
+typedef _dart_game_rand = void Function(
+  ffi.Pointer<Game> arg0,
+  int arg1,
+  ffi.Pointer<Random> arg2,
+);
+
+typedef _c_game_analyze = ffi.Int32 Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<Search> arg1,
+  ffi.Int32 arg2,
+  ffi.Int32 bool,
+);
+
+typedef _dart_game_analyze = int Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<Search> arg1,
+  int arg2,
+  int bool,
+);
+
+typedef _c_game_complete = ffi.Int32 Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<Search> arg1,
+);
+
+typedef _dart_game_complete = int Function(
+  ffi.Pointer<Game> arg0,
+  ffi.Pointer<Search> arg1,
+);
+
+typedef _c_line_to_game = ffi.Void Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<Line> arg1,
+  ffi.Pointer<Game> arg2,
+);
+
+typedef _dart_line_to_game = void Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Pointer<Line> arg1,
+  ffi.Pointer<Game> arg2,
+);
+
+typedef _c_game_score = ffi.Int32 Function(
+  ffi.Pointer<Game> arg0,
+);
+
+typedef _dart_game_score = int Function(
+  ffi.Pointer<Game> arg0,
+);
+
+typedef _c_move_from_wthor = ffi.Int32 Function(
+  ffi.Int32 arg0,
+);
+
+typedef _dart_move_from_wthor = int Function(
+  int arg0,
+);
+
+typedef _c_wthor_init = ffi.Void Function(
+  ffi.Pointer<WthorBase> arg0,
+);
+
+typedef _dart_wthor_init = void Function(
+  ffi.Pointer<WthorBase> arg0,
+);
+
+typedef _c_wthor_load = ffi.Int32 Function(
+  ffi.Pointer<WthorBase> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_wthor_load = int Function(
+  ffi.Pointer<WthorBase> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_wthor_save = ffi.Int32 Function(
+  ffi.Pointer<WthorBase> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_wthor_save = int Function(
+  ffi.Pointer<WthorBase> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_wthor_test = ffi.Void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<Search> arg1,
+);
+
+typedef _dart_wthor_test = void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<Search> arg1,
+);
+
+typedef _c_wthor_eval = ffi.Void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<Search> arg1,
+  ffi.Pointer<ffi.Pointer<ffi.Uint64>> histogram,
+);
+
+typedef _dart_wthor_eval = void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<Search> arg1,
+  ffi.Pointer<ffi.Pointer<ffi.Uint64>> histogram,
+);
+
+typedef _c_wthor_edaxify = ffi.Void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_wthor_edaxify = void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_base_init = ffi.Void Function(
+  ffi.Pointer<Base> arg0,
+);
+
+typedef _dart_base_init = void Function(
+  ffi.Pointer<Base> arg0,
+);
+
+typedef _c_base_free = ffi.Void Function(
+  ffi.Pointer<Base> arg0,
+);
+
+typedef _dart_base_free = void Function(
+  ffi.Pointer<Base> arg0,
+);
+
+typedef _c_base_load = ffi.Int32 Function(
+  ffi.Pointer<Base> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_base_load = int Function(
+  ffi.Pointer<Base> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_base_save = ffi.Void Function(
+  ffi.Pointer<Base> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_base_save = void Function(
+  ffi.Pointer<Base> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_base_append = ffi.Void Function(
+  ffi.Pointer<Base> arg0,
+  ffi.Pointer<Game> arg1,
+);
+
+typedef _dart_base_append = void Function(
+  ffi.Pointer<Base> arg0,
+  ffi.Pointer<Game> arg1,
+);
+
+typedef _c_base_to_problem = ffi.Void Function(
+  ffi.Pointer<Base> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _dart_base_to_problem = void Function(
+  ffi.Pointer<Base> arg0,
+  int arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _c_base_to_FEN = ffi.Void Function(
+  ffi.Pointer<Base> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _dart_base_to_FEN = void Function(
+  ffi.Pointer<Base> arg0,
+  int arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _c_base_analyze = ffi.Void Function(
+  ffi.Pointer<Base> arg0,
+  ffi.Pointer<Search> arg1,
+  ffi.Int32 arg2,
+  ffi.Int32 bool,
+);
+
+typedef _dart_base_analyze = void Function(
+  ffi.Pointer<Base> arg0,
+  ffi.Pointer<Search> arg1,
+  int arg2,
+  int bool,
+);
+
+typedef _c_base_complete = ffi.Void Function(
+  ffi.Pointer<Base> arg0,
+  ffi.Pointer<Search> arg1,
+);
+
+typedef _dart_base_complete = void Function(
+  ffi.Pointer<Base> arg0,
+  ffi.Pointer<Search> arg1,
+);
+
+typedef _c_base_unique = ffi.Void Function(
+  ffi.Pointer<Base> arg0,
+);
+
+typedef _dart_base_unique = void Function(
+  ffi.Pointer<Base> arg0,
+);
+
+typedef _c_base_compare = ffi.Void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_base_compare = void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_empty_remove = ffi.Void Function(
+  ffi.Pointer<SquareList> empty,
+);
+
+typedef _dart_empty_remove = void Function(
+  ffi.Pointer<SquareList> empty,
+);
+
+typedef _c_empty_restore = ffi.Void Function(
+  ffi.Pointer<SquareList> empty,
+);
+
+typedef _dart_empty_restore = void Function(
+  ffi.Pointer<SquareList> empty,
+);
+
+typedef _c_eval_open = ffi.Void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_eval_open = void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_eval_close = ffi.Void Function();
+
+typedef _dart_eval_close = void Function();
+
+typedef _c_eval_init = ffi.Void Function(
+  ffi.Pointer<Eval> arg0,
+);
+
+typedef _dart_eval_init = void Function(
+  ffi.Pointer<Eval> arg0,
+);
+
+typedef _c_eval_free = ffi.Void Function(
+  ffi.Pointer<Eval> arg0,
+);
+
+typedef _dart_eval_free = void Function(
+  ffi.Pointer<Eval> arg0,
+);
+
+typedef _c_eval_set = ffi.Void Function(
+  ffi.Pointer<Eval> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _dart_eval_set = void Function(
+  ffi.Pointer<Eval> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _c_eval_update = ffi.Void Function(
+  ffi.Pointer<Eval> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _dart_eval_update = void Function(
+  ffi.Pointer<Eval> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _c_eval_restore = ffi.Void Function(
+  ffi.Pointer<Eval> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _dart_eval_restore = void Function(
+  ffi.Pointer<Eval> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _c_eval_pass = ffi.Void Function(
+  ffi.Pointer<Eval> arg0,
+);
+
+typedef _dart_eval_pass = void Function(
+  ffi.Pointer<Eval> arg0,
+);
+
+typedef _c_eval_sigma = ffi.Double Function(
+  ffi.Int32 arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_eval_sigma = double Function(
+  int arg0,
+  int arg1,
+  int arg2,
+);
+
+typedef _typedefC_12 = ffi.Void Function(
+  ffi.Int32,
+);
+
+typedef _typedefC_13 = ffi.Void Function(
+  ffi.Int32,
+);
+
+typedef _c_signal = ffi.Pointer<ffi.NativeFunction<_typedefC_12>> Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_13>> arg1,
+);
+
+typedef _dart_signal = ffi.Pointer<ffi.NativeFunction<_typedefC_12>> Function(
+  int arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_13>> arg1,
+);
+
+typedef _c_getpriority = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Uint32 arg1,
+);
+
+typedef _dart_getpriority = int Function(
+  int arg0,
+  int arg1,
+);
+
+typedef _c_getiopolicy_np = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_getiopolicy_np = int Function(
+  int arg0,
+  int arg1,
+);
+
+typedef _c_getrlimit = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<rlimit> arg1,
+);
+
+typedef _dart_getrlimit = int Function(
+  int arg0,
+  ffi.Pointer<rlimit> arg1,
+);
+
+typedef _c_getrusage = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<rusage> arg1,
+);
+
+typedef _dart_getrusage = int Function(
+  int arg0,
+  ffi.Pointer<rusage> arg1,
+);
+
+typedef _c_setpriority = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Uint32 arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_setpriority = int Function(
+  int arg0,
+  int arg1,
+  int arg2,
+);
+
+typedef _c_setiopolicy_np = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_setiopolicy_np = int Function(
+  int arg0,
+  int arg1,
+  int arg2,
+);
+
+typedef _c_setrlimit = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<rlimit> arg1,
+);
+
+typedef _dart_setrlimit = int Function(
+  int arg0,
+  ffi.Pointer<rlimit> arg1,
+);
+
+typedef _c__OSSwapInt16 = ffi.Uint16 Function(
+  ffi.Uint16 _data,
+);
+
+typedef _dart__OSSwapInt16 = int Function(
+  int _data,
+);
+
+typedef _c__OSSwapInt32 = ffi.Uint32 Function(
+  ffi.Uint32 _data,
+);
+
+typedef _dart__OSSwapInt32 = int Function(
+  int _data,
+);
+
+typedef _c__OSSwapInt64 = ffi.Uint64 Function(
+  ffi.Uint64 _data,
+);
+
+typedef _dart__OSSwapInt64 = int Function(
+  int _data,
+);
+
+typedef _c_wait = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int32> arg0,
+);
+
+typedef _dart_wait = int Function(
+  ffi.Pointer<ffi.Int32> arg0,
+);
+
+typedef _c_waitpid = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_waitpid = int Function(
+  int arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+  int arg2,
+);
+
+typedef _c_waitid = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Uint32 arg1,
+  ffi.Pointer<siginfo_t> arg2,
+  ffi.Int32 arg3,
+);
+
+typedef _dart_waitid = int Function(
+  int arg0,
+  int arg1,
+  ffi.Pointer<siginfo_t> arg2,
+  int arg3,
+);
+
+typedef _c_wait3 = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int32> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<rusage> arg2,
+);
+
+typedef _dart_wait3 = int Function(
+  ffi.Pointer<ffi.Int32> arg0,
+  int arg1,
+  ffi.Pointer<rusage> arg2,
+);
+
+typedef _c_wait4 = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+  ffi.Int32 arg2,
+  ffi.Pointer<rusage> arg3,
+);
+
+typedef _dart_wait4 = int Function(
+  int arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+  int arg2,
+  ffi.Pointer<rusage> arg3,
+);
+
+typedef _c_alloca = ffi.Pointer<ffi.Void> Function(
+  ffi.Uint64 arg0,
+);
+
+typedef _dart_alloca = ffi.Pointer<ffi.Void> Function(
+  int arg0,
+);
+
+typedef _c_malloc = ffi.Pointer<ffi.Void> Function(
+  ffi.Uint64 __size,
+);
+
+typedef _dart_malloc = ffi.Pointer<ffi.Void> Function(
+  int __size,
+);
+
+typedef _c_calloc = ffi.Pointer<ffi.Void> Function(
+  ffi.Uint64 __count,
+  ffi.Uint64 __size,
+);
+
+typedef _dart_calloc = ffi.Pointer<ffi.Void> Function(
+  int __count,
+  int __size,
+);
+
+typedef _c_free = ffi.Void Function(
+  ffi.Pointer<ffi.Void> arg0,
+);
+
+typedef _dart_free = void Function(
+  ffi.Pointer<ffi.Void> arg0,
+);
+
+typedef _c_realloc = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> __ptr,
+  ffi.Uint64 __size,
+);
+
+typedef _dart_realloc = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> __ptr,
+  int __size,
+);
+
+typedef _c_valloc = ffi.Pointer<ffi.Void> Function(
+  ffi.Uint64 arg0,
+);
+
+typedef _dart_valloc = ffi.Pointer<ffi.Void> Function(
+  int arg0,
+);
+
+typedef _c_aligned_alloc = ffi.Pointer<ffi.Void> Function(
+  ffi.Uint64 __alignment,
+  ffi.Uint64 __size,
+);
+
+typedef _dart_aligned_alloc = ffi.Pointer<ffi.Void> Function(
+  int __alignment,
+  int __size,
+);
+
+typedef _c_posix_memalign = ffi.Int32 Function(
+  ffi.Pointer<ffi.Pointer<ffi.Void>> __memptr,
+  ffi.Uint64 __alignment,
+  ffi.Uint64 __size,
+);
+
+typedef _dart_posix_memalign = int Function(
+  ffi.Pointer<ffi.Pointer<ffi.Void>> __memptr,
+  int __alignment,
+  int __size,
+);
+
+typedef _c_abort = ffi.Void Function();
+
+typedef _dart_abort = void Function();
+
+typedef _c_abs = ffi.Int32 Function(
+  ffi.Int32 arg0,
+);
+
+typedef _dart_abs = int Function(
+  int arg0,
+);
+
+typedef _typedefC_14 = ffi.Void Function();
+
+typedef _c_atexit = ffi.Int32 Function(
+  ffi.Pointer<ffi.NativeFunction<_typedefC_14>> arg0,
+);
+
+typedef _dart_atexit = int Function(
+  ffi.Pointer<ffi.NativeFunction<_typedefC_14>> arg0,
+);
+
+typedef _c_atof = ffi.Double Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_atof = double Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_atoi = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_atoi = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_atol = ffi.Int64 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_atol = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_atoll = ffi.Int64 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_atoll = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _typedefC_15 = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void>,
+  ffi.Pointer<ffi.Void>,
+);
+
+typedef _c_bsearch = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> __key,
+  ffi.Pointer<ffi.Void> __base,
+  ffi.Uint64 __nel,
+  ffi.Uint64 __width,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_15>> __compar,
+);
+
+typedef _dart_bsearch = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> __key,
+  ffi.Pointer<ffi.Void> __base,
+  int __nel,
+  int __width,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_15>> __compar,
+);
+
+typedef _c_exit = ffi.Void Function(
+  ffi.Int32 arg0,
+);
+
+typedef _dart_exit = void Function(
+  int arg0,
+);
+
+typedef _c_getenv = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_getenv = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_labs = ffi.Int64 Function(
+  ffi.Int64 arg0,
+);
+
+typedef _dart_labs = int Function(
+  int arg0,
+);
+
+typedef _c_llabs = ffi.Int64 Function(
+  ffi.Int64 arg0,
+);
+
+typedef _dart_llabs = int Function(
+  int arg0,
+);
+
+typedef _c_mblen = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> __s,
+  ffi.Uint64 __n,
+);
+
+typedef _dart_mblen = int Function(
+  ffi.Pointer<ffi.Int8> __s,
+  int __n,
+);
+
+typedef _c_mbstowcs = ffi.Uint64 Function(
+  ffi.Pointer<ffi.Int32> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Uint64 arg2,
+);
+
+typedef _dart_mbstowcs = int Function(
+  ffi.Pointer<ffi.Int32> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  int arg2,
+);
+
+typedef _c_mbtowc = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int32> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Uint64 arg2,
+);
+
+typedef _dart_mbtowc = int Function(
+  ffi.Pointer<ffi.Int32> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  int arg2,
+);
+
+typedef _typedefC_16 = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void>,
+  ffi.Pointer<ffi.Void>,
+);
+
+typedef _c_qsort = ffi.Void Function(
+  ffi.Pointer<ffi.Void> __base,
+  ffi.Uint64 __nel,
+  ffi.Uint64 __width,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_16>> __compar,
+);
+
+typedef _dart_qsort = void Function(
+  ffi.Pointer<ffi.Void> __base,
+  int __nel,
+  int __width,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_16>> __compar,
+);
+
+typedef _c_rand = ffi.Int32 Function();
+
+typedef _dart_rand = int Function();
+
+typedef _c_srand = ffi.Void Function(
+  ffi.Uint32 arg0,
+);
+
+typedef _dart_srand = void Function(
+  int arg0,
+);
+
+typedef _c_strtod = ffi.Double Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+);
+
+typedef _dart_strtod = double Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+);
+
+typedef _c_strtof = ffi.Float Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+);
+
+typedef _dart_strtof = double Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+);
+
+typedef _c_strtol = ffi.Int64 Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __endptr,
+  ffi.Int32 __base,
+);
+
+typedef _dart_strtol = int Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __endptr,
+  int __base,
+);
+
+typedef _c_strtoll = ffi.Int64 Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __endptr,
+  ffi.Int32 __base,
+);
+
+typedef _dart_strtoll = int Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __endptr,
+  int __base,
+);
+
+typedef _c_strtoul = ffi.Uint64 Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __endptr,
+  ffi.Int32 __base,
+);
+
+typedef _dart_strtoul = int Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __endptr,
+  int __base,
+);
+
+typedef _c_strtoull = ffi.Uint64 Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __endptr,
+  ffi.Int32 __base,
+);
+
+typedef _dart_strtoull = int Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __endptr,
+  int __base,
+);
+
+typedef _c_system = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_system = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_wcstombs = ffi.Uint64 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+  ffi.Uint64 arg2,
+);
+
+typedef _dart_wcstombs = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+  int arg2,
+);
+
+typedef _c_wctomb = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_wctomb = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  int arg1,
+);
+
+typedef _c__Exit = ffi.Void Function(
+  ffi.Int32 arg0,
+);
+
+typedef _dart__Exit = void Function(
+  int arg0,
+);
+
+typedef _c_a64l = ffi.Int64 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_a64l = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_drand48 = ffi.Double Function();
+
+typedef _dart_drand48 = double Function();
+
+typedef _c_ecvt = ffi.Pointer<ffi.Int8> Function(
+  ffi.Double arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<ffi.Int32> arg2,
+  ffi.Pointer<ffi.Int32> arg3,
+);
+
+typedef _dart_ecvt = ffi.Pointer<ffi.Int8> Function(
+  double arg0,
+  int arg1,
+  ffi.Pointer<ffi.Int32> arg2,
+  ffi.Pointer<ffi.Int32> arg3,
+);
+
+typedef _c_erand48 = ffi.Double Function(
+  ffi.Pointer<ffi.Uint16> arg0,
+);
+
+typedef _dart_erand48 = double Function(
+  ffi.Pointer<ffi.Uint16> arg0,
+);
+
+typedef _c_fcvt = ffi.Pointer<ffi.Int8> Function(
+  ffi.Double arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<ffi.Int32> arg2,
+  ffi.Pointer<ffi.Int32> arg3,
+);
+
+typedef _dart_fcvt = ffi.Pointer<ffi.Int8> Function(
+  double arg0,
+  int arg1,
+  ffi.Pointer<ffi.Int32> arg2,
+  ffi.Pointer<ffi.Int32> arg3,
+);
+
+typedef _c_gcvt = ffi.Pointer<ffi.Int8> Function(
+  ffi.Double arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _dart_gcvt = ffi.Pointer<ffi.Int8> Function(
+  double arg0,
+  int arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _c_getsubopt = ffi.Int32 Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg2,
+);
+
+typedef _dart_getsubopt = int Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg2,
+);
+
+typedef _c_grantpt = ffi.Int32 Function(
+  ffi.Int32 arg0,
+);
+
+typedef _dart_grantpt = int Function(
+  int arg0,
+);
+
+typedef _c_initstate = ffi.Pointer<ffi.Int8> Function(
+  ffi.Uint32 arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Uint64 arg2,
+);
+
+typedef _dart_initstate = ffi.Pointer<ffi.Int8> Function(
+  int arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  int arg2,
+);
+
+typedef _c_jrand48 = ffi.Int64 Function(
+  ffi.Pointer<ffi.Uint16> arg0,
+);
+
+typedef _dart_jrand48 = int Function(
+  ffi.Pointer<ffi.Uint16> arg0,
+);
+
+typedef _c_l64a = ffi.Pointer<ffi.Int8> Function(
+  ffi.Int64 arg0,
+);
+
+typedef _dart_l64a = ffi.Pointer<ffi.Int8> Function(
+  int arg0,
+);
+
+typedef _c_lcong48 = ffi.Void Function(
+  ffi.Pointer<ffi.Uint16> arg0,
+);
+
+typedef _dart_lcong48 = void Function(
+  ffi.Pointer<ffi.Uint16> arg0,
+);
+
+typedef _c_lrand48 = ffi.Int64 Function();
+
+typedef _dart_lrand48 = int Function();
+
+typedef _c_mktemp = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_mktemp = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_mkstemp = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_mkstemp = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_mrand48 = ffi.Int64 Function();
+
+typedef _dart_mrand48 = int Function();
+
+typedef _c_nrand48 = ffi.Int64 Function(
+  ffi.Pointer<ffi.Uint16> arg0,
+);
+
+typedef _dart_nrand48 = int Function(
+  ffi.Pointer<ffi.Uint16> arg0,
+);
+
+typedef _c_posix_openpt = ffi.Int32 Function(
+  ffi.Int32 arg0,
+);
+
+typedef _dart_posix_openpt = int Function(
+  int arg0,
+);
+
+typedef _c_ptsname = ffi.Pointer<ffi.Int8> Function(
+  ffi.Int32 arg0,
+);
+
+typedef _dart_ptsname = ffi.Pointer<ffi.Int8> Function(
+  int arg0,
+);
+
+typedef _c_ptsname_r = ffi.Int32 Function(
+  ffi.Int32 fildes,
+  ffi.Pointer<ffi.Int8> buffer,
+  ffi.Uint64 buflen,
+);
+
+typedef _dart_ptsname_r = int Function(
+  int fildes,
+  ffi.Pointer<ffi.Int8> buffer,
+  int buflen,
+);
+
+typedef _c_putenv = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_putenv = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_random = ffi.Int64 Function();
+
+typedef _dart_random = int Function();
+
+typedef _c_rand_r = ffi.Int32 Function(
+  ffi.Pointer<ffi.Uint32> arg0,
+);
+
+typedef _dart_rand_r = int Function(
+  ffi.Pointer<ffi.Uint32> arg0,
+);
+
+typedef _c_realpath = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_realpath = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_seed48 = ffi.Pointer<ffi.Uint16> Function(
+  ffi.Pointer<ffi.Uint16> arg0,
+);
+
+typedef _dart_seed48 = ffi.Pointer<ffi.Uint16> Function(
+  ffi.Pointer<ffi.Uint16> arg0,
+);
+
+typedef _c_setenv = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> __name,
+  ffi.Pointer<ffi.Int8> __value,
+  ffi.Int32 __overwrite,
+);
+
+typedef _dart_setenv = int Function(
+  ffi.Pointer<ffi.Int8> __name,
+  ffi.Pointer<ffi.Int8> __value,
+  int __overwrite,
+);
+
+typedef _c_setkey = ffi.Void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_setkey = void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_setstate = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_setstate = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_srand48 = ffi.Void Function(
+  ffi.Int64 arg0,
+);
+
+typedef _dart_srand48 = void Function(
+  int arg0,
+);
+
+typedef _c_srandom = ffi.Void Function(
+  ffi.Uint32 arg0,
+);
+
+typedef _dart_srandom = void Function(
+  int arg0,
+);
+
+typedef _c_unlockpt = ffi.Int32 Function(
+  ffi.Int32 arg0,
+);
+
+typedef _dart_unlockpt = int Function(
+  int arg0,
+);
+
+typedef _c_unsetenv = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_unsetenv = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_arc4random = ffi.Uint32 Function();
+
+typedef _dart_arc4random = int Function();
+
+typedef _c_arc4random_addrandom = ffi.Void Function(
+  ffi.Pointer<ffi.Uint8> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_arc4random_addrandom = void Function(
+  ffi.Pointer<ffi.Uint8> arg0,
+  int arg1,
+);
+
+typedef _c_arc4random_buf = ffi.Void Function(
+  ffi.Pointer<ffi.Void> __buf,
+  ffi.Uint64 __nbytes,
+);
+
+typedef _dart_arc4random_buf = void Function(
+  ffi.Pointer<ffi.Void> __buf,
+  int __nbytes,
+);
+
+typedef _c_arc4random_stir = ffi.Void Function();
+
+typedef _dart_arc4random_stir = void Function();
+
+typedef _c_arc4random_uniform = ffi.Uint32 Function(
+  ffi.Uint32 __upper_bound,
+);
+
+typedef _dart_arc4random_uniform = int Function(
+  int __upper_bound,
+);
+
+typedef _c_cgetcap = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_cgetcap = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  int arg2,
+);
+
+typedef _c_cgetclose = ffi.Int32 Function();
+
+typedef _dart_cgetclose = int Function();
+
+typedef _c_cgetent = ffi.Int32 Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _dart_cgetent = int Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _c_cgetfirst = ffi.Int32 Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+);
+
+typedef _dart_cgetfirst = int Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+);
+
+typedef _c_cgetmatch = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_cgetmatch = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_cgetnext = ffi.Int32 Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+);
+
+typedef _dart_cgetnext = int Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+);
+
+typedef _c_cgetnum = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<ffi.Int64> arg2,
+);
+
+typedef _dart_cgetnum = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<ffi.Int64> arg2,
+);
+
+typedef _c_cgetset = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_cgetset = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_cgetstr = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg2,
+);
+
+typedef _dart_cgetstr = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg2,
+);
+
+typedef _c_cgetustr = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg2,
+);
+
+typedef _dart_cgetustr = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg2,
+);
+
+typedef _c_daemon = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_daemon = int Function(
+  int arg0,
+  int arg1,
+);
+
+typedef _c_devname = ffi.Pointer<ffi.Int8> Function(
+  ffi.Int32 arg0,
+  ffi.Uint16 arg1,
+);
+
+typedef _dart_devname = ffi.Pointer<ffi.Int8> Function(
+  int arg0,
+  int arg1,
+);
+
+typedef _c_devname_r = ffi.Pointer<ffi.Int8> Function(
+  ffi.Int32 arg0,
+  ffi.Uint16 arg1,
+  ffi.Pointer<ffi.Int8> buf,
+  ffi.Int32 len,
+);
+
+typedef _dart_devname_r = ffi.Pointer<ffi.Int8> Function(
+  int arg0,
+  int arg1,
+  ffi.Pointer<ffi.Int8> buf,
+  int len,
+);
+
+typedef _c_getbsize = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int32> arg0,
+  ffi.Pointer<ffi.Int64> arg1,
+);
+
+typedef _dart_getbsize = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int32> arg0,
+  ffi.Pointer<ffi.Int64> arg1,
+);
+
+typedef _c_getloadavg = ffi.Int32 Function(
+  ffi.Pointer<ffi.Double> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_getloadavg = int Function(
+  ffi.Pointer<ffi.Double> arg0,
+  int arg1,
+);
+
+typedef _c_getprogname = ffi.Pointer<ffi.Int8> Function();
+
+typedef _dart_getprogname = ffi.Pointer<ffi.Int8> Function();
+
+typedef _c_setprogname = ffi.Void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_setprogname = void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _typedefC_17 = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void>,
+  ffi.Pointer<ffi.Void>,
+);
+
+typedef _c_heapsort = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void> __base,
+  ffi.Uint64 __nel,
+  ffi.Uint64 __width,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_17>> __compar,
+);
+
+typedef _dart_heapsort = int Function(
+  ffi.Pointer<ffi.Void> __base,
+  int __nel,
+  int __width,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_17>> __compar,
+);
+
+typedef _typedefC_18 = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void>,
+  ffi.Pointer<ffi.Void>,
+);
+
+typedef _c_mergesort = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void> __base,
+  ffi.Uint64 __nel,
+  ffi.Uint64 __width,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_18>> __compar,
+);
+
+typedef _dart_mergesort = int Function(
+  ffi.Pointer<ffi.Void> __base,
+  int __nel,
+  int __width,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_18>> __compar,
+);
+
+typedef _typedefC_19 = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void>,
+  ffi.Pointer<ffi.Void>,
+);
+
+typedef _c_psort = ffi.Void Function(
+  ffi.Pointer<ffi.Void> __base,
+  ffi.Uint64 __nel,
+  ffi.Uint64 __width,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_19>> __compar,
+);
+
+typedef _dart_psort = void Function(
+  ffi.Pointer<ffi.Void> __base,
+  int __nel,
+  int __width,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_19>> __compar,
+);
+
+typedef _typedefC_20 = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void>,
+  ffi.Pointer<ffi.Void>,
+  ffi.Pointer<ffi.Void>,
+);
+
+typedef _c_psort_r = ffi.Void Function(
+  ffi.Pointer<ffi.Void> __base,
+  ffi.Uint64 __nel,
+  ffi.Uint64 __width,
+  ffi.Pointer<ffi.Void> arg3,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_20>> __compar,
+);
+
+typedef _dart_psort_r = void Function(
+  ffi.Pointer<ffi.Void> __base,
+  int __nel,
+  int __width,
+  ffi.Pointer<ffi.Void> arg3,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_20>> __compar,
+);
+
+typedef _typedefC_21 = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void>,
+  ffi.Pointer<ffi.Void>,
+  ffi.Pointer<ffi.Void>,
+);
+
+typedef _c_qsort_r = ffi.Void Function(
+  ffi.Pointer<ffi.Void> __base,
+  ffi.Uint64 __nel,
+  ffi.Uint64 __width,
+  ffi.Pointer<ffi.Void> arg3,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_21>> __compar,
+);
+
+typedef _dart_qsort_r = void Function(
+  ffi.Pointer<ffi.Void> __base,
+  int __nel,
+  int __width,
+  ffi.Pointer<ffi.Void> arg3,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_21>> __compar,
+);
+
+typedef _c_radixsort = ffi.Int32 Function(
+  ffi.Pointer<ffi.Pointer<ffi.Uint8>> __base,
+  ffi.Int32 __nel,
+  ffi.Pointer<ffi.Uint8> __table,
+  ffi.Uint32 __endbyte,
+);
+
+typedef _dart_radixsort = int Function(
+  ffi.Pointer<ffi.Pointer<ffi.Uint8>> __base,
+  int __nel,
+  ffi.Pointer<ffi.Uint8> __table,
+  int __endbyte,
+);
+
+typedef _c_rpmatch = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_rpmatch = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_sradixsort = ffi.Int32 Function(
+  ffi.Pointer<ffi.Pointer<ffi.Uint8>> __base,
+  ffi.Int32 __nel,
+  ffi.Pointer<ffi.Uint8> __table,
+  ffi.Uint32 __endbyte,
+);
+
+typedef _dart_sradixsort = int Function(
+  ffi.Pointer<ffi.Pointer<ffi.Uint8>> __base,
+  int __nel,
+  ffi.Pointer<ffi.Uint8> __table,
+  int __endbyte,
+);
+
+typedef _c_sranddev = ffi.Void Function();
+
+typedef _dart_sranddev = void Function();
+
+typedef _c_srandomdev = ffi.Void Function();
+
+typedef _dart_srandomdev = void Function();
+
+typedef _c_reallocf = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> __ptr,
+  ffi.Uint64 __size,
+);
+
+typedef _dart_reallocf = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> __ptr,
+  int __size,
+);
+
+typedef _c_strtoq = ffi.Int64 Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __endptr,
+  ffi.Int32 __base,
+);
+
+typedef _dart_strtoq = int Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __endptr,
+  int __base,
+);
+
+typedef _c_strtouq = ffi.Uint64 Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __endptr,
+  ffi.Int32 __base,
+);
+
+typedef _dart_strtouq = int Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __endptr,
+  int __base,
+);
+
+typedef _c___error = ffi.Pointer<ffi.Int32> Function();
+
+typedef _dart___error = ffi.Pointer<ffi.Int32> Function();
+
+typedef _c_memchr = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> __s,
+  ffi.Int32 __c,
+  ffi.Uint64 __n,
+);
+
+typedef _dart_memchr = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> __s,
+  int __c,
+  int __n,
+);
+
+typedef _c_memcmp = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void> __s1,
+  ffi.Pointer<ffi.Void> __s2,
+  ffi.Uint64 __n,
+);
+
+typedef _dart_memcmp = int Function(
+  ffi.Pointer<ffi.Void> __s1,
+  ffi.Pointer<ffi.Void> __s2,
+  int __n,
+);
+
+typedef _c_memcpy = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> __dst,
+  ffi.Pointer<ffi.Void> __src,
+  ffi.Uint64 __n,
+);
+
+typedef _dart_memcpy = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> __dst,
+  ffi.Pointer<ffi.Void> __src,
+  int __n,
+);
+
+typedef _c_memmove = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> __dst,
+  ffi.Pointer<ffi.Void> __src,
+  ffi.Uint64 __len,
+);
+
+typedef _dart_memmove = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> __dst,
+  ffi.Pointer<ffi.Void> __src,
+  int __len,
+);
+
+typedef _c_memset = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> __b,
+  ffi.Int32 __c,
+  ffi.Uint64 __len,
+);
+
+typedef _dart_memset = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> __b,
+  int __c,
+  int __len,
+);
+
+typedef _c_strcat = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __s1,
+  ffi.Pointer<ffi.Int8> __s2,
+);
+
+typedef _dart_strcat = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __s1,
+  ffi.Pointer<ffi.Int8> __s2,
+);
+
+typedef _c_strchr = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __s,
+  ffi.Int32 __c,
+);
+
+typedef _dart_strchr = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __s,
+  int __c,
+);
+
+typedef _c_strcmp = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> __s1,
+  ffi.Pointer<ffi.Int8> __s2,
+);
+
+typedef _dart_strcmp = int Function(
+  ffi.Pointer<ffi.Int8> __s1,
+  ffi.Pointer<ffi.Int8> __s2,
+);
+
+typedef _c_strcoll = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> __s1,
+  ffi.Pointer<ffi.Int8> __s2,
+);
+
+typedef _dart_strcoll = int Function(
+  ffi.Pointer<ffi.Int8> __s1,
+  ffi.Pointer<ffi.Int8> __s2,
+);
+
+typedef _c_strcpy = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __dst,
+  ffi.Pointer<ffi.Int8> __src,
+);
+
+typedef _dart_strcpy = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __dst,
+  ffi.Pointer<ffi.Int8> __src,
+);
+
+typedef _c_strcspn = ffi.Uint64 Function(
+  ffi.Pointer<ffi.Int8> __s,
+  ffi.Pointer<ffi.Int8> __charset,
+);
+
+typedef _dart_strcspn = int Function(
+  ffi.Pointer<ffi.Int8> __s,
+  ffi.Pointer<ffi.Int8> __charset,
+);
+
+typedef _c_strerror = ffi.Pointer<ffi.Int8> Function(
+  ffi.Int32 __errnum,
+);
+
+typedef _dart_strerror = ffi.Pointer<ffi.Int8> Function(
+  int __errnum,
+);
+
+typedef _c_strlen = ffi.Uint64 Function(
+  ffi.Pointer<ffi.Int8> __s,
+);
+
+typedef _dart_strlen = int Function(
+  ffi.Pointer<ffi.Int8> __s,
+);
+
+typedef _c_strncat = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __s1,
+  ffi.Pointer<ffi.Int8> __s2,
+  ffi.Uint64 __n,
+);
+
+typedef _dart_strncat = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __s1,
+  ffi.Pointer<ffi.Int8> __s2,
+  int __n,
+);
+
+typedef _c_strncmp = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> __s1,
+  ffi.Pointer<ffi.Int8> __s2,
+  ffi.Uint64 __n,
+);
+
+typedef _dart_strncmp = int Function(
+  ffi.Pointer<ffi.Int8> __s1,
+  ffi.Pointer<ffi.Int8> __s2,
+  int __n,
+);
+
+typedef _c_strncpy = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __dst,
+  ffi.Pointer<ffi.Int8> __src,
+  ffi.Uint64 __n,
+);
+
+typedef _dart_strncpy = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __dst,
+  ffi.Pointer<ffi.Int8> __src,
+  int __n,
+);
+
+typedef _c_strpbrk = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __s,
+  ffi.Pointer<ffi.Int8> __charset,
+);
+
+typedef _dart_strpbrk = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __s,
+  ffi.Pointer<ffi.Int8> __charset,
+);
+
+typedef _c_strrchr = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __s,
+  ffi.Int32 __c,
+);
+
+typedef _dart_strrchr = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __s,
+  int __c,
+);
+
+typedef _c_strspn = ffi.Uint64 Function(
+  ffi.Pointer<ffi.Int8> __s,
+  ffi.Pointer<ffi.Int8> __charset,
+);
+
+typedef _dart_strspn = int Function(
+  ffi.Pointer<ffi.Int8> __s,
+  ffi.Pointer<ffi.Int8> __charset,
+);
+
+typedef _c_strstr = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __big,
+  ffi.Pointer<ffi.Int8> __little,
+);
+
+typedef _dart_strstr = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __big,
+  ffi.Pointer<ffi.Int8> __little,
+);
+
+typedef _c_strtok = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Pointer<ffi.Int8> __sep,
+);
+
+typedef _dart_strtok = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Pointer<ffi.Int8> __sep,
+);
+
+typedef _c_strxfrm = ffi.Uint64 Function(
+  ffi.Pointer<ffi.Int8> __s1,
+  ffi.Pointer<ffi.Int8> __s2,
+  ffi.Uint64 __n,
+);
+
+typedef _dart_strxfrm = int Function(
+  ffi.Pointer<ffi.Int8> __s1,
+  ffi.Pointer<ffi.Int8> __s2,
+  int __n,
+);
+
+typedef _c_strtok_r = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Pointer<ffi.Int8> __sep,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __lasts,
+);
+
+typedef _dart_strtok_r = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __str,
+  ffi.Pointer<ffi.Int8> __sep,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __lasts,
+);
+
+typedef _c_strerror_r = ffi.Int32 Function(
+  ffi.Int32 __errnum,
+  ffi.Pointer<ffi.Int8> __strerrbuf,
+  ffi.Uint64 __buflen,
+);
+
+typedef _dart_strerror_r = int Function(
+  int __errnum,
+  ffi.Pointer<ffi.Int8> __strerrbuf,
+  int __buflen,
+);
+
+typedef _c_strdup = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __s1,
+);
+
+typedef _dart_strdup = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __s1,
+);
+
+typedef _c_memccpy = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> __dst,
+  ffi.Pointer<ffi.Void> __src,
+  ffi.Int32 __c,
+  ffi.Uint64 __n,
+);
+
+typedef _dart_memccpy = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> __dst,
+  ffi.Pointer<ffi.Void> __src,
+  int __c,
+  int __n,
+);
+
+typedef _c_stpcpy = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __dst,
+  ffi.Pointer<ffi.Int8> __src,
+);
+
+typedef _dart_stpcpy = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __dst,
+  ffi.Pointer<ffi.Int8> __src,
+);
+
+typedef _c_stpncpy = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __dst,
+  ffi.Pointer<ffi.Int8> __src,
+  ffi.Uint64 __n,
+);
+
+typedef _dart_stpncpy = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __dst,
+  ffi.Pointer<ffi.Int8> __src,
+  int __n,
+);
+
+typedef _c_strndup = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __s1,
+  ffi.Uint64 __n,
+);
+
+typedef _dart_strndup = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __s1,
+  int __n,
+);
+
+typedef _c_strnlen = ffi.Uint64 Function(
+  ffi.Pointer<ffi.Int8> __s1,
+  ffi.Uint64 __n,
+);
+
+typedef _dart_strnlen = int Function(
+  ffi.Pointer<ffi.Int8> __s1,
+  int __n,
+);
+
+typedef _c_strsignal = ffi.Pointer<ffi.Int8> Function(
+  ffi.Int32 __sig,
+);
+
+typedef _dart_strsignal = ffi.Pointer<ffi.Int8> Function(
+  int __sig,
+);
+
+typedef _c_memset_s = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void> __s,
+  ffi.Uint64 __smax,
+  ffi.Int32 __c,
+  ffi.Uint64 __n,
+);
+
+typedef _dart_memset_s = int Function(
+  ffi.Pointer<ffi.Void> __s,
+  int __smax,
+  int __c,
+  int __n,
+);
+
+typedef _c_memmem = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> __big,
+  ffi.Uint64 __big_len,
+  ffi.Pointer<ffi.Void> __little,
+  ffi.Uint64 __little_len,
+);
+
+typedef _dart_memmem = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> __big,
+  int __big_len,
+  ffi.Pointer<ffi.Void> __little,
+  int __little_len,
+);
+
+typedef _c_memset_pattern4 = ffi.Void Function(
+  ffi.Pointer<ffi.Void> __b,
+  ffi.Pointer<ffi.Void> __pattern4,
+  ffi.Uint64 __len,
+);
+
+typedef _dart_memset_pattern4 = void Function(
+  ffi.Pointer<ffi.Void> __b,
+  ffi.Pointer<ffi.Void> __pattern4,
+  int __len,
+);
+
+typedef _c_memset_pattern8 = ffi.Void Function(
+  ffi.Pointer<ffi.Void> __b,
+  ffi.Pointer<ffi.Void> __pattern8,
+  ffi.Uint64 __len,
+);
+
+typedef _dart_memset_pattern8 = void Function(
+  ffi.Pointer<ffi.Void> __b,
+  ffi.Pointer<ffi.Void> __pattern8,
+  int __len,
+);
+
+typedef _c_memset_pattern16 = ffi.Void Function(
+  ffi.Pointer<ffi.Void> __b,
+  ffi.Pointer<ffi.Void> __pattern16,
+  ffi.Uint64 __len,
+);
+
+typedef _dart_memset_pattern16 = void Function(
+  ffi.Pointer<ffi.Void> __b,
+  ffi.Pointer<ffi.Void> __pattern16,
+  int __len,
+);
+
+typedef _c_strcasestr = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __big,
+  ffi.Pointer<ffi.Int8> __little,
+);
+
+typedef _dart_strcasestr = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __big,
+  ffi.Pointer<ffi.Int8> __little,
+);
+
+typedef _c_strnstr = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __big,
+  ffi.Pointer<ffi.Int8> __little,
+  ffi.Uint64 __len,
+);
+
+typedef _dart_strnstr = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> __big,
+  ffi.Pointer<ffi.Int8> __little,
+  int __len,
+);
+
+typedef _c_strlcat = ffi.Uint64 Function(
+  ffi.Pointer<ffi.Int8> __dst,
+  ffi.Pointer<ffi.Int8> __source,
+  ffi.Uint64 __size,
+);
+
+typedef _dart_strlcat = int Function(
+  ffi.Pointer<ffi.Int8> __dst,
+  ffi.Pointer<ffi.Int8> __source,
+  int __size,
+);
+
+typedef _c_strlcpy = ffi.Uint64 Function(
+  ffi.Pointer<ffi.Int8> __dst,
+  ffi.Pointer<ffi.Int8> __source,
+  ffi.Uint64 __size,
+);
+
+typedef _dart_strlcpy = int Function(
+  ffi.Pointer<ffi.Int8> __dst,
+  ffi.Pointer<ffi.Int8> __source,
+  int __size,
+);
+
+typedef _c_strmode = ffi.Void Function(
+  ffi.Int32 __mode,
+  ffi.Pointer<ffi.Int8> __bp,
+);
+
+typedef _dart_strmode = void Function(
+  int __mode,
+  ffi.Pointer<ffi.Int8> __bp,
+);
+
+typedef _c_strsep = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __stringp,
+  ffi.Pointer<ffi.Int8> __delim,
+);
+
+typedef _dart_strsep = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> __stringp,
+  ffi.Pointer<ffi.Int8> __delim,
+);
+
+typedef _c_swab = ffi.Void Function(
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<ffi.Void> arg1,
+  ffi.Int64 arg2,
+);
+
+typedef _dart_swab = void Function(
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<ffi.Void> arg1,
+  int arg2,
+);
+
+typedef _c_timingsafe_bcmp = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void> __b1,
+  ffi.Pointer<ffi.Void> __b2,
+  ffi.Uint64 __len,
+);
+
+typedef _dart_timingsafe_bcmp = int Function(
+  ffi.Pointer<ffi.Void> __b1,
+  ffi.Pointer<ffi.Void> __b2,
+  int __len,
+);
+
+typedef _c_bcmp = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<ffi.Void> arg1,
+  ffi.Uint64 arg2,
+);
+
+typedef _dart_bcmp = int Function(
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<ffi.Void> arg1,
+  int arg2,
+);
+
+typedef _c_bcopy = ffi.Void Function(
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<ffi.Void> arg1,
+  ffi.Uint64 arg2,
+);
+
+typedef _dart_bcopy = void Function(
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Pointer<ffi.Void> arg1,
+  int arg2,
+);
+
+typedef _c_bzero = ffi.Void Function(
+  ffi.Pointer<ffi.Void> arg0,
+  ffi.Uint64 arg1,
+);
+
+typedef _dart_bzero = void Function(
+  ffi.Pointer<ffi.Void> arg0,
+  int arg1,
+);
+
+typedef _c_index = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_index = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  int arg1,
+);
+
+typedef _c_rindex = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_rindex = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  int arg1,
+);
+
+typedef _c_ffs = ffi.Int32 Function(
+  ffi.Int32 arg0,
+);
+
+typedef _dart_ffs = int Function(
+  int arg0,
+);
+
+typedef _c_strcasecmp = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_strcasecmp = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_strncasecmp = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Uint64 arg2,
+);
+
+typedef _dart_strncasecmp = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  int arg2,
+);
+
+typedef _c_ffsl = ffi.Int32 Function(
+  ffi.Int64 arg0,
+);
+
+typedef _dart_ffsl = int Function(
+  int arg0,
+);
+
+typedef _c_ffsll = ffi.Int32 Function(
+  ffi.Int64 arg0,
+);
+
+typedef _dart_ffsll = int Function(
+  int arg0,
+);
+
+typedef _c_fls = ffi.Int32 Function(
+  ffi.Int32 arg0,
+);
+
+typedef _dart_fls = int Function(
+  int arg0,
+);
+
+typedef _c_flsl = ffi.Int32 Function(
+  ffi.Int64 arg0,
+);
+
+typedef _dart_flsl = int Function(
+  int arg0,
+);
+
+typedef _c_flsll = ffi.Int32 Function(
+  ffi.Int64 arg0,
+);
+
+typedef _dart_flsll = int Function(
+  int arg0,
+);
+
+typedef _c_real_clock = ffi.Int64 Function();
+
+typedef _dart_real_clock = int Function();
+
+typedef _c_cpu_clock = ffi.Int64 Function();
+
+typedef _dart_cpu_clock = int Function();
+
+typedef _c_time_print = ffi.Void Function(
+  ffi.Int64 arg0,
+  ffi.Int32 bool,
+  ffi.Pointer<FILE> arg2,
+);
+
+typedef _dart_time_print = void Function(
+  int arg0,
+  int bool,
+  ffi.Pointer<FILE> arg2,
+);
+
+typedef _c_time_read = ffi.Int64 Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_time_read = int Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_time_stamp = ffi.Void Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_time_stamp = void Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_relax = ffi.Void Function(
+  ffi.Int32 arg0,
+);
+
+typedef _dart_relax = void Function(
+  int arg0,
+);
+
+typedef _c_format_scientific = ffi.Pointer<ffi.Int8> Function(
+  ffi.Double arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _dart_format_scientific = ffi.Pointer<ffi.Int8> Function(
+  double arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _c_print_scientific = ffi.Void Function(
+  ffi.Double arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<FILE> arg2,
+);
+
+typedef _dart_print_scientific = void Function(
+  double arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<FILE> arg2,
+);
+
+typedef _c_string_duplicate = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_string_duplicate = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_string_to_time = ffi.Int64 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_string_to_time = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_string_read_line = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_string_read_line = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_string_copy_line = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_string_copy_line = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_string_to_lowercase = ffi.Void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_string_to_lowercase = void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_string_to_uppercase = ffi.Void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_string_to_uppercase = void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_string_to_coordinate = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_string_to_coordinate = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_string_to_word = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_string_to_word = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_string_to_boolean = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_string_to_boolean = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_string_to_int = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_string_to_int = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  int arg1,
+);
+
+typedef _c_string_to_real = ffi.Double Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Double arg1,
+);
+
+typedef _dart_string_to_real = double Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  double arg1,
+);
+
+typedef _c_parse_word = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Uint32 arg2,
+);
+
+typedef _dart_parse_word = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  int arg2,
+);
+
+typedef _c_parse_field = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Uint32 arg2,
+  ffi.Int8 arg3,
+);
+
+typedef _dart_parse_field = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  int arg2,
+  int arg3,
+);
+
+typedef _c_parse_line = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Uint32 arg2,
+);
+
+typedef _dart_parse_line = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  int arg2,
+);
+
+typedef _c_parse_board = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<ffi.Int32> arg2,
+);
+
+typedef _dart_parse_board = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<ffi.Int32> arg2,
+);
+
+typedef _c_parse_move = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<Move> arg2,
+);
+
+typedef _dart_parse_move = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<Move> arg2,
+);
+
+typedef _c_parse_game = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<Line> arg2,
+);
+
+typedef _dart_parse_game = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<Line> arg2,
+);
+
+typedef _c_parse_boolean = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _dart_parse_boolean = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _c_parse_int = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _dart_parse_int = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _c_parse_real = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Double> arg1,
+);
+
+typedef _dart_parse_real = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Double> arg1,
+);
+
+typedef _c_parse_command = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+  ffi.Uint32 arg3,
+);
+
+typedef _dart_parse_command = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+  int arg3,
+);
+
+typedef _c_parse_find = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_parse_find = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  int arg1,
+);
+
+typedef _c_parse_skip_spaces = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_parse_skip_spaces = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_parse_skip_word = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_parse_skip_word = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_path_get_dir = ffi.Void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_path_get_dir = void Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_file_add_ext = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _dart_file_add_ext = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+);
+
+typedef _c_is_stdin_keyboard = ffi.Int32 Function();
+
+typedef _dart_is_stdin_keyboard = int Function();
+
+typedef _c_random_get = ffi.Uint64 Function(
+  ffi.Pointer<Random> arg0,
+);
+
+typedef _dart_random_get = int Function(
+  ffi.Pointer<Random> arg0,
+);
+
+typedef _c_random_seed = ffi.Void Function(
+  ffi.Pointer<Random> arg0,
+  ffi.Uint64 arg1,
+);
+
+typedef _dart_random_seed = void Function(
+  ffi.Pointer<Random> arg0,
+  int arg1,
+);
+
+typedef _c_sched_yield = ffi.Int32 Function();
+
+typedef _dart_sched_yield = int Function();
+
+typedef _c_sched_get_priority_min = ffi.Int32 Function(
+  ffi.Int32 arg0,
+);
+
+typedef _dart_sched_get_priority_min = int Function(
+  int arg0,
+);
+
+typedef _c_sched_get_priority_max = ffi.Int32 Function(
+  ffi.Int32 arg0,
+);
+
+typedef _dart_sched_get_priority_max = int Function(
+  int arg0,
+);
+
+typedef _c_asctime = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<tm> arg0,
+);
+
+typedef _dart_asctime = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<tm> arg0,
+);
+
+typedef _c_clock = ffi.Uint64 Function();
+
+typedef _dart_clock = int Function();
+
+typedef _c_ctime = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int64> arg0,
+);
+
+typedef _dart_ctime = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int64> arg0,
+);
+
+typedef _c_difftime = ffi.Double Function(
+  ffi.Int64 arg0,
+  ffi.Int64 arg1,
+);
+
+typedef _dart_difftime = double Function(
+  int arg0,
+  int arg1,
+);
+
+typedef _c_getdate = ffi.Pointer<tm> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_getdate = ffi.Pointer<tm> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_gmtime = ffi.Pointer<tm> Function(
+  ffi.Pointer<ffi.Int64> arg0,
+);
+
+typedef _dart_gmtime = ffi.Pointer<tm> Function(
+  ffi.Pointer<ffi.Int64> arg0,
+);
+
+typedef _c_localtime = ffi.Pointer<tm> Function(
+  ffi.Pointer<ffi.Int64> arg0,
+);
+
+typedef _dart_localtime = ffi.Pointer<tm> Function(
+  ffi.Pointer<ffi.Int64> arg0,
+);
+
+typedef _c_mktime = ffi.Int64 Function(
+  ffi.Pointer<tm> arg0,
+);
+
+typedef _dart_mktime = int Function(
+  ffi.Pointer<tm> arg0,
+);
+
+typedef _c_strftime = ffi.Uint64 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Uint64 arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+  ffi.Pointer<tm> arg3,
+);
+
+typedef _dart_strftime = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  int arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+  ffi.Pointer<tm> arg3,
+);
+
+typedef _c_strptime = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<tm> arg2,
+);
+
+typedef _dart_strptime = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int8> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Pointer<tm> arg2,
+);
+
+typedef _c_time = ffi.Int64 Function(
+  ffi.Pointer<ffi.Int64> arg0,
+);
+
+typedef _dart_time = int Function(
+  ffi.Pointer<ffi.Int64> arg0,
+);
+
+typedef _c_tzset = ffi.Void Function();
+
+typedef _dart_tzset = void Function();
+
+typedef _c_asctime_r = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<tm> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_asctime_r = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<tm> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_ctime_r = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int64> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_ctime_r = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<ffi.Int64> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_gmtime_r = ffi.Pointer<tm> Function(
+  ffi.Pointer<ffi.Int64> arg0,
+  ffi.Pointer<tm> arg1,
+);
+
+typedef _dart_gmtime_r = ffi.Pointer<tm> Function(
+  ffi.Pointer<ffi.Int64> arg0,
+  ffi.Pointer<tm> arg1,
+);
+
+typedef _c_localtime_r = ffi.Pointer<tm> Function(
+  ffi.Pointer<ffi.Int64> arg0,
+  ffi.Pointer<tm> arg1,
+);
+
+typedef _dart_localtime_r = ffi.Pointer<tm> Function(
+  ffi.Pointer<ffi.Int64> arg0,
+  ffi.Pointer<tm> arg1,
+);
+
+typedef _c_posix2time = ffi.Int64 Function(
+  ffi.Int64 arg0,
+);
+
+typedef _dart_posix2time = int Function(
+  int arg0,
+);
+
+typedef _c_tzsetwall = ffi.Void Function();
+
+typedef _dart_tzsetwall = void Function();
+
+typedef _c_time2posix = ffi.Int64 Function(
+  ffi.Int64 arg0,
+);
+
+typedef _dart_time2posix = int Function(
+  int arg0,
+);
+
+typedef _c_timelocal = ffi.Int64 Function(
+  ffi.Pointer<tm> arg0,
+);
+
+typedef _dart_timelocal = int Function(
+  ffi.Pointer<tm> arg0,
+);
+
+typedef _c_timegm = ffi.Int64 Function(
+  ffi.Pointer<tm> arg0,
+);
+
+typedef _dart_timegm = int Function(
+  ffi.Pointer<tm> arg0,
+);
+
+typedef _c_nanosleep = ffi.Int32 Function(
+  ffi.Pointer<timespec> __rqtp,
+  ffi.Pointer<timespec> __rmtp,
+);
+
+typedef _dart_nanosleep = int Function(
+  ffi.Pointer<timespec> __rqtp,
+  ffi.Pointer<timespec> __rmtp,
+);
+
+typedef _c_clock_getres = ffi.Int32 Function(
+  ffi.Int32 __clock_id,
+  ffi.Pointer<timespec> __res,
+);
+
+typedef _dart_clock_getres = int Function(
+  int __clock_id,
+  ffi.Pointer<timespec> __res,
+);
+
+typedef _c_clock_gettime = ffi.Int32 Function(
+  ffi.Int32 __clock_id,
+  ffi.Pointer<timespec> __tp,
+);
+
+typedef _dart_clock_gettime = int Function(
+  int __clock_id,
+  ffi.Pointer<timespec> __tp,
+);
+
+typedef _c_clock_gettime_nsec_np = ffi.Uint64 Function(
+  ffi.Int32 __clock_id,
+);
+
+typedef _dart_clock_gettime_nsec_np = int Function(
+  int __clock_id,
+);
+
+typedef _c_clock_settime = ffi.Int32 Function(
+  ffi.Int32 __clock_id,
+  ffi.Pointer<timespec> __tp,
+);
+
+typedef _dart_clock_settime = int Function(
+  int __clock_id,
+  ffi.Pointer<timespec> __tp,
+);
+
+typedef _c_timespec_get = ffi.Int32 Function(
+  ffi.Pointer<timespec> ts,
+  ffi.Int32 base,
+);
+
+typedef _dart_timespec_get = int Function(
+  ffi.Pointer<timespec> ts,
+  int base,
+);
+
+typedef _c_qos_class_self = ffi.Uint32 Function();
+
+typedef _dart_qos_class_self = int Function();
+
+typedef _c_qos_class_main = ffi.Uint32 Function();
+
+typedef _dart_qos_class_main = int Function();
+
+typedef _c_pthread_attr_set_qos_class_np = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> __attr,
+  ffi.Uint32 __qos_class,
+  ffi.Int32 __relative_priority,
+);
+
+typedef _dart_pthread_attr_set_qos_class_np = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> __attr,
+  int __qos_class,
+  int __relative_priority,
+);
+
+typedef _c_pthread_attr_get_qos_class_np = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> __attr,
+  ffi.Pointer<ffi.Uint32> __qos_class,
+  ffi.Pointer<ffi.Int32> __relative_priority,
+);
+
+typedef _dart_pthread_attr_get_qos_class_np = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> __attr,
+  ffi.Pointer<ffi.Uint32> __qos_class,
+  ffi.Pointer<ffi.Int32> __relative_priority,
+);
+
+typedef _c_pthread_set_qos_class_self_np = ffi.Int32 Function(
+  ffi.Uint32 __qos_class,
+  ffi.Int32 __relative_priority,
+);
+
+typedef _dart_pthread_set_qos_class_self_np = int Function(
+  int __qos_class,
+  int __relative_priority,
+);
+
+typedef _c_pthread_get_qos_class_np = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_t> __pthread,
+  ffi.Pointer<ffi.Uint32> __qos_class,
+  ffi.Pointer<ffi.Int32> __relative_priority,
+);
+
+typedef _dart_pthread_get_qos_class_np = int Function(
+  ffi.Pointer<_opaque_pthread_t> __pthread,
+  ffi.Pointer<ffi.Uint32> __qos_class,
+  ffi.Pointer<ffi.Int32> __relative_priority,
+);
+
+typedef _c_pthread_override_qos_class_start_np = ffi.Pointer<pthread_override_s>
+    Function(
+  ffi.Pointer<_opaque_pthread_t> __pthread,
+  ffi.Uint32 __qos_class,
+  ffi.Int32 __relative_priority,
+);
+
+typedef _dart_pthread_override_qos_class_start_np
+    = ffi.Pointer<pthread_override_s> Function(
+  ffi.Pointer<_opaque_pthread_t> __pthread,
+  int __qos_class,
+  int __relative_priority,
+);
+
+typedef _c_pthread_override_qos_class_end_np = ffi.Int32 Function(
+  ffi.Pointer<pthread_override_s> __override,
+);
+
+typedef _dart_pthread_override_qos_class_end_np = int Function(
+  ffi.Pointer<pthread_override_s> __override,
+);
+
+typedef _typedefC_22 = ffi.Void Function();
+
+typedef _typedefC_23 = ffi.Void Function();
+
+typedef _typedefC_24 = ffi.Void Function();
+
+typedef _c_pthread_atfork = ffi.Int32 Function(
+  ffi.Pointer<ffi.NativeFunction<_typedefC_22>> arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_23>> arg1,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_24>> arg2,
+);
+
+typedef _dart_pthread_atfork = int Function(
+  ffi.Pointer<ffi.NativeFunction<_typedefC_22>> arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_23>> arg1,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_24>> arg2,
+);
+
+typedef _c_pthread_attr_destroy = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+);
+
+typedef _dart_pthread_attr_destroy = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+);
+
+typedef _c_pthread_attr_getdetachstate = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _dart_pthread_attr_getdetachstate = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _c_pthread_attr_getguardsize = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Uint64> arg1,
+);
+
+typedef _dart_pthread_attr_getguardsize = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Uint64> arg1,
+);
+
+typedef _c_pthread_attr_getinheritsched = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _dart_pthread_attr_getinheritsched = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _c_pthread_attr_getschedparam = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<sched_param> arg1,
+);
+
+typedef _dart_pthread_attr_getschedparam = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<sched_param> arg1,
+);
+
+typedef _c_pthread_attr_getschedpolicy = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _dart_pthread_attr_getschedpolicy = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _c_pthread_attr_getscope = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _dart_pthread_attr_getscope = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _c_pthread_attr_getstack = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Void>> arg1,
+  ffi.Pointer<ffi.Uint64> arg2,
+);
+
+typedef _dart_pthread_attr_getstack = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Void>> arg1,
+  ffi.Pointer<ffi.Uint64> arg2,
+);
+
+typedef _c_pthread_attr_getstackaddr = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Void>> arg1,
+);
+
+typedef _dart_pthread_attr_getstackaddr = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Void>> arg1,
+);
+
+typedef _c_pthread_attr_getstacksize = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Uint64> arg1,
+);
+
+typedef _dart_pthread_attr_getstacksize = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Uint64> arg1,
+);
+
+typedef _c_pthread_attr_init = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+);
+
+typedef _dart_pthread_attr_init = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+);
+
+typedef _c_pthread_attr_setdetachstate = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_pthread_attr_setdetachstate = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  int arg1,
+);
+
+typedef _c_pthread_attr_setguardsize = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Uint64 arg1,
+);
+
+typedef _dart_pthread_attr_setguardsize = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  int arg1,
+);
+
+typedef _c_pthread_attr_setinheritsched = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_pthread_attr_setinheritsched = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  int arg1,
+);
+
+typedef _c_pthread_attr_setschedparam = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<sched_param> arg1,
+);
+
+typedef _dart_pthread_attr_setschedparam = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<sched_param> arg1,
+);
+
+typedef _c_pthread_attr_setschedpolicy = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_pthread_attr_setschedpolicy = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  int arg1,
+);
+
+typedef _c_pthread_attr_setscope = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_pthread_attr_setscope = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  int arg1,
+);
+
+typedef _c_pthread_attr_setstack = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Void> arg1,
+  ffi.Uint64 arg2,
+);
+
+typedef _dart_pthread_attr_setstack = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Void> arg1,
+  int arg2,
+);
+
+typedef _c_pthread_attr_setstackaddr = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Void> arg1,
+);
+
+typedef _dart_pthread_attr_setstackaddr = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Pointer<ffi.Void> arg1,
+);
+
+typedef _c_pthread_attr_setstacksize = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  ffi.Uint64 arg1,
+);
+
+typedef _dart_pthread_attr_setstacksize = int Function(
+  ffi.Pointer<_opaque_pthread_attr_t> arg0,
+  int arg1,
+);
+
+typedef _c_pthread_cancel = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+);
+
+typedef _dart_pthread_cancel = int Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+);
+
+typedef _c_pthread_cond_broadcast = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_cond_t> arg0,
+);
+
+typedef _dart_pthread_cond_broadcast = int Function(
+  ffi.Pointer<_opaque_pthread_cond_t> arg0,
+);
+
+typedef _c_pthread_cond_destroy = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_cond_t> arg0,
+);
+
+typedef _dart_pthread_cond_destroy = int Function(
+  ffi.Pointer<_opaque_pthread_cond_t> arg0,
+);
+
+typedef _c_pthread_cond_init = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_cond_t> arg0,
+  ffi.Pointer<_opaque_pthread_condattr_t> arg1,
+);
+
+typedef _dart_pthread_cond_init = int Function(
+  ffi.Pointer<_opaque_pthread_cond_t> arg0,
+  ffi.Pointer<_opaque_pthread_condattr_t> arg1,
+);
+
+typedef _c_pthread_cond_signal = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_cond_t> arg0,
+);
+
+typedef _dart_pthread_cond_signal = int Function(
+  ffi.Pointer<_opaque_pthread_cond_t> arg0,
+);
+
+typedef _c_pthread_cond_timedwait = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_cond_t> arg0,
+  ffi.Pointer<_opaque_pthread_mutex_t> arg1,
+  ffi.Pointer<timespec> arg2,
+);
+
+typedef _dart_pthread_cond_timedwait = int Function(
+  ffi.Pointer<_opaque_pthread_cond_t> arg0,
+  ffi.Pointer<_opaque_pthread_mutex_t> arg1,
+  ffi.Pointer<timespec> arg2,
+);
+
+typedef _c_pthread_cond_wait = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_cond_t> arg0,
+  ffi.Pointer<_opaque_pthread_mutex_t> arg1,
+);
+
+typedef _dart_pthread_cond_wait = int Function(
+  ffi.Pointer<_opaque_pthread_cond_t> arg0,
+  ffi.Pointer<_opaque_pthread_mutex_t> arg1,
+);
+
+typedef _c_pthread_condattr_destroy = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_condattr_t> arg0,
+);
+
+typedef _dart_pthread_condattr_destroy = int Function(
+  ffi.Pointer<_opaque_pthread_condattr_t> arg0,
+);
+
+typedef _c_pthread_condattr_init = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_condattr_t> arg0,
+);
+
+typedef _dart_pthread_condattr_init = int Function(
+  ffi.Pointer<_opaque_pthread_condattr_t> arg0,
+);
+
+typedef _c_pthread_condattr_getpshared = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_condattr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _dart_pthread_condattr_getpshared = int Function(
+  ffi.Pointer<_opaque_pthread_condattr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _c_pthread_condattr_setpshared = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_condattr_t> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_pthread_condattr_setpshared = int Function(
+  ffi.Pointer<_opaque_pthread_condattr_t> arg0,
+  int arg1,
+);
+
+typedef _typedefC_25 = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void>,
+);
+
+typedef _c_pthread_create = ffi.Int32 Function(
+  ffi.Pointer<ffi.Pointer<_opaque_pthread_t>> arg0,
+  ffi.Pointer<_opaque_pthread_attr_t> arg1,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_25>> arg2,
+  ffi.Pointer<ffi.Void> arg3,
+);
+
+typedef _dart_pthread_create = int Function(
+  ffi.Pointer<ffi.Pointer<_opaque_pthread_t>> arg0,
+  ffi.Pointer<_opaque_pthread_attr_t> arg1,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_25>> arg2,
+  ffi.Pointer<ffi.Void> arg3,
+);
+
+typedef _c_pthread_detach = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+);
+
+typedef _dart_pthread_detach = int Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+);
+
+typedef _c_pthread_equal = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+  ffi.Pointer<_opaque_pthread_t> arg1,
+);
+
+typedef _dart_pthread_equal = int Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+  ffi.Pointer<_opaque_pthread_t> arg1,
+);
+
+typedef _c_pthread_exit = ffi.Void Function(
+  ffi.Pointer<ffi.Void> arg0,
+);
+
+typedef _dart_pthread_exit = void Function(
+  ffi.Pointer<ffi.Void> arg0,
+);
+
+typedef _c_pthread_getconcurrency = ffi.Int32 Function();
+
+typedef _dart_pthread_getconcurrency = int Function();
+
+typedef _c_pthread_getschedparam = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+  ffi.Pointer<sched_param> arg2,
+);
+
+typedef _dart_pthread_getschedparam = int Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+  ffi.Pointer<sched_param> arg2,
+);
+
+typedef _c_pthread_getspecific = ffi.Pointer<ffi.Void> Function(
+  ffi.Uint64 arg0,
+);
+
+typedef _dart_pthread_getspecific = ffi.Pointer<ffi.Void> Function(
+  int arg0,
+);
+
+typedef _c_pthread_join = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Void>> arg1,
+);
+
+typedef _dart_pthread_join = int Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Void>> arg1,
+);
+
+typedef _typedefC_26 = ffi.Void Function(
+  ffi.Pointer<ffi.Void>,
+);
+
+typedef _c_pthread_key_create = ffi.Int32 Function(
+  ffi.Pointer<ffi.Uint64> arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_26>> arg1,
+);
+
+typedef _dart_pthread_key_create = int Function(
+  ffi.Pointer<ffi.Uint64> arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_26>> arg1,
+);
+
+typedef _c_pthread_key_delete = ffi.Int32 Function(
+  ffi.Uint64 arg0,
+);
+
+typedef _dart_pthread_key_delete = int Function(
+  int arg0,
+);
+
+typedef _c_pthread_mutex_destroy = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+);
+
+typedef _dart_pthread_mutex_destroy = int Function(
+  ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+);
+
+typedef _c_pthread_mutex_getprioceiling = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _dart_pthread_mutex_getprioceiling = int Function(
+  ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _c_pthread_mutex_init = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg1,
+);
+
+typedef _dart_pthread_mutex_init = int Function(
+  ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg1,
+);
+
+typedef _c_pthread_mutex_lock = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+);
+
+typedef _dart_pthread_mutex_lock = int Function(
+  ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+);
+
+typedef _c_pthread_mutex_setprioceiling = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<ffi.Int32> arg2,
+);
+
+typedef _dart_pthread_mutex_setprioceiling = int Function(
+  ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+  int arg1,
+  ffi.Pointer<ffi.Int32> arg2,
+);
+
+typedef _c_pthread_mutex_trylock = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+);
+
+typedef _dart_pthread_mutex_trylock = int Function(
+  ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+);
+
+typedef _c_pthread_mutex_unlock = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+);
+
+typedef _dart_pthread_mutex_unlock = int Function(
+  ffi.Pointer<_opaque_pthread_mutex_t> arg0,
+);
+
+typedef _c_pthread_mutexattr_destroy = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+);
+
+typedef _dart_pthread_mutexattr_destroy = int Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+);
+
+typedef _c_pthread_mutexattr_getprioceiling = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _dart_pthread_mutexattr_getprioceiling = int Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _c_pthread_mutexattr_getprotocol = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _dart_pthread_mutexattr_getprotocol = int Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _c_pthread_mutexattr_getpshared = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _dart_pthread_mutexattr_getpshared = int Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _c_pthread_mutexattr_gettype = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _dart_pthread_mutexattr_gettype = int Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _c_pthread_mutexattr_getpolicy_np = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _dart_pthread_mutexattr_getpolicy_np = int Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _c_pthread_mutexattr_init = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+);
+
+typedef _dart_pthread_mutexattr_init = int Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+);
+
+typedef _c_pthread_mutexattr_setprioceiling = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_pthread_mutexattr_setprioceiling = int Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  int arg1,
+);
+
+typedef _c_pthread_mutexattr_setprotocol = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_pthread_mutexattr_setprotocol = int Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  int arg1,
+);
+
+typedef _c_pthread_mutexattr_setpshared = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_pthread_mutexattr_setpshared = int Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  int arg1,
+);
+
+typedef _c_pthread_mutexattr_settype = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_pthread_mutexattr_settype = int Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  int arg1,
+);
+
+typedef _c_pthread_mutexattr_setpolicy_np = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_pthread_mutexattr_setpolicy_np = int Function(
+  ffi.Pointer<_opaque_pthread_mutexattr_t> arg0,
+  int arg1,
+);
+
+typedef _typedefC_27 = ffi.Void Function();
+
+typedef _c_pthread_once = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_once_t> arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_27>> arg1,
+);
+
+typedef _dart_pthread_once = int Function(
+  ffi.Pointer<_opaque_pthread_once_t> arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_27>> arg1,
+);
+
+typedef _c_pthread_rwlock_destroy = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+);
+
+typedef _dart_pthread_rwlock_destroy = int Function(
+  ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+);
+
+typedef _c_pthread_rwlock_init = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+  ffi.Pointer<_opaque_pthread_rwlockattr_t> arg1,
+);
+
+typedef _dart_pthread_rwlock_init = int Function(
+  ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+  ffi.Pointer<_opaque_pthread_rwlockattr_t> arg1,
+);
+
+typedef _c_pthread_rwlock_rdlock = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+);
+
+typedef _dart_pthread_rwlock_rdlock = int Function(
+  ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+);
+
+typedef _c_pthread_rwlock_tryrdlock = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+);
+
+typedef _dart_pthread_rwlock_tryrdlock = int Function(
+  ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+);
+
+typedef _c_pthread_rwlock_trywrlock = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+);
+
+typedef _dart_pthread_rwlock_trywrlock = int Function(
+  ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+);
+
+typedef _c_pthread_rwlock_wrlock = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+);
+
+typedef _dart_pthread_rwlock_wrlock = int Function(
+  ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+);
+
+typedef _c_pthread_rwlock_unlock = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+);
+
+typedef _dart_pthread_rwlock_unlock = int Function(
+  ffi.Pointer<_opaque_pthread_rwlock_t> arg0,
+);
+
+typedef _c_pthread_rwlockattr_destroy = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_rwlockattr_t> arg0,
+);
+
+typedef _dart_pthread_rwlockattr_destroy = int Function(
+  ffi.Pointer<_opaque_pthread_rwlockattr_t> arg0,
+);
+
+typedef _c_pthread_rwlockattr_getpshared = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_rwlockattr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _dart_pthread_rwlockattr_getpshared = int Function(
+  ffi.Pointer<_opaque_pthread_rwlockattr_t> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _c_pthread_rwlockattr_init = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_rwlockattr_t> arg0,
+);
+
+typedef _dart_pthread_rwlockattr_init = int Function(
+  ffi.Pointer<_opaque_pthread_rwlockattr_t> arg0,
+);
+
+typedef _c_pthread_rwlockattr_setpshared = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_rwlockattr_t> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_pthread_rwlockattr_setpshared = int Function(
+  ffi.Pointer<_opaque_pthread_rwlockattr_t> arg0,
+  int arg1,
+);
+
+typedef _c_pthread_self = ffi.Pointer<_opaque_pthread_t> Function();
+
+typedef _dart_pthread_self = ffi.Pointer<_opaque_pthread_t> Function();
+
+typedef _c_pthread_setcancelstate = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _dart_pthread_setcancelstate = int Function(
+  int arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _c_pthread_setcanceltype = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _dart_pthread_setcanceltype = int Function(
+  int arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+);
+
+typedef _c_pthread_setconcurrency = ffi.Int32 Function(
+  ffi.Int32 arg0,
+);
+
+typedef _dart_pthread_setconcurrency = int Function(
+  int arg0,
+);
+
+typedef _c_pthread_setschedparam = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<sched_param> arg2,
+);
+
+typedef _dart_pthread_setschedparam = int Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+  int arg1,
+  ffi.Pointer<sched_param> arg2,
+);
+
+typedef _c_pthread_setspecific = ffi.Int32 Function(
+  ffi.Uint64 arg0,
+  ffi.Pointer<ffi.Void> arg1,
+);
+
+typedef _dart_pthread_setspecific = int Function(
+  int arg0,
+  ffi.Pointer<ffi.Void> arg1,
+);
+
+typedef _c_pthread_testcancel = ffi.Void Function();
+
+typedef _dart_pthread_testcancel = void Function();
+
+typedef _c_pthread_is_threaded_np = ffi.Int32 Function();
+
+typedef _dart_pthread_is_threaded_np = int Function();
+
+typedef _c_pthread_threadid_np = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+  ffi.Pointer<ffi.Uint64> arg1,
+);
+
+typedef _dart_pthread_threadid_np = int Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+  ffi.Pointer<ffi.Uint64> arg1,
+);
+
+typedef _c_pthread_getname_np = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  ffi.Uint64 arg2,
+);
+
+typedef _dart_pthread_getname_np = int Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+  int arg2,
+);
+
+typedef _c_pthread_setname_np = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _dart_pthread_setname_np = int Function(
+  ffi.Pointer<ffi.Int8> arg0,
+);
+
+typedef _c_pthread_main_np = ffi.Int32 Function();
+
+typedef _dart_pthread_main_np = int Function();
+
+typedef _c_pthread_mach_thread_np = ffi.Uint32 Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+);
+
+typedef _dart_pthread_mach_thread_np = int Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+);
+
+typedef _c_pthread_get_stacksize_np = ffi.Uint64 Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+);
+
+typedef _dart_pthread_get_stacksize_np = int Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+);
+
+typedef _c_pthread_get_stackaddr_np = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+);
+
+typedef _dart_pthread_get_stackaddr_np = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+);
+
+typedef _c_pthread_cond_signal_thread_np = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_cond_t> arg0,
+  ffi.Pointer<_opaque_pthread_t> arg1,
+);
+
+typedef _dart_pthread_cond_signal_thread_np = int Function(
+  ffi.Pointer<_opaque_pthread_cond_t> arg0,
+  ffi.Pointer<_opaque_pthread_t> arg1,
+);
+
+typedef _c_pthread_cond_timedwait_relative_np = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_cond_t> arg0,
+  ffi.Pointer<_opaque_pthread_mutex_t> arg1,
+  ffi.Pointer<timespec> arg2,
+);
+
+typedef _dart_pthread_cond_timedwait_relative_np = int Function(
+  ffi.Pointer<_opaque_pthread_cond_t> arg0,
+  ffi.Pointer<_opaque_pthread_mutex_t> arg1,
+  ffi.Pointer<timespec> arg2,
+);
+
+typedef _typedefC_28 = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void>,
+);
+
+typedef _c_pthread_create_suspended_np = ffi.Int32 Function(
+  ffi.Pointer<ffi.Pointer<_opaque_pthread_t>> arg0,
+  ffi.Pointer<_opaque_pthread_attr_t> arg1,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_28>> arg2,
+  ffi.Pointer<ffi.Void> arg3,
+);
+
+typedef _dart_pthread_create_suspended_np = int Function(
+  ffi.Pointer<ffi.Pointer<_opaque_pthread_t>> arg0,
+  ffi.Pointer<_opaque_pthread_attr_t> arg1,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_28>> arg2,
+  ffi.Pointer<ffi.Void> arg3,
+);
+
+typedef _c_pthread_kill = ffi.Int32 Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_pthread_kill = int Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+  int arg1,
+);
+
+typedef _c_pthread_from_mach_thread_np = ffi.Pointer<_opaque_pthread_t>
+    Function(
+  ffi.Uint32 arg0,
+);
+
+typedef _dart_pthread_from_mach_thread_np = ffi.Pointer<_opaque_pthread_t>
+    Function(
+  int arg0,
+);
+
+typedef _c_pthread_sigmask = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Pointer<ffi.Uint32> arg1,
+  ffi.Pointer<ffi.Uint32> arg2,
+);
+
+typedef _dart_pthread_sigmask = int Function(
+  int arg0,
+  ffi.Pointer<ffi.Uint32> arg1,
+  ffi.Pointer<ffi.Uint32> arg2,
+);
+
+typedef _c_pthread_yield_np = ffi.Void Function();
+
+typedef _dart_pthread_yield_np = void Function();
+
+typedef _c_OSAtomicAdd32 = ffi.Int32 Function(
+  ffi.Int32 __theAmount,
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _dart_OSAtomicAdd32 = int Function(
+  int __theAmount,
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _c_OSAtomicAdd32Barrier = ffi.Int32 Function(
+  ffi.Int32 __theAmount,
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _dart_OSAtomicAdd32Barrier = int Function(
+  int __theAmount,
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _c_OSAtomicIncrement32 = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _dart_OSAtomicIncrement32 = int Function(
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _c_OSAtomicIncrement32Barrier = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _dart_OSAtomicIncrement32Barrier = int Function(
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _c_OSAtomicDecrement32 = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _dart_OSAtomicDecrement32 = int Function(
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _c_OSAtomicDecrement32Barrier = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _dart_OSAtomicDecrement32Barrier = int Function(
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _c_OSAtomicAdd64 = ffi.Int64 Function(
+  ffi.Int64 __theAmount,
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _dart_OSAtomicAdd64 = int Function(
+  int __theAmount,
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _c_OSAtomicAdd64Barrier = ffi.Int64 Function(
+  ffi.Int64 __theAmount,
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _dart_OSAtomicAdd64Barrier = int Function(
+  int __theAmount,
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _c_OSAtomicIncrement64 = ffi.Int64 Function(
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _dart_OSAtomicIncrement64 = int Function(
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _c_OSAtomicIncrement64Barrier = ffi.Int64 Function(
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _dart_OSAtomicIncrement64Barrier = int Function(
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _c_OSAtomicDecrement64 = ffi.Int64 Function(
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _dart_OSAtomicDecrement64 = int Function(
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _c_OSAtomicDecrement64Barrier = ffi.Int64 Function(
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _dart_OSAtomicDecrement64Barrier = int Function(
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _c_OSAtomicOr32 = ffi.Int32 Function(
+  ffi.Uint32 __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _dart_OSAtomicOr32 = int Function(
+  int __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _c_OSAtomicOr32Barrier = ffi.Int32 Function(
+  ffi.Uint32 __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _dart_OSAtomicOr32Barrier = int Function(
+  int __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _c_OSAtomicOr32Orig = ffi.Int32 Function(
+  ffi.Uint32 __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _dart_OSAtomicOr32Orig = int Function(
+  int __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _c_OSAtomicOr32OrigBarrier = ffi.Int32 Function(
+  ffi.Uint32 __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _dart_OSAtomicOr32OrigBarrier = int Function(
+  int __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _c_OSAtomicAnd32 = ffi.Int32 Function(
+  ffi.Uint32 __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _dart_OSAtomicAnd32 = int Function(
+  int __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _c_OSAtomicAnd32Barrier = ffi.Int32 Function(
+  ffi.Uint32 __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _dart_OSAtomicAnd32Barrier = int Function(
+  int __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _c_OSAtomicAnd32Orig = ffi.Int32 Function(
+  ffi.Uint32 __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _dart_OSAtomicAnd32Orig = int Function(
+  int __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _c_OSAtomicAnd32OrigBarrier = ffi.Int32 Function(
+  ffi.Uint32 __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _dart_OSAtomicAnd32OrigBarrier = int Function(
+  int __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _c_OSAtomicXor32 = ffi.Int32 Function(
+  ffi.Uint32 __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _dart_OSAtomicXor32 = int Function(
+  int __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _c_OSAtomicXor32Barrier = ffi.Int32 Function(
+  ffi.Uint32 __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _dart_OSAtomicXor32Barrier = int Function(
+  int __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _c_OSAtomicXor32Orig = ffi.Int32 Function(
+  ffi.Uint32 __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _dart_OSAtomicXor32Orig = int Function(
+  int __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _c_OSAtomicXor32OrigBarrier = ffi.Int32 Function(
+  ffi.Uint32 __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _dart_OSAtomicXor32OrigBarrier = int Function(
+  int __theMask,
+  ffi.Pointer<ffi.Uint32> __theValue,
+);
+
+typedef _c_OSAtomicCompareAndSwap32 = ffi.Int32 Function(
+  ffi.Int32 __oldValue,
+  ffi.Int32 __newValue,
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _dart_OSAtomicCompareAndSwap32 = int Function(
+  int __oldValue,
+  int __newValue,
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _c_OSAtomicCompareAndSwap32Barrier = ffi.Int32 Function(
+  ffi.Int32 __oldValue,
+  ffi.Int32 __newValue,
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _dart_OSAtomicCompareAndSwap32Barrier = int Function(
+  int __oldValue,
+  int __newValue,
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _c_OSAtomicCompareAndSwapPtr = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void> __oldValue,
+  ffi.Pointer<ffi.Void> __newValue,
+  ffi.Pointer<ffi.Pointer<ffi.Void>> __theValue,
+);
+
+typedef _dart_OSAtomicCompareAndSwapPtr = int Function(
+  ffi.Pointer<ffi.Void> __oldValue,
+  ffi.Pointer<ffi.Void> __newValue,
+  ffi.Pointer<ffi.Pointer<ffi.Void>> __theValue,
+);
+
+typedef _c_OSAtomicCompareAndSwapPtrBarrier = ffi.Int32 Function(
+  ffi.Pointer<ffi.Void> __oldValue,
+  ffi.Pointer<ffi.Void> __newValue,
+  ffi.Pointer<ffi.Pointer<ffi.Void>> __theValue,
+);
+
+typedef _dart_OSAtomicCompareAndSwapPtrBarrier = int Function(
+  ffi.Pointer<ffi.Void> __oldValue,
+  ffi.Pointer<ffi.Void> __newValue,
+  ffi.Pointer<ffi.Pointer<ffi.Void>> __theValue,
+);
+
+typedef _c_OSAtomicCompareAndSwapInt = ffi.Int32 Function(
+  ffi.Int32 __oldValue,
+  ffi.Int32 __newValue,
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _dart_OSAtomicCompareAndSwapInt = int Function(
+  int __oldValue,
+  int __newValue,
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _c_OSAtomicCompareAndSwapIntBarrier = ffi.Int32 Function(
+  ffi.Int32 __oldValue,
+  ffi.Int32 __newValue,
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _dart_OSAtomicCompareAndSwapIntBarrier = int Function(
+  int __oldValue,
+  int __newValue,
+  ffi.Pointer<ffi.Int32> __theValue,
+);
+
+typedef _c_OSAtomicCompareAndSwapLong = ffi.Int32 Function(
+  ffi.Int64 __oldValue,
+  ffi.Int64 __newValue,
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _dart_OSAtomicCompareAndSwapLong = int Function(
+  int __oldValue,
+  int __newValue,
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _c_OSAtomicCompareAndSwapLongBarrier = ffi.Int32 Function(
+  ffi.Int64 __oldValue,
+  ffi.Int64 __newValue,
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _dart_OSAtomicCompareAndSwapLongBarrier = int Function(
+  int __oldValue,
+  int __newValue,
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _c_OSAtomicCompareAndSwap64 = ffi.Int32 Function(
+  ffi.Int64 __oldValue,
+  ffi.Int64 __newValue,
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _dart_OSAtomicCompareAndSwap64 = int Function(
+  int __oldValue,
+  int __newValue,
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _c_OSAtomicCompareAndSwap64Barrier = ffi.Int32 Function(
+  ffi.Int64 __oldValue,
+  ffi.Int64 __newValue,
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _dart_OSAtomicCompareAndSwap64Barrier = int Function(
+  int __oldValue,
+  int __newValue,
+  ffi.Pointer<ffi.Int64> __theValue,
+);
+
+typedef _c_OSAtomicTestAndSet = ffi.Int32 Function(
+  ffi.Uint32 __n,
+  ffi.Pointer<ffi.Void> __theAddress,
+);
+
+typedef _dart_OSAtomicTestAndSet = int Function(
+  int __n,
+  ffi.Pointer<ffi.Void> __theAddress,
+);
+
+typedef _c_OSAtomicTestAndSetBarrier = ffi.Int32 Function(
+  ffi.Uint32 __n,
+  ffi.Pointer<ffi.Void> __theAddress,
+);
+
+typedef _dart_OSAtomicTestAndSetBarrier = int Function(
+  int __n,
+  ffi.Pointer<ffi.Void> __theAddress,
+);
+
+typedef _c_OSAtomicTestAndClear = ffi.Int32 Function(
+  ffi.Uint32 __n,
+  ffi.Pointer<ffi.Void> __theAddress,
+);
+
+typedef _dart_OSAtomicTestAndClear = int Function(
+  int __n,
+  ffi.Pointer<ffi.Void> __theAddress,
+);
+
+typedef _c_OSAtomicTestAndClearBarrier = ffi.Int32 Function(
+  ffi.Uint32 __n,
+  ffi.Pointer<ffi.Void> __theAddress,
+);
+
+typedef _dart_OSAtomicTestAndClearBarrier = int Function(
+  int __n,
+  ffi.Pointer<ffi.Void> __theAddress,
+);
+
+typedef _c_OSMemoryBarrier = ffi.Void Function();
+
+typedef _dart_OSMemoryBarrier = void Function();
+
+typedef _c_OSSpinLockTry = ffi.Int32 Function(
+  ffi.Pointer<ffi.Int32> __lock,
+);
+
+typedef _dart_OSSpinLockTry = int Function(
+  ffi.Pointer<ffi.Int32> __lock,
+);
+
+typedef _c_OSSpinLockLock = ffi.Void Function(
+  ffi.Pointer<ffi.Int32> __lock,
+);
+
+typedef _dart_OSSpinLockLock = void Function(
+  ffi.Pointer<ffi.Int32> __lock,
+);
+
+typedef _c_OSSpinLockUnlock = ffi.Void Function(
+  ffi.Pointer<ffi.Int32> __lock,
+);
+
+typedef _dart_OSSpinLockUnlock = void Function(
+  ffi.Pointer<ffi.Int32> __lock,
+);
+
+typedef _c_OSAtomicEnqueue = ffi.Void Function(
+  ffi.Pointer<OSQueueHead> __list,
+  ffi.Pointer<ffi.Void> __new,
+  ffi.Uint64 __offset,
+);
+
+typedef _dart_OSAtomicEnqueue = void Function(
+  ffi.Pointer<OSQueueHead> __list,
+  ffi.Pointer<ffi.Void> __new,
+  int __offset,
+);
+
+typedef _c_OSAtomicDequeue = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<OSQueueHead> __list,
+  ffi.Uint64 __offset,
+);
+
+typedef _dart_OSAtomicDequeue = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<OSQueueHead> __list,
+  int __offset,
+);
+
+typedef _c_OSAtomicFifoEnqueue = ffi.Void Function(
+  ffi.Pointer<OSFifoQueueHead> __list,
+  ffi.Pointer<ffi.Void> __new,
+  ffi.Uint64 __offset,
+);
+
+typedef _dart_OSAtomicFifoEnqueue = void Function(
+  ffi.Pointer<OSFifoQueueHead> __list,
+  ffi.Pointer<ffi.Void> __new,
+  int __offset,
+);
+
+typedef _c_OSAtomicFifoDequeue = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<OSFifoQueueHead> __list,
+  ffi.Uint64 __offset,
+);
+
+typedef _dart_OSAtomicFifoDequeue = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<OSFifoQueueHead> __list,
+  int __offset,
+);
+
+typedef _typedefC_29 = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void>,
+);
+
+typedef _c_thread_create2 = ffi.Void Function(
+  ffi.Pointer<ffi.Pointer<_opaque_pthread_t>> arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_29>> f,
+  ffi.Pointer<ffi.Void> arg2,
+);
+
+typedef _dart_thread_create2 = void Function(
+  ffi.Pointer<ffi.Pointer<_opaque_pthread_t>> arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_29>> f,
+  ffi.Pointer<ffi.Void> arg2,
+);
+
+typedef _c_thread_join = ffi.Void Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+);
+
+typedef _dart_thread_join = void Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+);
+
+typedef _c_thread_set_cpu = ffi.Void Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_thread_set_cpu = void Function(
+  ffi.Pointer<_opaque_pthread_t> arg0,
+  int arg1,
+);
+
+typedef _c_thread_self = ffi.Pointer<_opaque_pthread_t> Function();
+
+typedef _dart_thread_self = ffi.Pointer<_opaque_pthread_t> Function();
+
+typedef _c_atomic_add = ffi.Void Function(
+  ffi.Pointer<ffi.Uint64> value,
+  ffi.Int64 i,
+);
+
+typedef _dart_atomic_add = void Function(
+  ffi.Pointer<ffi.Uint64> value,
+  int i,
+);
+
+typedef _c_cpu = ffi.Void Function();
+
+typedef _dart_cpu = void Function();
+
+typedef _c_get_cpu_number = ffi.Int32 Function();
+
+typedef _dart_get_cpu_number = int Function();
+
+typedef _c_statistics_init = ffi.Void Function();
+
+typedef _dart_statistics_init = void Function();
+
+typedef _c_statistics_sum_nodes = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _dart_statistics_sum_nodes = void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _c_statistics_print = ffi.Void Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _dart_statistics_print = void Function(
+  ffi.Pointer<FILE> arg0,
+);
+
+typedef _c_hash_code_init = ffi.Void Function();
+
+typedef _dart_hash_code_init = void Function();
+
+typedef _c_hash_move_init = ffi.Void Function();
+
+typedef _dart_hash_move_init = void Function();
+
+typedef _c_hash_init = ffi.Void Function(
+  ffi.Pointer<HashTable> arg0,
+  ffi.Uint64 arg1,
+);
+
+typedef _dart_hash_init = void Function(
+  ffi.Pointer<HashTable> arg0,
+  int arg1,
+);
+
+typedef _c_hash_cleanup = ffi.Void Function(
+  ffi.Pointer<HashTable> arg0,
+);
+
+typedef _dart_hash_cleanup = void Function(
+  ffi.Pointer<HashTable> arg0,
+);
+
+typedef _c_hash_clear = ffi.Void Function(
+  ffi.Pointer<HashTable> arg0,
+);
+
+typedef _dart_hash_clear = void Function(
+  ffi.Pointer<HashTable> arg0,
+);
+
+typedef _c_hash_free = ffi.Void Function(
+  ffi.Pointer<HashTable> arg0,
+);
+
+typedef _dart_hash_free = void Function(
+  ffi.Pointer<HashTable> arg0,
+);
+
+typedef _c_hash_store = ffi.Void Function(
+  ffi.Pointer<HashTable> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Uint64 arg2,
+  ffi.Int32 arg3,
+  ffi.Int32 arg4,
+  ffi.Int32 arg5,
+  ffi.Int32 arg6,
+  ffi.Int32 arg7,
+  ffi.Int32 arg8,
+  ffi.Int32 arg9,
+);
+
+typedef _dart_hash_store = void Function(
+  ffi.Pointer<HashTable> arg0,
+  ffi.Pointer<Board> arg1,
+  int arg2,
+  int arg3,
+  int arg4,
+  int arg5,
+  int arg6,
+  int arg7,
+  int arg8,
+  int arg9,
+);
+
+typedef _c_hash_force = ffi.Void Function(
+  ffi.Pointer<HashTable> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Uint64 arg2,
+  ffi.Int32 arg3,
+  ffi.Int32 arg4,
+  ffi.Int32 arg5,
+  ffi.Int32 arg6,
+  ffi.Int32 arg7,
+  ffi.Int32 arg8,
+  ffi.Int32 arg9,
+);
+
+typedef _dart_hash_force = void Function(
+  ffi.Pointer<HashTable> arg0,
+  ffi.Pointer<Board> arg1,
+  int arg2,
+  int arg3,
+  int arg4,
+  int arg5,
+  int arg6,
+  int arg7,
+  int arg8,
+  int arg9,
+);
+
+typedef _c_hash_get = ffi.Int32 Function(
+  ffi.Pointer<HashTable> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Uint64 arg2,
+  ffi.Pointer<HashData> arg3,
+);
+
+typedef _dart_hash_get = int Function(
+  ffi.Pointer<HashTable> arg0,
+  ffi.Pointer<Board> arg1,
+  int arg2,
+  ffi.Pointer<HashData> arg3,
+);
+
+typedef _c_hash_copy = ffi.Void Function(
+  ffi.Pointer<HashTable> arg0,
+  ffi.Pointer<HashTable> arg1,
+);
+
+typedef _dart_hash_copy = void Function(
+  ffi.Pointer<HashTable> arg0,
+  ffi.Pointer<HashTable> arg1,
+);
+
+typedef _c_hash_print = ffi.Void Function(
+  ffi.Pointer<HashData> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_hash_print = void Function(
+  ffi.Pointer<HashData> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_hash_feed = ffi.Void Function(
+  ffi.Pointer<HashTable> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Uint64 arg2,
+  ffi.Int32 arg3,
+  ffi.Int32 arg4,
+  ffi.Int32 arg5,
+  ffi.Int32 arg6,
+  ffi.Int32 arg7,
+);
+
+typedef _dart_hash_feed = void Function(
+  ffi.Pointer<HashTable> arg0,
+  ffi.Pointer<Board> arg1,
+  int arg2,
+  int arg3,
+  int arg4,
+  int arg5,
+  int arg6,
+  int arg7,
+);
+
+typedef _c_hash_exclude_move = ffi.Void Function(
+  ffi.Pointer<HashTable> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Uint64 arg2,
+  ffi.Int32 arg3,
+);
+
+typedef _dart_hash_exclude_move = void Function(
+  ffi.Pointer<HashTable> arg0,
+  ffi.Pointer<Board> arg1,
+  int arg2,
+  int arg3,
+);
+
+typedef _c_writeable_level = ffi.Uint32 Function(
+  ffi.Pointer<HashData> data,
+);
+
+typedef _dart_writeable_level = int Function(
+  ffi.Pointer<HashData> data,
+);
+
+typedef _c_search_global_init = ffi.Void Function();
+
+typedef _dart_search_global_init = void Function();
+
+typedef _c_search_init = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _dart_search_init = void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _c_search_free = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _dart_search_free = void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _c_search_cleanup = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _dart_search_cleanup = void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _c_search_setup = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _dart_search_setup = void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _c_search_clone = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Search> arg1,
+);
+
+typedef _dart_search_clone = void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Search> arg1,
+);
+
+typedef _c_search_set_board = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_search_set_board = void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Board> arg1,
+  int arg2,
+);
+
+typedef _c_search_set_level = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_search_set_level = void Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+  int arg2,
+);
+
+typedef _c_search_set_ponder_level = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_search_set_ponder_level = void Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+  int arg2,
+);
+
+typedef _c_search_resize_hashtable = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _dart_search_resize_hashtable = void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _c_search_set_game_time = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int64 arg1,
+);
+
+typedef _dart_search_set_game_time = void Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+);
+
+typedef _c_search_set_move_time = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int64 arg1,
+);
+
+typedef _dart_search_set_move_time = void Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+);
+
+typedef _c_search_time_init = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _dart_search_time_init = void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _c_search_time_reset = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _dart_search_time_reset = void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _c_search_adjust_time = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 bool,
+);
+
+typedef _dart_search_adjust_time = void Function(
+  ffi.Pointer<Search> arg0,
+  int bool,
+);
+
+typedef _c_search_continue = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _dart_search_continue = int Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _c_search_check_timeout = ffi.Void Function(
+  ffi.Pointer<Search> search,
+);
+
+typedef _dart_search_check_timeout = void Function(
+  ffi.Pointer<Search> search,
+);
+
+typedef _c_search_set_task_number = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_search_set_task_number = void Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+);
+
+typedef _c_search_swap_parity = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_search_swap_parity = void Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+);
+
+typedef _c_search_get_movelist = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<MoveList> arg1,
+);
+
+typedef _dart_search_get_movelist = void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<MoveList> arg1,
+);
+
+typedef _c_search_update_endgame = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _dart_search_update_endgame = void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _c_search_restore_endgame = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _dart_search_restore_endgame = void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _c_search_pass_endgame = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _dart_search_pass_endgame = void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _c_search_update_midgame = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _dart_search_update_midgame = void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _c_search_restore_midgame = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _dart_search_restore_midgame = void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _c_search_update_pass_midgame = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _dart_search_update_pass_midgame = void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _c_search_restore_pass_midgame = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _dart_search_restore_pass_midgame = void Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _c_search_clock = ffi.Int64 Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _dart_search_clock = int Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _c_search_time = ffi.Int64 Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _dart_search_time = int Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _c_search_count_nodes = ffi.Uint64 Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _dart_search_count_nodes = int Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _c_search_print_pv = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+  ffi.Pointer<FILE> arg3,
+);
+
+typedef _dart_search_print_pv = void Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+  ffi.Pointer<ffi.Int8> arg2,
+  ffi.Pointer<FILE> arg3,
+);
+
+typedef _c_search_print = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+  ffi.Int8 arg3,
+  ffi.Pointer<FILE> arg4,
+);
+
+typedef _dart_search_print = void Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+  int arg2,
+  int arg3,
+  ffi.Pointer<FILE> arg4,
+);
+
+typedef _c_get_pv_extension = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_get_pv_extension = int Function(
+  int arg0,
+  int arg1,
+);
+
+typedef _c_result_print = ffi.Void Function(
+  ffi.Pointer<Result> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_result_print = void Function(
+  ffi.Pointer<Result> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_search_SC_PVS = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+  ffi.Pointer<ffi.Int32> arg2,
+  ffi.Pointer<ffi.Int32> arg3,
+);
+
+typedef _dart_search_SC_PVS = int Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<ffi.Int32> arg1,
+  ffi.Pointer<ffi.Int32> arg2,
+  ffi.Pointer<ffi.Int32> arg3,
+);
+
+typedef _c_search_SC_NWS = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<ffi.Int32> arg2,
+);
+
+typedef _dart_search_SC_NWS = int Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+  ffi.Pointer<ffi.Int32> arg2,
+);
+
+typedef _c_search_TC_PVS = ffi.Int32 Function(
+  ffi.Pointer<HashData> arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+  ffi.Pointer<ffi.Int32> arg3,
+  ffi.Pointer<ffi.Int32> arg4,
+  ffi.Pointer<ffi.Int32> arg5,
+);
+
+typedef _dart_search_TC_PVS = int Function(
+  ffi.Pointer<HashData> arg0,
+  int arg1,
+  int arg2,
+  ffi.Pointer<ffi.Int32> arg3,
+  ffi.Pointer<ffi.Int32> arg4,
+  ffi.Pointer<ffi.Int32> arg5,
+);
+
+typedef _c_search_TC_NWS = ffi.Int32 Function(
+  ffi.Pointer<HashData> arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+  ffi.Int32 arg3,
+  ffi.Pointer<ffi.Int32> arg4,
+);
+
+typedef _dart_search_TC_NWS = int Function(
+  ffi.Pointer<HashData> arg0,
+  int arg1,
+  int arg2,
+  int arg3,
+  ffi.Pointer<ffi.Int32> arg4,
+);
+
+typedef _c_search_ETC_PVS = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<MoveList> arg1,
+  ffi.Uint64 arg2,
+  ffi.Int32 arg3,
+  ffi.Int32 arg4,
+  ffi.Pointer<ffi.Int32> arg5,
+  ffi.Pointer<ffi.Int32> arg6,
+  ffi.Pointer<ffi.Int32> arg7,
+);
+
+typedef _dart_search_ETC_PVS = int Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<MoveList> arg1,
+  int arg2,
+  int arg3,
+  int arg4,
+  ffi.Pointer<ffi.Int32> arg5,
+  ffi.Pointer<ffi.Int32> arg6,
+  ffi.Pointer<ffi.Int32> arg7,
+);
+
+typedef _c_search_ETC_NWS = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<MoveList> arg1,
+  ffi.Uint64 arg2,
+  ffi.Int32 arg3,
+  ffi.Int32 arg4,
+  ffi.Int32 arg5,
+  ffi.Pointer<ffi.Int32> arg6,
+);
+
+typedef _dart_search_ETC_NWS = int Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<MoveList> arg1,
+  int arg2,
+  int arg3,
+  int arg4,
+  int arg5,
+  ffi.Pointer<ffi.Int32> arg6,
+);
+
+typedef _c_next_node_type = ffi.Int32 Function(
+  ffi.Int32 parent,
+  ffi.Int32 first_move,
+);
+
+typedef _dart_next_node_type = int Function(
+  int parent,
+  int first_move,
+);
+
+typedef _c_search_solve = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _dart_search_solve = int Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _c_search_solve_0 = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _dart_search_solve_0 = int Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _c_board_score_1 = ffi.Int32 Function(
+  ffi.Pointer<Board> arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_board_score_1 = int Function(
+  ffi.Pointer<Board> arg0,
+  int arg1,
+  int arg2,
+);
+
+typedef _c_NWS_endgame = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_NWS_endgame = int Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+);
+
+typedef _c_search_eval_0 = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _dart_search_eval_0 = int Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _c_search_eval_1 = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_search_eval_1 = int Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+  int arg2,
+);
+
+typedef _c_search_eval_2 = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_search_eval_2 = int Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+  int arg2,
+);
+
+typedef _c_NWS_midgame = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+  ffi.Pointer<Node> arg3,
+);
+
+typedef _dart_NWS_midgame = int Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+  int arg2,
+  ffi.Pointer<Node> arg3,
+);
+
+typedef _c_PVS_midgame = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+  ffi.Int32 arg3,
+  ffi.Pointer<Node> arg4,
+);
+
+typedef _dart_PVS_midgame = int Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+  int arg2,
+  int arg3,
+  ffi.Pointer<Node> arg4,
+);
+
+typedef _c_NWS_shallow = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+  ffi.Pointer<HashTable> arg3,
+);
+
+typedef _dart_NWS_shallow = int Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+  int arg2,
+  ffi.Pointer<HashTable> arg3,
+);
+
+typedef _c_PVS_shallow = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+  ffi.Int32 arg3,
+);
+
+typedef _dart_PVS_shallow = int Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+  int arg2,
+  int arg3,
+);
+
+typedef _c_is_pv_ok = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_is_pv_ok = int Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+  int arg2,
+);
+
+typedef _c_record_best_move = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<Move> arg2,
+  ffi.Int32 arg3,
+  ffi.Int32 arg4,
+  ffi.Int32 arg5,
+);
+
+typedef _dart_record_best_move = void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<Move> arg2,
+  int arg3,
+  int arg4,
+  int arg5,
+);
+
+typedef _c_PVS_root = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+  ffi.Int32 arg3,
+);
+
+typedef _dart_PVS_root = int Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+  int arg2,
+  int arg3,
+);
+
+typedef _c_aspiration_search = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+  ffi.Int32 arg3,
+  ffi.Int32 arg4,
+);
+
+typedef _dart_aspiration_search = int Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+  int arg2,
+  int arg3,
+  int arg4,
+);
+
+typedef _c_iterative_deepening = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_iterative_deepening = void Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+  int arg2,
+);
+
+typedef _c_search_run = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> arg0,
+);
+
+typedef _dart_search_run = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> arg0,
+);
+
+typedef _c_search_guess = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _dart_search_guess = int Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _c_search_stop_all = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_search_stop_all = void Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+);
+
+typedef _c_search_set_state = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_search_set_state = void Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+);
+
+typedef _c_search_observer = ffi.Void Function(
+  ffi.Pointer<Result> arg0,
+);
+
+typedef _dart_search_observer = void Function(
+  ffi.Pointer<Result> arg0,
+);
+
+typedef _typedefC_30 = ffi.Void Function(
+  ffi.Pointer<Result>,
+);
+
+typedef _c_search_set_observer = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_30>> Observer,
+);
+
+typedef _dart_search_set_observer = void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_30>> Observer,
+);
+
+typedef _c_search_share = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Search> arg1,
+);
+
+typedef _dart_search_share = void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Search> arg1,
+);
+
+typedef _c_search_count_tasks = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _dart_search_count_tasks = int Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _c_is_depth_solving = ffi.Int32 Function(
+  ffi.Int32 arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_is_depth_solving = int Function(
+  int arg0,
+  int arg1,
+);
+
+typedef _c_solvable_depth = ffi.Int32 Function(
+  ffi.Int64 arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_solvable_depth = int Function(
+  int arg0,
+  int arg1,
+);
+
+typedef _c_pv_debug = ffi.Void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Move> arg1,
+  ffi.Pointer<FILE> arg2,
+);
+
+typedef _dart_pv_debug = void Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Pointer<Move> arg1,
+  ffi.Pointer<FILE> arg2,
+);
+
+typedef _c_search_get_pv_cost = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _dart_search_get_pv_cost = int Function(
+  ffi.Pointer<Search> arg0,
+);
+
+typedef _c_show_current_move = ffi.Void Function(
+  ffi.Pointer<FILE> f,
+  ffi.Pointer<Search> arg1,
+  ffi.Pointer<Move> arg2,
+  ffi.Int32 arg3,
+  ffi.Int32 arg4,
+  ffi.Int32 bool,
+);
+
+typedef _dart_show_current_move = void Function(
+  ffi.Pointer<FILE> f,
+  ffi.Pointer<Search> arg1,
+  ffi.Pointer<Move> arg2,
+  int arg3,
+  int arg4,
+  int bool,
+);
+
+typedef _c_search_bound = ffi.Int32 Function(
+  ffi.Pointer<Search> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_search_bound = int Function(
+  ffi.Pointer<Search> arg0,
+  int arg1,
+);
+
+typedef _c_book_init = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _dart_book_init = void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _c_book_free = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _dart_book_free = void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _c_book_new = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_book_new = void Function(
+  ffi.Pointer<Book> arg0,
+  int arg1,
+  int arg2,
+);
+
+typedef _c_book_load = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_book_load = void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_book_save = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_book_save = void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_book_import = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_book_import = void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_book_export = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_book_export = void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_book_merge = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Book> arg1,
+);
+
+typedef _dart_book_merge = void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Book> arg1,
+);
+
+typedef _c_book_sort = ffi.Void Function(
+  ffi.Pointer<Book> book,
+);
+
+typedef _dart_book_sort = void Function(
+  ffi.Pointer<Book> book,
+);
+
+typedef _c_book_negamax = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _dart_book_negamax = void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _c_book_prune = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _dart_book_prune = void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _c_book_deepen = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _dart_book_deepen = void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _c_book_correct_solved = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _dart_book_correct_solved = void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _c_book_link = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _dart_book_link = void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _c_book_fix = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _dart_book_fix = void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _c_book_fill = ffi.Void Function(
+  ffi.Pointer<Book> book,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_book_fill = void Function(
+  ffi.Pointer<Book> book,
+  int arg1,
+);
+
+typedef _c_book_deviate = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Int32 arg2,
+  ffi.Int32 arg3,
+);
+
+typedef _dart_book_deviate = void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+  int arg2,
+  int arg3,
+);
+
+typedef _c_book_enhance = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Int32 arg2,
+  ffi.Int32 arg3,
+);
+
+typedef _dart_book_enhance = void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+  int arg2,
+  int arg3,
+);
+
+typedef _c_book_subtree = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _dart_book_subtree = void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _c_book_play = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _dart_book_play = void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _c_book_info = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _dart_book_info = void Function(
+  ffi.Pointer<Book> arg0,
+);
+
+typedef _c_book_show = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _dart_book_show = void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _c_book_show_for_api = ffi.Pointer<Position> Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _dart_book_show_for_api = ffi.Pointer<Position> Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _c_book_stats = ffi.Void Function(
+  ffi.Pointer<Book> book,
+);
+
+typedef _dart_book_stats = void Function(
+  ffi.Pointer<Book> book,
+);
+
+typedef _c_book_get_moves = ffi.Int32 Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<MoveList> arg2,
+);
+
+typedef _dart_book_get_moves = int Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<MoveList> arg2,
+);
+
+typedef _c_book_get_moves_with_position = ffi.Int32 Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<MoveList> arg2,
+  ffi.Pointer<Position> arg3,
+);
+
+typedef _dart_book_get_moves_with_position = int Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<MoveList> arg2,
+  ffi.Pointer<Position> arg3,
+);
+
+typedef _c_book_get_random_move = ffi.Int32 Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<Move> arg2,
+  ffi.Int32 arg3,
+);
+
+typedef _dart_book_get_random_move = int Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<Move> arg2,
+  int arg3,
+);
+
+typedef _c_book_get_game_stats = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<GameStats> arg2,
+);
+
+typedef _dart_book_get_game_stats = void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<GameStats> arg2,
+);
+
+typedef _c_book_get_line = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<Move> arg2,
+  ffi.Pointer<Line> arg3,
+);
+
+typedef _dart_book_get_line = void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<Move> arg2,
+  ffi.Pointer<Line> arg3,
+);
+
+typedef _c_book_add_board = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _dart_book_add_board = void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+);
+
+typedef _c_book_add_game = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Game> arg1,
+);
+
+typedef _dart_book_add_game = void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Game> arg1,
+);
+
+typedef _c_book_add_base = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Base> arg1,
+);
+
+typedef _dart_book_add_base = void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Base> arg1,
+);
+
+typedef _c_book_check_base = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Base> arg1,
+);
+
+typedef _dart_book_check_base = void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Base> arg1,
+);
+
+typedef _c_book_extract_skeleton = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Base> arg1,
+);
+
+typedef _dart_book_extract_skeleton = void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Base> arg1,
+);
+
+typedef _c_book_extract_positions = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_book_extract_positions = void Function(
+  ffi.Pointer<Book> arg0,
+  int arg1,
+  int arg2,
+);
+
+typedef _c_book_feed_hash = ffi.Void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<Search> arg2,
+);
+
+typedef _dart_book_feed_hash = void Function(
+  ffi.Pointer<Book> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Pointer<Search> arg2,
+);
+
+typedef _c_event_init = ffi.Void Function(
+  ffi.Pointer<Event> arg0,
+);
+
+typedef _dart_event_init = void Function(
+  ffi.Pointer<Event> arg0,
+);
+
+typedef _c_event_free = ffi.Void Function(
+  ffi.Pointer<Event> arg0,
+);
+
+typedef _dart_event_free = void Function(
+  ffi.Pointer<Event> arg0,
+);
+
+typedef _c_event_clear_messages = ffi.Void Function(
+  ffi.Pointer<Event> arg0,
+);
+
+typedef _dart_event_clear_messages = void Function(
+  ffi.Pointer<Event> arg0,
+);
+
+typedef _c_event_add_message = ffi.Void Function(
+  ffi.Pointer<Event> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_event_add_message = void Function(
+  ffi.Pointer<Event> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_event_peek_message = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<Event> arg0,
+);
+
+typedef _dart_event_peek_message = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<Event> arg0,
+);
+
+typedef _c_event_exist = ffi.Int32 Function(
+  ffi.Pointer<Event> arg0,
+);
+
+typedef _dart_event_exist = int Function(
+  ffi.Pointer<Event> arg0,
+);
+
+typedef _c_event_wait = ffi.Void Function(
+  ffi.Pointer<Event> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg2,
+);
+
+typedef _dart_event_wait = void Function(
+  ffi.Pointer<Event> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg2,
+);
+
+typedef _c_event_wait_enter = ffi.Void Function(
+  ffi.Pointer<Event> arg0,
+);
+
+typedef _dart_event_wait_enter = void Function(
+  ffi.Pointer<Event> arg0,
+);
+
+typedef _c_play_is_game_over = ffi.Int32 Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _dart_play_is_game_over = int Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _c_play_must_pass = ffi.Int32 Function(
+  ffi.Pointer<Play> play,
+);
+
+typedef _dart_play_must_pass = int Function(
+  ffi.Pointer<Play> play,
+);
+
+typedef _c_play_init = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<Book> arg1,
+);
+
+typedef _dart_play_init = void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<Book> arg1,
+);
+
+typedef _c_play_free = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _dart_play_free = void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _c_play_new = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _dart_play_new = void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _c_play_ggs_init = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_play_ggs_init = void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_play_load = ffi.Int32 Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_play_load = int Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_play_save = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_play_save = void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_play_auto_save = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _dart_play_auto_save = void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _c_play_go = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Int32 bool,
+);
+
+typedef _dart_play_go = void Function(
+  ffi.Pointer<Play> arg0,
+  int bool,
+);
+
+typedef _c_play_hint = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_play_hint = void Function(
+  ffi.Pointer<Play> arg0,
+  int arg1,
+);
+
+typedef _c_play_hint_for_lib = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Int32 arg1,
+  ffi.Pointer<HintList> arg2,
+);
+
+typedef _dart_play_hint_for_lib = void Function(
+  ffi.Pointer<Play> arg0,
+  int arg1,
+  ffi.Pointer<HintList> arg2,
+);
+
+typedef _c_play_get_bookmove = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<MoveList> arg1,
+);
+
+typedef _dart_play_get_bookmove = void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<MoveList> arg1,
+);
+
+typedef _c_play_get_bookmove_with_position = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<MoveList> arg1,
+  ffi.Pointer<Position> arg2,
+);
+
+typedef _dart_play_get_bookmove_with_position = void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<MoveList> arg1,
+  ffi.Pointer<Position> arg2,
+);
+
+typedef _c_play_hint_prepare = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<MoveList> arg1,
+);
+
+typedef _dart_play_hint_prepare = void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<MoveList> arg1,
+);
+
+typedef _c_play_hint_next = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<Hint> arg1,
+  ffi.Int32 bool,
+);
+
+typedef _dart_play_hint_next = void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<Hint> arg1,
+  int bool,
+);
+
+typedef _c_play_stop = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _dart_play_stop = void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _c_play_ponder_run = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> arg0,
+);
+
+typedef _dart_play_ponder_run = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> arg0,
+);
+
+typedef _c_play_ponder = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _dart_play_ponder = void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _c_play_ponder_loop = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> arg0,
+);
+
+typedef _dart_play_ponder_loop = ffi.Pointer<ffi.Void> Function(
+  ffi.Pointer<ffi.Void> arg0,
+);
+
+typedef _c_play_stop_pondering = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _dart_play_stop_pondering = void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _c_play_update = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _dart_play_update = void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _c_play_pass = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _dart_play_pass = void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _c_play_undo = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _dart_play_undo = void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _c_play_redo = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _dart_play_redo = void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _c_play_set_board = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_play_set_board = void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_play_set_board_from_FEN = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_play_set_board_from_FEN = void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_play_set_board_from_obj = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<Board> arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_play_set_board_from_obj = void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<Board> arg1,
+  int arg2,
+);
+
+typedef _c_play_game = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_play_game = void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_play_move = ffi.Int32 Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_play_move = int Function(
+  ffi.Pointer<Play> arg0,
+  int arg1,
+);
+
+typedef _c_play_user_move = ffi.Int32 Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_play_user_move = int Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_play_get_last_move = ffi.Pointer<Move> Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _dart_play_get_last_move = ffi.Pointer<Move> Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _c_play_analyze = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_play_analyze = void Function(
+  ffi.Pointer<Play> arg0,
+  int arg1,
+);
+
+typedef _c_play_book_analyze = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_play_book_analyze = void Function(
+  ffi.Pointer<Play> arg0,
+  int arg1,
+);
+
+typedef _c_play_learn = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _dart_play_learn = void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _c_play_store = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _dart_play_store = void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _c_play_adjust_time = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Int32 arg1,
+  ffi.Int32 arg2,
+);
+
+typedef _dart_play_adjust_time = void Function(
+  ffi.Pointer<Play> arg0,
+  int arg1,
+  int arg2,
+);
+
+typedef _c_play_print = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _dart_play_print = void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<FILE> arg1,
+);
+
+typedef _c_play_force_init = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_play_force_init = void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_play_force_update = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _dart_play_force_update = void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _c_play_force_restore = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _dart_play_force_restore = void Function(
+  ffi.Pointer<Play> arg0,
+);
+
+typedef _c_play_force_go = ffi.Int32 Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _dart_play_force_go = int Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<Move> arg1,
+);
+
+typedef _c_play_symetry = ffi.Void Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Int32 arg1,
+);
+
+typedef _dart_play_symetry = void Function(
+  ffi.Pointer<Play> arg0,
+  int arg1,
+);
+
+typedef _typedefC_31 = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<Board>,
+);
+
+typedef _c_play_show_opening_name = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_31>> opening_get_name,
+);
+
+typedef _dart_play_show_opening_name = ffi.Pointer<ffi.Int8> Function(
+  ffi.Pointer<Play> arg0,
+  ffi.Pointer<ffi.NativeFunction<_typedefC_31>> opening_get_name,
+);
+
+typedef _c_ui_switch = ffi.Int32 Function(
+  ffi.Pointer<UI> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _dart_ui_switch = int Function(
+  ffi.Pointer<UI> arg0,
+  ffi.Pointer<ffi.Int8> arg1,
+);
+
+typedef _c_ui_event_init = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_event_init = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_event_peek = ffi.Int32 Function(
+  ffi.Pointer<UI> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg2,
+);
+
+typedef _dart_ui_event_peek = int Function(
+  ffi.Pointer<UI> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg2,
+);
+
+typedef _c_ui_event_wait = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg2,
+);
+
+typedef _dart_ui_event_wait = void Function(
+  ffi.Pointer<UI> arg0,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg2,
+);
+
+typedef _c_ui_event_exist = ffi.Int32 Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_event_exist = int Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_event_free = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_event_free = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_init_edax = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_init_edax = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_loop_edax = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_loop_edax = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_free_edax = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_free_edax = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_init_gtp = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_init_gtp = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_loop_gtp = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_loop_gtp = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_free_gtp = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_free_gtp = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_init_nboard = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_init_nboard = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_loop_nboard = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_loop_nboard = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_free_nboard = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_free_nboard = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_init_xboard = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_init_xboard = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_loop_xboard = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_loop_xboard = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_free_xboard = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_free_xboard = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_init_ggs = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_init_ggs = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_loop_ggs = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_loop_ggs = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_free_ggs = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_free_ggs = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_init_cassio = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_init_cassio = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_loop_cassio = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_loop_cassio = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_free_cassio = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_free_cassio = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_book_init = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_book_init = void Function(
+  ffi.Pointer<UI> arg0,
 );
 
 typedef _c_libedax_initialize = ffi.Void Function(
@@ -79192,10 +98209,46 @@ typedef _dart_libedax_observer = void Function(
   ffi.Pointer<Result> arg0,
 );
 
+typedef _c_ui_init_libedax = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_init_libedax = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_ui_free_libedax = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_ui_free_libedax = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_auto_go = ffi.Void Function();
+
+typedef _dart_auto_go = void Function();
+
+typedef _c_book_cmd_pre_process = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_book_cmd_pre_process = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _c_book_cmd_post_process = ffi.Void Function(
+  ffi.Pointer<UI> arg0,
+);
+
+typedef _dart_book_cmd_post_process = void Function(
+  ffi.Pointer<UI> arg0,
+);
+
 typedef _typedefC_1 = ffi.Void Function(
   ffi.Pointer<ffi.Void>,
 );
 
-typedef _typedefC_7 = ffi.Void Function(
+typedef _typedefC_11 = ffi.Void Function(
   ffi.Int32,
 );
