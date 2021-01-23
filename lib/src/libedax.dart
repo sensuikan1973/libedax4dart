@@ -132,6 +132,20 @@ class LibEdax {
     return result;
   }
 
+  /// Get a hint.
+  ///
+  /// __Call edaxHintPrepare before calling this function__. <br>
+  /// If there are no more hints, hint will be noMove.
+  /// __This function use Multi-PV search for analyze usecase. This may be slower than edaxHintNext__.
+  Hint edaxHintNextNoMultiPvDepth() {
+    final dst = allocate<c_hint.Hint>();
+    bindings.edaxHintNextNoMultiPvDepth(dst);
+    final h = dst.ref;
+    final result = Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
+    free(dst);
+    return result;
+  }
+
   /// Stop edax search process, and set mode 3.
   void edaxStop() => bindings.edaxStop();
 
