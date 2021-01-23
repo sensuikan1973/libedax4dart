@@ -5,6 +5,7 @@ void main() {
   test('initialize without args, and set option', () {
     const LibEdax()
       ..libedaxInitialize()
+      ..edaxInit()
       ..edaxVersion()
       ..edaxSetOption('level', '15')
       ..libedaxTerminate();
@@ -13,6 +14,7 @@ void main() {
   test('play "horse" opening', () {
     final edax = const LibEdax()
       ..libedaxInitialize()
+      ..edaxInit()
       ..edaxBookOn()
       ..edaxPlay('f5d6c5f4d3');
     expect(edax.edaxOpening(), 'horse');
@@ -23,6 +25,7 @@ void main() {
     const boardString = '-W----W--------------------WB------WBB-----W--------------------B';
     final edax = const LibEdax()
       ..libedaxInitialize()
+      ..edaxInit()
       ..edaxSetboard(boardString);
     expect(edax.edaxGetDisc(edax.white), 'W'.allMatches(boardString).length);
     expect(edax.edaxGetDisc(edax.black), 'B'.allMatches(boardString).length - 1);
@@ -33,6 +36,7 @@ void main() {
   test('check mobility count', () {
     final edax = const LibEdax()
       ..libedaxInitialize()
+      ..edaxInit()
       ..edaxBookRandomness(2)
       ..edaxGo();
     expect(edax.edaxGetMobilityCount(edax.white), 3);
