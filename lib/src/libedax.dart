@@ -204,4 +204,7 @@ class LibEdax {
 
   /// Get the legal move count.
   int edaxGetMobilityCount(int color) => bindings.edaxGetMobilityCount(color);
+
+  /// Count bit.
+  int popCount(int bit) => bindings.bitCount(bit);
 }

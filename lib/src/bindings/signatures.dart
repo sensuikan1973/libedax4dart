@@ -90,7 +90,7 @@ typedef edax_get_current_player_native_t = Int32 Function();
 typedef edax_get_disc_native_t = Int32 Function(Int32 color);
 typedef edax_get_mobility_count_native_t = Int32 Function(Int32 color);
 
-typedef bit_count_native_t = Int32 Function(Uint64 b); // TODO: implement if you need
+typedef bit_count_native_t = Int32 Function(Uint64 b);
 typedef first_bit_native_t = Int32 Function(Uint64 b); // TODO: implement if you need
 typedef last_bit_native_t = Int32 Function(Uint64 b); // TODO: implement if you need
 

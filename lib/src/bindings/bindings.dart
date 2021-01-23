@@ -49,6 +49,8 @@ class _LibEdaxBindings {
   late final int Function(int color) edaxGetDisc;
   late final int Function(int color) edaxGetMobilityCount;
 
+  late final int Function(int bit) bitCount;
+
   void _bindFunctions() {
     libedaxInitialize = _lookupNativeFunc<libedax_initialize_native_t>('libedax_initialize').asFunction();
     libedaxTerminate = _lookupNativeFunc<libedax_terminate_native_t>('libedax_terminate').asFunction();
@@ -80,6 +82,8 @@ class _LibEdaxBindings {
     edaxGetCurrentPlayer = _lookupNativeFunc<edax_get_current_player_native_t>('edax_get_current_player').asFunction();
     edaxGetDisc = _lookupNativeFunc<edax_get_disc_native_t>('edax_get_disc').asFunction();
     edaxGetMobilityCount = _lookupNativeFunc<edax_get_mobility_count_native_t>('edax_get_mobility_count').asFunction();
+
+    bitCount = _lookupNativeFunc<bit_count_native_t>('bit_count').asFunction();
   }
 
   Pointer<NativeFunction<T>> _lookupNativeFunc<T extends Function>(String symbolName) =>
