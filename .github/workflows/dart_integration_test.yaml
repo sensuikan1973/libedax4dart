@@ -31,7 +31,7 @@ jobs:
 
     - uses: dart-lang/setup-dart@v0.3
       with:
-        channel: dev
+        sdk: dev
 
     - name: cache libedax assets for test
       id: cache-libedax-assets
