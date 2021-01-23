@@ -112,6 +112,12 @@ class LibEdax {
     return result;
   }
 
+  /// Prepare to get hint.
+  ///
+  /// __Call edaxHintNext after calling this function__.
+  // TODO: implement exclude list if you need.
+  void edaxHintPrepare() => bindings.edaxHintPrepare(nullptr);
+
   /// Stop edax search process, and set mode 3.
   void edaxStop() => bindings.edaxStop();
 

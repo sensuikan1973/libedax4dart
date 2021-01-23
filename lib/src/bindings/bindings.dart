@@ -29,8 +29,9 @@ class _LibEdaxBindings {
   late final int Function() edaxVmirror;
   late final int Function(Pointer<Utf8> moves) edaxPlay;
   late final int Function() edaxGo;
-  late final int Function(int n, Pointer<HintList> hintlist) edaxHint;
+  late final int Function(int n, Pointer<HintList> hintList) edaxHint;
   late final int Function(Pointer<MoveList> moveList) edaxGetBookMove;
+  late final int Function(Pointer<MoveList> excludeList) edaxHintPrepare;
   late final int Function() edaxStop;
   late final int Function() edaxVersion;
   late final int Function(Pointer<Utf8> moves) edaxMove;
@@ -65,6 +66,7 @@ class _LibEdaxBindings {
     edaxGo = _lookupNativeFunc<edax_go_native_t>('edax_go').asFunction();
     edaxHint = _lookupNativeFunc<edax_hint_native_t>('edax_hint').asFunction();
     edaxGetBookMove = _lookupNativeFunc<edax_get_bookmove_native_t>('edax_get_bookmove').asFunction();
+    edaxHintPrepare = _lookupNativeFunc<edax_hint_prepare_native_t>('edax_hint_prepare').asFunction();
     edaxStop = _lookupNativeFunc<edax_stop_native_t>('edax_stop').asFunction();
     edaxVersion = _lookupNativeFunc<edax_version_native_t>('edax_version').asFunction();
     edaxMove = _lookupNativeFunc<edax_move_native_t>('edax_move').asFunction();

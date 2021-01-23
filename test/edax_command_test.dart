@@ -86,12 +86,21 @@ void main() {
   test('get hints', () {
     final edax = const LibEdax()
       ..libedaxInitialize()
-      ..edaxInit(); // create shallow book
+      ..edaxInit();
     final hintList = edax.edaxHint(2);
     expect(hintList.length, 2);
     expect(hintList.first.move, 19); // when normal book, firstly book has "D3" position.
     expect(hintList.first.score, 1); // at first, the score is +1.
     expect(hintList[1].score, lessThanOrEqualTo(1)); // second score is
+    edax.libedaxTerminate();
+  });
+
+  test('get hints one by one', () {
+    final edax = const LibEdax()
+      ..libedaxInitialize()
+      ..edaxInit()
+      ..edaxHintPrepare();
+    // ignore: cascade_invocations
     edax.libedaxTerminate();
   });
 }

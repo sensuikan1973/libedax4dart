@@ -37,7 +37,7 @@ typedef edax_hint_native_t = Int32 Function(Int32 n, Pointer<HintList> hintlist)
 typedef edax_get_bookmove_native_t = Int32 Function(Pointer<MoveList> move_list);
 typedef edax_get_bookmove_with_position_native_t = Int32 Function(
     Pointer<MoveList> move_list, Pointer<Position> position); // TODO: implement
-typedef edax_hint_prepare_native_t = Int32 Function(Pointer<MoveList> exclude_list); // TODO: implement if you need
+typedef edax_hint_prepare_native_t = Int32 Function(Pointer<MoveList> exclude_list);
 typedef edax_hint_next_native_t = Int32 Function(Pointer<Hint> hint); // TODO: implement if you need
 typedef edax_hint_next_no_multipv_depth_native_t = Int32 Function(Pointer<Hint> hint); // TODO: implement if you need
 typedef edax_stop_native_t = Int32 Function();
