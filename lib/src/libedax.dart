@@ -83,10 +83,17 @@ class LibEdax {
   void edaxGo() => bindings.edaxGo();
 
   /// Get book move list.
-  MoveList edaxGetBookMove() {
-    final moveList = allocate<MoveList>();
-    bindings.edaxGetBookMove(moveList);
-    return moveList.ref;
+  List<Move> edaxGetBookMove() {
+    final dst = allocate<MoveList>();
+    bindings.edaxGetBookMove(dst);
+    final moveList = dst.ref;
+    final result = <Move>[];
+    for (var k = 0; k < moveList.n_moves; k++) {
+      final m = moveList.move[k + 1];
+      result.add(Move(m.flipped, m.x, m.score, m.cost));
+    }
+    free(dst);
+    return result;
   }
 
   /// Stop edax search process, and set mode 3.

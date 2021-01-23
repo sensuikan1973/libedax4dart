@@ -65,17 +65,16 @@ void main() {
     edax.libedaxTerminate();
   });
 
-  // test('get book move', () {
-  //   final edax = const LibEdax()
-  //     ..libedaxInitialize()
-  //     ..edaxInit()
-  //     ..edaxBookNew(21, 24); // create shallow book
-  //   final moveList = edax.edaxGetBookMove();
-  //   expect(moveList.n_moves, 1);
-  //   expect(moveList.move.length, 34); // edax return move list with legal move max size "32 + 2".
-  //   expect(moveList.move[1].x, 19); // when book new, firstly book has "D3" position.
-  //   edax.libedaxTerminate();
-  // });
+  test('get book move', () {
+    final edax = const LibEdax()
+      ..libedaxInitialize()
+      ..edaxInit()
+      ..edaxBookNew(21, 24); // create shallow book
+    final moveList = edax.edaxGetBookMove();
+    expect(moveList.length, 1);
+    expect(moveList.first.x, 19); // when book new, firstly book has "D3" position.
+    edax.libedaxTerminate();
+  });
 }
 
 // Convert bitboard to String with radix 16 and 0 padding.
