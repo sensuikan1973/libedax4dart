@@ -4,7 +4,10 @@ import 'package:libedax4dart/libedax4dart.dart';
 import 'package:test/test.dart';
 
 void main() {
-  tearDown(() => sleep(const Duration(seconds: 2)));
+  tearDown(() {
+    final sleepSec = Platform.environment['sleepSec'];
+    if(sleepSec != null) sleep(Duration(seconds: int.parse(sleepSec)));
+  });
 
   test('initialize without args, and set option', () {
     const LibEdax()

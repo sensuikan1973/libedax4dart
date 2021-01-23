@@ -61,4 +61,4 @@ jobs:
     - name: install dependencies
       run: pub get
     - name: test
-      run: pub run test .
+      run: sleepSec=2 pub run test .
