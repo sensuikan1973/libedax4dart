@@ -4,7 +4,7 @@ import 'package:meta/meta.dart';
 import 'bindings/bindings.dart';
 import 'bindings/structs/board.dart' as c_board;
 import 'bindings/structs/move.dart' as c_move;
-import 'bindings/structs/move_list.dart';
+import 'bindings/structs/move_list.dart' as c_movelist;
 import 'board.dart';
 import 'move.dart';
 
@@ -84,7 +84,7 @@ class LibEdax {
 
   /// Get book move list.
   List<Move> edaxGetBookMove() {
-    final dst = allocate<MoveList>();
+    final dst = allocate<c_movelist.MoveList>();
     bindings.edaxGetBookMove(dst);
     final moveList = dst.ref;
     final result = <Move>[];
