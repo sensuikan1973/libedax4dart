@@ -28,7 +28,7 @@ TODO: describe
 ### commands
 #### format
 ```sh
-dartfmt ./ -w -l 120
+dart format --fix -l 120 .
 ```
 
 #### test
@@ -38,7 +38,7 @@ pub run test .
 
 #### analyze
 ```sh
-dartanalyzer .
+dart analyze .
 ```
 
 #### document
