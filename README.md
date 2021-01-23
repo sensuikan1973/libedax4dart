@@ -20,6 +20,7 @@ TODO: describe
 - java version: https://github.com/lavox/libedax4j
 
 ## Development
+[![dart-channel](https://img.shields.io/badge/Dart-dev-64B5F6.svg?logo=dart)](https://dart.dev/get-dart#release-channels)  
 ![dartfmt](https://github.com/sensuikan1973/libedax4dart/workflows/dartfmt/badge.svg)
 ![dartanalyzer](https://github.com/sensuikan1973/libedax4dart/workflows/dartanalyzer/badge.svg)
 ![unit_test](https://github.com/sensuikan1973/libedax4dart/workflows/unit_test/badge.svg)  
