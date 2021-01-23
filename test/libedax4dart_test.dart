@@ -62,15 +62,15 @@ void main() {
   });
 
   test('get book move', () {
-    const LibEdax()
+    final edax = const LibEdax()
       ..libedaxInitialize()
       ..edaxInit()
-      ..edaxBookNew(10, 20) // create shallow book
-      ..libedaxTerminate();
-    // TODO: run
-    // final moveList = edax.edaxGetBookMove();
-    // expect(moveList.n_moves, 1);
-    // expect(moveList.move.elementAt(0).ref.flipped, 1);
+      ..edaxBookNew(21, 24); // create shallow book
+    final moveList = edax.edaxGetBookMove();
+    expect(moveList.n_moves, 1);
+    expect(moveList.move.length, 34); // edax return move list with legal move max size "32 + 2".
+    expect(moveList.move[1].x, 19); // when book new, firstly book has "D3" position.
+    edax.libedaxTerminate();
   });
 }
 
