@@ -1,4 +1,4 @@
-name: dartdoc
+name: API Document
 
 on:
   push:
