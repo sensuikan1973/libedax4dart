@@ -1,4 +1,4 @@
-name: unit_test
+name: Dart Integration Test
 
 on:
   pull_request:
