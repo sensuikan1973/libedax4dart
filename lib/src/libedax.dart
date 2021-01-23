@@ -3,9 +3,11 @@ import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
 import 'bindings/bindings.dart';
 import 'bindings/structs/board.dart' as c_board;
+import 'bindings/structs/hint_list.dart' as c_hintlist;
 import 'bindings/structs/move.dart' as c_move;
 import 'bindings/structs/move_list.dart' as c_movelist;
 import 'board.dart';
+import 'hint.dart';
 import 'move.dart';
 
 @immutable
@@ -81,6 +83,20 @@ class LibEdax {
 
   /// Let edax move.
   void edaxGo() => bindings.edaxGo();
+
+  /// Get hint.
+  List<Hint> edaxHint(int n) {
+    final dst = allocate<c_hintlist.HintList>();
+    bindings.edaxHint(n, dst);
+    final hintList = dst.ref;
+    final result = <Hint>[];
+    for (var k = 0; k < hintList.n_hints; k++) {
+      final h = hintList.hint[k + 1];
+      result.add(Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move));
+    }
+    free(dst);
+    return result;
+  }
 
   /// Get book move list.
   List<Move> edaxGetBookMove() {

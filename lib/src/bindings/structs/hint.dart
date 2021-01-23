@@ -2,10 +2,7 @@ import 'dart:ffi' as ffi;
 
 import 'line.dart';
 
-/// Hint (for libEdax)
-///
-/// @author lavox
-/// @date 2018/1/17
+/// Hint
 class Hint extends ffi.Struct {
   /// < searched depth(except book moves)
   @ffi.Int32()

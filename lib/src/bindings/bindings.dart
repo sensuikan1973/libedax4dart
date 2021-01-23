@@ -3,6 +3,7 @@ import 'package:ffi/ffi.dart';
 import '../ffi/dylib_utils.dart';
 import 'signatures.dart';
 import 'structs/board.dart';
+import 'structs/hint_list.dart';
 import 'structs/move.dart';
 import 'structs/move_list.dart';
 
@@ -28,6 +29,7 @@ class _LibEdaxBindings {
   late final int Function() edaxVmirror;
   late final int Function(Pointer<Utf8> moves) edaxPlay;
   late final int Function() edaxGo;
+  late final int Function(int n, Pointer<HintList> hintlist) edaxHint;
   late final int Function(Pointer<MoveList> moveList) edaxGetBookMove;
   late final int Function() edaxStop;
   late final int Function() edaxVersion;
@@ -59,6 +61,7 @@ class _LibEdaxBindings {
     edaxVmirror = _lookupNativeFunc<edax_vmirror_native_t>('edax_vmirror').asFunction();
     edaxPlay = _lookupNativeFunc<edax_play_native_t>('edax_play').asFunction();
     edaxGo = _lookupNativeFunc<edax_go_native_t>('edax_go').asFunction();
+    edaxHint = _lookupNativeFunc<edax_hint_native_t>('edax_hint').asFunction();
     edaxGetBookMove = _lookupNativeFunc<edax_get_bookmove_native_t>('edax_get_bookmove').asFunction();
     edaxStop = _lookupNativeFunc<edax_stop_native_t>('edax_stop').asFunction();
     edaxVersion = _lookupNativeFunc<edax_version_native_t>('edax_version').asFunction();

@@ -2,10 +2,7 @@ import 'dart:ffi' as ffi;
 
 import 'hint.dart';
 
-/// Hint list (for libEdax)
-///
-/// @author lavox
-/// @date 2018/1/17
+/// Hint list
 class HintList extends ffi.Struct {
   external Hint _unique_hint_item_0;
   external Hint _unique_hint_item_1;

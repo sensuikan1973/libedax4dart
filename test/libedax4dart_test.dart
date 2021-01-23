@@ -72,7 +72,7 @@ void main() {
     edax.libedaxTerminate();
   });
 
-  test('get book move', () {
+  test('book new & get book move', () {
     final edax = const LibEdax()
       ..libedaxInitialize()
       ..edaxInit()
@@ -80,6 +80,18 @@ void main() {
     final moveList = edax.edaxGetBookMove();
     expect(moveList.length, 1);
     expect(moveList.first.x, 19); // when book new, firstly book has "D3" position.
+    edax.libedaxTerminate();
+  });
+
+  test('get hints', () {
+    final edax = const LibEdax()
+      ..libedaxInitialize()
+      ..edaxInit(); // create shallow book
+    final hintList = edax.edaxHint(2);
+    expect(hintList.length, 2);
+    expect(hintList.first.move, 19); // when normal book, firstly book has "D3" position.
+    expect(hintList.first.score, 1); // at first, the score is +1.
+    expect(hintList[1].score, lessThanOrEqualTo(1)); // second score is
     edax.libedaxTerminate();
   });
 }
