@@ -11,10 +11,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: google/dart:beta
+      image: google/dart:dev
     steps:
     - uses: actions/checkout@v2
     - name: install dependencies
       run: pub get
     - name: analyzer
-      run: dartanalyzer --fatal-infos --fatal-warnings .
+      run: dart analyze --fatal-infos --fatal-warnings .

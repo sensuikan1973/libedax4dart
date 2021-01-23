@@ -9,7 +9,7 @@ jobs:
   upload_dart_docs:
     runs-on: ubuntu-latest
     container:
-      image: google/dart:beta
+      image: google/dart:dev
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v2

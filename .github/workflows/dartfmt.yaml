@@ -11,8 +11,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: google/dart:beta
+      image: google/dart:dev
     steps:
     - uses: actions/checkout@v2
-    - name: dartfmt
-      run: dartfmt ./ -l 120 --set-exit-if-changed
+    - name: dart format
+      run: dart format ./ -l 120 --set-exit-if-changed
