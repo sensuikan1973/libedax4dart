@@ -2,6 +2,10 @@ import 'package:libedax4dart/libedax4dart.dart';
 import 'package:test/test.dart';
 
 void main() {
+  test('echo', () {
+    print('yeah'); // ignore: avoid_print
+  });
+
   test('func with no arg', () {
     const LibEdax()
       ..libedaxInitialize()
