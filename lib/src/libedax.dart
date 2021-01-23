@@ -2,9 +2,10 @@ import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
 import 'bindings/bindings.dart';
-import 'bindings/structs/board.dart';
+import 'bindings/structs/board.dart' as c_board;
 import 'bindings/structs/move.dart';
 import 'bindings/structs/move_list.dart';
+import 'board.dart';
 
 @immutable
 class LibEdax {
@@ -158,9 +159,9 @@ class LibEdax {
 
   /// Get the current board.
   Board edaxGetBoard() {
-    final board = allocate<Board>();
+    final board = allocate<c_board.Board>();
     bindings.edaxGetBoard(board);
-    return board.ref;
+    return Board(board.ref.player, board.ref.opponent);
   }
 
   /// Get the current player.
