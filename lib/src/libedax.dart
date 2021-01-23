@@ -153,21 +153,22 @@ class LibEdax {
 
   /// Get the last move.
   Move edaxGetLastMove() {
-    final move = allocate<c_move.Move>();
-    bindings.edaxGetLastMove(move);
-    return Move(
-      move.ref.flipped,
-      move.ref.x,
-      move.ref.score,
-      move.ref.cost,
-    );
+    final dst = allocate<c_move.Move>();
+    bindings.edaxGetLastMove(dst);
+    final move = dst.ref;
+    final result = Move(move.flipped, move.x, move.score, move.cost);
+    free(dst);
+    return result;
   }
 
   /// Get the current board.
   Board edaxGetBoard() {
-    final board = allocate<c_board.Board>();
-    bindings.edaxGetBoard(board);
-    return Board(board.ref.player, board.ref.opponent);
+    final dst = allocate<c_board.Board>();
+    bindings.edaxGetBoard(dst);
+    final board = dst.ref;
+    final result = Board(board.player, board.opponent);
+    free(dst);
+    return result;
   }
 
   /// Get the current player.
