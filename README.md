@@ -21,10 +21,8 @@ TODO: describe
 
 ## Development
 [![dart-channel](https://img.shields.io/badge/Dart-dev-64B5F6.svg?logo=dart)](https://dart.dev/get-dart#release-channels)  
-![dartfmt](https://github.com/sensuikan1973/libedax4dart/workflows/dartfmt/badge.svg)
-![dartanalyzer](https://github.com/sensuikan1973/libedax4dart/workflows/dartanalyzer/badge.svg)
-![unit_test](https://github.com/sensuikan1973/libedax4dart/workflows/unit_test/badge.svg)  
-![publish_libedax_assets](https://github.com/sensuikan1973/libedax4dart/workflows/publish_libedax_assets/badge.svg)
+![Dart CI](https://github.com/sensuikan1973/libedax4dart/workflows/Dart%20CI/badge.svg)
+![Dart Integration Test](https://github.com/sensuikan1973/libedax4dart/workflows/Dart%20Integration%20Test/badge.svg)
 
 ### commands
 #### format
