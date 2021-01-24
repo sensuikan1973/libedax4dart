@@ -12,7 +12,7 @@ jobs:
     env:
       cache_ver: 4
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 10
+    timeout-minutes: 60 # tmp for debug.
     strategy:
       fail-fast: false # tmp for debug.
       matrix:
@@ -75,3 +75,8 @@ jobs:
       run: |-
         cd example && pub get && cd ..
         dart example/example.dart
+
+    # DEBUG
+    - name: setup tmate session for debug
+      if: ${{ failure() }}
+      uses: mxschmitt/action-tmate@v3
