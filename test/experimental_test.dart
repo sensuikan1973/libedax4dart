@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:libedax4dart/libedax4dart.dart';
 import 'package:test/test.dart';
 
@@ -7,8 +9,9 @@ void main() {
   // pub run test . --tags exp
   group('experimental test for DEBUG', () {
     test('initialize without args', () {
-      LibEdax()
-        ..libedaxInitialize()
+      final edax = LibEdax()..libedaxInitialize();
+      sleep(const Duration(seconds: 2));
+      edax
         ..edaxInit()
         ..edaxVersion()
         ..libedaxTerminate();
