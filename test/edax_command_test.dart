@@ -26,8 +26,10 @@ void main() {
       final edax = const LibEdax()
         ..libedaxInitialize()
         ..edaxInit()
+        ..edaxBookOff()
         ..edaxBookOn()
-        ..edaxPlay('f5d6c5f4d3');
+        ..edaxPlay('f5d6c5f4d3')
+        ..edaxVmirror();
       expect(edax.edaxOpening(), 'horse');
       edax.libedaxTerminate();
     });
