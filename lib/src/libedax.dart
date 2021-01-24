@@ -224,6 +224,8 @@ class LibEdax {
   /// Show book.
   Position edaxBookShow() {
     final dstP = allocate<c_position.Position>();
+    _bindings.edaxBookShow(dstP);
+
     final pos = dstP.ref;
     final board = Board(pos.board[0].player, pos.board[0].opponent);
     final leaf = Link(pos.leaf.score, pos.leaf.move);
