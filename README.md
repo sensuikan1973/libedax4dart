@@ -1,6 +1,6 @@
 # libedax4dart
 dart wrapper for [libedax](https://github.com/lavox/edax-reversi/tree/libedax).  
-With using libedax4dart, you can execute functions equivalent to edax commands from dart.
+With using libedax4dart, you can execute functions equivalent to [edax](https://sensuikan1973.github.io/edax-reversi/) commands.
 
 ## Usage
 1. Add `libedax4dart` under `dependencies` in your `pubspec.yaml`.
@@ -18,7 +18,6 @@ With using libedax4dart, you can execute functions equivalent to edax commands f
 ## Document
 - **[libedax4dart](https://sensuikan1973.github.io/libedax4dart/)**
 - [libedax](https://lavox.github.io/libedax4py/html/libedax_8c.html): This may be old. In case of that, See [source](https://github.com/lavox/edax-reversi/tree/libedax).
-- [edax](https://sensuikan1973.github.io/edax-reversi/)
 
 ## Reference
 - python version: [libedax4py](https://github.com/lavox/libedax4py)
