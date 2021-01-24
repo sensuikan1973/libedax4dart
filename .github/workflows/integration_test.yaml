@@ -69,3 +69,6 @@ jobs:
     - uses: codecov/codecov-action@v1
       with:
         file: lcov.info
+
+    - name: run example
+      run: dart example/exmaple.dart
