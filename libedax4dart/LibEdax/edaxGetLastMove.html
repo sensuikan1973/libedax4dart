@@ -133,7 +133,7 @@
       <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">Move edaxGetLastMove() {
   final dst = allocate&lt;c_move.Move&gt;();
-  bindings.edaxGetLastMove(dst);
+  _bindings.edaxGetLastMove(dst);
   final move = dst.ref;
   final result = Move(move.flipped, move.x, move.score, move.cost);
   free(dst);
@@ -151,7 +151,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      0.0.1
+      0.2.0-alpha
   </span>
 
 </footer>

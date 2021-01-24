@@ -134,7 +134,7 @@
       <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">List&lt;Hint&gt; edaxHint(int n) {
   final dst = allocate&lt;c_hintlist.HintList&gt;();
-  bindings.edaxHint(n, dst);
+  _bindings.edaxHint(n, dst);
   final hintList = dst.ref;
   final result = &lt;Hint&gt;[];
   for (var k = 0; k &lt; hintList.n_hints; k++) {
@@ -156,7 +156,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      0.0.1
+      0.2.0-alpha
   </span>
 
 </footer>

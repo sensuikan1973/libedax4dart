@@ -133,7 +133,7 @@
       <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">List&lt;Move&gt; edaxGetBookMove() {
   final dst = allocate&lt;c_movelist.MoveList&gt;();
-  bindings.edaxGetBookMove(dst);
+  _bindings.edaxGetBookMove(dst);
   final moveList = dst.ref;
   final result = &lt;Move&gt;[];
   for (var k = 0; k &lt; moveList.n_moves; k++) {
@@ -155,7 +155,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      0.0.1
+      0.2.0-alpha
   </span>
 
 </footer>

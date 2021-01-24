@@ -133,7 +133,7 @@
       <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">String edaxGetMoves() {
   final moves = allocate&lt;Uint8&gt;(count: 80 * 2 + 1);
-  final result = Utf8.fromUtf8(bindings.edaxGetMoves(moves));
+  final result = Utf8.fromUtf8(_bindings.edaxGetMoves(moves));
   free(moves);
   return result;
 }</code></pre>
@@ -149,7 +149,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      0.0.1
+      0.2.0-alpha
   </span>
 
 </footer>

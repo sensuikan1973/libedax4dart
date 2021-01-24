@@ -61,9 +61,29 @@
 With using libedax4dart, you can execute functions equivalent to edax commands from dart.</p>
 <p>To use libedax4dart, you need libedax (C library).</p>
 <h2 id="usage">Usage</h2>
-<p>TODO: publish to <a href="https://pub.dev/">https://pub.dev/</a><br>
-TODO: describe<br>
-(you can download libedax assets for this repo release)</p>
+<ol>
+<li>Add <code>libedax4dart</code> under <code>dependencies</code> in your <code>pubspec.yaml</code>.</li>
+<li><strong>Add your libedax assets</strong> in your assets which you like.<br>
+<strong>If you don't have yours, you can download <a href="https://github.com/sensuikan1973/libedax4dart/releases/latest">here</a></strong>.</li>
+</ol>
+<ul>
+<li><code>Required</code> dynamic library
+<ul>
+<li>macos: <code>libedax.dylib</code></li>
+<li>windows: <code>libedax-x64.dll</code></li>
+<li>linux: <code>libedax.so</code></li>
+</ul>
+</li>
+<li><code>Optional</code>
+<ul>
+<li><code>book.dat</code></li>
+<li><code>eval.dat</code></li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>With Using <code>LibEdax(dllDir)</code>, you can run edax commands !</li>
+</ol>
 <h2 id="document">Document</h2>
 <ul>
 <li><strong><a href="https://sensuikan1973.github.io/libedax4dart/">libedax4dart</a></strong></li>
@@ -82,6 +102,9 @@ TODO: describe<br>
 <img src="https://github.com/sensuikan1973/libedax4dart/workflows/Integration%20Test/badge.svg" alt="Integration Test">
 <a href="https://codecov.io/gh/sensuikan1973/libedax4dart"><img src="https://codecov.io/gh/sensuikan1973/libedax4dart/branch/main/graph/badge.svg?token=LdDfCMnDhz" alt="codecov"></a></p>
 <h3 id="commands">commands</h3>
+<h4 id="run-example">run example</h4>
+<pre class="language-sh"><code class="language-sh">dart example/example.dart
+</code></pre>
 <h4 id="format">format</h4>
 <pre class="language-sh"><code class="language-sh">dart format --fix -l 120 .
 </code></pre>
@@ -134,7 +157,7 @@ TODO: describe<br>
 <footer>
   <span class="no-break">
     libedax4dart
-      0.0.1
+      0.2.0-alpha
   </span>
 
 </footer>

@@ -135,7 +135,7 @@ If there are no more hints, hint will be noMove.</p>
       <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">Hint edaxHintNext() {
   final dst = allocate&lt;c_hint.Hint&gt;();
-  bindings.edaxHintNext(dst);
+  _bindings.edaxHintNext(dst);
   final h = dst.ref;
   final result = Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
   free(dst);
@@ -153,7 +153,7 @@ If there are no more hints, hint will be noMove.</p>
 <footer>
   <span class="no-break">
     libedax4dart
-      0.0.1
+      0.2.0-alpha
   </span>
 
 </footer>

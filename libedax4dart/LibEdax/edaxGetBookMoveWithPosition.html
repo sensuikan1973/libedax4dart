@@ -134,7 +134,7 @@
       <pre class="language-dart"><code class="language-dart">MoveListWithPosition edaxGetBookMoveWithPosition() {
   final dstM = allocate&lt;c_movelist.MoveList&gt;();
   final dstP = allocate&lt;c_position.Position&gt;();
-  bindings.edaxGetBookMoveWithPosition(dstM, dstP);
+  _bindings.edaxGetBookMoveWithPosition(dstM, dstP);
 
   final moveList = dstM.ref;
   final resultMoveList = &lt;Move&gt;[];
@@ -179,7 +179,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      0.0.1
+      0.2.0-alpha
   </span>
 
 </footer>
