@@ -15,18 +15,6 @@ import 'move.dart';
 class LibEdax {
   const LibEdax();
 
-  /// BLACK turn.
-  int get black => 0;
-
-  /// WHITE turn.
-  int get white => 1;
-
-  /// PASS move.
-  int get pass => 64;
-
-  /// No move.
-  int get noMove => 65;
-
   /// Initialize libedax.
   ///
   /// Be careful that the first argument in [args] is ignored.

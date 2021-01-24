@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:libedax4dart/libedax4dart.dart';
+import 'package:libedax4dart/src/bindings/constants.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -34,9 +35,9 @@ void main() {
       ..libedaxInitialize()
       ..edaxInit()
       ..edaxSetboard(boardString);
-    expect(edax.edaxGetDisc(edax.white), 'W'.allMatches(boardString).length);
-    expect(edax.edaxGetDisc(edax.black), 'B'.allMatches(boardString).length - 1);
-    expect(edax.edaxGetCurrentPlayer(), edax.black);
+    expect(edax.edaxGetDisc(TurnColor.white), 'W'.allMatches(boardString).length);
+    expect(edax.edaxGetDisc(TurnColor.black), 'B'.allMatches(boardString).length - 1);
+    expect(edax.edaxGetCurrentPlayer(), TurnColor.black);
     edax.libedaxTerminate();
   });
 
@@ -46,7 +47,7 @@ void main() {
       ..edaxInit()
       ..edaxBookRandomness(2)
       ..edaxGo();
-    expect(edax.edaxGetMobilityCount(edax.white), 3);
+    expect(edax.edaxGetMobilityCount(TurnColor.white), 3);
     edax.libedaxTerminate();
   });
 
@@ -58,12 +59,12 @@ void main() {
       ..edaxMode(3) // human vs human
       ..edaxMove('f5');
     expect(edax.edaxCanMove(), true);
-    expect(edax.edaxGetCurrentPlayer(), edax.white);
+    expect(edax.edaxGetCurrentPlayer(), TurnColor.white);
     expect(edax.edaxIsGameOver(), false);
     edax.edaxPlay('d6C5F4e3f6g5e6e7'); // famous perfect game. BLACK win.
     expect(edax.edaxIsGameOver(), true);
-    expect(edax.edaxGetDisc(edax.white), 0);
-    expect(edax.edaxGetDisc(edax.black), 13);
+    expect(edax.edaxGetDisc(TurnColor.white), 0);
+    expect(edax.edaxGetDisc(TurnColor.black), 13);
     expect(_radix16board(edax.edaxGetBoard().player), List<String>.filled(16, '0').join()); // white bitboard
     expect(_radix16board(edax.edaxGetBoard().opponent), '0010387c38100000'); // black bitboard
     expect(edax.edaxCanMove(), false);
@@ -111,7 +112,7 @@ void main() {
     expect(hint3.move, 29); // f4. it's because f6 is the lowest score.
     expect(hint3.score, lessThan(0)); // mouse opening. BLACK has an advantage.
     final hint4 = edax.edaxHintNext();
-    expect(hint4.move, edax.noMove);
+    expect(hint4.move, MoveMark.noMove);
     edax.libedaxTerminate();
   });
 }
