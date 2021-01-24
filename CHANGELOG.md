@@ -1,3 +1,6 @@
+# 0.2.1-dev.2
+- add `edaxBookShow` command.
+
 # 0.2.1-dev.1
 - improve [dart document](https://sensuikan1973.github.io/libedax4dart/)
 - fix `Hint.score2String`
