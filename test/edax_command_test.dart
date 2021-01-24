@@ -88,14 +88,13 @@ void main() {
     });
   });
 
-  group('with fixed book', () {
+  group('with fixed book. See: resources/test_book_show.txt', () {
     test('get book move with position', () {
       const initParams = ['', '-book-file', testBookFile];
       final edax = const LibEdax()
         ..libedaxInitialize(initParams)
         ..edaxInit();
       final result = edax.edaxGetBookMoveWithPosition();
-      // See: resources/test_book_show.txt
       expect(result.position.nLines, 264 + 16);
       expect(result.position.score.value, 0);
       expect(result.position.score.lower, -2);
@@ -125,7 +124,6 @@ void main() {
         ..libedaxInitialize(initParams)
         ..edaxInit();
       final hintList = edax.edaxHint(2);
-      // See: resources/test_book_show.txt
       expect(hintList.length, 2);
       expect(hintList.first.move, 19);
       expect(hintList.first.score, 0);
@@ -158,12 +156,16 @@ void main() {
       const initParams = ['', '-book-file', testBookFile];
       final edax = const LibEdax()
         ..libedaxInitialize(initParams)
-        ..edaxInit()
-        ..edaxBookNew(21, 24); // create shallow book
+        ..edaxInit();
       final position = edax.edaxBookShow();
-      expect(position.nLink, 0); // at first, book has no links.
+      expect(position.nLines, 264 + 16);
+      expect(position.score.value, 0);
+      expect(position.score.lower, -2);
+      expect(position.score.upper, 2);
+      expect(position.board.player,
+          34628173824); // 0000 0000 0000 0000 0000 0000 0000 1000 0001 0000 0000 0000 0000 0000 0000 0000
       edax.libedaxTerminate();
-    }, skip: 'unstable. TODO: investigate');
+    }, skip: 'unstable. TODO: investigae');
   });
 }
 
