@@ -1,4 +1,5 @@
 import 'package:meta/meta.dart';
+import 'bindings/constants.dart';
 
 @immutable
 class Move {
@@ -13,4 +14,8 @@ class Move {
   final int score;
 
   final int cost;
+
+  bool get isNoMove => x == MoveMark.noMove;
+
+  bool get isPass => x == MoveMark.pass;
 }

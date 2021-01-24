@@ -3,6 +3,8 @@ import 'package:ffi/ffi.dart';
 import '../ffi/dylib_utils.dart';
 import 'signatures.dart';
 import 'structs/board.dart';
+import 'structs/hint.dart';
+import 'structs/hint_list.dart';
 import 'structs/move.dart';
 import 'structs/move_list.dart';
 
@@ -28,7 +30,11 @@ class _LibEdaxBindings {
   late final int Function() edaxVmirror;
   late final int Function(Pointer<Utf8> moves) edaxPlay;
   late final int Function() edaxGo;
+  late final int Function(int n, Pointer<HintList> hintList) edaxHint;
   late final int Function(Pointer<MoveList> moveList) edaxGetBookMove;
+  late final int Function(Pointer<MoveList> excludeList) edaxHintPrepare;
+  late final int Function(Pointer<Hint> hint) edaxHintNext;
+  late final int Function(Pointer<Hint> hint) edaxHintNextNoMultiPvDepth;
   late final int Function() edaxStop;
   late final int Function() edaxVersion;
   late final int Function(Pointer<Utf8> moves) edaxMove;
@@ -47,6 +53,8 @@ class _LibEdaxBindings {
   late final int Function(int color) edaxGetDisc;
   late final int Function(int color) edaxGetMobilityCount;
 
+  late final int Function(int bit) bitCount;
+
   void _bindFunctions() {
     libedaxInitialize = _lookupNativeFunc<libedax_initialize_native_t>('libedax_initialize').asFunction();
     libedaxTerminate = _lookupNativeFunc<libedax_terminate_native_t>('libedax_terminate').asFunction();
@@ -59,7 +67,12 @@ class _LibEdaxBindings {
     edaxVmirror = _lookupNativeFunc<edax_vmirror_native_t>('edax_vmirror').asFunction();
     edaxPlay = _lookupNativeFunc<edax_play_native_t>('edax_play').asFunction();
     edaxGo = _lookupNativeFunc<edax_go_native_t>('edax_go').asFunction();
+    edaxHint = _lookupNativeFunc<edax_hint_native_t>('edax_hint').asFunction();
+    edaxHintNextNoMultiPvDepth =
+        _lookupNativeFunc<edax_hint_next_no_multipv_depth_native_t>('edax_hint_next_no_multipv_depth').asFunction();
     edaxGetBookMove = _lookupNativeFunc<edax_get_bookmove_native_t>('edax_get_bookmove').asFunction();
+    edaxHintPrepare = _lookupNativeFunc<edax_hint_prepare_native_t>('edax_hint_prepare').asFunction();
+    edaxHintNext = _lookupNativeFunc<edax_hint_next_native_t>('edax_hint_next').asFunction();
     edaxStop = _lookupNativeFunc<edax_stop_native_t>('edax_stop').asFunction();
     edaxVersion = _lookupNativeFunc<edax_version_native_t>('edax_version').asFunction();
     edaxMove = _lookupNativeFunc<edax_move_native_t>('edax_move').asFunction();
@@ -77,6 +90,8 @@ class _LibEdaxBindings {
     edaxGetCurrentPlayer = _lookupNativeFunc<edax_get_current_player_native_t>('edax_get_current_player').asFunction();
     edaxGetDisc = _lookupNativeFunc<edax_get_disc_native_t>('edax_get_disc').asFunction();
     edaxGetMobilityCount = _lookupNativeFunc<edax_get_mobility_count_native_t>('edax_get_mobility_count').asFunction();
+
+    bitCount = _lookupNativeFunc<bit_count_native_t>('bit_count').asFunction();
   }
 
   Pointer<NativeFunction<T>> _lookupNativeFunc<T extends Function>(String symbolName) =>

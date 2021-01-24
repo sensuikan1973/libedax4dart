@@ -4,5 +4,8 @@ analyzer:
   exclude:
     # array workaround は ffigen で生成したコードをパクってきてるので ignore
     # TODO: ffigen 導入して、binding 周りを yaml に追いやりたい
-    # See: https://github.com/sensuikan1973/libedax4dart/pull/10
+    # See: https://github.com/sensuikan1973/libedax4dart/pull/10#issuecomment-766087964
+    - lib/src/bindings/structs/hint.dart
+    - lib/src/bindings/structs/hint_list.dart
+    - lib/src/bindings/structs/line.dart
     - lib/src/bindings/structs/move_list.dart

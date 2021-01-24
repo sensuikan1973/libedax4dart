@@ -3,26 +3,17 @@ import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
 import 'bindings/bindings.dart';
 import 'bindings/structs/board.dart' as c_board;
+import 'bindings/structs/hint.dart' as c_hint;
+import 'bindings/structs/hint_list.dart' as c_hintlist;
 import 'bindings/structs/move.dart' as c_move;
 import 'bindings/structs/move_list.dart' as c_movelist;
 import 'board.dart';
+import 'hint.dart';
 import 'move.dart';
 
 @immutable
 class LibEdax {
   const LibEdax();
-
-  /// BLACK turn.
-  int get black => 0;
-
-  /// WHITE turn.
-  int get white => 1;
-
-  /// PASS move.
-  int get pass => 64;
-
-  /// No move.
-  int get noMove => 65;
 
   /// Initialize libedax.
   ///
@@ -82,6 +73,20 @@ class LibEdax {
   /// Let edax move.
   void edaxGo() => bindings.edaxGo();
 
+  /// Get hint.
+  List<Hint> edaxHint(int n) {
+    final dst = allocate<c_hintlist.HintList>();
+    bindings.edaxHint(n, dst);
+    final hintList = dst.ref;
+    final result = <Hint>[];
+    for (var k = 0; k < hintList.n_hints; k++) {
+      final h = hintList.hint[k + 1];
+      result.add(Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move));
+    }
+    free(dst);
+    return result;
+  }
+
   /// Get book move list.
   List<Move> edaxGetBookMove() {
     final dst = allocate<c_movelist.MoveList>();
@@ -92,6 +97,39 @@ class LibEdax {
       final m = moveList.move[k + 1];
       result.add(Move(m.flipped, m.x, m.score, m.cost));
     }
+    free(dst);
+    return result;
+  }
+
+  /// Prepare to get hint.
+  ///
+  /// __Call edaxHintNext after calling this function__.
+  // TODO: implement exclude list if you need.
+  void edaxHintPrepare() => bindings.edaxHintPrepare(nullptr);
+
+  /// Get a hint.
+  ///
+  /// __Call edaxHintPrepare before calling this function__. <br>
+  /// If there are no more hints, hint will be noMove.
+  Hint edaxHintNext() {
+    final dst = allocate<c_hint.Hint>();
+    bindings.edaxHintNext(dst);
+    final h = dst.ref;
+    final result = Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
+    free(dst);
+    return result;
+  }
+
+  /// Get a hint.
+  ///
+  /// __Call edaxHintPrepare before calling this function__. <br>
+  /// If there are no more hints, hint will be noMove.
+  /// __This function use Multi-PV search for analyze usecase. This may be slower than edaxHintNext__.
+  Hint edaxHintNextNoMultiPvDepth() {
+    final dst = allocate<c_hint.Hint>();
+    bindings.edaxHintNextNoMultiPvDepth(dst);
+    final h = dst.ref;
+    final result = Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
     free(dst);
     return result;
   }
@@ -188,4 +226,7 @@ class LibEdax {
 
   /// Get the legal move count.
   int edaxGetMobilityCount(int color) => bindings.edaxGetMobilityCount(color);
+
+  /// Count bit.
+  int popCount(int bit) => bindings.bitCount(bit);
 }

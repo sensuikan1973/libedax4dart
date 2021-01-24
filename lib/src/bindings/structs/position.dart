@@ -57,21 +57,21 @@ class Position extends Struct {
 
   Pointer<Utf8>? todo;
 
-  Pointer<Score>? score;
+  Pointer<_Score>? score;
 }
 
-class Score extends Struct {
-  factory Score.allocate(int value, int lower, int upper) => allocate<Score>().ref
+class _Score extends Struct {
+  factory _Score.allocate(int value, int lower, int upper) => allocate<_Score>().ref
     ..value = value
     ..lower = lower
     ..upper = upper;
 
   @Int16() // C short is 16 bit
-  int? value;
+  external int value;
 
   @Int16() // C short is 16 bit
-  int? lower;
+  external int lower;
 
   @Int16() // C short is 16 bit
-  int? upper;
+  external int upper;
 }
