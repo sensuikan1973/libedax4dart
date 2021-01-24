@@ -31,3 +31,7 @@ data/
 *.dylib
 *.so
 *.dll
+
+# coverage
+coverage/
+lcov
