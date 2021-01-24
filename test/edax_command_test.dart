@@ -14,7 +14,7 @@ void main() {
 
   group('with a new book (follow default: data/book.dat)', () {
     test('initialize without args, and set option', () {
-      const LibEdax()
+      LibEdax()
         ..libedaxInitialize()
         ..edaxInit()
         ..edaxVersion()
@@ -23,7 +23,7 @@ void main() {
     });
 
     test('play "horse" opening', () {
-      final edax = const LibEdax()
+      final edax = LibEdax()
         ..libedaxInitialize()
         ..edaxInit()
         ..edaxBookOff()
@@ -36,7 +36,7 @@ void main() {
 
     test('setBoard', () {
       const boardString = '-W----W--------------------WB------WBB-----W--------------------B';
-      final edax = const LibEdax()
+      final edax = LibEdax()
         ..libedaxInitialize()
         ..edaxInit()
         ..edaxSetboard(boardString);
@@ -47,7 +47,7 @@ void main() {
     });
 
     test('check mobility count', () {
-      final edax = const LibEdax()
+      final edax = LibEdax()
         ..libedaxInitialize()
         ..edaxInit()
         ..edaxBookRandomness(2)
@@ -58,7 +58,7 @@ void main() {
 
     test('play a short game until game over', () {
       const initParams = ['', '-eval-file', 'data/eval.dat', '-book-file', 'data/book.dat', '-level', '16'];
-      final edax = const LibEdax()
+      final edax = LibEdax()
         ..libedaxInitialize(initParams)
         ..edaxInit()
         ..edaxMode(3) // human vs human
@@ -84,7 +84,7 @@ void main() {
     });
 
     test('book new & get book move', () {
-      final edax = const LibEdax()
+      final edax = LibEdax()
         ..libedaxInitialize()
         ..edaxInit()
         ..edaxBookNew(21, 24); // create shallow book
@@ -98,7 +98,7 @@ void main() {
   group('with fixed book. See: resources/test_book_show.txt', () {
     test('get book move with position', () {
       const initParams = ['', '-book-file', testBookFile];
-      final edax = const LibEdax()
+      final edax = LibEdax()
         ..libedaxInitialize(initParams)
         ..edaxInit();
       final result = edax.edaxGetBookMoveWithPosition();
@@ -127,7 +127,7 @@ void main() {
 
     test('get hints', () {
       const initParams = ['', '-book-file', testBookFile];
-      final edax = const LibEdax()
+      final edax = LibEdax()
         ..libedaxInitialize(initParams)
         ..edaxInit();
       final hintList = edax.edaxHint(2);
@@ -140,7 +140,7 @@ void main() {
 
     test('get hints one by one', () {
       const initParams = ['', '-book-file', testBookFile];
-      final edax = const LibEdax()
+      final edax = LibEdax()
         ..libedaxInitialize(initParams)
         ..edaxInit()
         ..edaxPlay('f5')
@@ -161,7 +161,7 @@ void main() {
 
     test('book show', () {
       const initParams = ['', '-book-file', testBookFile];
-      final edax = const LibEdax()
+      final edax = LibEdax()
         ..libedaxInitialize(initParams)
         ..edaxInit();
       final position = edax.edaxBookShow();

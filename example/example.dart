@@ -5,7 +5,7 @@ import 'package:libedax4dart/libedax4dart.dart';
 void main() {
   // initialize
   const initParams = ['', '-book-file', './resources/test_book.dat', '-level', '16'];
-  final edax = const LibEdax()
+  final edax = LibEdax()
     ..libedaxInitialize(initParams)
     ..edaxInit();
   stdout.writeln(edax.edaxGetBoard().prettyString(edax.edaxGetCurrentPlayer()));

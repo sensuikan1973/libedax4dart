@@ -9,14 +9,14 @@ import 'structs/move.dart';
 import 'structs/move_list.dart';
 import 'structs/position.dart';
 
-_LibEdaxBindings? _cachedBindings;
-_LibEdaxBindings get bindings => _cachedBindings ??= _LibEdaxBindings();
-
-class _LibEdaxBindings {
-  _LibEdaxBindings() {
-    libedax = dlopenPlatformSpecific();
+class LibEdaxBindings {
+  factory LibEdaxBindings([String dllDir = '']) => _instance ??= LibEdaxBindings._(dllDir);
+  LibEdaxBindings._([String dllDir = '']) {
+    libedax = dlopenPlatformSpecific(dir: dllDir);
     _bindFunctions();
   }
+
+  static LibEdaxBindings? _instance;
 
   late final DynamicLibrary libedax;
 

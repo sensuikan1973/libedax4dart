@@ -5,9 +5,17 @@ With using libedax4dart, you can execute functions equivalent to edax commands f
 To use libedax4dart, you need libedax (C library).
 
 ## Usage
-TODO: publish to https://pub.dev/  
-TODO: describe  
-(you can download libedax assets for this repo release)
+1. Add `libedax4dart` under `dependencies` in your `pubspec.yaml`.
+2. **Add your libedax assets** in your assets which you like.
+  - [Required] dynamic library
+    - macos: `libedax.dylib`
+    - windows: `libedax-x64.dll`
+    - linux: `libedax.so`
+  - [Optional]
+    - `book.dat`
+    - `eval.dat`
+If you don't have libedax bin, you can download [here](TODO: release link).
+3. With Using `LibEdax`, you can run edax commands.
 
 ## Document
 - **[libedax4dart](https://sensuikan1973.github.io/libedax4dart/)**
