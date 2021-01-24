@@ -1,4 +1,5 @@
 import 'package:meta/meta.dart';
+import 'utli.dart';
 
 @immutable
 class Hint {
@@ -32,4 +33,12 @@ class Hint {
 
   /// book move origin.
   final int bookMove;
+
+  bool get isBookMove => bookMove == 1;
+
+  /// e.g. f5
+  String get moveString => move2String(move);
+
+  /// e.g. +10
+  String get scoreString => score2String(move);
 }

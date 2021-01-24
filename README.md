@@ -27,6 +27,12 @@ TODO: describe
 [![codecov](https://codecov.io/gh/sensuikan1973/libedax4dart/branch/main/graph/badge.svg?token=LdDfCMnDhz)](https://codecov.io/gh/sensuikan1973/libedax4dart)
 
 ### commands
+
+#### run example
+```sh
+dart example/example.dart
+```
+
 #### format
 ```sh
 dart format --fix -l 120 .

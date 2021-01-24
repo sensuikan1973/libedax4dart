@@ -1,5 +1,6 @@
 import 'package:meta/meta.dart';
 import 'constants.dart';
+import 'utli.dart';
 
 @immutable
 class Move {
@@ -18,4 +19,10 @@ class Move {
   bool get isNoMove => x == MoveMark.noMove;
 
   bool get isPass => x == MoveMark.pass;
+
+  /// e.g. f5
+  String get moveString => move2String(x);
+
+  /// e.g. +10
+  String get scoreString => score2String(score);
 }
