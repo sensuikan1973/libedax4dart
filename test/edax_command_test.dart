@@ -158,6 +158,10 @@ void main() {
       expect(hint3.score, lessThan(0)); // mouse opening. BLACK has an advantage.
       final hint4 = edax.edaxHintNext();
       expect(hint4.move, MoveMark.noMove);
+      expect(hint4.moveString, 'no move');
+
+      edax.edaxMove('f4');
+      expect(edax.edaxHint(1).first.scoreString, '+4');
       edax.libedaxTerminate();
     });
 
