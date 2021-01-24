@@ -1,5 +1,5 @@
 import 'package:meta/meta.dart';
-import 'utli.dart';
+import 'util.dart';
 
 @immutable
 class Hint {

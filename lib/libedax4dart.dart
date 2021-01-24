@@ -10,3 +10,4 @@ export 'src/move.dart';
 export 'src/move_list_with_position.dart';
 export 'src/position.dart';
 export 'src/score.dart';
+export 'src/util.dart';

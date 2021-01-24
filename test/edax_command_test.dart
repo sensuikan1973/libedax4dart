@@ -73,10 +73,10 @@ void main() {
       final board = edax.edaxGetBoard();
       expect(_radix16board(board.player), List<String>.filled(16, '0').join()); // white bitboard
       expect(_radix16board(board.opponent), '0010387c38100000'); // black bitboard
-      print(board.prettyString(edax.edaxGetCurrentPlayer())); // ignore: avoid_print
+      stdout.writeln(board.prettyString(edax.edaxGetCurrentPlayer()));
       expect(edax.edaxCanMove(), false);
       final lastMove = edax.edaxGetLastMove();
-      expect(lastMove.x, 52); // e7 is 52th. (a1 is 0th)
+      expect(lastMove.moveString, 'e7');
       expect(lastMove.isNoMove, false);
       expect(lastMove.isPass, false);
       expect(edax.edaxGetMoves(), 'F5d6C5f4E3f6G5e6E7'); // edax return moves with upper scale B move and lower scale W.
@@ -90,7 +90,7 @@ void main() {
         ..edaxBookNew(21, 24); // create shallow book
       final moveList = edax.edaxGetBookMove();
       expect(moveList.length, 1);
-      expect(moveList.first.x, 19); // when book new, firstly book has "D3" position.
+      expect(moveList.first.moveString, 'd3');
       edax.libedaxTerminate();
     });
   });
@@ -108,8 +108,8 @@ void main() {
       expect(result.position.score.upper, 2);
       expect(result.moveList.length, 4);
       expect(result.moveList.where((move) => move.score == 0).length, 4); // all moves are +0
-      expect(result.moveList.first.x, 19); // D3
-      expect(result.moveList[1].x, 26); // C4
+      expect(result.moveList.first.moveString, 'd3'); // D3
+      expect(result.moveList[1].moveString, 'c4'); // C4
       expect(result.position.board.player,
           34628173824); // 0000 0000 0000 0000 0000 0000 0000 1000 0001 0000 0000 0000 0000 0000 0000 0000
       edax.edaxMove('f5');
@@ -118,10 +118,10 @@ void main() {
       expect(resultF5.position.score.lower, -2);
       expect(resultF5.position.score.upper, 2);
       expect(resultF5.moveList.length, 2);
-      expect(resultF5.moveList.first.x, 45); // F6
-      expect(resultF5.moveList.first.score, -1);
-      expect(resultF5.moveList[1].x, 43); // D6
-      expect(resultF5.moveList[1].score, 0);
+      expect(resultF5.moveList.first.moveString, 'f6');
+      expect(resultF5.moveList.first.scoreString, '-1');
+      expect(resultF5.moveList[1].moveString, 'd6');
+      expect(resultF5.moveList[1].scoreString, '0');
       edax.libedaxTerminate();
     });
 
@@ -132,7 +132,7 @@ void main() {
         ..edaxInit();
       final hintList = edax.edaxHint(2);
       expect(hintList.length, 2);
-      expect(hintList.first.move, 19);
+      expect(hintList.first.moveString, 'd3');
       expect(hintList.first.score, 0);
       expect(hintList[1].score, lessThanOrEqualTo(1));
       edax.libedaxTerminate();
@@ -145,14 +145,14 @@ void main() {
         ..edaxInit()
         ..edaxPlay('f5')
         ..edaxHintPrepare();
-      final moveList = [29 /*f4*/, 43 /*d6*/, 45 /*f6*/];
+      final moveList = ['f4', 'd6', 'f6'];
       final hint1 = edax.edaxHintNext();
-      expect(hint1.move, isIn(moveList));
+      expect(hint1.moveString, isIn(moveList));
       final hint2 = edax.edaxHintNext();
-      expect(hint2.move, isIn(moveList));
+      expect(hint2.moveString, isIn(moveList));
       final hint3 = edax.edaxHintNext();
-      expect(hint3.move, isIn(moveList));
-      expect(hint3.move, 29); // f4. it's because f6 is the lowest score.
+      expect(hint3.moveString, isIn(moveList));
+      expect(hint3.moveString, 'f4'); // f4. it's because f4 is the lowest score.
       expect(hint3.score, lessThan(0)); // mouse opening. BLACK has an advantage.
       final hint4 = edax.edaxHintNext();
       expect(hint4.move, MoveMark.noMove);
