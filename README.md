@@ -6,7 +6,8 @@ To use libedax4dart, you need libedax (C library).
 
 ## Usage
 1. Add `libedax4dart` under `dependencies` in your `pubspec.yaml`.
-2. **Add your libedax assets** in your assets which you like.
+2. **Add your libedax assets** in your assets which you like.  
+   **If you don't have yours, you can download [here](https://github.com/sensuikan1973/libedax4dart/releases/latest)**.
   - [Required] dynamic library
     - macos: `libedax.dylib`
     - windows: `libedax-x64.dll`
@@ -14,8 +15,7 @@ To use libedax4dart, you need libedax (C library).
   - [Optional]
     - `book.dat`
     - `eval.dat`
-If you don't have libedax bin, you can download [here](TODO: release link).
-3. With Using `LibEdax`, you can run edax commands.
+3. With Using `LibEdax(dllDir)`, you can run edax commands !
 
 ## Document
 - **[libedax4dart](https://sensuikan1973.github.io/libedax4dart/)**
