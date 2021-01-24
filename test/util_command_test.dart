@@ -1,14 +1,7 @@
-import 'dart:io';
-
 import 'package:libedax4dart/libedax4dart.dart';
 import 'package:test/test.dart';
 
 void main() {
-  tearDown(() {
-    final sleepSec = Platform.environment['sleepSec'];
-    if (sleepSec != null) sleep(Duration(seconds: int.parse(sleepSec)));
-  });
-
   test('popCount', () {
     const edax = LibEdax();
     expect(edax.popCount(7), 3); // 0000 0111

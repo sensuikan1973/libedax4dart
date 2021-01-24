@@ -1,0 +1,67 @@
+# NOTE: this info is used in edax_command_test.
+
+>book show
+
+  A B C D E F G H
+1 - - - - - - - - 1
+2 - - - - - - - - 2 * to move
+3 - - - . - - - - 3
+4 - - . O * - - - 4 *: discs =  2    moves =  4
+5 - - - * O . - - 5 O: discs =  2    moves =  4
+6 - - - - . - - - 6  empties = 60      ply =  1
+7 - - - - - - - - 7
+8 - - - - - - - - 8
+  A B C D E F G H
+
+Level: 21
+Best score: +0 [-2, +2]
+Moves: [D3:+0] [C4:+0] [F5:+0] [E6:+0]
+Lines: 16 full games with 50.00% win, 50.00% draw, 0.00% loss
+       264 incomplete lines.
+
+
+  A B C D E F G H            BLACK            A  B  C  D  E  F  G  H
+1 - - - - - - - - 1         0:00.000       1 |  |  |  |  |  |  |  |  | 1
+2 - - - - - - - - 2    2 discs   4 moves   2 |  |  |  |  |  |  |  |  | 2
+3 - - - . - - - - 3                        3 |  |  |  |  |  |  |  |  | 3
+4 - - . O * - - - 4  ply  1 (60 empties)   4 |  |  |  |()|##|  |  |  | 4
+5 - - - * O . - - 5    Black's turn (*)    5 |  |  |  |##|()|  |  |  | 5
+6 - - - - . - - - 6                        6 |  |  |  |  |  |  |  |  | 6
+7 - - - - - - - - 7    2 discs   4 moves   7 |  |  |  |  |  |  |  |  | 7
+8 - - - - - - - - 8         0:00.000       8 |  |  |  |  |  |  |  |  | 8
+  A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
+
+>f5
+
+
+You play F5
+
+  A B C D E F G H            BLACK            A  B  C  D  E  F  G  H
+1 - - - - - - - - 1         1:40.201       1 |  |  |  |  |  |  |  |  | 1
+2 - - - - - - - - 2    4 discs   3 moves   2 |  |  |  |  |  |  |  |  | 2
+3 - - - - - - - - 3                        3 |  |  |  |  |  |  |  |  | 3
+4 - - - O * . - - 4  ply  2 (59 empties)   4 |  |  |  |()|##|  |  |  | 4
+5 - - - * * * - - 5    White's turn (O)    5 |  |  |  |##|()| 1|  |  | 5
+6 - - - . - . - - 6                        6 |  |  |  |  |  |  |  |  | 6
+7 - - - - - - - - 7    1 discs   3 moves   7 |  |  |  |  |  |  |  |  | 7
+8 - - - - - - - - 8         0:00.000       8 |  |  |  |  |  |  |  |  | 8
+  A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
+
+>b show
+
+  A B C D E F G H
+1 - - - - - - - - 1
+2 - - - - - - - - 2 O to move
+3 - - - - - - - - 3
+4 - - - O * . - - 4 O: discs =  1    moves =  3
+5 - - - * * * - - 5 *: discs =  4    moves =  3
+6 - - - . - . - - 6  empties = 59      ply =  2
+7 - - - - - - - - 7
+8 - - - - - - - - 8
+  A B C D E F G H
+
+Level: 21
+Best score: +0 [-2, +2]
+Moves: <d6:+0> [f6:-1]
+Lines: 4 full games with 0.00% win, 50.00% draw, 50.00% loss
+       66 incomplete lines.

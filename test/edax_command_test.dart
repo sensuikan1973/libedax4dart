@@ -4,6 +4,8 @@ import 'package:libedax4dart/libedax4dart.dart';
 import 'package:libedax4dart/src/bindings/constants.dart';
 import 'package:test/test.dart';
 
+const testBookFile = './resources/test_book.dat';
+
 void main() {
   tearDown(() {
     final sleepSec = Platform.environment['sleepSec'];
@@ -84,33 +86,47 @@ void main() {
     edax.libedaxTerminate();
   });
 
-  test('book new & get book move with position', () {
+  test('get book move with position', () {
+    const initParams = ['', '-book-file', testBookFile];
     final edax = const LibEdax()
-      ..libedaxInitialize()
-      ..edaxInit()
-      ..edaxBookNew(21, 24); // create shallow book
+      ..libedaxInitialize(initParams)
+      ..edaxInit();
     final result = edax.edaxGetBookMoveWithPosition();
-    expect(result.moveList.length, 1);
-    expect(result.moveList.first.x, 19); // when book new, firstly book has "D3" position.
+    // See: resources/test_book_show.txt
+    expect(result.position.nLines, 264 + 16);
+    expect(result.position.score.value, 0);
+    expect(result.position.score.lower, -2);
+    expect(result.position.score.upper, 2);
+    expect(result.moveList.length, 4);
+    expect(result.moveList.where((move) => move.score == 0).length, 4); // all moves are +0
+    expect(result.moveList.first.x, 19); // D3
+    expect(result.moveList[1].x, 26); // C4
     expect(result.position.board.player,
         34628173824); // 0000 0000 0000 0000 0000 0000 0000 1000 0001 0000 0000 0000 0000 0000 0000 0000
-    expect(result.position.nLink, 0); // at first, book has no links.
-    expect(result.position.nWins, 0); // at first, book has no games.
-    expect(result.position.leaf.move, 19);
-    expect(result.position.leaf.score, 1); // at first, the score is +1. (D3)
-    expect(result.position.score.value, 1); // at first, the score is +1. (D3)
+    edax.edaxMove('f5');
+    final resultF5 = edax.edaxGetBookMoveWithPosition();
+    expect(resultF5.position.score.value, 0);
+    expect(resultF5.position.score.lower, -2);
+    expect(resultF5.position.score.upper, 2);
+    expect(resultF5.moveList.length, 2);
+    expect(resultF5.moveList.first.x, 45); // F6
+    expect(resultF5.moveList.first.score, -1);
+    expect(resultF5.moveList[1].x, 43); // D6
+    expect(resultF5.moveList[1].score, 0);
     edax.libedaxTerminate();
   });
 
   test('get hints', () {
+    const initParams = ['', '-book-file', testBookFile];
     final edax = const LibEdax()
-      ..libedaxInitialize()
+      ..libedaxInitialize(initParams)
       ..edaxInit();
     final hintList = edax.edaxHint(2);
+    // See: resources/test_book_show.txt
     expect(hintList.length, 2);
-    expect(hintList.first.move, 19); // when normal book, firstly book has "D3" position.
-    expect(hintList.first.score, 1); // at first, the score is +1. (D3)
-    expect(hintList[1].score, lessThanOrEqualTo(1)); // second score is
+    expect(hintList.first.move, 19);
+    expect(hintList.first.score, 0);
+    expect(hintList[1].score, lessThanOrEqualTo(1));
     edax.libedaxTerminate();
   });
 
