@@ -13,7 +13,7 @@ With using libedax4dart, you can execute functions equivalent to edax commands f
   - [Optional] data for edax
     - `book.dat`
     - `eval.dat`
-3. With Using `LibEdax(dllDir)`, you can run edax commands !
+3. With using `LibEdax(dllDir)`, you can run edax commands !
 
 ## Document
 - **[libedax4dart](https://sensuikan1973.github.io/libedax4dart/)**
