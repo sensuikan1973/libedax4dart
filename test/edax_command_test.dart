@@ -134,6 +134,8 @@ void main() {
       expect(hintList.length, 2);
       expect(hintList.first.moveString, 'd3');
       expect(hintList.first.score, 0);
+      expect(hintList.first.scoreString, '0');
+      expect(hintList.first.isBookMove, true);
       expect(hintList[1].score, lessThanOrEqualTo(1));
       edax.libedaxTerminate();
     });
@@ -156,6 +158,12 @@ void main() {
       expect(hint3.score, lessThan(0)); // mouse opening. BLACK has an advantage.
       final hint4 = edax.edaxHintNext();
       expect(hint4.move, MoveMark.noMove);
+      expect(hint4.moveString, 'no move');
+
+      edax
+        ..edaxMove('f4')
+        ..edaxHintPrepare();
+      expect(edax.edaxHintNextNoMultiPvDepth().scoreString, '+4');
       edax.libedaxTerminate();
     });
 

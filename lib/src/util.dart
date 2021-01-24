@@ -1,5 +1,5 @@
 /// Convert playerd square to human readable String.
-///  e.g. f5
+///  e.g. `f5`
 String move2String(int x) {
   if (x < 64) return _moveStringTable[x];
   if (x == 64) return 'pa';
@@ -20,7 +20,7 @@ const _moveStringTable = [
 
 /// Convert score to String
 ///
-/// e.g. +10, -7, 0
+/// e.g. `+10`, `-7`, `0`
 String score2String(int score) {
   if (score <= 0) return score.toString();
   return '+${score.toString()}';
