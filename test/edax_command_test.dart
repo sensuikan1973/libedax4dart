@@ -25,11 +25,15 @@ void main() {
     test('play "horse" opening', () {
       final edax = LibEdax()
         ..libedaxInitialize()
-        ..edaxInit()
+        ..edaxNew()
         ..edaxBookOff()
         ..edaxBookOn()
         ..edaxPlay('f5d6c5f4d3')
         ..edaxVmirror();
+      expect(edax.edaxOpening(), 'horse');
+      edax
+        ..edaxUndo()
+        ..edaxRedo();
       expect(edax.edaxOpening(), 'horse');
       edax.libedaxTerminate();
     });
