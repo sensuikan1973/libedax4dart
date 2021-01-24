@@ -133,6 +133,16 @@ void main() {
     expect(hint4.move, MoveMark.noMove);
     edax.libedaxTerminate();
   });
+
+  test('book show', () {
+    final edax = const LibEdax()
+      ..libedaxInitialize()
+      ..edaxInit()
+      ..edaxBookNew(21, 24); // create shallow book
+    final position = edax.edaxBookShow();
+    expect(position.nLink, 0); // at first, book has no links.
+    edax.libedaxTerminate();
+  }, skip: 'unstable. TODO: investigate');
 }
 
 // Convert bitboard to String with radix 16 and 0 padding.

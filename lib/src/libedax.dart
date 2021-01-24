@@ -219,6 +219,32 @@ class LibEdax {
   /// Create a new book.
   void edaxBookNew(int level, int depth) => bindings.edaxBookNew(level, depth);
 
+  /// Show book.
+  Position edaxBookShow() {
+    final dstP = allocate<c_position.Position>();
+    final pos = dstP.ref;
+    final board = Board(pos.board[0].player, pos.board[0].opponent);
+    final leaf = Link(pos.leaf.score, pos.leaf.move);
+    final link = pos.n_link > 1 ? Link(pos.link.ref.score, pos.link.ref.move) : null;
+    final score = Score(pos.score.value, pos.score.lower, pos.score.upper);
+    final result = Position(
+      board,
+      leaf,
+      link,
+      pos.n_wins,
+      pos.n_draws,
+      pos.n_losses,
+      pos.n_lines,
+      score,
+      pos.n_link,
+      pos.level,
+      pos.done,
+      pos.todo,
+    );
+    free(dstP);
+    return result;
+  }
+
   /// Set option.
   ///
   /// See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
