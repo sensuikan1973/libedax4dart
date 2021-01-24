@@ -26,8 +26,10 @@ void main() {
       final edax = const LibEdax()
         ..libedaxInitialize()
         ..edaxInit()
+        ..edaxBookOff()
         ..edaxBookOn()
-        ..edaxPlay('f5d6c5f4d3');
+        ..edaxPlay('f5d6c5f4d3')
+        ..edaxVmirror();
       expect(edax.edaxOpening(), 'horse');
       edax.libedaxTerminate();
     });
@@ -68,10 +70,15 @@ void main() {
       expect(edax.edaxIsGameOver(), true);
       expect(edax.edaxGetDisc(TurnColor.white), 0);
       expect(edax.edaxGetDisc(TurnColor.black), 13);
-      expect(_radix16board(edax.edaxGetBoard().player), List<String>.filled(16, '0').join()); // white bitboard
-      expect(_radix16board(edax.edaxGetBoard().opponent), '0010387c38100000'); // black bitboard
+      final board = edax.edaxGetBoard();
+      expect(_radix16board(board.player), List<String>.filled(16, '0').join()); // white bitboard
+      expect(_radix16board(board.opponent), '0010387c38100000'); // black bitboard
+      print(board.prettyString(edax.edaxGetCurrentPlayer())); // ignore: avoid_print
       expect(edax.edaxCanMove(), false);
-      expect(edax.edaxGetLastMove().x, 52); // e7 is 52th. (a1 is 0th)
+      final lastMove = edax.edaxGetLastMove();
+      expect(lastMove.x, 52); // e7 is 52th. (a1 is 0th)
+      expect(lastMove.isNoMove, false);
+      expect(lastMove.isPass, false);
       expect(edax.edaxGetMoves(), 'F5d6C5f4E3f6G5e6E7'); // edax return moves with upper scale B move and lower scale W.
       edax.libedaxTerminate();
     });
