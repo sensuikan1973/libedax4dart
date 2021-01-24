@@ -63,7 +63,7 @@ jobs:
     - name: test
       env:
         sleepSec: 2
-      run: pub run test . --coverage=coverage
+      run: pub run test . --coverage=coverage --tags exp # tmp for debug.
     - name: coverage
       run: pub run coverage:format_coverage --lcov --packages=.packages --in coverage --out lcov.info
     - uses: codecov/codecov-action@v1
