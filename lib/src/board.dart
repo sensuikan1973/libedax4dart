@@ -1,6 +1,7 @@
 import 'package:meta/meta.dart';
 
 import 'constants.dart';
+import 'util.dart';
 
 @immutable
 class Board {
@@ -11,6 +12,16 @@ class Board {
 
   /// opponent's bitboard.
   final int opponent;
+
+  /// Radix 16 String.
+  ///
+  /// e.g. `0010387c38100000`.
+  String get playerRadix16String => radix16Board(player);
+
+  /// Radix 16 String.
+  ///
+  /// e.g. `0010387c38100000`.
+  String get opponentRadix16String => radix16Board(opponent);
 
   /// get human readable board.
   ///
