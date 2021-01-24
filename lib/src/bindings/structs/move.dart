@@ -1,5 +1,4 @@
 import 'dart:ffi';
-import 'package:ffi/ffi.dart';
 
 class Move extends Struct {
   /// bitboard representation of flipped squares.
