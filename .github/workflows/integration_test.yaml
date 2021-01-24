@@ -12,9 +12,8 @@ jobs:
     env:
       cache_ver: 4
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 60 # tmp for debug.
+    timeout-minutes: 10
     strategy:
-      fail-fast: false # tmp for debug.
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         include:
@@ -64,19 +63,14 @@ jobs:
     - name: test
       env:
         sleepSec: 2
-      run: pub run test . --coverage=coverage --tags exp # tmp for debug.
-    # - name: coverage
-    #   run: pub run coverage:format_coverage --lcov --packages=.packages --in coverage --out lcov.info
-    # - uses: codecov/codecov-action@v1
-    #   with:
-    #     file: lcov.info
+      run: pub run test . --coverage=coverage
+    - name: coverage
+      run: pub run coverage:format_coverage --lcov --packages=.packages --in coverage --out lcov.info
+    - uses: codecov/codecov-action@v1
+      with:
+        file: lcov.info
 
     - name: run example
       run: |-
         cd example && pub get && cd ..
         dart example/example.dart
-
-    # # DEBUG
-    # - name: setup tmate session for debug
-    #   if: ${{ failure() }}
-    #   uses: mxschmitt/action-tmate@v3
