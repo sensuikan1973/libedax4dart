@@ -2,6 +2,7 @@
 library libedax4dart;
 
 export 'src/board.dart';
+export 'src/constants.dart';
 export 'src/hint.dart';
 export 'src/libedax.dart';
 export 'src/link.dart';

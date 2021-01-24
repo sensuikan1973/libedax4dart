@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:libedax4dart/libedax4dart.dart';
-import 'package:libedax4dart/src/bindings/constants.dart';
+import 'package:libedax4dart/src/constants.dart';
 import 'package:test/test.dart';
 
 const testBookFile = './resources/test_book.dat';

@@ -1,5 +1,5 @@
 import 'package:meta/meta.dart';
-import 'bindings/constants.dart';
+import 'constants.dart';
 
 @immutable
 class Move {
