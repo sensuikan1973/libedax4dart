@@ -37,7 +37,7 @@ class LibEdax {
     for (var k = 0; k < argsPointers.length; k++) {
       pointerPointer[k] = argsPointers[k].cast<Uint8>();
     }
-    _bindings.libedaxInitialize(args.length, pointerPointer);
+    _bindings.libedaxInitialize(args.length, args.isEmpty ? nullptr : pointerPointer);
     free(pointerPointer);
   }
 
