@@ -36,9 +36,9 @@ class Hint {
 
   bool get isBookMove => bookMove == 1;
 
-  /// e.g. f5
+  /// e.g. `f5`
   String get moveString => move2String(move);
 
-  /// e.g. +10
+  /// e.g. `+10`
   String get scoreString => score2String(move);
 }

@@ -202,7 +202,7 @@ class LibEdax {
 
   /// Get the opening name of the current game, in English.
   ///
-  /// e.g. brightwell, tiger, rose, ....
+  /// e.g. `brightwell`, `tiger`, `rose`, ....
   String edaxOpening() => Utf8.fromUtf8(_bindings.edaxOpening());
 
   /// Use book on `edaxGo`, `edaxHint`, `mode 2`.<br>

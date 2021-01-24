@@ -20,9 +20,9 @@ class Move {
 
   bool get isPass => x == MoveMark.pass;
 
-  /// e.g. f5
+  /// e.g. `f5`
   String get moveString => move2String(x);
 
-  /// e.g. +10
+  /// e.g. `+10`
   String get scoreString => score2String(score);
 }
