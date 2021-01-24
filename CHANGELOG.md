@@ -1,3 +1,6 @@
+# 0.2.1
+- add getter to board as radix16 String
+
 # 0.2.0-alpha
 publish alpha release
 
