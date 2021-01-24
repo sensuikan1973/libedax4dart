@@ -26,7 +26,7 @@ class LibEdax {
   ///
   /// Be careful that the first argument in [args] is ignored.
   /// ```dart
-  /// const edax = LibEdax();
+  /// final edax = LibEdax();
   /// edax.libedaxInitialize(['', '-eval-file', 'data/eval.dat', '-book-file', 'data/book.dat', '-level', '16']);
   /// ```
   ///
