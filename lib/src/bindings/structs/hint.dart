@@ -42,7 +42,7 @@ class Hint extends ffi.Struct {
   external int n_nodes;
 
   /// < book move origin
-  @ffi.Int32()
+  @ffi.Int8()
   external int book_move;
 }
 
