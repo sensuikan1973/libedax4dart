@@ -14,36 +14,36 @@ void main() {
         ..libedaxTerminate();
     });
 
-    test('initialize without args', () {
-      LibEdax()
-        ..libedaxInitialize()
-        ..edaxInit()
-        ..edaxVersion()
-        ..libedaxTerminate();
-    });
+    // test('initialize without args', () {
+    //   LibEdax()
+    //     ..libedaxInitialize()
+    //     ..edaxInit()
+    //     ..edaxVersion()
+    //     ..libedaxTerminate();
+    // });
 
-    test('initialize without args', () {
-      LibEdax()
-        ..libedaxInitialize()
-        ..edaxInit()
-        ..edaxVersion()
-        ..libedaxTerminate();
-    });
+    // test('initialize without args', () {
+    //   LibEdax()
+    //     ..libedaxInitialize()
+    //     ..edaxInit()
+    //     ..edaxVersion()
+    //     ..libedaxTerminate();
+    // });
 
-    test('initialize without args', () {
-      LibEdax()
-        ..libedaxInitialize()
-        ..edaxInit()
-        ..edaxVersion()
-        ..libedaxTerminate();
-    });
+    // test('initialize without args', () {
+    //   LibEdax()
+    //     ..libedaxInitialize()
+    //     ..edaxInit()
+    //     ..edaxVersion()
+    //     ..libedaxTerminate();
+    // });
 
-    test('initialize without args', () {
-      LibEdax()
-        ..libedaxInitialize()
-        ..edaxInit()
-        ..edaxVersion()
-        ..libedaxTerminate();
-    });
+    // test('initialize without args', () {
+    //   LibEdax()
+    //     ..libedaxInitialize()
+    //     ..edaxInit()
+    //     ..edaxVersion()
+    //     ..libedaxTerminate();
+    // });
   }, tags: 'exp');
 }
