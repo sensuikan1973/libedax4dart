@@ -65,7 +65,7 @@ jobs:
         sleepSec: 2
       run: pub run test . --coverage=coverage
     - name: coverage
-      run: pub run coverage:format_coverage --packages=.packages --in coverage --out lcov
+      run: pub run coverage:format_coverage --lcov --packages=.packages --in coverage --out lcov.info
     - uses: codecov/codecov-action@v1
       with:
-        file: lcov
+        file: lcov.info
