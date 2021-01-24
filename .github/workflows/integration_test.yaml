@@ -71,4 +71,7 @@ jobs:
         file: lcov.info
 
     - name: run example
-      run: dart example/exmaple.dart
+      run: |-
+        cd example && pub get
+        cd ..
+        dart example/exmaple.dart
