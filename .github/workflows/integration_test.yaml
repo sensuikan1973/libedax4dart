@@ -76,7 +76,7 @@ jobs:
         cd example && pub get && cd ..
         dart example/example.dart
 
-    # DEBUG
-    - name: setup tmate session for debug
-      if: ${{ failure() }}
-      uses: mxschmitt/action-tmate@v3
+    # # DEBUG
+    # - name: setup tmate session for debug
+    #   if: ${{ failure() }}
+    #   uses: mxschmitt/action-tmate@v3
