@@ -180,6 +180,6 @@ void main() {
       expect(position.board.player,
           34628173824); // 0000 0000 0000 0000 0000 0000 0000 1000 0001 0000 0000 0000 0000 0000 0000 0000
       edax.libedaxTerminate();
-    }, skip: 'unstable. TODO: investigae');
+    });
   });
 }

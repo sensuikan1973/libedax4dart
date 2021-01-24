@@ -2,11 +2,11 @@
 # libedax_build_command (e.g. make libbuild ARCH=x64-modern COMP=gcc OS=osx)
 # dst: (e.g. build)
 
-# TODO: https://github.com/lavox/edax-reversi/pull/2 がマージされたら参照先を変える
+# See: https://github.com/lavox/edax-reversi/pull/2
+# See: https://github.com/sensuikan1973/edax-reversi/pull/2
 git clone https://github.com/sensuikan1973/edax-reversi
 cd edax-reversi
-git switch fix_command_shared_lib_for_linux
-git checkout 50ff6d9bffdf9661707a98decbd7152f254a848a
+git switch libedax_sensuikan1973
 
 mkdir -p data
 curl -OL https://github.com/abulmo/edax-reversi/releases/download/v4.4/eval.7z

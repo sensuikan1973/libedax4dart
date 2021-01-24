@@ -18,19 +18,19 @@ class Position extends Struct {
   external Pointer<Link> link;
 
   /// game win count
-  @Int32()
+  @Uint32()
   external int n_wins;
 
   /// game draw count
-  @Int32()
+  @Uint32()
   external int n_draws;
 
   /// game loss count
-  @Int32()
+  @Uint32()
   external int n_losses;
 
   /// unterminated line count
-  @Int32()
+  @Uint32()
   external int n_lines;
 
   /// Position value & bounds
