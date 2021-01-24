@@ -31,4 +31,5 @@ comment: # See: https://docs.codecov.io/docs/pull-request-comments
   require_base: true
   require_head: true
 
-# ignore: # See: https://docs.codecov.io/docs/ignoring-paths
+ignore: # See: https://docs.codecov.io/docs/ignoring-paths
+  - lin/src/bindings/structs
