@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the white property from the LibEdax class, for the Dart programming language.">
-  <title>white property - LibEdax class - libedax4dart library - Dart API</title>
+  <meta name="description" content="API docs for the edaxHintNext method from the LibEdax class, for the Dart programming language.">
+  <title>edaxHintNext method - LibEdax class - libedax4dart library - Dart API</title>
 
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -28,9 +28,9 @@
     <li><a href="../../index.html">libedax4dart</a></li>
     <li><a href="../../libedax4dart/libedax4dart-library.html">libedax4dart</a></li>
     <li><a href="../../libedax4dart/LibEdax-class.html">LibEdax</a></li>
-    <li class="self-crumb">white property</li>
+    <li class="self-crumb">edaxHintNext method</li>
   </ol>
-  <div class="self-name">white</div>
+  <div class="self-name">edaxHintNext</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -49,7 +49,7 @@
       <li><a href="../../index.html">libedax4dart</a></li>
       <li><a href="../../libedax4dart/libedax4dart-library.html">libedax4dart</a></li>
       <li><a href="../../libedax4dart/LibEdax-class.html">LibEdax</a></li>
-      <li class="self-crumb">white property</li>
+      <li class="self-crumb">edaxHintNext method</li>
     </ol>
     
     <h5>LibEdax class</h5>
@@ -59,15 +59,11 @@
     <li><a href="../../libedax4dart/LibEdax/LibEdax.html">LibEdax</a></li>
 
 
-    <li class="section-title">
+    <li class="section-title inherited">
       <a href="../../libedax4dart/LibEdax-class.html#instance-properties">Properties</a>
     </li>
-    <li><a href="../../libedax4dart/LibEdax/black.html">black</a></li>
     <li class="inherited"><a href="https://api.dart.dev/dev/2.12.0-242.0.dev/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li><a href="../../libedax4dart/LibEdax/noMove.html">noMove</a></li>
-    <li><a href="../../libedax4dart/LibEdax/pass.html">pass</a></li>
     <li class="inherited"><a href="https://api.dart.dev/dev/2.12.0-242.0.dev/dart-core/Object/runtimeType.html">runtimeType</a></li>
-    <li><a href="../../libedax4dart/LibEdax/white.html">white</a></li>
 
     <li class="section-title"><a href="../../libedax4dart/LibEdax-class.html#instance-methods">Methods</a></li>
     <li><a href="../../libedax4dart/LibEdax/edaxBookNew.html">edaxBookNew</a></li>
@@ -83,6 +79,10 @@
     <li><a href="../../libedax4dart/LibEdax/edaxGetMobilityCount.html">edaxGetMobilityCount</a></li>
     <li><a href="../../libedax4dart/LibEdax/edaxGetMoves.html">edaxGetMoves</a></li>
     <li><a href="../../libedax4dart/LibEdax/edaxGo.html">edaxGo</a></li>
+    <li><a href="../../libedax4dart/LibEdax/edaxHint.html">edaxHint</a></li>
+    <li><a href="../../libedax4dart/LibEdax/edaxHintNext.html">edaxHintNext</a></li>
+    <li><a href="../../libedax4dart/LibEdax/edaxHintNextNoMultiPvDepth.html">edaxHintNextNoMultiPvDepth</a></li>
+    <li><a href="../../libedax4dart/LibEdax/edaxHintPrepare.html">edaxHintPrepare</a></li>
     <li><a href="../../libedax4dart/LibEdax/edaxInit.html">edaxInit</a></li>
     <li><a href="../../libedax4dart/LibEdax/edaxIsGameOver.html">edaxIsGameOver</a></li>
     <li><a href="../../libedax4dart/LibEdax/edaxMode.html">edaxMode</a></li>
@@ -100,6 +100,7 @@
     <li><a href="../../libedax4dart/LibEdax/libedaxInitialize.html">libedaxInitialize</a></li>
     <li><a href="../../libedax4dart/LibEdax/libedaxTerminate.html">libedaxTerminate</a></li>
     <li class="inherited"><a href="https://api.dart.dev/dev/2.12.0-242.0.dev/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../libedax4dart/LibEdax/popCount.html">popCount</a></li>
     <li class="inherited"><a href="https://api.dart.dev/dev/2.12.0-242.0.dev/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../libedax4dart/LibEdax-class.html#operators">Operators</a></li>
@@ -113,27 +114,33 @@
   </div><!--/.sidebar-offcanvas-->
 
   <div id="dartdoc-main-content" class="main-content">
-      <div><h1><span class="kind-property">white</span> property     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+      <div><h1><span class="kind-method">edaxHintNext</span> method     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
+    <section class="multi-line-signature">
+      <span class="returntype"><a href="../../libedax4dart/Hint-class.html">Hint</a></span>
+            <span class="name ">edaxHintNext</span>
+(<wbr>)
+      
+    </section>
+    <section class="desc markdown">
+      <p>Get a hint.</p>
+<p><strong>Call edaxHintPrepare before calling this function</strong>. <br>
+If there are no more hints, hint will be noMove.</p>
+    </section>
+    
+    <section class="summary source-code" id="source">
+      <h2><span>Implementation</span></h2>
+      <pre class="language-dart"><code class="language-dart">Hint edaxHintNext() {
+  final dst = allocate&lt;c_hint.Hint&gt;();
+  bindings.edaxHintNext(dst);
+  final h = dst.ref;
+  final result = Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
+  free(dst);
+  return result;
+}</code></pre>
+    </section>
 
-        <section id="getter">
-        
-        <section class="multi-line-signature">
-          <span class="returntype"><a href="https://api.dart.dev/dev/2.12.0-242.0.dev/dart-core/int-class.html">int</a></span>
-                  <span class="name ">white</span>
-          
-</section>
-        
-                <section class="desc markdown">
-          <p>WHITE turn.</p>
-        </section>
-                <section class="summary source-code" id="source">
-          <h2><span>Implementation</span></h2>
-          <pre class="language-dart"><code class="language-dart">int get white =&gt; 1;</code></pre>
-        </section>
-</section>
-        
   </div> <!-- /.main-content -->
 
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
