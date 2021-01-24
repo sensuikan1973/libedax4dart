@@ -7,9 +7,14 @@ import 'bindings/structs/hint.dart' as c_hint;
 import 'bindings/structs/hint_list.dart' as c_hintlist;
 import 'bindings/structs/move.dart' as c_move;
 import 'bindings/structs/move_list.dart' as c_movelist;
+import 'bindings/structs/position.dart' as c_position;
 import 'board.dart';
 import 'hint.dart';
+import 'link.dart';
 import 'move.dart';
+import 'move_list_with_position.dart';
+import 'position.dart';
+import 'score.dart';
 
 @immutable
 class LibEdax {
@@ -99,6 +104,44 @@ class LibEdax {
     }
     free(dst);
     return result;
+  }
+
+  /// Get book move list with position.
+  MoveListWithPosition edaxGetBookMoveWithPosition() {
+    final dstM = allocate<c_movelist.MoveList>();
+    final dstP = allocate<c_position.Position>();
+    bindings.edaxGetBookMoveWithPosition(dstM, dstP);
+
+    final moveList = dstM.ref;
+    final resultMoveList = <Move>[];
+    for (var k = 0; k < moveList.n_moves; k++) {
+      final m = moveList.move[k + 1];
+      resultMoveList.add(Move(m.flipped, m.x, m.score, m.cost));
+    }
+    free(dstM);
+
+    final pos = dstP.ref;
+    final board = Board(pos.board[0].player, pos.board[0].opponent);
+    final leaf = Link(pos.leaf.score, pos.leaf.move);
+    final link = pos.n_link > 1 ? Link(pos.link.ref.score, pos.link.ref.move) : null;
+    final score = Score(pos.score.value, pos.score.lower, pos.score.upper);
+    final resultPosition = Position(
+      board,
+      leaf,
+      link,
+      pos.n_wins,
+      pos.n_draws,
+      pos.n_losses,
+      pos.n_lines,
+      score,
+      pos.n_link,
+      pos.level,
+      pos.done,
+      pos.todo,
+    );
+    free(dstP);
+
+    return MoveListWithPosition(resultMoveList, resultPosition);
   }
 
   /// Prepare to get hint.

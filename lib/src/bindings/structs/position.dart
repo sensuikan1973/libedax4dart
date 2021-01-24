@@ -2,70 +2,58 @@
 // follow libedax naming
 
 import 'dart:ffi';
-import 'package:ffi/ffi.dart';
 import 'board.dart';
+import 'link.dart';
 
 class Position extends Struct {
-  factory Position.allocate(
-    Pointer<Pointer<Board>> board,
-    int n_wins,
-    int n_draws,
-    int n_losses,
-    int n_lines,
-    Pointer<Utf8> n_link,
-    Pointer<Utf8> level,
-    Pointer<Utf8> done,
-    Pointer<Utf8> todo,
-  ) =>
-      allocate<Position>().ref
-        ..board = board
-        ..n_wins = n_wins
-        ..n_draws = n_draws
-        ..n_losses = n_losses
-        ..n_lines = n_lines
-        ..n_link = n_link
-        ..level = level
-        ..done = done
-        ..todo = todo;
+  external Board _unique_board_item_0;
 
-  /// (unique) board.
-  Pointer<Pointer<Board>>? board;
+  /// Helper for array `board`.
+  ArrayHelper_Hint_board_level0 get board => ArrayHelper_Hint_board_level0(this, [1], 0, 0);
 
-  // TODO: implement
-  // Pointer<Link> leaf;
+  /// best remaining move
+  external Link leaf;
 
-  // TODO: implement
-  // Link.ByReference leaf;
+  // linking moves
+  external Pointer<Link> link;
 
+  /// game win count
   @Int32()
-  int? n_wins;
+  external int n_wins;
 
+  /// game draw count
   @Int32()
-  int? n_draws;
+  external int n_draws;
 
+  /// game loss count
   @Int32()
-  int? n_losses;
+  external int n_losses;
 
+  /// unterminated line count
   @Int32()
-  int? n_lines;
+  external int n_lines;
 
-  Pointer<Utf8>? n_link;
+  /// Position value & bounds
+  external _Score score;
 
-  Pointer<Utf8>? level;
+  /// linking moves number
+  @Uint8()
+  external int n_link;
 
-  Pointer<Utf8>? done;
+  /// search level
+  @Uint8()
+  external int level;
 
-  Pointer<Utf8>? todo;
+  /// done/undone flag
+  @Uint8()
+  external int done;
 
-  Pointer<_Score>? score;
+  /// todo flag
+  @Uint8()
+  external int todo;
 }
 
 class _Score extends Struct {
-  factory _Score.allocate(int value, int lower, int upper) => allocate<_Score>().ref
-    ..value = value
-    ..lower = lower
-    ..upper = upper;
-
   @Int16() // C short is 16 bit
   external int value;
 
@@ -74,4 +62,42 @@ class _Score extends Struct {
 
   @Int16() // C short is 16 bit
   external int upper;
+}
+
+/// Helper for array `board` in struct `Position`.
+// ignore: camel_case_types
+class ArrayHelper_Hint_board_level0 {
+  final Position _struct;
+  final List<int> dimensions;
+  final int level;
+  final int _absoluteIndex;
+  int get length => dimensions[level];
+  // ignore: sort_constructors_first
+  ArrayHelper_Hint_board_level0(this._struct, this.dimensions, this.level, this._absoluteIndex);
+  void _checkBounds(int index) {
+    if (index >= length || index < 0) {
+      throw RangeError('Dimension $level: index not in range 0..$length exclusive.');
+    }
+  }
+
+  Board operator [](int index) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        return _struct._unique_board_item_0;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
+
+  void operator []=(int index, Board value) {
+    _checkBounds(index);
+    switch (_absoluteIndex + index) {
+      case 0:
+        _struct._unique_board_item_0 = value;
+        break;
+      default:
+        throw Exception('Invalid Array Helper generated.');
+    }
+  }
 }

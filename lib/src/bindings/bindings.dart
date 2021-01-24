@@ -7,6 +7,7 @@ import 'structs/hint.dart';
 import 'structs/hint_list.dart';
 import 'structs/move.dart';
 import 'structs/move_list.dart';
+import 'structs/position.dart';
 
 _LibEdaxBindings? _cachedBindings;
 _LibEdaxBindings get bindings => _cachedBindings ??= _LibEdaxBindings();
@@ -32,6 +33,7 @@ class _LibEdaxBindings {
   late final int Function() edaxGo;
   late final int Function(int n, Pointer<HintList> hintList) edaxHint;
   late final int Function(Pointer<MoveList> moveList) edaxGetBookMove;
+  late final int Function(Pointer<MoveList> moveList, Pointer<Position> position) edaxGetBookMoveWithPosition;
   late final int Function(Pointer<MoveList> excludeList) edaxHintPrepare;
   late final int Function(Pointer<Hint> hint) edaxHintNext;
   late final int Function(Pointer<Hint> hint) edaxHintNextNoMultiPvDepth;
@@ -71,6 +73,8 @@ class _LibEdaxBindings {
     edaxHintNextNoMultiPvDepth =
         _lookupNativeFunc<edax_hint_next_no_multipv_depth_native_t>('edax_hint_next_no_multipv_depth').asFunction();
     edaxGetBookMove = _lookupNativeFunc<edax_get_bookmove_native_t>('edax_get_bookmove').asFunction();
+    edaxGetBookMoveWithPosition =
+        _lookupNativeFunc<edax_get_bookmove_with_position_native_t>('edax_get_bookmove_with_position').asFunction();
     edaxHintPrepare = _lookupNativeFunc<edax_hint_prepare_native_t>('edax_hint_prepare').asFunction();
     edaxHintNext = _lookupNativeFunc<edax_hint_next_native_t>('edax_hint_next').asFunction();
     edaxStop = _lookupNativeFunc<edax_stop_native_t>('edax_stop').asFunction();
