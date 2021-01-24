@@ -73,7 +73,10 @@ void main() {
       expect(_radix16board(board.opponent), '0010387c38100000'); // black bitboard
       print(board.prettyString(edax.edaxGetCurrentPlayer())); // ignore: avoid_print
       expect(edax.edaxCanMove(), false);
-      expect(edax.edaxGetLastMove().x, 52); // e7 is 52th. (a1 is 0th)
+      final lastMove = edax.edaxGetLastMove();
+      expect(lastMove.x, 52); // e7 is 52th. (a1 is 0th)
+      expect(lastMove.isNoMove, false);
+      expect(lastMove.isPass, false);
       expect(edax.edaxGetMoves(), 'F5d6C5f4E3f6G5e6E7'); // edax return moves with upper scale B move and lower scale W.
       edax.libedaxTerminate();
     });
