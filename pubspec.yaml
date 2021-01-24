@@ -1,7 +1,8 @@
+# See: https://dart.dev/tools/pub/publishing
+
 name: libedax4dart
-version: 0.0.1
+version: 0.2.0-alpha
 description: dart wrapper for libedax
-author: Naoki Shimizu
 homepage: https://github.com/sensuikan1973/libedax4dart
 
 environment:
@@ -9,6 +10,7 @@ environment:
 
 dependencies:
   ffi: ^0.2.0-nullsafety.1
+  meta: ^1.3.0-nullsafety.6
 
 dev_dependencies:
   analyzer: ^0.41.1
