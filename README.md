@@ -36,6 +36,7 @@ With using libedax4dart, you can execute functions equivalent to [edax](https://
 
 #### run example
 ```sh
+cd example && pub get && cd ..
 dart example/example.dart
 ```
 

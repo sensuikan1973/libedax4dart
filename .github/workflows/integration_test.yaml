@@ -2,10 +2,10 @@ name: Integration Test
 
 on:
   pull_request:
-    paths: ['**.dart', 'pubspec.*', '.github/workflows/dart_integration_test.yaml', 'scripts/build_libedax.sh']
+    paths: ['**.dart', 'pubspec.*', '.github/workflows/integration_test.yaml', 'scripts/build_libedax.sh']
   push:
     branches: [ main ]
-    paths: ['**.dart', 'pubspec.*', '.github/workflows/dart_integration_test.yaml', 'scripts/build_libedax.sh']
+    paths: ['**.dart', 'pubspec.*', '.github/workflows/integration_test.yaml', 'scripts/build_libedax.sh']
 
 jobs:
   build:
@@ -69,3 +69,8 @@ jobs:
     - uses: codecov/codecov-action@v1
       with:
         file: lcov.info
+
+    - name: run example
+      run: |-
+        cd example && pub get && cd ..
+        dart example/example.dart
