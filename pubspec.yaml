@@ -12,6 +12,6 @@ dependencies:
 
 dev_dependencies:
   analyzer: ^0.41.1
-  coverage: ^0.15.1
+  coverage: ^0.15.1 # See: https://github.com/dart-lang/test/issues/1265
   pedantic_sensuikan1973: any
   test: ^1.16.0-nullsafety.16
