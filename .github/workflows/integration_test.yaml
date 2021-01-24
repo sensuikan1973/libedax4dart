@@ -72,6 +72,5 @@ jobs:
 
     - name: run example
       run: |-
-        cd example && pub get
-        cd ..
+        cd example && pub get && cd ..
         dart example/exmaple.dart
