@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the edaxUndo method from the LibEdax class, for the Dart programming language.">
-  <title>edaxUndo method - LibEdax class - libedax4dart library - Dart API</title>
+  <meta name="description" content="API docs for the edaxGetBookMoveWithPosition method from the LibEdax class, for the Dart programming language.">
+  <title>edaxGetBookMoveWithPosition method - LibEdax class - libedax4dart library - Dart API</title>
 
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -28,9 +28,9 @@
     <li><a href="../../index.html">libedax4dart</a></li>
     <li><a href="../../libedax4dart/libedax4dart-library.html">libedax4dart</a></li>
     <li><a href="../../libedax4dart/LibEdax-class.html">LibEdax</a></li>
-    <li class="self-crumb">edaxUndo method</li>
+    <li class="self-crumb">edaxGetBookMoveWithPosition method</li>
   </ol>
-  <div class="self-name">edaxUndo</div>
+  <div class="self-name">edaxGetBookMoveWithPosition</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -49,7 +49,7 @@
       <li><a href="../../index.html">libedax4dart</a></li>
       <li><a href="../../libedax4dart/libedax4dart-library.html">libedax4dart</a></li>
       <li><a href="../../libedax4dart/LibEdax-class.html">LibEdax</a></li>
-      <li class="self-crumb">edaxUndo method</li>
+      <li class="self-crumb">edaxGetBookMoveWithPosition method</li>
     </ol>
     
     <h5>LibEdax class</h5>
@@ -116,23 +116,57 @@
   </div><!--/.sidebar-offcanvas-->
 
   <div id="dartdoc-main-content" class="main-content">
-      <div><h1><span class="kind-method">edaxUndo</span> method     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+      <div><h1><span class="kind-method">edaxGetBookMoveWithPosition</span> method     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
-      <span class="returntype">void</span>
-            <span class="name ">edaxUndo</span>
+      <span class="returntype">MoveListWithPosition</span>
+            <span class="name ">edaxGetBookMoveWithPosition</span>
 (<wbr>)
       
     </section>
     <section class="desc markdown">
-      <p>Undo.</p>
-<p>If mode is 0 or 2, undo until human's turn.</p>
+      <p>Get book move list with position.</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span></h2>
-      <pre class="language-dart"><code class="language-dart">void edaxUndo() =&gt; bindings.edaxUndo();</code></pre>
+      <pre class="language-dart"><code class="language-dart">MoveListWithPosition edaxGetBookMoveWithPosition() {
+  final dstM = allocate&lt;c_movelist.MoveList&gt;();
+  final dstP = allocate&lt;c_position.Position&gt;();
+  bindings.edaxGetBookMoveWithPosition(dstM, dstP);
+
+  final moveList = dstM.ref;
+  final resultMoveList = &lt;Move&gt;[];
+  for (var k = 0; k &lt; moveList.n_moves; k++) {
+    final m = moveList.move[k + 1];
+    resultMoveList.add(Move(m.flipped, m.x, m.score, m.cost));
+  }
+  free(dstM);
+
+  final pos = dstP.ref;
+  final board = Board(pos.board[0].player, pos.board[0].opponent);
+  final leaf = Link(pos.leaf.score, pos.leaf.move);
+  final link = pos.n_link &gt; 1 ? Link(pos.link.ref.score, pos.link.ref.move) : null;
+  final score = Score(pos.score.value, pos.score.lower, pos.score.upper);
+  final resultPosition = Position(
+    board,
+    leaf,
+    link,
+    pos.n_wins,
+    pos.n_draws,
+    pos.n_losses,
+    pos.n_lines,
+    score,
+    pos.n_link,
+    pos.level,
+    pos.done,
+    pos.todo,
+  );
+  free(dstP);
+
+  return MoveListWithPosition(resultMoveList, resultPosition);
+}</code></pre>
     </section>
 
   </div> <!-- /.main-content -->
