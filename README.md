@@ -11,8 +11,7 @@ TODO: describe
 
 ## Document
 - **[libedax4dart](https://sensuikan1973.github.io/libedax4dart/)**
-- [libedax](https://lavox.github.io/libedax4py/html/libedax_8c.html)
-  - There's possibility that the link is old. In case of that, See: [source code](https://github.com/lavox/edax-reversi/tree/libedax).
+- [libedax](https://lavox.github.io/libedax4py/html/libedax_8c.html): This may be old. In case of that, See [source](https://github.com/lavox/edax-reversi/tree/libedax).
 - [edax](https://sensuikan1973.github.io/edax-reversi/)
 
 ## Reference
