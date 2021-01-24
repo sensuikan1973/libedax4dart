@@ -18,7 +18,9 @@ import 'score.dart';
 
 @immutable
 class LibEdax {
-  const LibEdax();
+  LibEdax([String dllDir = '']) : _bindings = LibEdaxBindings(dllDir);
+
+  final LibEdaxBindings _bindings;
 
   /// Initialize libedax.
   ///
@@ -35,53 +37,53 @@ class LibEdax {
     for (var k = 0; k < argsPointers.length; k++) {
       pointerPointer[k] = argsPointers[k];
     }
-    bindings.libedaxInitialize(args.length, pointerPointer);
+    _bindings.libedaxInitialize(args.length, pointerPointer);
     free(pointerPointer);
   }
 
   /// Terminate libedax.
-  void libedaxTerminate() => bindings.libedaxTerminate();
+  void libedaxTerminate() => _bindings.libedaxTerminate();
 
   /// Init board.
-  void edaxInit() => bindings.edaxInit();
+  void edaxInit() => _bindings.edaxInit();
 
   /// Init board based on setboard command.
-  void edaxNew() => bindings.edaxNew();
+  void edaxNew() => _bindings.edaxNew();
 
   /// Undo.
   ///
   /// If mode is 0 or 2, undo until human's turn.
-  void edaxUndo() => bindings.edaxUndo();
+  void edaxUndo() => _bindings.edaxUndo();
 
   /// Redo.
   ///
   /// If mode is 0 or 2, redo until human's turn.
-  void edaxRedo() => bindings.edaxRedo();
+  void edaxRedo() => _bindings.edaxRedo();
 
   /// Set mode.
   /// * 0: Human(B) vs  Edax(W)
   /// * 1: Edax(B)  vs  Human(W)
   /// * 2: Edax(B)  vs  Edax(W)
   /// * 3: Human(B) vs  Human(W)
-  void edaxMode(int mode) => bindings.edaxMode(mode);
+  void edaxMode(int mode) => _bindings.edaxMode(mode);
 
   /// Flip vertical.
-  void edaxVmirror() => bindings.edaxVmirror();
+  void edaxVmirror() => _bindings.edaxVmirror();
 
   /// Play moves.
   ///
   /// you can pass Lower case or Upper case. `f5F6F6g7` is OK. <br>
   /// you can also pass opening name. (e.g. `brightwell`) <br>
   /// opening names are listed on [opening.c](https://github.com/lavox/edax-reversi/blob/libedax/src/opening.c).
-  void edaxPlay(String moves) => bindings.edaxPlay(Utf8.toUtf8(moves));
+  void edaxPlay(String moves) => _bindings.edaxPlay(Utf8.toUtf8(moves));
 
   /// Let edax move.
-  void edaxGo() => bindings.edaxGo();
+  void edaxGo() => _bindings.edaxGo();
 
   /// Get hint.
   List<Hint> edaxHint(int n) {
     final dst = allocate<c_hintlist.HintList>();
-    bindings.edaxHint(n, dst);
+    _bindings.edaxHint(n, dst);
     final hintList = dst.ref;
     final result = <Hint>[];
     for (var k = 0; k < hintList.n_hints; k++) {
@@ -95,7 +97,7 @@ class LibEdax {
   /// Get book move list.
   List<Move> edaxGetBookMove() {
     final dst = allocate<c_movelist.MoveList>();
-    bindings.edaxGetBookMove(dst);
+    _bindings.edaxGetBookMove(dst);
     final moveList = dst.ref;
     final result = <Move>[];
     for (var k = 0; k < moveList.n_moves; k++) {
@@ -110,7 +112,7 @@ class LibEdax {
   MoveListWithPosition edaxGetBookMoveWithPosition() {
     final dstM = allocate<c_movelist.MoveList>();
     final dstP = allocate<c_position.Position>();
-    bindings.edaxGetBookMoveWithPosition(dstM, dstP);
+    _bindings.edaxGetBookMoveWithPosition(dstM, dstP);
 
     final moveList = dstM.ref;
     final resultMoveList = <Move>[];
@@ -148,7 +150,7 @@ class LibEdax {
   ///
   /// __Call edaxHintNext after calling this function__.
   // TODO: implement exclude list if you need.
-  void edaxHintPrepare() => bindings.edaxHintPrepare(nullptr);
+  void edaxHintPrepare() => _bindings.edaxHintPrepare(nullptr);
 
   /// Get a hint.
   ///
@@ -156,7 +158,7 @@ class LibEdax {
   /// If there are no more hints, hint will be noMove.
   Hint edaxHintNext() {
     final dst = allocate<c_hint.Hint>();
-    bindings.edaxHintNext(dst);
+    _bindings.edaxHintNext(dst);
     final h = dst.ref;
     final result = Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
     free(dst);
@@ -170,7 +172,7 @@ class LibEdax {
   /// __This function use Multi-PV search for analyze usecase. This may be slower than edaxHintNext__.
   Hint edaxHintNextNoMultiPvDepth() {
     final dst = allocate<c_hint.Hint>();
-    bindings.edaxHintNextNoMultiPvDepth(dst);
+    _bindings.edaxHintNextNoMultiPvDepth(dst);
     final h = dst.ref;
     final result = Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
     free(dst);
@@ -178,15 +180,15 @@ class LibEdax {
   }
 
   /// Stop edax search process, and set mode 3.
-  void edaxStop() => bindings.edaxStop();
+  void edaxStop() => _bindings.edaxStop();
 
   /// print version.
-  void edaxVersion() => bindings.edaxVersion();
+  void edaxVersion() => _bindings.edaxVersion();
 
   /// Play move.
   ///
   /// you can pass Lower case or Upper case. `f5` `F5` is OK.
-  void edaxMove(String move) => bindings.edaxMove(Utf8.toUtf8(move));
+  void edaxMove(String move) => _bindings.edaxMove(Utf8.toUtf8(move));
 
   /// Set board from string.
   ///
@@ -196,28 +198,28 @@ class LibEdax {
   /// * EMPTY: `-`,`.`
   ///
   /// Last char is turn.
-  void edaxSetboard(String board) => bindings.edaxSetboard(Utf8.toUtf8(board));
+  void edaxSetboard(String board) => _bindings.edaxSetboard(Utf8.toUtf8(board));
 
   /// Get the opening name of the current game, in English.
   ///
   /// e.g. brightwell, tiger, rose, ....
-  String edaxOpening() => Utf8.fromUtf8(bindings.edaxOpening());
+  String edaxOpening() => Utf8.fromUtf8(_bindings.edaxOpening());
 
   /// Use book on `edaxGo`, `edaxHint`, `mode 2`.<br>
   /// default is on.
-  void edaxBookOn() => bindings.edaxBookOn();
+  void edaxBookOn() => _bindings.edaxBookOn();
 
   /// Don't use book on `edaxGo`, `edaxHint`, `mode 2`.
-  void edaxBookOff() => bindings.edaxBookOff();
+  void edaxBookOff() => _bindings.edaxBookOff();
 
   /// Set randomness on `edaxGo`, `mode 2`. <br>
   /// default is 0.
   ///
   /// edax will choose move with the randomness width.
-  void edaxBookRandomness(int randomness) => bindings.edaxBookRandomness(randomness);
+  void edaxBookRandomness(int randomness) => _bindings.edaxBookRandomness(randomness);
 
   /// Create a new book.
-  void edaxBookNew(int level, int depth) => bindings.edaxBookNew(level, depth);
+  void edaxBookNew(int level, int depth) => _bindings.edaxBookNew(level, depth);
 
   /// Show book.
   Position edaxBookShow() {
@@ -249,26 +251,26 @@ class LibEdax {
   ///
   /// See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
   void edaxSetOption(String optionName, String val) =>
-      bindings.edaxSetOption(Utf8.toUtf8(optionName), Utf8.toUtf8(val));
+      _bindings.edaxSetOption(Utf8.toUtf8(optionName), Utf8.toUtf8(val));
 
   /// Check if the current game is over.
   String edaxGetMoves() {
     final moves = allocate<Uint8>(count: 80 * 2 + 1);
-    final result = Utf8.fromUtf8(bindings.edaxGetMoves(moves));
+    final result = Utf8.fromUtf8(_bindings.edaxGetMoves(moves));
     free(moves);
     return result;
   }
 
   /// Check if the current game is over.
-  bool edaxIsGameOver() => bindings.edaxIsGameOver() == 1;
+  bool edaxIsGameOver() => _bindings.edaxIsGameOver() == 1;
 
   /// Check if the current player can move.
-  bool edaxCanMove() => bindings.edaxCanMove() == 1;
+  bool edaxCanMove() => _bindings.edaxCanMove() == 1;
 
   /// Get the last move.
   Move edaxGetLastMove() {
     final dst = allocate<c_move.Move>();
-    bindings.edaxGetLastMove(dst);
+    _bindings.edaxGetLastMove(dst);
     final move = dst.ref;
     final result = Move(move.flipped, move.x, move.score, move.cost);
     free(dst);
@@ -278,7 +280,7 @@ class LibEdax {
   /// Get the current board.
   Board edaxGetBoard() {
     final dst = allocate<c_board.Board>();
-    bindings.edaxGetBoard(dst);
+    _bindings.edaxGetBoard(dst);
     final board = dst.ref;
     final result = Board(board.player, board.opponent);
     free(dst);
@@ -288,14 +290,14 @@ class LibEdax {
   /// Get the current player.
   /// * 0: BLACK
   /// * 1: WHITE
-  int edaxGetCurrentPlayer() => bindings.edaxGetCurrentPlayer();
+  int edaxGetCurrentPlayer() => _bindings.edaxGetCurrentPlayer();
 
   /// Get the current number of discs.
-  int edaxGetDisc(int color) => bindings.edaxGetDisc(color);
+  int edaxGetDisc(int color) => _bindings.edaxGetDisc(color);
 
   /// Get the legal move count.
-  int edaxGetMobilityCount(int color) => bindings.edaxGetMobilityCount(color);
+  int edaxGetMobilityCount(int color) => _bindings.edaxGetMobilityCount(color);
 
   /// Count bit.
-  int popCount(int bit) => bindings.bitCount(bit);
+  int popCount(int bit) => _bindings.bitCount(bit);
 }
