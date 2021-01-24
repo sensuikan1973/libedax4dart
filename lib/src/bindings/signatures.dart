@@ -36,7 +36,7 @@ typedef edax_go_native_t = Int32 Function();
 typedef edax_hint_native_t = Int32 Function(Int32 n, Pointer<HintList> hintlist);
 typedef edax_get_bookmove_native_t = Int32 Function(Pointer<MoveList> move_list);
 typedef edax_get_bookmove_with_position_native_t = Int32 Function(
-    Pointer<MoveList> move_list, Pointer<Position> position); // TODO: implement
+    Pointer<MoveList> move_list, Pointer<Position> position);
 typedef edax_hint_prepare_native_t = Int32 Function(Pointer<MoveList> exclude_list);
 typedef edax_hint_next_native_t = Int32 Function(Pointer<Hint> hint);
 typedef edax_hint_next_no_multipv_depth_native_t = Int32 Function(Pointer<Hint> hint);
@@ -61,7 +61,7 @@ typedef edax_book_new_native_t = Int32 Function(Int32 level, Int32 depth);
 // typedef edax_book_correct_native_t = Int32 Function(); // TODO: implement if you need
 // typedef edax_book_prune_native_t = Int32 Function(); // TODO: implement if you need
 // typedef edax_book_subtree_native_t = Int32 Function(); // TODO: implement if you need
-typedef edax_book_show_native_t = Int32 Function(Pointer<Position> position); // TODO: implement if you need
+typedef edax_book_show_native_t = Int32 Function(Pointer<Position> position);
 // typedef edax_book_info_native_t = Int32 Function(Pointer<Book> book);
 // typedef edax_book_verbose_native_t = Int32 Function(Int32 book_verbosity); // TODO: implement if you need
 // typedef edax_book_add_native_t = Int32 Function(Pointer<Utf8> base_file); // TODO: implement if you need

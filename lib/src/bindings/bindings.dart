@@ -7,6 +7,7 @@ import 'structs/hint.dart';
 import 'structs/hint_list.dart';
 import 'structs/move.dart';
 import 'structs/move_list.dart';
+import 'structs/position.dart';
 
 _LibEdaxBindings? _cachedBindings;
 _LibEdaxBindings get bindings => _cachedBindings ??= _LibEdaxBindings();
@@ -32,6 +33,7 @@ class _LibEdaxBindings {
   late final int Function() edaxGo;
   late final int Function(int n, Pointer<HintList> hintList) edaxHint;
   late final int Function(Pointer<MoveList> moveList) edaxGetBookMove;
+  late final int Function(Pointer<MoveList> moveList, Pointer<Position> position) edaxGetBookMoveWithPosition;
   late final int Function(Pointer<MoveList> excludeList) edaxHintPrepare;
   late final int Function(Pointer<Hint> hint) edaxHintNext;
   late final int Function(Pointer<Hint> hint) edaxHintNextNoMultiPvDepth;
@@ -43,6 +45,7 @@ class _LibEdaxBindings {
   late final int Function() edaxBookOff;
   late final int Function(int randomness) edaxBookRandomness;
   late final int Function(int level, int depth) edaxBookNew;
+  late final int Function(Pointer<Position> position) edaxBookShow;
   late final int Function(Pointer<Utf8> optionName, Pointer<Utf8> val) edaxSetOption;
   late final Pointer<Utf8> Function(Pointer<Uint8> str) edaxGetMoves;
   late final int Function() edaxIsGameOver;
@@ -71,6 +74,8 @@ class _LibEdaxBindings {
     edaxHintNextNoMultiPvDepth =
         _lookupNativeFunc<edax_hint_next_no_multipv_depth_native_t>('edax_hint_next_no_multipv_depth').asFunction();
     edaxGetBookMove = _lookupNativeFunc<edax_get_bookmove_native_t>('edax_get_bookmove').asFunction();
+    edaxGetBookMoveWithPosition =
+        _lookupNativeFunc<edax_get_bookmove_with_position_native_t>('edax_get_bookmove_with_position').asFunction();
     edaxHintPrepare = _lookupNativeFunc<edax_hint_prepare_native_t>('edax_hint_prepare').asFunction();
     edaxHintNext = _lookupNativeFunc<edax_hint_next_native_t>('edax_hint_next').asFunction();
     edaxStop = _lookupNativeFunc<edax_stop_native_t>('edax_stop').asFunction();
@@ -81,6 +86,7 @@ class _LibEdaxBindings {
     edaxBookOff = _lookupNativeFunc<edax_book_off_native_t>('edax_book_off').asFunction();
     edaxBookRandomness = _lookupNativeFunc<edax_book_randomness_native_t>('edax_book_randomness').asFunction();
     edaxBookNew = _lookupNativeFunc<edax_book_new_native_t>('edax_book_new').asFunction();
+    edaxBookShow = _lookupNativeFunc<edax_book_show_native_t>('edax_book_show').asFunction();
     edaxSetOption = _lookupNativeFunc<edax_set_option_native_t>('edax_set_option').asFunction();
     edaxGetMoves = _lookupNativeFunc<edax_get_moves_native_t>('edax_get_moves').asFunction();
     edaxIsGameOver = _lookupNativeFunc<edax_is_game_over_native_t>('edax_is_game_over').asFunction();
