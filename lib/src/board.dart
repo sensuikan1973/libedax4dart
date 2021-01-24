@@ -12,7 +12,7 @@ class Board {
   /// opponent's bitboard.
   final int opponent;
 
-  /// print human redable board.
+  /// get human redable board.
   ///
   /// example <br>
   ///   A B C D E F G H
