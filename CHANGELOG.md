@@ -1,3 +1,7 @@
+# 0.2.1-dev.0
+- add dev suffix because this package uses Dart SDK **`dev`**.
+- add getter to board as radix16 String
+
 # 0.2.0-alpha
 publish alpha release
 
