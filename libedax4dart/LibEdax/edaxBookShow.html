@@ -133,6 +133,8 @@
       <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">Position edaxBookShow() {
   final dstP = allocate&lt;c_position.Position&gt;();
+  _bindings.edaxBookShow(dstP);
+
   final pos = dstP.ref;
   final board = Board(pos.board[0].player, pos.board[0].opponent);
   final leaf = Link(pos.leaf.score, pos.leaf.move);
