@@ -25,3 +25,8 @@ String score2String(int score) {
   if (score <= 0) return score.toString();
   return '+${score.toString()}';
 }
+
+/// Radix 16 String.
+///
+/// e.g. `0010387c38100000`.
+String radix16Board(int bit) => bit.toRadixString(16).padLeft(16, '0');
