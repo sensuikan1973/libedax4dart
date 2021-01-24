@@ -134,6 +134,8 @@ void main() {
       expect(hintList.length, 2);
       expect(hintList.first.moveString, 'd3');
       expect(hintList.first.score, 0);
+      expect(hintList.first.scoreString, '0');
+      expect(hintList.first.isBookMove, true);
       expect(hintList[1].score, lessThanOrEqualTo(1));
       edax.libedaxTerminate();
     });

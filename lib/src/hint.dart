@@ -40,5 +40,5 @@ class Hint {
   String get moveString => move2String(move);
 
   /// e.g. `+10`
-  String get scoreString => score2String(move);
+  String get scoreString => score2String(score);
 }
