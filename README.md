@@ -16,8 +16,8 @@ TODO: describe
 - [edax](https://sensuikan1973.github.io/edax-reversi/)
 
 ## Reference
-- python version: https://github.com/lavox/libedax4py
-- java version: https://github.com/lavox/libedax4j
+- python version: [libedax4py](https://github.com/lavox/libedax4py)
+- java version: [libedax4j](https://github.com/lavox/libedax4j)
 
 ---
 
@@ -54,4 +54,4 @@ dartdoc && open doc/api/index.html
   - issues
     - [dart-lang/ffi/issues](https://github.com/dart-lang/ffi/issues)
     - [dart-lang/sdk/labels/library-ffi](https://github.com/dart-lang/sdk/labels/library-ffi)
-- [Dart Documentation](https://dart.dev/guides/language/effective-dart/documentation)
+- [Effective Dart: Documentation](https://dart.dev/guides/language/effective-dart/documentation)
