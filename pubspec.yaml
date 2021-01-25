@@ -2,7 +2,7 @@
 
 name: libedax4dart
 version: 0.2.1-dev.2
-description: dart wrapper for libedax. With using libedax4dart, you can execute functions equivalent to edax.
+description: Dart wrapper for libedax. With using libedax4dart, you can execute functions equivalent to edax.
 homepage: https://github.com/sensuikan1973/libedax4dart
 
 environment:
