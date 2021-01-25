@@ -7,9 +7,9 @@ import 'position.dart';
 class MoveListWithPosition {
   const MoveListWithPosition(this.moveList, this.position);
 
-  /// player's bitboard.
+  /// move list.
   final List<Move> moveList;
 
-  /// opponent's bitboard.
+  /// position.
   final Position position;
 }
