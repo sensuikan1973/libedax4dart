@@ -10,9 +10,9 @@ import 'structs/move_list.dart';
 import 'structs/position.dart';
 
 class LibEdaxBindings {
-  factory LibEdaxBindings([String dllDir = '']) => _instance ??= LibEdaxBindings._(dllDir);
-  LibEdaxBindings._([String dllDir = '']) {
-    libedax = dlopenPlatformSpecific(dir: dllDir);
+  factory LibEdaxBindings([String dllPath = '']) => _instance ??= LibEdaxBindings._(dllPath);
+  LibEdaxBindings._([String dllPath = '']) {
+    libedax = dlopenPlatformSpecific(dllPath);
     _bindFunctions();
   }
 
