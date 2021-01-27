@@ -18,7 +18,7 @@ import 'score.dart';
 
 @immutable
 class LibEdax {
-  LibEdax([String dllDir = '']) : _bindings = LibEdaxBindings(dllDir);
+  LibEdax([String dllPath = '']) : _bindings = LibEdaxBindings(dllPath);
 
   final LibEdaxBindings _bindings;
 
