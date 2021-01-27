@@ -1,3 +1,6 @@
+# 0.2.1-dev.3
+- you can specify full path of dll.
+
 # 0.2.1-dev.2
 - add `edaxBookShow` command.
 
