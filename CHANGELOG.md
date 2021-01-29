@@ -1,3 +1,6 @@
+# 0.2.1-dev.4
+- loosen dependency constraints.
+
 # 0.2.1-dev.3
 - you can specify full path of dll.
 
