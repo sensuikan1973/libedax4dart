@@ -14,6 +14,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
     strategy:
+      fail-fast: false # I want results from all OSes even if one fails.
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         include:
