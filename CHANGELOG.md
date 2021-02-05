@@ -1,3 +1,7 @@
+# 0.3.0-beta.1
+- update README
+- upgrade dependencies
+
 # 0.3.0-beta.0
 - use Dart SDK `beta`
 
