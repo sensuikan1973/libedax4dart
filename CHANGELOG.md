@@ -1,3 +1,6 @@
+# 0.3.0-beta.0
+- use Dart SDK `beta`
+
 # 0.2.1-dev.4
 - loosen dependency constraints.
 
