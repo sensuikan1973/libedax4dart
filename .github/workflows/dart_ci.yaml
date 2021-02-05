@@ -12,7 +12,7 @@ jobs:
   format:
     runs-on: ubuntu-latest
     container:
-      image: google/dart:dev
+      image: google/dart:beta
     steps:
     - uses: actions/checkout@v2
     - name: dart format
@@ -21,7 +21,7 @@ jobs:
   analyze:
     runs-on: ubuntu-latest
     container:
-      image: google/dart:dev
+      image: google/dart:beta
     steps:
     - uses: actions/checkout@v2
     - name: install dependencies
