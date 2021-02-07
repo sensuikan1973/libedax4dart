@@ -13,6 +13,31 @@ class Board {
   /// opponent's bitboard.
   final int opponent;
 
+  /// square list of player's bitboard.
+  List<int> get squaresOfPlayer => _squares(player);
+
+  /// square String list of player's bitboard.
+  List<String> get squareStringsOfPlayer => _squares(player).map(move2String).toList();
+
+  /// square list of opponent's bitboard.
+  List<int> get squaresOfOpponent => _squares(opponent);
+
+  /// square String list of opponent's bitboard.
+  List<String> get squareStringsOfOpponent => _squares(opponent).map(move2String).toList();
+
+  List<int> _squares(int bitboard) {
+    final result = <int>[];
+    final target = BigInt.from(bitboard).toUnsigned(64);
+    var mask = BigInt.from(0x8000000000000000).toUnsigned(64);
+    var i = 0;
+    while (i <= 63) {
+      if ((mask & target) == mask) result.add(63 - i); // NOTE: head of edax bitboard is "h8".
+      mask = mask >> 1;
+      i++;
+    }
+    return result..sort(); // ensure sorted list.
+  }
+
   /// Radix 16 String.
   ///
   /// e.g. `0010387c38100000`.

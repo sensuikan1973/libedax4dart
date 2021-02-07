@@ -38,6 +38,20 @@ void main() {
       edax.libedaxTerminate();
     });
 
+    test('board useful getter', () {
+      final edax = LibEdax()
+        ..libedaxInitialize()
+        ..edaxInit()
+        ..edaxPlay('f5d6c5f4d3');
+      final board = edax.edaxGetBoard();
+      expect(edax.edaxGetCurrentPlayer(), TurnColor.white);
+      expect(board.squaresOfPlayer, [29, 36, 43]);
+      expect(board.squareStringsOfPlayer, ['f4', 'e5', 'd6']);
+      expect(board.squaresOfOpponent, [19, 27, 28, 34, 35, 37]);
+      expect(board.squareStringsOfOpponent, ['d3', 'd4', 'e4', 'c5', 'd5', 'f5']);
+      edax.libedaxTerminate();
+    });
+
     test('setBoard', () {
       const boardString = '-W----W--------------------WB------WBB-----W--------------------B';
       final edax = LibEdax()
