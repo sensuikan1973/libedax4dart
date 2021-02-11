@@ -1,3 +1,7 @@
+# 0.5.0-beta.0
+
+- upgrade ffi package.
+
 # 0.4.0-beta.1
 
 - fix unstable linux shared library.

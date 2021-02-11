@@ -84,7 +84,7 @@ packages:
       name: ffi
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.0-nullsafety.3"
+    version: "0.3.1-nullsafety.0"
   file:
     dependency: transitive
     description:
@@ -142,7 +142,7 @@ packages:
     source: hosted
     version: "0.12.10"
   meta:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: meta
       url: "https://pub.dartlang.org"
