@@ -11,5 +11,5 @@ dependencies:
     path: ..
 
 dev_dependencies:
-  analyzer: ^0.41.1
+  analyzer: ^0.41.2
   pedantic_sensuikan1973: any
