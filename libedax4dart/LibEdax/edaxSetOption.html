@@ -135,7 +135,7 @@
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">void edaxSetOption(String optionName, String val) =&gt;
-    _bindings.edaxSetOption(Utf8.toUtf8(optionName), Utf8.toUtf8(val));</code></pre>
+    _bindings.edaxSetOption(optionName.toNativeUtf8(), val.toNativeUtf8());</code></pre>
     </section>
 
   </div> <!-- /.main-content -->
@@ -148,7 +148,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      0.4.0-beta.1
+      0.5.0-beta.0
   </span>
 
 </footer>

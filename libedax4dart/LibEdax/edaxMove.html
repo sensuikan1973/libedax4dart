@@ -133,7 +133,7 @@
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span></h2>
-      <pre class="language-dart"><code class="language-dart">void edaxMove(String move) =&gt; _bindings.edaxMove(Utf8.toUtf8(move));</code></pre>
+      <pre class="language-dart"><code class="language-dart">void edaxMove(String move) =&gt; _bindings.edaxMove(move.toNativeUtf8());</code></pre>
     </section>
 
   </div> <!-- /.main-content -->
@@ -146,7 +146,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      0.4.0-beta.1
+      0.5.0-beta.0
   </span>
 
 </footer>
