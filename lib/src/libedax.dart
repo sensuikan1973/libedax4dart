@@ -32,7 +32,7 @@ class LibEdax {
   ///
   /// If you want to know more, See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
   void libedaxInitialize([List<String> args = const []]) {
-    final argsPointers = args.map(Utf8.toUtf8).toList();
+    final argsPointers = args.map((arg) => arg.toNativeUtf8()).toList();
     final pointerPointer = calloc<Pointer<Uint8>>(argsPointers.length);
     for (var k = 0; k < argsPointers.length; k++) {
       pointerPointer[k] = argsPointers[k].cast<Uint8>();
@@ -75,7 +75,7 @@ class LibEdax {
   /// you can pass Lower case or Upper case. `f5F6F6g7` is OK. <br>
   /// you can also pass opening name. (e.g. `brightwell`) <br>
   /// opening names are listed on [opening.c](https://github.com/lavox/edax-reversi/blob/libedax/src/opening.c).
-  void edaxPlay(String moves) => _bindings.edaxPlay(Utf8.toUtf8(moves));
+  void edaxPlay(String moves) => _bindings.edaxPlay(moves.toNativeUtf8());
 
   /// Let edax move.
   void edaxGo() => _bindings.edaxGo();
@@ -188,7 +188,7 @@ class LibEdax {
   /// Play move.
   ///
   /// you can pass Lower case or Upper case. `f5` `F5` is OK.
-  void edaxMove(String move) => _bindings.edaxMove(Utf8.toUtf8(move));
+  void edaxMove(String move) => _bindings.edaxMove(move.toNativeUtf8());
 
   /// Set board from string.
   ///
@@ -198,12 +198,12 @@ class LibEdax {
   /// * EMPTY: `-`,`.`
   ///
   /// Last char is turn.
-  void edaxSetboard(String board) => _bindings.edaxSetboard(Utf8.toUtf8(board));
+  void edaxSetboard(String board) => _bindings.edaxSetboard(board.toNativeUtf8());
 
   /// Get the opening name of the current game, in English.
   ///
   /// e.g. `brightwell`, `tiger`, `rose`, ....
-  String edaxOpening() => Utf8.fromUtf8(_bindings.edaxOpening());
+  String edaxOpening() => _bindings.edaxOpening().toDartString();
 
   /// Use book on `edaxGo`, `edaxHint`, `mode 2`.<br>
   /// default is on.
@@ -253,12 +253,12 @@ class LibEdax {
   ///
   /// See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
   void edaxSetOption(String optionName, String val) =>
-      _bindings.edaxSetOption(Utf8.toUtf8(optionName), Utf8.toUtf8(val));
+      _bindings.edaxSetOption(optionName.toNativeUtf8(), val.toNativeUtf8());
 
   /// Check if the current game is over.
   String edaxGetMoves() {
     final moves = calloc<Uint8>(80 * 2 + 1);
-    final result = Utf8.fromUtf8(_bindings.edaxGetMoves(moves));
+    final result = _bindings.edaxGetMoves(moves).toDartString();
     calloc.free(moves);
     return result;
   }
