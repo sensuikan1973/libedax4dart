@@ -33,12 +33,12 @@ class LibEdax {
   /// If you want to know more, See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
   void libedaxInitialize([List<String> args = const []]) {
     final argsPointers = args.map(Utf8.toUtf8).toList();
-    final pointerPointer = allocate<Pointer<Uint8>>(count: argsPointers.length);
+    final pointerPointer = calloc<Pointer<Uint8>>(argsPointers.length);
     for (var k = 0; k < argsPointers.length; k++) {
       pointerPointer[k] = argsPointers[k].cast<Uint8>();
     }
     _bindings.libedaxInitialize(args.length, pointerPointer);
-    free(pointerPointer);
+    calloc.free(pointerPointer);
   }
 
   /// Terminate libedax.
@@ -82,7 +82,7 @@ class LibEdax {
 
   /// Get hint.
   List<Hint> edaxHint(int n) {
-    final dst = allocate<c_hintlist.HintList>();
+    final dst = calloc<c_hintlist.HintList>();
     _bindings.edaxHint(n, dst);
     final hintList = dst.ref;
     final result = <Hint>[];
@@ -90,13 +90,13 @@ class LibEdax {
       final h = hintList.hint[k + 1];
       result.add(Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move));
     }
-    free(dst);
+    calloc.free(dst);
     return result;
   }
 
   /// Get book move list.
   List<Move> edaxGetBookMove() {
-    final dst = allocate<c_movelist.MoveList>();
+    final dst = calloc<c_movelist.MoveList>();
     _bindings.edaxGetBookMove(dst);
     final moveList = dst.ref;
     final result = <Move>[];
@@ -104,14 +104,14 @@ class LibEdax {
       final m = moveList.move[k + 1];
       result.add(Move(m.flipped, m.x, m.score, m.cost));
     }
-    free(dst);
+    calloc.free(dst);
     return result;
   }
 
   /// Get book move list with position.
   MoveListWithPosition edaxGetBookMoveWithPosition() {
-    final dstM = allocate<c_movelist.MoveList>();
-    final dstP = allocate<c_position.Position>();
+    final dstM = calloc<c_movelist.MoveList>();
+    final dstP = calloc<c_position.Position>();
     _bindings.edaxGetBookMoveWithPosition(dstM, dstP);
 
     final moveList = dstM.ref;
@@ -120,7 +120,7 @@ class LibEdax {
       final m = moveList.move[k + 1];
       resultMoveList.add(Move(m.flipped, m.x, m.score, m.cost));
     }
-    free(dstM);
+    calloc.free(dstM);
 
     final pos = dstP.ref;
     final board = Board(pos.board[0].player, pos.board[0].opponent);
@@ -141,7 +141,7 @@ class LibEdax {
       pos.done,
       pos.todo,
     );
-    free(dstP);
+    calloc.free(dstP);
 
     return MoveListWithPosition(resultMoveList, resultPosition);
   }
@@ -157,11 +157,11 @@ class LibEdax {
   /// __Call edaxHintPrepare before calling this function__. <br>
   /// If there are no more hints, hint will be noMove.
   Hint edaxHintNext() {
-    final dst = allocate<c_hint.Hint>();
+    final dst = calloc<c_hint.Hint>();
     _bindings.edaxHintNext(dst);
     final h = dst.ref;
     final result = Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
-    free(dst);
+    calloc.free(dst);
     return result;
   }
 
@@ -171,11 +171,11 @@ class LibEdax {
   /// If there are no more hints, hint will be noMove.
   /// __This function use Multi-PV search for analyze usecase. This may be slower than edaxHintNext__.
   Hint edaxHintNextNoMultiPvDepth() {
-    final dst = allocate<c_hint.Hint>();
+    final dst = calloc<c_hint.Hint>();
     _bindings.edaxHintNextNoMultiPvDepth(dst);
     final h = dst.ref;
     final result = Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
-    free(dst);
+    calloc.free(dst);
     return result;
   }
 
@@ -223,7 +223,7 @@ class LibEdax {
 
   /// Show book.
   Position edaxBookShow() {
-    final dstP = allocate<c_position.Position>();
+    final dstP = calloc<c_position.Position>();
     _bindings.edaxBookShow(dstP);
 
     final pos = dstP.ref;
@@ -245,7 +245,7 @@ class LibEdax {
       pos.done,
       pos.todo,
     );
-    free(dstP);
+    calloc.free(dstP);
     return result;
   }
 
@@ -257,9 +257,9 @@ class LibEdax {
 
   /// Check if the current game is over.
   String edaxGetMoves() {
-    final moves = allocate<Uint8>(count: 80 * 2 + 1);
+    final moves = calloc<Uint8>(80 * 2 + 1);
     final result = Utf8.fromUtf8(_bindings.edaxGetMoves(moves));
-    free(moves);
+    calloc.free(moves);
     return result;
   }
 
@@ -271,21 +271,21 @@ class LibEdax {
 
   /// Get the last move.
   Move edaxGetLastMove() {
-    final dst = allocate<c_move.Move>();
+    final dst = calloc<c_move.Move>();
     _bindings.edaxGetLastMove(dst);
     final move = dst.ref;
     final result = Move(move.flipped, move.x, move.score, move.cost);
-    free(dst);
+    calloc.free(dst);
     return result;
   }
 
   /// Get the current board.
   Board edaxGetBoard() {
-    final dst = allocate<c_board.Board>();
+    final dst = calloc<c_board.Board>();
     _bindings.edaxGetBoard(dst);
     final board = dst.ref;
     final result = Board(board.player, board.opponent);
-    free(dst);
+    calloc.free(dst);
     return result;
   }
 
