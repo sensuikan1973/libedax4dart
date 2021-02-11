@@ -6,7 +6,7 @@ description: Dart wrapper for libedax. With using libedax4dart, you can execute 
 homepage: https://github.com/sensuikan1973/libedax4dart
 
 environment:
-  sdk: '>=2.13.0-0 <3.0.0' # See: https://dart.dev/null-safety#enable-null-safety
+  sdk: '>=2.12.0-0 <3.0.0' # See: https://dart.dev/null-safety#enable-null-safety
 
 dependencies:
   ffi: ^0.3.0-nullsafety.3
