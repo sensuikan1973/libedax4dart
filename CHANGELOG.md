@@ -1,3 +1,7 @@
+# 0.3.0-beta.3
+
+- upgrade ffi package.
+
 # 0.3.0-beta.2
 
 - add useful getter to Board class.
