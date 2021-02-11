@@ -1,4 +1,4 @@
-# 0.3.0-beta.3
+# 0.4.0-beta.0
 
 - upgrade ffi package.
 
