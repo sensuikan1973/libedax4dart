@@ -4,7 +4,7 @@ import 'package:libedax4dart/libedax4dart.dart';
 import 'package:libedax4dart/src/constants.dart';
 import 'package:test/test.dart';
 
-const testBookFile = './resources/test_book.dat';
+const _testBookFile = './resources/test_book.dat';
 
 void main() {
   group('with a new book (follow default: data/book.dat)', () {
@@ -113,14 +113,14 @@ void main() {
       final edax = LibEdax()
         ..libedaxInitialize()
         ..edaxInit()
-        ..edaxBookLoad(testBookFile);
+        ..edaxBookLoad(_testBookFile);
       final result = edax.edaxGetBookMoveWithPosition();
       expect(result.position.nLines, 264 + 16);
       edax.libedaxTerminate();
     });
 
     test('get book move with position', () {
-      const initParams = ['', '-book-file', testBookFile];
+      const initParams = ['', '-book-file', _testBookFile];
       final edax = LibEdax()
         ..libedaxInitialize(initParams)
         ..edaxInit();
@@ -149,7 +149,7 @@ void main() {
     });
 
     test('get hints', () {
-      const initParams = ['', '-book-file', testBookFile];
+      const initParams = ['', '-book-file', _testBookFile];
       final edax = LibEdax()
         ..libedaxInitialize(initParams)
         ..edaxInit();
@@ -164,7 +164,7 @@ void main() {
     });
 
     test('get hints one by one', () {
-      const initParams = ['', '-book-file', testBookFile];
+      const initParams = ['', '-book-file', _testBookFile];
       final edax = LibEdax()
         ..libedaxInitialize(initParams)
         ..edaxInit()
@@ -191,7 +191,7 @@ void main() {
     });
 
     test('book show', () {
-      const initParams = ['', '-book-file', testBookFile];
+      const initParams = ['', '-book-file', _testBookFile];
       final edax = LibEdax()
         ..libedaxInitialize(initParams)
         ..edaxInit();
