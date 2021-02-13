@@ -11,10 +11,13 @@ import 'structs/move_list.dart';
 import 'structs/position.dart';
 
 class LibEdaxBindings {
-  LibEdaxBindings([String dllPath = '']) {
+  factory LibEdaxBindings([String dllPath = '']) => _instance ??= LibEdaxBindings._(dllPath);
+  LibEdaxBindings._([String dllPath = '']) {
     libedax = dlopenPlatformSpecific(dllPath);
     _bindFunctions();
   }
+
+  static LibEdaxBindings? _instance;
 
   late final DynamicLibrary libedax;
 
@@ -102,7 +105,10 @@ class LibEdaxBindings {
 
   /// workaround Function.
   /// See: https://github.com/dart-lang/sdk/issues/40159
-  void closeDll() => _dlCloseFunc(libedax.handle);
+  void closeDll() {
+    _dlCloseFunc(libedax.handle);
+    _instance = null;
+  }
 
   int Function(Pointer<Void>) get _dlCloseFunc {
     final funcName = Platform.isWindows ? 'FreeLibrary' : 'dlclose';
