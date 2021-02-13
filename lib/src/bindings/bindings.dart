@@ -1,4 +1,5 @@
 import 'dart:ffi';
+import 'dart:io';
 import 'package:ffi/ffi.dart';
 import '../ffi/dylib_utils.dart';
 import 'signatures.dart';
@@ -101,6 +102,21 @@ class LibEdaxBindings {
 
     bitCount = _lookupNativeFunc<bit_count_native_t>('bit_count').asFunction();
   }
+
+  /// workaround Function.
+  /// See: https://github.com/dart-lang/sdk/issues/40159
+  void closeDll() {
+    _dlCloseFunc(libedax.handle);
+    _instance = null;
+  }
+
+  int Function(Pointer<Void>) get _dlCloseFunc {
+    final funcName = Platform.isWindows ? 'FreeLibrary' : 'dlclose';
+    return _stdlib.lookup<NativeFunction<Int32 Function(Pointer<Void>)>>(funcName).asFunction();
+  }
+
+  // See: https://github.com/dart-lang/ffi/blob/f3346299c55669cc0db48afae85b8110088bf8da/lib/src/allocation.dart#L8-L11
+  DynamicLibrary get _stdlib => Platform.isWindows ? DynamicLibrary.open('kernel32.dll') : DynamicLibrary.process();
 
   Pointer<NativeFunction<T>> _lookupNativeFunc<T extends Function>(String symbolName) =>
       libedax.lookup<NativeFunction<T>>(symbolName);

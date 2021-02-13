@@ -1,3 +1,8 @@
+# 0.5.0-beta.2
+
+- add `closeDll` command.
+  - in the future, this command maybe deprecated. See: https://github.com/dart-lang/sdk/issues/40159
+
 # 0.5.0-beta.1
 
 - add `edaxBookLoad` command.

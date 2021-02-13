@@ -44,6 +44,11 @@ class LibEdax {
   /// Terminate libedax.
   void libedaxTerminate() => _bindings.libedaxTerminate();
 
+  /// close dll
+  /// After you call this, if you use edax command, you have to recreate `LibEdax` instance.
+  @experimental
+  void closeDll() => _bindings.closeDll();
+
   /// Init board.
   void edaxInit() => _bindings.edaxInit();
 
