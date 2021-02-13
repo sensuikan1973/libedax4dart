@@ -1,4 +1,5 @@
 import 'dart:ffi';
+import 'dart:io';
 import 'package:ffi/ffi.dart';
 import '../ffi/dylib_utils.dart';
 import 'signatures.dart';
@@ -10,13 +11,10 @@ import 'structs/move_list.dart';
 import 'structs/position.dart';
 
 class LibEdaxBindings {
-  factory LibEdaxBindings([String dllPath = '']) => _instance ??= LibEdaxBindings._(dllPath);
-  LibEdaxBindings._([String dllPath = '']) {
+  LibEdaxBindings([String dllPath = '']) {
     libedax = dlopenPlatformSpecific(dllPath);
     _bindFunctions();
   }
-
-  static LibEdaxBindings? _instance;
 
   late final DynamicLibrary libedax;
 
@@ -100,6 +98,16 @@ class LibEdaxBindings {
     edaxGetMobilityCount = _lookupNativeFunc<edax_get_mobility_count_native_t>('edax_get_mobility_count').asFunction();
 
     bitCount = _lookupNativeFunc<bit_count_native_t>('bit_count').asFunction();
+  }
+
+  /// workaround Function.
+  /// See: https://github.com/dart-lang/sdk/issues/40159
+  void closeDll() => _dlCloseFunc(libedax.handle);
+
+  int Function(Pointer<Void>) get _dlCloseFunc {
+    final dlLib = DynamicLibrary.process();
+    final funcName = Platform.isWindows ? 'FreeLibrary' : 'dlclose';
+    return dlLib.lookup<NativeFunction<Int32 Function(Pointer<Void>)>>(funcName).asFunction();
   }
 
   Pointer<NativeFunction<T>> _lookupNativeFunc<T extends Function>(String symbolName) =>

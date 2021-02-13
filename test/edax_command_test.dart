@@ -12,6 +12,17 @@ void main() {
     if (sleepSec != null) sleep(Duration(seconds: int.parse(sleepSec)));
   });
 
+  test('open and close DynamicLibrary', () {
+    final libedax = LibEdax(); // open internally
+    libedax.edaxVersion(); // ignore: cascade_invocations
+
+    libedax.closeDll(); // ignore: cascade_invocations
+    // libedax.edaxVersion(); => CRASH
+
+    final libedax2 = LibEdax(); // open internally
+    libedax2.edaxVersion(); // ignore: cascade_invocations
+  }, tags: 'temporary_command');
+
   group('with a new book (follow default: data/book.dat)', () {
     test('initialize without args, and set option', () {
       LibEdax()

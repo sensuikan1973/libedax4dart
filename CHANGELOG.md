@@ -1,3 +1,9 @@
+# 0.5.0-beta.2
+
+- add `closeDll` command.
+  - in the future, this command maybe deprecated. See: https://github.com/dart-lang/sdk/issues/40159
+  - this command is useful when you want to open/close dyamic library in one process.
+
 # 0.5.0-beta.1
 
 - add `edaxBookLoad` command.

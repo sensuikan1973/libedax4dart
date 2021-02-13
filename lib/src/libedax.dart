@@ -44,6 +44,10 @@ class LibEdax {
   /// Terminate libedax.
   void libedaxTerminate() => _bindings.libedaxTerminate();
 
+  /// close dll
+  @experimental
+  void closeDll() => _bindings.closeDll();
+
   /// Init board.
   void edaxInit() => _bindings.edaxInit();
 
