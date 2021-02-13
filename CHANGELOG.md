@@ -1,3 +1,7 @@
+# 0.5.0-beta.1
+
+- add `edaxBookLoad` command.
+
 # 0.5.0-beta.0
 
 - upgrade ffi package.
