@@ -62,8 +62,6 @@ jobs:
     - name: install dependencies
       run: pub get
     - name: test
-      env:
-        sleepSec: 2
       run: pub run test . --coverage=coverage
     - name: coverage
       run: pub run coverage:format_coverage --lcov --packages=.packages --in coverage --out lcov.info
