@@ -21,7 +21,7 @@ void main() {
 
     final libedax2 = LibEdax(); // open internally
     libedax2.edaxVersion(); // ignore: cascade_invocations
-  }, tags: 'temporary_command');
+  });
 
   group('with a new book (follow default: data/book.dat)', () {
     test('initialize without args, and set option', () {
