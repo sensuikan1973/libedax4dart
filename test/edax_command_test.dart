@@ -7,11 +7,6 @@ import 'package:test/test.dart';
 const testBookFile = './resources/test_book.dat';
 
 void main() {
-  tearDown(() {
-    final sleepSec = Platform.environment['sleepSec'];
-    if (sleepSec != null) sleep(Duration(seconds: int.parse(sleepSec)));
-  });
-
   group('with a new book (follow default: data/book.dat)', () {
     test('initialize without args, and set option', () {
       LibEdax()
