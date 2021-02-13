@@ -14,6 +14,7 @@ void main() {
 
   group('with a new book (follow default: data/book.dat)', () {
     test('initialize without args, and set option', () {
+      LibEdax();
       LibEdax()
         ..libedaxInitialize()
         ..edaxInit()
