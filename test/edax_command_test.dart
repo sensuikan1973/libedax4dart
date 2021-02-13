@@ -114,6 +114,16 @@ void main() {
   });
 
   group('with fixed book. See: resources/test_book_show.txt', () {
+    test('load book', () {
+      final edax = LibEdax()
+        ..libedaxInitialize()
+        ..edaxInit()
+        ..edaxBookLoad(testBookFile);
+      final result = edax.edaxGetBookMoveWithPosition();
+      expect(result.position.nLines, 264 + 16);
+      edax.libedaxTerminate();
+    });
+
     test('get book move with position', () {
       const initParams = ['', '-book-file', testBookFile];
       final edax = LibEdax()

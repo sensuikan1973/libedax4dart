@@ -221,6 +221,9 @@ class LibEdax {
   /// Create a new book.
   void edaxBookNew(int level, int depth) => _bindings.edaxBookNew(level, depth);
 
+  /// Load book.
+  void edaxBookLoad(String bookFile) => _bindings.edaxBookLoad(bookFile.toNativeUtf8());
+
   /// Show book.
   Position edaxBookShow() {
     final dstP = calloc<c_position.Position>();
