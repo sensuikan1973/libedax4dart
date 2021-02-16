@@ -130,8 +130,8 @@
     <section class="desc markdown">
       <p>Get a hint.</p>
 <p><strong>Call edaxHintPrepare before calling this function</strong>. <br>
-If there are no more hints, hint will be noMove.
-<strong>This function use Multi-PV search for analyze usecase. This may be slower than edaxHintNext</strong>.</p>
+If there are no more hints, <code>hint.isNoMove</code> will be true.
+<strong>This function doesn't use Multi-PV search for analyze usecase. This can be faster than edaxHintNext</strong>.</p>
     </section>
     
     <section class="summary source-code" id="source">
@@ -156,7 +156,7 @@ If there are no more hints, hint will be noMove.
 <footer>
   <span class="no-break">
     libedax4dart
-      0.5.0-beta.3
+      0.5.0-beta.4
   </span>
 
 </footer>
