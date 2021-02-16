@@ -161,7 +161,7 @@ class LibEdax {
   /// Get a hint.
   ///
   /// __Call edaxHintPrepare before calling this function__. <br>
-  /// If there are no more hints, hint will be noMove.
+  /// If there are no more hints, `hint.isNoMove` will be true.
   Hint edaxHintNext() {
     final dst = calloc<c_hint.Hint>();
     _bindings.edaxHintNext(dst);
@@ -174,8 +174,8 @@ class LibEdax {
   /// Get a hint.
   ///
   /// __Call edaxHintPrepare before calling this function__. <br>
-  /// If there are no more hints, hint will be noMove.
-  /// __This function use Multi-PV search for analyze usecase. This may be slower than edaxHintNext__.
+  /// If there are no more hints, `hint.isNoMove` will be true.
+  /// __This function doesn't use Multi-PV search for analyze usecase. This can be faster than edaxHintNext__.
   Hint edaxHintNextNoMultiPvDepth() {
     final dst = calloc<c_hint.Hint>();
     _bindings.edaxHintNextNoMultiPvDepth(dst);
