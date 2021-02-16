@@ -1,4 +1,5 @@
 import 'package:meta/meta.dart';
+import 'constants.dart';
 import 'util.dart';
 
 @immutable
@@ -35,6 +36,10 @@ class Hint {
   final int bookMove;
 
   bool get isBookMove => bookMove == 1;
+
+  bool get isNoMove => move == MoveMark.noMove;
+
+  bool get isPass => move == MoveMark.pass;
 
   /// e.g. `f5`
   String get moveString => move2String(move);

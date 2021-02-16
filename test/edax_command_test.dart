@@ -170,6 +170,8 @@ void main() {
       expect(hintList.first.score, 0);
       expect(hintList.first.scoreString, '0');
       expect(hintList.first.isBookMove, true);
+      expect(hintList.first.isNoMove, false);
+      expect(hintList.first.isPass, false);
       expect(hintList[1].score, lessThanOrEqualTo(1));
       edax.libedaxTerminate();
     });
