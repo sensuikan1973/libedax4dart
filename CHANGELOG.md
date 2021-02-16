@@ -1,3 +1,7 @@
+# 0.5.0-beta.3
+
+- add useful getter to Hint class.
+
 # 0.5.0-beta.2
 
 - add `closeDll` command.
