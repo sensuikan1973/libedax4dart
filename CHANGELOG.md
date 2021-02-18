@@ -1,7 +1,10 @@
+# 0.5.0-beta.5
+
+- upgrade dependencies.
+
 # 0.5.0-beta.4
 
 - fix uncorrect document for `edaxHintNextNoMultiPvDepth`.
-
 - add useful getter to Hint class.
 
 # 0.5.0-beta.2
