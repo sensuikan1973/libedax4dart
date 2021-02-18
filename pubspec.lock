@@ -84,7 +84,7 @@ packages:
       name: ffi
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.1-nullsafety.0"
+    version: "1.0.0"
   file:
     dependency: transitive
     description:
