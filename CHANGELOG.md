@@ -1,3 +1,7 @@
+# 0.5.0-beta.6
+
+- improve documents.
+
 # 0.5.0-beta.5
 
 - upgrade dependencies.
