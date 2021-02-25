@@ -17,7 +17,7 @@ With using libedax4dart, you can execute functions equivalent to [edax](https://
     - `eval.dat`
 3. With using [`LibEdax`](https://sensuikan1973.github.io/libedax4dart/libedax4dart/LibEdax-class.html), you can run edax commands !
 
-Real example is https://github.com/sensuikan1973/pedax.
+Real World example is https://github.com/sensuikan1973/pedax.
 
 ## Document
 - **[libedax4dart](https://sensuikan1973.github.io/libedax4dart/)**
