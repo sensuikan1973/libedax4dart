@@ -231,6 +231,9 @@ class LibEdax {
   void edaxBookLoad(String bookFile) => _bindings.edaxBookLoad(bookFile.toNativeUtf8());
 
   /// Show book.
+  ///
+  /// Probably, you should use `executeGetBookMoveWithPosition`.
+  /// See: https://github.com/sensuikan1973/libedax4dart/issues/46
   Position edaxBookShow() {
     final dstP = calloc<c_position.Position>();
     _bindings.edaxBookShow(dstP);
