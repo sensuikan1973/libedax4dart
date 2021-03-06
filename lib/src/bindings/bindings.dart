@@ -30,6 +30,7 @@ class LibEdaxBindings {
   late final int Function(int mode) edaxMode;
   late final int Function(Pointer<Utf8> board) edaxSetboard;
   late final int Function() edaxVmirror;
+  late final int Function(int angle) edaxRotate;
   late final int Function(Pointer<Utf8> moves) edaxPlay;
   late final int Function() edaxGo;
   late final int Function(int n, Pointer<HintList> hintList) edaxHint;
@@ -70,6 +71,7 @@ class LibEdaxBindings {
     edaxMode = _lookupNativeFunc<edax_mode_native_t>('edax_mode').asFunction();
     edaxSetboard = _lookupNativeFunc<edax_setboard_native_t>('edax_setboard').asFunction();
     edaxVmirror = _lookupNativeFunc<edax_vmirror_native_t>('edax_vmirror').asFunction();
+    edaxRotate = _lookupNativeFunc<edax_rotate_native_t>('edax_rotate').asFunction();
     edaxPlay = _lookupNativeFunc<edax_play_native_t>('edax_play').asFunction();
     edaxGo = _lookupNativeFunc<edax_go_native_t>('edax_go').asFunction();
     edaxHint = _lookupNativeFunc<edax_hint_native_t>('edax_hint').asFunction();

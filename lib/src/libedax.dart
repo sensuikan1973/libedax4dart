@@ -76,6 +76,14 @@ class LibEdax {
   /// Flip vertical.
   void edaxVmirror() => _bindings.edaxVmirror();
 
+  /// Rotate.
+  ///
+  /// angle: 90 or 180 or 270.
+  void edaxRotate(int angle) {
+    if (![90, 180, 270].contains(angle)) throw Exception('angle of edaxRotate supports only 90,180,270');
+    _bindings.edaxRotate(angle);
+  }
+
   /// Play moves.
   ///
   /// you can pass Lower case or Upper case. `f5F6F6g7` is OK. <br>

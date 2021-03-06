@@ -35,7 +35,8 @@ void main() {
         ..edaxBookOff()
         ..edaxBookOn()
         ..edaxPlay('f5d6c5f4d3')
-        ..edaxVmirror();
+        ..edaxVmirror()
+        ..edaxRotate(180);
       expect(edax.edaxOpening(), 'horse');
       edax
         ..edaxUndo()
