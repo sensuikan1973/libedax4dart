@@ -1,3 +1,7 @@
+# 0.6.0-beta.0
+
+- add `edaxRotate` command.
+
 # 0.5.1-beta.0
 
 - upgrade dependencies.
