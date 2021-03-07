@@ -275,7 +275,7 @@ class LibEdax {
   void edaxSetOption(String optionName, String val) =>
       _bindings.edaxSetOption(optionName.toNativeUtf8(), val.toNativeUtf8());
 
-  /// Check if the current game is over.
+  /// Get current moves.
   String edaxGetMoves() {
     final moves = calloc<Uint8>(80 * 2 + 1);
     final result = _bindings.edaxGetMoves(moves).toDartString();
