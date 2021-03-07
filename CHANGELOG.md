@@ -1,3 +1,7 @@
+# 0.6.0-beta.1
+
+- fix the documentation of `edaxGetMoves`.
+
 # 0.6.0-beta.0
 
 - add `edaxRotate` command.
