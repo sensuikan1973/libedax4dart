@@ -98,7 +98,7 @@
       <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">String move2String(int x) {
   if (x &lt; 64) return _moveStringTable[x];
-  if (x == 64) return &#39;pa&#39;;
+  if (x == 64) return MoveMark.passString;
   if (x == 65) return &#39;no move&#39;;
   return &#39;&#39;;
 }</code></pre>
