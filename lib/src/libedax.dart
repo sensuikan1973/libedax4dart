@@ -201,7 +201,8 @@ class LibEdax {
 
   /// Play move.
   ///
-  /// you can pass Lower case or Upper case. `f5` `F5` is OK.
+  /// you can pass Lower case or Upper case. `f5` `F5` is OK. <br>
+  /// if you want to switch turn when mobilicty count is 0, pass `pa`.
   void edaxMove(String move) => _bindings.edaxMove(move.toNativeUtf8());
 
   /// Set board from string.
