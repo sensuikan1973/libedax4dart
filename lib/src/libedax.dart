@@ -292,6 +292,8 @@ class LibEdax {
   bool edaxCanMove() => _bindings.edaxCanMove() == 1;
 
   /// Get the last move.
+  ///
+  /// NOTE: you have to handle the case that noMove is true.
   Move edaxGetLastMove() {
     final moves = edaxGetMoves();
     if (moves.isEmpty) return const Move(0, MoveMark.noMove, 0, 0);
