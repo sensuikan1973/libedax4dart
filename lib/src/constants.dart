@@ -7,6 +7,11 @@ class TurnColor {
 }
 
 class MoveMark {
+  /// PASS string.
+  ///
+  /// NOTE: edaxGetMoves() can contain passString upper case `PA`.
+  static const passString = 'pa';
+
   /// PASS move.
   static const pass = 64;
 
