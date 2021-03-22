@@ -1,3 +1,7 @@
+# 0.6.0-beta.2
+
+- add documentation for `'pa'` of move.
+
 # 0.6.0-beta.1
 
 - fix the documentation of `edaxGetMoves`.
