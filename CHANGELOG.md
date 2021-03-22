@@ -1,3 +1,7 @@
+# 0.6.0-beta.3
+
+- add `MoveMark.passString`(`'pa'`).
+
 # 0.6.0-beta.2
 
 - add documentation for `'pa'` of move.

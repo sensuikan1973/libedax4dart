@@ -1,9 +1,11 @@
+import '../libedax4dart.dart';
+
 /// Convert playerd square to human readable String.
 ///
 ///  e.g. `f5`
 String move2String(int x) {
   if (x < 64) return _moveStringTable[x];
-  if (x == 64) return 'pa';
+  if (x == 64) return MoveMark.passString;
   if (x == 65) return 'no move';
   return '';
 }
