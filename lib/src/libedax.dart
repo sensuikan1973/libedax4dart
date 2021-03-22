@@ -9,6 +9,7 @@ import 'bindings/structs/move.dart' as c_move;
 import 'bindings/structs/move_list.dart' as c_movelist;
 import 'bindings/structs/position.dart' as c_position;
 import 'board.dart';
+import 'constants.dart';
 import 'hint.dart';
 import 'link.dart';
 import 'move.dart';
@@ -291,7 +292,12 @@ class LibEdax {
   bool edaxCanMove() => _bindings.edaxCanMove() == 1;
 
   /// Get the last move.
+  ///
+  /// NOTE: you have to handle the case that noMove is true.
   Move edaxGetLastMove() {
+    final moves = edaxGetMoves();
+    if (moves.isEmpty) return const Move(0, MoveMark.noMove, 0, 0);
+
     final dst = calloc<c_move.Move>();
     _bindings.edaxGetLastMove(dst);
     final move = dst.ref;

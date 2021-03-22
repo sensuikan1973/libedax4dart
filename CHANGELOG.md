@@ -1,3 +1,8 @@
+# 0.7.0-beta.0
+
+- return the Move represents `noMove` when `edaxGetLastMove` is called with no moves.
+  - until now, in the situation, libedax4dart results segment fault. So, developer had to handle the case.
+
 # 0.6.0-beta.3
 
 - add `MoveMark.passString`(`'pa'`).

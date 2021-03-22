@@ -1,4 +1,4 @@
-import '../libedax4dart.dart';
+import 'constants.dart';
 
 /// Convert playerd square to human readable String.
 ///

@@ -28,6 +28,15 @@ void main() {
         ..libedaxTerminate();
     });
 
+    test('get last move with no moves', () {
+      final edax = LibEdax()
+        ..libedaxInitialize()
+        ..edaxNew();
+      final lastMove = edax.edaxGetLastMove();
+      expect(lastMove.isNoMove, true);
+      edax.libedaxTerminate();
+    });
+
     test('play "horse" opening', () {
       final edax = LibEdax()
         ..libedaxInitialize()
