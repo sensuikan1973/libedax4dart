@@ -130,11 +130,15 @@
     </section>
     <section class="desc markdown">
       <p>Get the last move.</p>
+<p>NOTE: you have to handle the case that noMove is true.</p>
     </section>
     
     <section class="summary source-code" id="source">
       <h2><span>Implementation</span></h2>
       <pre class="language-dart"><code class="language-dart">Move edaxGetLastMove() {
+  final moves = edaxGetMoves();
+  if (moves.isEmpty) return const Move(0, MoveMark.noMove, 0, 0);
+
   final dst = calloc&lt;c_move.Move&gt;();
   _bindings.edaxGetLastMove(dst);
   final move = dst.ref;
@@ -154,7 +158,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      0.6.0-beta.3
+      0.7.0-beta.0
   </span>
 
 </footer>
