@@ -1,3 +1,7 @@
+# 0.7.0-beta.1
+
+- upgrade dependencies
+
 # 0.7.0-beta.0
 
 - return the Move represents `noMove` when `edaxGetLastMove` is called with no moves.
