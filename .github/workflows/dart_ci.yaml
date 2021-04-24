@@ -10,6 +10,7 @@ on:
 jobs:
   format:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     container:
       image: google/dart:beta
     steps:
@@ -19,6 +20,7 @@ jobs:
 
   analyze:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     container:
       image: google/dart:beta
     steps:

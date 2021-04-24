@@ -1,3 +1,7 @@
+# 0.7.0-beta.2
+
+- upgrade dependencies
+
 # 0.7.0-beta.1
 
 - upgrade dependencies
