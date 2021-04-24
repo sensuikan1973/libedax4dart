@@ -1,8 +1,6 @@
 import 'dart:ffi';
 import 'dart:io' show Directory, Platform;
 
-import 'package:path/path.dart' as p;
-
 String get _libName {
   if (Platform.isLinux || Platform.isAndroid) return 'libedax.so';
   if (Platform.isMacOS) return 'libedax.dylib';
@@ -11,4 +9,4 @@ String get _libName {
 }
 
 DynamicLibrary dlopenPlatformSpecific([String dllPath = '']) =>
-    dllPath.isEmpty ? DynamicLibrary.open(p.join(Directory.current.path, _libName)) : DynamicLibrary.open(dllPath);
+    dllPath.isEmpty ? DynamicLibrary.open('${Directory.current.path}/$_libName') : DynamicLibrary.open(dllPath);
