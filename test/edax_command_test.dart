@@ -137,6 +137,12 @@ void main() {
         ..edaxBookLoad(_testBookFile);
       final result = edax.edaxGetBookMoveWithPosition();
       expect(result.position.nLines, 264 + 16);
+      expect(result.position.nLink, 4);
+      expect(result.position.links.length, 4);
+      expect(move2String(result.position.links.first.move), 'd3');
+      expect(move2String(result.position.links[1].move), 'c4');
+      expect(move2String(result.position.links[2].move), 'f5');
+      expect(move2String(result.position.links[3].move), 'e6');
       edax.libedaxTerminate();
     });
 

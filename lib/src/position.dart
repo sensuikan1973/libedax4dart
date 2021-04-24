@@ -9,7 +9,7 @@ class Position {
   const Position(
     this.board,
     this.leaf,
-    this.link,
+    this.links,
     this.nWins,
     this.nDraws,
     this.nLosses,
@@ -27,7 +27,7 @@ class Position {
   final Link leaf;
 
   /// linking moves
-  final Link? link;
+  final List<Link> links;
 
   /// game win count
   final int nWins;

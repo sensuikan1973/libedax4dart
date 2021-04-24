@@ -140,12 +140,15 @@ class LibEdax {
     final pos = dstP.ref;
     final board = Board(pos.board[0].player, pos.board[0].opponent);
     final leaf = Link(pos.leaf.score, pos.leaf.move);
-    final link = pos.n_link > 1 ? Link(pos.link.ref.score, pos.link.ref.move) : null;
+    final links = <Link>[];
+    for (var k = 0; k < pos.n_link; k++) {
+      links.add(Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
+    }
     final score = Score(pos.score.value, pos.score.lower, pos.score.upper);
     final resultPosition = Position(
       board,
       leaf,
-      link,
+      links,
       pos.n_wins,
       pos.n_draws,
       pos.n_losses,
@@ -251,12 +254,15 @@ class LibEdax {
     final pos = dstP.ref;
     final board = Board(pos.board[0].player, pos.board[0].opponent);
     final leaf = Link(pos.leaf.score, pos.leaf.move);
-    final link = pos.n_link > 1 ? Link(pos.link.ref.score, pos.link.ref.move) : null;
+    final links = <Link>[];
+    for (var k = 0; k < pos.n_link; k++) {
+      links.add(Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
+    }
     final score = Score(pos.score.value, pos.score.lower, pos.score.upper);
     final result = Position(
       board,
       leaf,
-      link,
+      links,
       pos.n_wins,
       pos.n_draws,
       pos.n_losses,
