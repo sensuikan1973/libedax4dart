@@ -231,6 +231,12 @@ void main() {
       expect(position.score.upper, 2);
       expect(position.board.player,
           34628173824); // 0000 0000 0000 0000 0000 0000 0000 1000 0001 0000 0000 0000 0000 0000 0000 0000
+      expect(position.nLink, 4);
+      expect(position.links.length, 4);
+      expect(move2String(position.links.first.move), 'd3');
+      expect(move2String(position.links[1].move), 'c4');
+      expect(move2String(position.links[2].move), 'f5');
+      expect(move2String(position.links[3].move), 'e6');
       edax.libedaxTerminate();
     });
   });
