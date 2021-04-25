@@ -16,8 +16,8 @@ cd ..
 echo "=== os image ===" >> $dst_file
 echo $ImageOS >> $dst_file
 
-# echo "=== dart version ===" >> $dst_file
-# dart --version >> $dst_file 2>&1
+echo "=== dart version ===" >> $dst_file
+dart --version >> $dst_file 2>&1
 
 echo "=== $2 version ===" >> $dst_file
 $2 --version >> $dst_file
