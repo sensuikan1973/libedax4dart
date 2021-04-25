@@ -1,6 +1,9 @@
 # NOTE: require some environment variables.
 # libedax_build_command (e.g. make libbuild ARCH=x64-modern COMP=gcc OS=osx)
 # dst: (e.g. build)
+#
+# example:
+# libedax_build_command="make libbuild ARCH=x64-modern COMP=gcc OS=osx" dst="." ./scripts/build_libedax.sh
 
 git clone https://github.com/sensuikan1973/edax-reversi
 cd edax-reversi
@@ -16,7 +19,6 @@ cd src
 $libedax_build_command
 
 cd ../../
-rm -rf $dst
 mkdir -p $dst
 
 cp -r edax-reversi/bin $dst/bin
