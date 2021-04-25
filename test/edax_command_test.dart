@@ -143,6 +143,13 @@ void main() {
       expect(move2String(result.position.links[1].move), 'c4');
       expect(move2String(result.position.links[2].move), 'f5');
       expect(move2String(result.position.links[3].move), 'e6');
+
+      edax.edaxPlay('f5f6');
+      final resultAfterF5F6Move = edax.edaxGetBookMoveWithPosition();
+      expect(resultAfterF5F6Move.position.nLink, 1);
+      expect(resultAfterF5F6Move.position.links.length, 1);
+      expect(move2String(resultAfterF5F6Move.position.links.first.move), 'c4');
+
       edax.libedaxTerminate();
     });
 
@@ -237,6 +244,13 @@ void main() {
       expect(move2String(position.links[1].move), 'c4');
       expect(move2String(position.links[2].move), 'f5');
       expect(move2String(position.links[3].move), 'e6');
+
+      edax.edaxPlay('f5f6');
+      final positionAfterF5F6Move = edax.edaxBookShow();
+      expect(positionAfterF5F6Move.nLink, 1);
+      expect(positionAfterF5F6Move.links.length, 1);
+      expect(move2String(positionAfterF5F6Move.links.first.move), 'c4');
+
       edax.libedaxTerminate();
     });
   });
