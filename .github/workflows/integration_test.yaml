@@ -51,6 +51,9 @@ jobs:
         libedax_build_command: ${{ matrix.libedax_build_command }}
       run: sh scripts/build_libedax.sh
 
+    - name: output build info
+      run: scripts/output_build_info.sh . gcc && cat env.txt
+
     - name: mv libedax bin for test
       if: steps.cache-libedax-assets.outputs.cache-hit != 'true'
       shell: bash
