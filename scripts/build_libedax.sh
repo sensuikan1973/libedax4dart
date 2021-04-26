@@ -19,7 +19,10 @@ cd src
 $libedax_build_command
 
 cd ../../
-mkdir -p $dst
+mkdir -p ${dst:-.}
 
-cp -r edax-reversi/bin $dst/bin
-cp -r edax-reversi/data $dst/data
+rm -rf ${dst:-.}/bin
+rm -rf ${dst:-.}/data
+
+cp -r edax-reversi/bin ${dst:-.}/bin
+cp -r edax-reversi/data ${dst:-.}/data
