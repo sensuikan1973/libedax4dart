@@ -1,3 +1,9 @@
+# 0.8.0-beta.0
+
+- you can get `Position.links`
+- upgrade libedax bin
+- upgrade dependencies
+
 # 0.7.0-beta.2
 
 - upgrade dependencies
