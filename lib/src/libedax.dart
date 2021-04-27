@@ -381,7 +381,7 @@ class LibEdax {
   /// This is a Dart level function, and unique to libedax4dart
   List<BestPathNumToWinWithLink> computeBestPathNumToWinWithLink({
     int maxDepth = 40,
-    List<int> players = const [TurnColor.black, TurnColor.white],
+    List<int> colors = const [TurnColor.black, TurnColor.white],
   }) {
     // TODO: implement
     return <BestPathNumToWinWithLink>[];
