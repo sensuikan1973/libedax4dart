@@ -383,11 +383,11 @@ class LibEdax {
     int maxDepth = 40,
     List<int> colors = const [TurnColor.black, TurnColor.white],
   }) {
-    var moves = edaxGetMoves();
-    // while (true) {
-    //   final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(moves);
-    //   final links = moveListWithPosition.position.bestScoreLinks;
-    // }
+    var moveListWithPosition = edaxGetBookMoveWithPositionByMoves(edaxGetMoves());
+    var bestScoreLinks = moveListWithPosition.position.bestScoreLinks;
+    while (bestScoreLinks.isEmpty) {
+      // TODO: implement
+    }
     return <BestPathNumToWinWithLink>[];
   }
 }

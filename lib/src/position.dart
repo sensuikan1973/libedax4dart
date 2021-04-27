@@ -58,6 +58,7 @@ class Position {
 
   /// best move links
   List<Link> get bestScoreLinks {
+    if (links.isEmpty) return [];
     final linksSortedByScore = links..sort((a, b) => b.score.compareTo(a.score));
     final bestScore = linksSortedByScore.first.score;
     return linksSortedByScore.where((element) => element.score == bestScore).toList();
