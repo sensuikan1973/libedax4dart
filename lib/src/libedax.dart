@@ -1,6 +1,7 @@
 import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
+import 'best_path_list_to_win_with_link.dart';
 import 'bindings/bindings.dart';
 import 'bindings/structs/board.dart' as c_board;
 import 'bindings/structs/hint.dart' as c_hint;
@@ -376,4 +377,9 @@ class LibEdax {
 
   /// Count bit.
   int popCount(int bit) => _bindings.bitCount(bit);
+
+  /// This function is unique to libedax4dart, and Dart level function.
+  List<BestPathListToWinWithLink> computeBestPathListToWin() {
+    return <BestPathListToWinWithLink>[]; // TODO: implement
+  }
 }
