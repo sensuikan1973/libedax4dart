@@ -36,6 +36,8 @@ class LibEdaxBindings {
   late final int Function(int n, Pointer<HintList> hintList) edaxHint;
   late final int Function(Pointer<MoveList> moveList) edaxGetBookMove;
   late final int Function(Pointer<MoveList> moveList, Pointer<Position> position) edaxGetBookMoveWithPosition;
+  late final int Function(Pointer<Utf8> moves, Pointer<MoveList> moveList, Pointer<Position> position)
+      edaxGetBookMoveWithPositionByMoves;
   late final int Function(Pointer<MoveList> excludeList) edaxHintPrepare;
   late final int Function(Pointer<Hint> hint) edaxHintNext;
   late final int Function(Pointer<Hint> hint) edaxHintNextNoMultiPvDepth;
@@ -80,6 +82,9 @@ class LibEdaxBindings {
     edaxGetBookMove = _lookupNativeFunc<edax_get_bookmove_native_t>('edax_get_bookmove').asFunction();
     edaxGetBookMoveWithPosition =
         _lookupNativeFunc<edax_get_bookmove_with_position_native_t>('edax_get_bookmove_with_position').asFunction();
+    edaxGetBookMoveWithPositionByMoves =
+        _lookupNativeFunc<edax_get_bookmove_with_position_by_moves_native_t>('edax_get_bookmove_with_position_by_moves')
+            .asFunction();
     edaxHintPrepare = _lookupNativeFunc<edax_hint_prepare_native_t>('edax_hint_prepare').asFunction();
     edaxHintNext = _lookupNativeFunc<edax_hint_next_native_t>('edax_hint_next').asFunction();
     edaxStop = _lookupNativeFunc<edax_stop_native_t>('edax_stop').asFunction();

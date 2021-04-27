@@ -7,7 +7,10 @@
 
 git clone https://github.com/sensuikan1973/edax-reversi
 cd edax-reversi
+git remote update --prune
+
 git switch libedax_sensuikan1973
+git pull
 git checkout $(cat ../.libedax-version)
 
 mkdir -p data
@@ -26,3 +29,6 @@ rm -rf ${dst:-.}/data
 
 cp -r edax-reversi/bin ${dst:-.}/bin
 cp -r edax-reversi/data ${dst:-.}/data
+
+# for test
+# cp ${dst:-.}/bin/libedax.dylib .
