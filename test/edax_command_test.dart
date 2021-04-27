@@ -131,31 +131,12 @@ void main() {
 
   group('with fixed book. See: resources/test_book_show.txt', () {
     test('load book', () {
-      final edax = LibEdax()
+      LibEdax()
         ..libedaxInitialize()
         ..edaxInit()
-        ..edaxBookLoad(_testBookFile);
-      final result = edax.edaxGetBookMoveWithPosition();
-      expect(result.position.nLines, 264 + 16);
-      expect(result.position.nLink, 4);
-      expect(result.position.links.length, 4);
-      expect(move2String(result.position.links.first.move), 'd3');
-      expect(move2String(result.position.links[1].move), 'c4');
-      expect(move2String(result.position.links[2].move), 'f5');
-      expect(move2String(result.position.links[3].move), 'e6');
-
-      edax.edaxPlay('f5f6');
-      final resultAfterF5F6Move = edax.edaxGetBookMoveWithPosition();
-      expect(resultAfterF5F6Move.position.nLink, 1);
-      expect(resultAfterF5F6Move.position.links.length, 1);
-      expect(move2String(resultAfterF5F6Move.position.links.first.move), 'c4');
-
-      final tmp = edax.edaxGetBookMoveWithPositionByMoves('f5f6');
-      expect(tmp.position.nLink, 1);
-      expect(tmp.position.links.length, 1);
-      expect(move2String(tmp.position.links.first.move), 'c4');
-
-      edax.libedaxTerminate();
+        ..edaxBookLoad(_testBookFile)
+        ..edaxMove('f5')
+        ..libedaxTerminate();
     });
 
     test('get book move with position', () {
@@ -174,16 +155,46 @@ void main() {
       expect(result.moveList[1].moveString, 'c4'); // C4
       expect(result.position.board.player,
           34628173824); // 0000 0000 0000 0000 0000 0000 0000 1000 0001 0000 0000 0000 0000 0000 0000 0000
-      edax.edaxMove('f5');
-      final resultF5 = edax.edaxGetBookMoveWithPosition();
-      expect(resultF5.position.score.value, 0);
-      expect(resultF5.position.score.lower, -2);
-      expect(resultF5.position.score.upper, 2);
-      expect(resultF5.moveList.length, 2);
-      expect(resultF5.moveList.first.moveString, 'f6');
-      expect(resultF5.moveList.first.scoreString, '-1');
-      expect(resultF5.moveList[1].moveString, 'd6');
-      expect(resultF5.moveList[1].scoreString, '0');
+      expect(result.position.nLink, 4);
+      expect(result.position.links.length, 4);
+      expect(move2String(result.position.links.first.move), 'd3');
+      expect(move2String(result.position.links[1].move), 'c4');
+      expect(move2String(result.position.links[2].move), 'f5');
+      expect(move2String(result.position.links[3].move), 'e6');
+
+      edax.edaxPlay('f5f6');
+      final resultAfterF5F6 = edax.edaxGetBookMoveWithPosition();
+      expect(resultAfterF5F6.position.score.value, 1);
+      expect(resultAfterF5F6.position.score.lower, -2);
+      expect(resultAfterF5F6.position.score.upper, 2);
+      expect(resultAfterF5F6.moveList.length, 2);
+      expect(resultAfterF5F6.moveList.first.moveString, 'e6');
+      expect(resultAfterF5F6.moveList.first.scoreString, '+1');
+      expect(resultAfterF5F6.moveList[1].moveString, 'c4');
+      expect(resultAfterF5F6.moveList[1].scoreString, '-7');
+      expect(resultAfterF5F6.position.nLink, 1);
+      expect(resultAfterF5F6.position.links.length, 1);
+      expect(move2String(resultAfterF5F6.position.links.first.move), 'c4');
+      edax.libedaxTerminate();
+    });
+
+    test('get book move with position by moves', () {
+      const initParams = ['', '-book-file', _testBookFile];
+      final edax = LibEdax()
+        ..libedaxInitialize(initParams)
+        ..edaxInit();
+      final resultAfterF5F6 = edax.edaxGetBookMoveWithPositionByMoves('f5f6');
+      expect(resultAfterF5F6.position.score.value, 1);
+      expect(resultAfterF5F6.position.score.lower, -2);
+      expect(resultAfterF5F6.position.score.upper, 2);
+      expect(resultAfterF5F6.moveList.length, 2);
+      expect(resultAfterF5F6.moveList.first.moveString, 'e6');
+      expect(resultAfterF5F6.moveList.first.scoreString, '+1');
+      expect(resultAfterF5F6.moveList[1].moveString, 'c4');
+      expect(resultAfterF5F6.moveList[1].scoreString, '-7');
+      expect(resultAfterF5F6.position.nLink, 1);
+      expect(resultAfterF5F6.position.links.length, 1);
+      expect(move2String(resultAfterF5F6.position.links.first.move), 'c4');
       edax.libedaxTerminate();
     });
 
