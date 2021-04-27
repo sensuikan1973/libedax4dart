@@ -1,3 +1,7 @@
+# 0.9.0-beta.0
+
+- add `edaxGetBookMoveWithPositionByMoves`
+
 # 0.8.0-beta.0
 
 - you can get `Position.links`
