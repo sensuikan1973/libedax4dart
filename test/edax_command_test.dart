@@ -195,6 +195,8 @@ void main() {
       expect(resultAfterF5F6.position.nLink, 1);
       expect(resultAfterF5F6.position.links.length, 1);
       expect(move2String(resultAfterF5F6.position.links.first.move), 'c4');
+
+      expect(edax.edaxGetMoves(), ''); // real board is not played
       edax.libedaxTerminate();
     });
 
