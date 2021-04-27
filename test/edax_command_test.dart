@@ -271,5 +271,16 @@ void main() {
 
       edax.libedaxTerminate();
     });
+
+    test('computeBestPathNumToWinWithLink', () {
+      const initParams = ['', '-book-file', _testBookFile];
+      final edax = LibEdax()
+        ..libedaxInitialize(initParams)
+        ..edaxInit();
+      final bestPathNumToWinWithLink = edax.computeBestPathNumToWinWithLink();
+      expect(bestPathNumToWinWithLink.isEmpty, true);
+
+      edax.libedaxTerminate();
+    });
   });
 }
