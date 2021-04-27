@@ -57,7 +57,7 @@ class Position {
   final int todo;
 
   /// best move links
-  List<Link> get bestMoveLinks {
+  List<Link> get bestScoreLinks {
     final linksSortedByScore = links..sort((a, b) => b.score.compareTo(a.score));
     final bestScore = linksSortedByScore.first.score;
     return linksSortedByScore.where((element) => element.score == bestScore).toList();

@@ -386,7 +386,7 @@ class LibEdax {
     var moves = edaxGetMoves();
     // while (true) {
     //   final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(moves);
-    //   final links = moveListWithPosition.position.links;
+    //   final links = moveListWithPosition.position.bestScoreLinks;
     // }
     return <BestPathNumToWinWithLink>[];
   }
