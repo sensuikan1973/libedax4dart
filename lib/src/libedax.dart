@@ -164,6 +164,47 @@ class LibEdax {
     return MoveListWithPosition(resultMoveList, resultPosition);
   }
 
+  /// Get book move list with position by specified moves.
+  MoveListWithPosition edaxGetBookMoveWithPositionByMoves(String moves) {
+    final dstM = calloc<c_movelist.MoveList>();
+    final dstP = calloc<c_position.Position>();
+    _bindings.edaxGetBookMoveWithPositionByMoves(moves.toNativeUtf8(), dstM, dstP);
+
+    final moveList = dstM.ref;
+    final resultMoveList = <Move>[];
+    for (var k = 0; k < moveList.n_moves; k++) {
+      final m = moveList.move[k + 1];
+      resultMoveList.add(Move(m.flipped, m.x, m.score, m.cost));
+    }
+    calloc.free(dstM);
+
+    final pos = dstP.ref;
+    final board = Board(pos.board[0].player, pos.board[0].opponent);
+    final leaf = Link(pos.leaf.score, pos.leaf.move);
+    final links = <Link>[];
+    for (var k = 0; k < pos.n_link; k++) {
+      links.add(Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
+    }
+    final score = Score(pos.score.value, pos.score.lower, pos.score.upper);
+    final resultPosition = Position(
+      board,
+      leaf,
+      links,
+      pos.n_wins,
+      pos.n_draws,
+      pos.n_losses,
+      pos.n_lines,
+      score,
+      pos.n_link,
+      pos.level,
+      pos.done,
+      pos.todo,
+    );
+    calloc.free(dstP);
+
+    return MoveListWithPosition(resultMoveList, resultPosition);
+  }
+
   /// Prepare to get hint.
   ///
   /// __Call edaxHintNext after calling this function__.

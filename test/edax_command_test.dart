@@ -150,6 +150,11 @@ void main() {
       expect(resultAfterF5F6Move.position.links.length, 1);
       expect(move2String(resultAfterF5F6Move.position.links.first.move), 'c4');
 
+      final tmp = edax.edaxGetBookMoveWithPositionByMoves('f5f6');
+      expect(tmp.position.nLink, 1);
+      expect(tmp.position.links.length, 1);
+      expect(move2String(tmp.position.links.first.move), 'c4');
+
       edax.libedaxTerminate();
     });
 
