@@ -378,7 +378,7 @@ class LibEdax {
   /// Count bit.
   int popCount(int bit) => _bindings.bitCount(bit);
 
-  /// This is a Dart level function, and unique to libedax4dart
+  /// This is a Dart level function, and unique to libedax4dart.
   List<BestPathNumToWinWithLink> computeBestPathNumToWinWithLink({
     int maxDepth = 40,
     List<int> colors = const [TurnColor.black, TurnColor.white],
