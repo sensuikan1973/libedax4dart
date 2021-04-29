@@ -56,7 +56,7 @@ class Position {
   /// todo flag
   final int todo;
 
-  /// best move links
+  /// best score links
   List<Link> get bestScoreLinks {
     if (links.isEmpty) return [];
     final linksSortedByScore = links..sort((a, b) => b.score.compareTo(a.score));
