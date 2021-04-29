@@ -378,6 +378,9 @@ class LibEdax {
   /// Count bit.
   int popCount(int bit) => _bindings.bitCount(bit);
 
+  /// Compute the indicator to win efficiently.
+  ///
+  /// This compute the number of path which both of two plyaers choose his/her move to memorize as few as possible. <br/>
   /// This is a Dart level function, and unique to libedax4dart.
   List<BestPathNumWithLink> computeBestPathNumWithLink({
     int maxDepth = 40,
