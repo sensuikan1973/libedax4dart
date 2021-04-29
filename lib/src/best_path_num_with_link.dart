@@ -3,8 +3,8 @@ import 'package:meta/meta.dart';
 import 'link.dart';
 
 @immutable
-class BestPathNumToWinWithLink {
-  const BestPathNumToWinWithLink(this.bestPathNumOfCurrentPlayer, this.bestPathNumOfOpponentPlayer, this.link);
+class BestPathNumWithLink {
+  const BestPathNumWithLink(this.bestPathNumOfCurrentPlayer, this.bestPathNumOfOpponentPlayer, this.link);
 
   /// best path num to win for current player.
   ///

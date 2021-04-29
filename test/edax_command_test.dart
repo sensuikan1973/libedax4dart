@@ -276,13 +276,13 @@ void main() {
       edax.libedaxTerminate();
     });
 
-    test('computeBestPathNumToWinWithLink', () {
+    test('computeBestPathNumWithLink', () {
       const initParams = ['', '-book-file', _testBookFile];
       final edax = LibEdax()
         ..libedaxInitialize(initParams)
         ..edaxInit();
-      final bestPathNumToWinWithLink = edax.computeBestPathNumToWinWithLink();
-      expect(bestPathNumToWinWithLink.isEmpty, true);
+      final bestPathNumWithLink = edax.computeBestPathNumWithLink();
+      expect(bestPathNumWithLink.isEmpty, true);
 
       edax.libedaxTerminate();
     });

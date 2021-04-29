@@ -1,7 +1,7 @@
 import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
-import 'best_path_num_to_win_with_link.dart';
+import 'best_path_num_with_link.dart';
 import 'bindings/bindings.dart';
 import 'bindings/structs/board.dart' as c_board;
 import 'bindings/structs/hint.dart' as c_hint;
@@ -379,14 +379,14 @@ class LibEdax {
   int popCount(int bit) => _bindings.bitCount(bit);
 
   /// This is a Dart level function, and unique to libedax4dart.
-  List<BestPathNumToWinWithLink> computeBestPathNumToWinWithLink({
+  List<BestPathNumWithLink> computeBestPathNumWithLink({
     int maxDepth = 40,
     List<int> colors = const [TurnColor.black, TurnColor.white],
   }) {
     var moves = edaxGetMoves();
     if (moves.isEmpty) return [];
 
-    final result = <BestPathNumToWinWithLink>[];
+    final result = <BestPathNumWithLink>[];
     var moveListWithPosition = edaxGetBookMoveWithPositionByMoves(moves);
     var bestScoreLinks = moveListWithPosition.position.bestScoreLinks;
     while (bestScoreLinks.isEmpty) {
