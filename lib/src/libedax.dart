@@ -228,7 +228,7 @@ class LibEdax {
   /// Get a hint.
   ///
   /// __Call edaxHintPrepare before calling this function__. <br>
-  /// If there are no more hints, `hint.isNoMove` will be true.
+  /// If there are no more hints, `hint.isNoMove` will be true. <br>
   /// __This function doesn't use Multi-PV search for analyze usecase. This can be faster than edaxHintNext__.
   Hint edaxHintNextNoMultiPvDepth() {
     final dst = calloc<c_hint.Hint>();
@@ -287,7 +287,7 @@ class LibEdax {
 
   /// Show book.
   ///
-  /// Probably, you should use `executeGetBookMoveWithPosition`.
+  /// Probably, you should use `executeGetBookMoveWithPosition`. <br>
   /// See: https://github.com/sensuikan1973/libedax4dart/issues/46
   Position edaxBookShow() {
     final dstP = calloc<c_position.Position>();
