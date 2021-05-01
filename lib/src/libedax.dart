@@ -386,15 +386,18 @@ class LibEdax {
     int maxDepth = 40,
     List<int> colors = const [TurnColor.black, TurnColor.white],
   }) {
-    var moves = edaxGetMoves();
+    // TODO: implement
+    return [];
+
+    // ignore: dead_code
+    var moves = edaxGetMoves(); // ignore: prefer_final_locals
     if (moves.isEmpty) return [];
 
     final result = <BestPathNumWithLink>[];
-    var moveListWithPosition = edaxGetBookMoveWithPositionByMoves(moves);
-    var bestScoreLinks = moveListWithPosition.position.bestScoreLinks;
-    while (bestScoreLinks.isEmpty) {
-      // TODO: implement
-    }
+    var position = edaxGetBookMoveWithPositionByMoves(moves).position; // ignore: prefer_final_locals
+    var bestScoreLinks = position.bestScoreLinks; // ignore: prefer_final_locals
+    final headScore = bestScoreLinks.first.score; // ignore: unused_local_variable
+    while (bestScoreLinks.isEmpty) {}
     return result;
   }
 }

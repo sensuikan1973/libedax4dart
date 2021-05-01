@@ -1,10 +1,13 @@
+# 0.11.0-beta
+
+- New Features
+  - add `computeBestPathNumWithLink`
+
 # 0.10.0-beta.0
 
 - **Breaking Changes**
   - fix `PASS` String.
     - separate `PA (BLACK)` and `pa (WHITE)`
-- New Features
-  - add `computeBestPathNumWithLink`
 
 # 0.9.0-beta.0
 
