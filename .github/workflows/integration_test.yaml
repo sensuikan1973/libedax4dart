@@ -53,7 +53,7 @@ jobs:
 
     - name: output build info
       shell: bash
-      run: scripts/output_build_info.sh . gcc && cat env.txt
+      run: .github/scripts/output_build_info.sh . gcc && cat env.txt
 
     - name: mv libedax bin for test
       if: steps.cache-libedax-assets.outputs.cache-hit != 'true'

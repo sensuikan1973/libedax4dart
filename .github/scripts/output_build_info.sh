@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # $1: dst
 # $2: compiler
 
