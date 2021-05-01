@@ -1,6 +1,7 @@
 import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
+import 'best_path_num_with_link.dart';
 import 'bindings/bindings.dart';
 import 'bindings/structs/board.dart' as c_board;
 import 'bindings/structs/hint.dart' as c_hint;
@@ -376,4 +377,27 @@ class LibEdax {
 
   /// Count bit.
   int popCount(int bit) => _bindings.bitCount(bit);
+
+  /// Compute the indicator to win efficiently.
+  ///
+  /// This compute the number of path which both of two plyaers choose his/her move to memorize as few as possible. <br/>
+  /// This is a Dart level function, and unique to libedax4dart.
+  List<BestPathNumWithLink> computeBestPathNumWithLink({
+    int maxDepth = 40,
+    List<int> colors = const [TurnColor.black, TurnColor.white],
+  }) {
+    // TODO: implement
+    return [];
+
+    // ignore: dead_code
+    var moves = edaxGetMoves(); // ignore: prefer_final_locals
+    if (moves.isEmpty) return [];
+
+    final result = <BestPathNumWithLink>[];
+    var position = edaxGetBookMoveWithPositionByMoves(moves).position; // ignore: prefer_final_locals
+    var bestScoreLinks = position.bestScoreLinks; // ignore: prefer_final_locals
+    final headScore = bestScoreLinks.first.score; // ignore: unused_local_variable
+    while (bestScoreLinks.isEmpty) {}
+    return result;
+  }
 }

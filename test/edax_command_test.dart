@@ -175,6 +175,8 @@ void main() {
       expect(resultAfterF5F6.position.nLink, 1);
       expect(resultAfterF5F6.position.links.length, 1);
       expect(move2String(resultAfterF5F6.position.links.first.move), 'c4');
+      expect(resultAfterF5F6.position.bestScoreLinks.length, 1);
+      expect(move2String(resultAfterF5F6.position.bestScoreLinks.first.move), 'c4');
       edax.libedaxTerminate();
     });
 
@@ -195,6 +197,8 @@ void main() {
       expect(resultAfterF5F6.position.nLink, 1);
       expect(resultAfterF5F6.position.links.length, 1);
       expect(move2String(resultAfterF5F6.position.links.first.move), 'c4');
+      expect(resultAfterF5F6.position.bestScoreLinks.length, 1);
+      expect(move2String(resultAfterF5F6.position.bestScoreLinks.first.move), 'c4');
 
       expect(edax.edaxGetMoves(), ''); // real board is not played
       edax.libedaxTerminate();
@@ -268,6 +272,17 @@ void main() {
       expect(positionAfterF5F6Move.nLink, 1);
       expect(positionAfterF5F6Move.links.length, 1);
       expect(move2String(positionAfterF5F6Move.links.first.move), 'c4');
+
+      edax.libedaxTerminate();
+    });
+
+    test('computeBestPathNumWithLink', () {
+      const initParams = ['', '-book-file', _testBookFile];
+      final edax = LibEdax()
+        ..libedaxInitialize(initParams)
+        ..edaxInit();
+      final bestPathNumWithLink = edax.computeBestPathNumWithLink();
+      expect(bestPathNumWithLink.isEmpty, true);
 
       edax.libedaxTerminate();
     });

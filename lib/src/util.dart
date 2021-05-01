@@ -5,8 +5,8 @@ import 'constants.dart';
 ///  e.g. `f5`
 String move2String(int x) {
   if (x < 64) return _moveStringTable[x];
-  if (x == 64) return MoveMark.passString;
-  if (x == 65) return 'no move';
+  if (x == MoveMark.pass) return 'pass';
+  if (x == MoveMark.noMove) return 'no move';
   return '';
 }
 
