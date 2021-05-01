@@ -8,9 +8,13 @@ class TurnColor {
 
 class MoveMark {
   /// PASS string of BLACK.
+  ///
+  /// See: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/move.c#L76
   static const passStringOfBlack = 'PA';
 
   /// PASS string of WHITE.
+  ///
+  /// See: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/move.c#L76
   static const passStringOfWhite = 'pa';
 
   /// PASS move.
