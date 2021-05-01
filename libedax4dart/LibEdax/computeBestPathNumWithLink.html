@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the edaxBookRandomness method from the LibEdax class, for the Dart programming language.">
-  <title>edaxBookRandomness method - LibEdax class - libedax4dart library - Dart API</title>
+  <meta name="description" content="API docs for the computeBestPathNumWithLink method from the LibEdax class, for the Dart programming language.">
+  <title>computeBestPathNumWithLink method - LibEdax class - libedax4dart library - Dart API</title>
 
 
   
@@ -31,9 +31,9 @@
     <li><a href="../../index.html">libedax4dart</a></li>
     <li><a href="../../libedax4dart/libedax4dart-library.html">libedax4dart</a></li>
     <li><a href="../../libedax4dart/LibEdax-class.html">LibEdax</a></li>
-    <li class="self-crumb">edaxBookRandomness method</li>
+    <li class="self-crumb">computeBestPathNumWithLink method</li>
   </ol>
-  <div class="self-name">edaxBookRandomness</div>
+  <div class="self-name">computeBestPathNumWithLink</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -53,7 +53,7 @@
   <li><a href="../../index.html">libedax4dart</a></li>
   <li><a href="../../libedax4dart/libedax4dart-library.html">libedax4dart</a></li>
   <li><a href="../../libedax4dart/LibEdax-class.html">LibEdax</a></li>
-  <li class="self-crumb">edaxBookRandomness method</li>
+  <li class="self-crumb">computeBestPathNumWithLink method</li>
 </ol>
 
 
@@ -127,15 +127,16 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">edaxBookRandomness</span> method 
+<h1><span class="kind-method">computeBestPathNumWithLink</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
 
-<span class="returntype">void</span>
-<span class="name ">edaxBookRandomness</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="edaxBookRandomness-param-randomness"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.13.0-211.13.beta/dart-core/int-class.html">int</a></span> <span class="parameter-name">randomness</span></span></li>
+<span class="returntype"><a href="https://api.dart.dev/beta/2.13.0-211.13.beta/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter">BestPathNumWithLink</span>&gt;</span></span>
+<span class="name ">computeBestPathNumWithLink</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="computeBestPathNumWithLink-param-maxDepth">{<span class="type-annotation"><a href="https://api.dart.dev/beta/2.13.0-211.13.beta/dart-core/int-class.html">int</a></span> <span class="parameter-name">maxDepth</span> = <span class="default-value">40</span>, </span></li>
+<li><span class="parameter" id="computeBestPathNumWithLink-param-colors"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.13.0-211.13.beta/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/beta/2.13.0-211.13.beta/dart-core/int-class.html">int</a></span>&gt;</span></span> <span class="parameter-name">colors</span> = <span class="default-value">const [TurnColor.black, TurnColor.white]</span>}</span></li>
 </ol>)
 
       
@@ -143,16 +144,33 @@
     </section>
     
 <section class="desc markdown">
-  <p>Set randomness on <code>edaxGo</code>, <code>mode 2</code>. <br>
-default is 0.</p>
-<p>edax will choose move with the randomness width.</p>
+  <p>Compute the indicator to win efficiently.</p>
+<p>This compute the number of path which both of two plyaers choose his/her move to memorize as few as possible. &lt;br/&gt;
+This is a Dart level function, and unique to libedax4dart.</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void edaxBookRandomness(int randomness) =&gt; _bindings.edaxBookRandomness(randomness);</code></pre>
+  <pre class="language-dart"><code class="language-dart">List&lt;BestPathNumWithLink&gt; computeBestPathNumWithLink({
+  int maxDepth = 40,
+  List&lt;int&gt; colors = const [TurnColor.black, TurnColor.white],
+}) {
+  &#47;&#47; TODO: implement
+  return [];
+
+  &#47;&#47; ignore: dead_code
+  var moves = edaxGetMoves(); &#47;&#47; ignore: prefer_final_locals
+  if (moves.isEmpty) return [];
+
+  final result = &lt;BestPathNumWithLink&gt;[];
+  var position = edaxGetBookMoveWithPositionByMoves(moves).position; &#47;&#47; ignore: prefer_final_locals
+  var bestScoreLinks = position.bestScoreLinks; &#47;&#47; ignore: prefer_final_locals
+  final headScore = bestScoreLinks.first.score; &#47;&#47; ignore: unused_local_variable
+  while (bestScoreLinks.isEmpty) {}
+  return result;
+}</code></pre>
 </section>
 
 
