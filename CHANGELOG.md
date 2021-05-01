@@ -3,7 +3,7 @@
 - New Features
   - add `computeBestPathNumWithLink`
 
-# 0.10.0-beta.0
+# 0.10.0-beta
 
 - **Breaking Changes**
   - fix `PASS` String.
