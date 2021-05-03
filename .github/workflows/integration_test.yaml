@@ -2,10 +2,10 @@ name: Integration Test
 
 on:
   pull_request:
-    paths: ['**.dart', 'pubspec.*', '.github/workflows/integration_test.yaml', 'scripts/build_libedax.sh']
+    paths: ['**.dart', 'pubspec.*', '.github/workflows/integration_test.yaml', 'scripts/build_libedax.sh', '.libedax-version']
   push:
     branches: [ main ]
-    paths: ['**.dart', 'pubspec.*', '.github/workflows/integration_test.yaml', 'scripts/build_libedax.sh']
+    paths: ['**.dart', 'pubspec.*', '.github/workflows/integration_test.yaml', 'scripts/build_libedax.sh', '.libedax-version']
 
 jobs:
   build:
@@ -42,7 +42,7 @@ jobs:
         path: |
           ${{ matrix.libedax_bin }}
           data
-        key: ${{ env.cache_ver }}-${{ runner.os }}-libedax-assets-${{ hashFiles('scripts/build_libedax.sh') }}
+        key: ${{ env.cache_ver }}-${{ runner.os }}-libedax-assets-${{ hashFiles('scripts/build_libedax.sh', '.libedax-version') }}
 
     - name: build libedax
       if: steps.cache-libedax-assets.outputs.cache-hit != 'true'
