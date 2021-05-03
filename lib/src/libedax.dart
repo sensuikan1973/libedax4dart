@@ -1,4 +1,5 @@
 import 'dart:ffi';
+import 'dart:math';
 import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
 import 'best_path_num_with_link.dart';
@@ -382,22 +383,80 @@ class LibEdax {
   ///
   /// This compute the number of path which both of two players choose his/her move to memorize as few as possible. <br>
   /// This is a Dart level function, and unique to libedax4dart.
+  @experimental
   List<BestPathNumWithLink> computeBestPathNumWithLink({
-    int maxDepth = 40,
-    List<int> colors = const [TurnColor.black, TurnColor.white],
+    int maxDepth = 40, // TODO: use this
   }) {
-    // TODO: implement
-    return [];
+    final headMoves = edaxGetMoves();
+    if (headMoves.isEmpty) return [];
 
-    // ignore: dead_code
-    var moves = edaxGetMoves(); // ignore: prefer_final_locals
-    if (moves.isEmpty) return [];
-
+    final headColor = edaxGetCurrentPlayer();
+    final position = edaxGetBookMoveWithPositionByMoves(headMoves).position;
     final result = <BestPathNumWithLink>[];
-    var position = edaxGetBookMoveWithPositionByMoves(moves).position; // ignore: prefer_final_locals
-    var bestScoreLinks = position.bestScoreLinks; // ignore: prefer_final_locals
-    final headScore = bestScoreLinks.first.score; // ignore: unused_local_variable
-    while (bestScoreLinks.isEmpty) {}
+    // TODO: consider isolation
+    for (final link in position.bestScoreLinks) {
+      final root = _Node(
+          null,
+          _NodeValue(
+            headMoves + link.moveString,
+            headColor == TurnColor.black ? TurnColor.white : TurnColor.black,
+          ));
+      _buildTree(root);
+      result.add(BestPathNumWithLink(
+        root.value.bestPathNumOfBlack,
+        root.value.bestPathNumOfWhite,
+        link,
+      ));
+    }
     return result;
+  }
+
+  void _buildTree(_Node parent) {
+    final position = edaxGetBookMoveWithPositionByMoves(parent.value.moves).position;
+    if (position.links.isEmpty) {
+      if (parent.value.currentColor == TurnColor.black) {
+        parent.value.bestPathNumOfBlack = 1;
+      } else {
+        parent.value.bestPathNumOfWhite = 1;
+      }
+      parent.countUpParentNum();
+      return;
+    }
+
+    for (final link in position.bestScoreLinks) {
+      final node = _Node(
+          parent,
+          _NodeValue(
+            parent.value.moves + link.moveString,
+            parent.value.currentColor == TurnColor.black ? TurnColor.white : TurnColor.black,
+          ));
+      _buildTree(node);
+    }
+  }
+}
+
+class _NodeValue {
+  _NodeValue(this.moves, this.currentColor);
+  int bestPathNumOfBlack = 0;
+  int bestPathNumOfWhite = 0;
+  final String moves;
+  final int currentColor;
+}
+
+class _Node {
+  _Node(this.parent, this.value);
+  final _NodeValue value;
+  final _Node? parent;
+
+  void countUpParentNum() {
+    if (parent == null) return;
+    if (value.currentColor == TurnColor.black) {
+      parent!.value.bestPathNumOfWhite++;
+      parent!.value.bestPathNumOfBlack = min(parent!.value.bestPathNumOfBlack, value.bestPathNumOfBlack);
+    } else {
+      parent!.value.bestPathNumOfBlack++;
+      parent!.value.bestPathNumOfWhite = min(parent!.value.bestPathNumOfBlack, value.bestPathNumOfWhite);
+    }
+    parent!.countUpParentNum();
   }
 }

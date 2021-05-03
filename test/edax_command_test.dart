@@ -276,15 +276,31 @@ void main() {
       edax.libedaxTerminate();
     });
 
-    test('computeBestPathNumWithLink', () {
-      const initParams = ['', '-book-file', _testBookFile];
-      final edax = LibEdax()
-        ..libedaxInitialize(initParams)
-        ..edaxInit();
-      final bestPathNumWithLink = edax.computeBestPathNumWithLink();
-      expect(bestPathNumWithLink.isEmpty, true);
+    group('computeBestPathNumWithLink', () {
+      test('with no moves', () {
+        const initParams = ['', '-book-file', _testBookFile];
+        final edax = LibEdax()
+          ..libedaxInitialize(initParams)
+          ..edaxInit();
+        final bestPathNumWithLink = edax.computeBestPathNumWithLink();
+        expect(bestPathNumWithLink.isEmpty, true);
 
-      edax.libedaxTerminate();
+        edax.libedaxTerminate();
+      });
+
+      test('with moves', () {
+        const initParams = ['', '-book-file', _testBookFile];
+        final edax = LibEdax()
+          ..libedaxInitialize(initParams)
+          ..edaxInit()
+          ..edaxPlay('f5');
+        final bestPathNumWithLink = edax.computeBestPathNumWithLink();
+        // print(bestPathNumWithLink.first.bestPathNumOfBlack);
+        // print(bestPathNumWithLink.first.bestPathNumOfWhite);
+        expect(bestPathNumWithLink.isEmpty, false);
+
+        edax.libedaxTerminate();
+      });
     });
   });
 }
