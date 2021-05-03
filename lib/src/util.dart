@@ -33,3 +33,28 @@ String score2String(int score) {
 ///
 /// e.g. `0010387c38100000`.
 String radix16Board(int bit) => bit.toRadixString(16).padLeft(16, '0');
+
+/// Get symetry move list.
+///
+/// See: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/book.c#L542-L550
+/// See: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/move.c#L40-L63
+/// TODO: add symetry information on edax_get_bookmove_with_position, edax_get_bookmove_with_position_by_moves and remove this.
+List<int> symetryMoves(int x) {
+  final result = <int>[];
+  for (var sym = 0; sym < 8; sym++) {
+    var x_ = x; // ignore: non_constant_identifier_names
+    if (sym & 1 != 0) {
+      x_ = (x_ & _octal070) | (7 - (x_ & 7));
+    }
+    if (sym & 2 != 0) {
+      x_ = (_octal070 - (x_ & _octal070)) | (x_ & 7);
+    }
+    if (sym & 4 != 0) {
+      x_ = ((x_ & _octal070) >> 3) | ((x_ & 7) << 3);
+    }
+    result.add(x_);
+  }
+  return result.toSet().toList();
+}
+
+final _octal070 = int.parse('070', radix: 8);
