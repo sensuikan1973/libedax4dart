@@ -396,11 +396,12 @@ class LibEdax {
     // TODO: consider isolation
     for (final link in position.bestScoreLinks) {
       final root = _Node(
-          null,
-          _NodeValue(
-            headMoves + link.moveString,
-            headColor == TurnColor.black ? TurnColor.white : TurnColor.black,
-          ));
+        null,
+        _NodeValue(
+          headMoves + link.moveString,
+          headColor == TurnColor.black ? TurnColor.white : TurnColor.black,
+        ),
+      );
       _buildTree(root);
       result.add(BestPathNumWithLink(
         root.value.bestPathNumOfBlack,
@@ -413,32 +414,36 @@ class LibEdax {
 
   void _buildTree(_Node parent) {
     final position = edaxGetBookMoveWithPositionByMoves(parent.value.moves).position;
-    if (position.links.isEmpty) {
-      if (parent.value.currentColor == TurnColor.black) {
-        parent.value.bestPathNumOfBlack = 1;
-      } else {
-        parent.value.bestPathNumOfWhite = 1;
-      }
-      parent.countUpParentNum();
-      return;
-    }
+    if (position.links.isEmpty) return;
 
+    final addedNodeList = <_Node>[];
     for (final link in position.bestScoreLinks) {
       final node = _Node(
-          parent,
-          _NodeValue(
-            parent.value.moves + link.moveString,
-            parent.value.currentColor == TurnColor.black ? TurnColor.white : TurnColor.black,
-          ));
+        parent,
+        _NodeValue(
+          parent.value.moves + link.moveString,
+          parent.value.currentColor == TurnColor.black ? TurnColor.white : TurnColor.black,
+        ),
+      );
       _buildTree(node);
+      addedNodeList.add(node);
+    }
+    for (final addedNode in addedNodeList) {
+      if (parent.value.currentColor == TurnColor.black) {
+        parent.value.bestPathNumOfBlack++;
+        parent.value.bestPathNumOfWhite = min(parent.value.bestPathNumOfWhite, addedNode.value.bestPathNumOfWhite);
+      } else {
+        parent.value.bestPathNumOfWhite++;
+        parent.value.bestPathNumOfBlack = min(parent.value.bestPathNumOfBlack, addedNode.value.bestPathNumOfBlack);
+      }
     }
   }
 }
 
 class _NodeValue {
   _NodeValue(this.moves, this.currentColor);
-  int bestPathNumOfBlack = 0;
-  int bestPathNumOfWhite = 0;
+  int bestPathNumOfBlack = 1; // NOTE: Because the edge is regarded as 1 path, default is 1.
+  int bestPathNumOfWhite = 1; // same as above
   final String moves;
   final int currentColor;
 }
@@ -447,16 +452,4 @@ class _Node {
   _Node(this.parent, this.value);
   final _NodeValue value;
   final _Node? parent;
-
-  void countUpParentNum() {
-    if (parent == null) return;
-    if (value.currentColor == TurnColor.black) {
-      parent!.value.bestPathNumOfWhite++;
-      parent!.value.bestPathNumOfBlack = min(parent!.value.bestPathNumOfBlack, value.bestPathNumOfBlack);
-    } else {
-      parent!.value.bestPathNumOfBlack++;
-      parent!.value.bestPathNumOfWhite = min(parent!.value.bestPathNumOfBlack, value.bestPathNumOfWhite);
-    }
-    parent!.countUpParentNum();
-  }
 }
