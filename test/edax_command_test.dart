@@ -293,7 +293,7 @@ void main() {
         final edax = LibEdax()
           ..libedaxInitialize(initParams)
           ..edaxInit()
-          ..edaxPlay('f5');
+          ..edaxPlay('f5f6');
         final bestPathNumWithLink = edax.computeBestPathNumWithLink();
         // print(bestPathNumWithLink.first.bestPathNumOfBlack);
         // print(bestPathNumWithLink.first.bestPathNumOfWhite);

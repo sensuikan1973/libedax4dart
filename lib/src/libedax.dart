@@ -18,6 +18,7 @@ import 'move.dart';
 import 'move_list_with_position.dart';
 import 'position.dart';
 import 'score.dart';
+import 'util.dart';
 
 @immutable
 class LibEdax {
@@ -391,14 +392,17 @@ class LibEdax {
     if (headMoves.isEmpty) return [];
 
     final headColor = edaxGetCurrentPlayer();
-    final position = edaxGetBookMoveWithPositionByMoves(headMoves).position;
+    final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(headMoves);
+    final position = moveListWithPosition.position;
     final result = <BestPathNumWithLink>[];
     // TODO: consider isolation
     for (final link in position.bestScoreLinks) {
+      // NOTE: for now, don't work
+      final move = symetryMoves(link.move).firstWhere(moveListWithPosition.moveList.map((e) => e.x).contains);
       final root = _Node(
         null,
         _NodeValue(
-          headMoves + link.moveString,
+          headMoves + move2String(move),
           headColor == TurnColor.black ? TurnColor.white : TurnColor.black,
         ),
       );
@@ -413,15 +417,18 @@ class LibEdax {
   }
 
   void _buildTree(_Node parent) {
-    final position = edaxGetBookMoveWithPositionByMoves(parent.value.moves).position;
+    final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(parent.value.moves);
+    final position = moveListWithPosition.position;
     if (position.links.isEmpty) return;
 
     final addedNodeList = <_Node>[];
     for (final link in position.bestScoreLinks) {
+      // NOTE: for now, don't work
+      final move = symetryMoves(link.move).firstWhere(moveListWithPosition.moveList.map((e) => e.x).contains);
       final node = _Node(
         parent,
         _NodeValue(
-          parent.value.moves + link.moveString,
+          parent.value.moves + move2String(move),
           parent.value.currentColor == TurnColor.black ? TurnColor.white : TurnColor.black,
         ),
       );
