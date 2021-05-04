@@ -406,13 +406,6 @@ class LibEdax {
           headColor == TurnColor.black ? TurnColor.white : TurnColor.black,
         ),
       );
-      if (root.value.currentColor == TurnColor.black) {
-        root.value.bestPathNumOfWhite = 0;
-        root.value.bestPathNumOfBlack = 10000; // upper infinity
-      } else {
-        root.value.bestPathNumOfBlack = 0;
-        root.value.bestPathNumOfWhite = 10000; // upper infinity
-      }
       _buildTree(root, maxDepth);
       result.add(BestPathNumWithLink(
         root.value.bestPathNumOfBlack,
@@ -429,7 +422,7 @@ class LibEdax {
     final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(parent.value.moves);
     final position = moveListWithPosition.position;
     if (position.links.isEmpty || parent.value.moves.length >= maxDepth) {
-      // 末端までいったら 1, 1 扱いとする
+      // On edge, reagard (1,1) .
       parent.value.bestPathNumOfBlack = 1;
       parent.value.bestPathNumOfWhite = 1;
       return;
@@ -445,13 +438,6 @@ class LibEdax {
           parent.value.currentColor == TurnColor.black ? TurnColor.white : TurnColor.black,
         ),
       );
-      if (node.value.currentColor == TurnColor.black) {
-        node.value.bestPathNumOfWhite = 0;
-        node.value.bestPathNumOfBlack = 10000; // upper infinity
-      } else {
-        node.value.bestPathNumOfBlack = 0;
-        node.value.bestPathNumOfWhite = 10000; // upper infinity
-      }
       _buildTree(node, maxDepth);
       addedNodeList.add(node);
     }
@@ -503,9 +489,17 @@ class LibEdax {
 }
 
 class _NodeValue {
-  _NodeValue(this.moves, this.currentColor);
-  int bestPathNumOfBlack = 1; // NOTE: Because the edge is regarded as 1 path, default is 1.
-  int bestPathNumOfWhite = 1; // same as above
+  _NodeValue(this.moves, this.currentColor) {
+    if (currentColor == TurnColor.black) {
+      bestPathNumOfWhite = 0;
+      bestPathNumOfBlack = 10000; // upper infinity
+    } else {
+      bestPathNumOfBlack = 0;
+      bestPathNumOfWhite = 10000; // upper infinity
+    }
+  }
+  late int bestPathNumOfBlack;
+  late int bestPathNumOfWhite;
   final String moves;
   final int currentColor;
 }
