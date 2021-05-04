@@ -399,9 +399,9 @@ class LibEdax {
     // TODO: consider isolation
     for (final link in position.bestScoreLinks) {
       final move = symetryMove(link.move, moveListWithPosition.symetry);
-      final root = _Node(
+      final root = BestPathNumNode(
         null,
-        _NodeValue(
+        BestPathNumNodeValue(
           headMoves + move2String(move),
           headColor == TurnColor.black ? TurnColor.white : TurnColor.black,
         ),
@@ -412,35 +412,32 @@ class LibEdax {
         root.value.bestPathNumOfWhite,
         link,
         move,
+        root,
       ));
-      _printTreeGraph(root); // NOTE: debug print
     }
     return result;
   }
 
-  void _buildTree(_Node parent, int maxDepth) {
+  void _buildTree(BestPathNumNode parent, int maxDepth) {
     final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(parent.value.moves);
     final position = moveListWithPosition.position;
     if (position.links.isEmpty || parent.value.moves.length >= maxDepth * 2) {
-      // On edge, reagard (1,1) .
-      parent.value.bestPathNumOfBlack = 1;
-      parent.value.bestPathNumOfWhite = 1;
+      parent.value.bestPathNumOfBlack = parent.value.bestPathNumOfWhite = 1; // On edge, reagard (1,1) .
       return;
     }
 
-    final addedNodeList = <_Node>[];
-    for (final link in position.bestScoreLinks) {
+    final addedNodeList = position.bestScoreLinks.map((link) {
       final move = symetryMove(link.move, moveListWithPosition.symetry);
-      final node = _Node(
+      final node = BestPathNumNode(
         parent,
-        _NodeValue(
+        BestPathNumNodeValue(
           parent.value.moves + move2String(move),
           parent.value.currentColor == TurnColor.black ? TurnColor.white : TurnColor.black,
         ),
       );
       _buildTree(node, maxDepth);
-      addedNodeList.add(node);
-    }
+      return node;
+    });
     for (final addedNode in addedNodeList) {
       parent.children.add(addedNode);
       if (parent.value.currentColor == TurnColor.black) {
@@ -452,61 +449,4 @@ class LibEdax {
       }
     }
   }
-
-  void _printTreeGraph(_Node root) {
-    final graph = Gviz()
-      ..addNode(
-        root.value.moves,
-        properties: {
-          'style': 'filled',
-          'fillcolor': root.value.currentColor == TurnColor.black ? 'grey' : 'white',
-          'shape': 'record',
-          'label':
-              '{ ${root.value.moves} | { Pb: ${root.value.bestPathNumOfBlack.toString()} | Pw: ${root.value.bestPathNumOfWhite.toString()} } }',
-        },
-      );
-    _buildGraph(root, graph);
-    print(graph); // ignore: avoid_print
-  }
-
-  void _buildGraph(_Node parent, Gviz graph) {
-    for (final node in parent.children) {
-      graph
-        ..addNode(
-          node.value.moves,
-          properties: {
-            'style': 'filled',
-            'fillcolor': node.value.currentColor == TurnColor.black ? 'grey' : 'white',
-            'shape': 'record',
-            'label':
-                '{ ${node.value.moves} | { Pb: ${node.value.bestPathNumOfBlack.toString()} | Pw: ${node.value.bestPathNumOfWhite.toString()} } }',
-          },
-        )
-        ..addEdge(parent.value.moves, node.value.moves);
-      _buildGraph(node, graph);
-    }
-  }
-}
-
-class _NodeValue {
-  _NodeValue(this.moves, this.currentColor) {
-    if (currentColor == TurnColor.black) {
-      bestPathNumOfWhite = 0;
-      bestPathNumOfBlack = 10000; // upper infinity
-    } else {
-      bestPathNumOfBlack = 0;
-      bestPathNumOfWhite = 10000; // upper infinity
-    }
-  }
-  late int bestPathNumOfBlack;
-  late int bestPathNumOfWhite;
-  final String moves;
-  final int currentColor;
-}
-
-class _Node {
-  _Node(this.parent, this.value);
-  final _NodeValue value;
-  final _Node? parent;
-  final List<_Node> children = [];
 }
