@@ -40,16 +40,17 @@ class BestPathNumNode {
   final BestPathNumNode? parent;
   final List<BestPathNumNode> children = [];
 
-  Map<String, String> get _graphvizNodeProperties => {
+  Map<String, String> _graphvizNodeProperties(BestPathNumNode node) => {
         'style': 'filled',
-        'fillcolor': value.currentColor == TurnColor.black ? 'grey' : 'white',
+        'fillcolor': node.value.currentColor == TurnColor.black ? 'grey' : 'white',
         'shape': 'record',
-        'label': '{ ${value.moves} | { B: ${value.bestPathNumOfBlack} | W: ${value.bestPathNumOfWhite} } }',
+        'label':
+            '{ ${node.value.moves} | { B: ${node.value.bestPathNumOfBlack} | W: ${node.value.bestPathNumOfWhite} } }',
       };
 
   /// Export the [dot file](http://www.graphviz.org/doc/info/lang.html) of [GrapViz](http://www.graphviz.org/) as this node is regarded as root.
   String exportGraphvizDotFile() {
-    final gviz = Gviz()..addNode(value.moves, properties: _graphvizNodeProperties); // regarde myself root.
+    final gviz = Gviz()..addNode(value.moves, properties: _graphvizNodeProperties(this)); // regarde myself root.
     _buildGraphviz(this, gviz);
     return gviz.toString();
   }
@@ -57,7 +58,7 @@ class BestPathNumNode {
   void _buildGraphviz(BestPathNumNode parent, Gviz gviz) {
     for (final node in parent.children) {
       gviz
-        ..addNode(node.value.moves, properties: _graphvizNodeProperties)
+        ..addNode(node.value.moves, properties: _graphvizNodeProperties(node))
         ..addEdge(parent.value.moves, node.value.moves);
       _buildGraphviz(node, gviz);
     }
