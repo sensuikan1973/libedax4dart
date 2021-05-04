@@ -77,7 +77,7 @@ dartdoc && open doc/api/index.html
 #### change libedax bin
 
 ```sh
-# After you change libedax-version, run this.
+# After you edit .libedax-version, run this.
 libedax_build_command="make libbuild ARCH=x64-modern COMP=gcc OS=osx" dst="." ./scripts/build_libedax.sh
 ```
 
