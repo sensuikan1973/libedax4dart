@@ -289,7 +289,7 @@ void main() {
         final edax = LibEdax()
           ..libedaxInitialize(initParams)
           ..edaxInit();
-        final bestPathNumWithLink = edax.computeBestPathNumWithLink();
+        final bestPathNumWithLink = edax.computeBestPathNumWithLink(level: 40);
         expect(bestPathNumWithLink.isEmpty, true);
         edax.libedaxTerminate();
       });
@@ -300,7 +300,7 @@ void main() {
           ..libedaxInitialize(initParams)
           ..edaxInit()
           ..edaxPlay('f5f6');
-        final bestPathNumWithLink = edax.computeBestPathNumWithLink();
+        final bestPathNumWithLink = edax.computeBestPathNumWithLink(level: 40);
         expect(bestPathNumWithLink.length, 1);
         expect(bestPathNumWithLink.first.moveString, 'e6');
         expect(bestPathNumWithLink.first.bestPathNumOfBlack, 2);
@@ -311,12 +311,11 @@ void main() {
       test('with long moves less than 40, exportGraphvizDotFile', () {
         const initParams = ['', '-book-file', _testBookFile];
         const moves = 'F5f6e6d6e7g5c5c6e3d3c7f3f4g4g3d7e8c8c4f7c2d2f2h3d8f8g6h5g7b5h7c3b4e1';
-        expect(moves.length, lessThan(LibEdax.defaultMaxDepthOfBestPathNumTree * 2));
         final edax = LibEdax()
           ..libedaxInitialize(initParams)
           ..edaxInit()
           ..edaxPlay(moves);
-        final bestPathNumWithLink = edax.computeBestPathNumWithLink();
+        final bestPathNumWithLink = edax.computeBestPathNumWithLink(level: 40);
         expect(bestPathNumWithLink.length, 1);
         print(bestPathNumWithLink.first.root.exportGraphvizDotFile()); // ignore: avoid_print
         expect(bestPathNumWithLink.first.moveString, 'd1');
@@ -325,15 +324,14 @@ void main() {
         edax.libedaxTerminate();
       });
 
-      test('with moves greater than 40', () {
+      test('with moves greater than book level', () {
         const initParams = ['', '-book-file', _testBookFile];
         const moves = 'F5f6e6d6e7g5c5c6e3d3c7f3f4g4g3d7e8c8c4f7c2d2f2h3d8f8g6h5g7b5h7c3b4e1d1a5a4a3b2b2a2a1';
-        expect(moves.length, greaterThanOrEqualTo(LibEdax.defaultMaxDepthOfBestPathNumTree * 2));
         final edax = LibEdax()
           ..libedaxInitialize(initParams)
           ..edaxInit()
           ..edaxPlay(moves);
-        final bestPathNumWithLink = edax.computeBestPathNumWithLink();
+        final bestPathNumWithLink = edax.computeBestPathNumWithLink(level: 40);
         expect(bestPathNumWithLink.isEmpty, true);
         edax.libedaxTerminate();
       });

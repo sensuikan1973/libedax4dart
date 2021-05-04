@@ -1,3 +1,9 @@
+# 0.12.0-beta
+
+- **Breaking Changes**
+  - change the arg of `computeBestPathNumWithLink`
+  - fix the bug of `computeBestPathNumWithLink`
+
 # 0.11.1-beta
 
 - add documentation link on pub.dev
