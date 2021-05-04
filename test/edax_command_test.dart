@@ -296,8 +296,8 @@ void main() {
           ..edaxPlay('f5f6');
         final bestPathNumWithLink = edax.computeBestPathNumWithLink();
         expect(bestPathNumWithLink.first.moveString, 'e6');
-        expect(bestPathNumWithLink.first.bestPathNumOfBlack, 1);
-        expect(bestPathNumWithLink.first.bestPathNumOfWhite, 2);
+        expect(bestPathNumWithLink.first.bestPathNumOfBlack, 2);
+        expect(bestPathNumWithLink.first.bestPathNumOfWhite, 1);
         expect(bestPathNumWithLink.isEmpty, false);
 
         edax.libedaxTerminate();

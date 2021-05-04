@@ -407,11 +407,11 @@ class LibEdax {
         ),
       );
       if (root.value.currentColor == TurnColor.black) {
-        root.value.bestPathNumOfBlack = 0;
-        root.value.bestPathNumOfWhite = 10000; // upper infinity
-      } else {
         root.value.bestPathNumOfWhite = 0;
         root.value.bestPathNumOfBlack = 10000; // upper infinity
+      } else {
+        root.value.bestPathNumOfBlack = 0;
+        root.value.bestPathNumOfWhite = 10000; // upper infinity
       }
       _buildTree(root, maxDepth);
       result.add(BestPathNumWithLink(
@@ -428,7 +428,12 @@ class LibEdax {
   void _buildTree(_Node parent, int maxDepth) {
     final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(parent.value.moves);
     final position = moveListWithPosition.position;
-    if (position.links.isEmpty || parent.value.moves.length >= maxDepth) return;
+    if (position.links.isEmpty || parent.value.moves.length >= maxDepth) {
+      // 末端までいったら 1, 1 扱いとする
+      parent.value.bestPathNumOfBlack = 1;
+      parent.value.bestPathNumOfWhite = 1;
+      return;
+    }
 
     final addedNodeList = <_Node>[];
     for (final link in position.bestScoreLinks) {
@@ -441,11 +446,11 @@ class LibEdax {
         ),
       );
       if (node.value.currentColor == TurnColor.black) {
-        node.value.bestPathNumOfBlack = 0;
-        node.value.bestPathNumOfWhite = 10000; // upper infinity
-      } else {
         node.value.bestPathNumOfWhite = 0;
         node.value.bestPathNumOfBlack = 10000; // upper infinity
+      } else {
+        node.value.bestPathNumOfBlack = 0;
+        node.value.bestPathNumOfWhite = 10000; // upper infinity
       }
       _buildTree(node, maxDepth);
       addedNodeList.add(node);
@@ -453,11 +458,11 @@ class LibEdax {
     for (final addedNode in addedNodeList) {
       parent.children.add(addedNode);
       if (parent.value.currentColor == TurnColor.black) {
-        parent.value.bestPathNumOfBlack++;
-        parent.value.bestPathNumOfWhite = min(parent.value.bestPathNumOfWhite, addedNode.value.bestPathNumOfWhite);
-      } else {
         parent.value.bestPathNumOfWhite++;
         parent.value.bestPathNumOfBlack = min(parent.value.bestPathNumOfBlack, addedNode.value.bestPathNumOfBlack);
+      } else {
+        parent.value.bestPathNumOfBlack++;
+        parent.value.bestPathNumOfWhite = min(parent.value.bestPathNumOfWhite, addedNode.value.bestPathNumOfWhite);
       }
     }
   }
