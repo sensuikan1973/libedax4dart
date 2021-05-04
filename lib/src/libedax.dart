@@ -130,7 +130,7 @@ class LibEdax {
   MoveListWithPosition edaxGetBookMoveWithPosition() {
     final dstM = calloc<c_movelist.MoveList>();
     final dstP = calloc<c_position.Position>();
-    _bindings.edaxGetBookMoveWithPosition(dstM, dstP);
+    final symetry = _bindings.edaxGetBookMoveWithPosition(dstM, dstP);
 
     final moveList = dstM.ref;
     final resultMoveList = <Move>[];
@@ -164,14 +164,14 @@ class LibEdax {
     );
     calloc.free(dstP);
 
-    return MoveListWithPosition(resultMoveList, resultPosition);
+    return MoveListWithPosition(resultMoveList, resultPosition, symetry);
   }
 
   /// Get book move list with position by specified moves.
   MoveListWithPosition edaxGetBookMoveWithPositionByMoves(String moves) {
     final dstM = calloc<c_movelist.MoveList>();
     final dstP = calloc<c_position.Position>();
-    _bindings.edaxGetBookMoveWithPositionByMoves(moves.toNativeUtf8(), dstM, dstP);
+    final symetry = _bindings.edaxGetBookMoveWithPositionByMoves(moves.toNativeUtf8(), dstM, dstP);
 
     final moveList = dstM.ref;
     final resultMoveList = <Move>[];
@@ -205,7 +205,7 @@ class LibEdax {
     );
     calloc.free(dstP);
 
-    return MoveListWithPosition(resultMoveList, resultPosition);
+    return MoveListWithPosition(resultMoveList, resultPosition, symetry);
   }
 
   /// Prepare to get hint.
@@ -397,8 +397,7 @@ class LibEdax {
     final result = <BestPathNumWithLink>[];
     // TODO: consider isolation
     for (final link in position.bestScoreLinks) {
-      // NOTE: for now, don't work
-      final move = symetryMoves(link.move).firstWhere(moveListWithPosition.moveList.map((e) => e.x).contains);
+      final move = symetryMove(link.move, moveListWithPosition.symetry);
       final root = _Node(
         null,
         _NodeValue(
@@ -411,6 +410,7 @@ class LibEdax {
         root.value.bestPathNumOfBlack,
         root.value.bestPathNumOfWhite,
         link,
+        move,
       ));
     }
     return result;
@@ -423,8 +423,7 @@ class LibEdax {
 
     final addedNodeList = <_Node>[];
     for (final link in position.bestScoreLinks) {
-      // NOTE: for now, don't work
-      final move = symetryMoves(link.move).firstWhere(moveListWithPosition.moveList.map((e) => e.x).contains);
+      final move = symetryMove(link.move, moveListWithPosition.symetry);
       final node = _Node(
         parent,
         _NodeValue(
@@ -443,6 +442,10 @@ class LibEdax {
         parent.value.bestPathNumOfWhite++;
         parent.value.bestPathNumOfBlack = min(parent.value.bestPathNumOfBlack, addedNode.value.bestPathNumOfBlack);
       }
+      // TODO: add dump print method
+      // print(parent.value.moves);
+      // print(parent.value.bestPathNumOfBlack);
+      // print(parent.value.bestPathNumOfWhite);
     }
   }
 }
