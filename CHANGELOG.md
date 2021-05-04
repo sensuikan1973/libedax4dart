@@ -1,3 +1,7 @@
+# 0.11.1-beta
+
+- add documentation link on pub.dev
+
 # 0.11.0-beta
 
 - New Features
