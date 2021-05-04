@@ -78,13 +78,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  gviz:
+    dependency: transitive
+    description:
+      name: gviz
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.0"
   libedax4dart:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.10.0-beta"
+    version: "0.11.0-beta"
   meta:
     dependency: transitive
     description:

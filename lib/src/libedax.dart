@@ -1,6 +1,7 @@
 import 'dart:ffi';
 import 'dart:math';
 import 'package:ffi/ffi.dart';
+import 'package:gviz/gviz.dart';
 import 'package:meta/meta.dart';
 import 'best_path_num_with_link.dart';
 import 'bindings/bindings.dart';
@@ -405,6 +406,13 @@ class LibEdax {
           headColor == TurnColor.black ? TurnColor.white : TurnColor.black,
         ),
       );
+      if (root.value.currentColor == TurnColor.black) {
+        root.value.bestPathNumOfBlack = 0;
+        root.value.bestPathNumOfWhite = 10000; // upper infinity
+      } else {
+        root.value.bestPathNumOfWhite = 0;
+        root.value.bestPathNumOfBlack = 10000; // upper infinity
+      }
       _buildTree(root, maxDepth);
       result.add(BestPathNumWithLink(
         root.value.bestPathNumOfBlack,
@@ -412,6 +420,7 @@ class LibEdax {
         link,
         move,
       ));
+      _printTreeGraph(root); // NOTE: debug print
     }
     return result;
   }
@@ -435,6 +444,7 @@ class LibEdax {
       addedNodeList.add(node);
     }
     for (final addedNode in addedNodeList) {
+      parent.children.add(addedNode);
       if (parent.value.currentColor == TurnColor.black) {
         parent.value.bestPathNumOfBlack++;
         parent.value.bestPathNumOfWhite = min(parent.value.bestPathNumOfWhite, addedNode.value.bestPathNumOfWhite);
@@ -442,10 +452,35 @@ class LibEdax {
         parent.value.bestPathNumOfWhite++;
         parent.value.bestPathNumOfBlack = min(parent.value.bestPathNumOfBlack, addedNode.value.bestPathNumOfBlack);
       }
-      // TODO: add dump print method
-      // print(parent.value.moves);
-      // print(parent.value.bestPathNumOfBlack);
-      // print(parent.value.bestPathNumOfWhite);
+    }
+  }
+
+  void _printTreeGraph(_Node root) {
+    final graph = Gviz()
+      ..addNode(
+        root.value.moves,
+        properties: {
+          'T': root.value.currentColor == TurnColor.black ? 'B' : 'W',
+          'Pb': root.value.bestPathNumOfBlack.toString(),
+          'Pw': root.value.bestPathNumOfWhite.toString(),
+        },
+      );
+    _buildGraph(root, graph);
+    print(graph); // ignore: avoid_print
+  }
+
+  void _buildGraph(_Node parent, Gviz graph) {
+    for (final node in parent.children) {
+      graph.addEdge(
+        parent.value.moves,
+        node.value.moves,
+        properties: {
+          'T': node.value.currentColor == TurnColor.black ? 'B' : 'W',
+          'Pb': node.value.bestPathNumOfBlack.toString(),
+          'Pw': node.value.bestPathNumOfWhite.toString(),
+        },
+      );
+      _buildGraph(node, graph);
     }
   }
 }
@@ -462,4 +497,5 @@ class _Node {
   _Node(this.parent, this.value);
   final _NodeValue value;
   final _Node? parent;
+  final List<_Node> children = [];
 }
