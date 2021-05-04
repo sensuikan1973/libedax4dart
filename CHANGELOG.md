@@ -1,3 +1,7 @@
+# 0.12.1-beta
+
+- add `onlyBestScoreLink` arg to `computeBestPathNumWithLink`
+
 # 0.12.0-beta
 
 - **Breaking Changes**
