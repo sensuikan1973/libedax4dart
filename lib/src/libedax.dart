@@ -388,7 +388,7 @@ class LibEdax {
   /// This compute the number of path which both of two players choose his/her move to memorize as few as possible. <br>
   /// This is a Dart level function, and unique to libedax4dart.
   @experimental
-  List<BestPathNumWithLink> computeBestPathNumWithLink({int maxDepth = 40}) {
+  List<BestPathNumWithLink> computeBestPathNumWithLink({int maxDepth = defaultMaxDepthOfBestPathNumTree}) {
     final headMoves = edaxGetMoves();
     if (headMoves.isEmpty || headMoves.length >= maxDepth * 2) return [];
 
@@ -417,6 +417,10 @@ class LibEdax {
     }
     return result;
   }
+
+  /// Generally, the depth of book is less than or equal to 40.
+  @visibleForTesting
+  static const defaultMaxDepthOfBestPathNumTree = 40;
 
   void _buildTree(BestPathNumNode parent, int maxDepth) {
     final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(parent.value.moves);
