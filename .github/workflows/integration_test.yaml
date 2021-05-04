@@ -55,11 +55,6 @@ jobs:
       shell: bash
       run: .github/scripts/output_build_info.sh . gcc && cat env.txt
 
-    - name: mv libedax bin for test
-      if: steps.cache-libedax-assets.outputs.cache-hit != 'true'
-      shell: bash
-      run: mv bin/${{ matrix.libedax_bin }} ./${{ matrix.libedax_bin }}
-
     # # DEBUG
     # - name: setup tmate session for debug
     #   uses: mxschmitt/action-tmate@v3

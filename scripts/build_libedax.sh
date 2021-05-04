@@ -31,4 +31,4 @@ cp -r edax-reversi/bin ${dst:-.}/bin
 cp -r edax-reversi/data ${dst:-.}/data
 
 # for test
-# cp ${dst:-.}/bin/libedax.dylib .
+cp ${dst:-.}/bin/* .
