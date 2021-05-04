@@ -20,8 +20,9 @@ void main() {
 
   group('with a new book (follow default: data/book.dat)', () {
     test('initialize without args, and set option', () {
-      LibEdax()
-        ..libedaxInitialize()
+      final edax = LibEdax()..libedaxInitialize();
+      sleep(const Duration(seconds: 1));
+      edax
         ..edaxInit()
         ..edaxVersion()
         ..edaxSetOption('level', '15')
@@ -29,17 +30,18 @@ void main() {
     });
 
     test('get last move with no moves', () {
-      final edax = LibEdax()
-        ..libedaxInitialize()
-        ..edaxNew();
+      final edax = LibEdax()..libedaxInitialize();
+      sleep(const Duration(seconds: 1));
+      edax.edaxNew();
       final lastMove = edax.edaxGetLastMove();
       expect(lastMove.isNoMove, true);
       edax.libedaxTerminate();
     });
 
     test('play "horse" opening', () {
-      final edax = LibEdax()
-        ..libedaxInitialize()
+      final edax = LibEdax()..libedaxInitialize();
+      sleep(const Duration(seconds: 1));
+      edax
         ..edaxNew()
         ..edaxBookOff()
         ..edaxBookOn()
@@ -55,8 +57,9 @@ void main() {
     });
 
     test('board useful getter', () {
-      final edax = LibEdax()
-        ..libedaxInitialize()
+      final edax = LibEdax()..libedaxInitialize();
+      sleep(const Duration(seconds: 1));
+      edax
         ..edaxInit()
         ..edaxPlay('f5d6c5f4d3');
       final board = edax.edaxGetBoard();
@@ -70,8 +73,9 @@ void main() {
 
     test('setBoard', () {
       const boardString = '-W----W--------------------WB------WBB-----W--------------------B';
-      final edax = LibEdax()
-        ..libedaxInitialize()
+      final edax = LibEdax()..libedaxInitialize();
+      sleep(const Duration(seconds: 1));
+      edax
         ..edaxInit()
         ..edaxSetboard(boardString);
       expect(edax.edaxGetDisc(TurnColor.white), 'W'.allMatches(boardString).length);
@@ -81,8 +85,9 @@ void main() {
     });
 
     test('check mobility count', () {
-      final edax = LibEdax()
-        ..libedaxInitialize()
+      final edax = LibEdax()..libedaxInitialize();
+      sleep(const Duration(seconds: 1));
+      edax
         ..edaxInit()
         ..edaxBookRandomness(2)
         ..edaxGo();
@@ -92,8 +97,9 @@ void main() {
 
     test('play a short game until game over', () {
       const initParams = ['', '-eval-file', 'data/eval.dat', '-book-file', 'data/book.dat', '-level', '16'];
-      final edax = LibEdax()
-        ..libedaxInitialize(initParams)
+      final edax = LibEdax()..libedaxInitialize(initParams);
+      sleep(const Duration(seconds: 1));
+      edax
         ..edaxInit()
         ..edaxMode(3) // human vs human
         ..edaxMove('f5');
@@ -118,8 +124,9 @@ void main() {
     });
 
     test('book new & get book move', () {
-      final edax = LibEdax()
-        ..libedaxInitialize()
+      final edax = LibEdax()..libedaxInitialize();
+      sleep(const Duration(seconds: 1));
+      edax
         ..edaxInit()
         ..edaxBookNew(21, 24); // create shallow book
       final moveList = edax.edaxGetBookMove();
@@ -276,15 +283,70 @@ void main() {
       edax.libedaxTerminate();
     });
 
-    test('computeBestPathNumWithLink', () {
-      const initParams = ['', '-book-file', _testBookFile];
-      final edax = LibEdax()
-        ..libedaxInitialize(initParams)
-        ..edaxInit();
-      final bestPathNumWithLink = edax.computeBestPathNumWithLink();
-      expect(bestPathNumWithLink.isEmpty, true);
+    group('computeBestPathNumWithLink', () {
+      test('with no moves', () {
+        const initParams = ['', '-book-file', _testBookFile];
+        final edax = LibEdax()
+          ..libedaxInitialize(initParams)
+          ..edaxInit();
+        final bestPathNumWithLink = edax.computeBestPathNumWithLink();
+        expect(bestPathNumWithLink.isEmpty, true);
+        edax.libedaxTerminate();
+      });
 
-      edax.libedaxTerminate();
+      test('with moves f5f6', () {
+        const initParams = ['', '-book-file', _testBookFile];
+        final edax = LibEdax()
+          ..libedaxInitialize(initParams)
+          ..edaxInit()
+          ..edaxPlay('f5f6');
+        final bestPathNumWithLink = edax.computeBestPathNumWithLink();
+        expect(bestPathNumWithLink.length, 1);
+        expect(bestPathNumWithLink.first.moveString, 'e6');
+        expect(bestPathNumWithLink.first.bestPathNumOfBlack, 2);
+        expect(bestPathNumWithLink.first.bestPathNumOfWhite, 1);
+        edax.libedaxTerminate();
+      });
+
+      test('with long moves less than 40, exportGraphvizDotFile', () {
+        const initParams = ['', '-book-file', _testBookFile];
+        const moves = 'F5f6e6d6e7g5c5c6e3d3c7f3f4g4g3d7e8c8c4f7c2d2f2h3d8f8g6h5g7b5h7c3b4e1';
+        expect(moves.length, lessThan(LibEdax.defaultMaxDepthOfBestPathNumTree * 2));
+        final edax = LibEdax()
+          ..libedaxInitialize(initParams)
+          ..edaxInit()
+          ..edaxPlay(moves);
+        final bestPathNumWithLink = edax.computeBestPathNumWithLink();
+        expect(bestPathNumWithLink.length, 1);
+        print(bestPathNumWithLink.first.root.exportGraphvizDotFile()); // ignore: avoid_print
+        expect(bestPathNumWithLink.first.moveString, 'd1');
+        expect(bestPathNumWithLink.first.bestPathNumOfBlack, 1);
+        expect(bestPathNumWithLink.first.bestPathNumOfWhite, 1);
+        edax.libedaxTerminate();
+      });
+
+      test('with moves greater than 40', () {
+        const initParams = ['', '-book-file', _testBookFile];
+        const moves = 'F5f6e6d6e7g5c5c6e3d3c7f3f4g4g3d7e8c8c4f7c2d2f2h3d8f8g6h5g7b5h7c3b4e1d1a5a4a3b2b2a2a1';
+        expect(moves.length, greaterThanOrEqualTo(LibEdax.defaultMaxDepthOfBestPathNumTree * 2));
+        final edax = LibEdax()
+          ..libedaxInitialize(initParams)
+          ..edaxInit()
+          ..edaxPlay(moves);
+        final bestPathNumWithLink = edax.computeBestPathNumWithLink();
+        expect(bestPathNumWithLink.isEmpty, true);
+        edax.libedaxTerminate();
+      });
+    });
+
+    group('util command', () {
+      test('popCount', () {
+        final edax = LibEdax();
+        expect(edax.popCount(7), 3); // 0000 0111
+        expect(edax.popCount(14), 3); // 0000 1110
+        expect(edax.popCount(15), 4); // 0000 1111
+        expect(edax.popCount(17), 2); // 0001 0001
+      });
     });
   });
 }

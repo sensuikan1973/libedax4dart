@@ -2,6 +2,7 @@
 
 - New Features
   - add `computeBestPathNumWithLink`
+  - improve documentation links
 
 # 0.10.0-beta
 

@@ -47,7 +47,7 @@ You play F5
 8 - - - - - - - - 8         0:00.000       8 |  |  |  |  |  |  |  |  | 8
   A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
 
->b show
+>book show
 
   A B C D E F G H
 1 - - - - - - - - 1
@@ -65,3 +65,291 @@ Best score: +0 [-2, +2]
 Moves: <d6:+0> [f6:-1]
 Lines: 4 full games with 0.00% win, 50.00% draw, 50.00% loss
        66 incomplete lines.
+
+
+  A B C D E F G H            BLACK            A  B  C  D  E  F  G  H
+1 - - - - - - - - 1         0:18.179       1 |  |  |  |  |  |  |  |  | 1
+2 - - - - - - - - 2    4 discs   3 moves   2 |  |  |  |  |  |  |  |  | 2
+3 - - - - - - - - 3                        3 |  |  |  |  |  |  |  |  | 3
+4 - - - O * . - - 4  ply  2 (59 empties)   4 |  |  |  |()|##|  |  |  | 4
+5 - - - * * * - - 5    White's turn (O)    5 |  |  |  |##|()| 1|  |  | 5
+6 - - - . - . - - 6                        6 |  |  |  |  |  |  |  |  | 6
+7 - - - - - - - - 7    1 discs   3 moves   7 |  |  |  |  |  |  |  |  | 7
+8 - - - - - - - - 8         0:00.000       8 |  |  |  |  |  |  |  |  | 8
+  A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
+
+>f6
+
+
+You play F6
+
+  A B C D E F G H            BLACK            A  B  C  D  E  F  G  H
+1 - - - - - - - - 1         0:18.179       1 |  |  |  |  |  |  |  |  | 1
+2 - - - - - - - - 2    3 discs   4 moves   2 |  |  |  |  |  |  |  |  | 2
+3 - - - . - - - - 3                        3 |  |  |  |  |  |  |  |  | 3
+4 - - . O * - - - 4  ply  3 (58 empties)   4 |  |  |  |()|##|  |  |  | 4
+5 - - - * O * - - 5    Black's turn (*)    5 |  |  |  |##|()| 1|  |  | 5
+6 - - - - . O - - 6                        6 |  |  |  |  |  | 2|  |  | 6
+7 - - - - - . - - 7    3 discs   5 moves   7 |  |  |  |  |  |  |  |  | 7
+8 - - - - - - - - 8         0:10.169       8 |  |  |  |  |  |  |  |  | 8
+  A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
+
+>book show
+
+  A B C D E F G H
+1 - - - - - - - - 1
+2 - - - - - - - - 2 * to move
+3 - - - . - - - - 3
+4 - - . O * - - - 4 *: discs =  3    moves =  4
+5 - - - * O * - - 5 O: discs =  3    moves =  5
+6 - - - - . O - - 6  empties = 58      ply =  3
+7 - - - - - . - - 7
+8 - - - - - - - - 8
+  A B C D E F G H
+
+Level: 21
+Best score: +1 [-2, +2]
+Moves: [E6:+1] <C4:-7>
+Lines: 4 full games with 50.00% win, 50.00% draw, 0.00% loss
+       65 incomplete lines.
+
+
+  A B C D E F G H            BLACK            A  B  C  D  E  F  G  H
+1 - - - - - - - - 1         0:18.179       1 |  |  |  |  |  |  |  |  | 1
+2 - - - - - - - - 2    3 discs   4 moves   2 |  |  |  |  |  |  |  |  | 2
+3 - - - . - - - - 3                        3 |  |  |  |  |  |  |  |  | 3
+4 - - . O * - - - 4  ply  3 (58 empties)   4 |  |  |  |()|##|  |  |  | 4
+5 - - - * O * - - 5    Black's turn (*)    5 |  |  |  |##|()| 1|  |  | 5
+6 - - - - . O - - 6                        6 |  |  |  |  |  | 2|  |  | 6
+7 - - - - - . - - 7    3 discs   5 moves   7 |  |  |  |  |  |  |  |  | 7
+8 - - - - - - - - 8         0:10.169       8 |  |  |  |  |  |  |  |  | 8
+  A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
+
+>c4
+
+
+You play C4
+
+  A B C D E F G H            BLACK            A  B  C  D  E  F  G  H
+1 - - - - - - - - 1         0:04.804       1 |  |  |  |  |  |  |  |  | 1
+2 - - - - - - - - 2    5 discs   3 moves   2 |  |  |  |  |  |  |  |  | 2
+3 - - . - . - - - 3                        3 |  |  |  |  |  |  |  |  | 3
+4 - - * * * . - - 4  ply  4 (57 empties)   4 |  |  | 3|()|##|  |  |  | 4
+5 - - . * O * . - 5    White's turn (O)    5 |  |  |  |##|()| 1|  |  | 5
+6 - - - - - O - - 6                        6 |  |  |  |  |  | 2|  |  | 6
+7 - - - - - - - - 7    2 discs   5 moves   7 |  |  |  |  |  |  |  |  | 7
+8 - - - - - - - - 8         0:02.307       8 |  |  |  |  |  |  |  |  | 8
+  A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
+
+>book show
+
+
+  A B C D E F G H            BLACK            A  B  C  D  E  F  G  H
+1 - - - - - - - - 1         0:04.804       1 |  |  |  |  |  |  |  |  | 1
+2 - - - - - - - - 2    5 discs   3 moves   2 |  |  |  |  |  |  |  |  | 2
+3 - - . - . - - - 3                        3 |  |  |  |  |  |  |  |  | 3
+4 - - * * * . - - 4  ply  4 (57 empties)   4 |  |  | 3|()|##|  |  |  | 4
+5 - - . * O * . - 5    White's turn (O)    5 |  |  |  |##|()| 1|  |  | 5
+6 - - - - - O - - 6                        6 |  |  |  |  |  | 2|  |  | 6
+7 - - - - - - - - 7    2 discs   5 moves   7 |  |  |  |  |  |  |  |  | 7
+8 - - - - - - - - 8         0:02.307       8 |  |  |  |  |  |  |  |  | 8
+  A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
+
+>undo
+
+
+  A B C D E F G H            BLACK            A  B  C  D  E  F  G  H
+1 - - - - - - - - 1         0:04.804       1 |  |  |  |  |  |  |  |  | 1
+2 - - - - - - - - 2    3 discs   4 moves   2 |  |  |  |  |  |  |  |  | 2
+3 - - - . - - - - 3                        3 |  |  |  |  |  |  |  |  | 3
+4 - - . O * - - - 4  ply  3 (58 empties)   4 |  |  |  |()|##|  |  |  | 4
+5 - - - * O * - - 5    Black's turn (*)    5 |  |  |  |##|()| 1|  |  | 5
+6 - - - - . O - - 6                        6 |  |  |  |  |  | 2|  |  | 6
+7 - - - - - . - - 7    3 discs   5 moves   7 |  |  |  |  |  |  |  |  | 7
+8 - - - - - - - - 8         0:02.307       8 |  |  |  |  |  |  |  |  | 8
+  A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
+
+>e6
+
+
+You play E6
+
+  A B C D E F G H            BLACK            A  B  C  D  E  F  G  H
+1 - - - - - - - - 1         0:45.697       1 |  |  |  |  |  |  |  |  | 1
+2 - - - - - - - - 2    5 discs   6 moves   2 |  |  |  |  |  |  |  |  | 2
+3 - - - - - - - - 3                        3 |  |  |  |  |  |  |  |  | 3
+4 - - - O * . - - 4  ply  4 (57 empties)   4 |  |  |  |()|##|  |  |  | 4
+5 - - - * * * - - 5    White's turn (O)    5 |  |  |  |##|()| 1|  |  | 5
+6 - - - . * O - - 6                        6 |  |  |  |  | 3| 2|  |  | 6
+7 - - - - - - - - 7    2 discs   2 moves   7 |  |  |  |  |  |  |  |  | 7
+8 - - - - - - - - 8         0:02.307       8 |  |  |  |  |  |  |  |  | 8
+  A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
+
+>book show
+
+  A B C D E F G H
+1 - - - - - - - - 1
+2 - - - - - - - - 2 O to move
+3 - - - - - - - - 3
+4 - - - O * . - - 4 O: discs =  2    moves =  2
+5 - - - * * * - - 5 *: discs =  5    moves =  6
+6 - - - . * O - - 6  empties = 57      ply =  4
+7 - - - - - - - - 7
+8 - - - - - - - - 8
+  A B C D E F G H
+
+Level: 21
+Best score: -1 [-2, +2]
+Moves: [f4:-1] [d6:-1]
+Lines: 4 full games with 0.00% win, 50.00% draw, 50.00% loss
+       64 incomplete lines.
+
+
+  A B C D E F G H            BLACK            A  B  C  D  E  F  G  H
+1 - - - - - - - - 1         0:45.697       1 |  |  |  |  |  |  |  |  | 1
+2 - - - - - - - - 2    5 discs   6 moves   2 |  |  |  |  |  |  |  |  | 2
+3 - - - - - - - - 3                        3 |  |  |  |  |  |  |  |  | 3
+4 - - - O * . - - 4  ply  4 (57 empties)   4 |  |  |  |()|##|  |  |  | 4
+5 - - - * * * - - 5    White's turn (O)    5 |  |  |  |##|()| 1|  |  | 5
+6 - - - . * O - - 6                        6 |  |  |  |  | 3| 2|  |  | 6
+7 - - - - - - - - 7    2 discs   2 moves   7 |  |  |  |  |  |  |  |  | 7
+8 - - - - - - - - 8         0:02.307       8 |  |  |  |  |  |  |  |  | 8
+  A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
+
+>f4
+
+
+You play F4
+
+  A B C D E F G H            BLACK            A  B  C  D  E  F  G  H
+1 - - - - - - - - 1         0:45.697       1 |  |  |  |  |  |  |  |  | 1
+2 - - - - - - - - 2    3 discs   9 moves   2 |  |  |  |  |  |  |  |  | 2
+3 - - . . . . . - 3                        3 |  |  |  |  |  |  |  |  | 3
+4 - - - O O O . - 4  ply  5 (56 empties)   4 |  |  |  |()|##| 4|  |  | 4
+5 - - - * * O . - 5    Black's turn (*)    5 |  |  |  |##|()| 1|  |  | 5
+6 - - - - * O . - 6                        6 |  |  |  |  | 3| 2|  |  | 6
+7 - - - - - - . - 7    5 discs   5 moves   7 |  |  |  |  |  |  |  |  | 7
+8 - - - - - - - - 8         0:17.709       8 |  |  |  |  |  |  |  |  | 8
+  A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
+
+>book show
+
+  A B C D E F G H
+1 - - - - - - - - 1
+2 - - - - - - - - 2 * to move
+3 - - . . . . . - 3
+4 - - - O O O . - 4 *: discs =  3    moves =  9
+5 - - - * * O . - 5 O: discs =  5    moves =  5
+6 - - - - * O . - 6  empties = 56      ply =  5
+7 - - - - - - . - 7
+8 - - - - - - - - 8
+  A B C D E F G H
+
+Level: 21
+Best score: +1 [-2, +2]
+Moves: <E3:+1> [G5:+0]
+Lines: 2 full games with 50.00% win, 50.00% draw, 0.00% loss
+       32 incomplete lines.
+
+
+  A B C D E F G H            BLACK            A  B  C  D  E  F  G  H
+1 - - - - - - - - 1         0:45.697       1 |  |  |  |  |  |  |  |  | 1
+2 - - - - - - - - 2    3 discs   9 moves   2 |  |  |  |  |  |  |  |  | 2
+3 - - . . . . . - 3                        3 |  |  |  |  |  |  |  |  | 3
+4 - - - O O O . - 4  ply  5 (56 empties)   4 |  |  |  |()|##| 4|  |  | 4
+5 - - - * * O . - 5    Black's turn (*)    5 |  |  |  |##|()| 1|  |  | 5
+6 - - - - * O . - 6                        6 |  |  |  |  | 3| 2|  |  | 6
+7 - - - - - - . - 7    5 discs   5 moves   7 |  |  |  |  |  |  |  |  | 7
+8 - - - - - - - - 8         0:17.709       8 |  |  |  |  |  |  |  |  | 8
+  A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
+
+>e3
+
+
+You play E3
+
+  A B C D E F G H            BLACK            A  B  C  D  E  F  G  H
+1 - - - - - - - - 1         1:05.125       1 |  |  |  |  |  |  |  |  | 1
+2 - - - . - . - - 2    5 discs   9 moves   2 |  |  |  |  |  |  |  |  | 2
+3 - - - . * - - - 3                        3 |  |  |  |  | 5|  |  |  | 3
+4 - - - O * O - - 4  ply  6 (55 empties)   4 |  |  |  |()|##| 4|  |  | 4
+5 - - . * * O - - 5    White's turn (O)    5 |  |  |  |##|()| 1|  |  | 5
+6 - - - . * O - - 6                        6 |  |  |  |  | 3| 2|  |  | 6
+7 - - - . - - - - 7    4 discs   6 moves   7 |  |  |  |  |  |  |  |  | 7
+8 - - - - - - - - 8         0:17.709       8 |  |  |  |  |  |  |  |  | 8
+  A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
+
+>book show
+
+
+  A B C D E F G H            BLACK            A  B  C  D  E  F  G  H
+1 - - - - - - - - 1         1:05.125       1 |  |  |  |  |  |  |  |  | 1
+2 - - - . - . - - 2    5 discs   9 moves   2 |  |  |  |  |  |  |  |  | 2
+3 - - - . * - - - 3                        3 |  |  |  |  | 5|  |  |  | 3
+4 - - - O * O - - 4  ply  6 (55 empties)   4 |  |  |  |()|##| 4|  |  | 4
+5 - - . * * O - - 5    White's turn (O)    5 |  |  |  |##|()| 1|  |  | 5
+6 - - - . * O - - 6                        6 |  |  |  |  | 3| 2|  |  | 6
+7 - - - . - - - - 7    4 discs   6 moves   7 |  |  |  |  |  |  |  |  | 7
+8 - - - - - - - - 8         0:17.709       8 |  |  |  |  |  |  |  |  | 8
+  A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
+
+>undo
+
+
+  A B C D E F G H            BLACK            A  B  C  D  E  F  G  H
+1 - - - - - - - - 1         1:05.125       1 |  |  |  |  |  |  |  |  | 1
+2 - - - - - - - - 2    3 discs   9 moves   2 |  |  |  |  |  |  |  |  | 2
+3 - - . . . . . - 3                        3 |  |  |  |  |  |  |  |  | 3
+4 - - - O O O . - 4  ply  5 (56 empties)   4 |  |  |  |()|##| 4|  |  | 4
+5 - - - * * O . - 5    Black's turn (*)    5 |  |  |  |##|()| 1|  |  | 5
+6 - - - - * O . - 6                        6 |  |  |  |  | 3| 2|  |  | 6
+7 - - - - - - . - 7    5 discs   5 moves   7 |  |  |  |  |  |  |  |  | 7
+8 - - - - - - - - 8         0:17.709       8 |  |  |  |  |  |  |  |  | 8
+  A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
+
+>g5
+
+
+You play G5
+
+  A B C D E F G H            BLACK            A  B  C  D  E  F  G  H
+1 - - - - - - - - 1         1:27.682       1 |  |  |  |  |  |  |  |  | 1
+2 - - - - - - - - 2    5 discs   9 moves   2 |  |  |  |  |  |  |  |  | 2
+3 - - - - - - - - 3                        3 |  |  |  |  |  |  |  |  | 3
+4 - - - O O O - . 4  ply  6 (55 empties)   4 |  |  |  |()|##| 4|  |  | 4
+5 - - - * * * * - 5    White's turn (O)    5 |  |  |  |##|()| 1| 5|  | 5
+6 - - . . * O . . 6                        6 |  |  |  |  | 3| 2|  |  | 6
+7 - - - - . - - - 7    4 discs   6 moves   7 |  |  |  |  |  |  |  |  | 7
+8 - - - - - - - - 8         0:17.709       8 |  |  |  |  |  |  |  |  | 8
+  A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
+
+>book show
+
+  A B C D E F G H
+1 - - - - - - - - 1
+2 - - - - - - - - 2 O to move
+3 - - - - - - - - 3
+4 - - - O O O - . 4 O: discs =  4    moves =  6
+5 - - - * * * * - 5 *: discs =  5    moves =  9
+6 - - . . * O . . 6  empties = 55      ply =  6
+7 - - - - . - - - 7
+8 - - - - - - - - 8
+  A B C D E F G H
+
+Level: 21
+Best score: +0 [-2, +2]
+Moves: <d6:+0> [e7:-1]
+Lines: 2 full games with 0.00% win, 50.00% draw, 50.00% loss
+       31 incomplete lines.
+
+
+  A B C D E F G H            BLACK            A  B  C  D  E  F  G  H
+1 - - - - - - - - 1         1:27.682       1 |  |  |  |  |  |  |  |  | 1
+2 - - - - - - - - 2    5 discs   9 moves   2 |  |  |  |  |  |  |  |  | 2
+3 - - - - - - - - 3                        3 |  |  |  |  |  |  |  |  | 3
+4 - - - O O O - . 4  ply  6 (55 empties)   4 |  |  |  |()|##| 4|  |  | 4
+5 - - - * * * * - 5    White's turn (O)    5 |  |  |  |##|()| 1| 5|  | 5
+6 - - . . * O . . 6                        6 |  |  |  |  | 3| 2|  |  | 6
+7 - - - - . - - - 7    4 discs   6 moves   7 |  |  |  |  |  |  |  |  | 7
+8 - - - - - - - - 8         0:17.709       8 |  |  |  |  |  |  |  |  | 8
+  A B C D E F G H            WHITE            A  B  C  D  E  F  G  H

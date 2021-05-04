@@ -1,5 +1,7 @@
 import 'package:meta/meta.dart';
 
+import 'util.dart';
+
 @immutable
 class Link {
   const Link(this.score, this.move);
@@ -9,4 +11,10 @@ class Link {
 
   /// move coordinate
   final int move;
+
+  /// e.g. `f5`
+  String get moveString => move2String(move);
+
+  /// e.g. `+10`
+  String get scoreString => score2String(score);
 }

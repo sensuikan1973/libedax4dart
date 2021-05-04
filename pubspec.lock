@@ -28,7 +28,7 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.6.0"
+    version: "2.6.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -106,6 +106,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  gviz:
+    dependency: "direct main"
+    description:
+      name: gviz
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.0"
   http_multi_server:
     dependency: transitive
     description:
@@ -336,7 +343,7 @@ packages:
       name: web_socket_channel
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0"
+    version: "2.1.0"
   webkit_inspection_protocol:
     dependency: transitive
     description:
