@@ -1,7 +1,6 @@
 import 'dart:ffi';
 import 'dart:math';
 import 'package:ffi/ffi.dart';
-import 'package:gviz/gviz.dart';
 import 'package:meta/meta.dart';
 import 'best_path_num_with_link.dart';
 import 'bindings/bindings.dart';
