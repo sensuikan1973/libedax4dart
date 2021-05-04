@@ -12,7 +12,7 @@ jobs:
     env:
       cache_ver: 7
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 10
+    timeout-minutes: 5
     strategy:
       fail-fast: false # I want results from all OSes even if one fails.
       matrix:
