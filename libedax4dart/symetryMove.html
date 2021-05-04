@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the symetryMove function from the libedax4dart library, for the Dart programming language.">
+  <title>symetryMove function - libedax4dart library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="../static-assets/github.css">
+  <link rel="stylesheet" href="../static-assets/styles.css">
+  <link rel="icon" href="../static-assets/favicon.png">
+
+  
+</head>
+
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">libedax4dart</a></li>
+    <li><a href="../libedax4dart/libedax4dart-library.html">libedax4dart</a></li>
+    <li class="self-crumb">symetryMove function</li>
+  </ol>
+  <div class="self-name">symetryMove</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">libedax4dart</a></li>
+  <li><a href="../libedax4dart/libedax4dart-library.html">libedax4dart</a></li>
+  <li class="self-crumb">symetryMove function</li>
+</ol>
+
+
+    <h5>libedax4dart library</h5>
+    <ol>
+  <li class="section-title"><a href="../libedax4dart/libedax4dart-library.html#classes">Classes</a></li>
+  <li><a href="../libedax4dart/BestPathNumNode-class.html">BestPathNumNode</a></li>
+  <li><a href="../libedax4dart/BestPathNumNodeValue-class.html">BestPathNumNodeValue</a></li>
+  <li><a href="../libedax4dart/BestPathNumWithLink-class.html">BestPathNumWithLink</a></li>
+  <li><a href="../libedax4dart/Board-class.html">Board</a></li>
+  <li><a href="../libedax4dart/Hint-class.html">Hint</a></li>
+  <li><a href="../libedax4dart/LibEdax-class.html">LibEdax</a></li>
+  <li><a href="../libedax4dart/Link-class.html">Link</a></li>
+  <li><a href="../libedax4dart/Move-class.html">Move</a></li>
+  <li><a href="../libedax4dart/MoveListWithPosition-class.html">MoveListWithPosition</a></li>
+  <li><a href="../libedax4dart/MoveMark-class.html">MoveMark</a></li>
+  <li><a href="../libedax4dart/Position-class.html">Position</a></li>
+  <li><a href="../libedax4dart/Score-class.html">Score</a></li>
+  <li><a href="../libedax4dart/TurnColor-class.html">TurnColor</a></li>
+
+
+
+
+
+  <li class="section-title"><a href="../libedax4dart/libedax4dart-library.html#functions">Functions</a></li>
+  <li><a href="../libedax4dart/move2String.html">move2String</a></li>
+  <li><a href="../libedax4dart/radix16Board.html">radix16Board</a></li>
+  <li><a href="../libedax4dart/score2String.html">score2String</a></li>
+  <li><a href="../libedax4dart/symetryMove.html">symetryMove</a></li>
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-function">symetryMove</span> function 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+
+<span class="returntype"><a href="https://api.dart.dev/beta/2.13.0-211.14.beta/dart-core/int-class.html">int</a></span>
+<span class="name ">symetryMove</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="symetryMove-param-x"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.13.0-211.14.beta/dart-core/int-class.html">int</a></span> <span class="parameter-name">x</span>, </span></li>
+<li><span class="parameter" id="symetryMove-param-symetry"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.13.0-211.14.beta/dart-core/int-class.html">int</a></span> <span class="parameter-name">symetry</span></span></li>
+</ol>)
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Get symetry move list.</p>
+<p>See: <a href="https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/book.c#L542-L550">https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/book.c#L542-L550</a>
+See: <a href="https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/move.c#L40-L63">https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/move.c#L40-L63</a></p>
+<p>REF: <a href="https://choi.lavox.net/edax/ref_command_basic?s%5B%5D=symetry#symetry_%25E9%259A%25A0%25E3%2581%2597%25E3%2582%25B3%25E3%2583%259E%25E3%2583%25B3%25E3%2583%2589">https://choi.lavox.net/edax/ref_command_basic?s[]=symetry#symetry_%E9%9A%A0%E3%81%97%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89</a></p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">int symetryMove(int x, int symetry) {
+  var x_ = x; &#47;&#47; ignore: non_constant_identifier_names
+  if (symetry &amp; 1 != 0) {
+    x_ = (x_ &amp; _octal070) | (7 - (x_ &amp; 7));
+  }
+  if (symetry &amp; 2 != 0) {
+    x_ = (_octal070 - (x_ &amp; _octal070)) | (x_ &amp; 7);
+  }
+  if (symetry &amp; 4 != 0) {
+    x_ = ((x_ &amp; _octal070) &gt;&gt; 3) | ((x_ &amp; 7) &lt;&lt; 3);
+  }
+  return x_;
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    libedax4dart
+      0.11.0-beta
+  </span>
+
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js"></script>
+<script src="../static-assets/script.js"></script>
+
+
+
+</body>
+
+</html>
+

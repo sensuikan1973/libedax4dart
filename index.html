@@ -124,6 +124,10 @@ dart example/example.dart
 <h4 id="document-2">document</h4>
 <pre class="language-sh"><code class="language-sh">dartdoc &amp;&amp; open doc/api/index.html
 </code></pre>
+<h4 id="change-libedax-bin">change libedax bin</h4>
+<pre class="language-sh"><code class="language-sh"># After you edit .libedax-version, run this.
+libedax_build_command="make libbuild ARCH=x64-modern COMP=gcc OS=osx" dst="." ./scripts/build_libedax.sh
+</code></pre>
 <h3 id="reference-2">reference</h3>
 <ul>
 <li><a href="https://dart.dev/guides/libraries/c-interop">dart:ffi</a>
@@ -166,7 +170,7 @@ dart example/example.dart
 <footer>
   <span class="no-break">
     libedax4dart
-      0.10.0-beta
+      0.11.0-beta
   </span>
 
   
