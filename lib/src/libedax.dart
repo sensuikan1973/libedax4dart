@@ -387,11 +387,9 @@ class LibEdax {
   /// This compute the number of path which both of two players choose his/her move to memorize as few as possible. <br>
   /// This is a Dart level function, and unique to libedax4dart.
   @experimental
-  List<BestPathNumWithLink> computeBestPathNumWithLink({
-    int maxDepth = 40, // TODO: use this
-  }) {
+  List<BestPathNumWithLink> computeBestPathNumWithLink({int maxDepth = 40}) {
     final headMoves = edaxGetMoves();
-    if (headMoves.isEmpty) return [];
+    if (headMoves.isEmpty || headMoves.length >= maxDepth) return [];
 
     final headColor = edaxGetCurrentPlayer();
     final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(headMoves);
@@ -407,7 +405,7 @@ class LibEdax {
           headColor == TurnColor.black ? TurnColor.white : TurnColor.black,
         ),
       );
-      _buildTree(root);
+      _buildTree(root, maxDepth);
       result.add(BestPathNumWithLink(
         root.value.bestPathNumOfBlack,
         root.value.bestPathNumOfWhite,
@@ -418,10 +416,10 @@ class LibEdax {
     return result;
   }
 
-  void _buildTree(_Node parent) {
+  void _buildTree(_Node parent, int maxDepth) {
     final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(parent.value.moves);
     final position = moveListWithPosition.position;
-    if (position.links.isEmpty) return;
+    if (position.links.isEmpty || parent.value.moves.length >= maxDepth) return;
 
     final addedNodeList = <_Node>[];
     for (final link in position.bestScoreLinks) {
@@ -433,7 +431,7 @@ class LibEdax {
           parent.value.currentColor == TurnColor.black ? TurnColor.white : TurnColor.black,
         ),
       );
-      _buildTree(node);
+      _buildTree(node, maxDepth);
       addedNodeList.add(node);
     }
     for (final addedNode in addedNodeList) {
