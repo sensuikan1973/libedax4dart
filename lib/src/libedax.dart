@@ -408,10 +408,9 @@ class LibEdax {
     final headColor = edaxGetCurrentPlayer();
     final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(headMoves);
     final position = moveListWithPosition.position;
-    final result = <BestPathNumWithLink>[];
     // TODO: consider isolation.
     // TODO: save tree data on local.
-    for (final link in position.bestScoreLinks) {
+    return position.bestScoreLinks.map((link) {
       final move = symetryMove(link.move, moveListWithPosition.symetry);
       final root = BestPathNumNode(
         null,
@@ -421,15 +420,14 @@ class LibEdax {
         ),
       );
       _buildTree(root, maxDepth);
-      result.add(BestPathNumWithLink(
+      return BestPathNumWithLink(
         root.value.bestPathNumOfBlack,
         root.value.bestPathNumOfWhite,
         link,
         move,
         root,
-      ));
-    }
-    return result;
+      );
+    }).toList();
   }
 
   /// Generally, the depth of book is less than or equal to 40.
