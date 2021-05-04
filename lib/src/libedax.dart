@@ -382,6 +382,8 @@ class LibEdax {
 
   /// Compute the indicator to win efficiently.
   ///
+  /// TODO: detail document.
+  ///
   /// This compute the number of path which both of two players choose his/her move to memorize as few as possible. <br>
   /// This is a Dart level function, and unique to libedax4dart.
   @experimental
