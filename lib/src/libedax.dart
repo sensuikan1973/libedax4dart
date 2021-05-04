@@ -390,9 +390,9 @@ class LibEdax {
   /// This function is not only experimental but also __advanced__. <br>
   /// __You must understand [the book structure of edax](https://choi.lavox.net/edax/book) and following important notice list__.
   ///
-  /// * Because internal lookup is stopped when book has no links, the more lower the accuracy of your book is, the more lower this feature accuracy is.
-  ///   * In addition, if your book has some depth links, shallow depth link (≈ path is few) can be taken with a reasonable probability.
-  ///   * __In a word, if the accuracy of your book is low, you shoudn't use this function__. For you reference, if your book has N GB and the depth is more than 30, it can probably be inidicator.
+  /// * Because internal each node lookup is stopped when book has no links, the more lower the accuracy of your book is, the more lower this feature accuracy is.
+  ///   * In addition, if your book has some depth links (e.g. 24, 30, 40, ...), shallow depth link (≈ path is few) can be taken with a reasonable probability.
+  ///   * __In a word, if the accuracy of your book is low, you shoudn't use this function__. For you reference, if your book has N GB and the depth is more than 30, this feature can probably be inidicator.
   /// * This function only lookup the best score links. So, this indicator doesn't consider easy win link which is not best score. In reversi game, the situation can sometimes be found in my experience.
   ///   * __In a word, as you know, this indicator isn't perfect. This is just one indicator__.
   /// * O(k^N). slow.
