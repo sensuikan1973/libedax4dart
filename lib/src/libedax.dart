@@ -440,6 +440,13 @@ class LibEdax {
           parent.value.currentColor == TurnColor.black ? TurnColor.white : TurnColor.black,
         ),
       );
+      if (node.value.currentColor == TurnColor.black) {
+        node.value.bestPathNumOfBlack = 0;
+        node.value.bestPathNumOfWhite = 10000; // upper infinity
+      } else {
+        node.value.bestPathNumOfWhite = 0;
+        node.value.bestPathNumOfBlack = 10000; // upper infinity
+      }
       _buildTree(node, maxDepth);
       addedNodeList.add(node);
     }
@@ -460,9 +467,11 @@ class LibEdax {
       ..addNode(
         root.value.moves,
         properties: {
-          'T': root.value.currentColor == TurnColor.black ? 'B' : 'W',
-          'Pb': root.value.bestPathNumOfBlack.toString(),
-          'Pw': root.value.bestPathNumOfWhite.toString(),
+          'style': 'filled',
+          'fillcolor': root.value.currentColor == TurnColor.black ? 'grey' : 'white',
+          'shape': 'record',
+          'label':
+              '{ ${root.value.moves} | { Pb: ${root.value.bestPathNumOfBlack.toString()} | Pw: ${root.value.bestPathNumOfWhite.toString()} } }',
         },
       );
     _buildGraph(root, graph);
@@ -471,15 +480,18 @@ class LibEdax {
 
   void _buildGraph(_Node parent, Gviz graph) {
     for (final node in parent.children) {
-      graph.addEdge(
-        parent.value.moves,
-        node.value.moves,
-        properties: {
-          'T': node.value.currentColor == TurnColor.black ? 'B' : 'W',
-          'Pb': node.value.bestPathNumOfBlack.toString(),
-          'Pw': node.value.bestPathNumOfWhite.toString(),
-        },
-      );
+      graph
+        ..addNode(
+          node.value.moves,
+          properties: {
+            'style': 'filled',
+            'fillcolor': node.value.currentColor == TurnColor.black ? 'grey' : 'white',
+            'shape': 'record',
+            'label':
+                '{ ${node.value.moves} | { Pb: ${node.value.bestPathNumOfBlack.toString()} | Pw: ${node.value.bestPathNumOfWhite.toString()} } }',
+          },
+        )
+        ..addEdge(parent.value.moves, node.value.moves);
       _buildGraph(node, graph);
     }
   }
