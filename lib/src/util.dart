@@ -38,23 +38,20 @@ String radix16Board(int bit) => bit.toRadixString(16).padLeft(16, '0');
 ///
 /// See: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/book.c#L542-L550
 /// See: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/move.c#L40-L63
-/// TODO: add symetry information on edax_get_bookmove_with_position, edax_get_bookmove_with_position_by_moves and remove for loop and pass sym param.
-List<int> symetryMoves(int x) {
-  final result = <int>[];
-  for (var sym = 0; sym < 8; sym++) {
-    var x_ = x; // ignore: non_constant_identifier_names
-    if (sym & 1 != 0) {
-      x_ = (x_ & _octal070) | (7 - (x_ & 7));
-    }
-    if (sym & 2 != 0) {
-      x_ = (_octal070 - (x_ & _octal070)) | (x_ & 7);
-    }
-    if (sym & 4 != 0) {
-      x_ = ((x_ & _octal070) >> 3) | ((x_ & 7) << 3);
-    }
-    result.add(x_);
+///
+/// REF: https://choi.lavox.net/edax/ref_command_basic?s[]=symetry#symetry_%E9%9A%A0%E3%81%97%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89
+int symetryMove(int x, int symetry) {
+  var x_ = x; // ignore: non_constant_identifier_names
+  if (symetry & 1 != 0) {
+    x_ = (x_ & _octal070) | (7 - (x_ & 7));
   }
-  return result.toSet().toList();
+  if (symetry & 2 != 0) {
+    x_ = (_octal070 - (x_ & _octal070)) | (x_ & 7);
+  }
+  if (symetry & 4 != 0) {
+    x_ = ((x_ & _octal070) >> 3) | ((x_ & 7) << 3);
+  }
+  return x_;
 }
 
 final _octal070 = int.parse('070', radix: 8);
