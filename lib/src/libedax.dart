@@ -439,7 +439,9 @@ class LibEdax {
     final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(parent.value.moves);
     final position = moveListWithPosition.position;
     if (position.links.isEmpty || parent.value.moves.length >= maxDepth * 2) {
-      parent.value.bestPathNumOfBlack = parent.value.bestPathNumOfWhite = 1; // On edge, reagard (1,1) .
+      // On edge, reagard (1,1) .
+      parent.value.bestPathNumOfBlack = 1;
+      parent.value.bestPathNumOfWhite = 1;
       return;
     }
 
