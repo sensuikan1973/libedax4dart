@@ -81,5 +81,5 @@ class BestPathNumNodeValue {
   final String moves;
   final int currentColor;
 
-  final _upperInfinity = 10000;
+  static const _upperInfinity = 10000;
 }
