@@ -383,6 +383,7 @@ class LibEdax {
   /// Compute the indicator of efficiency to win, which means the minimum number you should memorize on the situation both of players always choose one of the best move list.
   ///
   /// [level] is dig depth.
+  /// If [onlyBestScoreLink] is true, only compute the best score links on the current moves.
   ///
   /// This is a Dart level function, and unique feature to libedax4dart.
   ///
@@ -406,7 +407,7 @@ class LibEdax {
   ///     * separation with prepare function and execute on by one function.
   ///     * save tree data on local.
   @experimental
-  List<BestPathNumWithLink> computeBestPathNumWithLink({required int level}) {
+  List<BestPathNumWithLink> computeBestPathNumWithLink({required int level, bool onlyBestScoreLink = true}) {
     final headMoves = edaxGetMoves();
     final maxDepth = headMoves.length + level * 2;
     if (headMoves.isEmpty || headMoves.length >= maxDepth) return [];
@@ -414,9 +415,11 @@ class LibEdax {
     final headColor = edaxGetCurrentPlayer();
     final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(headMoves);
     final position = moveListWithPosition.position;
+    final targetRootLinks = onlyBestScoreLink ? position.bestScoreLinks : position.links;
+
     // TODO: consider isolation.
     // TODO: save tree data on local.
-    return position.links.map((link) {
+    return targetRootLinks.map((link) {
       final move = symetryMove(link.move, moveListWithPosition.symetry);
       final root = BestPathNumNode(
         null,
