@@ -390,7 +390,7 @@ class LibEdax {
   @experimental
   List<BestPathNumWithLink> computeBestPathNumWithLink({int maxDepth = 40}) {
     final headMoves = edaxGetMoves();
-    if (headMoves.isEmpty || headMoves.length >= maxDepth) return [];
+    if (headMoves.isEmpty || headMoves.length >= maxDepth * 2) return [];
 
     final headColor = edaxGetCurrentPlayer();
     final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(headMoves);
@@ -421,7 +421,7 @@ class LibEdax {
   void _buildTree(_Node parent, int maxDepth) {
     final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(parent.value.moves);
     final position = moveListWithPosition.position;
-    if (position.links.isEmpty || parent.value.moves.length >= maxDepth) {
+    if (position.links.isEmpty || parent.value.moves.length >= maxDepth * 2) {
       // On edge, reagard (1,1) .
       parent.value.bestPathNumOfBlack = 1;
       parent.value.bestPathNumOfWhite = 1;
