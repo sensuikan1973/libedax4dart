@@ -380,7 +380,7 @@ class LibEdax {
   /// Count bit.
   int popCount(int bit) => _bindings.bitCount(bit);
 
-  /// Compute the indicator to win efficiently.
+  /// Compute the indicator to win efficiently, which means the minimum number you sould memorize.
   ///
   /// TODO: detail document.
   ///
@@ -395,7 +395,8 @@ class LibEdax {
     final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(headMoves);
     final position = moveListWithPosition.position;
     final result = <BestPathNumWithLink>[];
-    // TODO: consider isolation
+    // TODO: consider isolation.
+    // TODO: save tree data on local.
     for (final link in position.bestScoreLinks) {
       final move = symetryMove(link.move, moveListWithPosition.symetry);
       final root = BestPathNumNode(
