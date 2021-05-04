@@ -44,7 +44,7 @@ class BestPathNumNode {
         'style': 'filled',
         'fillcolor': value.currentColor == TurnColor.black ? 'grey' : 'white',
         'shape': 'record',
-        'label': '{ ${value.moves} | { Pb: ${value.bestPathNumOfBlack} | Pw: ${value.bestPathNumOfWhite} } }',
+        'label': '{ ${value.moves} | { B: ${value.bestPathNumOfBlack} | W: ${value.bestPathNumOfWhite} } }',
       };
 
   /// Export the [dot file](http://www.graphviz.org/doc/info/lang.html) of [GrapViz](http://www.graphviz.org/) as this node is regarded as root.
