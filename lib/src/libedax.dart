@@ -464,10 +464,10 @@ class LibEdax {
     for (final addedNode in addedNodeList) {
       parent.children.add(addedNode);
       if (parent.value.currentColor == TurnColor.black) {
-        parent.value.bestPathNumOfWhite++;
+        parent.value.bestPathNumOfWhite += addedNode.value.bestPathNumOfWhite;
         parent.value.bestPathNumOfBlack = min(parent.value.bestPathNumOfBlack, addedNode.value.bestPathNumOfBlack);
       } else {
-        parent.value.bestPathNumOfBlack++;
+        parent.value.bestPathNumOfBlack += addedNode.value.bestPathNumOfBlack;
         parent.value.bestPathNumOfWhite = min(parent.value.bestPathNumOfWhite, addedNode.value.bestPathNumOfWhite);
       }
     }
