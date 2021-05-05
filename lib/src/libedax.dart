@@ -406,6 +406,8 @@ class LibEdax {
   ///     * isolation.
   ///     * separation with prepare function and execute on by one function.
   ///     * save tree data on local.
+  ///
+  /// See: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/book.c#L2438-L2447
   @experimental
   List<BestPathNumWithLink> computeBestPathNumWithLink({
     required int level,
