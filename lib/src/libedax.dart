@@ -407,7 +407,11 @@ class LibEdax {
   ///     * separation with prepare function and execute on by one function.
   ///     * save tree data on local.
   @experimental
-  List<BestPathNumWithLink> computeBestPathNumWithLink({required int level, bool onlyBestScoreLink = true}) {
+  List<BestPathNumWithLink> computeBestPathNumWithLink({
+    required int level,
+    bool onlyBestScoreLink = true,
+    bool enableToPrintMovesOnBuildingTree = false,
+  }) {
     final headMoves = edaxGetMoves();
     final maxDepth = headMoves.length + level * 2;
     if (headMoves.isEmpty || headMoves.length >= maxDepth) return [];
@@ -428,7 +432,7 @@ class LibEdax {
           headColor == TurnColor.black ? TurnColor.white : TurnColor.black,
         ),
       );
-      _buildTree(root, maxDepth);
+      _buildTree(root, maxDepth, enableToPrintMovesOnBuildingTree);
       return BestPathNumWithLink(
         root.value.bestPathNumOfBlack,
         root.value.bestPathNumOfWhite,
@@ -439,7 +443,7 @@ class LibEdax {
     }).toList();
   }
 
-  void _buildTree(BestPathNumNode parent, int maxDepth) {
+  void _buildTree(BestPathNumNode parent, int maxDepth, bool enableToPrintMovesOnBuildingTree) {
     final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(parent.value.moves);
     final position = moveListWithPosition.position;
     if (position.links.isEmpty || parent.value.moves.length >= maxDepth) {
@@ -458,7 +462,8 @@ class LibEdax {
           parent.value.currentColor == TurnColor.black ? TurnColor.white : TurnColor.black,
         ),
       );
-      _buildTree(node, maxDepth);
+      if (enableToPrintMovesOnBuildingTree) print(node.value.moves); // ignore: avoid_print
+      _buildTree(node, maxDepth, enableToPrintMovesOnBuildingTree);
       return node;
     });
     for (final addedNode in addedNodeList) {
