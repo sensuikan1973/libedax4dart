@@ -1,3 +1,8 @@
+# 0.12.2-beta
+
+- fix a path num bug of `computeBestPathNumWithLink`
+- add `enableToPrintMovesOnBuildingTree` arg to `computeBestPathNumWithLink`
+
 # 0.12.1-beta
 
 - add `onlyBestScoreLink` arg to `computeBestPathNumWithLink`
