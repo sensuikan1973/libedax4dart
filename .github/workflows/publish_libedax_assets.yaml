@@ -39,7 +39,9 @@ jobs:
         run: sh scripts/build_libedax.sh
 
       - name: output build info
-        run: .github/scripts/output_build_info.sh ${{ env.OUTPUT_DIR }} gcc
+        run: |-
+          .github/scripts/output_build_info.sh ${{ env.OUTPUT_DIR }} gcc
+          cat env.txt
 
       - name: zip files (Windows)
         if: runner.os == 'Windows'
