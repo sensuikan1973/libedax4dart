@@ -14,16 +14,16 @@ jobs:
     strategy:
       fail-fast: false # I want results from all OSes even if one fails.
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-20.04, windows-2019, macos-10.15]
         dart_channel: [beta]
         include:
-          - os: ubuntu-latest
+          - os: ubuntu-20.04
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=linux
             libedax_bin: libedax.so
-          - os: windows-latest
+          - os: windows-2019
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=windows
             libedax_bin: libedax-x64.dll
-          - os: macos-latest
+          - os: macos-10.15
             libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=osx
             libedax_bin: libedax.dylib
     steps:

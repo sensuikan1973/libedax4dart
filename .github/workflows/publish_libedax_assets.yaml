@@ -13,13 +13,13 @@ jobs:
     timeout-minutes: 10
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [ubuntu-20.04, windows-2019, macos-10.15]
         include:
-          - os: ubuntu-latest
+          - os: ubuntu-20.04
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=linux
-          - os: windows-latest
+          - os: windows-2019
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=windows
-          - os: macOS-latest
+          - os: macos-10.15
             libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=osx
 
     steps:
@@ -39,7 +39,7 @@ jobs:
         run: sh scripts/build_libedax.sh
 
       - name: output build info
-        run: .github/scripts/output_build_info.sh ${{ env.OUTPUT_DIR }} gcc
+        run: .github/scripts/output_build_info.sh ${{ env.OUTPUT_DIR }} gcc && cat env.txt
 
       - name: zip files (Windows)
         if: runner.os == 'Windows'
