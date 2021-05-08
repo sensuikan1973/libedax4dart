@@ -25,13 +25,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: cache edax-reversi/libedax
-        id: cache-edax-reversi-libedax
-        uses: actions/cache@v2
-        with:
-          path: edax-reversi
-          key: ${{ runner.os }}-edax-reversi-${{ hashFiles('scripts/build_libedax.sh') }}
-
       - name: build libedax
         env:
           dst: ${{ env.OUTPUT_DIR }}
@@ -39,7 +32,8 @@ jobs:
         run: sh scripts/build_libedax.sh
 
       - name: output build info
-        run: .github/scripts/output_build_info.sh ${{ env.OUTPUT_DIR }} gcc && cat env.txt
+        shell: bash
+        run: .github/scripts/output_build_info.sh ${{ env.OUTPUT_DIR }} gcc && cat ${{ env.OUTPUT_DIR }}/env.txt
 
       - name: zip files (Windows)
         if: runner.os == 'Windows'
