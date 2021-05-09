@@ -124,18 +124,23 @@ void main() {
     });
 
     test('book new & get book move', () async {
+      print('start');
       await Future<void>.delayed(const Duration(seconds: 1));
+      print('will libedaxInitialize');
       final edax = LibEdax()..libedaxInitialize();
       await Future<void>.delayed(const Duration(seconds: 1));
       // sleep(const Duration(seconds: 1));
-      edax
-        ..edaxInit()
-        ..edaxBookNew(21, 24); // create shallow book
+      print('will edaxInit');
+      edax.edaxInit();
+      print('will edaxBookNew');
+      edax.edaxBookNew(21, 24); // create shallow book
       await Future<void>.delayed(const Duration(seconds: 1));
       // sleep(const Duration(seconds: 1));
+      print('will edaxGetBookMove');
       final moveList = edax.edaxGetBookMove();
       expect(moveList.length, 1);
       expect(moveList.first.moveString, 'd3');
+      print('will libedaxTerminate');
       edax.libedaxTerminate();
     });
   });
