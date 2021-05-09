@@ -126,15 +126,13 @@ void main() {
     test('book new & get book move', () {
       final edax = LibEdax()..libedaxInitialize();
       sleep(const Duration(seconds: 1));
-      edax.edaxInit();
-      print('will edaxBookNew');
-      edax.edaxBookNew(21, 24); // create shallow book
+      edax
+        ..edaxInit()
+        ..edaxBookNew(21, 24); // create shallow book
       sleep(const Duration(seconds: 1));
-      print('will edaxGetBookMove');
       final moveList = edax.edaxGetBookMove();
       expect(moveList.length, 1);
       expect(moveList.first.moveString, 'd3');
-      print('will libedaxTerminate');
       edax.libedaxTerminate();
     });
   });
