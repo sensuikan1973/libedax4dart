@@ -20,8 +20,9 @@ void main() {
 
   group('with a new book (follow default: data/book.dat)', () {
     test('initialize without args, and set option', () {
-      LibEdax()
-        ..libedaxInitialize()
+      final edax = LibEdax()..libedaxInitialize();
+      sleep(const Duration(seconds: 1));
+      edax
         ..edaxInit()
         ..edaxVersion()
         ..edaxSetOption('level', '15')
@@ -29,17 +30,18 @@ void main() {
     });
 
     test('get last move with no moves', () {
-      final edax = LibEdax()
-        ..libedaxInitialize()
-        ..edaxNew();
+      final edax = LibEdax()..libedaxInitialize();
+      sleep(const Duration(seconds: 1));
+      edax.edaxNew();
       final lastMove = edax.edaxGetLastMove();
       expect(lastMove.isNoMove, true);
       edax.libedaxTerminate();
     });
 
     test('play "horse" opening', () {
-      final edax = LibEdax()
-        ..libedaxInitialize()
+      final edax = LibEdax()..libedaxInitialize();
+      sleep(const Duration(seconds: 1));
+      edax
         ..edaxNew()
         ..edaxBookOff()
         ..edaxBookOn()
@@ -55,8 +57,9 @@ void main() {
     });
 
     test('board useful getter', () {
-      final edax = LibEdax()
-        ..libedaxInitialize()
+      final edax = LibEdax()..libedaxInitialize();
+      sleep(const Duration(seconds: 1));
+      edax
         ..edaxInit()
         ..edaxPlay('f5d6c5f4d3');
       final board = edax.edaxGetBoard();
@@ -70,8 +73,9 @@ void main() {
 
     test('setBoard', () {
       const boardString = '-W----W--------------------WB------WBB-----W--------------------B';
-      final edax = LibEdax()
-        ..libedaxInitialize()
+      final edax = LibEdax()..libedaxInitialize();
+      sleep(const Duration(seconds: 1));
+      edax
         ..edaxInit()
         ..edaxSetboard(boardString);
       expect(edax.edaxGetDisc(TurnColor.white), 'W'.allMatches(boardString).length);
@@ -81,8 +85,9 @@ void main() {
     });
 
     test('check mobility count', () {
-      final edax = LibEdax()
-        ..libedaxInitialize()
+      final edax = LibEdax()..libedaxInitialize();
+      sleep(const Duration(seconds: 1));
+      edax
         ..edaxInit()
         ..edaxBookRandomness(2)
         ..edaxGo();
@@ -92,8 +97,9 @@ void main() {
 
     test('play a short game until game over', () {
       const initParams = ['', '-eval-file', 'data/eval.dat', '-book-file', 'data/book.dat', '-level', '16'];
-      final edax = LibEdax()
-        ..libedaxInitialize(initParams)
+      final edax = LibEdax()..libedaxInitialize(initParams);
+      sleep(const Duration(seconds: 1));
+      edax
         ..edaxInit()
         ..edaxMode(3) // human vs human
         ..edaxMove('f5');
@@ -120,8 +126,9 @@ void main() {
 
   group('with fixed book. See: resources/test_book_show.txt', () {
     test('load book', () {
-      LibEdax()
-        ..libedaxInitialize()
+      final edax = LibEdax()..libedaxInitialize();
+      sleep(const Duration(seconds: 1));
+      edax
         ..edaxInit()
         ..edaxBookLoad(_testBookFile)
         ..edaxMove('f5')
@@ -129,9 +136,9 @@ void main() {
     });
 
     test('get book move', () async {
-      final edax = LibEdax()
-        ..libedaxInitialize()
-        ..edaxInit();
+      final edax = LibEdax()..libedaxInitialize();
+      sleep(const Duration(seconds: 1));
+      edax.edaxInit();
       final moveList = edax.edaxGetBookMove();
       expect(moveList.length, 1);
       expect(moveList.first.moveString, 'd3');
@@ -140,9 +147,9 @@ void main() {
 
     test('get book move with position', () {
       const initParams = ['', '-book-file', _testBookFile];
-      final edax = LibEdax()
-        ..libedaxInitialize(initParams)
-        ..edaxInit();
+      final edax = LibEdax()..libedaxInitialize(initParams);
+      sleep(const Duration(seconds: 1));
+      edax.edaxInit();
       final result = edax.edaxGetBookMoveWithPosition();
       expect(result.position.nLines, 264 + 16);
       expect(result.position.score.value, 0);
@@ -181,9 +188,9 @@ void main() {
 
     test('get book move with position by moves', () {
       const initParams = ['', '-book-file', _testBookFile];
-      final edax = LibEdax()
-        ..libedaxInitialize(initParams)
-        ..edaxInit();
+      final edax = LibEdax()..libedaxInitialize(initParams);
+      sleep(const Duration(seconds: 1));
+      edax.edaxInit();
       final resultAfterF5F6 = edax.edaxGetBookMoveWithPositionByMoves('f5f6');
       expect(resultAfterF5F6.position.score.value, 1);
       expect(resultAfterF5F6.position.score.lower, -2);
@@ -205,9 +212,9 @@ void main() {
 
     test('get hints', () {
       const initParams = ['', '-book-file', _testBookFile];
-      final edax = LibEdax()
-        ..libedaxInitialize(initParams)
-        ..edaxInit();
+      final edax = LibEdax()..libedaxInitialize(initParams);
+      sleep(const Duration(seconds: 1));
+      edax.edaxInit();
       final hintList = edax.edaxHint(2);
       expect(hintList.length, 2);
       expect(hintList.first.moveString, 'd3');
@@ -222,8 +229,9 @@ void main() {
 
     test('get hints one by one', () {
       const initParams = ['', '-book-file', _testBookFile];
-      final edax = LibEdax()
-        ..libedaxInitialize(initParams)
+      final edax = LibEdax()..libedaxInitialize(initParams);
+      sleep(const Duration(seconds: 1));
+      edax
         ..edaxInit()
         ..edaxPlay('f5')
         ..edaxHintPrepare();
@@ -249,9 +257,9 @@ void main() {
 
     test('book show', () {
       const initParams = ['', '-book-file', _testBookFile];
-      final edax = LibEdax()
-        ..libedaxInitialize(initParams)
-        ..edaxInit();
+      final edax = LibEdax()..libedaxInitialize(initParams);
+      sleep(const Duration(seconds: 1));
+      edax.edaxInit();
       final position = edax.edaxBookShow();
       expect(position.nLines, 264 + 16);
       expect(position.score.value, 0);
@@ -278,9 +286,9 @@ void main() {
     group('computeBestPathNumWithLink', () {
       test('with no moves', () {
         const initParams = ['', '-book-file', _testBookFile];
-        final edax = LibEdax()
-          ..libedaxInitialize(initParams)
-          ..edaxInit();
+        final edax = LibEdax()..libedaxInitialize(initParams);
+        sleep(const Duration(seconds: 1));
+        edax.edaxInit();
         final bestPathNumWithLink = edax.computeBestPathNumWithLink(level: 40);
         expect(bestPathNumWithLink.isEmpty, true);
         edax.libedaxTerminate();
@@ -288,8 +296,9 @@ void main() {
 
       test('with moves f5f6', () {
         const initParams = ['', '-book-file', _testBookFile];
-        final edax = LibEdax()
-          ..libedaxInitialize(initParams)
+        final edax = LibEdax()..libedaxInitialize(initParams);
+        sleep(const Duration(seconds: 1));
+        edax
           ..edaxInit()
           ..edaxPlay('f5f6');
         final bestPathNumWithLink = edax.computeBestPathNumWithLink(level: 40);
@@ -303,8 +312,9 @@ void main() {
       test('with long moves less than 40, exportGraphvizDotFile', () {
         const initParams = ['', '-book-file', _testBookFile];
         const moves = 'F5f6e6d6e7g5c5c6e3d3c7f3f4g4g3d7e8c8c4f7c2d2f2h3d8f8g6h5g7b5h7c3b4e1';
-        final edax = LibEdax()
-          ..libedaxInitialize(initParams)
+        final edax = LibEdax()..libedaxInitialize(initParams);
+        sleep(const Duration(seconds: 1));
+        edax
           ..edaxInit()
           ..edaxPlay(moves);
         final bestPathNumWithLink = edax.computeBestPathNumWithLink(level: 40);
@@ -319,8 +329,9 @@ void main() {
       test('with moves greater than book level', () {
         const initParams = ['', '-book-file', _testBookFile];
         const moves = 'F5f6e6d6e7g5c5c6e3d3c7f3f4g4g3d7e8c8c4f7c2d2f2h3d8f8g6h5g7b5h7c3b4e1d1a5a4a3b2b2a2a1';
-        final edax = LibEdax()
-          ..libedaxInitialize(initParams)
+        final edax = LibEdax()..libedaxInitialize(initParams);
+        sleep(const Duration(seconds: 1));
+        edax
           ..edaxInit()
           ..edaxPlay(moves);
         final bestPathNumWithLink = edax.computeBestPathNumWithLink(level: 40);
