@@ -122,27 +122,6 @@ void main() {
       expect(edax.edaxGetMoves(), 'F5d6C5f4E3f6G5e6E7'); // edax return moves with upper scale B move and lower scale W.
       edax.libedaxTerminate();
     });
-
-    test('book new & get book move', () async {
-      print('start');
-      await Future<void>.delayed(const Duration(seconds: 1));
-      print('will libedaxInitialize');
-      final edax = LibEdax()..libedaxInitialize();
-      await Future<void>.delayed(const Duration(seconds: 1));
-      // sleep(const Duration(seconds: 1));
-      print('will edaxInit');
-      edax.edaxInit();
-      print('will edaxBookNew');
-      edax.edaxBookNew(21, 40); // create shallow book
-      await Future<void>.delayed(const Duration(seconds: 1));
-      // sleep(const Duration(seconds: 1));
-      print('will edaxGetBookMove');
-      final moveList = edax.edaxGetBookMove();
-      expect(moveList.length, 1);
-      expect(moveList.first.moveString, 'd3');
-      print('will libedaxTerminate');
-      edax.libedaxTerminate();
-    });
   });
 
   group('with fixed book. See: resources/test_book_show.txt', () {
@@ -154,6 +133,16 @@ void main() {
         ..edaxBookLoad(_testBookFile)
         ..edaxMove('f5')
         ..libedaxTerminate();
+    });
+
+    test('get book move', () async {
+      final edax = LibEdax()..libedaxInitialize();
+      sleep(const Duration(seconds: 1));
+      edax.edaxInit();
+      final moveList = edax.edaxGetBookMove();
+      expect(moveList.length, 1);
+      expect(moveList.first.moveString, 'd3');
+      edax.libedaxTerminate();
     });
 
     test('get book move with position', () {
