@@ -1,3 +1,7 @@
+# 0.12.4-beta
+
+- improve performance of `computeBestPathNumWithLink`
+
 # 0.12.3-beta
 
 - improve documentation of `computeBestPathNumWithLink`

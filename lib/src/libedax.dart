@@ -446,9 +446,15 @@ class LibEdax {
   }
 
   void _buildTree(BestPathNumNode parent, int maxDepth, bool enableToPrintMovesOnBuildingTree) {
+    if (parent.value.moves.length >= maxDepth) {
+      // On edge, reagard (1,1) .
+      parent.value.bestPathNumOfBlack = 1;
+      parent.value.bestPathNumOfWhite = 1;
+      return;
+    }
     final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(parent.value.moves);
     final position = moveListWithPosition.position;
-    if (position.links.isEmpty || parent.value.moves.length >= maxDepth) {
+    if (position.links.isEmpty) {
       // On edge, reagard (1,1) .
       parent.value.bestPathNumOfBlack = 1;
       parent.value.bestPathNumOfWhite = 1;
