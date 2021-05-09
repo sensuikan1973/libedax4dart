@@ -133,7 +133,7 @@ void main() {
       print('will edaxInit');
       edax.edaxInit();
       print('will edaxBookNew');
-      edax.edaxBookNew(21, 24); // create shallow book
+      edax.edaxBookNew(21, 40); // create shallow book
       await Future<void>.delayed(const Duration(seconds: 1));
       // sleep(const Duration(seconds: 1));
       print('will edaxGetBookMove');
