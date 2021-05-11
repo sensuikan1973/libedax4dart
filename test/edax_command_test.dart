@@ -8,14 +8,13 @@ const _testBookFile = './resources/test_book.dat';
 
 void main() {
   test('open and close DynamicLibrary', () {
-    final libedax = LibEdax(); // open internally
-    libedax.edaxVersion(); // ignore: cascade_invocations
+    final edax = LibEdax(); // open internally
+    edax.edaxVersion(); // ignore: cascade_invocations
 
-    libedax.closeDll(); // ignore: cascade_invocations
+    edax.closeDll(); // ignore: cascade_invocations
     // libedax.edaxVersion(); => CRASH
 
-    final libedax2 = LibEdax(); // open internally
-    libedax2.edaxVersion(); // ignore: cascade_invocations
+    LibEdax().edaxVersion();
   });
 
   group('with a new book (follow default: data/book.dat)', () {
