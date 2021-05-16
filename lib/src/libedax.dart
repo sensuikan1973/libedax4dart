@@ -443,6 +443,8 @@ class LibEdax {
   }
 
   /// See: [computeBestPathNumWithLink]
+  ///
+  /// you can get PathNumWithLink one by one.
   @experimental
   Stream<BestPathNumWithLink> streamOfBestPathNumWithLink({
     required int level,
