@@ -1,3 +1,7 @@
+# 0.13.0-beta
+
+- add `streamOfBestPathNumWithLink`
+
 # 0.12.4-beta
 
 - improve performance of `computeBestPathNumWithLink`

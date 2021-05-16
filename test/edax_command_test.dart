@@ -339,14 +339,30 @@ void main() {
       });
     });
 
-    group('util command', () {
-      test('popCount', () {
-        final edax = LibEdax();
-        expect(edax.popCount(7), 3); // 0000 0111
-        expect(edax.popCount(14), 3); // 0000 1110
-        expect(edax.popCount(15), 4); // 0000 1111
-        expect(edax.popCount(17), 2); // 0001 0001
+    group('streamOfBestPathNumWithLink', () {
+      test('with moves f5f6', () async {
+        const initParams = ['', '-book-file', _testBookFile];
+        final edax = LibEdax()..libedaxInitialize(initParams);
+        await Future<void>.delayed(const Duration(seconds: 1));
+        edax
+          ..edaxInit()
+          ..edaxPlay('f5f6');
+        final stream = edax.streamOfBestPathNumWithLink(level: 10);
+        await Future<void>.delayed(const Duration(seconds: 1));
+        final firstEvent = await stream.first;
+        expect(firstEvent.moveString, 'e6');
+        edax.libedaxTerminate();
       });
+    });
+  });
+
+  group('util command', () {
+    test('popCount', () {
+      final edax = LibEdax();
+      expect(edax.popCount(7), 3); // 0000 0111
+      expect(edax.popCount(14), 3); // 0000 1110
+      expect(edax.popCount(15), 4); // 0000 1111
+      expect(edax.popCount(17), 2); // 0001 0001
     });
   });
 }
