@@ -349,11 +349,8 @@ void main() {
           ..edaxPlay('f5f6');
         final stream = edax.streamOfBestPathNumWithLink(level: 10);
         await Future<void>.delayed(const Duration(seconds: 2));
-        print('will first'); // ignore: avoid_print
         final firstEvent = await stream.first;
-        print('will expect'); // ignore: avoid_print
         expect(firstEvent.moveString, 'e6');
-        print('will libedaxTerminate'); // ignore: avoid_print
         edax.libedaxTerminate();
       });
     });
