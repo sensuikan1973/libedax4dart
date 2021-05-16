@@ -349,8 +349,8 @@ void main() {
           ..edaxPlay('f5f6');
         final stream = edax.streamOfBestPathNumWithLink(level: 40);
         await expectLater(
-          stream.asyncMap<String?>((event) => event?.moveString),
-          emitsInOrder(<String?>['e6']),
+          stream.asyncMap<String>((event) => event.moveString),
+          emitsInOrder(<String>['e6']),
         );
         edax.libedaxTerminate();
       });
