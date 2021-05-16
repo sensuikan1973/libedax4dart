@@ -343,7 +343,7 @@ void main() {
       test('with moves f5f6', () async {
         const initParams = ['', '-book-file', _testBookFile];
         final edax = LibEdax()..libedaxInitialize(initParams);
-        sleep(const Duration(seconds: 1));
+        await Future<void>.delayed(const Duration(seconds: 1));
         edax
           ..edaxInit()
           ..edaxPlay('f5f6');
