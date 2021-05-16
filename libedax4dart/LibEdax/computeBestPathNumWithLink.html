@@ -113,6 +113,7 @@
     <li><a href="../../libedax4dart/LibEdax/libedaxTerminate.html">libedaxTerminate</a></li>
     <li class="inherited"><a href="https://api.dart.dev/beta/2.13.0-211.14.beta/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
     <li><a href="../../libedax4dart/LibEdax/popCount.html">popCount</a></li>
+    <li><a href="../../libedax4dart/LibEdax/streamOfBestPathNumWithLink.html">streamOfBestPathNumWithLink</a></li>
     <li class="inherited"><a href="https://api.dart.dev/beta/2.13.0-211.14.beta/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../../libedax4dart/LibEdax-class.html#operators">Operators</a></li>
@@ -181,7 +182,6 @@ e.g. on a light book, when current moves is 'f5f6', you can get a graph like thi
 <li>TODO(developer): consider following implementation.
 <ul>
 <li>isolation.</li>
-<li>separation with prepare function and execute on by one function.</li>
 <li>save tree data on local.</li>
 </ul>
 </li>
@@ -210,8 +210,6 @@ List&lt;BestPathNumWithLink&gt; computeBestPathNumWithLink({
   final position = moveListWithPosition.position;
   final targetRootLinks = onlyBestScoreLink ? position.bestScoreLinks : position.links;
 
-  &#47;&#47; TODO: consider isolation.
-  &#47;&#47; TODO: save tree data on local.
   return targetRootLinks.map((link) {
     final move = symetryMove(link.move, moveListWithPosition.symetry);
     final root = BestPathNumNode(
@@ -244,7 +242,7 @@ List&lt;BestPathNumWithLink&gt; computeBestPathNumWithLink({
 <footer>
   <span class="no-break">
     libedax4dart
-      0.12.4-beta
+      0.13.0-beta
   </span>
 
   

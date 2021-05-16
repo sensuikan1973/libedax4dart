@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the edaxMove method from the LibEdax class, for the Dart programming language.">
-  <title>edaxMove method - LibEdax class - libedax4dart library - Dart API</title>
+  <meta name="description" content="API docs for the streamOfBestPathNumWithLink method from the LibEdax class, for the Dart programming language.">
+  <title>streamOfBestPathNumWithLink method - LibEdax class - libedax4dart library - Dart API</title>
 
 
   
@@ -31,9 +31,9 @@
     <li><a href="../../index.html">libedax4dart</a></li>
     <li><a href="../../libedax4dart/libedax4dart-library.html">libedax4dart</a></li>
     <li><a href="../../libedax4dart/LibEdax-class.html">LibEdax</a></li>
-    <li class="self-crumb">edaxMove method</li>
+    <li class="self-crumb">streamOfBestPathNumWithLink method</li>
   </ol>
-  <div class="self-name">edaxMove</div>
+  <div class="self-name">streamOfBestPathNumWithLink</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -53,7 +53,7 @@
   <li><a href="../../index.html">libedax4dart</a></li>
   <li><a href="../../libedax4dart/libedax4dart-library.html">libedax4dart</a></li>
   <li><a href="../../libedax4dart/LibEdax-class.html">LibEdax</a></li>
-  <li class="self-crumb">edaxMove method</li>
+  <li class="self-crumb">streamOfBestPathNumWithLink method</li>
 </ol>
 
 
@@ -128,32 +128,71 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">edaxMove</span> method 
+<h1><span class="kind-method">streamOfBestPathNumWithLink</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://pub.dev/documentation/meta/1.3.0/meta/experimental-constant.html">experimental</a></li>
+  </ol>
+</div>
 
-<span class="returntype">void</span>
-<span class="name ">edaxMove</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="edaxMove-param-move"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.13.0-211.14.beta/dart-core/String-class.html">String</a></span> <span class="parameter-name">move</span></span></li>
+<span class="returntype"><a href="https://api.dart.dev/beta/2.13.0-211.14.beta/dart-async/Stream-class.html">Stream</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../libedax4dart/BestPathNumWithLink-class.html">BestPathNumWithLink</a></span>&gt;</span></span>
+<span class="name ">streamOfBestPathNumWithLink</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="streamOfBestPathNumWithLink-param-level">{<span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/beta/2.13.0-211.14.beta/dart-core/int-class.html">int</a></span> <span class="parameter-name">level</span>, </span></li>
+<li><span class="parameter" id="streamOfBestPathNumWithLink-param-onlyBestScoreLink"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.13.0-211.14.beta/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">onlyBestScoreLink</span> = <span class="default-value">true</span>, </span></li>
+<li><span class="parameter" id="streamOfBestPathNumWithLink-param-enableToPrintMovesOnBuildingTree"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.13.0-211.14.beta/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">enableToPrintMovesOnBuildingTree</span> = <span class="default-value">false</span>}</span></li>
 </ol>)
 
-      
+      <div class="features">@<a href="https://pub.dev/documentation/meta/1.3.0/meta/experimental-constant.html">experimental</a></div>
 
     </section>
     
 <section class="desc markdown">
-  <p>Play move.</p>
-<p>you can pass Lower case or Upper case. <code>f5</code> <code>F5</code> is OK. <br>
-if you want to switch turn when mobilicty count is 0, pass <code>MoveMark.passString</code>.</p>
+  <p>See: <a href="../../libedax4dart/LibEdax/computeBestPathNumWithLink.html">computeBestPathNumWithLink</a></p>
+<p>you can get BestPathNumWithLink one by one.</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void edaxMove(String move) =&gt; _bindings.edaxMove(move.toNativeUtf8());</code></pre>
+  <pre class="language-dart"><code class="language-dart">@experimental
+Stream&lt;BestPathNumWithLink&gt; streamOfBestPathNumWithLink({
+  required int level,
+  bool onlyBestScoreLink = true,
+  bool enableToPrintMovesOnBuildingTree = false,
+}) async* {
+  final headMoves = edaxGetMoves();
+  final maxDepth = headMoves.length + level * 2;
+  if (headMoves.isEmpty || headMoves.length &gt;= maxDepth) return;
+
+  final headColor = edaxGetCurrentPlayer();
+  final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(headMoves);
+  final position = moveListWithPosition.position;
+  final targetRootLinks = onlyBestScoreLink ? position.bestScoreLinks : position.links;
+
+  for (final link in targetRootLinks) {
+    final move = symetryMove(link.move, moveListWithPosition.symetry);
+    final root = BestPathNumNode(
+      null,
+      BestPathNumNodeValue(
+        headMoves + move2String(move),
+        headColor == TurnColor.black ? TurnColor.white : TurnColor.black,
+      ),
+    );
+    _buildTree(root, maxDepth, enableToPrintMovesOnBuildingTree);
+    yield BestPathNumWithLink(
+      root.value.bestPathNumOfBlack,
+      root.value.bestPathNumOfWhite,
+      link,
+      move,
+      root,
+    );
+  }
+}</code></pre>
 </section>
 
 
