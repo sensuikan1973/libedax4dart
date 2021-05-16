@@ -348,13 +348,11 @@ void main() {
           ..edaxInit()
           ..edaxPlay('f5f6');
         final stream = edax.streamOfBestPathNumWithLink(level: 40);
-        print('will expectLater'); // ignore: avoid_print
         await expectLater(
           stream.asyncMap<String>((event) => event.moveString),
           emitsInOrder(<String>['e6']),
         );
-        await Future<void>.delayed(const Duration(seconds: 3));
-        print('will libedaxTerminate'); // ignore: avoid_print
+        await Future<void>.delayed(const Duration(seconds: 2));
         edax.libedaxTerminate();
       });
     });
