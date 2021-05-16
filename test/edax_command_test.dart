@@ -352,7 +352,7 @@ void main() {
           stream.asyncMap<String>((event) => event.moveString),
           emitsInOrder(<String>['e6']),
         );
-        await Future<void>.delayed(const Duration(seconds: 3));
+        await Future<void>.delayed(const Duration(seconds: 2));
         edax.libedaxTerminate();
       });
     });
