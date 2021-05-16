@@ -339,6 +339,23 @@ void main() {
       });
     });
 
+    group('streamOfBestPathNumWithLink', () {
+      test('with moves f5f6', () async {
+        const initParams = ['', '-book-file', _testBookFile];
+        final edax = LibEdax()..libedaxInitialize(initParams);
+        sleep(const Duration(seconds: 1));
+        edax
+          ..edaxInit()
+          ..edaxPlay('f5f6');
+        final stream = edax.streamOfBestPathNumWithLink(level: 40);
+        await expectLater(
+          stream.asyncMap<String?>((event) => event?.moveString),
+          emitsInOrder(<String?>['e6']),
+        );
+        edax.libedaxTerminate();
+      });
+    });
+
     group('util command', () {
       test('popCount', () {
         final edax = LibEdax();

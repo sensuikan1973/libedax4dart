@@ -442,6 +442,42 @@ class LibEdax {
     }).toList();
   }
 
+  /// See: [computeBestPathNumWithLink]
+  @experimental
+  Stream<BestPathNumWithLink?> streamOfBestPathNumWithLink({
+    required int level,
+    bool onlyBestScoreLink = true,
+    bool enableToPrintMovesOnBuildingTree = false,
+  }) async* {
+    final headMoves = edaxGetMoves();
+    final maxDepth = headMoves.length + level * 2;
+    if (headMoves.isEmpty || headMoves.length >= maxDepth) yield null;
+
+    final headColor = edaxGetCurrentPlayer();
+    final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(headMoves);
+    final position = moveListWithPosition.position;
+    final targetRootLinks = onlyBestScoreLink ? position.bestScoreLinks : position.links;
+
+    for (final link in targetRootLinks) {
+      final move = symetryMove(link.move, moveListWithPosition.symetry);
+      final root = BestPathNumNode(
+        null,
+        BestPathNumNodeValue(
+          headMoves + move2String(move),
+          headColor == TurnColor.black ? TurnColor.white : TurnColor.black,
+        ),
+      );
+      _buildTree(root, maxDepth, enableToPrintMovesOnBuildingTree);
+      yield BestPathNumWithLink(
+        root.value.bestPathNumOfBlack,
+        root.value.bestPathNumOfWhite,
+        link,
+        move,
+        root,
+      );
+    }
+  }
+
   void _buildTree(BestPathNumNode parent, int maxDepth, bool enableToPrintMovesOnBuildingTree) {
     if (parent.value.moves.length >= maxDepth) {
       // On edge, reagard (1,1) .
