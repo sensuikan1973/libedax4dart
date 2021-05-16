@@ -404,7 +404,6 @@ class LibEdax {
   /// * O(k^N). slow.
   ///   * TODO(developer): consider following implementation.
   ///     * isolation.
-  ///     * separation with prepare function and execute on by one function.
   ///     * save tree data on local.
   ///
   /// REF: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/book.c#L2438-L2447
@@ -423,8 +422,6 @@ class LibEdax {
     final position = moveListWithPosition.position;
     final targetRootLinks = onlyBestScoreLink ? position.bestScoreLinks : position.links;
 
-    // TODO: consider isolation.
-    // TODO: save tree data on local.
     return targetRootLinks.map((link) {
       final move = symetryMove(link.move, moveListWithPosition.symetry);
       final root = BestPathNumNode(
