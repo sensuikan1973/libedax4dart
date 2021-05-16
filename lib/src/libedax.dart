@@ -444,14 +444,14 @@ class LibEdax {
 
   /// See: [computeBestPathNumWithLink]
   @experimental
-  Stream<BestPathNumWithLink> streamOfBestPathNumWithLink({
+  Stream<BestPathNumWithLink?> streamOfBestPathNumWithLink({
     required int level,
     bool onlyBestScoreLink = true,
     bool enableToPrintMovesOnBuildingTree = false,
   }) async* {
     final headMoves = edaxGetMoves();
     final maxDepth = headMoves.length + level * 2;
-    if (headMoves.isEmpty || headMoves.length >= maxDepth) return;
+    if (headMoves.isEmpty || headMoves.length >= maxDepth) yield null;
 
     final headColor = edaxGetCurrentPlayer();
     final moveListWithPosition = edaxGetBookMoveWithPositionByMoves(headMoves);
