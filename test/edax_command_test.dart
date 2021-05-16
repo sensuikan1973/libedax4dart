@@ -348,7 +348,7 @@ void main() {
           ..edaxInit()
           ..edaxPlay('f5f6');
         final stream = edax.streamOfBestPathNumWithLink(level: 40);
-        await Future<void>.delayed(const Duration(seconds: 1));
+        await Future<void>.delayed(const Duration(seconds: 2));
         print('will first'); // ignore: avoid_print
         final firstEvent = await stream.first;
         print('will expect'); // ignore: avoid_print
