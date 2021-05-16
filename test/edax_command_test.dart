@@ -354,6 +354,7 @@ void main() {
           emitsInOrder(<String>['e6']),
         );
         await Future<void>.delayed(const Duration(seconds: 3));
+        print('will libedaxTerminate'); // ignore: avoid_print
         edax.libedaxTerminate();
       });
     });
