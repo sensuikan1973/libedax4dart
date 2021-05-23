@@ -8,11 +8,12 @@ on:
 jobs:
   upload_dart_docs:
     runs-on: ubuntu-latest
-    container:
-      image: google/dart:beta
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v2
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: beta
       - name: generate dart docs
         run: dartdoc --output docs/
       - name: upload to GitHub Pages
