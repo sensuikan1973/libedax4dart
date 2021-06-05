@@ -1,3 +1,7 @@
+# 0.13.1-beta
+
+- upgrade dependencies
+
 # 0.13.0-beta
 
 - add `streamOfBestPathNumWithLink`
