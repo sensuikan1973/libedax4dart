@@ -12,9 +12,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="../static-assets/github.css">
-  <link rel="stylesheet" href="../static-assets/styles.css">
-  <link rel="icon" href="../static-assets/favicon.png">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
 
   
 </head>
@@ -40,6 +41,272 @@
 
 <main>
 
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-class">Position</span> class 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ 
+</h1></div>
+
+    
+
+
+    <section>
+      <dl class="dl-horizontal">
+
+
+
+
+
+        <dt>Annotations</dt>
+        <dd><ul class="annotation-list clazz-relationships">
+          <li>@<a href="https://pub.dev/documentation/meta/1.4.0/meta/immutable-constant.html">immutable</a></li>
+        </ul></dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="constructors">
+      <h2>Constructors</h2>
+
+      <dl class="constructor-summary-list">
+        <dt id="Position" class="callable">
+          <span class="name"><a href="../libedax4dart/Position/Position.html">Position</a></span><span class="signature">(<span class="parameter" id="-param-board"><span class="type-annotation"><a href="../libedax4dart/Board-class.html">Board</a></span> <span class="parameter-name">board</span>, </span><span class="parameter" id="-param-leaf"><span class="type-annotation"><a href="../libedax4dart/Link-class.html">Link</a></span> <span class="parameter-name">leaf</span>, </span><span class="parameter" id="-param-links"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../libedax4dart/Link-class.html">Link</a></span>&gt;</span></span> <span class="parameter-name">links</span>, </span><span class="parameter" id="-param-nWins"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/int-class.html">int</a></span> <span class="parameter-name">nWins</span>, </span><span class="parameter" id="-param-nDraws"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/int-class.html">int</a></span> <span class="parameter-name">nDraws</span>, </span><span class="parameter" id="-param-nLosses"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/int-class.html">int</a></span> <span class="parameter-name">nLosses</span>, </span><span class="parameter" id="-param-nLines"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/int-class.html">int</a></span> <span class="parameter-name">nLines</span>, </span><span class="parameter" id="-param-score"><span class="type-annotation"><a href="../libedax4dart/Score-class.html">Score</a></span> <span class="parameter-name">score</span>, </span><span class="parameter" id="-param-nLink"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/int-class.html">int</a></span> <span class="parameter-name">nLink</span>, </span><span class="parameter" id="-param-level"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/int-class.html">int</a></span> <span class="parameter-name">level</span>, </span><span class="parameter" id="-param-done"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/int-class.html">int</a></span> <span class="parameter-name">done</span>, </span><span class="parameter" id="-param-todo"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/int-class.html">int</a></span> <span class="parameter-name">todo</span></span>)</span>
+        </dt>
+        <dd>
+           
+          <div class="constructor-modifier features">const</div>
+        </dd>
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="instance-properties">
+      <h2>Properties</h2>
+
+      <dl class="properties">
+        <dt id="bestScoreLinks" class="property">
+  <span class="name"><a href="../libedax4dart/Position/bestScoreLinks.html">bestScoreLinks</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../libedax4dart/Link-class.html">Link</a></span>&gt;</span></span> 
+
+</dt>
+<dd>
+  best score links 
+  <div class="features">read-only</div>
+
+</dd>
+
+        <dt id="board" class="property">
+  <span class="name"><a href="../libedax4dart/Position/board.html">board</a></span>
+  <span class="signature">&#8594; <a href="../libedax4dart/Board-class.html">Board</a></span> 
+
+</dt>
+<dd>
+   
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="done" class="property">
+  <span class="name"><a href="../libedax4dart/Position/done.html">done</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/int-class.html">int</a></span> 
+
+</dt>
+<dd>
+  done/undone flag 
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/int-class.html">int</a></span> 
+
+</dt>
+<dd class="inherited">
+  The hash code for this object. <a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/Object/hashCode.html">[...]</a>
+  <div class="features">read-only, inherited</div>
+
+</dd>
+
+        <dt id="leaf" class="property">
+  <span class="name"><a href="../libedax4dart/Position/leaf.html">leaf</a></span>
+  <span class="signature">&#8594; <a href="../libedax4dart/Link-class.html">Link</a></span> 
+
+</dt>
+<dd>
+  best remaining move 
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="level" class="property">
+  <span class="name"><a href="../libedax4dart/Position/level.html">level</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/int-class.html">int</a></span> 
+
+</dt>
+<dd>
+  search level 
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="links" class="property">
+  <span class="name"><a href="../libedax4dart/Position/links.html">links</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../libedax4dart/Link-class.html">Link</a></span>&gt;</span></span> 
+
+</dt>
+<dd>
+  linking moves 
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="nDraws" class="property">
+  <span class="name"><a href="../libedax4dart/Position/nDraws.html">nDraws</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/int-class.html">int</a></span> 
+
+</dt>
+<dd>
+  game draw count 
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="nLines" class="property">
+  <span class="name"><a href="../libedax4dart/Position/nLines.html">nLines</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/int-class.html">int</a></span> 
+
+</dt>
+<dd>
+  unterminated line count 
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="nLink" class="property">
+  <span class="name"><a href="../libedax4dart/Position/nLink.html">nLink</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/int-class.html">int</a></span> 
+
+</dt>
+<dd>
+  linking moves number 
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="nLosses" class="property">
+  <span class="name"><a href="../libedax4dart/Position/nLosses.html">nLosses</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/int-class.html">int</a></span> 
+
+</dt>
+<dd>
+  game loss count 
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="nWins" class="property">
+  <span class="name"><a href="../libedax4dart/Position/nWins.html">nWins</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/int-class.html">int</a></span> 
+
+</dt>
+<dd>
+  game win count 
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/Type-class.html">Type</a></span> 
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object. 
+  <div class="features">read-only, inherited</div>
+
+</dd>
+
+        <dt id="score" class="property">
+  <span class="name"><a href="../libedax4dart/Position/score.html">score</a></span>
+  <span class="signature">&#8594; <a href="../libedax4dart/Score-class.html">Score</a></span> 
+
+</dt>
+<dd>
+  Position value &amp; bounds 
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="todo" class="property">
+  <span class="name"><a href="../libedax4dart/Position/todo.html">todo</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/int-class.html">int</a></span> 
+
+</dt>
+<dd>
+  todo flag 
+  <div class="features">final</div>
+
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor inherited" id="instance-methods">
+      <h2>Methods</h2>
+      <dl class="callables">
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a non-existent method or property is accessed. <a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/Object/noSuchMethod.html">[...]</a>
+  <div class="features">inherited</div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object. <a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/Object/toString.html">[...]</a>
+  <div class="features">inherited</div>
+
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor inherited" id="operators">
+      <h2>Operators</h2>
+      <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator. <a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/Object/operator_equals.html">[...]</a>
+  <div class="features">inherited</div>
+
+</dd>
+
+      </dl>
+    </section>
+
+
+
+
+  </div> <!-- /.main-content -->
 
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
     <header id="header-search-sidebar" class="hidden-l">
@@ -88,272 +355,6 @@
 
   </div>
 
-  <div id="dartdoc-main-content" class="main-content">
-      <div>
-<h1><span class="kind-class">Position</span> class 
-    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
- 
-</h1></div>
-
-    
-
-
-    <section>
-      <dl class="dl-horizontal">
-
-
-
-
-
-        <dt>Annotations</dt>
-        <dd><ul class="annotation-list clazz-relationships">
-          <li>@<a href="https://pub.dev/documentation/meta/1.4.0/meta/immutable-constant.html">immutable</a></li>
-        </ul></dd>
-      </dl>
-    </section>
-
-    <section class="summary offset-anchor" id="constructors">
-      <h2>Constructors</h2>
-
-      <dl class="constructor-summary-list">
-        <dt id="Position" class="callable">
-          <span class="name"><a href="../libedax4dart/Position/Position.html">Position</a></span><span class="signature">(<span class="parameter" id="-param-board"><span class="type-annotation"><a href="../libedax4dart/Board-class.html">Board</a></span> <span class="parameter-name">board</span>, </span><span class="parameter" id="-param-leaf"><span class="type-annotation"><a href="../libedax4dart/Link-class.html">Link</a></span> <span class="parameter-name">leaf</span>, </span><span class="parameter" id="-param-links"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.3/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../libedax4dart/Link-class.html">Link</a></span>&gt;</span></span> <span class="parameter-name">links</span>, </span><span class="parameter" id="-param-nWins"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.3/dart-core/int-class.html">int</a></span> <span class="parameter-name">nWins</span>, </span><span class="parameter" id="-param-nDraws"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.3/dart-core/int-class.html">int</a></span> <span class="parameter-name">nDraws</span>, </span><span class="parameter" id="-param-nLosses"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.3/dart-core/int-class.html">int</a></span> <span class="parameter-name">nLosses</span>, </span><span class="parameter" id="-param-nLines"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.3/dart-core/int-class.html">int</a></span> <span class="parameter-name">nLines</span>, </span><span class="parameter" id="-param-score"><span class="type-annotation"><a href="../libedax4dart/Score-class.html">Score</a></span> <span class="parameter-name">score</span>, </span><span class="parameter" id="-param-nLink"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.3/dart-core/int-class.html">int</a></span> <span class="parameter-name">nLink</span>, </span><span class="parameter" id="-param-level"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.3/dart-core/int-class.html">int</a></span> <span class="parameter-name">level</span>, </span><span class="parameter" id="-param-done"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.3/dart-core/int-class.html">int</a></span> <span class="parameter-name">done</span>, </span><span class="parameter" id="-param-todo"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.3/dart-core/int-class.html">int</a></span> <span class="parameter-name">todo</span></span>)</span>
-        </dt>
-        <dd>
-           
-          <div class="constructor-modifier features">const</div>
-        </dd>
-      </dl>
-    </section>
-
-    <section class="summary offset-anchor" id="instance-properties">
-      <h2>Properties</h2>
-
-      <dl class="properties">
-        <dt id="bestScoreLinks" class="property">
-  <span class="name"><a href="../libedax4dart/Position/bestScoreLinks.html">bestScoreLinks</a></span>
-  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.13.3/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../libedax4dart/Link-class.html">Link</a></span>&gt;</span></span> 
-
-</dt>
-<dd>
-  best score links 
-  <div class="features">read-only</div>
-
-</dd>
-
-        <dt id="board" class="property">
-  <span class="name"><a href="../libedax4dart/Position/board.html">board</a></span>
-  <span class="signature">&#8594; <a href="../libedax4dart/Board-class.html">Board</a></span> 
-
-</dt>
-<dd>
-   
-  <div class="features">final</div>
-
-</dd>
-
-        <dt id="done" class="property">
-  <span class="name"><a href="../libedax4dart/Position/done.html">done</a></span>
-  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.13.3/dart-core/int-class.html">int</a></span> 
-
-</dt>
-<dd>
-  done/undone flag 
-  <div class="features">final</div>
-
-</dd>
-
-        <dt id="hashCode" class="property inherited">
-  <span class="name"><a href="https://api.dart.dev/stable/2.13.3/dart-core/Object/hashCode.html">hashCode</a></span>
-  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.13.3/dart-core/int-class.html">int</a></span> 
-
-</dt>
-<dd class="inherited">
-  The hash code for this object. <a href="https://api.dart.dev/stable/2.13.3/dart-core/Object/hashCode.html">[...]</a>
-  <div class="features">read-only, inherited</div>
-
-</dd>
-
-        <dt id="leaf" class="property">
-  <span class="name"><a href="../libedax4dart/Position/leaf.html">leaf</a></span>
-  <span class="signature">&#8594; <a href="../libedax4dart/Link-class.html">Link</a></span> 
-
-</dt>
-<dd>
-  best remaining move 
-  <div class="features">final</div>
-
-</dd>
-
-        <dt id="level" class="property">
-  <span class="name"><a href="../libedax4dart/Position/level.html">level</a></span>
-  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.13.3/dart-core/int-class.html">int</a></span> 
-
-</dt>
-<dd>
-  search level 
-  <div class="features">final</div>
-
-</dd>
-
-        <dt id="links" class="property">
-  <span class="name"><a href="../libedax4dart/Position/links.html">links</a></span>
-  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.13.3/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../libedax4dart/Link-class.html">Link</a></span>&gt;</span></span> 
-
-</dt>
-<dd>
-  linking moves 
-  <div class="features">final</div>
-
-</dd>
-
-        <dt id="nDraws" class="property">
-  <span class="name"><a href="../libedax4dart/Position/nDraws.html">nDraws</a></span>
-  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.13.3/dart-core/int-class.html">int</a></span> 
-
-</dt>
-<dd>
-  game draw count 
-  <div class="features">final</div>
-
-</dd>
-
-        <dt id="nLines" class="property">
-  <span class="name"><a href="../libedax4dart/Position/nLines.html">nLines</a></span>
-  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.13.3/dart-core/int-class.html">int</a></span> 
-
-</dt>
-<dd>
-  unterminated line count 
-  <div class="features">final</div>
-
-</dd>
-
-        <dt id="nLink" class="property">
-  <span class="name"><a href="../libedax4dart/Position/nLink.html">nLink</a></span>
-  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.13.3/dart-core/int-class.html">int</a></span> 
-
-</dt>
-<dd>
-  linking moves number 
-  <div class="features">final</div>
-
-</dd>
-
-        <dt id="nLosses" class="property">
-  <span class="name"><a href="../libedax4dart/Position/nLosses.html">nLosses</a></span>
-  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.13.3/dart-core/int-class.html">int</a></span> 
-
-</dt>
-<dd>
-  game loss count 
-  <div class="features">final</div>
-
-</dd>
-
-        <dt id="nWins" class="property">
-  <span class="name"><a href="../libedax4dart/Position/nWins.html">nWins</a></span>
-  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.13.3/dart-core/int-class.html">int</a></span> 
-
-</dt>
-<dd>
-  game win count 
-  <div class="features">final</div>
-
-</dd>
-
-        <dt id="runtimeType" class="property inherited">
-  <span class="name"><a href="https://api.dart.dev/stable/2.13.3/dart-core/Object/runtimeType.html">runtimeType</a></span>
-  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.13.3/dart-core/Type-class.html">Type</a></span> 
-
-</dt>
-<dd class="inherited">
-  A representation of the runtime type of the object. 
-  <div class="features">read-only, inherited</div>
-
-</dd>
-
-        <dt id="score" class="property">
-  <span class="name"><a href="../libedax4dart/Position/score.html">score</a></span>
-  <span class="signature">&#8594; <a href="../libedax4dart/Score-class.html">Score</a></span> 
-
-</dt>
-<dd>
-  Position value &amp; bounds 
-  <div class="features">final</div>
-
-</dd>
-
-        <dt id="todo" class="property">
-  <span class="name"><a href="../libedax4dart/Position/todo.html">todo</a></span>
-  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/2.13.3/dart-core/int-class.html">int</a></span> 
-
-</dt>
-<dd>
-  todo flag 
-  <div class="features">final</div>
-
-</dd>
-
-      </dl>
-    </section>
-
-    <section class="summary offset-anchor inherited" id="instance-methods">
-      <h2>Methods</h2>
-      <dl class="callables">
-        <dt id="noSuchMethod" class="callable inherited">
-  <span class="name"><a href="https://api.dart.dev/stable/2.13.3/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.3/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
-    <span class="returntype parameter">&#8594; dynamic</span>
-  </span>
-  
-
-</dt>
-<dd class="inherited">
-  Invoked when a non-existent method or property is accessed. <a href="https://api.dart.dev/stable/2.13.3/dart-core/Object/noSuchMethod.html">[...]</a>
-  <div class="features">inherited</div>
-
-</dd>
-
-        <dt id="toString" class="callable inherited">
-  <span class="name"><a href="https://api.dart.dev/stable/2.13.3/dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
-    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.13.3/dart-core/String-class.html">String</a></span>
-  </span>
-  
-
-</dt>
-<dd class="inherited">
-  A string representation of this object. <a href="https://api.dart.dev/stable/2.13.3/dart-core/Object/toString.html">[...]</a>
-  <div class="features">inherited</div>
-
-</dd>
-
-      </dl>
-    </section>
-
-    <section class="summary offset-anchor inherited" id="operators">
-      <h2>Operators</h2>
-      <dl class="callables">
-        <dt id="operator ==" class="callable inherited">
-  <span class="name"><a href="https://api.dart.dev/stable/2.13.3/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.13.3/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
-    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/2.13.3/dart-core/bool-class.html">bool</a></span>
-  </span>
-  
-
-</dt>
-<dd class="inherited">
-  The equality operator. <a href="https://api.dart.dev/stable/2.13.3/dart-core/Object/operator_equals.html">[...]</a>
-  <div class="features">inherited</div>
-
-</dd>
-
-      </dl>
-    </section>
-
-
-
-
-  </div> <!-- /.main-content -->
-
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
     <ol>
 
@@ -367,7 +368,7 @@
     <li><a href="../libedax4dart/Position/bestScoreLinks.html">bestScoreLinks</a></li>
     <li><a href="../libedax4dart/Position/board.html">board</a></li>
     <li><a href="../libedax4dart/Position/done.html">done</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.3/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../libedax4dart/Position/leaf.html">leaf</a></li>
     <li><a href="../libedax4dart/Position/level.html">level</a></li>
     <li><a href="../libedax4dart/Position/links.html">links</a></li>
@@ -376,16 +377,16 @@
     <li><a href="../libedax4dart/Position/nLink.html">nLink</a></li>
     <li><a href="../libedax4dart/Position/nLosses.html">nLosses</a></li>
     <li><a href="../libedax4dart/Position/nWins.html">nWins</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.3/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/Object/runtimeType.html">runtimeType</a></li>
     <li><a href="../libedax4dart/Position/score.html">score</a></li>
     <li><a href="../libedax4dart/Position/todo.html">todo</a></li>
 
     <li class="section-title inherited"><a href="../libedax4dart/Position-class.html#instance-methods">Methods</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.3/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.3/dart-core/Object/toString.html">toString</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/Object/toString.html">toString</a></li>
 
     <li class="section-title inherited"><a href="../libedax4dart/Position-class.html#operators">Operators</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.13.3/dart-core/Object/operator_equals.html">operator ==</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/beta/2.14.0-188.5.beta/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 
 
@@ -406,8 +407,9 @@
 </footer>
 
 
-<script src="../static-assets/highlight.pack.js"></script>
-<script src="../static-assets/script.js"></script>
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/script.js?v1"></script>
 
 
 
