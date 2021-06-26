@@ -79,7 +79,7 @@ A B C D E F G H</p>
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">String prettyString(int currentColor) {
+  <pre class="language-dart"><code class="language-dart">String prettyString(final int currentColor) {
   final pStone = currentColor == TurnColor.black ? &#39;*&#39; : &#39;O&#39;;
   final oStone = currentColor == TurnColor.black ? &#39;O&#39; : &#39;*&#39;;
 

@@ -114,9 +114,9 @@ e.g. on a light book, when current moves is 'f5f6', you can get a graph like thi
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@experimental
 List&lt;BestPathNumWithLink&gt; computeBestPathNumWithLink({
-  required int level,
-  bool onlyBestScoreLink = true,
-  bool enableToPrintMovesOnBuildingTree = false,
+  required final int level,
+  final bool onlyBestScoreLink = true,
+  final bool enableToPrintMovesOnBuildingTree = false,
 }) {
   final headMoves = edaxGetMoves();
   final maxDepth = headMoves.length + level * 2;
@@ -127,7 +127,7 @@ List&lt;BestPathNumWithLink&gt; computeBestPathNumWithLink({
   final position = moveListWithPosition.position;
   final targetRootLinks = onlyBestScoreLink ? position.bestScoreLinks : position.links;
 
-  return targetRootLinks.map((link) {
+  return targetRootLinks.map((final link) {
     final move = symetryMove(link.move, moveListWithPosition.symetry);
     final root = BestPathNumNode(
       null,

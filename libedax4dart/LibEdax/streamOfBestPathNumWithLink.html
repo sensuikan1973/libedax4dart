@@ -78,9 +78,9 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@experimental
 Stream&lt;BestPathNumWithLink&gt; streamOfBestPathNumWithLink({
-  required int level,
-  bool onlyBestScoreLink = true,
-  bool enableToPrintMovesOnBuildingTree = false,
+  required final int level,
+  final bool onlyBestScoreLink = true,
+  final bool enableToPrintMovesOnBuildingTree = false,
 }) async* {
   final headMoves = edaxGetMoves();
   final maxDepth = headMoves.length + level * 2;

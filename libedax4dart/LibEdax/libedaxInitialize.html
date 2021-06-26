@@ -73,8 +73,8 @@ edax.libedaxInitialize(['', '-eval-file', 'data/eval.dat', '-book-file', 'data/b
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void libedaxInitialize([List&lt;String&gt; args = const []]) {
-  final argsPointers = args.map((arg) =&gt; arg.toNativeUtf8()).toList();
+  <pre class="language-dart"><code class="language-dart">void libedaxInitialize([final List&lt;String&gt; args = const []]) {
+  final argsPointers = args.map((final arg) =&gt; arg.toNativeUtf8()).toList();
   final pointerPointer = calloc&lt;Pointer&lt;Uint8&gt;&gt;(argsPointers.length);
   for (var k = 0; k &lt; argsPointers.length; k++) {
     pointerPointer[k] = argsPointers[k].cast&lt;Uint8&gt;();

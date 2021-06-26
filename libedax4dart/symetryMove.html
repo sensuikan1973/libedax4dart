@@ -70,7 +70,7 @@ See: <a href="https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">int symetryMove(int x, int symetry) {
+  <pre class="language-dart"><code class="language-dart">int symetryMove(final int x, final int symetry) {
   var x_ = x; &#47;&#47; ignore: non_constant_identifier_names
   if (symetry &amp; 1 != 0) {
     x_ = (x_ &amp; _octal070) | (7 - (x_ &amp; 7));
