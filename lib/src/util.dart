@@ -3,7 +3,7 @@ import 'constants.dart';
 /// Convert playerd square to human readable String.
 ///
 ///  e.g. `f5`
-String move2String(int x) {
+String move2String(final int x) {
   if (x < 64) return _moveStringTable[x];
   if (x == MoveMark.pass) return 'pass';
   if (x == MoveMark.noMove) return 'no move';
@@ -24,7 +24,7 @@ const _moveStringTable = [
 /// Convert score to String.
 ///
 /// e.g. `+10`, `-7`, `0`
-String score2String(int score) {
+String score2String(final int score) {
   if (score <= 0) return score.toString();
   return '+${score.toString()}';
 }
@@ -32,7 +32,7 @@ String score2String(int score) {
 /// Radix 16 String.
 ///
 /// e.g. `0010387c38100000`.
-String radix16Board(int bit) => bit.toRadixString(16).padLeft(16, '0');
+String radix16Board(final int bit) => bit.toRadixString(16).padLeft(16, '0');
 
 /// Get symetry move list.
 ///
@@ -40,7 +40,7 @@ String radix16Board(int bit) => bit.toRadixString(16).padLeft(16, '0');
 /// See: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/move.c#L40-L63
 ///
 /// REF: https://choi.lavox.net/edax/ref_command_basic?s[]=symetry#symetry_%E9%9A%A0%E3%81%97%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89
-int symetryMove(int x, int symetry) {
+int symetryMove(final int x, final int symetry) {
   var x_ = x; // ignore: non_constant_identifier_names
   if (symetry & 1 != 0) {
     x_ = (x_ & _octal070) | (7 - (x_ & 7));

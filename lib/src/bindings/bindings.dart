@@ -11,8 +11,8 @@ import 'structs/move_list.dart';
 import 'structs/position.dart';
 
 class LibEdaxBindings {
-  factory LibEdaxBindings([String dllPath = '']) => _instance ??= LibEdaxBindings._(dllPath);
-  LibEdaxBindings._([String dllPath = '']) {
+  factory LibEdaxBindings([final String dllPath = '']) => _instance ??= LibEdaxBindings._(dllPath);
+  LibEdaxBindings._([final String dllPath = '']) {
     libedax = dlopenPlatformSpecific(dllPath);
     _bindFunctions();
   }
@@ -125,6 +125,6 @@ class LibEdaxBindings {
   // See: https://github.com/dart-lang/ffi/blob/f3346299c55669cc0db48afae85b8110088bf8da/lib/src/allocation.dart#L8-L11
   DynamicLibrary get _stdlib => Platform.isWindows ? DynamicLibrary.open('kernel32.dll') : DynamicLibrary.process();
 
-  Pointer<NativeFunction<T>> _lookupNativeFunc<T extends Function>(String symbolName) =>
+  Pointer<NativeFunction<T>> _lookupNativeFunc<T extends Function>(final String symbolName) =>
       libedax.lookup<NativeFunction<T>>(symbolName);
 }

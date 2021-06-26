@@ -8,5 +8,5 @@ String get _libName {
   throw Exception('${Platform.operatingSystem} is not supported');
 }
 
-DynamicLibrary dlopenPlatformSpecific([String dllPath = '']) =>
+DynamicLibrary dlopenPlatformSpecific([final String dllPath = '']) =>
     dllPath.isEmpty ? DynamicLibrary.open('${Directory.current.path}/$_libName') : DynamicLibrary.open(dllPath);

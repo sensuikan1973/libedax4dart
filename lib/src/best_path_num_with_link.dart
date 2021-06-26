@@ -40,7 +40,7 @@ class BestPathNumNode {
   final BestPathNumNode? parent;
   final List<BestPathNumNode> children = [];
 
-  Map<String, String> _graphvizNodeProperties(BestPathNumNode node) => {
+  Map<String, String> _graphvizNodeProperties(final BestPathNumNode node) => {
         'style': 'filled',
         'fillcolor': node.value.currentColor == TurnColor.black ? 'grey' : 'white',
         'shape': 'record',
@@ -55,7 +55,7 @@ class BestPathNumNode {
     return gviz.toString();
   }
 
-  void _buildGraphviz(BestPathNumNode parent, Gviz gviz) {
+  void _buildGraphviz(final BestPathNumNode parent, final Gviz gviz) {
     for (final node in parent.children) {
       gviz
         ..addNode(node.value.moves, properties: _graphvizNodeProperties(node))

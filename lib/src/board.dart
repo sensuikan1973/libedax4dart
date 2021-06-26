@@ -25,7 +25,7 @@ class Board {
   /// square String list of opponent's bitboard.
   List<String> get squareStringsOfOpponent => _squares(opponent).map(move2String).toList();
 
-  List<int> _squares(int bitboard) {
+  List<int> _squares(final int bitboard) {
     final result = <int>[];
     final target = BigInt.from(bitboard).toUnsigned(64);
     var mask = BigInt.from(0x8000000000000000).toUnsigned(64);
@@ -62,7 +62,7 @@ class Board {
   /// 7 - - - - * - - - 7 <br>
   /// 8 - - - - - - - - 8 <br>
   ///   A B C D E F G H
-  String prettyString(int currentColor) {
+  String prettyString(final int currentColor) {
     final pStone = currentColor == TurnColor.black ? '*' : 'O';
     final oStone = currentColor == TurnColor.black ? 'O' : '*';
 

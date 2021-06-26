@@ -74,13 +74,13 @@ class ArrayHelper_Hint_board_level0 {
   int get length => dimensions[level];
   // ignore: sort_constructors_first
   ArrayHelper_Hint_board_level0(this._struct, this.dimensions, this.level, this._absoluteIndex);
-  void _checkBounds(int index) {
+  void _checkBounds(final int index) {
     if (index >= length || index < 0) {
       throw RangeError('Dimension $level: index not in range 0..$length exclusive.');
     }
   }
 
-  Board operator [](int index) {
+  Board operator [](final int index) {
     _checkBounds(index);
     switch (_absoluteIndex + index) {
       case 0:
@@ -90,7 +90,7 @@ class ArrayHelper_Hint_board_level0 {
     }
   }
 
-  void operator []=(int index, Board value) {
+  void operator []=(final int index, final Board value) {
     _checkBounds(index);
     switch (_absoluteIndex + index) {
       case 0:

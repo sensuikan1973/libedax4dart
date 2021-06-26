@@ -22,7 +22,7 @@ import 'util.dart';
 
 @immutable
 class LibEdax {
-  LibEdax([String dllPath = '']) : _bindings = LibEdaxBindings(dllPath);
+  LibEdax([final String dllPath = '']) : _bindings = LibEdaxBindings(dllPath);
 
   final LibEdaxBindings _bindings;
 
@@ -35,8 +35,8 @@ class LibEdax {
   /// ```
   ///
   /// If you want to know more, See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
-  void libedaxInitialize([List<String> args = const []]) {
-    final argsPointers = args.map((arg) => arg.toNativeUtf8()).toList();
+  void libedaxInitialize([final List<String> args = const []]) {
+    final argsPointers = args.map((final arg) => arg.toNativeUtf8()).toList();
     final pointerPointer = calloc<Pointer<Uint8>>(argsPointers.length);
     for (var k = 0; k < argsPointers.length; k++) {
       pointerPointer[k] = argsPointers[k].cast<Uint8>();
@@ -75,7 +75,7 @@ class LibEdax {
   /// * 1: Edax(B)  vs  Human(W)
   /// * 2: Edax(B)  vs  Edax(W)
   /// * 3: Human(B) vs  Human(W)
-  void edaxMode(int mode) => _bindings.edaxMode(mode);
+  void edaxMode(final int mode) => _bindings.edaxMode(mode);
 
   /// Flip vertical.
   void edaxVmirror() => _bindings.edaxVmirror();
@@ -83,7 +83,7 @@ class LibEdax {
   /// Rotate.
   ///
   /// angle: 90 or 180 or 270.
-  void edaxRotate(int angle) {
+  void edaxRotate(final int angle) {
     if (![90, 180, 270].contains(angle)) throw Exception('angle of edaxRotate supports only 90,180,270');
     _bindings.edaxRotate(angle);
   }
@@ -93,13 +93,13 @@ class LibEdax {
   /// you can pass Lower case or Upper case. `f5F6F6g7` is OK. <br>
   /// you can also pass opening name. (e.g. `brightwell`) <br>
   /// opening names are listed on [opening.c](https://github.com/lavox/edax-reversi/blob/libedax/src/opening.c).
-  void edaxPlay(String moves) => _bindings.edaxPlay(moves.toNativeUtf8());
+  void edaxPlay(final String moves) => _bindings.edaxPlay(moves.toNativeUtf8());
 
   /// Let edax move.
   void edaxGo() => _bindings.edaxGo();
 
   /// Get hint.
-  List<Hint> edaxHint(int n) {
+  List<Hint> edaxHint(final int n) {
     final dst = calloc<c_hintlist.HintList>();
     _bindings.edaxHint(n, dst);
     final hintList = dst.ref;
@@ -168,7 +168,7 @@ class LibEdax {
   }
 
   /// Get book move list with position by specified moves.
-  MoveListWithPosition edaxGetBookMoveWithPositionByMoves(String moves) {
+  MoveListWithPosition edaxGetBookMoveWithPositionByMoves(final String moves) {
     final dstM = calloc<c_movelist.MoveList>();
     final dstP = calloc<c_position.Position>();
     final symetry = _bindings.edaxGetBookMoveWithPositionByMoves(moves.toNativeUtf8(), dstM, dstP);
@@ -251,7 +251,7 @@ class LibEdax {
   ///
   /// you can pass Lower case or Upper case. `f5` `F5` is OK. <br>
   /// if you want to switch turn when mobilicty count is 0, pass `MoveMark.passString`.
-  void edaxMove(String move) => _bindings.edaxMove(move.toNativeUtf8());
+  void edaxMove(final String move) => _bindings.edaxMove(move.toNativeUtf8());
 
   /// Set board from string.
   ///
@@ -261,7 +261,7 @@ class LibEdax {
   /// * EMPTY: `-`,`.`
   ///
   /// Last char is turn.
-  void edaxSetboard(String board) => _bindings.edaxSetboard(board.toNativeUtf8());
+  void edaxSetboard(final String board) => _bindings.edaxSetboard(board.toNativeUtf8());
 
   /// Get the opening name of the current game, in English.
   ///
@@ -279,13 +279,13 @@ class LibEdax {
   /// default is 0.
   ///
   /// edax will choose move with the randomness width.
-  void edaxBookRandomness(int randomness) => _bindings.edaxBookRandomness(randomness);
+  void edaxBookRandomness(final int randomness) => _bindings.edaxBookRandomness(randomness);
 
   /// Create a new book.
-  void edaxBookNew(int level, int depth) => _bindings.edaxBookNew(level, depth);
+  void edaxBookNew(final int level, final int depth) => _bindings.edaxBookNew(level, depth);
 
   /// Load book.
-  void edaxBookLoad(String bookFile) => _bindings.edaxBookLoad(bookFile.toNativeUtf8());
+  void edaxBookLoad(final String bookFile) => _bindings.edaxBookLoad(bookFile.toNativeUtf8());
 
   /// Show book.
   ///
@@ -324,7 +324,7 @@ class LibEdax {
   /// Set option.
   ///
   /// See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
-  void edaxSetOption(String optionName, String val) =>
+  void edaxSetOption(final String optionName, final String val) =>
       _bindings.edaxSetOption(optionName.toNativeUtf8(), val.toNativeUtf8());
 
   /// Get current moves.
@@ -372,13 +372,13 @@ class LibEdax {
   int edaxGetCurrentPlayer() => _bindings.edaxGetCurrentPlayer();
 
   /// Get the current number of discs.
-  int edaxGetDisc(int color) => _bindings.edaxGetDisc(color);
+  int edaxGetDisc(final int color) => _bindings.edaxGetDisc(color);
 
   /// Get the legal move count.
-  int edaxGetMobilityCount(int color) => _bindings.edaxGetMobilityCount(color);
+  int edaxGetMobilityCount(final int color) => _bindings.edaxGetMobilityCount(color);
 
   /// Count bit.
-  int popCount(int bit) => _bindings.bitCount(bit);
+  int popCount(final int bit) => _bindings.bitCount(bit);
 
   /// Compute the indicator of efficiency to win, which means the minimum number you should memorize on the situation both of players always choose one of the best move list.
   ///
@@ -409,9 +409,9 @@ class LibEdax {
   /// REF: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/book.c#L2438-L2447
   @experimental
   List<BestPathNumWithLink> computeBestPathNumWithLink({
-    required int level,
-    bool onlyBestScoreLink = true,
-    bool enableToPrintMovesOnBuildingTree = false,
+    required final int level,
+    final bool onlyBestScoreLink = true,
+    final bool enableToPrintMovesOnBuildingTree = false,
   }) {
     final headMoves = edaxGetMoves();
     final maxDepth = headMoves.length + level * 2;
@@ -422,7 +422,7 @@ class LibEdax {
     final position = moveListWithPosition.position;
     final targetRootLinks = onlyBestScoreLink ? position.bestScoreLinks : position.links;
 
-    return targetRootLinks.map((link) {
+    return targetRootLinks.map((final link) {
       final move = symetryMove(link.move, moveListWithPosition.symetry);
       final root = BestPathNumNode(
         null,
@@ -447,9 +447,9 @@ class LibEdax {
   /// you can get BestPathNumWithLink one by one.
   @experimental
   Stream<BestPathNumWithLink> streamOfBestPathNumWithLink({
-    required int level,
-    bool onlyBestScoreLink = true,
-    bool enableToPrintMovesOnBuildingTree = false,
+    required final int level,
+    final bool onlyBestScoreLink = true,
+    final bool enableToPrintMovesOnBuildingTree = false,
   }) async* {
     final headMoves = edaxGetMoves();
     final maxDepth = headMoves.length + level * 2;
@@ -480,7 +480,7 @@ class LibEdax {
     }
   }
 
-  void _buildTree(BestPathNumNode parent, int maxDepth, bool enableToPrintMovesOnBuildingTree) {
+  void _buildTree(final BestPathNumNode parent, final int maxDepth, final bool enableToPrintMovesOnBuildingTree) {
     if (parent.value.moves.length >= maxDepth) {
       // On edge, reagard (1,1) .
       parent.value.bestPathNumOfBlack = 1;
@@ -496,7 +496,7 @@ class LibEdax {
       return;
     }
 
-    final addedNodeList = position.bestScoreLinks.map((link) {
+    final addedNodeList = position.bestScoreLinks.map((final link) {
       final move = symetryMove(link.move, moveListWithPosition.symetry);
       final node = BestPathNumNode(
         parent,

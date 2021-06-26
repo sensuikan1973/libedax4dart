@@ -155,11 +155,13 @@ void main() {
       expect(result.position.score.lower, -2);
       expect(result.position.score.upper, 2);
       expect(result.moveList.length, 4);
-      expect(result.moveList.where((move) => move.score == 0).length, 4); // all moves are +0
+      expect(result.moveList.where((final move) => move.score == 0).length, 4); // all moves are +0
       expect(result.moveList.first.moveString, 'd3'); // D3
       expect(result.moveList[1].moveString, 'c4'); // C4
-      expect(result.position.board.player,
-          34628173824); // 0000 0000 0000 0000 0000 0000 0000 1000 0001 0000 0000 0000 0000 0000 0000 0000
+      expect(
+        result.position.board.player,
+        34628173824,
+      ); // 0000 0000 0000 0000 0000 0000 0000 1000 0001 0000 0000 0000 0000 0000 0000 0000
       expect(result.position.nLink, 4);
       expect(result.position.links.length, 4);
       expect(move2String(result.position.links.first.move), 'd3');
@@ -264,8 +266,10 @@ void main() {
       expect(position.score.value, 0);
       expect(position.score.lower, -2);
       expect(position.score.upper, 2);
-      expect(position.board.player,
-          34628173824); // 0000 0000 0000 0000 0000 0000 0000 1000 0001 0000 0000 0000 0000 0000 0000 0000
+      expect(
+        position.board.player,
+        34628173824,
+      ); // 0000 0000 0000 0000 0000 0000 0000 1000 0001 0000 0000 0000 0000 0000 0000 0000
       expect(position.nLink, 4);
       expect(position.links.length, 4);
       expect(move2String(position.links.first.move), 'd3');
