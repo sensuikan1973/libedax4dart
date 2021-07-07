@@ -7,7 +7,7 @@ homepage: https://github.com/sensuikan1973/libedax4dart
 documentation: https://sensuikan1973.github.io/libedax4dart
 
 environment:
-  sdk: '>=2.13.0 <3.0.0' # See: https://dart.dev/null-safety#enable-null-safety
+  sdk: ">=2.13.0 <3.0.0" # See: https://dart.dev/null-safety#enable-null-safety
 
 dependencies:
   ffi: ^1.1.2
@@ -15,7 +15,7 @@ dependencies:
   meta: ^1.6.0
 
 dev_dependencies:
-  analyzer: ^1.7.0
+  analyzer: ^1.7.2
   coverage: ^1.0.3 # See: https://github.com/dart-lang/test/issues/1265
   pedantic_sensuikan1973: any
   test: ^1.17.9
