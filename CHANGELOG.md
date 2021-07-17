@@ -1,3 +1,7 @@
+# 1.0.0
+
+release stable version
+
 # 0.14.0-beta
 
 - upgrade dependencies
