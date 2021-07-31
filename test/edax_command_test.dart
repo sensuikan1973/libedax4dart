@@ -7,6 +7,10 @@ import 'package:test/test.dart';
 const _testBookFile = './resources/test_book.dat';
 
 void main() {
+  test('wrong dll path', () {
+    expect(() => LibEdax('foo/bar'), throwsArgumentError);
+  });
+
   test('open and close DynamicLibrary', () {
     final edax = LibEdax(); // open internally
     edax.edaxVersion(); // ignore: cascade_invocations
