@@ -280,6 +280,7 @@ void main() {
       expect(position.links[1].moveString, 'c4');
       expect(position.links[2].moveString, 'f5');
       expect(position.links[3].moveString, 'e6');
+      expect(position.links.every((final l) => l.scoreString == '0'), true);
 
       edax.edaxPlay('f5f6');
       final positionAfterF5F6Move = edax.edaxBookShow();
