@@ -89,7 +89,11 @@ class LibEdax {
   /// you can pass Lower case or Upper case. `f5F6F6g7` is OK. <br>
   /// you can also pass opening name. (e.g. `brightwell`) <br>
   /// opening names are listed on [opening.c](https://github.com/lavox/edax-reversi/blob/libedax/src/opening.c).
-  void edaxPlay(final String moves) => _bindings.edax_play(moves.toNativeUtf8().cast<Int8>());
+  void edaxPlay(final String moves) {
+    final arg = moves.toNativeUtf8().cast<Int8>();
+    _bindings.edax_play(arg);
+    calloc.free(arg);
+  }
 
   /// Let edax move.
   void edaxGo() => _bindings.edax_go();
@@ -247,7 +251,11 @@ class LibEdax {
   ///
   /// you can pass Lower case or Upper case. `f5` `F5` is OK. <br>
   /// if you want to switch turn when mobilicty count is 0, pass `MoveMark.passString`.
-  void edaxMove(final String move) => _bindings.edax_move(move.toNativeUtf8().cast<Int8>());
+  void edaxMove(final String move) {
+    final arg = move.toNativeUtf8().cast<Int8>();
+    _bindings.edax_move(arg);
+    calloc.free(arg);
+  }
 
   /// Set board from string.
   ///
@@ -257,7 +265,11 @@ class LibEdax {
   /// * EMPTY: `-`,`.`
   ///
   /// Last char is turn.
-  void edaxSetboard(final String board) => _bindings.edax_setboard(board.toNativeUtf8().cast<Int8>());
+  void edaxSetboard(final String board) {
+    final arg = board.toNativeUtf8().cast<Int8>();
+    _bindings.edax_setboard(arg);
+    calloc.free(arg);
+  }
 
   /// Get the opening name of the current game, in English.
   ///
@@ -281,7 +293,11 @@ class LibEdax {
   void edaxBookNew(final int level, final int depth) => _bindings.edax_book_new(level, depth);
 
   /// Load book.
-  void edaxBookLoad(final String bookFile) => _bindings.edax_book_load(bookFile.toNativeUtf8().cast<Int8>());
+  void edaxBookLoad(final String bookFile) {
+    final arg = bookFile.toNativeUtf8().cast<Int8>();
+    _bindings.edax_book_load(arg);
+    calloc.free(arg);
+  }
 
   /// Show book.
   ///
