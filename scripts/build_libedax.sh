@@ -5,7 +5,8 @@
 # example:
 # libedax_build_command="make libbuild ARCH=x64-modern COMP=gcc OS=osx" dst="." ./scripts/build_libedax.sh
 
-source ./scripts/fetch_libedax.sh
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+source "$SCRIPT_DIR/scripts/fetch_libedax.sh"
 
 mkdir -p data
 curl -OL https://github.com/abulmo/edax-reversi/releases/download/v4.4/eval.7z
