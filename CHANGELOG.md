@@ -1,3 +1,8 @@
+# 1.1.0
+
+Migrate from manual bindings to auto generated bindings by [ffigen](https://pub.dev/packages/ffigen).  
+See: https://github.com/sensuikan1973/libedax4dart/pull/74
+
 # 1.0.0
 
 release stable version
