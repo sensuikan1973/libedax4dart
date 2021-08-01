@@ -1,30 +1,32 @@
 import 'dart:ffi';
+import 'dart:io';
 import 'dart:math';
+
 import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
+
 import 'best_path_num_with_link.dart';
-import 'bindings/bindings.dart';
-import 'bindings/structs/board.dart' as c_board;
-import 'bindings/structs/hint.dart' as c_hint;
-import 'bindings/structs/hint_list.dart' as c_hintlist;
-import 'bindings/structs/move.dart' as c_move;
-import 'bindings/structs/move_list.dart' as c_movelist;
-import 'bindings/structs/position.dart' as c_position;
-import 'board.dart';
+import 'board.dart' as d_board;
 import 'constants.dart';
-import 'hint.dart';
-import 'link.dart';
-import 'move.dart';
+import 'ffi/bindings.dart';
+import 'ffi/dylib_utils.dart';
+import 'hint.dart' as d_hint;
+import 'link.dart' as d_link;
+import 'move.dart' as d_move;
 import 'move_list_with_position.dart';
-import 'position.dart';
-import 'score.dart';
+import 'position.dart' as d_position;
+import 'score.dart' as d_score;
 import 'util.dart';
 
 @immutable
 class LibEdax {
-  LibEdax([final String dllPath = '']) : _bindings = LibEdaxBindings(dllPath);
+  LibEdax([final String dllPath = '']) {
+    dylib = dlopenPlatformSpecific(dllPath);
+    _bindings = LibEdaxBindings(dylib);
+  }
 
-  final LibEdaxBindings _bindings;
+  late final DynamicLibrary dylib;
+  late final LibEdaxBindings _bindings;
 
   /// Initialize libedax.
   ///
@@ -37,55 +39,49 @@ class LibEdax {
   /// If you want to know more, See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
   void libedaxInitialize([final List<String> args = const []]) {
     final argsPointers = args.map((final arg) => arg.toNativeUtf8()).toList();
-    final pointerPointer = calloc<Pointer<Uint8>>(argsPointers.length);
+    final pointerPointer = calloc<Pointer<Int8>>(argsPointers.length);
     for (var k = 0; k < argsPointers.length; k++) {
-      pointerPointer[k] = argsPointers[k].cast<Uint8>();
+      pointerPointer[k] = argsPointers[k].cast<Int8>();
     }
-    _bindings.libedaxInitialize(args.length, pointerPointer);
+    _bindings.libedax_initialize(args.length, pointerPointer);
     calloc.free(pointerPointer);
   }
 
   /// Terminate libedax.
-  void libedaxTerminate() => _bindings.libedaxTerminate();
-
-  /// close dll
-  ///
-  /// After you call this, if you use edax command, you have to recreate [LibEdax] instance.
-  @experimental
-  void closeDll() => _bindings.closeDll();
+  void libedaxTerminate() => _bindings.libedax_terminate();
 
   /// Init board.
-  void edaxInit() => _bindings.edaxInit();
+  void edaxInit() => _bindings.edax_init();
 
   /// Init board based on setboard command.
-  void edaxNew() => _bindings.edaxNew();
+  void edaxNew() => _bindings.edax_new();
 
   /// Undo.
   ///
   /// If mode is 0 or 2, undo until human's turn.
-  void edaxUndo() => _bindings.edaxUndo();
+  void edaxUndo() => _bindings.edax_undo();
 
   /// Redo.
   ///
   /// If mode is 0 or 2, redo until human's turn.
-  void edaxRedo() => _bindings.edaxRedo();
+  void edaxRedo() => _bindings.edax_redo();
 
   /// Set mode.
   /// * 0: Human(B) vs  Edax(W)
   /// * 1: Edax(B)  vs  Human(W)
   /// * 2: Edax(B)  vs  Edax(W)
   /// * 3: Human(B) vs  Human(W)
-  void edaxMode(final int mode) => _bindings.edaxMode(mode);
+  void edaxMode(final int mode) => _bindings.edax_mode(mode);
 
   /// Flip vertical.
-  void edaxVmirror() => _bindings.edaxVmirror();
+  void edaxVmirror() => _bindings.edax_vmirror();
 
   /// Rotate.
   ///
   /// angle: 90 or 180 or 270.
   void edaxRotate(final int angle) {
     if (![90, 180, 270].contains(angle)) throw Exception('angle of edaxRotate supports only 90,180,270');
-    _bindings.edaxRotate(angle);
+    _bindings.edax_rotate(angle);
   }
 
   /// Play moves.
@@ -93,34 +89,34 @@ class LibEdax {
   /// you can pass Lower case or Upper case. `f5F6F6g7` is OK. <br>
   /// you can also pass opening name. (e.g. `brightwell`) <br>
   /// opening names are listed on [opening.c](https://github.com/lavox/edax-reversi/blob/libedax/src/opening.c).
-  void edaxPlay(final String moves) => _bindings.edaxPlay(moves.toNativeUtf8());
+  void edaxPlay(final String moves) => _bindings.edax_play(moves.toNativeUtf8().cast<Int8>());
 
   /// Let edax move.
-  void edaxGo() => _bindings.edaxGo();
+  void edaxGo() => _bindings.edax_go();
 
   /// Get hint.
-  List<Hint> edaxHint(final int n) {
-    final dst = calloc<c_hintlist.HintList>();
-    _bindings.edaxHint(n, dst);
+  List<d_hint.Hint> edaxHint(final int n) {
+    final dst = calloc<HintList>();
+    _bindings.edax_hint(n, dst);
     final hintList = dst.ref;
-    final result = <Hint>[];
+    final result = <d_hint.Hint>[];
     for (var k = 0; k < hintList.n_hints; k++) {
       final h = hintList.hint[k + 1];
-      result.add(Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move));
+      result.add(d_hint.Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move));
     }
     calloc.free(dst);
     return result;
   }
 
   /// Get book move list.
-  List<Move> edaxGetBookMove() {
-    final dst = calloc<c_movelist.MoveList>();
-    _bindings.edaxGetBookMove(dst);
+  List<d_move.Move> edaxGetBookMove() {
+    final dst = calloc<MoveList>();
+    _bindings.edax_get_bookmove(dst);
     final moveList = dst.ref;
-    final result = <Move>[];
+    final result = <d_move.Move>[];
     for (var k = 0; k < moveList.n_moves; k++) {
       final m = moveList.move[k + 1];
-      result.add(Move(m.flipped, m.x, m.score, m.cost));
+      result.add(d_move.Move(m.flipped, m.x, m.score, m.cost));
     }
     calloc.free(dst);
     return result;
@@ -128,27 +124,27 @@ class LibEdax {
 
   /// Get book move list with position.
   MoveListWithPosition edaxGetBookMoveWithPosition() {
-    final dstM = calloc<c_movelist.MoveList>();
-    final dstP = calloc<c_position.Position>();
-    final symetry = _bindings.edaxGetBookMoveWithPosition(dstM, dstP);
+    final dstM = calloc<MoveList>();
+    final dstP = calloc<Position>();
+    final symetry = _bindings.edax_get_bookmove_with_position(dstM, dstP);
 
     final moveList = dstM.ref;
-    final resultMoveList = <Move>[];
+    final resultMoveList = <d_move.Move>[];
     for (var k = 0; k < moveList.n_moves; k++) {
       final m = moveList.move[k + 1];
-      resultMoveList.add(Move(m.flipped, m.x, m.score, m.cost));
+      resultMoveList.add(d_move.Move(m.flipped, m.x, m.score, m.cost));
     }
     calloc.free(dstM);
 
     final pos = dstP.ref;
-    final board = Board(pos.board[0].player, pos.board[0].opponent);
-    final leaf = Link(pos.leaf.score, pos.leaf.move);
-    final links = <Link>[];
+    final board = d_board.Board(pos.board[0].player, pos.board[0].opponent);
+    final leaf = d_link.Link(pos.leaf.score, pos.leaf.move);
+    final links = <d_link.Link>[];
     for (var k = 0; k < pos.n_link; k++) {
-      links.add(Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
+      links.add(d_link.Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
     }
-    final score = Score(pos.score.value, pos.score.lower, pos.score.upper);
-    final resultPosition = Position(
+    final score = d_score.Score(pos.score.value, pos.score.lower, pos.score.upper);
+    final resultPosition = d_position.Position(
       board,
       leaf,
       links,
@@ -169,27 +165,27 @@ class LibEdax {
 
   /// Get book move list with position by specified moves.
   MoveListWithPosition edaxGetBookMoveWithPositionByMoves(final String moves) {
-    final dstM = calloc<c_movelist.MoveList>();
-    final dstP = calloc<c_position.Position>();
-    final symetry = _bindings.edaxGetBookMoveWithPositionByMoves(moves.toNativeUtf8(), dstM, dstP);
+    final dstM = calloc<MoveList>();
+    final dstP = calloc<Position>();
+    final symetry = _bindings.edax_get_bookmove_with_position_by_moves(moves.toNativeUtf8().cast<Int8>(), dstM, dstP);
 
     final moveList = dstM.ref;
-    final resultMoveList = <Move>[];
+    final resultMoveList = <d_move.Move>[];
     for (var k = 0; k < moveList.n_moves; k++) {
       final m = moveList.move[k + 1];
-      resultMoveList.add(Move(m.flipped, m.x, m.score, m.cost));
+      resultMoveList.add(d_move.Move(m.flipped, m.x, m.score, m.cost));
     }
     calloc.free(dstM);
 
     final pos = dstP.ref;
-    final board = Board(pos.board[0].player, pos.board[0].opponent);
-    final leaf = Link(pos.leaf.score, pos.leaf.move);
-    final links = <Link>[];
+    final board = d_board.Board(pos.board[0].player, pos.board[0].opponent);
+    final leaf = d_link.Link(pos.leaf.score, pos.leaf.move);
+    final links = <d_link.Link>[];
     for (var k = 0; k < pos.n_link; k++) {
-      links.add(Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
+      links.add(d_link.Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
     }
-    final score = Score(pos.score.value, pos.score.lower, pos.score.upper);
-    final resultPosition = Position(
+    final score = d_score.Score(pos.score.value, pos.score.lower, pos.score.upper);
+    final resultPosition = d_position.Position(
       board,
       leaf,
       links,
@@ -212,17 +208,17 @@ class LibEdax {
   ///
   /// __Call [edaxHintNext] after calling this function__.
   // TODO: implement exclude list if you need.
-  void edaxHintPrepare() => _bindings.edaxHintPrepare(nullptr);
+  void edaxHintPrepare() => _bindings.edax_hint_prepare(nullptr);
 
   /// Get a hint.
   ///
   /// __Call [edaxHintPrepare] before calling this function__. <br>
   /// If there are no more hints, `hint.isNoMove` will be true.
-  Hint edaxHintNext() {
-    final dst = calloc<c_hint.Hint>();
-    _bindings.edaxHintNext(dst);
+  d_hint.Hint edaxHintNext() {
+    final dst = calloc<Hint>();
+    _bindings.edax_hint_next(dst);
     final h = dst.ref;
-    final result = Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
+    final result = d_hint.Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
     calloc.free(dst);
     return result;
   }
@@ -232,26 +228,26 @@ class LibEdax {
   /// __Call [edaxHintPrepare] before calling this function__. <br>
   /// If there are no more hints, `hint.isNoMove` will be true. <br>
   /// __This function doesn't use Multi-PV search for analyze usecase. This can be faster than [edaxHintNext]__.
-  Hint edaxHintNextNoMultiPvDepth() {
-    final dst = calloc<c_hint.Hint>();
-    _bindings.edaxHintNextNoMultiPvDepth(dst);
+  d_hint.Hint edaxHintNextNoMultiPvDepth() {
+    final dst = calloc<Hint>();
+    _bindings.edax_hint_next_no_multipv_depth(dst);
     final h = dst.ref;
-    final result = Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
+    final result = d_hint.Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
     calloc.free(dst);
     return result;
   }
 
   /// Stop edax search process, and set mode 3.
-  void edaxStop() => _bindings.edaxStop();
+  void edaxStop() => _bindings.edax_stop();
 
   /// print version.
-  void edaxVersion() => _bindings.edaxVersion();
+  void edaxVersion() => _bindings.edax_version();
 
   /// Play move.
   ///
   /// you can pass Lower case or Upper case. `f5` `F5` is OK. <br>
   /// if you want to switch turn when mobilicty count is 0, pass `MoveMark.passString`.
-  void edaxMove(final String move) => _bindings.edaxMove(move.toNativeUtf8());
+  void edaxMove(final String move) => _bindings.edax_move(move.toNativeUtf8().cast<Int8>());
 
   /// Set board from string.
   ///
@@ -261,49 +257,49 @@ class LibEdax {
   /// * EMPTY: `-`,`.`
   ///
   /// Last char is turn.
-  void edaxSetboard(final String board) => _bindings.edaxSetboard(board.toNativeUtf8());
+  void edaxSetboard(final String board) => _bindings.edax_setboard(board.toNativeUtf8().cast<Int8>());
 
   /// Get the opening name of the current game, in English.
   ///
   /// e.g. `brightwell`, `tiger`, `rose`, ....
-  String edaxOpening() => _bindings.edaxOpening().toDartString();
+  String edaxOpening() => _bindings.edax_opening().toString();
 
   /// Use book on `edaxGo`, `edaxHint`, `mode 2`.<br>
   /// default is on.
-  void edaxBookOn() => _bindings.edaxBookOn();
+  void edaxBookOn() => _bindings.edax_book_on();
 
   /// Don't use book on `edaxGo`, `edaxHint`, `mode 2`.
-  void edaxBookOff() => _bindings.edaxBookOff();
+  void edaxBookOff() => _bindings.edax_book_off();
 
   /// Set randomness on `edaxGo`, `mode 2`. <br>
   /// default is 0.
   ///
   /// edax will choose move with the randomness width.
-  void edaxBookRandomness(final int randomness) => _bindings.edaxBookRandomness(randomness);
+  void edaxBookRandomness(final int randomness) => _bindings.edax_book_randomness(randomness);
 
   /// Create a new book.
-  void edaxBookNew(final int level, final int depth) => _bindings.edaxBookNew(level, depth);
+  void edaxBookNew(final int level, final int depth) => _bindings.edax_book_new(level, depth);
 
   /// Load book.
-  void edaxBookLoad(final String bookFile) => _bindings.edaxBookLoad(bookFile.toNativeUtf8());
+  void edaxBookLoad(final String bookFile) => _bindings.edax_book_load(bookFile.toNativeUtf8().cast<Int8>());
 
   /// Show book.
   ///
   /// Probably, you should use [edaxGetBookMoveWithPosition()]. <br>
   /// See: https://github.com/sensuikan1973/libedax4dart/issues/46
-  Position edaxBookShow() {
-    final dstP = calloc<c_position.Position>();
-    _bindings.edaxBookShow(dstP);
+  d_position.Position edaxBookShow() {
+    final dstP = calloc<Position>();
+    _bindings.edax_book_show(dstP);
 
     final pos = dstP.ref;
-    final board = Board(pos.board[0].player, pos.board[0].opponent);
-    final leaf = Link(pos.leaf.score, pos.leaf.move);
-    final links = <Link>[];
+    final board = d_board.Board(pos.board[0].player, pos.board[0].opponent);
+    final leaf = d_link.Link(pos.leaf.score, pos.leaf.move);
+    final links = <d_link.Link>[];
     for (var k = 0; k < pos.n_link; k++) {
-      links.add(Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
+      links.add(d_link.Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
     }
-    final score = Score(pos.score.value, pos.score.lower, pos.score.upper);
-    final result = Position(
+    final score = d_score.Score(pos.score.value, pos.score.lower, pos.score.upper);
+    final result = d_position.Position(
       board,
       leaf,
       links,
@@ -325,43 +321,43 @@ class LibEdax {
   ///
   /// See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
   void edaxSetOption(final String optionName, final String val) =>
-      _bindings.edaxSetOption(optionName.toNativeUtf8(), val.toNativeUtf8());
+      _bindings.edax_set_option(optionName.toNativeUtf8().cast<Int8>(), val.toNativeUtf8().cast<Int8>());
 
   /// Get current moves.
   String edaxGetMoves() {
     final moves = calloc<Uint8>(80 * 2 + 1);
-    final result = _bindings.edaxGetMoves(moves).toDartString();
+    final result = _bindings.edax_get_moves(moves.cast<Int8>()).toString();
     calloc.free(moves);
     return result;
   }
 
   /// Check if the current game is over.
-  bool edaxIsGameOver() => _bindings.edaxIsGameOver() == 1;
+  bool edaxIsGameOver() => _bindings.edax_is_game_over() == 1;
 
   /// Check if the current player can move.
-  bool edaxCanMove() => _bindings.edaxCanMove() == 1;
+  bool edaxCanMove() => _bindings.edax_can_move() == 1;
 
   /// Get the last move.
   ///
   /// NOTE: you have to handle the case that noMove is true.
-  Move edaxGetLastMove() {
+  d_move.Move edaxGetLastMove() {
     final moves = edaxGetMoves();
-    if (moves.isEmpty) return const Move(0, MoveMark.noMove, 0, 0);
+    if (moves.isEmpty) return const d_move.Move(0, MoveMark.noMove, 0, 0);
 
-    final dst = calloc<c_move.Move>();
-    _bindings.edaxGetLastMove(dst);
+    final dst = calloc<Move>();
+    _bindings.edax_get_last_move(dst);
     final move = dst.ref;
-    final result = Move(move.flipped, move.x, move.score, move.cost);
+    final result = d_move.Move(move.flipped, move.x, move.score, move.cost);
     calloc.free(dst);
     return result;
   }
 
   /// Get the current board.
-  Board edaxGetBoard() {
-    final dst = calloc<c_board.Board>();
-    _bindings.edaxGetBoard(dst);
+  d_board.Board edaxGetBoard() {
+    final dst = calloc<Board>();
+    _bindings.edax_get_board(dst);
     final board = dst.ref;
-    final result = Board(board.player, board.opponent);
+    final result = d_board.Board(board.player, board.opponent);
     calloc.free(dst);
     return result;
   }
@@ -369,16 +365,16 @@ class LibEdax {
   /// Get the current player.
   /// * 0: BLACK
   /// * 1: WHITE
-  int edaxGetCurrentPlayer() => _bindings.edaxGetCurrentPlayer();
+  int edaxGetCurrentPlayer() => _bindings.edax_get_current_player();
 
   /// Get the current number of discs.
-  int edaxGetDisc(final int color) => _bindings.edaxGetDisc(color);
+  int edaxGetDisc(final int color) => _bindings.edax_get_disc(color);
 
   /// Get the legal move count.
-  int edaxGetMobilityCount(final int color) => _bindings.edaxGetMobilityCount(color);
+  int edaxGetMobilityCount(final int color) => _bindings.edax_get_mobility_count(color);
 
   /// Count bit.
-  int popCount(final int bit) => _bindings.bitCount(bit);
+  int popCount(final int bit) => _bindings.bit_count(bit);
 
   /// Compute the indicator of efficiency to win, which means the minimum number you should memorize on the situation both of players always choose one of the best move list.
   ///
@@ -520,4 +516,21 @@ class LibEdax {
       }
     }
   }
+
+  /// close dll
+  ///
+  /// FIXME: this is workaround Function.
+  /// See: https://github.com/dart-lang/sdk/issues/40159
+  ///
+  /// After you call this, if you use edax command, you have to recreate [LibEdax] instance.
+  @experimental
+  void closeDll() => _dlCloseFunc(dylib.handle);
+
+  int Function(Pointer<Void>) get _dlCloseFunc {
+    final funcName = Platform.isWindows ? 'FreeLibrary' : 'dlclose';
+    return _stdlib.lookup<NativeFunction<Int32 Function(Pointer<Void>)>>(funcName).asFunction();
+  }
+
+  // See: https://github.com/dart-lang/ffi/blob/f3346299c55669cc0db48afae85b8110088bf8da/lib/src/allocation.dart#L8-L11
+  DynamicLibrary get _stdlib => Platform.isWindows ? DynamicLibrary.open('kernel32.dll') : DynamicLibrary.process();
 }
