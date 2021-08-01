@@ -84,7 +84,7 @@ libedax_build_command="make libbuild ARCH=x64-modern COMP=gcc OS=osx" dst="." ./
 #### generate bindings
 
 ```sh
-./scripts/fetch_libedax.sh
+# Before this, you must run build_libedax.sh
 pub run ffigen --config ffigen.yaml --verbose severe
 ```
 
