@@ -8,7 +8,7 @@ import 'package:meta/meta.dart';
 import 'best_path_num_with_link.dart';
 import 'board.dart' as d_board;
 import 'constants.dart';
-import 'ffi/bindings.dart';
+import 'ffi/bindings.dart' as bindings;
 import 'ffi/dylib_utils.dart';
 import 'hint.dart' as d_hint;
 import 'link.dart' as d_link;
@@ -22,11 +22,11 @@ import 'util.dart';
 class LibEdax {
   LibEdax([final String dllPath = '']) {
     dylib = dlopenPlatformSpecific(dllPath);
-    _bindings = LibEdaxBindings(dylib);
+    _bindings = bindings.LibEdaxBindings(dylib);
   }
 
   late final DynamicLibrary dylib;
-  late final LibEdaxBindings _bindings;
+  late final bindings.LibEdaxBindings _bindings;
 
   /// Initialize libedax.
   ///
@@ -96,7 +96,7 @@ class LibEdax {
 
   /// Get hint.
   List<d_hint.Hint> edaxHint(final int n) {
-    final dst = calloc<HintList>();
+    final dst = calloc<bindings.HintList>();
     _bindings.edax_hint(n, dst);
     final hintList = dst.ref;
     final result = <d_hint.Hint>[];
@@ -110,7 +110,7 @@ class LibEdax {
 
   /// Get book move list.
   List<d_move.Move> edaxGetBookMove() {
-    final dst = calloc<MoveList>();
+    final dst = calloc<bindings.MoveList>();
     _bindings.edax_get_bookmove(dst);
     final moveList = dst.ref;
     final result = <d_move.Move>[];
@@ -124,8 +124,8 @@ class LibEdax {
 
   /// Get book move list with position.
   MoveListWithPosition edaxGetBookMoveWithPosition() {
-    final dstM = calloc<MoveList>();
-    final dstP = calloc<Position>();
+    final dstM = calloc<bindings.MoveList>();
+    final dstP = calloc<bindings.Position>();
     final symetry = _bindings.edax_get_bookmove_with_position(dstM, dstP);
 
     final moveList = dstM.ref;
@@ -165,8 +165,8 @@ class LibEdax {
 
   /// Get book move list with position by specified moves.
   MoveListWithPosition edaxGetBookMoveWithPositionByMoves(final String moves) {
-    final dstM = calloc<MoveList>();
-    final dstP = calloc<Position>();
+    final dstM = calloc<bindings.MoveList>();
+    final dstP = calloc<bindings.Position>();
     final symetry = _bindings.edax_get_bookmove_with_position_by_moves(moves.toNativeUtf8().cast<Int8>(), dstM, dstP);
 
     final moveList = dstM.ref;
@@ -215,7 +215,7 @@ class LibEdax {
   /// __Call [edaxHintPrepare] before calling this function__. <br>
   /// If there are no more hints, `hint.isNoMove` will be true.
   d_hint.Hint edaxHintNext() {
-    final dst = calloc<Hint>();
+    final dst = calloc<bindings.Hint>();
     _bindings.edax_hint_next(dst);
     final h = dst.ref;
     final result = d_hint.Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
@@ -229,7 +229,7 @@ class LibEdax {
   /// If there are no more hints, `hint.isNoMove` will be true. <br>
   /// __This function doesn't use Multi-PV search for analyze usecase. This can be faster than [edaxHintNext]__.
   d_hint.Hint edaxHintNextNoMultiPvDepth() {
-    final dst = calloc<Hint>();
+    final dst = calloc<bindings.Hint>();
     _bindings.edax_hint_next_no_multipv_depth(dst);
     final h = dst.ref;
     final result = d_hint.Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
@@ -288,7 +288,7 @@ class LibEdax {
   /// Probably, you should use [edaxGetBookMoveWithPosition()]. <br>
   /// See: https://github.com/sensuikan1973/libedax4dart/issues/46
   d_position.Position edaxBookShow() {
-    final dstP = calloc<Position>();
+    final dstP = calloc<bindings.Position>();
     _bindings.edax_book_show(dstP);
 
     final pos = dstP.ref;
@@ -344,7 +344,7 @@ class LibEdax {
     final moves = edaxGetMoves();
     if (moves.isEmpty) return const d_move.Move(0, MoveMark.noMove, 0, 0);
 
-    final dst = calloc<Move>();
+    final dst = calloc<bindings.Move>();
     _bindings.edax_get_last_move(dst);
     final move = dst.ref;
     final result = d_move.Move(move.flipped, move.x, move.score, move.cost);
@@ -354,7 +354,7 @@ class LibEdax {
 
   /// Get the current board.
   d_board.Board edaxGetBoard() {
-    final dst = calloc<Board>();
+    final dst = calloc<bindings.Board>();
     _bindings.edax_get_board(dst);
     final board = dst.ref;
     final result = d_board.Board(board.player, board.opponent);
