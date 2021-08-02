@@ -163,7 +163,9 @@ class LibEdax {
   api.MoveListWithPosition edaxGetBookMoveWithPositionByMoves(final String moves) {
     final dstM = calloc<bindings.MoveList>();
     final dstP = calloc<bindings.Position>();
-    final symetry = _bindings.edax_get_bookmove_with_position_by_moves(moves.toNativeUtf8().cast<Int8>(), dstM, dstP);
+    final movesArg = moves.toNativeUtf8().cast<Int8>();
+    final symetry = _bindings.edax_get_bookmove_with_position_by_moves(movesArg, dstM, dstP);
+    calloc.free(movesArg);
 
     final moveList = dstM.ref;
     final resultMoveList = <api.Move>[];
@@ -328,8 +330,14 @@ class LibEdax {
   /// Set option.
   ///
   /// See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
-  void edaxSetOption(final String optionName, final String val) =>
-      _bindings.edax_set_option(optionName.toNativeUtf8().cast<Int8>(), val.toNativeUtf8().cast<Int8>());
+  void edaxSetOption(final String optionName, final String val) {
+    final optionNameArg = optionName.toNativeUtf8().cast<Int8>();
+    final valArg = optionName.toNativeUtf8().cast<Int8>();
+    _bindings.edax_set_option(optionNameArg, valArg);
+    calloc
+      ..free(optionNameArg)
+      ..free(valArg);
+  }
 
   /// Get current moves.
   String edaxGetMoves() {
