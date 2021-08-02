@@ -50,7 +50,7 @@ class BestPathNumNode {
 
   /// Export the [dot file](http://www.graphviz.org/doc/info/lang.html) of [GrapViz](http://www.graphviz.org/) as this node is regarded as root.
   String exportGraphvizDotFile() {
-    final gviz = Gviz()..addNode(value.moves, properties: _graphvizNodeProperties(this)); // regarde myself root.
+    final gviz = Gviz()..addNode(value.moves, properties: _graphvizNodeProperties(this)); // regard myself root.
     _buildGraphviz(this, gviz);
     return gviz.toString();
   }
