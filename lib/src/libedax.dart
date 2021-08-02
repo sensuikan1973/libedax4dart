@@ -5,18 +5,10 @@ import 'dart:math';
 import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
 
-import 'best_path_num_with_link.dart';
-import 'board.dart' as d_board;
-import 'constants.dart';
+import 'api/api.dart' as api;
+import 'api/util.dart';
 import 'ffi/bindings.dart' as bindings;
 import 'ffi/dylib_utils.dart';
-import 'hint.dart' as d_hint;
-import 'link.dart' as d_link;
-import 'move.dart' as d_move;
-import 'move_list_with_position.dart';
-import 'position.dart' as d_position;
-import 'score.dart' as d_score;
-import 'util.dart';
 
 @immutable
 class LibEdax {
@@ -99,56 +91,56 @@ class LibEdax {
   void edaxGo() => _bindings.edax_go();
 
   /// Get hint.
-  List<d_hint.Hint> edaxHint(final int n) {
+  List<api.Hint> edaxHint(final int n) {
     final dst = calloc<bindings.HintList>();
     _bindings.edax_hint(n, dst);
     final hintList = dst.ref;
-    final result = <d_hint.Hint>[];
+    final result = <api.Hint>[];
     for (var k = 0; k < hintList.n_hints; k++) {
       final h = hintList.hint[k + 1];
-      result.add(d_hint.Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move));
+      result.add(api.Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move));
     }
     calloc.free(dst);
     return result;
   }
 
   /// Get book move list.
-  List<d_move.Move> edaxGetBookMove() {
+  List<api.Move> edaxGetBookMove() {
     final dst = calloc<bindings.MoveList>();
     _bindings.edax_get_bookmove(dst);
     final moveList = dst.ref;
-    final result = <d_move.Move>[];
+    final result = <api.Move>[];
     for (var k = 0; k < moveList.n_moves; k++) {
       final m = moveList.move[k + 1];
-      result.add(d_move.Move(m.flipped, m.x, m.score, m.cost));
+      result.add(api.Move(m.flipped, m.x, m.score, m.cost));
     }
     calloc.free(dst);
     return result;
   }
 
   /// Get book move list with position.
-  MoveListWithPosition edaxGetBookMoveWithPosition() {
+  api.MoveListWithPosition edaxGetBookMoveWithPosition() {
     final dstM = calloc<bindings.MoveList>();
     final dstP = calloc<bindings.Position>();
     final symetry = _bindings.edax_get_bookmove_with_position(dstM, dstP);
 
     final moveList = dstM.ref;
-    final resultMoveList = <d_move.Move>[];
+    final resultMoveList = <api.Move>[];
     for (var k = 0; k < moveList.n_moves; k++) {
       final m = moveList.move[k + 1];
-      resultMoveList.add(d_move.Move(m.flipped, m.x, m.score, m.cost));
+      resultMoveList.add(api.Move(m.flipped, m.x, m.score, m.cost));
     }
     calloc.free(dstM);
 
     final pos = dstP.ref;
-    final board = d_board.Board(pos.board[0].player, pos.board[0].opponent);
-    final leaf = d_link.Link(pos.leaf.score, pos.leaf.move);
-    final links = <d_link.Link>[];
+    final board = api.Board(pos.board[0].player, pos.board[0].opponent);
+    final leaf = api.Link(pos.leaf.score, pos.leaf.move);
+    final links = <api.Link>[];
     for (var k = 0; k < pos.n_link; k++) {
-      links.add(d_link.Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
+      links.add(api.Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
     }
-    final score = d_score.Score(pos.score.value, pos.score.lower, pos.score.upper);
-    final resultPosition = d_position.Position(
+    final score = api.Score(pos.score.value, pos.score.lower, pos.score.upper);
+    final resultPosition = api.Position(
       board,
       leaf,
       links,
@@ -164,32 +156,32 @@ class LibEdax {
     );
     calloc.free(dstP);
 
-    return MoveListWithPosition(resultMoveList, resultPosition, symetry);
+    return api.MoveListWithPosition(resultMoveList, resultPosition, symetry);
   }
 
   /// Get book move list with position by specified moves.
-  MoveListWithPosition edaxGetBookMoveWithPositionByMoves(final String moves) {
+  api.MoveListWithPosition edaxGetBookMoveWithPositionByMoves(final String moves) {
     final dstM = calloc<bindings.MoveList>();
     final dstP = calloc<bindings.Position>();
     final symetry = _bindings.edax_get_bookmove_with_position_by_moves(moves.toNativeUtf8().cast<Int8>(), dstM, dstP);
 
     final moveList = dstM.ref;
-    final resultMoveList = <d_move.Move>[];
+    final resultMoveList = <api.Move>[];
     for (var k = 0; k < moveList.n_moves; k++) {
       final m = moveList.move[k + 1];
-      resultMoveList.add(d_move.Move(m.flipped, m.x, m.score, m.cost));
+      resultMoveList.add(api.Move(m.flipped, m.x, m.score, m.cost));
     }
     calloc.free(dstM);
 
     final pos = dstP.ref;
-    final board = d_board.Board(pos.board[0].player, pos.board[0].opponent);
-    final leaf = d_link.Link(pos.leaf.score, pos.leaf.move);
-    final links = <d_link.Link>[];
+    final board = api.Board(pos.board[0].player, pos.board[0].opponent);
+    final leaf = api.Link(pos.leaf.score, pos.leaf.move);
+    final links = <api.Link>[];
     for (var k = 0; k < pos.n_link; k++) {
-      links.add(d_link.Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
+      links.add(api.Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
     }
-    final score = d_score.Score(pos.score.value, pos.score.lower, pos.score.upper);
-    final resultPosition = d_position.Position(
+    final score = api.Score(pos.score.value, pos.score.lower, pos.score.upper);
+    final resultPosition = api.Position(
       board,
       leaf,
       links,
@@ -205,7 +197,7 @@ class LibEdax {
     );
     calloc.free(dstP);
 
-    return MoveListWithPosition(resultMoveList, resultPosition, symetry);
+    return api.MoveListWithPosition(resultMoveList, resultPosition, symetry);
   }
 
   /// Prepare to get hint.
@@ -218,11 +210,11 @@ class LibEdax {
   ///
   /// __Call [edaxHintPrepare] before calling this function__. <br>
   /// If there are no more hints, `hint.isNoMove` will be true.
-  d_hint.Hint edaxHintNext() {
+  api.Hint edaxHintNext() {
     final dst = calloc<bindings.Hint>();
     _bindings.edax_hint_next(dst);
     final h = dst.ref;
-    final result = d_hint.Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
+    final result = api.Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
     calloc.free(dst);
     return result;
   }
@@ -232,11 +224,11 @@ class LibEdax {
   /// __Call [edaxHintPrepare] before calling this function__. <br>
   /// If there are no more hints, `hint.isNoMove` will be true. <br>
   /// __This function doesn't use Multi-PV search for analyze usecase. This can be faster than [edaxHintNext]__.
-  d_hint.Hint edaxHintNextNoMultiPvDepth() {
+  api.Hint edaxHintNextNoMultiPvDepth() {
     final dst = calloc<bindings.Hint>();
     _bindings.edax_hint_next_no_multipv_depth(dst);
     final h = dst.ref;
-    final result = d_hint.Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
+    final result = api.Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
     calloc.free(dst);
     return result;
   }
@@ -250,7 +242,7 @@ class LibEdax {
   /// Play move.
   ///
   /// you can pass Lower case or Upper case. `f5` `F5` is OK. <br>
-  /// if you want to switch turn when mobilicty count is 0, pass `MoveMark.passString`.
+  /// if you want to switch turn when mobilicty count is 0, pass `api.MoveMark.passString`.
   void edaxMove(final String move) {
     final arg = move.toNativeUtf8().cast<Int8>();
     _bindings.edax_move(arg);
@@ -303,19 +295,19 @@ class LibEdax {
   ///
   /// Probably, you should use [edaxGetBookMoveWithPosition()]. <br>
   /// See: https://github.com/sensuikan1973/libedax4dart/issues/46
-  d_position.Position edaxBookShow() {
+  api.Position edaxBookShow() {
     final dstP = calloc<bindings.Position>();
     _bindings.edax_book_show(dstP);
 
     final pos = dstP.ref;
-    final board = d_board.Board(pos.board[0].player, pos.board[0].opponent);
-    final leaf = d_link.Link(pos.leaf.score, pos.leaf.move);
-    final links = <d_link.Link>[];
+    final board = api.Board(pos.board[0].player, pos.board[0].opponent);
+    final leaf = api.Link(pos.leaf.score, pos.leaf.move);
+    final links = <api.Link>[];
     for (var k = 0; k < pos.n_link; k++) {
-      links.add(d_link.Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
+      links.add(api.Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
     }
-    final score = d_score.Score(pos.score.value, pos.score.lower, pos.score.upper);
-    final result = d_position.Position(
+    final score = api.Score(pos.score.value, pos.score.lower, pos.score.upper);
+    final result = api.Position(
       board,
       leaf,
       links,
@@ -356,24 +348,24 @@ class LibEdax {
   /// Get the last move.
   ///
   /// NOTE: you have to handle the case that noMove is true.
-  d_move.Move edaxGetLastMove() {
+  api.Move edaxGetLastMove() {
     final moves = edaxGetMoves();
-    if (moves.isEmpty) return const d_move.Move(0, MoveMark.noMove, 0, 0);
+    if (moves.isEmpty) return const api.Move(0, api.MoveMark.noMove, 0, 0);
 
     final dst = calloc<bindings.Move>();
     _bindings.edax_get_last_move(dst);
     final move = dst.ref;
-    final result = d_move.Move(move.flipped, move.x, move.score, move.cost);
+    final result = api.Move(move.flipped, move.x, move.score, move.cost);
     calloc.free(dst);
     return result;
   }
 
   /// Get the current board.
-  d_board.Board edaxGetBoard() {
+  api.Board edaxGetBoard() {
     final dst = calloc<bindings.Board>();
     _bindings.edax_get_board(dst);
     final board = dst.ref;
-    final result = d_board.Board(board.player, board.opponent);
+    final result = api.Board(board.player, board.opponent);
     calloc.free(dst);
     return result;
   }
@@ -420,7 +412,7 @@ class LibEdax {
   ///
   /// REF: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/book.c#L2438-L2447
   @experimental
-  List<BestPathNumWithLink> computeBestPathNumWithLink({
+  List<api.BestPathNumWithLink> computeBestPathNumWithLink({
     required final int level,
     final bool onlyBestScoreLink = true,
     final bool enableToPrintMovesOnBuildingTree = false,
@@ -436,15 +428,15 @@ class LibEdax {
 
     return targetRootLinks.map((final link) {
       final move = symetryMove(link.move, moveListWithPosition.symetry);
-      final root = BestPathNumNode(
+      final root = api.BestPathNumNode(
         null,
-        BestPathNumNodeValue(
+        api.BestPathNumNodeValue(
           headMoves + move2String(move),
-          headColor == TurnColor.black ? TurnColor.white : TurnColor.black,
+          headColor == api.TurnColor.black ? api.TurnColor.white : api.TurnColor.black,
         ),
       );
       _buildTree(root, maxDepth, enableToPrintMovesOnBuildingTree);
-      return BestPathNumWithLink(
+      return api.BestPathNumWithLink(
         root.value.bestPathNumOfBlack,
         root.value.bestPathNumOfWhite,
         link,
@@ -458,7 +450,7 @@ class LibEdax {
   ///
   /// you can get BestPathNumWithLink one by one.
   @experimental
-  Stream<BestPathNumWithLink> streamOfBestPathNumWithLink({
+  Stream<api.BestPathNumWithLink> streamOfBestPathNumWithLink({
     required final int level,
     final bool onlyBestScoreLink = true,
     final bool enableToPrintMovesOnBuildingTree = false,
@@ -474,15 +466,15 @@ class LibEdax {
 
     for (final link in targetRootLinks) {
       final move = symetryMove(link.move, moveListWithPosition.symetry);
-      final root = BestPathNumNode(
+      final root = api.BestPathNumNode(
         null,
-        BestPathNumNodeValue(
+        api.BestPathNumNodeValue(
           headMoves + move2String(move),
-          headColor == TurnColor.black ? TurnColor.white : TurnColor.black,
+          headColor == api.TurnColor.black ? api.TurnColor.white : api.TurnColor.black,
         ),
       );
       _buildTree(root, maxDepth, enableToPrintMovesOnBuildingTree);
-      yield BestPathNumWithLink(
+      yield api.BestPathNumWithLink(
         root.value.bestPathNumOfBlack,
         root.value.bestPathNumOfWhite,
         link,
@@ -492,7 +484,7 @@ class LibEdax {
     }
   }
 
-  void _buildTree(final BestPathNumNode parent, final int maxDepth, final bool enableToPrintMovesOnBuildingTree) {
+  void _buildTree(final api.BestPathNumNode parent, final int maxDepth, final bool enableToPrintMovesOnBuildingTree) {
     if (parent.value.moves.length >= maxDepth) {
       // On edge, reagard (1,1) .
       parent.value.bestPathNumOfBlack = 1;
@@ -510,11 +502,11 @@ class LibEdax {
 
     final addedNodeList = position.bestScoreLinks.map((final link) {
       final move = symetryMove(link.move, moveListWithPosition.symetry);
-      final node = BestPathNumNode(
+      final node = api.BestPathNumNode(
         parent,
-        BestPathNumNodeValue(
+        api.BestPathNumNodeValue(
           parent.value.moves + move2String(move),
-          parent.value.currentColor == TurnColor.black ? TurnColor.white : TurnColor.black,
+          parent.value.currentColor == api.TurnColor.black ? api.TurnColor.white : api.TurnColor.black,
         ),
       );
       if (enableToPrintMovesOnBuildingTree) print(node.value.moves); // ignore: avoid_print
@@ -523,7 +515,7 @@ class LibEdax {
     });
     for (final addedNode in addedNodeList) {
       parent.children.add(addedNode);
-      if (parent.value.currentColor == TurnColor.black) {
+      if (parent.value.currentColor == api.TurnColor.black) {
         parent.value.bestPathNumOfWhite += addedNode.value.bestPathNumOfWhite;
         parent.value.bestPathNumOfBlack = min(parent.value.bestPathNumOfBlack, addedNode.value.bestPathNumOfBlack);
       } else {
