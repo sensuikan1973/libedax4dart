@@ -75,7 +75,11 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void edaxSetboard(final String board) =&gt; _bindings.edaxSetboard(board.toNativeUtf8());</code></pre>
+  <pre class="language-dart"><code class="language-dart">void edaxSetboard(final String board) {
+  final arg = board.toNativeUtf8();
+  _bindings.edaxSetboard(arg);
+  calloc.free(arg);
+}</code></pre>
 </section>
 
 

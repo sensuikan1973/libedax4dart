@@ -70,8 +70,14 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void edaxSetOption(final String optionName, final String val) =&gt;
-    _bindings.edaxSetOption(optionName.toNativeUtf8(), val.toNativeUtf8());</code></pre>
+  <pre class="language-dart"><code class="language-dart">void edaxSetOption(final String optionName, final String val) {
+  final optionNameArg = optionName.toNativeUtf8();
+  final valArg = optionName.toNativeUtf8();
+  _bindings.edaxSetOption(optionNameArg, valArg);
+  calloc
+    ..free(optionNameArg)
+    ..free(valArg);
+}</code></pre>
 </section>
 
 

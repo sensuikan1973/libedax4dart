@@ -68,7 +68,11 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void edaxBookLoad(final String bookFile) =&gt; _bindings.edaxBookLoad(bookFile.toNativeUtf8());</code></pre>
+  <pre class="language-dart"><code class="language-dart">void edaxBookLoad(final String bookFile) {
+  final arg = bookFile.toNativeUtf8();
+  _bindings.edaxBookLoad(arg);
+  calloc.free(arg);
+}</code></pre>
 </section>
 
 
