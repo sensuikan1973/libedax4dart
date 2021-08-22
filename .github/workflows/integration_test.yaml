@@ -23,7 +23,7 @@ jobs:
           - os: windows-2019
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=windows
             libedax_bin: libedax-x64.dll
-          - os: macos-10.15
+          - os: macos-11
             libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=osx
             libedax_bin: libedax.dylib
     steps:
