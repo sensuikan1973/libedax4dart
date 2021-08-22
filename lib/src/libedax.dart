@@ -93,7 +93,11 @@ class LibEdax {
   /// you can pass Lower case or Upper case. `f5F6F6g7` is OK. <br>
   /// you can also pass opening name. (e.g. `brightwell`) <br>
   /// opening names are listed on [opening.c](https://github.com/lavox/edax-reversi/blob/libedax/src/opening.c).
-  void edaxPlay(final String moves) => _bindings.edaxPlay(moves.toNativeUtf8());
+  void edaxPlay(final String moves) {
+    final arg = moves.toNativeUtf8();
+    _bindings.edaxPlay(arg);
+    calloc.free(arg);
+  }
 
   /// Let edax move.
   void edaxGo() => _bindings.edaxGo();
@@ -251,7 +255,11 @@ class LibEdax {
   ///
   /// you can pass Lower case or Upper case. `f5` `F5` is OK. <br>
   /// if you want to switch turn when mobilicty count is 0, pass `MoveMark.passString`.
-  void edaxMove(final String move) => _bindings.edaxMove(move.toNativeUtf8());
+  void edaxMove(final String move) {
+    final arg = move.toNativeUtf8();
+    _bindings.edaxMove(arg);
+    calloc.free(arg);
+  }
 
   /// Set board from string.
   ///
@@ -261,7 +269,11 @@ class LibEdax {
   /// * EMPTY: `-`,`.`
   ///
   /// Last char is turn.
-  void edaxSetboard(final String board) => _bindings.edaxSetboard(board.toNativeUtf8());
+  void edaxSetboard(final String board) {
+    final arg = board.toNativeUtf8();
+    _bindings.edaxSetboard(arg);
+    calloc.free(arg);
+  }
 
   /// Get the opening name of the current game, in English.
   ///
@@ -285,7 +297,11 @@ class LibEdax {
   void edaxBookNew(final int level, final int depth) => _bindings.edaxBookNew(level, depth);
 
   /// Load book.
-  void edaxBookLoad(final String bookFile) => _bindings.edaxBookLoad(bookFile.toNativeUtf8());
+  void edaxBookLoad(final String bookFile) {
+    final arg = bookFile.toNativeUtf8();
+    _bindings.edaxBookLoad(arg);
+    calloc.free(arg);
+  }
 
   /// Show book.
   ///
@@ -324,8 +340,14 @@ class LibEdax {
   /// Set option.
   ///
   /// See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
-  void edaxSetOption(final String optionName, final String val) =>
-      _bindings.edaxSetOption(optionName.toNativeUtf8(), val.toNativeUtf8());
+  void edaxSetOption(final String optionName, final String val) {
+    final optionNameArg = optionName.toNativeUtf8();
+    final valArg = optionName.toNativeUtf8();
+    _bindings.edaxSetOption(optionNameArg, valArg);
+    calloc
+      ..free(optionNameArg)
+      ..free(valArg);
+  }
 
   /// Get current moves.
   String edaxGetMoves() {
