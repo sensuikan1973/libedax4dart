@@ -13,7 +13,7 @@ jobs:
     timeout-minutes: 10
     strategy:
       matrix:
-        os: [ubuntu-20.04, windows-2019, macos-10.15]
+        os: [ubuntu-20.04, windows-2019, macos-11]
         include:
           - os: ubuntu-20.04
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=linux
