@@ -1,3 +1,8 @@
+# 1.1.0
+
+- fix memory leak
+- upgrade dependencies
+
 # 1.0.0
 
 release stable version
