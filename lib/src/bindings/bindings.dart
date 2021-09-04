@@ -63,6 +63,9 @@ class LibEdaxBindings {
 
   late final int Function(int bit) bitCount;
 
+  late final int Function(Pointer<Board> board, Pointer<Position> position) edax_book_count_bestpath;
+  late final int Function() edax_book_stop_count_bestpath;
+
   void _bindFunctions() {
     libedaxInitialize = _lookupNativeFunc<libedax_initialize_native_t>('libedax_initialize').asFunction();
     libedaxTerminate = _lookupNativeFunc<libedax_terminate_native_t>('libedax_terminate').asFunction();
@@ -108,6 +111,11 @@ class LibEdaxBindings {
     edaxGetMobilityCount = _lookupNativeFunc<edax_get_mobility_count_native_t>('edax_get_mobility_count').asFunction();
 
     bitCount = _lookupNativeFunc<bit_count_native_t>('bit_count').asFunction();
+
+    edax_book_count_bestpath =
+        _lookupNativeFunc<edax_book_count_bestpath_native_t>('edax_book_count_bestpath').asFunction();
+    edax_book_stop_count_bestpath =
+        _lookupNativeFunc<edax_book_stop_count_bestpath_native_t>('edax_book_stop_count_bestpath').asFunction();
   }
 
   /// workaround Function.
