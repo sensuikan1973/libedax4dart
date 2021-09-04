@@ -1,3 +1,7 @@
+# 1.2.0
+
+- upgrade libedax
+
 # 1.1.0
 
 - fix memory leak
