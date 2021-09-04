@@ -109,7 +109,7 @@ class LibEdax {
     final result = <Hint>[];
     for (var k = 0; k < hintList.n_hints; k++) {
       final h = hintList.hint[k + 1];
-      result.add(Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move));
+      result.add(Hint.fromCStruct(h));
     }
     calloc.free(dst);
     return result;
@@ -182,10 +182,9 @@ class LibEdax {
   Hint edaxHintNext() {
     final dst = calloc<c_hint.Hint>();
     _bindings.edaxHintNext(dst);
-    final h = dst.ref;
-    final result = Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
+    final hint = Hint.fromCStruct(dst.ref);
     calloc.free(dst);
-    return result;
+    return hint;
   }
 
   /// Get a hint.
@@ -196,10 +195,9 @@ class LibEdax {
   Hint edaxHintNextNoMultiPvDepth() {
     final dst = calloc<c_hint.Hint>();
     _bindings.edaxHintNextNoMultiPvDepth(dst);
-    final h = dst.ref;
-    final result = Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
+    final hint = Hint.fromCStruct(dst.ref);
     calloc.free(dst);
-    return result;
+    return hint;
   }
 
   /// Stop edax search process, and set mode 3.
