@@ -123,7 +123,7 @@ class LibEdax {
     final result = <Move>[];
     for (var k = 0; k < moveList.n_moves; k++) {
       final m = moveList.move[k + 1];
-      result.add(Move(m.flipped, m.x, m.score, m.cost));
+      result.add(Move.fromCStruct(m));
     }
     calloc.free(dst);
     return result;
@@ -139,7 +139,7 @@ class LibEdax {
     final resultMoveList = <Move>[];
     for (var k = 0; k < moveList.n_moves; k++) {
       final m = moveList.move[k + 1];
-      resultMoveList.add(Move(m.flipped, m.x, m.score, m.cost));
+      resultMoveList.add(Move.fromCStruct(m));
     }
     calloc.free(dstM);
 
@@ -159,7 +159,7 @@ class LibEdax {
     final resultMoveList = <Move>[];
     for (var k = 0; k < moveList.n_moves; k++) {
       final m = moveList.move[k + 1];
-      resultMoveList.add(Move(m.flipped, m.x, m.score, m.cost));
+      resultMoveList.add(Move.fromCStruct(m));
     }
     calloc.free(dstM);
 
@@ -305,10 +305,9 @@ class LibEdax {
 
     final dst = calloc<c_move.Move>();
     _bindings.edaxGetLastMove(dst);
-    final move = dst.ref;
-    final result = Move(move.flipped, move.x, move.score, move.cost);
+    final move = Move.fromCStruct(dst.ref);
     calloc.free(dst);
-    return result;
+    return move;
   }
 
   /// Get the current board.

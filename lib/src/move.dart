@@ -1,10 +1,20 @@
 import 'package:meta/meta.dart';
+
+import 'bindings/structs/move.dart' as c_move;
+
 import 'constants.dart';
 import 'util.dart';
 
 @immutable
 class Move {
   const Move(this.flipped, this.x, this.score, this.cost);
+
+  /// initialize from C struct
+  Move.fromCStruct(final c_move.Move cMove)
+      : flipped = cMove.flipped,
+        x = cMove.x,
+        score = cMove.score,
+        cost = cMove.cost;
 
   /// player's bitboard.
   final int flipped;
