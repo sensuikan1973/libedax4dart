@@ -1,4 +1,7 @@
 import 'package:meta/meta.dart';
+
+import 'bindings/structs/hint.dart' as c_hint;
+
 import 'constants.dart';
 import 'util.dart';
 
@@ -13,6 +16,16 @@ class Hint {
     this.lower,
     this.bookMove,
   );
+
+  /// initialize from C struct
+  Hint.fromCStruct(final c_hint.Hint cHint)
+      : depth = cHint.depth,
+        selectivity = cHint.selectivity,
+        move = cHint.move,
+        score = cHint.score,
+        upper = cHint.upper,
+        lower = cHint.lower,
+        bookMove = cHint.book_move;
 
   /// searched depth(except book moves).
   final int depth;

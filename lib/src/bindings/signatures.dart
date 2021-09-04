@@ -104,3 +104,6 @@ typedef bit_count_native_t = Int32 Function(Uint64 b);
 
 // typedef get_moves_native_t = Int32 Function(Uint64 p, Uint64 o); // TODO: implement if you need
 // typedef can_move_native_t = bool Function(Uint64 p, Uint64 o); // TODO: implement if you need
+
+typedef edax_book_count_bestpath_native_t = Int32 Function(Pointer<Board> board, Pointer<Position> position);
+typedef edax_book_stop_count_bestpath_native_t = Int32 Function();

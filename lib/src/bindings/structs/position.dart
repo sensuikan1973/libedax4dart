@@ -51,6 +51,14 @@ class Position extends Struct {
   /// todo flag
   @Uint8()
   external int todo;
+
+  /// bestpath count of player
+  @Uint16()
+  external int n_player_bestpaths;
+
+  /// bestpath count of opponent
+  @Uint16()
+  external int n_opponent_bestpaths;
 }
 
 class _Score extends Struct {

@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use_from_same_package
+
 import 'dart:io';
 
 import 'package:libedax4dart/libedax4dart.dart';
@@ -287,80 +289,101 @@ void main() {
       expect(positionAfterF5F6Move.nLink, 1);
       expect(positionAfterF5F6Move.links.length, 1);
       expect(positionAfterF5F6Move.links.first.moveString, 'c4');
-
       edax.libedaxTerminate();
     });
 
-    group('computeBestPathNumWithLink', () {
-      test('with no moves', () {
-        const initParams = ['', '-book-file', _testBookFile];
-        final edax = LibEdax()..libedaxInitialize(initParams);
-        sleep(const Duration(seconds: 1));
-        edax.edaxInit();
-        final bestPathNumWithLink = edax.computeBestPathNumWithLink(level: 40);
-        expect(bestPathNumWithLink.isEmpty, true);
-        edax.libedaxTerminate();
-      });
+    test('book count bestpath', () {
+      const initParams = ['', '-book-file', _testBookFile];
+      final edax = LibEdax()..libedaxInitialize(initParams);
+      sleep(const Duration(seconds: 1));
+      edax
+        ..edaxInit()
+        ..edaxMove('f5');
+      final bestpathResult = edax.edaxBookCountBestpath();
+      expect(bestpathResult.position.nPlayerBestpaths, 1);
+      expect(bestpathResult.position.nOpponentBestpaths, 1);
 
-      test('with moves f5f6', () {
-        const initParams = ['', '-book-file', _testBookFile];
-        final edax = LibEdax()..libedaxInitialize(initParams);
-        sleep(const Duration(seconds: 1));
-        edax
-          ..edaxInit()
-          ..edaxPlay('f5f6');
-        final bestPathNumWithLink = edax.computeBestPathNumWithLink(level: 40);
-        expect(bestPathNumWithLink.length, 1);
-        expect(bestPathNumWithLink.first.moveString, 'e6');
-        expect(bestPathNumWithLink.first.bestPathNumOfBlack, 2);
-        expect(bestPathNumWithLink.first.bestPathNumOfWhite, 1);
-        edax.libedaxTerminate();
-      });
-
-      test('with long moves less than 40, exportGraphvizDotFile', () {
-        const initParams = ['', '-book-file', _testBookFile];
-        const moves = 'F5f6e6d6e7g5c5c6e3d3c7f3f4g4g3d7e8c8c4f7c2d2f2h3d8f8g6h5g7b5h7c3b4e1';
-        final edax = LibEdax()..libedaxInitialize(initParams);
-        sleep(const Duration(seconds: 1));
-        edax
-          ..edaxInit()
-          ..edaxPlay(moves);
-        final bestPathNumWithLink = edax.computeBestPathNumWithLink(level: 40);
-        expect(bestPathNumWithLink.length, 1);
-        print(bestPathNumWithLink.first.root.exportGraphvizDotFile()); // ignore: avoid_print
-        expect(bestPathNumWithLink.first.moveString, 'd1');
-        expect(bestPathNumWithLink.first.bestPathNumOfBlack, 1);
-        expect(bestPathNumWithLink.first.bestPathNumOfWhite, 1);
-        edax.libedaxTerminate();
-      });
-
-      test('with moves greater than book level', () {
-        const initParams = ['', '-book-file', _testBookFile];
-        const moves = 'F5f6e6d6e7g5c5c6e3d3c7f3f4g4g3d7e8c8c4f7c2d2f2h3d8f8g6h5g7b5h7c3b4e1d1a5a4a3b2b2a2a1';
-        final edax = LibEdax()..libedaxInitialize(initParams);
-        sleep(const Duration(seconds: 1));
-        edax
-          ..edaxInit()
-          ..edaxPlay(moves);
-        final bestPathNumWithLink = edax.computeBestPathNumWithLink(level: 40);
-        expect(bestPathNumWithLink.isEmpty, true);
-        edax.libedaxTerminate();
-      });
+      edax.edaxMove('f6');
+      final bestpathResult2 = edax.edaxBookCountBestpath();
+      expect(bestpathResult2.position.nPlayerBestpaths, 2);
+      expect(bestpathResult2.position.nOpponentBestpaths, 1);
+      edax
+        ..edaxBookStopCountBestpath()
+        ..libedaxTerminate();
     });
 
-    group('streamOfBestPathNumWithLink', () {
-      test('with moves f5f6', () async {
-        const initParams = ['', '-book-file', _testBookFile];
-        final edax = LibEdax()..libedaxInitialize(initParams);
-        await Future<void>.delayed(const Duration(seconds: 1));
-        edax
-          ..edaxInit()
-          ..edaxPlay('f5f6');
-        final stream = edax.streamOfBestPathNumWithLink(level: 10);
-        await Future<void>.delayed(const Duration(seconds: 1));
-        final firstEvent = await stream.first;
-        expect(firstEvent.moveString, 'e6');
-        edax.libedaxTerminate();
+    group('Deprecated functions', () {
+      group('computeBestPathNumWithLink', () {
+        test('with no moves', () {
+          const initParams = ['', '-book-file', _testBookFile];
+          final edax = LibEdax()..libedaxInitialize(initParams);
+          sleep(const Duration(seconds: 1));
+          edax.edaxInit();
+          final bestPathNumWithLink = edax.computeBestPathNumWithLink(level: 40);
+          expect(bestPathNumWithLink.isEmpty, true);
+          edax.libedaxTerminate();
+        });
+
+        test('with moves f5f6', () {
+          const initParams = ['', '-book-file', _testBookFile];
+          final edax = LibEdax()..libedaxInitialize(initParams);
+          sleep(const Duration(seconds: 1));
+          edax
+            ..edaxInit()
+            ..edaxPlay('f5f6');
+          final bestPathNumWithLink = edax.computeBestPathNumWithLink(level: 40);
+          expect(bestPathNumWithLink.length, 1);
+          expect(bestPathNumWithLink.first.moveString, 'e6');
+          expect(bestPathNumWithLink.first.bestPathNumOfBlack, 2);
+          expect(bestPathNumWithLink.first.bestPathNumOfWhite, 1);
+          edax.libedaxTerminate();
+        });
+
+        test('with long moves less than 40, exportGraphvizDotFile', () {
+          const initParams = ['', '-book-file', _testBookFile];
+          const moves = 'F5f6e6d6e7g5c5c6e3d3c7f3f4g4g3d7e8c8c4f7c2d2f2h3d8f8g6h5g7b5h7c3b4e1';
+          final edax = LibEdax()..libedaxInitialize(initParams);
+          sleep(const Duration(seconds: 1));
+          edax
+            ..edaxInit()
+            ..edaxPlay(moves);
+          final bestPathNumWithLink = edax.computeBestPathNumWithLink(level: 40);
+          expect(bestPathNumWithLink.length, 1);
+          print(bestPathNumWithLink.first.root.exportGraphvizDotFile()); // ignore: avoid_print
+          expect(bestPathNumWithLink.first.moveString, 'd1');
+          expect(bestPathNumWithLink.first.bestPathNumOfBlack, 1);
+          expect(bestPathNumWithLink.first.bestPathNumOfWhite, 1);
+          edax.libedaxTerminate();
+        });
+
+        test('with moves greater than book level', () {
+          const initParams = ['', '-book-file', _testBookFile];
+          const moves = 'F5f6e6d6e7g5c5c6e3d3c7f3f4g4g3d7e8c8c4f7c2d2f2h3d8f8g6h5g7b5h7c3b4e1d1a5a4a3b2b2a2a1';
+          final edax = LibEdax()..libedaxInitialize(initParams);
+          sleep(const Duration(seconds: 1));
+          edax
+            ..edaxInit()
+            ..edaxPlay(moves);
+          final bestPathNumWithLink = edax.computeBestPathNumWithLink(level: 40);
+          expect(bestPathNumWithLink.isEmpty, true);
+          edax.libedaxTerminate();
+        });
+      });
+
+      group('streamOfBestPathNumWithLink', () {
+        test('with moves f5f6', () async {
+          const initParams = ['', '-book-file', _testBookFile];
+          final edax = LibEdax()..libedaxInitialize(initParams);
+          await Future<void>.delayed(const Duration(seconds: 1));
+          edax
+            ..edaxInit()
+            ..edaxPlay('f5f6');
+          final stream = edax.streamOfBestPathNumWithLink(level: 10);
+          await Future<void>.delayed(const Duration(seconds: 1));
+          final firstEvent = await stream.first;
+          expect(firstEvent.moveString, 'e6');
+          edax.libedaxTerminate();
+        });
       });
     });
   });

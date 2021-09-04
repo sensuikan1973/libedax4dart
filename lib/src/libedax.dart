@@ -12,12 +12,11 @@ import 'bindings/structs/move_list.dart' as c_movelist;
 import 'bindings/structs/position.dart' as c_position;
 import 'board.dart';
 import 'constants.dart';
+import 'count_best_path_result.dart';
 import 'hint.dart';
-import 'link.dart';
 import 'move.dart';
 import 'move_list_with_position.dart';
 import 'position.dart';
-import 'score.dart';
 import 'util.dart';
 
 @immutable
@@ -110,7 +109,7 @@ class LibEdax {
     final result = <Hint>[];
     for (var k = 0; k < hintList.n_hints; k++) {
       final h = hintList.hint[k + 1];
-      result.add(Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move));
+      result.add(Hint.fromCStruct(h));
     }
     calloc.free(dst);
     return result;
@@ -124,7 +123,7 @@ class LibEdax {
     final result = <Move>[];
     for (var k = 0; k < moveList.n_moves; k++) {
       final m = moveList.move[k + 1];
-      result.add(Move(m.flipped, m.x, m.score, m.cost));
+      result.add(Move.fromCStruct(m));
     }
     calloc.free(dst);
     return result;
@@ -140,76 +139,36 @@ class LibEdax {
     final resultMoveList = <Move>[];
     for (var k = 0; k < moveList.n_moves; k++) {
       final m = moveList.move[k + 1];
-      resultMoveList.add(Move(m.flipped, m.x, m.score, m.cost));
+      resultMoveList.add(Move.fromCStruct(m));
     }
     calloc.free(dstM);
 
-    final pos = dstP.ref;
-    final board = Board(pos.board[0].player, pos.board[0].opponent);
-    final leaf = Link(pos.leaf.score, pos.leaf.move);
-    final links = <Link>[];
-    for (var k = 0; k < pos.n_link; k++) {
-      links.add(Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
-    }
-    final score = Score(pos.score.value, pos.score.lower, pos.score.upper);
-    final resultPosition = Position(
-      board,
-      leaf,
-      links,
-      pos.n_wins,
-      pos.n_draws,
-      pos.n_losses,
-      pos.n_lines,
-      score,
-      pos.n_link,
-      pos.level,
-      pos.done,
-      pos.todo,
-    );
+    final position = Position.fromCStruct(dstP.ref);
     calloc.free(dstP);
 
-    return MoveListWithPosition(resultMoveList, resultPosition, symetry);
+    return MoveListWithPosition(resultMoveList, position, symetry);
   }
 
   /// Get book move list with position by specified moves.
   MoveListWithPosition edaxGetBookMoveWithPositionByMoves(final String moves) {
     final dstM = calloc<c_movelist.MoveList>();
     final dstP = calloc<c_position.Position>();
-    final symetry = _bindings.edaxGetBookMoveWithPositionByMoves(moves.toNativeUtf8(), dstM, dstP);
+    final movesPointer = moves.toNativeUtf8();
+    final symetry = _bindings.edaxGetBookMoveWithPositionByMoves(movesPointer, dstM, dstP);
+    calloc.free(movesPointer);
 
     final moveList = dstM.ref;
     final resultMoveList = <Move>[];
     for (var k = 0; k < moveList.n_moves; k++) {
       final m = moveList.move[k + 1];
-      resultMoveList.add(Move(m.flipped, m.x, m.score, m.cost));
+      resultMoveList.add(Move.fromCStruct(m));
     }
     calloc.free(dstM);
 
-    final pos = dstP.ref;
-    final board = Board(pos.board[0].player, pos.board[0].opponent);
-    final leaf = Link(pos.leaf.score, pos.leaf.move);
-    final links = <Link>[];
-    for (var k = 0; k < pos.n_link; k++) {
-      links.add(Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
-    }
-    final score = Score(pos.score.value, pos.score.lower, pos.score.upper);
-    final resultPosition = Position(
-      board,
-      leaf,
-      links,
-      pos.n_wins,
-      pos.n_draws,
-      pos.n_losses,
-      pos.n_lines,
-      score,
-      pos.n_link,
-      pos.level,
-      pos.done,
-      pos.todo,
-    );
+    final position = Position.fromCStruct(dstP.ref);
     calloc.free(dstP);
 
-    return MoveListWithPosition(resultMoveList, resultPosition, symetry);
+    return MoveListWithPosition(resultMoveList, position, symetry);
   }
 
   /// Prepare to get hint.
@@ -225,10 +184,9 @@ class LibEdax {
   Hint edaxHintNext() {
     final dst = calloc<c_hint.Hint>();
     _bindings.edaxHintNext(dst);
-    final h = dst.ref;
-    final result = Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
+    final hint = Hint.fromCStruct(dst.ref);
     calloc.free(dst);
-    return result;
+    return hint;
   }
 
   /// Get a hint.
@@ -239,10 +197,9 @@ class LibEdax {
   Hint edaxHintNextNoMultiPvDepth() {
     final dst = calloc<c_hint.Hint>();
     _bindings.edaxHintNextNoMultiPvDepth(dst);
-    final h = dst.ref;
-    final result = Hint(h.depth, h.selectivity, h.move, h.score, h.upper, h.lower, h.book_move);
+    final hint = Hint.fromCStruct(dst.ref);
     calloc.free(dst);
-    return result;
+    return hint;
   }
 
   /// Stop edax search process, and set mode 3.
@@ -310,31 +267,9 @@ class LibEdax {
   Position edaxBookShow() {
     final dstP = calloc<c_position.Position>();
     _bindings.edaxBookShow(dstP);
-
-    final pos = dstP.ref;
-    final board = Board(pos.board[0].player, pos.board[0].opponent);
-    final leaf = Link(pos.leaf.score, pos.leaf.move);
-    final links = <Link>[];
-    for (var k = 0; k < pos.n_link; k++) {
-      links.add(Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
-    }
-    final score = Score(pos.score.value, pos.score.lower, pos.score.upper);
-    final result = Position(
-      board,
-      leaf,
-      links,
-      pos.n_wins,
-      pos.n_draws,
-      pos.n_losses,
-      pos.n_lines,
-      score,
-      pos.n_link,
-      pos.level,
-      pos.done,
-      pos.todo,
-    );
+    final position = Position.fromCStruct(dstP.ref);
     calloc.free(dstP);
-    return result;
+    return position;
   }
 
   /// Set option.
@@ -372,20 +307,18 @@ class LibEdax {
 
     final dst = calloc<c_move.Move>();
     _bindings.edaxGetLastMove(dst);
-    final move = dst.ref;
-    final result = Move(move.flipped, move.x, move.score, move.cost);
+    final move = Move.fromCStruct(dst.ref);
     calloc.free(dst);
-    return result;
+    return move;
   }
 
   /// Get the current board.
   Board edaxGetBoard() {
     final dst = calloc<c_board.Board>();
     _bindings.edaxGetBoard(dst);
-    final board = dst.ref;
-    final result = Board(board.player, board.opponent);
+    final board = Board.fromCStruct(dst.ref);
     calloc.free(dst);
-    return result;
+    return board;
   }
 
   /// Get the current player.
@@ -401,6 +334,46 @@ class LibEdax {
 
   /// Count bit.
   int popCount(final int bit) => _bindings.bitCount(bit);
+
+  /// Count bestpath with book
+  ///
+  /// Compute the indicator of efficiency to win, which means the minimum number you should memorize on the situation both of players always choose one of the best move list.
+  ///
+  /// This function is not only experimental but also __advanced__. <br>
+  /// __You must understand [the book structure of edax](https://choi.lavox.net/edax/book) and following important notice list__.
+  ///
+  /// * Because internal each node lookup is stopped when book has no links, the more lower the accuracy of your book is, the more lower this feature accuracy is.
+  ///   * In addition, if your book has some depth links (e.g. 24, 30, 40, ...), shallow depth link (≈ path is few) can be taken with a reasonable probability.
+  ///   * __In a word, if the accuracy of your book is low, you shoudn't use this function__. For you reference, if your book has N GB and the depth is more than 30, this feature can probably be inidicator.
+  /// * This function only lookup the best score links. So, this indicator can't consider easy win links which is _not_ best score. In reversi game, the situation can sometimes be found in my experience as a player.
+  ///   * __In a word, as you know, this indicator isn't perfect. This is just a indicator__.
+  /// * The depth of this feature depends on your book.
+  /// * The moves which meet up with anoter moves is counted respectively.
+  ///   * btw, symmetric moves is counted 1 because of edax book structure.
+  /// * O(k^N). slow.
+  ///   * TODO(developer): consider following implementation.
+  ///     * isolation.
+  ///     * save tree data on local.
+  ///
+  /// REF: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/book.c#L2438-L2447
+  @experimental
+  CountBestpathResult edaxBookCountBestpath() {
+    final dstP = calloc<c_position.Position>();
+    final dstB = calloc<c_board.Board>();
+    _bindings.edaxGetBoard(dstB);
+    _bindings.edaxBookCountBestpath(dstB, dstP);
+
+    final board = Board.fromCStruct(dstB.ref);
+    final position = Position.fromCStruct(dstP.ref);
+    calloc
+      ..free(dstP)
+      ..free(dstB);
+    return CountBestpathResult(board, position);
+  }
+
+  /// Stop edaxBookCountBestpath
+  @experimental
+  void edaxBookStopCountBestpath() => _bindings.edaxBookStopCountBestpath();
 
   /// Compute the indicator of efficiency to win, which means the minimum number you should memorize on the situation both of players always choose one of the best move list.
   ///
@@ -429,6 +402,7 @@ class LibEdax {
   ///     * save tree data on local.
   ///
   /// REF: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/book.c#L2438-L2447
+  @Deprecated('use edax_book_count_bestpath and edax_book_stop_count_bestpath')
   @experimental
   List<BestPathNumWithLink> computeBestPathNumWithLink({
     required final int level,
@@ -467,6 +441,7 @@ class LibEdax {
   /// See: [computeBestPathNumWithLink]
   ///
   /// you can get BestPathNumWithLink one by one.
+  @Deprecated('use edax_book_count_bestpath and edax_book_stop_count_bestpath')
   @experimental
   Stream<BestPathNumWithLink> streamOfBestPathNumWithLink({
     required final int level,
@@ -502,6 +477,7 @@ class LibEdax {
     }
   }
 
+  @Deprecated('use edax_book_count_bestpath and edax_book_stop_count_bestpath')
   void _buildTree(final BestPathNumNode parent, final int maxDepth, final bool enableToPrintMovesOnBuildingTree) {
     if (parent.value.moves.length >= maxDepth) {
       // On edge, reagard (1,1) .

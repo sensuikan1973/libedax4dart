@@ -1,11 +1,18 @@
 import 'package:meta/meta.dart';
 
+import 'bindings/structs/board.dart' as c_board;
+
 import 'constants.dart';
 import 'util.dart';
 
 @immutable
 class Board {
   const Board(this.player, this.opponent);
+
+  /// initialize from C struct
+  Board.fromCStruct(final c_board.Board cBoard)
+      : player = cBoard.player,
+        opponent = cBoard.opponent;
 
   /// player's bitboard.
   final int player;
