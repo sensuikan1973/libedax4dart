@@ -366,8 +366,8 @@ class LibEdax {
     final board = Board.fromCStruct(dstB.ref);
     final position = Position.fromCStruct(dstP.ref);
     calloc
-      ..free(dstB)
-      ..free(dstP);
+      ..free(dstP)
+      ..free(dstB);
     return CountBestpathResult(board, position);
   }
 
