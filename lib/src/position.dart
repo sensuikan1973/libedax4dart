@@ -1,5 +1,8 @@
+import 'dart:ffi';
+
 import 'package:meta/meta.dart';
 
+import 'bindings/structs/position.dart' as c_position;
 import 'board.dart';
 import 'link.dart';
 import 'score.dart';
@@ -20,6 +23,29 @@ class Position {
     this.done,
     this.todo,
   );
+
+  /// initialize from C struct
+  Position.fromCStruct(final c_position.Position cPosition)
+      : board = Board(cPosition.board[0].player, cPosition.board[0].opponent),
+        leaf = Link(cPosition.leaf.score, cPosition.leaf.move),
+        links = _linkesFromCStruct(cPosition),
+        nWins = cPosition.n_wins,
+        nDraws = cPosition.n_draws,
+        nLosses = cPosition.n_losses,
+        nLines = cPosition.n_lines,
+        score = Score(cPosition.score.value, cPosition.score.lower, cPosition.score.upper),
+        nLink = cPosition.n_link,
+        level = cPosition.level,
+        done = cPosition.done,
+        todo = cPosition.todo;
+
+  static List<Link> _linkesFromCStruct(final c_position.Position cPosition) {
+    final links = <Link>[];
+    for (var k = 0; k < cPosition.n_link; k++) {
+      links.add(Link(cPosition.link.elementAt(k).ref.score, cPosition.link.elementAt(k).ref.move));
+    }
+    return links;
+  }
 
   final Board board;
 

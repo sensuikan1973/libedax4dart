@@ -145,31 +145,10 @@ class LibEdax {
     }
     calloc.free(dstM);
 
-    final pos = dstP.ref;
-    final board = Board(pos.board[0].player, pos.board[0].opponent);
-    final leaf = Link(pos.leaf.score, pos.leaf.move);
-    final links = <Link>[];
-    for (var k = 0; k < pos.n_link; k++) {
-      links.add(Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
-    }
-    final score = Score(pos.score.value, pos.score.lower, pos.score.upper);
-    final resultPosition = Position(
-      board,
-      leaf,
-      links,
-      pos.n_wins,
-      pos.n_draws,
-      pos.n_losses,
-      pos.n_lines,
-      score,
-      pos.n_link,
-      pos.level,
-      pos.done,
-      pos.todo,
-    );
+    final position = Position.fromCStruct(dstP.ref);
     calloc.free(dstP);
 
-    return MoveListWithPosition(resultMoveList, resultPosition, symetry);
+    return MoveListWithPosition(resultMoveList, position, symetry);
   }
 
   /// Get book move list with position by specified moves.
@@ -186,31 +165,10 @@ class LibEdax {
     }
     calloc.free(dstM);
 
-    final pos = dstP.ref;
-    final board = Board(pos.board[0].player, pos.board[0].opponent);
-    final leaf = Link(pos.leaf.score, pos.leaf.move);
-    final links = <Link>[];
-    for (var k = 0; k < pos.n_link; k++) {
-      links.add(Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
-    }
-    final score = Score(pos.score.value, pos.score.lower, pos.score.upper);
-    final resultPosition = Position(
-      board,
-      leaf,
-      links,
-      pos.n_wins,
-      pos.n_draws,
-      pos.n_losses,
-      pos.n_lines,
-      score,
-      pos.n_link,
-      pos.level,
-      pos.done,
-      pos.todo,
-    );
+    final position = Position.fromCStruct(dstP.ref);
     calloc.free(dstP);
 
-    return MoveListWithPosition(resultMoveList, resultPosition, symetry);
+    return MoveListWithPosition(resultMoveList, position, symetry);
   }
 
   /// Prepare to get hint.
@@ -311,31 +269,9 @@ class LibEdax {
   Position edaxBookShow() {
     final dstP = calloc<c_position.Position>();
     _bindings.edaxBookShow(dstP);
-
-    final pos = dstP.ref;
-    final board = Board(pos.board[0].player, pos.board[0].opponent);
-    final leaf = Link(pos.leaf.score, pos.leaf.move);
-    final links = <Link>[];
-    for (var k = 0; k < pos.n_link; k++) {
-      links.add(Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
-    }
-    final score = Score(pos.score.value, pos.score.lower, pos.score.upper);
-    final result = Position(
-      board,
-      leaf,
-      links,
-      pos.n_wins,
-      pos.n_draws,
-      pos.n_losses,
-      pos.n_lines,
-      score,
-      pos.n_link,
-      pos.level,
-      pos.done,
-      pos.todo,
-    );
+    final position = Position.fromCStruct(dstP.ref);
     calloc.free(dstP);
-    return result;
+    return position;
   }
 
   /// Set option.
@@ -410,30 +346,7 @@ class LibEdax {
     _bindings.edaxBookCountBestpath(dstB, dstP);
 
     final board = Board(dstB.ref.player, dstB.ref.opponent);
-
-    final pos = dstP.ref;
-    final pBoard = Board(pos.board[0].player, pos.board[0].opponent);
-    final leaf = Link(pos.leaf.score, pos.leaf.move);
-    final links = <Link>[];
-    for (var k = 0; k < pos.n_link; k++) {
-      links.add(Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
-    }
-    final score = Score(pos.score.value, pos.score.lower, pos.score.upper);
-    final position = Position(
-      pBoard,
-      leaf,
-      links,
-      pos.n_wins,
-      pos.n_draws,
-      pos.n_losses,
-      pos.n_lines,
-      score,
-      pos.n_link,
-      pos.level,
-      pos.done,
-      pos.todo,
-    );
-
+    final position = Position.fromCStruct(dstP.ref);
     calloc
       ..free(dstB)
       ..free(dstP);
