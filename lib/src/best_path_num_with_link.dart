@@ -5,8 +5,10 @@ import 'constants.dart';
 import 'link.dart';
 import 'util.dart';
 
+@Deprecated('use CountBestpathResult')
 @immutable
 class BestPathNumWithLink {
+  @Deprecated('use CountBestpathResult')
   const BestPathNumWithLink(
     this.bestPathNumOfBlack,
     this.bestPathNumOfWhite,
