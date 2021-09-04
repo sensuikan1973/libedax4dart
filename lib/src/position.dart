@@ -30,7 +30,7 @@ class Position {
   Position.fromCStruct(final c_position.Position cPosition)
       : board = Board(cPosition.board[0].player, cPosition.board[0].opponent),
         leaf = Link(cPosition.leaf.score, cPosition.leaf.move),
-        links = _linkesFromCStruct(cPosition),
+        links = _linksFromCStruct(cPosition),
         nWins = cPosition.n_wins,
         nDraws = cPosition.n_draws,
         nLosses = cPosition.n_losses,
@@ -43,7 +43,7 @@ class Position {
         nPlayerBestpaths = cPosition.n_player_bestpaths,
         nOpponentBestpaths = cPosition.n_opponent_bestpaths;
 
-  static List<Link> _linkesFromCStruct(final c_position.Position cPosition) {
+  static List<Link> _linksFromCStruct(final c_position.Position cPosition) {
     final links = <Link>[];
     for (var k = 0; k < cPosition.n_link; k++) {
       links.add(Link(cPosition.link.elementAt(k).ref.score, cPosition.link.elementAt(k).ref.move));
