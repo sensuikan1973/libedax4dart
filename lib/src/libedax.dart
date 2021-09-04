@@ -402,6 +402,9 @@ class LibEdax {
   /// Count bit.
   int popCount(final int bit) => _bindings.bitCount(bit);
 
+  /// Stop edaxBookCountBestpath
+  void edaxBookStopCountBestpath() => _bindings.edaxBookStopCountBestpath();
+
   /// Compute the indicator of efficiency to win, which means the minimum number you should memorize on the situation both of players always choose one of the best move list.
   ///
   /// [level] is search depth. <br>
