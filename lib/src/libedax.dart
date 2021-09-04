@@ -334,6 +334,26 @@ class LibEdax {
   int popCount(final int bit) => _bindings.bitCount(bit);
 
   /// Count bestpath with book
+  /// Compute the indicator of efficiency to win, which means the minimum number you should memorize on the situation both of players always choose one of the best move list.
+  ///
+  /// This function is not only experimental but also __advanced__. <br>
+  /// __You must understand [the book structure of edax](https://choi.lavox.net/edax/book) and following important notice list__.
+  ///
+  /// * Because internal each node lookup is stopped when book has no links, the more lower the accuracy of your book is, the more lower this feature accuracy is.
+  ///   * In addition, if your book has some depth links (e.g. 24, 30, 40, ...), shallow depth link (≈ path is few) can be taken with a reasonable probability.
+  ///   * __In a word, if the accuracy of your book is low, you shoudn't use this function__. For you reference, if your book has N GB and the depth is more than 30, this feature can probably be inidicator.
+  /// * This function only lookup the best score links. So, this indicator can't consider easy win links which is _not_ best score. In reversi game, the situation can sometimes be found in my experience as a player.
+  ///   * __In a word, as you know, this indicator isn't perfect. This is just a indicator__.
+  /// * The depth of this feature depends on your book.
+  /// * The moves which meet up with anoter moves is counted respectively.
+  ///   * btw, symmetric moves is counted 1 because of edax book structure.
+  /// * O(k^N). slow.
+  ///   * TODO(developer): consider following implementation.
+  ///     * isolation.
+  ///     * save tree data on local.
+  ///
+  /// REF: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/book.c#L2438-L2447
+  @experimental
   CountBestpathResult edaxBookCountBestpath() {
     final dstB = calloc<c_board.Board>();
     final dstP = calloc<c_position.Position>();
@@ -348,6 +368,7 @@ class LibEdax {
   }
 
   /// Stop edaxBookCountBestpath
+  @experimental
   void edaxBookStopCountBestpath() => _bindings.edaxBookStopCountBestpath();
 
   /// Compute the indicator of efficiency to win, which means the minimum number you should memorize on the situation both of players always choose one of the best move list.
