@@ -317,10 +317,9 @@ class LibEdax {
   Board edaxGetBoard() {
     final dst = calloc<c_board.Board>();
     _bindings.edaxGetBoard(dst);
-    final board = dst.ref;
-    final result = Board(board.player, board.opponent);
+    final board = Board.fromCStruct(dst.ref);
     calloc.free(dst);
-    return result;
+    return board;
   }
 
   /// Get the current player.
@@ -343,7 +342,7 @@ class LibEdax {
     final dstP = calloc<c_position.Position>();
     _bindings.edaxBookCountBestpath(dstB, dstP);
 
-    final board = Board(dstB.ref.player, dstB.ref.opponent);
+    final board = Board.fromCStruct(dstB.ref);
     final position = Position.fromCStruct(dstP.ref);
     calloc
       ..free(dstB)
