@@ -12,6 +12,7 @@ import 'bindings/structs/move_list.dart' as c_movelist;
 import 'bindings/structs/position.dart' as c_position;
 import 'board.dart';
 import 'constants.dart';
+import 'count_best_path_result.dart';
 import 'hint.dart';
 import 'link.dart';
 import 'move.dart';
@@ -401,6 +402,43 @@ class LibEdax {
 
   /// Count bit.
   int popCount(final int bit) => _bindings.bitCount(bit);
+
+  /// Count bestpath with book
+  CountBestpathResult edaxBookCountBestpath() {
+    final dstB = calloc<c_board.Board>();
+    final dstP = calloc<c_position.Position>();
+    _bindings.edaxBookCountBestpath(dstB, dstP);
+
+    final board = Board(dstB.ref.player, dstB.ref.opponent);
+
+    final pos = dstP.ref;
+    final pBoard = Board(pos.board[0].player, pos.board[0].opponent);
+    final leaf = Link(pos.leaf.score, pos.leaf.move);
+    final links = <Link>[];
+    for (var k = 0; k < pos.n_link; k++) {
+      links.add(Link(pos.link.elementAt(k).ref.score, pos.link.elementAt(k).ref.move));
+    }
+    final score = Score(pos.score.value, pos.score.lower, pos.score.upper);
+    final position = Position(
+      pBoard,
+      leaf,
+      links,
+      pos.n_wins,
+      pos.n_draws,
+      pos.n_losses,
+      pos.n_lines,
+      score,
+      pos.n_link,
+      pos.level,
+      pos.done,
+      pos.todo,
+    );
+
+    calloc
+      ..free(dstB)
+      ..free(dstP);
+    return CountBestpathResult(board, position);
+  }
 
   /// Stop edaxBookCountBestpath
   void edaxBookStopCountBestpath() => _bindings.edaxBookStopCountBestpath();

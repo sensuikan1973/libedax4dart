@@ -289,7 +289,6 @@ void main() {
       expect(positionAfterF5F6Move.nLink, 1);
       expect(positionAfterF5F6Move.links.length, 1);
       expect(positionAfterF5F6Move.links.first.moveString, 'c4');
-
       edax.libedaxTerminate();
     });
 
@@ -298,8 +297,10 @@ void main() {
       final edax = LibEdax()..libedaxInitialize(initParams);
       sleep(const Duration(seconds: 1));
       edax
-        ..edaxInit() // TODO: call edaxBookCountBestpath
-        ..edaxBookStopCountBestpath();
+        ..edaxInit()
+        ..edaxBookCountBestpath()
+        ..edaxBookStopCountBestpath()
+        ..libedaxTerminate();
     });
 
     group('Deprecated functions', () {
