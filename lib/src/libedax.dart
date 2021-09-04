@@ -355,8 +355,9 @@ class LibEdax {
   /// REF: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/book.c#L2438-L2447
   @experimental
   CountBestpathResult edaxBookCountBestpath() {
-    final dstB = calloc<c_board.Board>();
     final dstP = calloc<c_position.Position>();
+    final dstB = calloc<c_board.Board>();
+    _bindings.edaxGetBoard(dstB);
     _bindings.edaxBookCountBestpath(dstB, dstP);
 
     final board = Board.fromCStruct(dstB.ref);

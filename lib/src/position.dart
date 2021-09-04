@@ -22,6 +22,8 @@ class Position {
     this.level,
     this.done,
     this.todo,
+    this.nPlayerBestpaths,
+    this.nOpponentBestpaths,
   );
 
   /// initialize from C struct
@@ -37,7 +39,9 @@ class Position {
         nLink = cPosition.n_link,
         level = cPosition.level,
         done = cPosition.done,
-        todo = cPosition.todo;
+        todo = cPosition.todo,
+        nPlayerBestpaths = cPosition.n_player_bestpaths,
+        nOpponentBestpaths = cPosition.n_opponent_bestpaths;
 
   static List<Link> _linkesFromCStruct(final c_position.Position cPosition) {
     final links = <Link>[];
@@ -81,6 +85,12 @@ class Position {
 
   /// todo flag
   final int todo;
+
+  /// bestpath count of player
+  final int nPlayerBestpaths;
+
+  /// bestpath count of opponent
+  final int nOpponentBestpaths;
 
   /// best score links
   List<Link> get bestScoreLinks {

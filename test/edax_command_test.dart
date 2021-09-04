@@ -298,7 +298,16 @@ void main() {
       sleep(const Duration(seconds: 1));
       edax
         ..edaxInit()
-        ..edaxBookCountBestpath()
+        ..edaxMove('f5');
+      final bestpathResult = edax.edaxBookCountBestpath();
+      expect(bestpathResult.position.nPlayerBestpaths, 1);
+      expect(bestpathResult.position.nOpponentBestpaths, 1);
+
+      edax.edaxMove('f6');
+      final bestpathResult2 = edax.edaxBookCountBestpath();
+      expect(bestpathResult2.position.nPlayerBestpaths, 2);
+      expect(bestpathResult2.position.nOpponentBestpaths, 1);
+      edax
         ..edaxBookStopCountBestpath()
         ..libedaxTerminate();
     });
