@@ -1,3 +1,7 @@
+# 1.4.0
+
+- enable `edaxBookCountBestpath` to receive Board param.
+
 # 1.3.0
 
 - add `edaxBookCountBestpath`, `edaxBookStopCountBestpath`
