@@ -429,6 +429,7 @@ class LibEdax {
   ///     * save tree data on local.
   ///
   /// REF: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/book.c#L2438-L2447
+  @Deprecated('use edax_book_count_bestpath and edax_book_stop_count_bestpath')
   @experimental
   List<BestPathNumWithLink> computeBestPathNumWithLink({
     required final int level,
@@ -467,6 +468,7 @@ class LibEdax {
   /// See: [computeBestPathNumWithLink]
   ///
   /// you can get BestPathNumWithLink one by one.
+  @Deprecated('use edax_book_count_bestpath and edax_book_stop_count_bestpath')
   @experimental
   Stream<BestPathNumWithLink> streamOfBestPathNumWithLink({
     required final int level,
@@ -502,6 +504,7 @@ class LibEdax {
     }
   }
 
+  @Deprecated('use edax_book_count_bestpath and edax_book_stop_count_bestpath')
   void _buildTree(final BestPathNumNode parent, final int maxDepth, final bool enableToPrintMovesOnBuildingTree) {
     if (parent.value.moves.length >= maxDepth) {
       // On edge, reagard (1,1) .
