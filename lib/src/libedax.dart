@@ -334,6 +334,7 @@ class LibEdax {
   int popCount(final int bit) => _bindings.bitCount(bit);
 
   /// Count bestpath with book
+  ///
   /// Compute the indicator of efficiency to win, which means the minimum number you should memorize on the situation both of players always choose one of the best move list.
   ///
   /// This function is not only experimental but also __advanced__. <br>
