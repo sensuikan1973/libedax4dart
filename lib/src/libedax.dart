@@ -153,7 +153,9 @@ class LibEdax {
   MoveListWithPosition edaxGetBookMoveWithPositionByMoves(final String moves) {
     final dstM = calloc<c_movelist.MoveList>();
     final dstP = calloc<c_position.Position>();
-    final symetry = _bindings.edaxGetBookMoveWithPositionByMoves(moves.toNativeUtf8(), dstM, dstP);
+    final movesPointer = moves.toNativeUtf8();
+    final symetry = _bindings.edaxGetBookMoveWithPositionByMoves(movesPointer, dstM, dstP);
+    calloc.free(movesPointer);
 
     final moveList = dstM.ref;
     final resultMoveList = <Move>[];
