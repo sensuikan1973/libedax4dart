@@ -1,3 +1,7 @@
+# 2.0.0
+
+- [internal migration] Migrate from manual bindings to auto generated bindings by ffigen package.
+
 # 1.5.0
 
 - delete deprecated functions.
