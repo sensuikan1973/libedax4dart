@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 
 import 'constants.dart';
-import 'ffi/bindings/structs/move.dart' as c_move;
+import 'ffi/bindings.dart' as bindings;
 import 'util.dart';
 
 @immutable
@@ -9,7 +9,7 @@ class Move {
   const Move(this.flipped, this.x, this.score, this.cost);
 
   /// initialize from C struct
-  Move.fromCStruct(final c_move.Move cMove)
+  Move.fromCStruct(final bindings.Move cMove)
       : flipped = cMove.flipped,
         x = cMove.x,
         score = cMove.score,

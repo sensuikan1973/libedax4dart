@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 
 import 'constants.dart';
-import 'ffi/bindings/structs/board.dart' as c_board;
+import 'ffi/bindings.dart' as bindings;
 import 'util.dart';
 
 @immutable
@@ -9,7 +9,7 @@ class Board {
   const Board(this.player, this.opponent);
 
   /// initialize from C struct
-  Board.fromCStruct(final c_board.Board cBoard)
+  Board.fromCStruct(final bindings.Board cBoard)
       : player = cBoard.player,
         opponent = cBoard.opponent;
 

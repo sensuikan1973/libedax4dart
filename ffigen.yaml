@@ -6,12 +6,14 @@ headers:
 functions:
   include:
     - 'bit_count'
+    - 'edax_book_count_bestpath'
     - 'edax_book_load'
     - 'edax_book_new'
     - 'edax_book_off'
     - 'edax_book_on'
     - 'edax_book_randomness'
     - 'edax_book_show'
+    - 'edax_book_stop_count_bestpath'
     - 'edax_can_move'
     - 'edax_get_board'
     - 'edax_get_bookmove_with_position_by_moves'

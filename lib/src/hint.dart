@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 
 import 'constants.dart';
-import 'ffi/bindings/structs/hint.dart' as c_hint;
+import 'ffi/bindings.dart' as bindings;
 import 'util.dart';
 
 @immutable
@@ -17,7 +17,7 @@ class Hint {
   );
 
   /// initialize from C struct
-  Hint.fromCStruct(final c_hint.Hint cHint)
+  Hint.fromCStruct(final bindings.Hint cHint)
       : depth = cHint.depth,
         selectivity = cHint.selectivity,
         move = cHint.move,
