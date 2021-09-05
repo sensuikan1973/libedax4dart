@@ -1,10 +1,9 @@
 /// dart wrapper for libedax
 library libedax4dart;
 
-export 'src/best_path_num_with_link.dart';
 export 'src/board.dart';
 export 'src/constants.dart';
-export 'src/count_best_path_result.dart';
+export 'src/count_bestpath_result.dart';
 export 'src/hint.dart';
 export 'src/libedax.dart';
 export 'src/link.dart';
