@@ -5,7 +5,7 @@ import 'package:meta/meta.dart';
 
 import 'board.dart';
 import 'constants.dart';
-import 'count_best_path_result.dart';
+import 'count_bestpath_result.dart';
 import 'ffi/bindings/bindings.dart';
 import 'ffi/bindings/structs/board.dart' as c_board;
 import 'ffi/bindings/structs/hint.dart' as c_hint;
