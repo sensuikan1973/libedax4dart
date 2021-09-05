@@ -1,8 +1,16 @@
 # See: https://pub.dev/packages/ffigen#configurations
+name: 'LibEdaxBindings'
+description: 'bindings to libedax'
 output: 'lib/src/ffi/bindings.dart'
+sort: true
 headers:
   entry-points:
     - './edax-reversi/src/all.c'
+structs:
+  pack:
+    # See: https://github.com/sensuikan1973/libedax4dart/pull/74#issuecomment-890427516
+    # See: https://github.com/dart-lang/sdk/issues/46644
+    'sockaddr_storage': 1
 functions:
   include:
     - 'bit_count'
@@ -46,6 +54,3 @@ functions:
     - 'edax_vmirror'
     - 'libedax_initialize'
     - 'libedax_terminate'
-name: 'LibEdaxBindings'
-description: 'bindings to libedax'
-sort: true
