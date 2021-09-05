@@ -81,6 +81,13 @@ dartdoc && open doc/api/index.html
 libedax_build_command="make libbuild ARCH=x64-modern COMP=gcc OS=osx" dst="." ./scripts/build_libedax.sh
 ```
 
+#### generate bindings
+
+```sh
+# Before this, you must run build_libedax.sh
+pub run ffigen --config ffigen.yaml --verbose severe
+```
+
 ### reference
 
 - [dart:ffi](https://dart.dev/guides/libraries/c-interop)
