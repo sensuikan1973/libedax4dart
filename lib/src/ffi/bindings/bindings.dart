@@ -1,7 +1,7 @@
 import 'dart:ffi';
 import 'dart:io';
 import 'package:ffi/ffi.dart';
-import '../ffi/dylib_utils.dart';
+import '../dylib_utils.dart';
 import 'signatures.dart';
 import 'structs/board.dart';
 import 'structs/hint.dart';

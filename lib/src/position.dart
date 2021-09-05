@@ -2,8 +2,8 @@ import 'dart:ffi';
 
 import 'package:meta/meta.dart';
 
-import 'bindings/structs/position.dart' as c_position;
 import 'board.dart';
+import 'ffi/bindings/structs/position.dart' as c_position;
 import 'link.dart';
 import 'score.dart';
 

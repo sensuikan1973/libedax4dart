@@ -1,18 +1,20 @@
 import 'dart:ffi';
 import 'dart:math';
+
 import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
+
 import 'best_path_num_with_link.dart';
-import 'bindings/bindings.dart';
-import 'bindings/structs/board.dart' as c_board;
-import 'bindings/structs/hint.dart' as c_hint;
-import 'bindings/structs/hint_list.dart' as c_hintlist;
-import 'bindings/structs/move.dart' as c_move;
-import 'bindings/structs/move_list.dart' as c_movelist;
-import 'bindings/structs/position.dart' as c_position;
 import 'board.dart';
 import 'constants.dart';
 import 'count_best_path_result.dart';
+import 'ffi/bindings/bindings.dart';
+import 'ffi/bindings/structs/board.dart' as c_board;
+import 'ffi/bindings/structs/hint.dart' as c_hint;
+import 'ffi/bindings/structs/hint_list.dart' as c_hintlist;
+import 'ffi/bindings/structs/move.dart' as c_move;
+import 'ffi/bindings/structs/move_list.dart' as c_movelist;
+import 'ffi/bindings/structs/position.dart' as c_position;
 import 'hint.dart';
 import 'move.dart';
 import 'move_list_with_position.dart';

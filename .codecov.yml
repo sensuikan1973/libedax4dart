@@ -32,4 +32,4 @@ comment: # See: https://docs.codecov.io/docs/pull-request-comments
   require_head: true
 
 ignore: # See: https://docs.codecov.io/docs/ignoring-paths
-  - lib/src/bindings/structs
+  - lib/src/ffi/bindings/structs
