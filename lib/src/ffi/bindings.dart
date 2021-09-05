@@ -8834,6 +8834,10 @@ class sockaddr_in extends ffi.Struct {
 
 class sockaddr_in6 extends ffi.Opaque {}
 
+// NOTE:
+// >>> manual edited !! this is workaround for https://github.com/dart-lang/sdk/issues/46644.
+@ffi.Packed(1)
+// <<<
 class sockaddr_storage extends ffi.Struct {
   @ffi.Uint8()
   external int ss_len;
