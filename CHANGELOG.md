@@ -1,3 +1,9 @@
+# 1.5.0
+
+- delete deprecated functions.
+  - `computeBestPathNumWithLink`
+  - `streamOfBestPathNumWithLink`
+
 # 1.4.0
 
 - enable `edaxBookCountBestpath` to receive Board param.
