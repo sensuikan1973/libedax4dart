@@ -1,10 +1,8 @@
 import 'dart:ffi';
-import 'dart:math';
 
 import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
 
-import 'best_path_num_with_link.dart';
 import 'board.dart';
 import 'constants.dart';
 import 'count_best_path_result.dart';
@@ -19,7 +17,6 @@ import 'hint.dart';
 import 'move.dart';
 import 'move_list_with_position.dart';
 import 'position.dart';
-import 'util.dart';
 
 @immutable
 class LibEdax {
