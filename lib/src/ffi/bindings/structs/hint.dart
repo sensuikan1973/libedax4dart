@@ -54,13 +54,13 @@ class ArrayHelper_Hint_pv_level0 {
   final int _absoluteIndex;
   int get length => dimensions[level];
   ArrayHelper_Hint_pv_level0(this._struct, this.dimensions, this.level, this._absoluteIndex);
-  void _checkBounds(int index) {
+  void _checkBounds(final int index) {
     if (index >= length || index < 0) {
-      throw RangeError('Dimension $level: index not in range 0..${length} exclusive.');
+      throw RangeError('Dimension $level: index not in range 0..$length exclusive.');
     }
   }
 
-  Line operator [](int index) {
+  Line operator [](final int index) {
     _checkBounds(index);
     switch (_absoluteIndex + index) {
       case 0:
@@ -70,7 +70,7 @@ class ArrayHelper_Hint_pv_level0 {
     }
   }
 
-  void operator []=(int index, Line value) {
+  void operator []=(final int index, final Line value) {
     _checkBounds(index);
     switch (_absoluteIndex + index) {
       case 0:

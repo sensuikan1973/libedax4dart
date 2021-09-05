@@ -1,8 +1,7 @@
 import 'package:meta/meta.dart';
 
-import 'bindings/structs/board.dart' as c_board;
-
 import 'constants.dart';
+import 'ffi/bindings/structs/board.dart' as c_board;
 import 'util.dart';
 
 @immutable

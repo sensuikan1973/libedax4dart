@@ -180,13 +180,13 @@ class ArrayHelper_Line_move_level0 {
   final int _absoluteIndex;
   int get length => dimensions[level];
   ArrayHelper_Line_move_level0(this._struct, this.dimensions, this.level, this._absoluteIndex);
-  void _checkBounds(int index) {
+  void _checkBounds(final int index) {
     if (index >= length || index < 0) {
-      throw RangeError('Dimension $level: index not in range 0..${length} exclusive.');
+      throw RangeError('Dimension $level: index not in range 0..$length exclusive.');
     }
   }
 
-  int operator [](int index) {
+  int operator [](final int index) {
     _checkBounds(index);
     switch (_absoluteIndex + index) {
       case 0:
@@ -354,7 +354,7 @@ class ArrayHelper_Line_move_level0 {
     }
   }
 
-  void operator []=(int index, int value) {
+  void operator []=(final int index, final int value) {
     _checkBounds(index);
     switch (_absoluteIndex + index) {
       case 0:

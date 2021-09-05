@@ -1,8 +1,7 @@
 import 'package:meta/meta.dart';
 
-import 'bindings/structs/move.dart' as c_move;
-
 import 'constants.dart';
+import 'ffi/bindings/structs/move.dart' as c_move;
 import 'util.dart';
 
 @immutable

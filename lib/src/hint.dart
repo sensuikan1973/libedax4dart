@@ -1,8 +1,7 @@
 import 'package:meta/meta.dart';
 
-import 'bindings/structs/hint.dart' as c_hint;
-
 import 'constants.dart';
+import 'ffi/bindings/structs/hint.dart' as c_hint;
 import 'util.dart';
 
 @immutable
