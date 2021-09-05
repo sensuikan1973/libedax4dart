@@ -6,7 +6,7 @@
 
 - add `edaxBookCountBestpath`, `edaxBookStopCountBestpath`
 - deprecate `computeBestPathNumWithLink`, `streamOfBestPathNumWithLink`
-  - although these functions are deprecated, if you specify level(search depth), you can use these functions. you can do that with `edaxBookCountBestpath`, for now.
+  - although these functions are deprecated, if you specify level(search depth), you can use these functions. you can't do that with `edaxBookCountBestpath`, for now.
 
 # 1.2.0
 
