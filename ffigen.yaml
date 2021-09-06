@@ -1,0 +1,56 @@
+# See: https://pub.dev/packages/ffigen#configurations
+name: 'LibEdaxBindings'
+description: 'bindings to libedax'
+output: 'lib/src/ffi/bindings.dart'
+sort: true
+headers:
+  entry-points:
+    - './edax-reversi/src/all.c'
+structs:
+  pack:
+    # See: https://github.com/sensuikan1973/libedax4dart/pull/74#issuecomment-890427516
+    # See: https://github.com/dart-lang/sdk/issues/46644
+    'sockaddr_storage': 1
+functions:
+  include:
+    - 'bit_count'
+    - 'edax_book_count_bestpath'
+    - 'edax_book_load'
+    - 'edax_book_new'
+    - 'edax_book_off'
+    - 'edax_book_on'
+    - 'edax_book_randomness'
+    - 'edax_book_show'
+    - 'edax_book_stop_count_bestpath'
+    - 'edax_can_move'
+    - 'edax_get_board'
+    - 'edax_get_bookmove_with_position_by_moves'
+    - 'edax_get_bookmove_with_position'
+    - 'edax_get_bookmove'
+    - 'edax_get_current_player'
+    - 'edax_get_disc'
+    - 'edax_get_last_move'
+    - 'edax_get_mobility_count'
+    - 'edax_get_moves'
+    - 'edax_go'
+    - 'edax_hint_next_no_multipv_depth'
+    - 'edax_hint_next'
+    - 'edax_hint_prepare'
+    - 'edax_hint'
+    - 'edax_init'
+    - 'edax_is_game_over'
+    - 'edax_mode'
+    - 'edax_move'
+    - 'edax_new'
+    - 'edax_opening'
+    - 'edax_play'
+    - 'edax_redo'
+    - 'edax_rotate'
+    - 'edax_set_option'
+    - 'edax_setboard'
+    - 'edax_stop'
+    - 'edax_undo'
+    - 'edax_version'
+    - 'edax_vmirror'
+    - 'libedax_initialize'
+    - 'libedax_terminate'
