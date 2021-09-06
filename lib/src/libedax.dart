@@ -19,11 +19,11 @@ import 'position.dart';
 @immutable
 class LibEdax {
   LibEdax([final String dllPath = '']) {
-    dylib = dlopenPlatformSpecific(dllPath);
-    _bindings = bindings.LibEdaxBindings(dylib);
+    _dylib = dlopenPlatformSpecific(dllPath);
+    _bindings = bindings.LibEdaxBindings(_dylib);
   }
 
-  late final DynamicLibrary dylib;
+  late final DynamicLibrary _dylib;
   late final bindings.LibEdaxBindings _bindings;
 
   /// Initialize libedax.
@@ -57,7 +57,7 @@ class LibEdax {
   ///
   /// After you call this, if you use edax command, you have to recreate [LibEdax] instance.
   @experimental
-  void closeDll() => _dlCloseFunc(dylib.handle);
+  void closeDll() => _dlCloseFunc(_dylib.handle);
 
   int Function(Pointer<Void>) get _dlCloseFunc {
     final funcName = Platform.isWindows ? 'FreeLibrary' : 'dlclose';
