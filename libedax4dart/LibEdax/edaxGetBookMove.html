@@ -68,8 +68,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">List&lt;Move&gt; edaxGetBookMove() {
-  final dst = calloc&lt;c_movelist.MoveList&gt;();
-  _bindings.edaxGetBookMove(dst);
+  final dst = calloc&lt;bindings.MoveList&gt;();
+  _bindings.edax_get_bookmove(dst);
   final moveList = dst.ref;
   final result = &lt;Move&gt;[];
   for (var k = 0; k &lt; moveList.n_moves; k++) {
@@ -176,7 +176,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      1.5.0
+      2.0.0
   </span>
 
   

@@ -69,8 +69,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void edaxBookLoad(final String bookFile) {
-  final arg = bookFile.toNativeUtf8();
-  _bindings.edaxBookLoad(arg);
+  final arg = bookFile.toInt8Pointer();
+  _bindings.edax_book_load(arg);
   calloc.free(arg);
 }</code></pre>
 </section>
@@ -170,7 +170,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      1.5.0
+      2.0.0
   </span>
 
   

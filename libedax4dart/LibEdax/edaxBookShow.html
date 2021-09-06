@@ -70,8 +70,8 @@ See: <a href="https://github.com/sensuikan1973/libedax4dart/issues/46">https://g
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Position edaxBookShow() {
-  final dstP = calloc&lt;c_position.Position&gt;();
-  _bindings.edaxBookShow(dstP);
+  final dstP = calloc&lt;bindings.Position&gt;();
+  _bindings.edax_book_show(dstP);
   final position = Position.fromCStruct(dstP.ref);
   calloc.free(dstP);
   return position;
@@ -173,7 +173,7 @@ See: <a href="https://github.com/sensuikan1973/libedax4dart/issues/46">https://g
 <footer>
   <span class="no-break">
     libedax4dart
-      1.5.0
+      2.0.0
   </span>
 
   

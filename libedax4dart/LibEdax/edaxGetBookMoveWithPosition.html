@@ -68,9 +68,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">MoveListWithPosition edaxGetBookMoveWithPosition() {
-  final dstM = calloc&lt;c_movelist.MoveList&gt;();
-  final dstP = calloc&lt;c_position.Position&gt;();
-  final symetry = _bindings.edaxGetBookMoveWithPosition(dstM, dstP);
+  final dstM = calloc&lt;bindings.MoveList&gt;();
+  final dstP = calloc&lt;bindings.Position&gt;();
+  final symetry = _bindings.edax_get_bookmove_with_position(dstM, dstP);
 
   final moveList = dstM.ref;
   final resultMoveList = &lt;Move&gt;[];
@@ -182,7 +182,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      1.5.0
+      2.0.0
   </span>
 
   

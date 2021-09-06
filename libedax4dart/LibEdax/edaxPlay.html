@@ -72,8 +72,8 @@ opening names are listed on <a href="https://github.com/lavox/edax-reversi/blob/
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void edaxPlay(final String moves) {
-  final arg = moves.toNativeUtf8();
-  _bindings.edaxPlay(arg);
+  final arg = moves.toInt8Pointer();
+  _bindings.edax_play(arg);
   calloc.free(arg);
 }</code></pre>
 </section>
@@ -173,7 +173,7 @@ opening names are listed on <a href="https://github.com/lavox/edax-reversi/blob/
 <footer>
   <span class="no-break">
     libedax4dart
-      1.5.0
+      2.0.0
   </span>
 
   

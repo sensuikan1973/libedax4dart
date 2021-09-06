@@ -71,8 +71,8 @@ If there are no more hints, <code>hint.isNoMove</code> will be true. <br>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Hint edaxHintNextNoMultiPvDepth() {
-  final dst = calloc&lt;c_hint.Hint&gt;();
-  _bindings.edaxHintNextNoMultiPvDepth(dst);
+  final dst = calloc&lt;bindings.Hint&gt;();
+  _bindings.edax_hint_next_no_multipv_depth(dst);
   final hint = Hint.fromCStruct(dst.ref);
   calloc.free(dst);
   return hint;
@@ -174,7 +174,7 @@ If there are no more hints, <code>hint.isNoMove</code> will be true. <br>
 <footer>
   <span class="no-break">
     libedax4dart
-      1.5.0
+      2.0.0
   </span>
 
   

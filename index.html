@@ -109,6 +109,10 @@ dart example/example.dart
 <pre class="language-sh"><code class="language-sh"># After you edit .libedax-version, run this.
 libedax_build_command="make libbuild ARCH=x64-modern COMP=gcc OS=osx" dst="." ./scripts/build_libedax.sh
 </code></pre>
+<h4 id="generate-bindings">generate bindings</h4>
+<pre class="language-sh"><code class="language-sh"># Before this, you must run build_libedax.sh
+pub run ffigen --config ffigen.yaml --verbose severe
+</code></pre>
 <h3 id="reference-2">reference</h3>
 <ul>
 <li><a href="https://dart.dev/guides/libraries/c-interop">dart:ffi</a>
@@ -138,6 +142,20 @@ libedax_build_command="make libbuild ARCH=x64-modern COMP=gcc OS=osx" dst="." ./
 <dd>dart wrapper for libedax 
 </dd>
 
+          <dt id="pointer_int8">
+  <span class="name"><a href="extensions_pointer_int8/extensions_pointer_int8-library.html">pointer_int8</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="string">
+  <span class="name"><a href="extensions_string/extensions_string-library.html">string</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
         </dl>
       </section>
 
@@ -159,6 +177,8 @@ libedax_build_command="make libbuild ARCH=x64-modern COMP=gcc OS=osx" dst="." ./
     <ol>
       <li class="section-title">Libraries</li>
       <li><a href="libedax4dart/libedax4dart-library.html">libedax4dart</a></li>
+      <li><a href="extensions_pointer_int8/extensions_pointer_int8-library.html">pointer_int8</a></li>
+      <li><a href="extensions_string/extensions_string-library.html">string</a></li>
 </ol>
 
   </div>
@@ -171,7 +191,7 @@ libedax_build_command="make libbuild ARCH=x64-modern COMP=gcc OS=osx" dst="." ./
 <footer>
   <span class="no-break">
     libedax4dart
-      1.5.0
+      2.0.0
   </span>
 
   

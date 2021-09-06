@@ -108,11 +108,11 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@experimental
 CountBestpathResult edaxBookCountBestpath(final Board board) {
-  final dstP = calloc&lt;c_position.Position&gt;();
-  final dstB = calloc&lt;c_board.Board&gt;();
+  final dstP = calloc&lt;bindings.Position&gt;();
+  final dstB = calloc&lt;bindings.Board&gt;();
   dstB.ref.player = board.player;
   dstB.ref.opponent = board.opponent;
-  _bindings.edaxBookCountBestpath(dstB, dstP);
+  _bindings.edax_book_count_bestpath(dstB, dstP);
 
   final position = Position.fromCStruct(dstP.ref);
   calloc
@@ -217,7 +217,7 @@ CountBestpathResult edaxBookCountBestpath(final Board board) {
 <footer>
   <span class="no-break">
     libedax4dart
-      1.5.0
+      2.0.0
   </span>
 
   

@@ -63,7 +63,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Position.fromCStruct(final c_position.Position cPosition)
+  <pre class="language-dart"><code class="language-dart">Position.fromCStruct(final bindings.Position cPosition)
     : board = Board(cPosition.board[0].player, cPosition.board[0].opponent),
       leaf = Link(cPosition.leaf.score, cPosition.leaf.move),
       links = _linksFromCStruct(cPosition),
@@ -149,7 +149,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      1.5.0
+      2.0.0
   </span>
 
   

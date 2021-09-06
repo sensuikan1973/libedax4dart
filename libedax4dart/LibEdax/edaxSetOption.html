@@ -71,9 +71,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void edaxSetOption(final String optionName, final String val) {
-  final optionNameArg = optionName.toNativeUtf8();
-  final valArg = optionName.toNativeUtf8();
-  _bindings.edaxSetOption(optionNameArg, valArg);
+  final optionNameArg = optionName.toInt8Pointer();
+  final valArg = optionName.toInt8Pointer();
+  _bindings.edax_set_option(optionNameArg, valArg);
   calloc
     ..free(optionNameArg)
     ..free(valArg);
@@ -175,7 +175,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      1.5.0
+      2.0.0
   </span>
 
   

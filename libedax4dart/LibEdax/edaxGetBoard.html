@@ -68,8 +68,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Board edaxGetBoard() {
-  final dst = calloc&lt;c_board.Board&gt;();
-  _bindings.edaxGetBoard(dst);
+  final dst = calloc&lt;bindings.Board&gt;();
+  _bindings.edax_get_board(dst);
   final board = Board.fromCStruct(dst.ref);
   calloc.free(dst);
   return board;
@@ -171,7 +171,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      1.5.0
+      2.0.0
   </span>
 
   

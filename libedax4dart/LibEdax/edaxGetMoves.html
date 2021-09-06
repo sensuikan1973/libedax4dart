@@ -68,8 +68,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">String edaxGetMoves() {
-  final moves = calloc&lt;Uint8&gt;(80 * 2 + 1);
-  final result = _bindings.edaxGetMoves(moves).toDartString();
+  final moves = calloc&lt;Int8&gt;(80 * 2 + 1);
+  final result = _bindings.edax_get_moves(moves).toStr();
   calloc.free(moves);
   return result;
 }</code></pre>
@@ -170,7 +170,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      1.5.0
+      2.0.0
   </span>
 
   

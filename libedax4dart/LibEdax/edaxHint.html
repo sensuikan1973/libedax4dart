@@ -69,8 +69,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">List&lt;Hint&gt; edaxHint(final int n) {
-  final dst = calloc&lt;c_hintlist.HintList&gt;();
-  _bindings.edaxHint(n, dst);
+  final dst = calloc&lt;bindings.HintList&gt;();
+  _bindings.edax_hint(n, dst);
   final hintList = dst.ref;
   final result = &lt;Hint&gt;[];
   for (var k = 0; k &lt; hintList.n_hints; k++) {
@@ -177,7 +177,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      1.5.0
+      2.0.0
   </span>
 
   

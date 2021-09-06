@@ -74,12 +74,14 @@ edax.libedaxInitialize(['', '-eval-file', 'data/eval.dat', '-book-file', 'data/b
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void libedaxInitialize([final List&lt;String&gt; args = const []]) {
-  final argsPointers = args.map((final arg) =&gt; arg.toNativeUtf8()).toList();
-  final pointerPointer = calloc&lt;Pointer&lt;Uint8&gt;&gt;(argsPointers.length);
+  final argsPointers = args.map((final arg) =&gt; arg.toInt8Pointer()).toList();
+
+  &#47;&#47; Why `Int8` ? =&gt; See: https:&#47;&#47;github.com&#47;dart-lang&#47;ffigen&#47;issues&#47;72
+  final pointerPointer = calloc&lt;Pointer&lt;Int8&gt;&gt;(argsPointers.length);
   for (var k = 0; k &lt; argsPointers.length; k++) {
-    pointerPointer[k] = argsPointers[k].cast&lt;Uint8&gt;();
+    pointerPointer[k] = argsPointers[k];
   }
-  _bindings.libedaxInitialize(args.length, pointerPointer);
+  _bindings.libedax_initialize(args.length, pointerPointer);
   calloc.free(pointerPointer);
 }</code></pre>
 </section>
@@ -179,7 +181,7 @@ edax.libedaxInitialize(['', '-eval-file', 'data/eval.dat', '-book-file', 'data/b
 <footer>
   <span class="no-break">
     libedax4dart
-      1.5.0
+      2.0.0
   </span>
 
   

@@ -71,8 +71,8 @@ if you want to switch turn when mobilicty count is 0, pass <code>MoveMark.passSt
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void edaxMove(final String move) {
-  final arg = move.toNativeUtf8();
-  _bindings.edaxMove(arg);
+  final arg = move.toInt8Pointer();
+  _bindings.edax_move(arg);
   calloc.free(arg);
 }</code></pre>
 </section>
@@ -172,7 +172,7 @@ if you want to switch turn when mobilicty count is 0, pass <code>MoveMark.passSt
 <footer>
   <span class="no-break">
     libedax4dart
-      1.5.0
+      2.0.0
   </span>
 
   

@@ -72,8 +72,8 @@
   final moves = edaxGetMoves();
   if (moves.isEmpty) return const Move(0, MoveMark.noMove, 0, 0);
 
-  final dst = calloc&lt;c_move.Move&gt;();
-  _bindings.edaxGetLastMove(dst);
+  final dst = calloc&lt;bindings.Move&gt;();
+  _bindings.edax_get_last_move(dst);
   final move = Move.fromCStruct(dst.ref);
   calloc.free(dst);
   return move;
@@ -175,7 +175,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      1.5.0
+      2.0.0
   </span>
 
   
