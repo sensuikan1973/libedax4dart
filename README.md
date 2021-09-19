@@ -46,7 +46,7 @@ Real World example is https://github.com/sensuikan1973/pedax.
 #### run example
 
 ```sh
-cd example && pub get && cd ..
+cd example && dart pub get && cd ..
 dart example/example.dart
 ```
 
@@ -59,7 +59,7 @@ dart format --fix -l 120 .
 #### test
 
 ```sh
-pub run test .
+dart pub run test .
 ```
 
 #### analyze
@@ -85,7 +85,7 @@ libedax_build_command="make libbuild ARCH=x64-modern COMP=gcc OS=osx" dst="." ./
 
 ```sh
 # Before this, you must run build_libedax.sh
-pub run ffigen --config ffigen.yaml --verbose severe
+dart pub run ffigen --config ffigen.yaml --verbose severe
 ```
 
 ### reference
