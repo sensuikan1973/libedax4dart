@@ -7,14 +7,14 @@ packages:
       name: _fe_analyzer_shared
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "25.0.0"
+    version: "27.0.0"
   analyzer:
     dependency: "direct dev"
     description:
       name: analyzer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.0"
+    version: "2.4.0"
   async:
     dependency: transitive
     description:
@@ -78,13 +78,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
-  gviz:
-    dependency: transitive
-    description:
-      name: gviz
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.4.0"
   libedax4dart:
     dependency: "direct main"
     description:
