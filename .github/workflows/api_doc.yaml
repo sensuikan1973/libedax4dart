@@ -3,7 +3,11 @@ name: API Document
 on:
   push:
     branches: [main]
-    paths: ['**.dart', 'pubspec.*', 'README.md', '.github/workflows/api_doc.yaml']
+    paths:
+      - '**.dart'
+      - 'pubspec.*'
+      - 'README.md'
+      - '.github/workflows/api_doc.yaml'
 
 jobs:
   upload_dart_docs:

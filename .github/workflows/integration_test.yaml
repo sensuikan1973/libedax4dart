@@ -2,10 +2,22 @@ name: Integration Test
 
 on:
   pull_request:
-    paths: ['**.dart', 'pubspec.*', '.github/workflows/integration_test.yaml', 'scripts/build_libedax.sh', '.libedax-version']
+    paths:
+      - '**.dart'
+      - '**/pubspec.*'
+      - '.github/workflows/integration_test.yaml'
+      - 'scripts/build_libedax.sh'
+      - '.libedax-version'
+      - '.codecov.yml'
   push:
     branches: [ main ]
-    paths: ['**.dart', 'pubspec.*', '.github/workflows/integration_test.yaml', 'scripts/build_libedax.sh', '.libedax-version']
+    paths:
+      - '**.dart'
+      - '**/pubspec.*'
+      - '.github/workflows/integration_test.yaml'
+      - 'scripts/build_libedax.sh'
+      - '.libedax-version'
+      - '.codecov.yml'
 
 jobs:
   build:
