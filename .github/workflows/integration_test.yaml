@@ -4,7 +4,7 @@ on:
   pull_request:
     paths:
       - '**.dart'
-      - 'pubspec.*'
+      - '**/pubspec.*'
       - '.github/workflows/integration_test.yaml'
       - 'scripts/build_libedax.sh'
       - '.libedax-version'
@@ -13,7 +13,7 @@ on:
     branches: [ main ]
     paths:
       - '**.dart'
-      - 'pubspec.*'
+      - '**/pubspec.*'
       - '.github/workflows/integration_test.yaml'
       - 'scripts/build_libedax.sh'
       - '.libedax-version'
