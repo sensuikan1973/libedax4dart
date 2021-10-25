@@ -12,4 +12,4 @@ dependencies:
 
 dev_dependencies:
   analyzer: ^2.7.0
-  pedantic_sensuikan1973: any
+  pedantic_sensuikan1973: ^2.4.0
