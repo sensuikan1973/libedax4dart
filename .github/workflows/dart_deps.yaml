@@ -21,6 +21,12 @@ jobs:
       # also example
       - run: cd example && dart pub upgrade --null-safety
 
+      - name: workaround for https://github.com/sensuikan1973/libedax4dart/pull/85#issuecomment-917257250
+        run: |
+          dart pub remove ffigen
+          dart pub add ffigen:^3.0.0 --dev
+          dart pub get
+
       # See: https://github.com/peter-evans/create-pull-request/tree/master#reference-example
       - name: create PR
         uses: peter-evans/create-pull-request@v3
