@@ -70,12 +70,14 @@ class LibEdaxBindings {
   set COUNT_FLIP_R(ffi.Pointer<ffi.Int8> value) => _COUNT_FLIP_R.value = value;
 
   /// Array of functions to count flipped discs of the last move
-  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.NativeFunction<_typedefC_13>>>> _COUNT_LAST_FLIP =
-      _lookup<ffi.Pointer<ffi.Pointer<ffi.NativeFunction<_typedefC_13>>>>('COUNT_LAST_FLIP');
+  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.NativeFunction<ffi.Int32 Function(ffi.Uint64)>>>>
+      _COUNT_LAST_FLIP =
+      _lookup<ffi.Pointer<ffi.Pointer<ffi.NativeFunction<ffi.Int32 Function(ffi.Uint64)>>>>('COUNT_LAST_FLIP');
 
-  ffi.Pointer<ffi.Pointer<ffi.NativeFunction<_typedefC_13>>> get COUNT_LAST_FLIP => _COUNT_LAST_FLIP.value;
+  ffi.Pointer<ffi.Pointer<ffi.NativeFunction<ffi.Int32 Function(ffi.Uint64)>>> get COUNT_LAST_FLIP =>
+      _COUNT_LAST_FLIP.value;
 
-  set COUNT_LAST_FLIP(ffi.Pointer<ffi.Pointer<ffi.NativeFunction<_typedefC_13>>> value) =>
+  set COUNT_LAST_FLIP(ffi.Pointer<ffi.Pointer<ffi.NativeFunction<ffi.Int32 Function(ffi.Uint64)>>> value) =>
       _COUNT_LAST_FLIP.value = value;
 
   /// evaluation function error coefficient parameters
@@ -515,8 +517,8 @@ class LibEdaxBindings {
     );
   }
 
-  late final _bit_count_ptr = _lookup<ffi.NativeFunction<_c_bit_count>>('bit_count');
-  late final _dart_bit_count _bit_count = _bit_count_ptr.asFunction<_dart_bit_count>();
+  late final _bit_countPtr = _lookup<ffi.NativeFunction<ffi.Int32 Function(ffi.Uint64)>>('bit_count');
+  late final _bit_count = _bit_countPtr.asFunction<int Function(int)>();
 
   late final ffi.Pointer<ffi.Uint8> _book_verbose = _lookup<ffi.Uint8>('book_verbose');
 
@@ -540,10 +542,11 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_book_count_bestpath_ptr =
-      _lookup<ffi.NativeFunction<_c_edax_book_count_bestpath>>('edax_book_count_bestpath');
-  late final _dart_edax_book_count_bestpath _edax_book_count_bestpath =
-      _edax_book_count_bestpath_ptr.asFunction<_dart_edax_book_count_bestpath>();
+  late final _edax_book_count_bestpathPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<Board>, ffi.Pointer<Position>)>>(
+          'edax_book_count_bestpath');
+  late final _edax_book_count_bestpath =
+      _edax_book_count_bestpathPtr.asFunction<void Function(ffi.Pointer<Board>, ffi.Pointer<Position>)>();
 
   void edax_book_load(
     ffi.Pointer<ffi.Int8> arg0,
@@ -553,8 +556,9 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_book_load_ptr = _lookup<ffi.NativeFunction<_c_edax_book_load>>('edax_book_load');
-  late final _dart_edax_book_load _edax_book_load = _edax_book_load_ptr.asFunction<_dart_edax_book_load>();
+  late final _edax_book_loadPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Int8>)>>('edax_book_load');
+  late final _edax_book_load = _edax_book_loadPtr.asFunction<void Function(ffi.Pointer<ffi.Int8>)>();
 
   void edax_book_new(
     int arg0,
@@ -566,22 +570,22 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_book_new_ptr = _lookup<ffi.NativeFunction<_c_edax_book_new>>('edax_book_new');
-  late final _dart_edax_book_new _edax_book_new = _edax_book_new_ptr.asFunction<_dart_edax_book_new>();
+  late final _edax_book_newPtr = _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int32, ffi.Int32)>>('edax_book_new');
+  late final _edax_book_new = _edax_book_newPtr.asFunction<void Function(int, int)>();
 
   void edax_book_off() {
     return _edax_book_off();
   }
 
-  late final _edax_book_off_ptr = _lookup<ffi.NativeFunction<_c_edax_book_off>>('edax_book_off');
-  late final _dart_edax_book_off _edax_book_off = _edax_book_off_ptr.asFunction<_dart_edax_book_off>();
+  late final _edax_book_offPtr = _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_book_off');
+  late final _edax_book_off = _edax_book_offPtr.asFunction<void Function()>();
 
   void edax_book_on() {
     return _edax_book_on();
   }
 
-  late final _edax_book_on_ptr = _lookup<ffi.NativeFunction<_c_edax_book_on>>('edax_book_on');
-  late final _dart_edax_book_on _edax_book_on = _edax_book_on_ptr.asFunction<_dart_edax_book_on>();
+  late final _edax_book_onPtr = _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_book_on');
+  late final _edax_book_on = _edax_book_onPtr.asFunction<void Function()>();
 
   void edax_book_randomness(
     int arg0,
@@ -591,9 +595,9 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_book_randomness_ptr = _lookup<ffi.NativeFunction<_c_edax_book_randomness>>('edax_book_randomness');
-  late final _dart_edax_book_randomness _edax_book_randomness =
-      _edax_book_randomness_ptr.asFunction<_dart_edax_book_randomness>();
+  late final _edax_book_randomnessPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int32)>>('edax_book_randomness');
+  late final _edax_book_randomness = _edax_book_randomnessPtr.asFunction<void Function(int)>();
 
   void edax_book_show(
     ffi.Pointer<Position> arg0,
@@ -603,24 +607,24 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_book_show_ptr = _lookup<ffi.NativeFunction<_c_edax_book_show>>('edax_book_show');
-  late final _dart_edax_book_show _edax_book_show = _edax_book_show_ptr.asFunction<_dart_edax_book_show>();
+  late final _edax_book_showPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<Position>)>>('edax_book_show');
+  late final _edax_book_show = _edax_book_showPtr.asFunction<void Function(ffi.Pointer<Position>)>();
 
   void edax_book_stop_count_bestpath() {
     return _edax_book_stop_count_bestpath();
   }
 
-  late final _edax_book_stop_count_bestpath_ptr =
-      _lookup<ffi.NativeFunction<_c_edax_book_stop_count_bestpath>>('edax_book_stop_count_bestpath');
-  late final _dart_edax_book_stop_count_bestpath _edax_book_stop_count_bestpath =
-      _edax_book_stop_count_bestpath_ptr.asFunction<_dart_edax_book_stop_count_bestpath>();
+  late final _edax_book_stop_count_bestpathPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_book_stop_count_bestpath');
+  late final _edax_book_stop_count_bestpath = _edax_book_stop_count_bestpathPtr.asFunction<void Function()>();
 
   int edax_can_move() {
     return _edax_can_move();
   }
 
-  late final _edax_can_move_ptr = _lookup<ffi.NativeFunction<_c_edax_can_move>>('edax_can_move');
-  late final _dart_edax_can_move _edax_can_move = _edax_can_move_ptr.asFunction<_dart_edax_can_move>();
+  late final _edax_can_movePtr = _lookup<ffi.NativeFunction<ffi.Int32 Function()>>('edax_can_move');
+  late final _edax_can_move = _edax_can_movePtr.asFunction<int Function()>();
 
   void edax_get_board(
     ffi.Pointer<Board> arg0,
@@ -630,8 +634,8 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_get_board_ptr = _lookup<ffi.NativeFunction<_c_edax_get_board>>('edax_get_board');
-  late final _dart_edax_get_board _edax_get_board = _edax_get_board_ptr.asFunction<_dart_edax_get_board>();
+  late final _edax_get_boardPtr = _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<Board>)>>('edax_get_board');
+  late final _edax_get_board = _edax_get_boardPtr.asFunction<void Function(ffi.Pointer<Board>)>();
 
   void edax_get_bookmove(
     ffi.Pointer<MoveList> arg0,
@@ -641,8 +645,9 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_get_bookmove_ptr = _lookup<ffi.NativeFunction<_c_edax_get_bookmove>>('edax_get_bookmove');
-  late final _dart_edax_get_bookmove _edax_get_bookmove = _edax_get_bookmove_ptr.asFunction<_dart_edax_get_bookmove>();
+  late final _edax_get_bookmovePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<MoveList>)>>('edax_get_bookmove');
+  late final _edax_get_bookmove = _edax_get_bookmovePtr.asFunction<void Function(ffi.Pointer<MoveList>)>();
 
   int edax_get_bookmove_with_position(
     ffi.Pointer<MoveList> arg0,
@@ -654,10 +659,11 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_get_bookmove_with_position_ptr =
-      _lookup<ffi.NativeFunction<_c_edax_get_bookmove_with_position>>('edax_get_bookmove_with_position');
-  late final _dart_edax_get_bookmove_with_position _edax_get_bookmove_with_position =
-      _edax_get_bookmove_with_position_ptr.asFunction<_dart_edax_get_bookmove_with_position>();
+  late final _edax_get_bookmove_with_positionPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<MoveList>, ffi.Pointer<Position>)>>(
+          'edax_get_bookmove_with_position');
+  late final _edax_get_bookmove_with_position =
+      _edax_get_bookmove_with_positionPtr.asFunction<int Function(ffi.Pointer<MoveList>, ffi.Pointer<Position>)>();
 
   int edax_get_bookmove_with_position_by_moves(
     ffi.Pointer<ffi.Int8> arg0,
@@ -671,20 +677,18 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_get_bookmove_with_position_by_moves_ptr =
-      _lookup<ffi.NativeFunction<_c_edax_get_bookmove_with_position_by_moves>>(
-          'edax_get_bookmove_with_position_by_moves');
-  late final _dart_edax_get_bookmove_with_position_by_moves _edax_get_bookmove_with_position_by_moves =
-      _edax_get_bookmove_with_position_by_moves_ptr.asFunction<_dart_edax_get_bookmove_with_position_by_moves>();
+  late final _edax_get_bookmove_with_position_by_movesPtr = _lookup<
+          ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<ffi.Int8>, ffi.Pointer<MoveList>, ffi.Pointer<Position>)>>(
+      'edax_get_bookmove_with_position_by_moves');
+  late final _edax_get_bookmove_with_position_by_moves = _edax_get_bookmove_with_position_by_movesPtr
+      .asFunction<int Function(ffi.Pointer<ffi.Int8>, ffi.Pointer<MoveList>, ffi.Pointer<Position>)>();
 
   int edax_get_current_player() {
     return _edax_get_current_player();
   }
 
-  late final _edax_get_current_player_ptr =
-      _lookup<ffi.NativeFunction<_c_edax_get_current_player>>('edax_get_current_player');
-  late final _dart_edax_get_current_player _edax_get_current_player =
-      _edax_get_current_player_ptr.asFunction<_dart_edax_get_current_player>();
+  late final _edax_get_current_playerPtr = _lookup<ffi.NativeFunction<ffi.Int32 Function()>>('edax_get_current_player');
+  late final _edax_get_current_player = _edax_get_current_playerPtr.asFunction<int Function()>();
 
   int edax_get_disc(
     int arg0,
@@ -694,8 +698,8 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_get_disc_ptr = _lookup<ffi.NativeFunction<_c_edax_get_disc>>('edax_get_disc');
-  late final _dart_edax_get_disc _edax_get_disc = _edax_get_disc_ptr.asFunction<_dart_edax_get_disc>();
+  late final _edax_get_discPtr = _lookup<ffi.NativeFunction<ffi.Int32 Function(ffi.Int32)>>('edax_get_disc');
+  late final _edax_get_disc = _edax_get_discPtr.asFunction<int Function(int)>();
 
   void edax_get_last_move(
     ffi.Pointer<Move> arg0,
@@ -705,9 +709,9 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_get_last_move_ptr = _lookup<ffi.NativeFunction<_c_edax_get_last_move>>('edax_get_last_move');
-  late final _dart_edax_get_last_move _edax_get_last_move =
-      _edax_get_last_move_ptr.asFunction<_dart_edax_get_last_move>();
+  late final _edax_get_last_movePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<Move>)>>('edax_get_last_move');
+  late final _edax_get_last_move = _edax_get_last_movePtr.asFunction<void Function(ffi.Pointer<Move>)>();
 
   int edax_get_mobility_count(
     int arg0,
@@ -717,10 +721,9 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_get_mobility_count_ptr =
-      _lookup<ffi.NativeFunction<_c_edax_get_mobility_count>>('edax_get_mobility_count');
-  late final _dart_edax_get_mobility_count _edax_get_mobility_count =
-      _edax_get_mobility_count_ptr.asFunction<_dart_edax_get_mobility_count>();
+  late final _edax_get_mobility_countPtr =
+      _lookup<ffi.NativeFunction<ffi.Int32 Function(ffi.Int32)>>('edax_get_mobility_count');
+  late final _edax_get_mobility_count = _edax_get_mobility_countPtr.asFunction<int Function(int)>();
 
   ffi.Pointer<ffi.Int8> edax_get_moves(
     ffi.Pointer<ffi.Int8> arg0,
@@ -730,15 +733,16 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_get_moves_ptr = _lookup<ffi.NativeFunction<_c_edax_get_moves>>('edax_get_moves');
-  late final _dart_edax_get_moves _edax_get_moves = _edax_get_moves_ptr.asFunction<_dart_edax_get_moves>();
+  late final _edax_get_movesPtr =
+      _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Int8> Function(ffi.Pointer<ffi.Int8>)>>('edax_get_moves');
+  late final _edax_get_moves = _edax_get_movesPtr.asFunction<ffi.Pointer<ffi.Int8> Function(ffi.Pointer<ffi.Int8>)>();
 
   void edax_go() {
     return _edax_go();
   }
 
-  late final _edax_go_ptr = _lookup<ffi.NativeFunction<_c_edax_go>>('edax_go');
-  late final _dart_edax_go _edax_go = _edax_go_ptr.asFunction<_dart_edax_go>();
+  late final _edax_goPtr = _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_go');
+  late final _edax_go = _edax_goPtr.asFunction<void Function()>();
 
   void edax_hint(
     int arg0,
@@ -750,8 +754,9 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_hint_ptr = _lookup<ffi.NativeFunction<_c_edax_hint>>('edax_hint');
-  late final _dart_edax_hint _edax_hint = _edax_hint_ptr.asFunction<_dart_edax_hint>();
+  late final _edax_hintPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int32, ffi.Pointer<HintList>)>>('edax_hint');
+  late final _edax_hint = _edax_hintPtr.asFunction<void Function(int, ffi.Pointer<HintList>)>();
 
   void edax_hint_next(
     ffi.Pointer<Hint> arg0,
@@ -761,8 +766,8 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_hint_next_ptr = _lookup<ffi.NativeFunction<_c_edax_hint_next>>('edax_hint_next');
-  late final _dart_edax_hint_next _edax_hint_next = _edax_hint_next_ptr.asFunction<_dart_edax_hint_next>();
+  late final _edax_hint_nextPtr = _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<Hint>)>>('edax_hint_next');
+  late final _edax_hint_next = _edax_hint_nextPtr.asFunction<void Function(ffi.Pointer<Hint>)>();
 
   void edax_hint_next_no_multipv_depth(
     ffi.Pointer<Hint> arg0,
@@ -772,10 +777,10 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_hint_next_no_multipv_depth_ptr =
-      _lookup<ffi.NativeFunction<_c_edax_hint_next_no_multipv_depth>>('edax_hint_next_no_multipv_depth');
-  late final _dart_edax_hint_next_no_multipv_depth _edax_hint_next_no_multipv_depth =
-      _edax_hint_next_no_multipv_depth_ptr.asFunction<_dart_edax_hint_next_no_multipv_depth>();
+  late final _edax_hint_next_no_multipv_depthPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<Hint>)>>('edax_hint_next_no_multipv_depth');
+  late final _edax_hint_next_no_multipv_depth =
+      _edax_hint_next_no_multipv_depthPtr.asFunction<void Function(ffi.Pointer<Hint>)>();
 
   void edax_hint_prepare(
     ffi.Pointer<MoveList> arg0,
@@ -785,22 +790,23 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_hint_prepare_ptr = _lookup<ffi.NativeFunction<_c_edax_hint_prepare>>('edax_hint_prepare');
-  late final _dart_edax_hint_prepare _edax_hint_prepare = _edax_hint_prepare_ptr.asFunction<_dart_edax_hint_prepare>();
+  late final _edax_hint_preparePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<MoveList>)>>('edax_hint_prepare');
+  late final _edax_hint_prepare = _edax_hint_preparePtr.asFunction<void Function(ffi.Pointer<MoveList>)>();
 
   void edax_init() {
     return _edax_init();
   }
 
-  late final _edax_init_ptr = _lookup<ffi.NativeFunction<_c_edax_init>>('edax_init');
-  late final _dart_edax_init _edax_init = _edax_init_ptr.asFunction<_dart_edax_init>();
+  late final _edax_initPtr = _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_init');
+  late final _edax_init = _edax_initPtr.asFunction<void Function()>();
 
   int edax_is_game_over() {
     return _edax_is_game_over();
   }
 
-  late final _edax_is_game_over_ptr = _lookup<ffi.NativeFunction<_c_edax_is_game_over>>('edax_is_game_over');
-  late final _dart_edax_is_game_over _edax_is_game_over = _edax_is_game_over_ptr.asFunction<_dart_edax_is_game_over>();
+  late final _edax_is_game_overPtr = _lookup<ffi.NativeFunction<ffi.Int32 Function()>>('edax_is_game_over');
+  late final _edax_is_game_over = _edax_is_game_overPtr.asFunction<int Function()>();
 
   late final ffi.Pointer<ffi.Pointer<Log>> _edax_log = _lookup<ffi.Pointer<Log>>('edax_log');
 
@@ -816,8 +822,8 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_mode_ptr = _lookup<ffi.NativeFunction<_c_edax_mode>>('edax_mode');
-  late final _dart_edax_mode _edax_mode = _edax_mode_ptr.asFunction<_dart_edax_mode>();
+  late final _edax_modePtr = _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int32)>>('edax_mode');
+  late final _edax_mode = _edax_modePtr.asFunction<void Function(int)>();
 
   int edax_move(
     ffi.Pointer<ffi.Int8> arg0,
@@ -827,22 +833,22 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_move_ptr = _lookup<ffi.NativeFunction<_c_edax_move>>('edax_move');
-  late final _dart_edax_move _edax_move = _edax_move_ptr.asFunction<_dart_edax_move>();
+  late final _edax_movePtr = _lookup<ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<ffi.Int8>)>>('edax_move');
+  late final _edax_move = _edax_movePtr.asFunction<int Function(ffi.Pointer<ffi.Int8>)>();
 
   void edax_new() {
     return _edax_new();
   }
 
-  late final _edax_new_ptr = _lookup<ffi.NativeFunction<_c_edax_new>>('edax_new');
-  late final _dart_edax_new _edax_new = _edax_new_ptr.asFunction<_dart_edax_new>();
+  late final _edax_newPtr = _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_new');
+  late final _edax_new = _edax_newPtr.asFunction<void Function()>();
 
   ffi.Pointer<ffi.Int8> edax_opening() {
     return _edax_opening();
   }
 
-  late final _edax_opening_ptr = _lookup<ffi.NativeFunction<_c_edax_opening>>('edax_opening');
-  late final _dart_edax_opening _edax_opening = _edax_opening_ptr.asFunction<_dart_edax_opening>();
+  late final _edax_openingPtr = _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Int8> Function()>>('edax_opening');
+  late final _edax_opening = _edax_openingPtr.asFunction<ffi.Pointer<ffi.Int8> Function()>();
 
   void edax_play(
     ffi.Pointer<ffi.Int8> arg0,
@@ -852,15 +858,15 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_play_ptr = _lookup<ffi.NativeFunction<_c_edax_play>>('edax_play');
-  late final _dart_edax_play _edax_play = _edax_play_ptr.asFunction<_dart_edax_play>();
+  late final _edax_playPtr = _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Int8>)>>('edax_play');
+  late final _edax_play = _edax_playPtr.asFunction<void Function(ffi.Pointer<ffi.Int8>)>();
 
   void edax_redo() {
     return _edax_redo();
   }
 
-  late final _edax_redo_ptr = _lookup<ffi.NativeFunction<_c_edax_redo>>('edax_redo');
-  late final _dart_edax_redo _edax_redo = _edax_redo_ptr.asFunction<_dart_edax_redo>();
+  late final _edax_redoPtr = _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_redo');
+  late final _edax_redo = _edax_redoPtr.asFunction<void Function()>();
 
   void edax_rotate(
     int arg0,
@@ -870,8 +876,8 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_rotate_ptr = _lookup<ffi.NativeFunction<_c_edax_rotate>>('edax_rotate');
-  late final _dart_edax_rotate _edax_rotate = _edax_rotate_ptr.asFunction<_dart_edax_rotate>();
+  late final _edax_rotatePtr = _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int32)>>('edax_rotate');
+  late final _edax_rotate = _edax_rotatePtr.asFunction<void Function(int)>();
 
   void edax_set_option(
     ffi.Pointer<ffi.Int8> arg0,
@@ -883,8 +889,10 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_set_option_ptr = _lookup<ffi.NativeFunction<_c_edax_set_option>>('edax_set_option');
-  late final _dart_edax_set_option _edax_set_option = _edax_set_option_ptr.asFunction<_dart_edax_set_option>();
+  late final _edax_set_optionPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Int8>, ffi.Pointer<ffi.Int8>)>>('edax_set_option');
+  late final _edax_set_option =
+      _edax_set_optionPtr.asFunction<void Function(ffi.Pointer<ffi.Int8>, ffi.Pointer<ffi.Int8>)>();
 
   void edax_setboard(
     ffi.Pointer<ffi.Int8> arg0,
@@ -894,36 +902,36 @@ class LibEdaxBindings {
     );
   }
 
-  late final _edax_setboard_ptr = _lookup<ffi.NativeFunction<_c_edax_setboard>>('edax_setboard');
-  late final _dart_edax_setboard _edax_setboard = _edax_setboard_ptr.asFunction<_dart_edax_setboard>();
+  late final _edax_setboardPtr = _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Int8>)>>('edax_setboard');
+  late final _edax_setboard = _edax_setboardPtr.asFunction<void Function(ffi.Pointer<ffi.Int8>)>();
 
   void edax_stop() {
     return _edax_stop();
   }
 
-  late final _edax_stop_ptr = _lookup<ffi.NativeFunction<_c_edax_stop>>('edax_stop');
-  late final _dart_edax_stop _edax_stop = _edax_stop_ptr.asFunction<_dart_edax_stop>();
+  late final _edax_stopPtr = _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_stop');
+  late final _edax_stop = _edax_stopPtr.asFunction<void Function()>();
 
   void edax_undo() {
     return _edax_undo();
   }
 
-  late final _edax_undo_ptr = _lookup<ffi.NativeFunction<_c_edax_undo>>('edax_undo');
-  late final _dart_edax_undo _edax_undo = _edax_undo_ptr.asFunction<_dart_edax_undo>();
+  late final _edax_undoPtr = _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_undo');
+  late final _edax_undo = _edax_undoPtr.asFunction<void Function()>();
 
   void edax_version() {
     return _edax_version();
   }
 
-  late final _edax_version_ptr = _lookup<ffi.NativeFunction<_c_edax_version>>('edax_version');
-  late final _dart_edax_version _edax_version = _edax_version_ptr.asFunction<_dart_edax_version>();
+  late final _edax_versionPtr = _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_version');
+  late final _edax_version = _edax_versionPtr.asFunction<void Function()>();
 
   void edax_vmirror() {
     return _edax_vmirror();
   }
 
-  late final _edax_vmirror_ptr = _lookup<ffi.NativeFunction<_c_edax_vmirror>>('edax_vmirror');
-  late final _dart_edax_vmirror _edax_vmirror = _edax_vmirror_ptr.asFunction<_dart_edax_vmirror>();
+  late final _edax_vmirrorPtr = _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_vmirror');
+  late final _edax_vmirror = _edax_vmirrorPtr.asFunction<void Function()>();
 
   /// edge stability global data
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Uint8>>> _edge_stability =
@@ -947,12 +955,14 @@ class LibEdaxBindings {
   set engine_result(ffi.Pointer<ffi.Int8> value) => _engine_result.value = value;
 
   /// Array of functions to compute flipped discs
-  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.NativeFunction<_typedefC_10>>>> _flip =
-      _lookup<ffi.Pointer<ffi.Pointer<ffi.NativeFunction<_typedefC_10>>>>('flip');
+  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.NativeFunction<ffi.Uint64 Function(ffi.Uint64, ffi.Uint64)>>>>
+      _flip =
+      _lookup<ffi.Pointer<ffi.Pointer<ffi.NativeFunction<ffi.Uint64 Function(ffi.Uint64, ffi.Uint64)>>>>('flip');
 
-  ffi.Pointer<ffi.Pointer<ffi.NativeFunction<_typedefC_10>>> get flip => _flip.value;
+  ffi.Pointer<ffi.Pointer<ffi.NativeFunction<ffi.Uint64 Function(ffi.Uint64, ffi.Uint64)>>> get flip => _flip.value;
 
-  set flip(ffi.Pointer<ffi.Pointer<ffi.NativeFunction<_typedefC_10>>> value) => _flip.value = value;
+  set flip(ffi.Pointer<ffi.Pointer<ffi.NativeFunction<ffi.Uint64 Function(ffi.Uint64, ffi.Uint64)>>> value) =>
+      _flip.value = value;
 
   late final ffi.Pointer<ffi.Int32> _getdate_err = _lookup<ffi.Int32>('getdate_err');
 
@@ -994,31 +1004,30 @@ class LibEdaxBindings {
 
   set hash_rank(ffi.Pointer<ffi.Pointer<ffi.Uint64>> value) => _hash_rank.value = value;
 
-  late final ffi.Pointer<in6_addr_t> _in6addr_any = _lookup<in6_addr_t>('in6addr_any');
+  late final ffi.Pointer<in6_addr> _in6addr_any = _lookup<in6_addr>('in6addr_any');
 
-  ffi.Pointer<in6_addr_t> get in6addr_any => _in6addr_any;
+  in6_addr get in6addr_any => _in6addr_any.ref;
 
-  late final ffi.Pointer<in6_addr_t> _in6addr_linklocal_allnodes = _lookup<in6_addr_t>('in6addr_linklocal_allnodes');
+  late final ffi.Pointer<in6_addr> _in6addr_linklocal_allnodes = _lookup<in6_addr>('in6addr_linklocal_allnodes');
 
-  ffi.Pointer<in6_addr_t> get in6addr_linklocal_allnodes => _in6addr_linklocal_allnodes;
+  in6_addr get in6addr_linklocal_allnodes => _in6addr_linklocal_allnodes.ref;
 
-  late final ffi.Pointer<in6_addr_t> _in6addr_linklocal_allrouters =
-      _lookup<in6_addr_t>('in6addr_linklocal_allrouters');
+  late final ffi.Pointer<in6_addr> _in6addr_linklocal_allrouters = _lookup<in6_addr>('in6addr_linklocal_allrouters');
 
-  ffi.Pointer<in6_addr_t> get in6addr_linklocal_allrouters => _in6addr_linklocal_allrouters;
+  in6_addr get in6addr_linklocal_allrouters => _in6addr_linklocal_allrouters.ref;
 
-  late final ffi.Pointer<in6_addr_t> _in6addr_linklocal_allv2routers =
-      _lookup<in6_addr_t>('in6addr_linklocal_allv2routers');
+  late final ffi.Pointer<in6_addr> _in6addr_linklocal_allv2routers =
+      _lookup<in6_addr>('in6addr_linklocal_allv2routers');
 
-  ffi.Pointer<in6_addr_t> get in6addr_linklocal_allv2routers => _in6addr_linklocal_allv2routers;
+  in6_addr get in6addr_linklocal_allv2routers => _in6addr_linklocal_allv2routers.ref;
 
-  late final ffi.Pointer<in6_addr_t> _in6addr_loopback = _lookup<in6_addr_t>('in6addr_loopback');
+  late final ffi.Pointer<in6_addr> _in6addr_loopback = _lookup<in6_addr>('in6addr_loopback');
 
-  ffi.Pointer<in6_addr_t> get in6addr_loopback => _in6addr_loopback;
+  in6_addr get in6addr_loopback => _in6addr_loopback.ref;
 
-  late final ffi.Pointer<in6_addr_t> _in6addr_nodelocal_allnodes = _lookup<in6_addr_t>('in6addr_nodelocal_allnodes');
+  late final ffi.Pointer<in6_addr> _in6addr_nodelocal_allnodes = _lookup<in6_addr>('in6addr_nodelocal_allnodes');
 
-  ffi.Pointer<in6_addr_t> get in6addr_nodelocal_allnodes => _in6addr_nodelocal_allnodes;
+  in6_addr get in6addr_nodelocal_allnodes => _in6addr_nodelocal_allnodes.ref;
 
   /// a global string with the last result sent to avoid duplicate result lines
   late final ffi.Pointer<ffi.Pointer<ffi.Int8>> _last_line_sent = _lookup<ffi.Pointer<ffi.Int8>>('last_line_sent');
@@ -1037,16 +1046,18 @@ class LibEdaxBindings {
     );
   }
 
-  late final _libedax_initialize_ptr = _lookup<ffi.NativeFunction<_c_libedax_initialize>>('libedax_initialize');
-  late final _dart_libedax_initialize _libedax_initialize =
-      _libedax_initialize_ptr.asFunction<_dart_libedax_initialize>();
+  late final _libedax_initializePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int32, ffi.Pointer<ffi.Pointer<ffi.Int8>>)>>(
+          'libedax_initialize');
+  late final _libedax_initialize =
+      _libedax_initializePtr.asFunction<void Function(int, ffi.Pointer<ffi.Pointer<ffi.Int8>>)>();
 
   void libedax_terminate() {
     return _libedax_terminate();
   }
 
-  late final _libedax_terminate_ptr = _lookup<ffi.NativeFunction<_c_libedax_terminate>>('libedax_terminate');
-  late final _dart_libedax_terminate _libedax_terminate = _libedax_terminate_ptr.asFunction<_dart_libedax_terminate>();
+  late final _libedax_terminatePtr = _lookup<ffi.NativeFunction<ffi.Void Function()>>('libedax_terminate');
+  late final _libedax_terminate = _libedax_terminatePtr.asFunction<void Function()>();
 
   late final ffi.Pointer<ffi.Pointer<Log>> _nboard_log = _lookup<ffi.Pointer<Log>>('nboard_log');
 
@@ -1151,12 +1162,12 @@ class LibEdaxBindings {
   /// Can be set as a real_clock or a cpu_clock.
   ///
   /// @return time in milliseconds.
-  late final ffi.Pointer<ffi.Pointer<ffi.NativeFunction<_typedefC_8>>> _time_clock =
-      _lookup<ffi.Pointer<ffi.NativeFunction<_typedefC_8>>>('time_clock');
+  late final ffi.Pointer<ffi.Pointer<ffi.NativeFunction<ffi.Int64 Function()>>> _time_clock =
+      _lookup<ffi.Pointer<ffi.NativeFunction<ffi.Int64 Function()>>>('time_clock');
 
-  ffi.Pointer<ffi.NativeFunction<_typedefC_8>> get time_clock => _time_clock.value;
+  ffi.Pointer<ffi.NativeFunction<ffi.Int64 Function()>> get time_clock => _time_clock.value;
 
-  set time_clock(ffi.Pointer<ffi.NativeFunction<_typedefC_8>> value) => _time_clock.value = value;
+  set time_clock(ffi.Pointer<ffi.NativeFunction<ffi.Int64 Function()>> value) => _time_clock.value = value;
 
   late final ffi.Pointer<ffi.Int64> _timezone = _lookup<ffi.Int64>('timezone');
 
@@ -1371,7 +1382,7 @@ class BenchResult extends ffi.Struct {
   @ffi.Int32()
   external int positions;
 
-  external _opaque_pthread_mutex_t lock;
+  external Lock lock;
 }
 
 /// Board : board representation
@@ -1398,11 +1409,11 @@ class BoardCache extends ffi.Struct {
 /// struct Book
 /// @brief The opening book.
 class Book extends ffi.Struct {
-  external unnamedStruct_6 date;
+  external UnnamedStruct8 date;
 
-  external unnamedStruct_7 options;
+  external UnnamedStruct9 options;
 
-  external unnamedStruct_8 stats;
+  external UnnamedStruct10 stats;
 
   external ffi.Pointer<PositionArray> array;
 
@@ -1523,13 +1534,16 @@ const int COUNT_NODES = 7;
 
 const int CPUMON_MAKE_FATAL = 4096;
 
+/// typedef conditional variable
+typedef Condition = pthread_cond_t;
+
 /// coordinate to feature conversion
 class CoordinateToFeature extends ffi.Struct {
   @ffi.Int32()
   external int n_feature;
 
   @ffi.Array.multi([16])
-  external ffi.Array<unnamedStruct_3> feature;
+  external ffi.Array<UnnamedStruct5> feature;
 }
 
 const int D1 = 3;
@@ -1874,7 +1888,7 @@ class Engine extends ffi.Struct {
   /// Events
   external ffi.Pointer<Search> search;
 
-  external unnamedStruct_15 last_position;
+  external UnnamedStruct15 last_position;
 
   @ffi.Uint8()
   external int is_searching;
@@ -1912,17 +1926,17 @@ class Event extends ffi.Struct {
   external int end;
 
   /// !< thread
-  external ffi.Pointer<_opaque_pthread_t> thread;
+  external Thread thread;
 
   /// !< spin lock
-  @ffi.Int32()
+  @SpinLock()
   external int spin;
 
   /// !< lock
-  external _opaque_pthread_mutex_t lock;
+  external Lock lock;
 
   /// !< condition
-  external _opaque_pthread_cond_t cond;
+  external Condition cond;
 }
 
 const int F1 = 5;
@@ -1945,57 +1959,7 @@ const int FAST_PERFT = 1;
 
 const int FD_SETSIZE = 1024;
 
-class FILE extends ffi.Struct {
-  external ffi.Pointer<ffi.Uint8> _p;
-
-  @ffi.Int32()
-  external int _r;
-
-  @ffi.Int32()
-  external int _w;
-
-  @ffi.Int16()
-  external int _flags;
-
-  @ffi.Int16()
-  external int _file;
-
-  external __sbuf _bf;
-
-  @ffi.Int32()
-  external int _lbfsize;
-
-  external ffi.Pointer<ffi.Void> _cookie;
-
-  external ffi.Pointer<ffi.NativeFunction<_typedefC_2>> _close;
-
-  external ffi.Pointer<ffi.NativeFunction<_typedefC_3>> _read;
-
-  external ffi.Pointer<ffi.NativeFunction<_typedefC_4>> _seek;
-
-  external ffi.Pointer<ffi.NativeFunction<_typedefC_5>> _write;
-
-  external __sbuf _ub;
-
-  external ffi.Pointer<__sFILEX> _extra;
-
-  @ffi.Int32()
-  external int _ur;
-
-  @ffi.Array.multi([3])
-  external ffi.Array<ffi.Uint8> _ubuf;
-
-  @ffi.Array.multi([1])
-  external ffi.Array<ffi.Uint8> _nbuf;
-
-  external __sbuf _lb;
-
-  @ffi.Int32()
-  external int _blksize;
-
-  @ffi.Int64()
-  external int _offset;
-}
+typedef FILE = __sFILE;
 
 const int FILENAME_MAX = 1024;
 
@@ -2191,10 +2155,10 @@ class GGSClient extends ffi.Struct {
   external int last_refresh;
 
   @ffi.Array.multi([1])
-  external ffi.Array<unnamedStruct_13> loop;
+  external ffi.Array<UnnamedStruct16> loop;
 
   @ffi.Array.multi([1])
-  external ffi.Array<unnamedStruct_14> once;
+  external ffi.Array<UnnamedStruct17> once;
 }
 
 /// GGS clock (to play a game)
@@ -2249,10 +2213,10 @@ class GGSEvent extends ffi.Struct {
   external ffi.Pointer<ffi.Int8> buffer;
 
   /// < thread
-  external ffi.Pointer<_opaque_pthread_t> thread;
+  external Thread thread;
 
   /// < lock
-  external _opaque_pthread_mutex_t lock;
+  external Lock lock;
 }
 
 class GGSMatchOff extends ffi.Struct {
@@ -2341,7 +2305,7 @@ class Game extends ffi.Struct {
   @ffi.Array.multi([1])
   external ffi.Array<Board> initial_board;
 
-  external unnamedStruct_5 date;
+  external UnnamedStruct7 date;
 
   @ffi.Array.multi([2, 32])
   external ffi.Array<ffi.Array<ffi.Int8>> name;
@@ -2506,7 +2470,7 @@ class HashData extends ffi.Struct {
 
 /// HashLock : lock for table entries
 class HashLock extends ffi.Struct {
-  @ffi.Int32()
+  @SpinLock()
   external int spin;
 }
 
@@ -3561,11 +3525,14 @@ class Link extends ffi.Struct {
   external int move;
 }
 
+/// Typedef mutex to a personalized type for portability
+typedef Lock = pthread_mutex_t;
+
 /// @brief LogFile.
 class Log extends ffi.Struct {
   external ffi.Pointer<FILE> f;
 
-  external _opaque_pthread_mutex_t lock;
+  external Lock lock;
 }
 
 const int MAC_OS_VERSION_11_0 = 110000;
@@ -3991,10 +3958,10 @@ class Node extends ffi.Struct {
   external ffi.Array<Task> help;
 
   /// < mutex
-  external _opaque_pthread_mutex_t lock;
+  external Lock lock;
 
   /// < condition variable
-  external _opaque_pthread_cond_t cond;
+  external Condition cond;
 }
 
 /// node type
@@ -4014,7 +3981,7 @@ class OBF extends ffi.Struct {
   external int player;
 
   @ffi.Array.multi([32])
-  external ffi.Array<unnamedStruct_4> move;
+  external ffi.Array<UnnamedStruct6> move;
 
   /// <! Move number
   @ffi.Int32()
@@ -4044,14 +4011,13 @@ const int OPEN_MAX = 10240;
 
 const int OSATOMIC_DEPRECATED = 1;
 
-class OSQueueHead extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> opaque1;
-
-  @ffi.Int64()
-  external int opaque2;
-}
-
 const int OSSPINLOCK_DEPRECATED = 1;
+
+/// ! @abstract Data type for a spinlock.
+/// @discussion
+/// You should always initialize a spinlock to {@link OS_SPINLOCK_INIT} before
+/// using it.
+typedef OSSpinLock = ffi.Int32;
 
 const int OS_SPINLOCK_INIT = 0;
 
@@ -4503,13 +4469,13 @@ class Play extends ffi.Struct {
   external int clock;
 
   @ffi.Array.multi([2])
-  external ffi.Array<unnamedStruct_10> time;
+  external ffi.Array<UnnamedStruct12> time;
 
   /// < forced line
-  external unnamedStruct_11 force;
+  external UnnamedStruct13 force;
 
   @ffi.Array.multi([1])
-  external ffi.Array<unnamedStruct_12> ponder;
+  external ffi.Array<UnnamedStruct14> ponder;
 
   @ffi.Array.multi([4096])
   external ffi.Array<ffi.Int8> error_message;
@@ -4572,7 +4538,7 @@ class Position extends ffi.Struct {
   external int n_lines;
 
   /// < Position value & bounds
-  external unnamedStruct_9 score;
+  external UnnamedStruct11 score;
 
   /// < linking moves number
   @ffi.Uint8()
@@ -4771,7 +4737,7 @@ class Result extends ffi.Struct {
   @ffi.Int32()
   external int n_moves_left;
 
-  @ffi.Int32()
+  @SpinLock()
   external int spin;
 }
 
@@ -5212,7 +5178,7 @@ class Search extends ffi.Struct {
   external ffi.Pointer<Task> task;
 
   /// < search lock
-  @ffi.Int32()
+  @SpinLock()
   external int spin;
 
   /// < parent search
@@ -5257,7 +5223,7 @@ class Search extends ffi.Struct {
   external int allow_node_splitting;
 
   /// < time
-  external unnamedStruct_1 time;
+  external UnnamedStruct3 time;
 
   @ffi.Array.multi([1])
   external ffi.Array<MoveList> movelist;
@@ -5273,13 +5239,13 @@ class Search extends ffi.Struct {
   external Bound stability_bound;
 
   /// < local (threadable) options.
-  external unnamedStruct_2 options;
+  external UnnamedStruct4 options;
 
   /// < shared result
   external ffi.Pointer<Result> result;
 
   /// < call back function to print search result
-  external ffi.Pointer<ffi.NativeFunction<_typedefC_9>> observer;
+  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<Result>)>> observer;
 
   /// < node counter
   @ffi.Uint64()
@@ -5329,6 +5295,9 @@ class ShapeHash extends ffi.Struct {
   @ffi.Int32()
   external int mask;
 }
+
+/// Typedef spinlock (=fast mutex) to a personalized type for portability
+typedef SpinLock = OSSpinLock;
 
 /// double linked list of squares
 class SquareList extends ffi.Struct {
@@ -5694,7 +5663,7 @@ class Task extends ffi.Struct {
   external ffi.Pointer<Move> move;
 
   /// < thread
-  external ffi.Pointer<_opaque_pthread_t> thread;
+  external Thread thread;
 
   /// < call counter
   @ffi.Uint64()
@@ -5705,10 +5674,10 @@ class Task extends ffi.Struct {
   external int n_nodes;
 
   /// < lock
-  external _opaque_pthread_mutex_t lock;
+  external Lock lock;
 
   /// < condition
-  external _opaque_pthread_cond_t cond;
+  external Condition cond;
 
   /// < link to its container
   external ffi.Pointer<TaskStack> container;
@@ -5721,7 +5690,7 @@ class TaskQueue extends ffi.Opaque {}
 /// A FILO of tasks
 class TaskStack extends ffi.Struct {
   /// < mutex
-  @ffi.Int32()
+  @SpinLock()
   external int spin;
 
   /// < set of tasks
@@ -5748,6 +5717,9 @@ class Text extends ffi.Struct {
   @ffi.Int32()
   external int n_lines;
 }
+
+/// Typedef mutex to a personalized type for portability
+typedef Thread = pthread_t;
 
 const int UCHAR_MAX = 255;
 
@@ -5796,13 +5768,13 @@ class UI extends ffi.Struct {
   external ffi.Array<Event> event;
 
   /// < init function
-  external ffi.Pointer<ffi.NativeFunction<_typedefC_14>> init;
+  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<UI>)>> init;
 
   /// < main loop function
-  external ffi.Pointer<ffi.NativeFunction<_typedefC_15>> loop;
+  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<UI>)>> loop;
 
   /// < free resources function
-  external ffi.Pointer<ffi.NativeFunction<_typedefC_16>> free;
+  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<UI>)>> free;
 }
 
 const int UID_MAX = 2147483647;
@@ -5886,6 +5858,268 @@ const int USHRT_MAX = 65535;
 const int UTIME_NOW = -1;
 
 const int UTIME_OMIT = -2;
+
+class UnnamedStruct10 extends ffi.Struct {
+  @ffi.Int32()
+  external int n_nodes;
+
+  @ffi.Int32()
+  external int n_links;
+
+  @ffi.Int32()
+  external int n_todo;
+}
+
+class UnnamedStruct11 extends ffi.Struct {
+  @ffi.Int16()
+  external int value;
+
+  @ffi.Int16()
+  external int lower;
+
+  @ffi.Int16()
+  external int upper;
+}
+
+class UnnamedStruct12 extends ffi.Struct {
+  /// < time spent
+  @ffi.Int64()
+  external int spent;
+
+  /// < time left
+  @ffi.Int64()
+  external int left;
+
+  /// < extra time left
+  @ffi.Int64()
+  external int extra;
+}
+
+class UnnamedStruct13 extends ffi.Struct {
+  @ffi.Array.multi([80])
+  external ffi.Array<Board> real;
+
+  @ffi.Array.multi([80])
+  external ffi.Array<Board> unique;
+
+  @ffi.Array.multi([80])
+  external ffi.Array<Move> move;
+
+  /// < number of forced move
+  @ffi.Int32()
+  external int n_move;
+
+  /// < current forced move
+  @ffi.Int32()
+  external int i_move;
+}
+
+class UnnamedStruct14 extends ffi.Struct {
+  /// < thread.
+  external Thread thread;
+
+  /// < lock.
+  external Lock lock;
+
+  @ffi.Array.multi([1])
+  external ffi.Array<Board> board;
+
+  /// < launched thread
+  @ffi.Uint8()
+  external int launched;
+
+  /// < verbose pondering
+  @ffi.Uint8()
+  external int verbose;
+}
+
+/// Search
+class UnnamedStruct15 extends ffi.Struct {
+  @ffi.Array.multi([1024])
+  external ffi.Array<Board> board;
+
+  /// Last position
+  @ffi.Int32()
+  external int n;
+}
+
+class UnnamedStruct16 extends ffi.Struct {
+  /// < command
+  external ffi.Pointer<ffi.Int8> cmd;
+
+  /// < iteration number
+  @ffi.Int32()
+  external int i;
+
+  /// < delay between commands
+  @ffi.Int64()
+  external int delay;
+}
+
+class UnnamedStruct17 extends ffi.Struct {
+  /// < command
+  external ffi.Pointer<ffi.Int8> cmd;
+
+  /// < delay
+  @ffi.Int64()
+  external int delay;
+}
+
+class UnnamedStruct3 extends ffi.Struct {
+  /// < extra alloted time
+  @ffi.Int64()
+  external int extra;
+
+  /// < time spent thinking
+  @ffi.Int64()
+  external int spent;
+
+  /// < flag to extend time only once
+  @ffi.Uint8()
+  external int extended;
+
+  /// < flag allowing to extend time
+  @ffi.Uint8()
+  external int can_update;
+
+  /// < minimal alloted time
+  @ffi.Int64()
+  external int mini;
+
+  /// < maximal alloted time
+  @ffi.Int64()
+  external int maxi;
+}
+
+class UnnamedStruct4 extends ffi.Struct {
+  /// < depth
+  @ffi.Int32()
+  external int depth;
+
+  /// < final selectivity
+  @ffi.Int32()
+  external int selectivity;
+
+  /// < time in sec.
+  @ffi.Int64()
+  external int time;
+
+  /// < time_per_move or per game ?
+  @ffi.Uint8()
+  external int time_per_move;
+
+  /// < verbosity level
+  @ffi.Int32()
+  external int verbosity;
+
+  /// < keep date
+  @ffi.Uint8()
+  external int keep_date;
+
+  /// < header for search output
+  external ffi.Pointer<ffi.Int8> header;
+
+  /// < separator for search output
+  external ffi.Pointer<ffi.Int8> separator;
+
+  /// < guess PV (in cassio mode only)
+  @ffi.Uint8()
+  external int guess_pv;
+
+  /// < multi PV depth
+  @ffi.Int32()
+  external int multipv_depth;
+
+  /// < hashtable size
+  @ffi.Int32()
+  external int hash_size;
+}
+
+class UnnamedStruct5 extends ffi.Struct {
+  @ffi.Int32()
+  external int i;
+
+  @ffi.Int32()
+  external int x;
+}
+
+class UnnamedStruct6 extends ffi.Struct {
+  /// <! Move coordinate
+  @ffi.Int32()
+  external int x;
+
+  /// <! Move score
+  @ffi.Int32()
+  external int score;
+}
+
+class UnnamedStruct7 extends ffi.Struct {
+  @ffi.Int16()
+  external int year;
+
+  @ffi.Int8()
+  external int month;
+
+  @ffi.Int8()
+  external int day;
+
+  @ffi.Int8()
+  external int hour;
+
+  @ffi.Int8()
+  external int minute;
+
+  @ffi.Int8()
+  external int second;
+}
+
+class UnnamedStruct8 extends ffi.Struct {
+  @ffi.Int16()
+  external int year;
+
+  @ffi.Int8()
+  external int month;
+
+  @ffi.Int8()
+  external int day;
+
+  @ffi.Int8()
+  external int hour;
+
+  @ffi.Int8()
+  external int minute;
+
+  @ffi.Int8()
+  external int second;
+}
+
+class UnnamedStruct9 extends ffi.Struct {
+  @ffi.Int32()
+  external int level;
+
+  @ffi.Int32()
+  external int n_empties;
+
+  @ffi.Int32()
+  external int midgame_error;
+
+  @ffi.Int32()
+  external int endcut_error;
+
+  @ffi.Int32()
+  external int verbosity;
+}
+
+class UnnamedUnion1 extends ffi.Union {
+  @ffi.Array.multi([16])
+  external ffi.Array<__uint8_t> __u6_addr8;
+
+  @ffi.Array.multi([8])
+  external ffi.Array<__uint16_t> __u6_addr16;
+
+  @ffi.Array.multi([4])
+  external ffi.Array<__uint32_t> __u6_addr32;
+}
 
 const int VERSION = 4;
 
@@ -6524,21 +6758,21 @@ class _RuneCharClass extends ffi.Struct {
   @ffi.Array.multi([14])
   external ffi.Array<ffi.Int8> __name;
 
-  @ffi.Uint32()
+  @__uint32_t()
   external int __mask;
 }
 
 class _RuneEntry extends ffi.Struct {
-  @ffi.Int32()
+  @__darwin_rune_t()
   external int __min;
 
-  @ffi.Int32()
+  @__darwin_rune_t()
   external int __max;
 
-  @ffi.Int32()
+  @__darwin_rune_t()
   external int __map;
 
-  external ffi.Pointer<ffi.Uint32> __types;
+  external ffi.Pointer<__uint32_t> __types;
 }
 
 class _RuneLocale extends ffi.Struct {
@@ -6548,21 +6782,27 @@ class _RuneLocale extends ffi.Struct {
   @ffi.Array.multi([32])
   external ffi.Array<ffi.Int8> __encoding;
 
-  external ffi.Pointer<ffi.NativeFunction<_typedefC_11>> __sgetrune;
+  external ffi.Pointer<
+          ffi.NativeFunction<
+              __darwin_rune_t Function(ffi.Pointer<ffi.Int8>, __darwin_size_t, ffi.Pointer<ffi.Pointer<ffi.Int8>>)>>
+      __sgetrune;
 
-  external ffi.Pointer<ffi.NativeFunction<_typedefC_12>> __sputrune;
+  external ffi.Pointer<
+      ffi.NativeFunction<
+          ffi.Int32 Function(
+              __darwin_rune_t, ffi.Pointer<ffi.Int8>, __darwin_size_t, ffi.Pointer<ffi.Pointer<ffi.Int8>>)>> __sputrune;
 
-  @ffi.Int32()
+  @__darwin_rune_t()
   external int __invalid_rune;
 
   @ffi.Array.multi([256])
-  external ffi.Array<ffi.Uint32> __runetype;
+  external ffi.Array<__uint32_t> __runetype;
 
   @ffi.Array.multi([256])
-  external ffi.Array<ffi.Int32> __maplower;
+  external ffi.Array<__darwin_rune_t> __maplower;
 
   @ffi.Array.multi([256])
-  external ffi.Array<ffi.Int32> __mapupper;
+  external ffi.Array<__darwin_rune_t> __mapupper;
 
   external _RuneRange __runetype_ext;
 
@@ -7342,25 +7582,31 @@ const int __WORDSIZE = 64;
 
 const int __bool_true_false_are_defined = 1;
 
+typedef __darwin_blkcnt_t = __int64_t;
+typedef __darwin_blksize_t = __int32_t;
+typedef __darwin_dev_t = __int32_t;
+
 class __darwin_fp_control extends ffi.Opaque {}
 
 class __darwin_fp_status extends ffi.Opaque {}
+
+typedef __darwin_gid_t = __uint32_t;
 
 class __darwin_i386_avx512_state extends ffi.Opaque {}
 
 class __darwin_i386_avx_state extends ffi.Opaque {}
 
 class __darwin_i386_exception_state extends ffi.Struct {
-  @ffi.Uint16()
+  @__uint16_t()
   external int __trapno;
 
-  @ffi.Uint16()
+  @__uint16_t()
   external int __cpu;
 
-  @ffi.Uint32()
+  @__uint32_t()
   external int __err;
 
-  @ffi.Uint32()
+  @__uint32_t()
   external int __faultvaddr;
 }
 
@@ -7416,6 +7662,9 @@ class __darwin_i386_thread_state extends ffi.Struct {
   external int __gs;
 }
 
+typedef __darwin_ino64_t = __uint64_t;
+typedef __darwin_ino_t = __darwin_ino64_t;
+
 class __darwin_mcontext32 extends ffi.Opaque {}
 
 class __darwin_mcontext64 extends ffi.Opaque {}
@@ -7442,45 +7691,65 @@ class __darwin_mmst_reg extends ffi.Struct {
   external ffi.Array<ffi.Int8> __mmst_rsrv;
 }
 
+typedef __darwin_mode_t = __uint16_t;
+typedef __darwin_off_t = __int64_t;
+
 class __darwin_opmask_reg extends ffi.Struct {
   @ffi.Array.multi([8])
   external ffi.Array<ffi.Int8> __opmask_reg;
 }
 
+typedef __darwin_pid_t = __int32_t;
+typedef __darwin_pthread_attr_t = _opaque_pthread_attr_t;
+typedef __darwin_pthread_cond_t = _opaque_pthread_cond_t;
+
 class __darwin_pthread_handler_rec extends ffi.Struct {
-  external ffi.Pointer<ffi.NativeFunction<_typedefC_1>> __routine;
+  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>> __routine;
 
   external ffi.Pointer<ffi.Void> __arg;
 
   external ffi.Pointer<__darwin_pthread_handler_rec> __next;
 }
 
+typedef __darwin_pthread_mutex_t = _opaque_pthread_mutex_t;
+typedef __darwin_pthread_t = ffi.Pointer<_opaque_pthread_t>;
+typedef __darwin_rune_t = __darwin_wchar_t;
+
 class __darwin_sigaltstack extends ffi.Struct {
   external ffi.Pointer<ffi.Void> ss_sp;
 
-  @ffi.Uint64()
+  @__darwin_size_t()
   external int ss_size;
 
   @ffi.Int32()
   external int ss_flags;
 }
 
+typedef __darwin_sigset_t = __uint32_t;
+typedef __darwin_size_t = ffi.Uint64;
+typedef __darwin_socklen_t = __uint32_t;
+typedef __darwin_suseconds_t = __int32_t;
+typedef __darwin_time_t = ffi.Int64;
+
 class __darwin_ucontext extends ffi.Struct {
   @ffi.Int32()
   external int uc_onstack;
 
-  @ffi.Uint32()
+  @__darwin_sigset_t()
   external int uc_sigmask;
 
   external __darwin_sigaltstack uc_stack;
 
   external ffi.Pointer<__darwin_ucontext> uc_link;
 
-  @ffi.Uint64()
+  @__darwin_size_t()
   external int uc_mcsize;
 
   external ffi.Pointer<__darwin_mcontext64> uc_mcontext;
 }
+
+typedef __darwin_uid_t = __uint32_t;
+typedef __darwin_wchar_t = ffi.Int32;
 
 class __darwin_x86_avx512_state64 extends ffi.Opaque {}
 
@@ -7488,7 +7757,7 @@ class __darwin_x86_avx_state64 extends ffi.Opaque {}
 
 class __darwin_x86_cpmu_state64 extends ffi.Struct {
   @ffi.Array.multi([16])
-  external ffi.Array<ffi.Uint64> __ctrs;
+  external ffi.Array<__uint64_t> __ctrs;
 }
 
 class __darwin_x86_debug_state32 extends ffi.Struct {
@@ -7518,42 +7787,42 @@ class __darwin_x86_debug_state32 extends ffi.Struct {
 }
 
 class __darwin_x86_debug_state64 extends ffi.Struct {
-  @ffi.Uint64()
+  @__uint64_t()
   external int __dr0;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __dr1;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __dr2;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __dr3;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __dr4;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __dr5;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __dr6;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __dr7;
 }
 
 class __darwin_x86_exception_state64 extends ffi.Struct {
-  @ffi.Uint16()
+  @__uint16_t()
   external int __trapno;
 
-  @ffi.Uint16()
+  @__uint16_t()
   external int __cpu;
 
-  @ffi.Uint32()
+  @__uint32_t()
   external int __err;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __faultvaddr;
 }
 
@@ -7562,81 +7831,81 @@ class __darwin_x86_float_state64 extends ffi.Opaque {}
 class __darwin_x86_thread_full_state64 extends ffi.Struct {
   external __darwin_x86_thread_state64 __ss64;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __ds;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __es;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __ss;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __gsbase;
 }
 
 class __darwin_x86_thread_state64 extends ffi.Struct {
-  @ffi.Uint64()
+  @__uint64_t()
   external int __rax;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __rbx;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __rcx;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __rdx;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __rdi;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __rsi;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __rbp;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __rsp;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __r8;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __r9;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __r10;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __r11;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __r12;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __r13;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __r14;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __r15;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __rip;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __rflags;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __cs;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __fs;
 
-  @ffi.Uint64()
+  @__uint64_t()
   external int __gs;
 }
 
@@ -7671,9 +7940,20 @@ class __float2 extends ffi.Struct {
   external double __cosval;
 }
 
+typedef __int32_t = ffi.Int32;
+typedef __int64_t = ffi.Int64;
+
 class __last_branch_record extends ffi.Opaque {}
 
 class __last_branch_state extends ffi.Opaque {}
+
+class __mbstate_t extends ffi.Union {
+  @ffi.Array.multi([128])
+  external ffi.Array<ffi.Int8> __mbstate8;
+
+  @ffi.Int64()
+  external int _mbstateL;
+}
 
 @ffi.Packed(4)
 class __msfilterreq extends ffi.Struct {
@@ -7694,6 +7974,60 @@ class __msfilterreq extends ffi.Struct {
   external ffi.Pointer<sockaddr_storage> msfr_srcs;
 }
 
+class __sFILE extends ffi.Struct {
+  external ffi.Pointer<ffi.Uint8> _p;
+
+  @ffi.Int32()
+  external int _r;
+
+  @ffi.Int32()
+  external int _w;
+
+  @ffi.Int16()
+  external int _flags;
+
+  @ffi.Int16()
+  external int _file;
+
+  external __sbuf _bf;
+
+  @ffi.Int32()
+  external int _lbfsize;
+
+  external ffi.Pointer<ffi.Void> _cookie;
+
+  external ffi.Pointer<ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<ffi.Void>)>> _close;
+
+  external ffi.Pointer<ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Int8>, ffi.Int32)>>
+      _read;
+
+  external ffi.Pointer<ffi.NativeFunction<fpos_t Function(ffi.Pointer<ffi.Void>, fpos_t, ffi.Int32)>> _seek;
+
+  external ffi.Pointer<ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Int8>, ffi.Int32)>>
+      _write;
+
+  external __sbuf _ub;
+
+  external ffi.Pointer<__sFILEX> _extra;
+
+  @ffi.Int32()
+  external int _ur;
+
+  @ffi.Array.multi([3])
+  external ffi.Array<ffi.Uint8> _ubuf;
+
+  @ffi.Array.multi([1])
+  external ffi.Array<ffi.Uint8> _nbuf;
+
+  external __sbuf _lb;
+
+  @ffi.Int32()
+  external int _blksize;
+
+  @fpos_t()
+  external int _offset;
+}
+
 class __sFILEX extends ffi.Opaque {}
 
 class __sbuf extends ffi.Struct {
@@ -7703,7 +8037,62 @@ class __sbuf extends ffi.Struct {
   external int _size;
 }
 
-class __sigaction extends ffi.Opaque {}
+class __sigaction extends ffi.Struct {
+  external __sigaction_u __sigaction_u1;
+
+  external ffi.Pointer<
+      ffi.NativeFunction<
+          ffi.Void Function(
+              ffi.Pointer<ffi.Void>, ffi.Int32, ffi.Int32, ffi.Pointer<siginfo_t>, ffi.Pointer<ffi.Void>)>> sa_tramp;
+
+  @sigset_t()
+  external int sa_mask;
+
+  @ffi.Int32()
+  external int sa_flags;
+}
+
+class __sigaction_u extends ffi.Union {
+  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Int32)>> __sa_handler;
+
+  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Int32, ffi.Pointer<__siginfo>, ffi.Pointer<ffi.Void>)>>
+      __sa_sigaction;
+}
+
+class __siginfo extends ffi.Struct {
+  @ffi.Int32()
+  external int si_signo;
+
+  @ffi.Int32()
+  external int si_errno;
+
+  @ffi.Int32()
+  external int si_code;
+
+  @pid_t()
+  external int si_pid;
+
+  @uid_t()
+  external int si_uid;
+
+  @ffi.Int32()
+  external int si_status;
+
+  external ffi.Pointer<ffi.Void> si_addr;
+
+  external sigval si_value;
+
+  @ffi.Int64()
+  external int si_band;
+
+  @ffi.Array.multi([7])
+  external ffi.Array<ffi.Uint64> __pad;
+}
+
+typedef __uint16_t = ffi.Uint16;
+typedef __uint32_t = ffi.Uint32;
+typedef __uint64_t = ffi.Uint64;
+typedef __uint8_t = ffi.Uint8;
 
 class __x86_instruction_state extends ffi.Struct {
   @ffi.Int32()
@@ -7716,10 +8105,10 @@ class __x86_instruction_state extends ffi.Struct {
   external int __out_of_synch;
 
   @ffi.Array.multi([2380])
-  external ffi.Array<ffi.Uint8> __insn_bytes;
+  external ffi.Array<__uint8_t> __insn_bytes;
 
   @ffi.Array.multi([64])
-  external ffi.Array<ffi.Uint8> __insn_cacheline;
+  external ffi.Array<__uint8_t> __insn_cacheline;
 }
 
 class __x86_pagein_state extends ffi.Struct {
@@ -7827,7 +8216,7 @@ class addrinfo extends ffi.Struct {
   @ffi.Int32()
   external int ai_protocol;
 
-  @ffi.Uint32()
+  @socklen_t()
   external int ai_addrlen;
 
   external ffi.Pointer<ffi.Int8> ai_canonname;
@@ -7836,6 +8225,9 @@ class addrinfo extends ffi.Struct {
 
   external ffi.Pointer<addrinfo> ai_next;
 }
+
+typedef blkcnt_t = __darwin_blkcnt_t;
+typedef blksize_t = __darwin_blksize_t;
 
 abstract class clockid_t {
   static const int _CLOCK_REALTIME = 0;
@@ -7866,7 +8258,7 @@ class clockinfo extends ffi.Struct {
 }
 
 class cmsghdr extends ffi.Struct {
-  @ffi.Uint32()
+  @socklen_t()
   external int cmsg_len;
 
   @ffi.Int32()
@@ -7875,6 +8267,8 @@ class cmsghdr extends ffi.Struct {
   @ffi.Int32()
   external int cmsg_type;
 }
+
+typedef dev_t = __darwin_dev_t;
 
 class div_t extends ffi.Struct {
   @ffi.Int32()
@@ -7900,14 +8294,18 @@ class exception extends ffi.Struct {
   external double retval;
 }
 
-const int false_1 = 0;
+const int false1 = 0;
 
 class fd_set extends ffi.Struct {
   @ffi.Array.multi([32])
-  external ffi.Array<ffi.Int32> fds_bits;
+  external ffi.Array<__int32_t> fds_bits;
 }
 
+typedef fpos_t = __darwin_off_t;
+
 class fssearchblock extends ffi.Opaque {}
+
+typedef gid_t = __darwin_gid_t;
 
 @ffi.Packed(4)
 class group_req extends ffi.Struct {
@@ -7947,14 +8345,23 @@ abstract class idtype_t {
   static const int P_PGID = 2;
 }
 
-class in6_addr_t extends ffi.Opaque {}
+class in6_addr extends ffi.Struct {
+  external UnnamedUnion1 __u6_addr;
+}
 
-class in6_pktinfo extends ffi.Opaque {}
+class in6_pktinfo extends ffi.Struct {
+  external in6_addr ipi6_addr;
+
+  @ffi.Uint32()
+  external int ipi6_ifindex;
+}
 
 class in_addr extends ffi.Struct {
-  @ffi.Uint32()
+  @in_addr_t()
   external int s_addr;
 }
+
+typedef in_addr_t = __uint32_t;
 
 class in_pktinfo extends ffi.Struct {
   @ffi.Uint32()
@@ -7965,14 +8372,22 @@ class in_pktinfo extends ffi.Struct {
   external in_addr ipi_addr;
 }
 
+typedef in_port_t = __uint16_t;
+typedef ino_t = __darwin_ino_t;
+
 class iovec extends ffi.Struct {
   external ffi.Pointer<ffi.Void> iov_base;
 
-  @ffi.Uint64()
+  @size_t()
   external int iov_len;
 }
 
-class ip6_mtuinfo extends ffi.Opaque {}
+class ip6_mtuinfo extends ffi.Struct {
+  external sockaddr_in6 ip6m_addr;
+
+  @ffi.Uint32()
+  external int ip6m_mtu;
+}
 
 class ip_mreq extends ffi.Struct {
   external in_addr imr_multiaddr;
@@ -8001,10 +8416,15 @@ class ip_opts extends ffi.Struct {
   external in_addr ip_dst;
 
   @ffi.Array.multi([40])
-  external ffi.Array<ffi.Int8> ip_opts_1;
+  external ffi.Array<ffi.Int8> ip_opts1;
 }
 
-class ipv6_mreq extends ffi.Opaque {}
+class ipv6_mreq extends ffi.Struct {
+  external in6_addr ipv6mr_multiaddr;
+
+  @ffi.Uint32()
+  external int ipv6mr_interface;
+}
 
 class itimerval extends ffi.Struct {
   external timeval it_interval;
@@ -8100,10 +8520,12 @@ class lldiv_t extends ffi.Struct {
   external int rem;
 }
 
+typedef mode_t = __darwin_mode_t;
+
 class msghdr extends ffi.Struct {
   external ffi.Pointer<ffi.Void> msg_name;
 
-  @ffi.Uint32()
+  @socklen_t()
   external int msg_namelen;
 
   external ffi.Pointer<iovec> msg_iov;
@@ -8113,7 +8535,7 @@ class msghdr extends ffi.Struct {
 
   external ffi.Pointer<ffi.Void> msg_control;
 
-  @ffi.Uint32()
+  @socklen_t()
   external int msg_controllen;
 
   @ffi.Int32()
@@ -8132,29 +8554,32 @@ class netent extends ffi.Struct {
   external int n_net;
 }
 
+typedef nlink_t = __uint16_t;
+typedef off_t = __darwin_off_t;
+
 class ostat extends ffi.Struct {
-  @ffi.Uint16()
+  @__uint16_t()
   external int st_dev;
 
-  @ffi.Uint64()
+  @ino_t()
   external int st_ino;
 
-  @ffi.Uint16()
+  @mode_t()
   external int st_mode;
 
-  @ffi.Uint16()
+  @nlink_t()
   external int st_nlink;
 
-  @ffi.Uint16()
+  @__uint16_t()
   external int st_uid;
 
-  @ffi.Uint16()
+  @__uint16_t()
   external int st_gid;
 
-  @ffi.Uint16()
+  @__uint16_t()
   external int st_rdev;
 
-  @ffi.Int32()
+  @__int32_t()
   external int st_size;
 
   external timespec st_atimespec;
@@ -8163,18 +8588,20 @@ class ostat extends ffi.Struct {
 
   external timespec st_ctimespec;
 
-  @ffi.Int32()
+  @__int32_t()
   external int st_blksize;
 
-  @ffi.Int32()
+  @__int32_t()
   external int st_blocks;
 
-  @ffi.Uint32()
+  @__uint32_t()
   external int st_flags;
 
-  @ffi.Uint32()
+  @__uint32_t()
   external int st_gen;
 }
+
+typedef pid_t = __darwin_pid_t;
 
 class proc_rlimit_control_wakeupmon extends ffi.Struct {
   @ffi.Uint32()
@@ -8203,13 +8630,20 @@ const int pseudo_AF_RTIP = 22;
 
 const int pseudo_AF_XTP = 19;
 
+typedef pthread_attr_t = __darwin_pthread_attr_t;
+typedef pthread_cond_t = __darwin_pthread_cond_t;
+typedef pthread_mutex_t = __darwin_pthread_mutex_t;
+
 class pthread_override_s extends ffi.Opaque {}
 
+typedef pthread_t = __darwin_pthread_t;
+typedef rlim_t = __uint64_t;
+
 class rlimit extends ffi.Struct {
-  @ffi.Uint64()
+  @rlim_t()
   external int rlim_cur;
 
-  @ffi.Uint64()
+  @rlim_t()
   external int rlim_max;
 }
 
@@ -8726,20 +9160,22 @@ class rusage_info_v5 extends ffi.Struct {
   external int ri_flags;
 }
 
-class sa_endpoints_t extends ffi.Struct {
+class sa_endpoints extends ffi.Struct {
   @ffi.Uint32()
   external int sae_srcif;
 
   external ffi.Pointer<sockaddr> sae_srcaddr;
 
-  @ffi.Uint32()
+  @socklen_t()
   external int sae_srcaddrlen;
 
   external ffi.Pointer<sockaddr> sae_dstaddr;
 
-  @ffi.Uint32()
+  @socklen_t()
   external int sae_dstaddrlen;
 }
+
+typedef sa_family_t = __uint8_t;
 
 class sched_param extends ffi.Struct {
   @ffi.Int32()
@@ -8774,11 +9210,32 @@ class sf_hdtr extends ffi.Struct {
   external int trl_cnt;
 }
 
-class sigaction extends ffi.Opaque {}
+class sigaction extends ffi.Struct {
+  external __sigaction_u __sigaction_u1;
 
-class sigevent extends ffi.Opaque {}
+  @sigset_t()
+  external int sa_mask;
 
-class siginfo_t extends ffi.Opaque {}
+  @ffi.Int32()
+  external int sa_flags;
+}
+
+class sigevent extends ffi.Struct {
+  @ffi.Int32()
+  external int sigev_notify;
+
+  @ffi.Int32()
+  external int sigev_signo;
+
+  external sigval sigev_value;
+
+  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(sigval)>> sigev_notify_function;
+
+  external ffi.Pointer<pthread_attr_t> sigev_notify_attributes;
+}
+
+typedef siginfo_t = __siginfo;
+typedef sigset_t = __darwin_sigset_t;
 
 class sigstack extends ffi.Struct {
   external ffi.Pointer<ffi.Int8> ss_sp;
@@ -8787,8 +9244,15 @@ class sigstack extends ffi.Struct {
   external int ss_onstack;
 }
 
+class sigval extends ffi.Union {
+  @ffi.Int32()
+  external int sival_int;
+
+  external ffi.Pointer<ffi.Void> sival_ptr;
+}
+
 class sigvec extends ffi.Struct {
-  external ffi.Pointer<ffi.NativeFunction<_typedefC_7>> sv_handler;
+  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Int32)>> sv_handler;
 
   @ffi.Int32()
   external int sv_mask;
@@ -8797,19 +9261,21 @@ class sigvec extends ffi.Struct {
   external int sv_flags;
 }
 
+typedef size_t = __darwin_size_t;
+
 class so_np_extensions extends ffi.Struct {
-  @ffi.Uint32()
+  @u_int32_t()
   external int npx_flags;
 
-  @ffi.Uint32()
+  @u_int32_t()
   external int npx_mask;
 }
 
 class sockaddr extends ffi.Struct {
-  @ffi.Uint8()
+  @__uint8_t()
   external int sa_len;
 
-  @ffi.Uint8()
+  @sa_family_t()
   external int sa_family;
 
   @ffi.Array.multi([14])
@@ -8817,13 +9283,13 @@ class sockaddr extends ffi.Struct {
 }
 
 class sockaddr_in extends ffi.Struct {
-  @ffi.Uint8()
+  @__uint8_t()
   external int sin_len;
 
-  @ffi.Uint8()
+  @sa_family_t()
   external int sin_family;
 
-  @ffi.Uint16()
+  @in_port_t()
   external int sin_port;
 
   external in_addr sin_addr;
@@ -8832,54 +9298,73 @@ class sockaddr_in extends ffi.Struct {
   external ffi.Array<ffi.Int8> sin_zero;
 }
 
-class sockaddr_in6 extends ffi.Opaque {}
+class sockaddr_in6 extends ffi.Struct {
+  @__uint8_t()
+  external int sin6_len;
+
+  @sa_family_t()
+  external int sin6_family;
+
+  @in_port_t()
+  external int sin6_port;
+
+  @__uint32_t()
+  external int sin6_flowinfo;
+
+  external in6_addr sin6_addr;
+
+  @__uint32_t()
+  external int sin6_scope_id;
+}
 
 @ffi.Packed(1)
 class sockaddr_storage extends ffi.Struct {
-  @ffi.Uint8()
+  @__uint8_t()
   external int ss_len;
 
-  @ffi.Uint8()
+  @sa_family_t()
   external int ss_family;
 
   @ffi.Array.multi([6])
   external ffi.Array<ffi.Int8> __ss_pad1;
 
-  @ffi.Int64()
+  @__int64_t()
   external int __ss_align;
 
   @ffi.Array.multi([112])
   external ffi.Array<ffi.Int8> __ss_pad2;
 }
 
+typedef socklen_t = __darwin_socklen_t;
+
 class sockproto extends ffi.Struct {
-  @ffi.Uint16()
+  @__uint16_t()
   external int sp_family;
 
-  @ffi.Uint16()
+  @__uint16_t()
   external int sp_protocol;
 }
 
 class stat extends ffi.Struct {
-  @ffi.Int32()
+  @dev_t()
   external int st_dev;
 
-  @ffi.Uint16()
+  @mode_t()
   external int st_mode;
 
-  @ffi.Uint16()
+  @nlink_t()
   external int st_nlink;
 
-  @ffi.Uint64()
+  @__darwin_ino64_t()
   external int st_ino;
 
-  @ffi.Uint32()
+  @uid_t()
   external int st_uid;
 
-  @ffi.Uint32()
+  @gid_t()
   external int st_gid;
 
-  @ffi.Int32()
+  @dev_t()
   external int st_rdev;
 
   external timespec st_atimespec;
@@ -8890,48 +9375,48 @@ class stat extends ffi.Struct {
 
   external timespec st_birthtimespec;
 
-  @ffi.Int64()
+  @off_t()
   external int st_size;
 
-  @ffi.Int64()
+  @blkcnt_t()
   external int st_blocks;
 
-  @ffi.Int32()
+  @blksize_t()
   external int st_blksize;
 
-  @ffi.Uint32()
+  @__uint32_t()
   external int st_flags;
 
-  @ffi.Uint32()
+  @__uint32_t()
   external int st_gen;
 
-  @ffi.Int32()
+  @__int32_t()
   external int st_lspare;
 
   @ffi.Array.multi([2])
-  external ffi.Array<ffi.Int64> st_qspare;
+  external ffi.Array<__int64_t> st_qspare;
 }
 
 class stat64 extends ffi.Struct {
-  @ffi.Int32()
+  @dev_t()
   external int st_dev;
 
-  @ffi.Uint16()
+  @mode_t()
   external int st_mode;
 
-  @ffi.Uint16()
+  @nlink_t()
   external int st_nlink;
 
-  @ffi.Uint64()
+  @__darwin_ino64_t()
   external int st_ino;
 
-  @ffi.Uint32()
+  @uid_t()
   external int st_uid;
 
-  @ffi.Uint32()
+  @gid_t()
   external int st_gid;
 
-  @ffi.Int32()
+  @dev_t()
   external int st_rdev;
 
   external timespec st_atimespec;
@@ -8942,26 +9427,26 @@ class stat64 extends ffi.Struct {
 
   external timespec st_birthtimespec;
 
-  @ffi.Int64()
+  @off_t()
   external int st_size;
 
-  @ffi.Int64()
+  @blkcnt_t()
   external int st_blocks;
 
-  @ffi.Int32()
+  @blksize_t()
   external int st_blksize;
 
-  @ffi.Uint32()
+  @__uint32_t()
   external int st_flags;
 
-  @ffi.Uint32()
+  @__uint32_t()
   external int st_gen;
 
-  @ffi.Int32()
+  @__int32_t()
   external int st_lspare;
 
   @ffi.Array.multi([2])
-  external ffi.Array<ffi.Int64> st_qspare;
+  external ffi.Array<__int64_t> st_qspare;
 }
 
 class tcp_connection_info extends ffi.Opaque {}
@@ -8969,7 +9454,7 @@ class tcp_connection_info extends ffi.Opaque {}
 class tcphdr extends ffi.Opaque {}
 
 class timespec extends ffi.Struct {
-  @ffi.Int64()
+  @__darwin_time_t()
   external int tv_sec;
 
   @ffi.Int64()
@@ -8977,22 +9462,22 @@ class timespec extends ffi.Struct {
 }
 
 class timeval extends ffi.Struct {
-  @ffi.Int64()
+  @__darwin_time_t()
   external int tv_sec;
 
-  @ffi.Int32()
+  @__darwin_suseconds_t()
   external int tv_usec;
 }
 
 class timeval64 extends ffi.Struct {
-  @ffi.Int64()
+  @__int64_t()
   external int tv_sec;
 
-  @ffi.Int64()
+  @__int64_t()
   external int tv_usec;
 }
 
-class timezone_1 extends ffi.Struct {
+class timezone1 extends ffi.Struct {
   @ffi.Int32()
   external int tz_minuteswest;
 
@@ -9034,605 +9519,9 @@ class tm extends ffi.Struct {
   external ffi.Pointer<ffi.Int8> tm_zone;
 }
 
-const int true_1 = 1;
+const int true1 = 1;
 
-class unnamedStruct_1 extends ffi.Struct {
-  /// < extra alloted time
-  @ffi.Int64()
-  external int extra;
+typedef u_int32_t = ffi.Uint32;
+typedef uid_t = __darwin_uid_t;
 
-  /// < time spent thinking
-  @ffi.Int64()
-  external int spent;
-
-  /// < flag to extend time only once
-  @ffi.Uint8()
-  external int extended;
-
-  /// < flag allowing to extend time
-  @ffi.Uint8()
-  external int can_update;
-
-  /// < minimal alloted time
-  @ffi.Int64()
-  external int mini;
-
-  /// < maximal alloted time
-  @ffi.Int64()
-  external int maxi;
-}
-
-class unnamedStruct_10 extends ffi.Struct {
-  /// < time spent
-  @ffi.Int64()
-  external int spent;
-
-  /// < time left
-  @ffi.Int64()
-  external int left;
-
-  /// < extra time left
-  @ffi.Int64()
-  external int extra;
-}
-
-class unnamedStruct_11 extends ffi.Struct {
-  @ffi.Array.multi([80])
-  external ffi.Array<Board> real;
-
-  @ffi.Array.multi([80])
-  external ffi.Array<Board> unique;
-
-  @ffi.Array.multi([80])
-  external ffi.Array<Move> move;
-
-  /// < number of forced move
-  @ffi.Int32()
-  external int n_move;
-
-  /// < current forced move
-  @ffi.Int32()
-  external int i_move;
-}
-
-class unnamedStruct_12 extends ffi.Struct {
-  /// < thread.
-  external ffi.Pointer<_opaque_pthread_t> thread;
-
-  /// < lock.
-  external _opaque_pthread_mutex_t lock;
-
-  @ffi.Array.multi([1])
-  external ffi.Array<Board> board;
-
-  /// < launched thread
-  @ffi.Uint8()
-  external int launched;
-
-  /// < verbose pondering
-  @ffi.Uint8()
-  external int verbose;
-}
-
-class unnamedStruct_13 extends ffi.Struct {
-  /// < command
-  external ffi.Pointer<ffi.Int8> cmd;
-
-  /// < iteration number
-  @ffi.Int32()
-  external int i;
-
-  /// < delay between commands
-  @ffi.Int64()
-  external int delay;
-}
-
-class unnamedStruct_14 extends ffi.Struct {
-  /// < command
-  external ffi.Pointer<ffi.Int8> cmd;
-
-  /// < delay
-  @ffi.Int64()
-  external int delay;
-}
-
-/// Search
-class unnamedStruct_15 extends ffi.Struct {
-  @ffi.Array.multi([1024])
-  external ffi.Array<Board> board;
-
-  /// Last position
-  @ffi.Int32()
-  external int n;
-}
-
-class unnamedStruct_2 extends ffi.Struct {
-  /// < depth
-  @ffi.Int32()
-  external int depth;
-
-  /// < final selectivity
-  @ffi.Int32()
-  external int selectivity;
-
-  /// < time in sec.
-  @ffi.Int64()
-  external int time;
-
-  /// < time_per_move or per game ?
-  @ffi.Uint8()
-  external int time_per_move;
-
-  /// < verbosity level
-  @ffi.Int32()
-  external int verbosity;
-
-  /// < keep date
-  @ffi.Uint8()
-  external int keep_date;
-
-  /// < header for search output
-  external ffi.Pointer<ffi.Int8> header;
-
-  /// < separator for search output
-  external ffi.Pointer<ffi.Int8> separator;
-
-  /// < guess PV (in cassio mode only)
-  @ffi.Uint8()
-  external int guess_pv;
-
-  /// < multi PV depth
-  @ffi.Int32()
-  external int multipv_depth;
-
-  /// < hashtable size
-  @ffi.Int32()
-  external int hash_size;
-}
-
-class unnamedStruct_3 extends ffi.Struct {
-  @ffi.Int32()
-  external int i;
-
-  @ffi.Int32()
-  external int x;
-}
-
-class unnamedStruct_4 extends ffi.Struct {
-  /// <! Move coordinate
-  @ffi.Int32()
-  external int x;
-
-  /// <! Move score
-  @ffi.Int32()
-  external int score;
-}
-
-class unnamedStruct_5 extends ffi.Struct {
-  @ffi.Int16()
-  external int year;
-
-  @ffi.Int8()
-  external int month;
-
-  @ffi.Int8()
-  external int day;
-
-  @ffi.Int8()
-  external int hour;
-
-  @ffi.Int8()
-  external int minute;
-
-  @ffi.Int8()
-  external int second;
-}
-
-class unnamedStruct_6 extends ffi.Struct {
-  @ffi.Int16()
-  external int year;
-
-  @ffi.Int8()
-  external int month;
-
-  @ffi.Int8()
-  external int day;
-
-  @ffi.Int8()
-  external int hour;
-
-  @ffi.Int8()
-  external int minute;
-
-  @ffi.Int8()
-  external int second;
-}
-
-class unnamedStruct_7 extends ffi.Struct {
-  @ffi.Int32()
-  external int level;
-
-  @ffi.Int32()
-  external int n_empties;
-
-  @ffi.Int32()
-  external int midgame_error;
-
-  @ffi.Int32()
-  external int endcut_error;
-
-  @ffi.Int32()
-  external int verbosity;
-}
-
-class unnamedStruct_8 extends ffi.Struct {
-  @ffi.Int32()
-  external int n_nodes;
-
-  @ffi.Int32()
-  external int n_links;
-
-  @ffi.Int32()
-  external int n_todo;
-}
-
-class unnamedStruct_9 extends ffi.Struct {
-  @ffi.Int16()
-  external int value;
-
-  @ffi.Int16()
-  external int lower;
-
-  @ffi.Int16()
-  external int upper;
-}
-
-typedef _typedefC_13 = ffi.Int32 Function(
-  ffi.Uint64,
-);
-
-typedef _c_bit_count = ffi.Int32 Function(
-  ffi.Uint64 arg0,
-);
-
-typedef _dart_bit_count = int Function(
-  int arg0,
-);
-
-typedef _c_edax_book_count_bestpath = ffi.Void Function(
-  ffi.Pointer<Board> arg0,
-  ffi.Pointer<Position> arg1,
-);
-
-typedef _dart_edax_book_count_bestpath = void Function(
-  ffi.Pointer<Board> arg0,
-  ffi.Pointer<Position> arg1,
-);
-
-typedef _c_edax_book_load = ffi.Void Function(
-  ffi.Pointer<ffi.Int8> arg0,
-);
-
-typedef _dart_edax_book_load = void Function(
-  ffi.Pointer<ffi.Int8> arg0,
-);
-
-typedef _c_edax_book_new = ffi.Void Function(
-  ffi.Int32 arg0,
-  ffi.Int32 arg1,
-);
-
-typedef _dart_edax_book_new = void Function(
-  int arg0,
-  int arg1,
-);
-
-typedef _c_edax_book_off = ffi.Void Function();
-
-typedef _dart_edax_book_off = void Function();
-
-typedef _c_edax_book_on = ffi.Void Function();
-
-typedef _dart_edax_book_on = void Function();
-
-typedef _c_edax_book_randomness = ffi.Void Function(
-  ffi.Int32 arg0,
-);
-
-typedef _dart_edax_book_randomness = void Function(
-  int arg0,
-);
-
-typedef _c_edax_book_show = ffi.Void Function(
-  ffi.Pointer<Position> arg0,
-);
-
-typedef _dart_edax_book_show = void Function(
-  ffi.Pointer<Position> arg0,
-);
-
-typedef _c_edax_book_stop_count_bestpath = ffi.Void Function();
-
-typedef _dart_edax_book_stop_count_bestpath = void Function();
-
-typedef _c_edax_can_move = ffi.Int32 Function();
-
-typedef _dart_edax_can_move = int Function();
-
-typedef _c_edax_get_board = ffi.Void Function(
-  ffi.Pointer<Board> arg0,
-);
-
-typedef _dart_edax_get_board = void Function(
-  ffi.Pointer<Board> arg0,
-);
-
-typedef _c_edax_get_bookmove = ffi.Void Function(
-  ffi.Pointer<MoveList> arg0,
-);
-
-typedef _dart_edax_get_bookmove = void Function(
-  ffi.Pointer<MoveList> arg0,
-);
-
-typedef _c_edax_get_bookmove_with_position = ffi.Int32 Function(
-  ffi.Pointer<MoveList> arg0,
-  ffi.Pointer<Position> arg1,
-);
-
-typedef _dart_edax_get_bookmove_with_position = int Function(
-  ffi.Pointer<MoveList> arg0,
-  ffi.Pointer<Position> arg1,
-);
-
-typedef _c_edax_get_bookmove_with_position_by_moves = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> arg0,
-  ffi.Pointer<MoveList> arg1,
-  ffi.Pointer<Position> arg2,
-);
-
-typedef _dart_edax_get_bookmove_with_position_by_moves = int Function(
-  ffi.Pointer<ffi.Int8> arg0,
-  ffi.Pointer<MoveList> arg1,
-  ffi.Pointer<Position> arg2,
-);
-
-typedef _c_edax_get_current_player = ffi.Int32 Function();
-
-typedef _dart_edax_get_current_player = int Function();
-
-typedef _c_edax_get_disc = ffi.Int32 Function(
-  ffi.Int32 arg0,
-);
-
-typedef _dart_edax_get_disc = int Function(
-  int arg0,
-);
-
-typedef _c_edax_get_last_move = ffi.Void Function(
-  ffi.Pointer<Move> arg0,
-);
-
-typedef _dart_edax_get_last_move = void Function(
-  ffi.Pointer<Move> arg0,
-);
-
-typedef _c_edax_get_mobility_count = ffi.Int32 Function(
-  ffi.Int32 arg0,
-);
-
-typedef _dart_edax_get_mobility_count = int Function(
-  int arg0,
-);
-
-typedef _c_edax_get_moves = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> arg0,
-);
-
-typedef _dart_edax_get_moves = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> arg0,
-);
-
-typedef _c_edax_go = ffi.Void Function();
-
-typedef _dart_edax_go = void Function();
-
-typedef _c_edax_hint = ffi.Void Function(
-  ffi.Int32 arg0,
-  ffi.Pointer<HintList> arg1,
-);
-
-typedef _dart_edax_hint = void Function(
-  int arg0,
-  ffi.Pointer<HintList> arg1,
-);
-
-typedef _c_edax_hint_next = ffi.Void Function(
-  ffi.Pointer<Hint> arg0,
-);
-
-typedef _dart_edax_hint_next = void Function(
-  ffi.Pointer<Hint> arg0,
-);
-
-typedef _c_edax_hint_next_no_multipv_depth = ffi.Void Function(
-  ffi.Pointer<Hint> arg0,
-);
-
-typedef _dart_edax_hint_next_no_multipv_depth = void Function(
-  ffi.Pointer<Hint> arg0,
-);
-
-typedef _c_edax_hint_prepare = ffi.Void Function(
-  ffi.Pointer<MoveList> arg0,
-);
-
-typedef _dart_edax_hint_prepare = void Function(
-  ffi.Pointer<MoveList> arg0,
-);
-
-typedef _c_edax_init = ffi.Void Function();
-
-typedef _dart_edax_init = void Function();
-
-typedef _c_edax_is_game_over = ffi.Int32 Function();
-
-typedef _dart_edax_is_game_over = int Function();
-
-typedef _c_edax_mode = ffi.Void Function(
-  ffi.Int32 arg0,
-);
-
-typedef _dart_edax_mode = void Function(
-  int arg0,
-);
-
-typedef _c_edax_move = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> arg0,
-);
-
-typedef _dart_edax_move = int Function(
-  ffi.Pointer<ffi.Int8> arg0,
-);
-
-typedef _c_edax_new = ffi.Void Function();
-
-typedef _dart_edax_new = void Function();
-
-typedef _c_edax_opening = ffi.Pointer<ffi.Int8> Function();
-
-typedef _dart_edax_opening = ffi.Pointer<ffi.Int8> Function();
-
-typedef _c_edax_play = ffi.Void Function(
-  ffi.Pointer<ffi.Int8> arg0,
-);
-
-typedef _dart_edax_play = void Function(
-  ffi.Pointer<ffi.Int8> arg0,
-);
-
-typedef _c_edax_redo = ffi.Void Function();
-
-typedef _dart_edax_redo = void Function();
-
-typedef _c_edax_rotate = ffi.Void Function(
-  ffi.Int32 arg0,
-);
-
-typedef _dart_edax_rotate = void Function(
-  int arg0,
-);
-
-typedef _c_edax_set_option = ffi.Void Function(
-  ffi.Pointer<ffi.Int8> arg0,
-  ffi.Pointer<ffi.Int8> arg1,
-);
-
-typedef _dart_edax_set_option = void Function(
-  ffi.Pointer<ffi.Int8> arg0,
-  ffi.Pointer<ffi.Int8> arg1,
-);
-
-typedef _c_edax_setboard = ffi.Void Function(
-  ffi.Pointer<ffi.Int8> arg0,
-);
-
-typedef _dart_edax_setboard = void Function(
-  ffi.Pointer<ffi.Int8> arg0,
-);
-
-typedef _c_edax_stop = ffi.Void Function();
-
-typedef _dart_edax_stop = void Function();
-
-typedef _c_edax_undo = ffi.Void Function();
-
-typedef _dart_edax_undo = void Function();
-
-typedef _c_edax_version = ffi.Void Function();
-
-typedef _dart_edax_version = void Function();
-
-typedef _c_edax_vmirror = ffi.Void Function();
-
-typedef _dart_edax_vmirror = void Function();
-
-typedef _typedefC_10 = ffi.Uint64 Function(
-  ffi.Uint64,
-  ffi.Uint64,
-);
-
-typedef _c_libedax_initialize = ffi.Void Function(
-  ffi.Int32 arg0,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
-);
-
-typedef _dart_libedax_initialize = void Function(
-  int arg0,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg1,
-);
-
-typedef _c_libedax_terminate = ffi.Void Function();
-
-typedef _dart_libedax_terminate = void Function();
-
-typedef _typedefC_8 = ffi.Int64 Function();
-
-typedef _typedefC_2 = ffi.Int32 Function(
-  ffi.Pointer<ffi.Void>,
-);
-
-typedef _typedefC_3 = ffi.Int32 Function(
-  ffi.Pointer<ffi.Void>,
-  ffi.Pointer<ffi.Int8>,
-  ffi.Int32,
-);
-
-typedef _typedefC_4 = ffi.Int64 Function(
-  ffi.Pointer<ffi.Void>,
-  ffi.Int64,
-  ffi.Int32,
-);
-
-typedef _typedefC_5 = ffi.Int32 Function(
-  ffi.Pointer<ffi.Void>,
-  ffi.Pointer<ffi.Int8>,
-  ffi.Int32,
-);
-
-typedef _typedefC_9 = ffi.Void Function(
-  ffi.Pointer<Result>,
-);
-
-typedef _typedefC_14 = ffi.Void Function(
-  ffi.Pointer<UI>,
-);
-
-typedef _typedefC_15 = ffi.Void Function(
-  ffi.Pointer<UI>,
-);
-
-typedef _typedefC_16 = ffi.Void Function(
-  ffi.Pointer<UI>,
-);
-
-typedef _typedefC_11 = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8>,
-  ffi.Uint64,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>>,
-);
-
-typedef _typedefC_12 = ffi.Int32 Function(
-  ffi.Int32,
-  ffi.Pointer<ffi.Int8>,
-  ffi.Uint64,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>>,
-);
-
-typedef _typedefC_1 = ffi.Void Function(
-  ffi.Pointer<ffi.Void>,
-);
-
-typedef _typedefC_7 = ffi.Void Function(
-  ffi.Int32,
-);
+class wait extends ffi.Opaque {}
