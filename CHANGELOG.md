@@ -1,6 +1,6 @@
 # 2.2.0
 
-- upgrade ffigen package from `3.0.0` to `4.0.0`.
+- upgrade ffigen package from `3.0.0` to `4.1.0`.
 
 # 2.1.0
 

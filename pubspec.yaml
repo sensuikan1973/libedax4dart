@@ -16,7 +16,7 @@ dependencies:
 dev_dependencies:
   analyzer: ^2.7.0
   coverage: ^1.0.3 # See: https://github.com/dart-lang/test/issues/1265
-  ffigen: ^4.1.0
+  ffigen: ^4.1.1
     # git:
     #   url: git://github.com/dart-lang/ffigen.git # See: https://github.com/dart-lang/ffigen.git
     #   ref: 3ecab7ad2b348e52077587b555f8609b16a39925
