@@ -1888,7 +1888,7 @@ class Engine extends ffi.Struct {
   /// Events
   external ffi.Pointer<Search> search;
 
-  external UnnamedStruct17 last_position;
+  external UnnamedStruct15 last_position;
 
   @ffi.Uint8()
   external int is_searching;
@@ -2155,10 +2155,10 @@ class GGSClient extends ffi.Struct {
   external int last_refresh;
 
   @ffi.Array.multi([1])
-  external ffi.Array<UnnamedStruct15> loop;
+  external ffi.Array<UnnamedStruct16> loop;
 
   @ffi.Array.multi([1])
-  external ffi.Array<UnnamedStruct16> once;
+  external ffi.Array<UnnamedStruct17> once;
 }
 
 /// GGS clock (to play a game)
@@ -5933,7 +5933,17 @@ class UnnamedStruct14 extends ffi.Struct {
   external int verbose;
 }
 
+/// Search
 class UnnamedStruct15 extends ffi.Struct {
+  @ffi.Array.multi([1024])
+  external ffi.Array<Board> board;
+
+  /// Last position
+  @ffi.Int32()
+  external int n;
+}
+
+class UnnamedStruct16 extends ffi.Struct {
   /// < command
   external ffi.Pointer<ffi.Int8> cmd;
 
@@ -5946,23 +5956,13 @@ class UnnamedStruct15 extends ffi.Struct {
   external int delay;
 }
 
-class UnnamedStruct16 extends ffi.Struct {
+class UnnamedStruct17 extends ffi.Struct {
   /// < command
   external ffi.Pointer<ffi.Int8> cmd;
 
   /// < delay
   @ffi.Int64()
   external int delay;
-}
-
-/// Search
-class UnnamedStruct17 extends ffi.Struct {
-  @ffi.Array.multi([1024])
-  external ffi.Array<Board> board;
-
-  /// Last position
-  @ffi.Int32()
-  external int n;
 }
 
 class UnnamedStruct3 extends ffi.Struct {
@@ -8038,7 +8038,7 @@ class __sbuf extends ffi.Struct {
 }
 
 class __sigaction extends ffi.Struct {
-  external __sigaction_u __sigaction_u;
+  external __sigaction_u __sigaction_u1;
 
   external ffi.Pointer<
       ffi.NativeFunction<
@@ -9211,7 +9211,7 @@ class sf_hdtr extends ffi.Struct {
 }
 
 class sigaction extends ffi.Struct {
-  external __sigaction_u __sigaction_u;
+  external __sigaction_u __sigaction_u1;
 
   @sigset_t()
   external int sa_mask;
