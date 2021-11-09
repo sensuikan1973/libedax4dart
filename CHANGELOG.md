@@ -1,3 +1,7 @@
+# 2.3.0
+
+- add useful getter `stringApplicableToSetboard` to Board class.
+
 # 2.2.0
 
 - upgrade ffigen package from `3.0.0` to `4.1.0`.
