@@ -56,7 +56,7 @@ class Board {
 
   /// get string applicable to `edaxSetboard` command.
   ///
-  /// e.g. `-W----W--------------------WB------WBB-----W--------------------B`.
+  /// e.g. `-------------------*-------**O----**O*-----O--------------------W`.
   String stringApplicableToSetboard(final int currentColor) {
     final pStone = currentColor == TurnColor.black ? '*' : 'O';
     final oStone = currentColor == TurnColor.black ? 'O' : '*';
