@@ -72,6 +72,10 @@ void main() {
       expect(board.squareStringsOfPlayer, ['f4', 'e5', 'd6']);
       expect(board.squaresOfOpponent, [19, 27, 28, 34, 35, 37]);
       expect(board.squareStringsOfOpponent, ['d3', 'd4', 'e4', 'c5', 'd5', 'f5']);
+      expect(
+        board.stringApplicableToSetboard(edax.edaxGetCurrentPlayer()),
+        '-------------------*-------**O----**O*-----O--------------------W',
+      );
       stdout.writeln(board.prettyString(edax.edaxGetCurrentPlayer()));
       edax.libedaxTerminate();
     });
