@@ -67,6 +67,12 @@ void main() {
         ..edaxInit()
         ..edaxPlay('f5d6c5f4d3');
       final board = edax.edaxGetBoard();
+      final stringApplicableToSetboard = board.stringApplicableToSetboard(edax.edaxGetCurrentPlayer());
+      expect(
+        stringApplicableToSetboard,
+        '-------------------*-------**O----**O*-----O--------------------W',
+      );
+      edax.edaxSetboard(stringApplicableToSetboard);
       expect(edax.edaxGetCurrentPlayer(), TurnColor.white);
       expect(board.squaresOfPlayer, [29, 36, 43]);
       expect(board.squareStringsOfPlayer, ['f4', 'e5', 'd6']);

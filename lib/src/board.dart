@@ -54,6 +54,30 @@ class Board {
   /// e.g. `0010387c38100000`.
   String get opponentRadix16String => radix16Board(opponent);
 
+  /// get string applicable to `edaxSetboard` command.
+  ///
+  /// e.g. `-------------------*-------**O----**O*-----O--------------------W`.
+  String stringApplicableToSetboard(final int currentColor) {
+    final pStone = currentColor == TurnColor.black ? '*' : 'O';
+    final oStone = currentColor == TurnColor.black ? 'O' : '*';
+
+    final buffer = StringBuffer();
+    for (var k = 0; k < 8; k++) {
+      for (var j = 0; j < 8; j++) {
+        final mask = 1 << (j + 8 * k);
+        if ((player & mask) != 0) {
+          buffer.write(pStone);
+        } else if ((opponent & mask) != 0) {
+          buffer.write(oStone);
+        } else {
+          buffer.write('-');
+        }
+      }
+    }
+    buffer.write(currentColor == TurnColor.black ? 'B' : 'W');
+    return buffer.toString();
+  }
+
   /// get human readable board.
   ///
   /// example
