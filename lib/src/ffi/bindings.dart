@@ -2739,6 +2739,8 @@ const int IOPOL_THROTTLE = 3;
 
 const int IOPOL_TYPE_DISK = 0;
 
+const int IOPOL_TYPE_VFS_ALLOW_LOW_SPACE_WRITES = 9;
+
 const int IOPOL_TYPE_VFS_ATIME_UPDATES = 2;
 
 const int IOPOL_TYPE_VFS_IGNORE_CONTENT_PROTECTION = 6;
@@ -2754,6 +2756,10 @@ const int IOPOL_TYPE_VFS_STATFS_NO_DATA_VOLUME = 4;
 const int IOPOL_TYPE_VFS_TRIGGER_RESOLVE = 5;
 
 const int IOPOL_UTILITY = 4;
+
+const int IOPOL_VFS_ALLOW_LOW_SPACE_WRITES_OFF = 0;
+
+const int IOPOL_VFS_ALLOW_LOW_SPACE_WRITES_ON = 1;
 
 const int IOPOL_VFS_CONTENT_PROTECTION_DEFAULT = 0;
 
@@ -3107,6 +3113,8 @@ const int IPV6CTL_TEMPPLTIME = 33;
 
 const int IPV6CTL_TEMPVLTIME = 34;
 
+const int IPV6CTL_ULA_USETEMPADDR = 51;
+
 const int IPV6CTL_USETEMPADDR = 32;
 
 const int IPV6CTL_USE_DEFAULTZONE = 39;
@@ -3385,6 +3393,8 @@ const int KEV_DL_NODE_ABSENCE = 22;
 
 const int KEV_DL_NODE_PRESENCE = 21;
 
+const int KEV_DL_PRIMARY_ELECTED = 23;
+
 const int KEV_DL_PROTO_ATTACHED = 14;
 
 const int KEV_DL_PROTO_DETACHED = 15;
@@ -3536,6 +3546,8 @@ class Log extends ffi.Struct {
 }
 
 const int MAC_OS_VERSION_11_0 = 110000;
+
+const int MAC_OS_VERSION_12_0 = 120000;
 
 const int MAC_OS_X_VERSION_10_0 = 1000;
 
@@ -7152,6 +7164,8 @@ const int _XOPEN_XCU_VERSION = 4;
 
 const int __API_TO_BE_DEPRECATED = 100000;
 
+const String __ASSERT_FILE_NAME = 'temp_for_macros.hpp';
+
 const int __DARWIN_64_BIT_INO_T = 1;
 
 const int __DARWIN_ALIGNBYTES = 7;
@@ -7216,6 +7230,8 @@ const int __DRIVERKIT_19_0 = 190000;
 
 const int __DRIVERKIT_20_0 = 200000;
 
+const int __DRIVERKIT_21_0 = 210000;
+
 const int __ENABLE_LEGACY_MAC_AVAILABILITY = 1;
 
 const int __GNUC_VA_LIST = 1;
@@ -7277,6 +7293,14 @@ const int __IPHONE_14_2 = 140200;
 const int __IPHONE_14_3 = 140300;
 
 const int __IPHONE_14_5 = 140500;
+
+const int __IPHONE_14_6 = 140600;
+
+const int __IPHONE_14_7 = 140700;
+
+const int __IPHONE_14_8 = 140800;
+
+const int __IPHONE_15_0 = 150000;
 
 const int __IPHONE_2_0 = 20000;
 
@@ -7420,9 +7444,15 @@ const int __MAC_11_1 = 110100;
 
 const int __MAC_11_3 = 110300;
 
-const int __MAC_OS_X_VERSION_MAX_ALLOWED = 110300;
+const int __MAC_11_4 = 110400;
 
-const int __MAC_OS_X_VERSION_MIN_REQUIRED = 110000;
+const int __MAC_11_5 = 110500;
+
+const int __MAC_12_0 = 120000;
+
+const int __MAC_OS_X_VERSION_MAX_ALLOWED = 120000;
+
+const int __MAC_OS_X_VERSION_MIN_REQUIRED = 120000;
 
 const int __PTHREAD_ATTR_SIZE__ = 56;
 
@@ -7524,6 +7554,12 @@ const int __TVOS_14_3 = 140300;
 
 const int __TVOS_14_5 = 140500;
 
+const int __TVOS_14_6 = 140600;
+
+const int __TVOS_14_7 = 140700;
+
+const int __TVOS_15_0 = 150000;
+
 const int __TVOS_9_0 = 90000;
 
 const int __TVOS_9_1 = 90100;
@@ -7577,6 +7613,12 @@ const int __WATCHOS_7_2 = 70200;
 const int __WATCHOS_7_3 = 70300;
 
 const int __WATCHOS_7_4 = 70400;
+
+const int __WATCHOS_7_5 = 70500;
+
+const int __WATCHOS_7_6 = 70600;
+
+const int __WATCHOS_8_0 = 80000;
 
 const int __WORDSIZE = 64;
 
