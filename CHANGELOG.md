@@ -1,3 +1,7 @@
+# 2.4.0
+
+- upgrade dependencies
+
 # 2.3.0
 
 - add useful getter `stringApplicableToSetboard` to Board class.
