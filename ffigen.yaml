@@ -13,6 +13,9 @@ structs:
     'sockaddr_storage': 1
   # See: https://github.com/sensuikan1973/libedax4dart/pull/85#issuecomment-955761136
   dependency-only: opaque
+llvm-path:
+  - '/usr/local/opt/llvm'
+  - './llvm' # for CI. See: https://github.com/KyleMayes/install-llvm-action#directory
 functions:
   include:
     - 'bit_count'
