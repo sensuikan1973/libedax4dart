@@ -33,3 +33,6 @@ env.txt
 # coverage
 coverage/
 lcov.info
+
+# CI
+llvm
