@@ -16,6 +16,9 @@ jobs:
       - uses: dart-lang/setup-dart@v1
         with:
           sdk: beta
+      - uses: KyleMayes/install-llvm-action@v1 # for ffigen
+        with:
+          version: "13.0"
       - run: |
           dart pub upgrade --null-safety # See: https://dart.dev/tools/pub/cmd/pub-upgrade#--null-safety
           dart run ffigen --config ffigen.yaml --verbose severe && dart format --fix -l 120 .
