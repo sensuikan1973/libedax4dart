@@ -9,8 +9,8 @@ on:
 
 jobs:
   upgrade_dart_dependencies:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
+    runs-on: macos-11
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v2
       - uses: dart-lang/setup-dart@v1
@@ -19,12 +19,16 @@ jobs:
       - uses: KyleMayes/install-llvm-action@v1 # for ffigen
         with:
           version: 13.0
-      - run: |
-          dart pub upgrade --null-safety # See: https://dart.dev/tools/pub/cmd/pub-upgrade#--null-safety
+      - name: upgrade dependencies on lib
+        run: dart pub upgrade --null-safety # See: https://dart.dev/tools/pub/cmd/pub-upgrade#--null-safety
+      - name: run ffigen
+        run: |
+          libedax_build_command="make libbuild ARCH=x64-modern COMP=gcc OS=osx" dst="." ./scripts/build_libedax.sh
           dart run ffigen --config ffigen.yaml --verbose severe && dart format --fix -l 120 .
 
       # also example
-      - run: cd example && dart pub upgrade --null-safety
+      - name: upgrade dependencies on example
+        run: cd example && dart pub upgrade --null-safety
 
       # See: https://github.com/peter-evans/create-pull-request/tree/master#reference-example
       - name: create PR
