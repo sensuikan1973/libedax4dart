@@ -7452,7 +7452,7 @@ const int __MAC_12_0 = 120000;
 
 const int __MAC_OS_X_VERSION_MAX_ALLOWED = 120000;
 
-const int __MAC_OS_X_VERSION_MIN_REQUIRED = 120000;
+const int __MAC_OS_X_VERSION_MIN_REQUIRED = 110000;
 
 const int __PTHREAD_ATTR_SIZE__ = 56;
 
