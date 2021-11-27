@@ -456,40 +456,38 @@ class LibEdaxBindings {
 
   set X_TO_BIT(ffi.Pointer<ffi.Uint64> value) => _X_TO_BIT.value = value;
 
-  late final ffi.Pointer<ffi.Pointer<_RuneLocale>> __CurrentRuneLocale =
-      _lookup<ffi.Pointer<_RuneLocale>>('_CurrentRuneLocale');
+  late final ffi.Pointer<ffi.Int32> ___daylight = _lookup<ffi.Int32>('__daylight');
 
-  ffi.Pointer<_RuneLocale> get _CurrentRuneLocale => __CurrentRuneLocale.value;
+  int get __daylight => ___daylight.value;
 
-  set _CurrentRuneLocale(ffi.Pointer<_RuneLocale> value) => __CurrentRuneLocale.value = value;
+  set __daylight(int value) => ___daylight.value = value;
 
-  late final ffi.Pointer<_RuneLocale> __DefaultRuneLocale = _lookup<_RuneLocale>('_DefaultRuneLocale');
+  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>> ___environ =
+      _lookup<ffi.Pointer<ffi.Pointer<ffi.Int8>>>('__environ');
 
-  _RuneLocale get _DefaultRuneLocale => __DefaultRuneLocale.ref;
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> get __environ => ___environ.value;
 
-  late final ffi.Pointer<ffi.Int32> ___mb_cur_max = _lookup<ffi.Int32>('__mb_cur_max');
+  set __environ(ffi.Pointer<ffi.Pointer<ffi.Int8>> value) => ___environ.value = value;
 
-  int get __mb_cur_max => ___mb_cur_max.value;
+  late final ffi.Pointer<ffi.Int64> ___timezone = _lookup<ffi.Int64>('__timezone');
 
-  set __mb_cur_max(int value) => ___mb_cur_max.value = value;
+  int get __timezone => ___timezone.value;
 
-  late final ffi.Pointer<ffi.Pointer<FILE>> ___stderrp = _lookup<ffi.Pointer<FILE>>('__stderrp');
+  set __timezone(int value) => ___timezone.value = value;
 
-  ffi.Pointer<FILE> get __stderrp => ___stderrp.value;
+  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>> ___tzname =
+      _lookup<ffi.Pointer<ffi.Pointer<ffi.Int8>>>('__tzname');
 
-  set __stderrp(ffi.Pointer<FILE> value) => ___stderrp.value = value;
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> get __tzname => ___tzname.value;
 
-  late final ffi.Pointer<ffi.Pointer<FILE>> ___stdinp = _lookup<ffi.Pointer<FILE>>('__stdinp');
+  set __tzname(ffi.Pointer<ffi.Pointer<ffi.Int8>> value) => ___tzname.value = value;
 
-  ffi.Pointer<FILE> get __stdinp => ___stdinp.value;
+  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>> __sys_siglist =
+      _lookup<ffi.Pointer<ffi.Pointer<ffi.Int8>>>('_sys_siglist');
 
-  set __stdinp(ffi.Pointer<FILE> value) => ___stdinp.value = value;
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> get _sys_siglist => __sys_siglist.value;
 
-  late final ffi.Pointer<ffi.Pointer<FILE>> ___stdoutp = _lookup<ffi.Pointer<FILE>>('__stdoutp');
-
-  ffi.Pointer<FILE> get __stdoutp => ___stdoutp.value;
-
-  set __stdoutp(ffi.Pointer<FILE> value) => ___stdoutp.value = value;
+  set _sys_siglist(ffi.Pointer<ffi.Pointer<ffi.Int8>> value) => __sys_siglist.value = value;
 
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>> _admin_list =
       _lookup<ffi.Pointer<ffi.Pointer<ffi.Int8>>>('admin_list');
@@ -520,7 +518,7 @@ class LibEdaxBindings {
   late final _bit_countPtr = _lookup<ffi.NativeFunction<ffi.Int32 Function(ffi.Uint64)>>('bit_count');
   late final _bit_count = _bit_countPtr.asFunction<int Function(int)>();
 
-  late final ffi.Pointer<ffi.Uint8> _book_verbose = _lookup<ffi.Uint8>('book_verbose');
+  late final ffi.Pointer<ffi.Int32> _book_verbose = _lookup<ffi.Int32>('book_verbose');
 
   int get book_verbose => _book_verbose.value;
 
@@ -964,12 +962,6 @@ class LibEdaxBindings {
   set flip(ffi.Pointer<ffi.Pointer<ffi.NativeFunction<ffi.Uint64 Function(ffi.Uint64, ffi.Uint64)>>> value) =>
       _flip.value = value;
 
-  late final ffi.Pointer<ffi.Int32> _getdate_err = _lookup<ffi.Int32>('getdate_err');
-
-  int get getdate_err => _getdate_err.value;
-
-  set getdate_err(int value) => _getdate_err.value = value;
-
   late final ffi.Pointer<ffi.Pointer<Log>> _ggs_log = _lookup<ffi.Pointer<Log>>('ggs_log');
 
   ffi.Pointer<Log> get ggs_log => _ggs_log.value;
@@ -981,12 +973,6 @@ class LibEdaxBindings {
   ffi.Pointer<Log> get gtp_log => _gtp_log.value;
 
   set gtp_log(ffi.Pointer<Log> value) => _gtp_log.value = value;
-
-  late final ffi.Pointer<ffi.Int32> _h_errno = _lookup<ffi.Int32>('h_errno');
-
-  int get h_errno => _h_errno.value;
-
-  set h_errno(int value) => _h_errno.value = value;
 
   /// hashing global data
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Uint64>>> _hash_move =
@@ -1008,26 +994,9 @@ class LibEdaxBindings {
 
   in6_addr get in6addr_any => _in6addr_any.ref;
 
-  late final ffi.Pointer<in6_addr> _in6addr_linklocal_allnodes = _lookup<in6_addr>('in6addr_linklocal_allnodes');
-
-  in6_addr get in6addr_linklocal_allnodes => _in6addr_linklocal_allnodes.ref;
-
-  late final ffi.Pointer<in6_addr> _in6addr_linklocal_allrouters = _lookup<in6_addr>('in6addr_linklocal_allrouters');
-
-  in6_addr get in6addr_linklocal_allrouters => _in6addr_linklocal_allrouters.ref;
-
-  late final ffi.Pointer<in6_addr> _in6addr_linklocal_allv2routers =
-      _lookup<in6_addr>('in6addr_linklocal_allv2routers');
-
-  in6_addr get in6addr_linklocal_allv2routers => _in6addr_linklocal_allv2routers.ref;
-
   late final ffi.Pointer<in6_addr> _in6addr_loopback = _lookup<in6_addr>('in6addr_loopback');
 
   in6_addr get in6addr_loopback => _in6addr_loopback.ref;
-
-  late final ffi.Pointer<in6_addr> _in6addr_nodelocal_allnodes = _lookup<in6_addr>('in6addr_nodelocal_allnodes');
-
-  in6_addr get in6addr_nodelocal_allnodes => _in6addr_nodelocal_allnodes.ref;
 
   /// a global string with the last result sent to avoid duplicate result lines
   late final ffi.Pointer<ffi.Pointer<ffi.Int8>> _last_line_sent = _lookup<ffi.Pointer<ffi.Int8>>('last_line_sent');
@@ -1094,12 +1063,6 @@ class LibEdaxBindings {
 
   set optopt(int value) => _optopt.value = value;
 
-  late final ffi.Pointer<ffi.Int32> _optreset = _lookup<ffi.Int32>('optreset');
-
-  int get optreset => _optreset.value;
-
-  set optreset(int value) => _optreset.value = value;
-
   late final ffi.Pointer<ffi.Pointer<Log>> _search_log = _lookup<ffi.Pointer<Log>>('search_log');
 
   ffi.Pointer<Log> get search_log => _search_log.value;
@@ -1124,11 +1087,23 @@ class LibEdaxBindings {
 
   Statistics get statistics => _statistics.ref;
 
-  late final ffi.Pointer<ffi.Pointer<ffi.Int8>> _suboptarg = _lookup<ffi.Pointer<ffi.Int8>>('suboptarg');
+  late final ffi.Pointer<ffi.Pointer<FILE>> _stderr = _lookup<ffi.Pointer<FILE>>('stderr');
 
-  ffi.Pointer<ffi.Int8> get suboptarg => _suboptarg.value;
+  ffi.Pointer<FILE> get stderr => _stderr.value;
 
-  set suboptarg(ffi.Pointer<ffi.Int8> value) => _suboptarg.value = value;
+  set stderr(ffi.Pointer<FILE> value) => _stderr.value = value;
+
+  late final ffi.Pointer<ffi.Pointer<FILE>> _stdin = _lookup<ffi.Pointer<FILE>>('stdin');
+
+  ffi.Pointer<FILE> get stdin => _stdin.value;
+
+  set stdin(ffi.Pointer<FILE> value) => _stdin.value = value;
+
+  late final ffi.Pointer<ffi.Pointer<FILE>> _stdout = _lookup<ffi.Pointer<FILE>>('stdout');
+
+  ffi.Pointer<FILE> get stdout => _stdout.value;
+
+  set stdout(ffi.Pointer<FILE> value) => _stdout.value = value;
 
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>> _sys_errlist =
       _lookup<ffi.Pointer<ffi.Pointer<ffi.Int8>>>('sys_errlist');
@@ -1143,19 +1118,12 @@ class LibEdaxBindings {
 
   set sys_nerr(int value) => _sys_nerr.value = value;
 
-  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>> _sys_siglist =
+  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>> _sys_siglist1 =
       _lookup<ffi.Pointer<ffi.Pointer<ffi.Int8>>>('sys_siglist');
 
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> get sys_siglist => _sys_siglist.value;
+  ffi.Pointer<ffi.Pointer<ffi.Int8>> get sys_siglist => _sys_siglist1.value;
 
-  set sys_siglist(ffi.Pointer<ffi.Pointer<ffi.Int8>> value) => _sys_siglist.value = value;
-
-  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>> _sys_signame =
-      _lookup<ffi.Pointer<ffi.Pointer<ffi.Int8>>>('sys_signame');
-
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> get sys_signame => _sys_signame.value;
-
-  set sys_signame(ffi.Pointer<ffi.Pointer<ffi.Int8>> value) => _sys_signame.value = value;
+  set sys_siglist(ffi.Pointer<ffi.Pointer<ffi.Int8>> value) => _sys_siglist1.value = value;
 
   /// @brief Time clock.
   ///
@@ -1207,111 +1175,121 @@ const int A8 = 56;
 
 const int ACCESSPERMS = 511;
 
-const int ACCESSX_MAX_DESCRIPTORS = 100;
+const int AF_ALG = 38;
 
-const int ACCESSX_MAX_TABLESIZE = 16384;
+const int AF_APPLETALK = 5;
 
-const int AF_APPLETALK = 16;
+const int AF_ASH = 18;
 
-const int AF_CCITT = 10;
+const int AF_ATMPVC = 8;
 
-const int AF_CHAOS = 5;
+const int AF_ATMSVC = 20;
 
-const int AF_CNT = 21;
+const int AF_AX25 = 3;
 
-const int AF_COIP = 20;
+const int AF_BLUETOOTH = 31;
 
-const int AF_DATAKIT = 9;
+const int AF_BRIDGE = 7;
+
+const int AF_CAIF = 37;
+
+const int AF_CAN = 29;
 
 const int AF_DECnet = 12;
 
-const int AF_DLI = 13;
+const int AF_ECONET = 19;
 
-const int AF_E164 = 28;
+const int AF_FILE = 1;
 
-const int AF_ECMA = 8;
+const int AF_IB = 27;
 
-const int AF_HYLINK = 15;
-
-const int AF_IEEE80211 = 37;
-
-const int AF_IMPLINK = 3;
+const int AF_IEEE802154 = 36;
 
 const int AF_INET = 2;
 
-const int AF_INET6 = 30;
+const int AF_INET6 = 10;
 
-const int AF_IPX = 23;
+const int AF_IPX = 4;
 
-const int AF_ISDN = 28;
+const int AF_IRDA = 23;
 
-const int AF_ISO = 7;
+const int AF_ISDN = 34;
 
-const int AF_LAT = 14;
+const int AF_IUCV = 32;
 
-const int AF_LINK = 18;
+const int AF_KCM = 41;
+
+const int AF_KEY = 15;
+
+const int AF_LLC = 26;
 
 const int AF_LOCAL = 1;
 
-const int AF_MAX = 41;
+const int AF_MAX = 45;
 
-const int AF_NATM = 31;
+const int AF_MPLS = 28;
 
-const int AF_NDRV = 27;
+const int AF_NETBEUI = 13;
 
-const int AF_NETBIOS = 33;
+const int AF_NETLINK = 16;
 
-const int AF_NS = 6;
+const int AF_NETROM = 6;
 
-const int AF_OSI = 7;
+const int AF_NFC = 39;
 
-const int AF_PPP = 34;
+const int AF_PACKET = 17;
 
-const int AF_PUP = 4;
+const int AF_PHONET = 35;
 
-const int AF_RESERVED_36 = 36;
+const int AF_PPPOX = 24;
 
-const int AF_ROUTE = 17;
+const int AF_QIPCRTR = 42;
 
-const int AF_SIP = 24;
+const int AF_RDS = 21;
 
-const int AF_SNA = 11;
+const int AF_ROSE = 11;
 
-const int AF_SYSTEM = 32;
+const int AF_ROUTE = 16;
+
+const int AF_RXRPC = 33;
+
+const int AF_SECURITY = 14;
+
+const int AF_SMC = 43;
+
+const int AF_SNA = 22;
+
+const int AF_TIPC = 30;
 
 const int AF_UNIX = 1;
 
 const int AF_UNSPEC = 0;
 
-const int AF_UTUN = 38;
-
 const int AF_VSOCK = 40;
 
-const int AI_ADDRCONFIG = 1024;
+const int AF_WANPIPE = 25;
 
-const int AI_ALL = 256;
+const int AF_X25 = 9;
+
+const int AF_XDP = 44;
+
+const int AIO_PRIO_DELTA_MAX = 20;
+
+const int AI_ADDRCONFIG = 32;
+
+const int AI_ALL = 16;
 
 const int AI_CANONNAME = 2;
 
-const int AI_DEFAULT = 1536;
-
-const int AI_MASK = 5127;
-
 const int AI_NUMERICHOST = 4;
 
-const int AI_NUMERICSERV = 4096;
+const int AI_NUMERICSERV = 1024;
 
 const int AI_PASSIVE = 1;
 
-const int AI_UNUSABLE = 268435456;
-
-const int AI_V4MAPPED = 2048;
-
-const int AI_V4MAPPED_CFG = 512;
+const int AI_V4MAPPED = 8;
 
 const int ALLPERMS = 4095;
-
-const int ARG_MAX = 1048576;
 
 const int B1 = 1;
 
@@ -1349,15 +1327,27 @@ const int BOOK_DEBUG = 0;
 
 const double BRANCHING_FACTOR = 2.24;
 
-const int BUFSIZ = 1024;
+const int BUFSIZ = 8192;
 
 const int BUS_ADRALN = 1;
 
+const int BUS_ADRALN1 = 1;
+
 const int BUS_ADRERR = 2;
 
-const int BUS_NOOP = 0;
+const int BUS_ADRERR1 = 2;
+
+const int BUS_MCEERR_AO = 5;
+
+const int BUS_MCEERR_AO1 = 5;
+
+const int BUS_MCEERR_AR = 4;
+
+const int BUS_MCEERR_AR1 = 4;
 
 const int BUS_OBJERR = 3;
+
+const int BUS_OBJERR1 = 3;
 
 const int BYTE_ORDER = 1234;
 
@@ -1409,11 +1399,11 @@ class BoardCache extends ffi.Struct {
 /// struct Book
 /// @brief The opening book.
 class Book extends ffi.Struct {
-  external UnnamedStruct8 date;
+  external UnnamedStruct18 date;
 
-  external UnnamedStruct9 options;
+  external UnnamedStruct19 options;
 
-  external UnnamedStruct10 stats;
+  external UnnamedStruct20 stats;
 
   external ffi.Pointer<PositionArray> array;
 
@@ -1425,7 +1415,7 @@ class Book extends ffi.Struct {
   @ffi.Int32()
   external int n_nodes;
 
-  @ffi.Uint8()
+  @ffi.Int32()
   external int need_saving;
 
   @ffi.Array.multi([1])
@@ -1478,61 +1468,59 @@ class CBoard extends ffi.Struct {
   external ffi.Array<ffi.Uint8> x;
 }
 
-const int CHARCLASS_NAME_MAX = 14;
-
-const int CHAR_BIT = 8;
-
-const int CHAR_MAX = 127;
-
-const int CHAR_MIN = -128;
-
-const int CHILD_MAX = 266;
+const int CHARCLASS_NAME_MAX = 2048;
 
 const int CLD_CONTINUED = 6;
 
+const int CLD_CONTINUED1 = 6;
+
 const int CLD_DUMPED = 3;
+
+const int CLD_DUMPED1 = 3;
 
 const int CLD_EXITED = 1;
 
+const int CLD_EXITED1 = 1;
+
 const int CLD_KILLED = 2;
 
-const int CLD_NOOP = 0;
+const int CLD_KILLED1 = 2;
 
 const int CLD_STOPPED = 5;
 
+const int CLD_STOPPED1 = 5;
+
 const int CLD_TRAPPED = 4;
 
-const int CLK_TCK = 100;
+const int CLD_TRAPPED1 = 4;
 
 const int CLOCKS_PER_SEC = 1000000;
 
-const int CLOCK_MONOTONIC = 6;
+const int CLOCK_BOOTTIME = 7;
+
+const int CLOCK_BOOTTIME_ALARM = 9;
+
+const int CLOCK_MONOTONIC = 1;
+
+const int CLOCK_MONOTONIC_COARSE = 6;
 
 const int CLOCK_MONOTONIC_RAW = 4;
 
-const int CLOCK_MONOTONIC_RAW_APPROX = 5;
-
-const int CLOCK_PROCESS_CPUTIME_ID = 12;
+const int CLOCK_PROCESS_CPUTIME_ID = 2;
 
 const int CLOCK_REALTIME = 0;
 
-const int CLOCK_THREAD_CPUTIME_ID = 16;
+const int CLOCK_REALTIME_ALARM = 8;
 
-const int CLOCK_UPTIME_RAW = 8;
+const int CLOCK_REALTIME_COARSE = 5;
 
-const int CLOCK_UPTIME_RAW_APPROX = 9;
+const int CLOCK_TAI = 11;
 
-const int COLL_WEIGHTS_MAX = 2;
+const int CLOCK_THREAD_CPUTIME_ID = 3;
 
-const int CONNECT_DATA_AUTHENTICATED = 4;
-
-const int CONNECT_DATA_IDEMPOTENT = 2;
-
-const int CONNECT_RESUME_ON_READ_WRITE = 1;
+const int COLL_WEIGHTS_MAX = 255;
 
 const int COUNT_NODES = 7;
-
-const int CPUMON_MAKE_FATAL = 4096;
 
 /// typedef conditional variable
 typedef Condition = pthread_cond_t;
@@ -1543,7 +1531,7 @@ class CoordinateToFeature extends ffi.Struct {
   external int n_feature;
 
   @ffi.Array.multi([16])
-  external ffi.Array<UnnamedStruct5> feature;
+  external ffi.Array<UnnamedStruct15> feature;
 }
 
 const int D1 = 3;
@@ -1564,25 +1552,11 @@ const int D8 = 59;
 
 const int DEFFILEMODE = 438;
 
+const int DELAYTIMER_MAX = 2147483647;
+
 const int DEPTH_MIDGAME_TO_ENDGAME = 15;
 
 const int DEPTH_TO_SHALLOW_SEARCH = 7;
-
-const int DOMAIN = 1;
-
-const int DST_AUST = 2;
-
-const int DST_CAN = 6;
-
-const int DST_EET = 5;
-
-const int DST_MET = 4;
-
-const int DST_NONE = 0;
-
-const int DST_USA = 1;
-
-const int DST_WET = 3;
 
 const int E1 = 4;
 
@@ -1604,85 +1578,85 @@ const int E8 = 60;
 
 const int EACCES = 13;
 
-const int EADDRINUSE = 48;
+const int EADDRINUSE = 98;
 
-const int EADDRNOTAVAIL = 49;
+const int EADDRNOTAVAIL = 99;
 
-const int EAFNOSUPPORT = 47;
+const int EADV = 68;
 
-const int EAGAIN = 35;
+const int EAFNOSUPPORT = 97;
 
-const int EAI_ADDRFAMILY = 1;
+const int EAGAIN = 11;
 
-const int EAI_AGAIN = 2;
+const int EAI_AGAIN = -3;
 
-const int EAI_BADFLAGS = 3;
+const int EAI_BADFLAGS = -1;
 
-const int EAI_BADHINTS = 12;
+const int EAI_FAIL = -4;
 
-const int EAI_FAIL = 4;
+const int EAI_FAMILY = -6;
 
-const int EAI_FAMILY = 5;
+const int EAI_MEMORY = -10;
 
-const int EAI_MAX = 15;
+const int EAI_NONAME = -2;
 
-const int EAI_MEMORY = 6;
+const int EAI_OVERFLOW = -12;
 
-const int EAI_NODATA = 7;
+const int EAI_SERVICE = -8;
 
-const int EAI_NONAME = 8;
+const int EAI_SOCKTYPE = -7;
 
-const int EAI_OVERFLOW = 14;
+const int EAI_SYSTEM = -11;
 
-const int EAI_PROTOCOL = 13;
+const int EALREADY = 114;
 
-const int EAI_SERVICE = 9;
-
-const int EAI_SOCKTYPE = 10;
-
-const int EAI_SYSTEM = 11;
-
-const int EALREADY = 37;
-
-const int EAUTH = 80;
-
-const int EBADARCH = 86;
-
-const int EBADEXEC = 85;
+const int EBADE = 52;
 
 const int EBADF = 9;
 
-const int EBADMACHO = 88;
+const int EBADFD = 77;
 
-const int EBADMSG = 94;
+const int EBADMSG = 74;
 
-const int EBADRPC = 72;
+const int EBADR = 53;
+
+const int EBADRQC = 56;
+
+const int EBADSLT = 57;
+
+const int EBFONT = 59;
 
 const int EBUSY = 16;
 
-const int ECANCELED = 89;
+const int ECANCELED = 125;
 
 const int ECHILD = 10;
 
-const int ECONNABORTED = 53;
+const int ECHRNG = 44;
 
-const int ECONNREFUSED = 61;
+const int ECOMM = 70;
 
-const int ECONNRESET = 54;
+const int ECONNABORTED = 103;
+
+const int ECONNREFUSED = 111;
+
+const int ECONNRESET = 104;
 
 const int EDAX = 1162101080;
 
 const String EDAX_NAME = 'Edax 4.4';
 
-const int EDEADLK = 11;
+const int EDEADLK = 35;
 
-const int EDESTADDRREQ = 39;
+const int EDEADLOCK = 35;
 
-const int EDEVERR = 83;
+const int EDESTADDRREQ = 89;
 
 const int EDOM = 33;
 
-const int EDQUOT = 69;
+const int EDOTDOT = 73;
+
+const int EDQUOT = 122;
 
 const int EEXIST = 17;
 
@@ -1690,29 +1664,17 @@ const int EFAULT = 14;
 
 const int EFBIG = 27;
 
-const int EFTYPE = 79;
+const int EHOSTDOWN = 112;
 
-const int EF_IS_PURGEABLE = 8;
+const int EHOSTUNREACH = 113;
 
-const int EF_IS_SPARSE = 16;
+const int EHWPOISON = 133;
 
-const int EF_IS_SYNC_ROOT = 4;
+const int EIDRM = 43;
 
-const int EF_IS_SYNTHETIC = 32;
+const int EILSEQ = 84;
 
-const int EF_MAY_SHARE_BLOCKS = 1;
-
-const int EF_NO_XATTRS = 2;
-
-const int EHOSTDOWN = 64;
-
-const int EHOSTUNREACH = 65;
-
-const int EIDRM = 90;
-
-const int EILSEQ = 92;
-
-const int EINPROGRESS = 36;
+const int EINPROGRESS = 115;
 
 const int EINTR = 4;
 
@@ -1720,13 +1682,41 @@ const int EINVAL = 22;
 
 const int EIO = 5;
 
-const int EISCONN = 56;
+const int EISCONN = 106;
 
 const int EISDIR = 21;
 
-const int ELAST = 106;
+const int EISNAM = 120;
 
-const int ELOOP = 62;
+const int EKEYEXPIRED = 127;
+
+const int EKEYREJECTED = 129;
+
+const int EKEYREVOKED = 128;
+
+const int EL2HLT = 51;
+
+const int EL2NSYNC = 45;
+
+const int EL3HLT = 46;
+
+const int EL3RST = 47;
+
+const int ELIBACC = 79;
+
+const int ELIBBAD = 80;
+
+const int ELIBEXEC = 83;
+
+const int ELIBMAX = 82;
+
+const int ELIBSCN = 81;
+
+const int ELNRNG = 48;
+
+const int ELOOP = 40;
+
+const int EMEDIUMTYPE = 124;
 
 const int EMFILE = 24;
 
@@ -1734,29 +1724,31 @@ const int EMLINK = 31;
 
 const int EMPTY = 2;
 
-const int EMSGSIZE = 40;
+const int EMSGSIZE = 90;
 
-const int EMULTIHOP = 95;
+const int EMULTIHOP = 72;
 
-const int ENAMETOOLONG = 63;
+const int ENAMETOOLONG = 36;
 
-const int ENEEDAUTH = 81;
+const int ENAVAIL = 119;
 
-const int ENETDOWN = 50;
+const int ENETDOWN = 100;
 
-const int ENETRESET = 52;
+const int ENETRESET = 102;
 
-const int ENETUNREACH = 51;
+const int ENETUNREACH = 101;
 
 const int ENFILE = 23;
 
 const int ENGINE_N_POSITION = 1024;
 
-const int ENOATTR = 93;
+const int ENOANO = 55;
 
-const int ENOBUFS = 55;
+const int ENOBUFS = 105;
 
-const int ENODATA = 96;
+const int ENOCSI = 50;
+
+const int ENODATA = 61;
 
 const int ENODEV = 19;
 
@@ -1764,115 +1756,125 @@ const int ENOENT = 2;
 
 const int ENOEXEC = 8;
 
-const int ENOLCK = 77;
+const int ENOKEY = 126;
 
-const int ENOLINK = 97;
+const int ENOLCK = 37;
+
+const int ENOLINK = 67;
+
+const int ENOMEDIUM = 123;
 
 const int ENOMEM = 12;
 
-const int ENOMSG = 91;
+const int ENOMSG = 42;
 
-const int ENOPOLICY = 103;
+const int ENONET = 64;
 
-const int ENOPROTOOPT = 42;
+const int ENOPKG = 65;
+
+const int ENOPROTOOPT = 92;
 
 const int ENOSPC = 28;
 
-const int ENOSR = 98;
+const int ENOSR = 63;
 
-const int ENOSTR = 99;
+const int ENOSTR = 60;
 
-const int ENOSYS = 78;
+const int ENOSYS = 38;
 
 const int ENOTBLK = 15;
 
-const int ENOTCONN = 57;
+const int ENOTCONN = 107;
 
 const int ENOTDIR = 20;
 
-const int ENOTEMPTY = 66;
+const int ENOTEMPTY = 39;
 
-const int ENOTRECOVERABLE = 104;
+const int ENOTNAM = 118;
 
-const int ENOTSOCK = 38;
+const int ENOTRECOVERABLE = 131;
 
-const int ENOTSUP = 45;
+const int ENOTSOCK = 88;
+
+const int ENOTSUP = 95;
 
 const int ENOTTY = 25;
+
+const int ENOTUNIQ = 76;
 
 const int ENXIO = 6;
 
 const int EOF = -1;
 
-const int EOPNOTSUPP = 102;
+const int EOPNOTSUPP = 95;
 
-const int EOVERFLOW = 84;
+const int EOVERFLOW = 75;
 
-const int EOWNERDEAD = 105;
+const int EOWNERDEAD = 130;
 
 const int EPERM = 1;
 
-const int EPFNOSUPPORT = 46;
+const int EPFNOSUPPORT = 96;
 
 const int EPIPE = 32;
 
-const int EPROCLIM = 67;
+const int EPROTO = 71;
 
-const int EPROCUNAVAIL = 76;
+const int EPROTONOSUPPORT = 93;
 
-const int EPROGMISMATCH = 75;
-
-const int EPROGUNAVAIL = 74;
-
-const int EPROTO = 100;
-
-const int EPROTONOSUPPORT = 43;
-
-const int EPROTOTYPE = 41;
-
-const int EPWROFF = 82;
-
-const int EQFULL = 106;
-
-const int EQUIV_CLASS_MAX = 2;
+const int EPROTOTYPE = 91;
 
 const int ERANGE = 34;
 
-const int EREMOTE = 71;
+const int EREMCHG = 78;
+
+const int EREMOTE = 66;
+
+const int EREMOTEIO = 121;
+
+const int ERESTART = 85;
+
+const int ERFKILL = 132;
 
 const int EROFS = 30;
 
-const int ERPCMISMATCH = 73;
+const int ESHUTDOWN = 108;
 
-const int ESHLIBVERS = 87;
-
-const int ESHUTDOWN = 58;
-
-const int ESOCKTNOSUPPORT = 44;
+const int ESOCKTNOSUPPORT = 94;
 
 const int ESPIPE = 29;
 
 const int ESRCH = 3;
 
-const int ESTALE = 70;
+const int ESRMNT = 69;
+
+const int ESTALE = 116;
+
+const int ESTRPIPE = 86;
 
 const int ETC_MIN_DEPTH = 5;
 
-const int ETIME = 101;
+const int ETIME = 62;
 
-const int ETIMEDOUT = 60;
+const int ETIMEDOUT = 110;
 
-const int ETOOMANYREFS = 59;
+const int ETOOMANYREFS = 109;
 
 const int ETXTBSY = 26;
 
-const int EUSERS = 68;
+const int EUCLEAN = 117;
+
+const int EUNATCH = 49;
+
+const int EUSERS = 87;
 
 const int EVAL = 1163280716;
 
-const int EWOULDBLOCK = 35;
+const int EWOULDBLOCK = 11;
 
 const int EXDEV = 18;
+
+const int EXFULL = 54;
 
 const int EXIT_FAILURE = 1;
 
@@ -1888,9 +1890,9 @@ class Engine extends ffi.Struct {
   /// Events
   external ffi.Pointer<Search> search;
 
-  external UnnamedStruct15 last_position;
+  external UnnamedStruct25 last_position;
 
-  @ffi.Uint8()
+  @ffi.Int32()
   external int is_searching;
 }
 
@@ -1907,7 +1909,7 @@ class Eval extends ffi.Struct {
 /// Event management data
 class Event extends ffi.Struct {
   /// !< flag allowing to loop, waiting for events
-  @ffi.Uint8()
+  @ffi.Int32()
   external int loop;
 
   /// !< ring of buffers
@@ -1926,7 +1928,8 @@ class Event extends ffi.Struct {
   external int end;
 
   /// !< thread
-  external Thread thread;
+  @Thread()
+  external int thread;
 
   /// !< spin lock
   @SpinLock()
@@ -1959,67 +1962,85 @@ const int FAST_PERFT = 1;
 
 const int FD_SETSIZE = 1024;
 
-typedef FILE = __sFILE;
+typedef FILE = _IO_FILE;
 
-const int FILENAME_MAX = 1024;
+const int FILENAME_MAX = 4096;
 
-const int FOOTPRINT_INTERVAL_RESET = 1;
+const int FIOGETOWN = 35075;
 
-const int FOPEN_MAX = 20;
+const int FIOSETOWN = 35073;
 
-const int FPE_FLTDIV = 1;
+const int FOPEN_MAX = 16;
 
-const int FPE_FLTINV = 5;
+const int FPE_CONDTRAP = 15;
 
-const int FPE_FLTOVF = 2;
+const int FPE_CONDTRAP1 = 15;
 
-const int FPE_FLTRES = 4;
+const int FPE_FLTDIV = 3;
 
-const int FPE_FLTSUB = 6;
+const int FPE_FLTDIV1 = 3;
 
-const int FPE_FLTUND = 3;
+const int FPE_FLTINV = 7;
 
-const int FPE_INTDIV = 7;
+const int FPE_FLTINV1 = 7;
 
-const int FPE_INTOVF = 8;
+const int FPE_FLTOVF = 4;
 
-const int FPE_NOOP = 0;
+const int FPE_FLTOVF1 = 4;
 
-const int FP_CHOP = 3;
+const int FPE_FLTRES = 6;
+
+const int FPE_FLTRES1 = 6;
+
+const int FPE_FLTSUB = 8;
+
+const int FPE_FLTSUB1 = 8;
+
+const int FPE_FLTUND = 5;
+
+const int FPE_FLTUND1 = 5;
+
+const int FPE_FLTUNK = 14;
+
+const int FPE_FLTUNK1 = 14;
+
+const int FPE_INTDIV = 1;
+
+const int FPE_INTDIV1 = 1;
+
+const int FPE_INTOVF = 2;
+
+const int FPE_INTOVF1 = 2;
 
 const int FP_ILOGB0 = -2147483648;
 
 const int FP_ILOGBNAN = -2147483648;
 
-const int FP_INFINITE = 2;
+const int FP_INFINITE = 1;
 
-const int FP_NAN = 1;
+const int FP_INFINITE1 = 1;
+
+const int FP_NAN = 0;
+
+const int FP_NAN1 = 0;
 
 const int FP_NORMAL = 4;
 
-const int FP_PREC_24B = 0;
+const int FP_NORMAL1 = 4;
 
-const int FP_PREC_53B = 2;
+const int FP_SUBNORMAL = 3;
 
-const int FP_PREC_64B = 3;
+const int FP_SUBNORMAL1 = 3;
 
-const int FP_QNAN = 1;
+const int FP_XSTATE_MAGIC1 = 1179670611;
 
-const int FP_RND_DOWN = 1;
+const int FP_XSTATE_MAGIC2 = 1179670597;
 
-const int FP_RND_NEAR = 0;
+const int FP_XSTATE_MAGIC2_SIZE = 4;
 
-const int FP_RND_UP = 2;
+const int FP_ZERO = 2;
 
-const int FP_SNAN = 1;
-
-const int FP_STATE_BYTES = 512;
-
-const int FP_SUBNORMAL = 5;
-
-const int FP_SUPERNORMAL = 6;
-
-const int FP_ZERO = 3;
+const int FP_ZERO1 = 2;
 
 const int F_LOCK = 1;
 
@@ -2147,7 +2168,7 @@ class GGSClient extends ffi.Struct {
   external ffi.Pointer<ffi.Int8> me;
 
   /// < is Edax playing ?
-  @ffi.Uint8()
+  @ffi.Int32()
   external int is_playing;
 
   /// < date of last refresh
@@ -2155,10 +2176,10 @@ class GGSClient extends ffi.Struct {
   external int last_refresh;
 
   @ffi.Array.multi([1])
-  external ffi.Array<UnnamedStruct16> loop;
+  external ffi.Array<UnnamedStruct26> loop;
 
   @ffi.Array.multi([1])
-  external ffi.Array<UnnamedStruct17> once;
+  external ffi.Array<UnnamedStruct27> once;
 }
 
 /// GGS clock (to play a game)
@@ -2206,14 +2227,15 @@ class GGSEvent extends ffi.Struct {
   external int socket;
 
   /// < loop
-  @ffi.Uint8()
+  @ffi.Int32()
   external int loop;
 
   /// < read buffer
   external ffi.Pointer<ffi.Int8> buffer;
 
   /// < thread
-  external Thread thread;
+  @Thread()
+  external int thread;
 
   /// < lock
   external Lock lock;
@@ -2299,13 +2321,11 @@ class GGSRequest extends ffi.Struct {
 
 const int GGS_BOARD_SIZE = 256;
 
-const int GID_MAX = 2147483647;
-
 class Game extends ffi.Struct {
   @ffi.Array.multi([1])
   external ffi.Array<Board> initial_board;
 
-  external UnnamedStruct7 date;
+  external UnnamedStruct17 date;
 
   @ffi.Array.multi([2, 32])
   external ffi.Array<ffi.Array<ffi.Int8>> name;
@@ -2419,11 +2439,11 @@ const int HASH_ALIGNED = 1;
 
 const int HASH_N_WAY = 4;
 
+const int HOST_NAME_MAX = 64;
+
 const int HOST_NOT_FOUND = 1;
 
 const int HOUR = 3600000;
-
-const double HUGE = 3.4028234663852886e+38;
 
 const double HUGE_VAL = double.infinity;
 
@@ -2547,7 +2567,7 @@ class Hint extends ffi.Struct {
   external int n_nodes;
 
   /// < book move origin
-  @ffi.Uint8()
+  @ffi.Int32()
   external int book_move;
 }
 
@@ -2563,49 +2583,57 @@ class HintList extends ffi.Struct {
   external int n_hints;
 }
 
-const int ICMP6_FILTER = 18;
+const int ILL_BADIADDR = 9;
 
-const int ICMPV6CTL_ND6_ONLINKNSRFC4861 = 50;
+const int ILL_BADIADDR1 = 9;
 
 const int ILL_BADSTK = 8;
 
+const int ILL_BADSTK1 = 8;
+
 const int ILL_COPROC = 7;
 
-const int ILL_ILLADR = 5;
+const int ILL_COPROC1 = 7;
+
+const int ILL_ILLADR = 3;
+
+const int ILL_ILLADR1 = 3;
 
 const int ILL_ILLOPC = 1;
 
-const int ILL_ILLOPN = 4;
+const int ILL_ILLOPC1 = 1;
 
-const int ILL_ILLTRP = 2;
+const int ILL_ILLOPN = 2;
 
-const int ILL_NOOP = 0;
+const int ILL_ILLOPN1 = 2;
 
-const int ILL_PRVOPC = 3;
+const int ILL_ILLTRP = 4;
+
+const int ILL_ILLTRP1 = 4;
+
+const int ILL_PRVOPC = 5;
+
+const int ILL_PRVOPC1 = 5;
 
 const int ILL_PRVREG = 6;
 
+const int ILL_PRVREG1 = 6;
+
 const int INADDR_ALLHOSTS_GROUP = 3758096385;
 
-const int INADDR_ALLMDNS_GROUP = 3758096635;
-
-const int INADDR_ALLRPTS_GROUP = 3758096406;
-
 const int INADDR_ALLRTRS_GROUP = 3758096386;
+
+const int INADDR_ALLSNOOPERS_GROUP = 3758096490;
 
 const int INADDR_ANY = 0;
 
 const int INADDR_BROADCAST = 4294967295;
-
-const int INADDR_CARP_GROUP = 3758096402;
 
 const int INADDR_LOOPBACK = 2130706433;
 
 const int INADDR_MAX_LOCAL_GROUP = 3758096639;
 
 const int INADDR_NONE = 4294967295;
-
-const int INADDR_PFSYNC_GROUP = 3758096624;
 
 const int INADDR_UNSPEC_GROUP = 3758096384;
 
@@ -2639,13 +2667,13 @@ const int INTPTR_MAX = 9223372036854775807;
 
 const int INTPTR_MIN = -9223372036854775808;
 
-const int INT_FAST16_MAX = 32767;
+const int INT_FAST16_MAX = 9223372036854775807;
 
-const int INT_FAST16_MIN = -32768;
+const int INT_FAST16_MIN = -9223372036854775808;
 
-const int INT_FAST32_MAX = 2147483647;
+const int INT_FAST32_MAX = 9223372036854775807;
 
-const int INT_FAST32_MIN = -2147483648;
+const int INT_FAST32_MIN = -9223372036854775808;
 
 const int INT_FAST64_MAX = 9223372036854775807;
 
@@ -2671,10 +2699,6 @@ const int INT_LEAST8_MAX = 127;
 
 const int INT_LEAST8_MIN = -128;
 
-const int INT_MAX = 2147483647;
-
-const int INT_MIN = -2147483648;
-
 const int IN_CLASSA_HOST = 16777215;
 
 const int IN_CLASSA_MAX = 128;
@@ -2697,515 +2721,301 @@ const int IN_CLASSC_NET = 4294967040;
 
 const int IN_CLASSC_NSHIFT = 8;
 
-const int IN_CLASSD_HOST = 268435455;
-
-const int IN_CLASSD_NET = 4026531840;
-
-const int IN_CLASSD_NSHIFT = 28;
-
-const int IN_LINKLOCALNETNUM = 2851995648;
-
 const int IN_LOOPBACKNET = 127;
 
-const int IOPOL_APPLICATION = 5;
+const int IPPORT_BIFFUDP = 512;
 
-const int IOPOL_ATIME_UPDATES_DEFAULT = 0;
+const int IPPORT_CMDSERVER = 514;
 
-const int IOPOL_ATIME_UPDATES_OFF = 1;
+const int IPPORT_DAYTIME = 13;
 
-const int IOPOL_DEFAULT = 0;
+const int IPPORT_DISCARD = 9;
 
-const int IOPOL_IMPORTANT = 1;
+const int IPPORT_ECHO = 7;
 
-const int IOPOL_MATERIALIZE_DATALESS_FILES_DEFAULT = 0;
+const int IPPORT_EFSSERVER = 520;
 
-const int IOPOL_MATERIALIZE_DATALESS_FILES_OFF = 1;
+const int IPPORT_EXECSERVER = 512;
 
-const int IOPOL_MATERIALIZE_DATALESS_FILES_ON = 2;
+const int IPPORT_FINGER = 79;
 
-const int IOPOL_NORMAL = 1;
+const int IPPORT_FTP = 21;
 
-const int IOPOL_PASSIVE = 2;
+const int IPPORT_LOGINSERVER = 513;
 
-const int IOPOL_SCOPE_DARWIN_BG = 2;
+const int IPPORT_MTP = 57;
 
-const int IOPOL_SCOPE_PROCESS = 0;
+const int IPPORT_NAMESERVER = 42;
 
-const int IOPOL_SCOPE_THREAD = 1;
-
-const int IOPOL_STANDARD = 5;
-
-const int IOPOL_THROTTLE = 3;
-
-const int IOPOL_TYPE_DISK = 0;
-
-const int IOPOL_TYPE_VFS_ALLOW_LOW_SPACE_WRITES = 9;
-
-const int IOPOL_TYPE_VFS_ATIME_UPDATES = 2;
-
-const int IOPOL_TYPE_VFS_IGNORE_CONTENT_PROTECTION = 6;
-
-const int IOPOL_TYPE_VFS_IGNORE_PERMISSIONS = 7;
-
-const int IOPOL_TYPE_VFS_MATERIALIZE_DATALESS_FILES = 3;
-
-const int IOPOL_TYPE_VFS_SKIP_MTIME_UPDATE = 8;
-
-const int IOPOL_TYPE_VFS_STATFS_NO_DATA_VOLUME = 4;
-
-const int IOPOL_TYPE_VFS_TRIGGER_RESOLVE = 5;
-
-const int IOPOL_UTILITY = 4;
-
-const int IOPOL_VFS_ALLOW_LOW_SPACE_WRITES_OFF = 0;
-
-const int IOPOL_VFS_ALLOW_LOW_SPACE_WRITES_ON = 1;
-
-const int IOPOL_VFS_CONTENT_PROTECTION_DEFAULT = 0;
-
-const int IOPOL_VFS_CONTENT_PROTECTION_IGNORE = 1;
-
-const int IOPOL_VFS_IGNORE_PERMISSIONS_OFF = 0;
-
-const int IOPOL_VFS_IGNORE_PERMISSIONS_ON = 1;
-
-const int IOPOL_VFS_SKIP_MTIME_UPDATE_OFF = 0;
-
-const int IOPOL_VFS_SKIP_MTIME_UPDATE_ON = 1;
-
-const int IOPOL_VFS_STATFS_FORCE_NO_DATA_VOLUME = 1;
-
-const int IOPOL_VFS_STATFS_NO_DATA_VOLUME_DEFAULT = 0;
-
-const int IOPOL_VFS_TRIGGER_RESOLVE_DEFAULT = 0;
-
-const int IOPOL_VFS_TRIGGER_RESOLVE_OFF = 1;
-
-const int IOV_MAX = 1024;
-
-const int IPCTL_ACCEPTSOURCEROUTE = 13;
-
-const int IPCTL_DEFTTL = 3;
-
-const int IPCTL_DIRECTEDBROADCAST = 9;
-
-const int IPCTL_FASTFORWARDING = 14;
-
-const int IPCTL_FORWARDING = 1;
-
-const int IPCTL_GIF_TTL = 16;
-
-const int IPCTL_INTRQDROPS = 11;
-
-const int IPCTL_INTRQMAXLEN = 10;
-
-const int IPCTL_KEEPFAITH = 15;
-
-const int IPCTL_MAXID = 17;
-
-const int IPCTL_RTEXPIRE = 5;
-
-const int IPCTL_RTMAXCACHE = 7;
-
-const int IPCTL_RTMINEXPIRE = 6;
-
-const int IPCTL_SENDREDIRECTS = 2;
-
-const int IPCTL_SOURCEROUTE = 8;
-
-const int IPCTL_STATS = 12;
-
-const int IPPORT_HIFIRSTAUTO = 49152;
-
-const int IPPORT_HILASTAUTO = 65535;
+const int IPPORT_NETSTAT = 15;
 
 const int IPPORT_RESERVED = 1024;
 
-const int IPPORT_RESERVEDSTART = 600;
+const int IPPORT_RESERVED1 = 1024;
+
+const int IPPORT_RJE = 77;
+
+const int IPPORT_ROUTESERVER = 520;
+
+const int IPPORT_SMTP = 25;
+
+const int IPPORT_SUPDUP = 95;
+
+const int IPPORT_SYSTAT = 11;
+
+const int IPPORT_TELNET = 23;
+
+const int IPPORT_TFTP = 69;
+
+const int IPPORT_TIMESERVER = 37;
+
+const int IPPORT_TTYLINK = 87;
 
 const int IPPORT_USERRESERVED = 5000;
 
-const int IPPROTO_3PC = 34;
+const int IPPORT_WHOIS = 43;
 
-const int IPPROTO_ADFS = 68;
+const int IPPORT_WHOSERVER = 513;
 
 const int IPPROTO_AH = 51;
 
-const int IPPROTO_AHIP = 61;
+const int IPPROTO_AH1 = 51;
 
-const int IPPROTO_APES = 99;
+const int IPPROTO_BEETPH = 94;
 
-const int IPPROTO_ARGUS = 13;
+const int IPPROTO_BEETPH1 = 94;
 
-const int IPPROTO_AX25 = 93;
+const int IPPROTO_COMP = 108;
 
-const int IPPROTO_BHA = 49;
+const int IPPROTO_COMP1 = 108;
 
-const int IPPROTO_BLT = 30;
+const int IPPROTO_DCCP = 33;
 
-const int IPPROTO_BRSATMON = 76;
-
-const int IPPROTO_CFTP = 62;
-
-const int IPPROTO_CHAOS = 16;
-
-const int IPPROTO_CMTP = 38;
-
-const int IPPROTO_CPHB = 73;
-
-const int IPPROTO_CPNX = 72;
-
-const int IPPROTO_DDP = 37;
-
-const int IPPROTO_DGP = 86;
-
-const int IPPROTO_DIVERT = 254;
-
-const int IPPROTO_DONE = 257;
+const int IPPROTO_DCCP1 = 33;
 
 const int IPPROTO_DSTOPTS = 60;
 
+const int IPPROTO_DSTOPTS1 = 60;
+
 const int IPPROTO_EGP = 8;
 
-const int IPPROTO_EMCON = 14;
+const int IPPROTO_EGP1 = 8;
 
 const int IPPROTO_ENCAP = 98;
 
-const int IPPROTO_EON = 80;
+const int IPPROTO_ENCAP1 = 98;
 
 const int IPPROTO_ESP = 50;
 
-const int IPPROTO_ETHERIP = 97;
+const int IPPROTO_ESP1 = 50;
 
 const int IPPROTO_FRAGMENT = 44;
 
-const int IPPROTO_GGP = 3;
-
-const int IPPROTO_GMTP = 100;
+const int IPPROTO_FRAGMENT1 = 44;
 
 const int IPPROTO_GRE = 47;
 
-const int IPPROTO_HELLO = 63;
-
-const int IPPROTO_HMP = 20;
+const int IPPROTO_GRE1 = 47;
 
 const int IPPROTO_HOPOPTS = 0;
 
+const int IPPROTO_HOPOPTS1 = 0;
+
 const int IPPROTO_ICMP = 1;
+
+const int IPPROTO_ICMP1 = 1;
 
 const int IPPROTO_ICMPV6 = 58;
 
+const int IPPROTO_ICMPV61 = 58;
+
 const int IPPROTO_IDP = 22;
 
-const int IPPROTO_IDPR = 35;
-
-const int IPPROTO_IDRP = 45;
+const int IPPROTO_IDP1 = 22;
 
 const int IPPROTO_IGMP = 2;
 
-const int IPPROTO_IGP = 85;
-
-const int IPPROTO_IGRP = 88;
-
-const int IPPROTO_IL = 40;
-
-const int IPPROTO_INLSP = 52;
-
-const int IPPROTO_INP = 32;
+const int IPPROTO_IGMP1 = 2;
 
 const int IPPROTO_IP = 0;
 
-const int IPPROTO_IPCOMP = 108;
-
-const int IPPROTO_IPCV = 71;
-
-const int IPPROTO_IPEIP = 94;
+const int IPPROTO_IP1 = 0;
 
 const int IPPROTO_IPIP = 4;
 
-const int IPPROTO_IPPC = 67;
-
-const int IPPROTO_IPV4 = 4;
+const int IPPROTO_IPIP1 = 4;
 
 const int IPPROTO_IPV6 = 41;
 
-const int IPPROTO_IRTP = 28;
-
-const int IPPROTO_KRYPTOLAN = 65;
-
-const int IPPROTO_LARP = 91;
-
-const int IPPROTO_LEAF1 = 25;
-
-const int IPPROTO_LEAF2 = 26;
+const int IPPROTO_IPV61 = 41;
 
 const int IPPROTO_MAX = 256;
 
-const int IPPROTO_MAXID = 52;
+const int IPPROTO_MH = 135;
 
-const int IPPROTO_MEAS = 19;
+const int IPPROTO_MH1 = 135;
 
-const int IPPROTO_MHRP = 48;
+const int IPPROTO_MPLS = 137;
 
-const int IPPROTO_MICP = 95;
+const int IPPROTO_MPLS1 = 137;
 
 const int IPPROTO_MTP = 92;
 
-const int IPPROTO_MUX = 18;
-
-const int IPPROTO_ND = 77;
-
-const int IPPROTO_NHRP = 54;
+const int IPPROTO_MTP1 = 92;
 
 const int IPPROTO_NONE = 59;
 
-const int IPPROTO_NSP = 31;
-
-const int IPPROTO_NVPII = 11;
-
-const int IPPROTO_OSPFIGP = 89;
-
-const int IPPROTO_PGM = 113;
-
-const int IPPROTO_PIGP = 9;
+const int IPPROTO_NONE1 = 59;
 
 const int IPPROTO_PIM = 103;
 
-const int IPPROTO_PRM = 21;
+const int IPPROTO_PIM1 = 103;
 
 const int IPPROTO_PUP = 12;
 
-const int IPPROTO_PVP = 75;
+const int IPPROTO_PUP1 = 12;
 
 const int IPPROTO_RAW = 255;
 
-const int IPPROTO_RCCMON = 10;
-
-const int IPPROTO_RDP = 27;
+const int IPPROTO_RAW1 = 255;
 
 const int IPPROTO_ROUTING = 43;
 
+const int IPPROTO_ROUTING1 = 43;
+
 const int IPPROTO_RSVP = 46;
 
-const int IPPROTO_RVD = 66;
-
-const int IPPROTO_SATEXPAK = 64;
-
-const int IPPROTO_SATMON = 69;
-
-const int IPPROTO_SCCSP = 96;
+const int IPPROTO_RSVP1 = 46;
 
 const int IPPROTO_SCTP = 132;
 
-const int IPPROTO_SDRP = 42;
-
-const int IPPROTO_SEP = 33;
-
-const int IPPROTO_SRPC = 90;
-
-const int IPPROTO_ST = 7;
-
-const int IPPROTO_SVMTP = 82;
-
-const int IPPROTO_SWIPE = 53;
-
-const int IPPROTO_TCF = 87;
+const int IPPROTO_SCTP1 = 132;
 
 const int IPPROTO_TCP = 6;
 
+const int IPPROTO_TCP1 = 6;
+
 const int IPPROTO_TP = 29;
 
-const int IPPROTO_TPXX = 39;
-
-const int IPPROTO_TRUNK1 = 23;
-
-const int IPPROTO_TRUNK2 = 24;
-
-const int IPPROTO_TTP = 84;
+const int IPPROTO_TP1 = 29;
 
 const int IPPROTO_UDP = 17;
 
-const int IPPROTO_VINES = 83;
+const int IPPROTO_UDP1 = 17;
 
-const int IPPROTO_VISA = 70;
+const int IPPROTO_UDPLITE = 136;
 
-const int IPPROTO_VMTP = 81;
+const int IPPROTO_UDPLITE1 = 136;
 
-const int IPPROTO_WBEXPAK = 79;
+const int IPV6_2292DSTOPTS = 4;
 
-const int IPPROTO_WBMON = 78;
+const int IPV6_2292HOPLIMIT = 8;
 
-const int IPPROTO_WSN = 74;
+const int IPV6_2292HOPOPTS = 3;
 
-const int IPPROTO_XNET = 15;
+const int IPV6_2292PKTINFO = 2;
 
-const int IPPROTO_XTP = 36;
+const int IPV6_2292PKTOPTIONS = 6;
 
-const int IPV6CTL_ACCEPT_RTADV = 12;
+const int IPV6_2292RTHDR = 5;
 
-const int IPV6CTL_ADDRCTLPOLICY = 38;
+const int IPV6_ADDRFORM = 1;
 
-const int IPV6CTL_AUTO_FLOWLABEL = 17;
+const int IPV6_ADDR_PREFERENCES = 72;
 
-const int IPV6CTL_AUTO_LINKLOCAL = 35;
+const int IPV6_ADD_MEMBERSHIP = 20;
 
-const int IPV6CTL_DAD_COUNT = 16;
+const int IPV6_AUTHHDR = 10;
 
-const int IPV6CTL_DEFHLIM = 3;
+const int IPV6_AUTOFLOWLABEL = 70;
 
-const int IPV6CTL_DEFMCASTHLIM = 18;
+const int IPV6_CHECKSUM = 7;
 
-const int IPV6CTL_FORWARDING = 1;
+const int IPV6_DONTFRAG = 62;
 
-const int IPV6CTL_FORWSRCRT = 5;
+const int IPV6_DROP_MEMBERSHIP = 21;
 
-const int IPV6CTL_GIF_HLIM = 19;
+const int IPV6_DSTOPTS = 59;
 
-const int IPV6CTL_HDRNESTLIMIT = 15;
+const int IPV6_FREEBIND = 78;
 
-const int IPV6CTL_KAME_VERSION = 20;
+const int IPV6_HDRINCL = 36;
 
-const int IPV6CTL_KEEPFAITH = 13;
+const int IPV6_HOPLIMIT = 52;
 
-const int IPV6CTL_LOG_INTERVAL = 14;
+const int IPV6_HOPOPTS = 54;
 
-const int IPV6CTL_MAXDYNROUTES = 49;
+const int IPV6_IPSEC_POLICY = 34;
 
-const int IPV6CTL_MAXFRAGPACKETS = 9;
+const int IPV6_JOIN_ANYCAST = 27;
 
-const int IPV6CTL_MAXFRAGS = 41;
+const int IPV6_JOIN_GROUP = 20;
 
-const int IPV6CTL_MAXID = 51;
+const int IPV6_LEAVE_ANYCAST = 28;
 
-const int IPV6CTL_MAXIFDEFROUTERS = 48;
+const int IPV6_LEAVE_GROUP = 21;
 
-const int IPV6CTL_MAXIFPREFIXES = 47;
+const int IPV6_MINHOPCOUNT = 73;
 
-const int IPV6CTL_MCAST_PMTU = 44;
+const int IPV6_MTU = 24;
 
-const int IPV6CTL_MRTPROTO = 8;
+const int IPV6_MTU_DISCOVER = 23;
 
-const int IPV6CTL_MRTSTATS = 7;
+const int IPV6_MULTICAST_ALL = 29;
 
-const int IPV6CTL_NEIGHBORGCTHRESH = 46;
+const int IPV6_MULTICAST_HOPS = 18;
 
-const int IPV6CTL_PREFER_TEMPADDR = 37;
+const int IPV6_MULTICAST_IF = 17;
 
-const int IPV6CTL_RIP6STATS = 36;
+const int IPV6_MULTICAST_LOOP = 19;
 
-const int IPV6CTL_RR_PRUNE = 22;
+const int IPV6_NEXTHOP = 9;
 
-const int IPV6CTL_RTEXPIRE = 25;
+const int IPV6_ORIGDSTADDR = 74;
 
-const int IPV6CTL_RTMAXCACHE = 27;
+const int IPV6_PATHMTU = 61;
 
-const int IPV6CTL_RTMINEXPIRE = 26;
+const int IPV6_PKTINFO = 50;
 
-const int IPV6CTL_SENDREDIRECTS = 2;
+const int IPV6_PMTUDISC_DO = 2;
 
-const int IPV6CTL_SOURCECHECK = 10;
+const int IPV6_PMTUDISC_DONT = 0;
 
-const int IPV6CTL_SOURCECHECK_LOGINT = 11;
+const int IPV6_PMTUDISC_INTERFACE = 4;
 
-const int IPV6CTL_STATS = 6;
+const int IPV6_PMTUDISC_OMIT = 5;
 
-const int IPV6CTL_TEMPPLTIME = 33;
+const int IPV6_PMTUDISC_PROBE = 3;
 
-const int IPV6CTL_TEMPVLTIME = 34;
+const int IPV6_PMTUDISC_WANT = 1;
 
-const int IPV6CTL_ULA_USETEMPADDR = 51;
+const int IPV6_RECVDSTOPTS = 58;
 
-const int IPV6CTL_USETEMPADDR = 32;
+const int IPV6_RECVERR = 25;
 
-const int IPV6CTL_USE_DEFAULTZONE = 39;
+const int IPV6_RECVFRAGSIZE = 77;
 
-const int IPV6CTL_USE_DEPRECATED = 21;
+const int IPV6_RECVHOPLIMIT = 51;
 
-const int IPV6CTL_V6ONLY = 24;
+const int IPV6_RECVHOPOPTS = 53;
 
-const int IPV6PORT_ANONMAX = 65535;
+const int IPV6_RECVORIGDSTADDR = 74;
 
-const int IPV6PORT_ANONMIN = 49152;
+const int IPV6_RECVPATHMTU = 60;
 
-const int IPV6PORT_RESERVED = 1024;
+const int IPV6_RECVPKTINFO = 49;
 
-const int IPV6PORT_RESERVEDMAX = 1023;
+const int IPV6_RECVRTHDR = 56;
 
-const int IPV6PORT_RESERVEDMIN = 600;
+const int IPV6_RECVTCLASS = 66;
 
-const int IPV6PROTO_MAXID = 104;
+const int IPV6_ROUTER_ALERT = 22;
 
-const int IPV6_2292DSTOPTS = 23;
+const int IPV6_ROUTER_ALERT_ISOLATE = 30;
 
-const int IPV6_2292HOPLIMIT = 20;
+const int IPV6_RTHDR = 57;
 
-const int IPV6_2292HOPOPTS = 22;
-
-const int IPV6_2292NEXTHOP = 21;
-
-const int IPV6_2292PKTINFO = 19;
-
-const int IPV6_2292PKTOPTIONS = 25;
-
-const int IPV6_2292RTHDR = 24;
-
-const int IPV6_ADDR_MC_FLAGS_PREFIX = 32;
-
-const int IPV6_ADDR_MC_FLAGS_TRANSIENT = 16;
-
-const int IPV6_ADDR_MC_FLAGS_UNICAST_BASED = 48;
-
-const int IPV6_BINDV6ONLY = 27;
-
-const int IPV6_BOUND_IF = 125;
-
-const int IPV6_CHECKSUM = 26;
-
-const int IPV6_DEFAULT_MULTICAST_HOPS = 1;
-
-const int IPV6_DEFAULT_MULTICAST_LOOP = 1;
-
-const int IPV6_FAITH = 29;
-
-const int IPV6_FW_ADD = 30;
-
-const int IPV6_FW_DEL = 31;
-
-const int IPV6_FW_FLUSH = 32;
-
-const int IPV6_FW_GET = 34;
-
-const int IPV6_FW_ZERO = 33;
-
-const int IPV6_IPSEC_POLICY = 28;
-
-const int IPV6_JOIN_GROUP = 12;
-
-const int IPV6_LEAVE_GROUP = 13;
-
-const int IPV6_MAX_GROUP_SRC_FILTER = 512;
-
-const int IPV6_MAX_MEMBERSHIPS = 4095;
-
-const int IPV6_MAX_SOCK_SRC_FILTER = 128;
-
-const int IPV6_MIN_MEMBERSHIPS = 31;
-
-const int IPV6_MULTICAST_HOPS = 10;
-
-const int IPV6_MULTICAST_IF = 9;
-
-const int IPV6_MULTICAST_LOOP = 11;
-
-const int IPV6_PORTRANGE = 14;
-
-const int IPV6_PORTRANGE_DEFAULT = 0;
-
-const int IPV6_PORTRANGE_HIGH = 1;
-
-const int IPV6_PORTRANGE_LOW = 2;
-
-const int IPV6_RECVTCLASS = 35;
+const int IPV6_RTHDRDSTOPTS = 55;
 
 const int IPV6_RTHDR_LOOSE = 0;
 
@@ -3213,139 +3023,119 @@ const int IPV6_RTHDR_STRICT = 1;
 
 const int IPV6_RTHDR_TYPE_0 = 0;
 
-const int IPV6_SOCKOPT_RESERVED1 = 3;
+const int IPV6_RXDSTOPTS = 59;
 
-const int IPV6_TCLASS = 36;
+const int IPV6_RXHOPOPTS = 54;
 
-const int IPV6_UNICAST_HOPS = 4;
+const int IPV6_TCLASS = 67;
 
-const int IPV6_V6ONLY = 27;
+const int IPV6_TRANSPARENT = 75;
 
-const int IP_ADD_MEMBERSHIP = 12;
+const int IPV6_UNICAST_HOPS = 16;
 
-const int IP_ADD_SOURCE_MEMBERSHIP = 70;
+const int IPV6_UNICAST_IF = 76;
 
-const int IP_BLOCK_SOURCE = 72;
+const int IPV6_V6ONLY = 26;
 
-const int IP_BOUND_IF = 25;
+const int IPV6_XFRM_POLICY = 35;
+
+const int IP_ADD_MEMBERSHIP = 35;
+
+const int IP_ADD_SOURCE_MEMBERSHIP = 39;
+
+const int IP_BIND_ADDRESS_NO_PORT = 24;
+
+const int IP_BLOCK_SOURCE = 38;
+
+const int IP_CHECKSUM = 23;
 
 const int IP_DEFAULT_MULTICAST_LOOP = 1;
 
 const int IP_DEFAULT_MULTICAST_TTL = 1;
 
-const int IP_DONTFRAG = 28;
+const int IP_DROP_MEMBERSHIP = 36;
 
-const int IP_DROP_MEMBERSHIP = 13;
+const int IP_DROP_SOURCE_MEMBERSHIP = 40;
 
-const int IP_DROP_SOURCE_MEMBERSHIP = 71;
+const int IP_FREEBIND = 15;
 
-const int IP_DUMMYNET_CONFIGURE = 60;
+const int IP_HDRINCL = 3;
 
-const int IP_DUMMYNET_DEL = 61;
+const int IP_IPSEC_POLICY = 16;
 
-const int IP_DUMMYNET_FLUSH = 62;
+const int IP_MAX_MEMBERSHIPS = 20;
 
-const int IP_DUMMYNET_GET = 64;
+const int IP_MINTTL = 21;
 
-const int IP_FAITH = 22;
+const int IP_MSFILTER = 41;
 
-const int IP_FW_ADD = 40;
+const int IP_MTU = 14;
 
-const int IP_FW_DEL = 41;
+const int IP_MTU_DISCOVER = 10;
 
-const int IP_FW_FLUSH = 42;
+const int IP_MULTICAST_ALL = 49;
 
-const int IP_FW_GET = 44;
+const int IP_MULTICAST_IF = 32;
 
-const int IP_FW_RESETLOG = 45;
+const int IP_MULTICAST_LOOP = 34;
 
-const int IP_FW_ZERO = 43;
+const int IP_MULTICAST_TTL = 33;
 
-const int IP_HDRINCL = 2;
+const int IP_NODEFRAG = 22;
 
-const int IP_IPSEC_POLICY = 21;
+const int IP_OPTIONS = 4;
 
-const int IP_MAX_GROUP_SRC_FILTER = 512;
+const int IP_ORIGDSTADDR = 20;
 
-const int IP_MAX_MEMBERSHIPS = 4095;
+const int IP_PASSSEC = 18;
 
-const int IP_MAX_SOCK_MUTE_FILTER = 128;
+const int IP_PKTINFO = 8;
 
-const int IP_MAX_SOCK_SRC_FILTER = 128;
+const int IP_PKTOPTIONS = 9;
 
-const int IP_MIN_MEMBERSHIPS = 31;
+const int IP_PMTUDISC = 10;
 
-const int IP_MSFILTER = 74;
+const int IP_PMTUDISC_DO = 2;
 
-const int IP_MULTICAST_IF = 9;
+const int IP_PMTUDISC_DONT = 0;
 
-const int IP_MULTICAST_IFINDEX = 66;
+const int IP_PMTUDISC_INTERFACE = 4;
 
-const int IP_MULTICAST_LOOP = 11;
+const int IP_PMTUDISC_OMIT = 5;
 
-const int IP_MULTICAST_TTL = 10;
+const int IP_PMTUDISC_PROBE = 3;
 
-const int IP_MULTICAST_VIF = 14;
+const int IP_PMTUDISC_WANT = 1;
 
-const int IP_NAT__XXX = 55;
+const int IP_RECVERR = 11;
 
-const int IP_OLD_FW_ADD = 50;
+const int IP_RECVFRAGSIZE = 25;
 
-const int IP_OLD_FW_DEL = 51;
+const int IP_RECVOPTS = 6;
 
-const int IP_OLD_FW_FLUSH = 52;
+const int IP_RECVORIGDSTADDR = 20;
 
-const int IP_OLD_FW_GET = 54;
+const int IP_RECVRETOPTS = 7;
 
-const int IP_OLD_FW_RESETLOG = 56;
+const int IP_RECVTOS = 13;
 
-const int IP_OLD_FW_ZERO = 53;
+const int IP_RECVTTL = 12;
 
-const int IP_OPTIONS = 1;
+const int IP_RETOPTS = 7;
 
-const int IP_PKTINFO = 26;
+const int IP_ROUTER_ALERT = 5;
 
-const int IP_PORTRANGE = 19;
+const int IP_TOS = 1;
 
-const int IP_PORTRANGE_DEFAULT = 0;
+const int IP_TRANSPARENT = 19;
 
-const int IP_PORTRANGE_HIGH = 1;
+const int IP_TTL = 2;
 
-const int IP_PORTRANGE_LOW = 2;
+const int IP_UNBLOCK_SOURCE = 37;
 
-const int IP_RECVDSTADDR = 7;
+const int IP_UNICAST_IF = 50;
 
-const int IP_RECVIF = 20;
-
-const int IP_RECVOPTS = 5;
-
-const int IP_RECVPKTINFO = 26;
-
-const int IP_RECVRETOPTS = 6;
-
-const int IP_RECVTOS = 27;
-
-const int IP_RECVTTL = 24;
-
-const int IP_RETOPTS = 8;
-
-const int IP_RSVP_OFF = 16;
-
-const int IP_RSVP_ON = 15;
-
-const int IP_RSVP_VIF_OFF = 18;
-
-const int IP_RSVP_VIF_ON = 17;
-
-const int IP_STRIPHDR = 23;
-
-const int IP_TOS = 3;
-
-const int IP_TRAFFIC_MGT_BACKGROUND = 65;
-
-const int IP_TTL = 4;
-
-const int IP_UNBLOCK_SOURCE = 73;
+const int IP_XFRM_POLICY = 17;
 
 const int ITERATIVE_MIN_EMPTIES = 10;
 
@@ -3355,129 +3145,63 @@ const int ITIMER_REAL = 0;
 
 const int ITIMER_VIRTUAL = 1;
 
-const int KEV_DL_ADDMULTI = 7;
-
-const int KEV_DL_AWDL_RESTRICTED = 26;
-
-const int KEV_DL_AWDL_UNRESTRICTED = 27;
-
-const int KEV_DL_DELMULTI = 8;
-
-const int KEV_DL_IFCAP_CHANGED = 19;
-
-const int KEV_DL_IFDELEGATE_CHANGED = 25;
-
-const int KEV_DL_IF_ATTACHED = 9;
-
-const int KEV_DL_IF_DETACHED = 11;
-
-const int KEV_DL_IF_DETACHING = 10;
-
-const int KEV_DL_IF_IDLE_ROUTE_REFCNT = 18;
-
-const int KEV_DL_ISSUES = 24;
-
-const int KEV_DL_LINK_ADDRESS_CHANGED = 16;
-
-const int KEV_DL_LINK_OFF = 12;
-
-const int KEV_DL_LINK_ON = 13;
-
-const int KEV_DL_LINK_QUALITY_METRIC_CHANGED = 20;
-
-const int KEV_DL_LOW_POWER_MODE_CHANGED = 30;
-
-const int KEV_DL_MASTER_ELECTED = 23;
-
-const int KEV_DL_NODE_ABSENCE = 22;
-
-const int KEV_DL_NODE_PRESENCE = 21;
-
-const int KEV_DL_PRIMARY_ELECTED = 23;
-
-const int KEV_DL_PROTO_ATTACHED = 14;
-
-const int KEV_DL_PROTO_DETACHED = 15;
-
-const int KEV_DL_QOS_MODE_CHANGED = 29;
-
-const int KEV_DL_RRC_STATE_CHANGED = 28;
-
-const int KEV_DL_SIFFLAGS = 1;
-
-const int KEV_DL_SIFGENERIC = 6;
-
-const int KEV_DL_SIFMEDIA = 5;
-
-const int KEV_DL_SIFMETRICS = 2;
-
-const int KEV_DL_SIFMTU = 3;
-
-const int KEV_DL_SIFPHYS = 4;
-
-const int KEV_DL_SUBCLASS = 2;
-
-const int KEV_DL_WAKEFLAGS_CHANGED = 17;
-
-const int KEV_INET6_ADDR_DELETED = 3;
-
-const int KEV_INET6_CHANGED_ADDR = 2;
-
-const int KEV_INET6_DEFROUTER = 6;
-
-const int KEV_INET6_NEW_LL_ADDR = 4;
-
-const int KEV_INET6_NEW_RTADV_ADDR = 5;
-
-const int KEV_INET6_NEW_USER_ADDR = 1;
-
-const int KEV_INET6_REQUEST_NAT64_PREFIX = 7;
-
-const int KEV_INET6_SUBCLASS = 6;
-
-const int KEV_INET_ADDR_DELETED = 3;
-
-const int KEV_INET_ARPCOLLISION = 7;
-
-const int KEV_INET_ARPRTRALIVE = 10;
-
-const int KEV_INET_ARPRTRFAILURE = 9;
-
-const int KEV_INET_CHANGED_ADDR = 2;
-
-const int KEV_INET_NEW_ADDR = 1;
-
-const int KEV_INET_PORTINUSE = 8;
-
-const int KEV_INET_SIFBRDADDR = 5;
-
-const int KEV_INET_SIFDSTADDR = 4;
-
-const int KEV_INET_SIFNETMASK = 6;
-
-const int KEV_INET_SUBCLASS = 1;
-
 const int KOGGE_STONE = 2;
 
 const int LAVE = 1279350341;
 
-const int LC_ALL = 0;
+const int LC_ADDRESS = 9;
 
-const int LC_COLLATE = 1;
+const int LC_ADDRESS_MASK = 512;
 
-const int LC_CTYPE = 2;
+const int LC_ALL = 6;
 
-const int LC_MESSAGES = 6;
+const int LC_ALL_MASK = 8127;
 
-const int LC_MONETARY = 3;
+const int LC_COLLATE = 3;
 
-const int LC_NUMERIC = 4;
+const int LC_COLLATE_MASK = 8;
 
-const int LC_TIME = 5;
+const int LC_CTYPE = 0;
+
+const int LC_CTYPE_MASK = 1;
+
+const int LC_IDENTIFICATION = 12;
+
+const int LC_IDENTIFICATION_MASK = 4096;
+
+const int LC_MEASUREMENT = 11;
+
+const int LC_MEASUREMENT_MASK = 2048;
+
+const int LC_MESSAGES = 5;
+
+const int LC_MESSAGES_MASK = 32;
+
+const int LC_MONETARY = 4;
+
+const int LC_MONETARY_MASK = 16;
+
+const int LC_NAME = 8;
+
+const int LC_NAME_MASK = 256;
+
+const int LC_NUMERIC = 1;
+
+const int LC_NUMERIC_MASK = 2;
+
+const int LC_PAPER = 7;
+
+const int LC_PAPER_MASK = 128;
+
+const int LC_TELEPHONE = 10;
+
+const int LC_TELEPHONE_MASK = 1024;
+
+const int LC_TIME = 2;
+
+const int LC_TIME_MASK = 4;
 
 const int LINE_MAX = 2048;
-
-const int LINK_MAX = 32767;
 
 const int LITTLE_ENDIAN = 1234;
 
@@ -3485,11 +3209,7 @@ const int LLONG_MAX = 9223372036854775807;
 
 const int LLONG_MIN = -9223372036854775808;
 
-const int LONG_BIT = 64;
-
-const int LONG_MAX = 9223372036854775807;
-
-const int LONG_MIN = -9223372036854775808;
+const int LOGIN_NAME_MAX = 256;
 
 const int L_INCR = 1;
 
@@ -3497,9 +3217,9 @@ const int L_SET = 0;
 
 const int L_XTND = 2;
 
-const int L_ctermid = 1024;
+const int L_ctermid = 9;
 
-const int L_tmpnam = 1024;
+const int L_tmpnam = 20;
 
 /// levels
 class Level extends ffi.Struct {
@@ -3545,95 +3265,21 @@ class Log extends ffi.Struct {
   external Lock lock;
 }
 
-const int MAC_OS_VERSION_11_0 = 110000;
-
-const int MAC_OS_VERSION_12_0 = 120000;
-
-const int MAC_OS_X_VERSION_10_0 = 1000;
-
-const int MAC_OS_X_VERSION_10_1 = 1010;
-
-const int MAC_OS_X_VERSION_10_10 = 101000;
-
-const int MAC_OS_X_VERSION_10_10_2 = 101002;
-
-const int MAC_OS_X_VERSION_10_10_3 = 101003;
-
-const int MAC_OS_X_VERSION_10_11 = 101100;
-
-const int MAC_OS_X_VERSION_10_11_2 = 101102;
-
-const int MAC_OS_X_VERSION_10_11_3 = 101103;
-
-const int MAC_OS_X_VERSION_10_11_4 = 101104;
-
-const int MAC_OS_X_VERSION_10_12 = 101200;
-
-const int MAC_OS_X_VERSION_10_12_1 = 101201;
-
-const int MAC_OS_X_VERSION_10_12_2 = 101202;
-
-const int MAC_OS_X_VERSION_10_12_4 = 101204;
-
-const int MAC_OS_X_VERSION_10_13 = 101300;
-
-const int MAC_OS_X_VERSION_10_13_1 = 101301;
-
-const int MAC_OS_X_VERSION_10_13_2 = 101302;
-
-const int MAC_OS_X_VERSION_10_13_4 = 101304;
-
-const int MAC_OS_X_VERSION_10_14 = 101400;
-
-const int MAC_OS_X_VERSION_10_14_1 = 101401;
-
-const int MAC_OS_X_VERSION_10_14_4 = 101404;
-
-const int MAC_OS_X_VERSION_10_14_6 = 101406;
-
-const int MAC_OS_X_VERSION_10_15 = 101500;
-
-const int MAC_OS_X_VERSION_10_15_1 = 101501;
-
-const int MAC_OS_X_VERSION_10_16 = 101600;
-
-const int MAC_OS_X_VERSION_10_2 = 1020;
-
-const int MAC_OS_X_VERSION_10_3 = 1030;
-
-const int MAC_OS_X_VERSION_10_4 = 1040;
-
-const int MAC_OS_X_VERSION_10_5 = 1050;
-
-const int MAC_OS_X_VERSION_10_6 = 1060;
-
-const int MAC_OS_X_VERSION_10_7 = 1070;
-
-const int MAC_OS_X_VERSION_10_8 = 1080;
-
-const int MAC_OS_X_VERSION_10_9 = 1090;
-
 const int MATH_ERREXCEPT = 2;
 
 const int MATH_ERRNO = 1;
 
-const double MAXFLOAT = 3.4028234663852886e+38;
+const int MAX_CANON = 255;
 
-const int MAX_CANON = 1024;
-
-const int MAX_INPUT = 1024;
+const int MAX_INPUT = 255;
 
 const int MAX_MOVE = 32;
 
 const int MAX_OBSERVER = 2;
 
-const int MAX_SACK_BLKS = 6;
-
-const int MAX_TCPOPTLEN = 40;
-
 const int MAX_THREADS = 64;
 
-const int MB_LEN_MAX = 6;
+const int MB_LEN_MAX = 16;
 
 /// A position and a move issued from it.
 class MBoard extends ffi.Struct {
@@ -3643,25 +3289,25 @@ class MBoard extends ffi.Struct {
   external int x;
 }
 
-const int MCAST_BLOCK_SOURCE = 84;
+const int MCAST_BLOCK_SOURCE = 43;
 
-const int MCAST_EXCLUDE = 2;
+const int MCAST_EXCLUDE = 0;
 
 const int MCAST_INCLUDE = 1;
 
-const int MCAST_JOIN_GROUP = 80;
+const int MCAST_JOIN_GROUP = 42;
 
-const int MCAST_JOIN_SOURCE_GROUP = 82;
+const int MCAST_JOIN_SOURCE_GROUP = 46;
 
-const int MCAST_LEAVE_GROUP = 81;
+const int MCAST_LEAVE_GROUP = 45;
 
-const int MCAST_LEAVE_SOURCE_GROUP = 83;
+const int MCAST_LEAVE_SOURCE_GROUP = 47;
 
-const int MCAST_UNBLOCK_SOURCE = 85;
+const int MCAST_MSFILTER = 48;
 
-const int MCAST_UNDEFINED = 0;
+const int MCAST_UNBLOCK_SOURCE = 44;
 
-const int MINSIGSTKSZ = 32768;
+const int MINSIGSTKSZ = 2048;
 
 const int MOVELIST_SIZE = 256;
 
@@ -3677,39 +3323,91 @@ const int MOVE_GENERATOR_ROXANE = 5;
 
 const int MOVE_GENERATOR_SSE = 3;
 
-const int MSG_CTRUNC = 32;
+const int MQ_PRIO_MAX = 32768;
+
+const int MSG_BATCH = 262144;
+
+const int MSG_BATCH1 = 262144;
+
+const int MSG_CMSG_CLOEXEC = 1073741824;
+
+const int MSG_CMSG_CLOEXEC1 = 1073741824;
+
+const int MSG_CONFIRM = 2048;
+
+const int MSG_CONFIRM1 = 2048;
+
+const int MSG_CTRUNC = 8;
+
+const int MSG_CTRUNC1 = 8;
 
 const int MSG_DONTROUTE = 4;
 
-const int MSG_DONTWAIT = 128;
+const int MSG_DONTROUTE1 = 4;
 
-const int MSG_EOF = 256;
+const int MSG_DONTWAIT = 64;
 
-const int MSG_EOR = 8;
+const int MSG_DONTWAIT1 = 64;
 
-const int MSG_FLUSH = 1024;
+const int MSG_EOR = 128;
 
-const int MSG_HAVEMORE = 8192;
+const int MSG_EOR1 = 128;
 
-const int MSG_HOLD = 2048;
+const int MSG_ERRQUEUE = 8192;
 
-const int MSG_NEEDSA = 65536;
+const int MSG_ERRQUEUE1 = 8192;
 
-const int MSG_NOSIGNAL = 524288;
+const int MSG_FASTOPEN = 536870912;
+
+const int MSG_FASTOPEN1 = 536870912;
+
+const int MSG_FIN = 512;
+
+const int MSG_FIN1 = 512;
+
+const int MSG_MORE = 32768;
+
+const int MSG_MORE1 = 32768;
+
+const int MSG_NOSIGNAL = 16384;
+
+const int MSG_NOSIGNAL1 = 16384;
 
 const int MSG_OOB = 1;
 
+const int MSG_OOB1 = 1;
+
 const int MSG_PEEK = 2;
 
-const int MSG_RCVMORE = 16384;
+const int MSG_PEEK1 = 2;
 
-const int MSG_SEND = 4096;
+const int MSG_PROXY = 16;
 
-const int MSG_TRUNC = 16;
+const int MSG_PROXY1 = 16;
 
-const int MSG_WAITALL = 64;
+const int MSG_RST = 4096;
 
-const int MSG_WAITSTREAM = 512;
+const int MSG_RST1 = 4096;
+
+const int MSG_SYN = 1024;
+
+const int MSG_SYN1 = 1024;
+
+const int MSG_TRUNC = 32;
+
+const int MSG_TRUNC1 = 32;
+
+const int MSG_WAITALL = 256;
+
+const int MSG_WAITALL1 = 256;
+
+const int MSG_WAITFORONE = 65536;
+
+const int MSG_WAITFORONE1 = 65536;
+
+const int MSG_ZEROCOPY = 67108864;
+
+const int MSG_ZEROCOPY1 = 67108864;
 
 const int MULTIPV_DEPTH = 10;
 
@@ -3799,61 +3497,15 @@ const int NAME_MAX = 255;
 
 const double NAN = double.nan;
 
-const int NBBY = 8;
-
 const int NETDB_INTERNAL = -1;
 
 const int NETDB_SUCCESS = 0;
 
-const int NETSVC_MRKNG_LVL_L2 = 1;
+const int NFDBITS = 64;
 
-const int NETSVC_MRKNG_LVL_L3L2_ALL = 2;
+const int NGREG = 23;
 
-const int NETSVC_MRKNG_LVL_L3L2_BK = 3;
-
-const int NETSVC_MRKNG_UNKNOWN = 0;
-
-const int NET_MAXID = 41;
-
-const int NET_RT_DUMP = 1;
-
-const int NET_RT_DUMP2 = 7;
-
-const int NET_RT_FLAGS = 2;
-
-const int NET_RT_FLAGS_PRIV = 10;
-
-const int NET_RT_IFLIST = 3;
-
-const int NET_RT_IFLIST2 = 6;
-
-const int NET_RT_MAXID = 11;
-
-const int NET_RT_STAT = 4;
-
-const int NET_RT_TRASH = 5;
-
-const int NET_SERVICE_TYPE_AV = 6;
-
-const int NET_SERVICE_TYPE_BE = 0;
-
-const int NET_SERVICE_TYPE_BK = 1;
-
-const int NET_SERVICE_TYPE_OAM = 7;
-
-const int NET_SERVICE_TYPE_RD = 8;
-
-const int NET_SERVICE_TYPE_RV = 5;
-
-const int NET_SERVICE_TYPE_SIG = 2;
-
-const int NET_SERVICE_TYPE_VI = 3;
-
-const int NET_SERVICE_TYPE_VO = 4;
-
-const int NFDBITS = 32;
-
-const int NGROUPS_MAX = 16;
+const int NGROUPS_MAX = 65536;
 
 const int NI_DGRAM = 16;
 
@@ -3861,29 +3513,13 @@ const int NI_MAXHOST = 1025;
 
 const int NI_MAXSERV = 32;
 
-const int NI_NAMEREQD = 4;
+const int NI_NAMEREQD = 8;
 
-const int NI_NOFQDN = 1;
+const int NI_NOFQDN = 4;
 
-const int NI_NUMERICHOST = 2;
+const int NI_NUMERICHOST = 1;
 
-const int NI_NUMERICSCOPE = 256;
-
-const int NI_NUMERICSERV = 8;
-
-const int NI_WITHSCOPEID = 32;
-
-const int NL_ARGMAX = 9;
-
-const int NL_LANGMAX = 14;
-
-const int NL_MSGMAX = 32767;
-
-const int NL_NMAX = 1;
-
-const int NL_SETMAX = 255;
-
-const int NL_TEXTMAX = 2048;
+const int NI_NUMERICSERV = 2;
 
 const int NOMOVE = 65;
 
@@ -3893,11 +3529,7 @@ const int NO_DATA = 4;
 
 const int NO_RECOVERY = 3;
 
-const int NSIG = 32;
-
-const int NULL = 0;
-
-const int NZERO = 20;
+const int NSIG = 65;
 
 /// A Node is a position in the search tree, containing information shared with
 /// parallel threads.
@@ -3919,7 +3551,7 @@ class Node extends ffi.Struct {
   external int beta;
 
   /// < pv_node
-  @ffi.Uint8()
+  @ffi.Int32()
   external int pv_node;
 
   /// < number of slaves splitted flag
@@ -3927,11 +3559,11 @@ class Node extends ffi.Struct {
   external int n_slave;
 
   /// < stop point flag
-  @ffi.Uint8()
+  @ffi.Int32()
   external int stop_point;
 
   /// < waiting flag
-  @ffi.Uint8()
+  @ffi.Int32()
   external int is_waiting;
 
   /// < depth
@@ -3963,7 +3595,7 @@ class Node extends ffi.Struct {
   external int n_moves_todo;
 
   /// < waiting flag
-  @ffi.Uint8()
+  @ffi.Int32()
   external int is_helping;
 
   @ffi.Array.multi([1])
@@ -3993,7 +3625,7 @@ class OBF extends ffi.Struct {
   external int player;
 
   @ffi.Array.multi([32])
-  external ffi.Array<UnnamedStruct6> move;
+  external ffi.Array<UnnamedStruct16> move;
 
   /// <! Move number
   @ffi.Int32()
@@ -4013,27 +3645,7 @@ const int OBF_PARSE_OK = 0;
 
 const int OBF_PARSE_SKIP = 1;
 
-const int OFF_MAX = 9223372036854775807;
-
-const int OFF_MIN = -9223372036854775808;
-
 const int OFF_SIDE = 3;
-
-const int OPEN_MAX = 10240;
-
-const int OSATOMIC_DEPRECATED = 1;
-
-const int OSSPINLOCK_DEPRECATED = 1;
-
-/// ! @abstract Data type for a spinlock.
-/// @discussion
-/// You should always initialize a spinlock to {@link OS_SPINLOCK_INIT} before
-/// using it.
-typedef OSSpinLock = ffi.Int32;
-
-const int OS_SPINLOCK_INIT = 0;
-
-const int OVERFLOW = 3;
 
 class OkoGame extends ffi.Struct {
   @ffi.Int8()
@@ -4059,178 +3671,7 @@ class OpeningName extends ffi.Struct {
 }
 
 /// options to control various heuristics
-class Options extends ffi.Struct {
-  /// < size (in number of bits) of the hash table
-  @ffi.Int32()
-  external int hash_table_size;
-
-  @ffi.Array.multi([3])
-  external ffi.Array<ffi.Int32> inc_sort_depth;
-
-  /// < search in parallel, using n_tasks
-  @ffi.Int32()
-  external int n_task;
-
-  /// < set one cpu/thread to diminish context change
-  @ffi.Uint8()
-  external int cpu_affinity;
-
-  /// < search display
-  @ffi.Int32()
-  external int verbosity;
-
-  /// < search display min depth
-  @ffi.Int32()
-  external int noise;
-
-  /// < line width
-  @ffi.Int32()
-  external int width;
-
-  /// < repeat user input
-  @ffi.Uint8()
-  external int echo;
-
-  /// < info display
-  @ffi.Uint8()
-  external int info;
-
-  /// < display debug info in cassio's "fenetre de rapport"
-  @ffi.Uint8()
-  external int debug_cassio;
-
-  /// < adapt Cassio requests to search & solve faster
-  @ffi.Uint8()
-  external int transgress_cassio;
-
-  /// < level
-  @ffi.Int32()
-  external int level;
-
-  /// < time in sec.
-  @ffi.Int64()
-  external int time;
-
-  /// < game|move-time switch
-  @ffi.Int32()
-  external int play_type;
-
-  /// < pondering on/off
-  @ffi.Uint8()
-  external int can_ponder;
-
-  /// < depth (only for testing)
-  @ffi.Int32()
-  external int depth;
-
-  /// < selectivity (only for testing)
-  @ffi.Int32()
-  external int selectivity;
-
-  /// < mode play (human/edax, etc.)
-  @ffi.Int32()
-  external int mode;
-
-  /// < edax speed in N/S (for a more accurate time management)
-  @ffi.Double()
-  external double speed;
-
-  /// < edax assumed speed (for nps based timing
-  @ffi.Double()
-  external double nps;
-
-  /// < alpha bound
-  @ffi.Int32()
-  external int alpha;
-
-  /// < beta bound
-  @ffi.Int32()
-  external int beta;
-
-  /// < search for all best moves when solving problem
-  @ffi.Uint8()
-  external int all_best;
-
-  /// < evaluation file
-  external ffi.Pointer<ffi.Int8> eval_file;
-
-  /// < opening book filename
-  external ffi.Pointer<ffi.Int8> book_file;
-
-  /// < switch to use or not the opening book
-  @ffi.Uint8()
-  external int book_allowed;
-
-  /// < book randomness
-  @ffi.Int32()
-  external int book_randomness;
-
-  /// < ggs host (ip or host name)
-  external ffi.Pointer<ffi.Int8> ggs_host;
-
-  /// < ggs login
-  external ffi.Pointer<ffi.Int8> ggs_login;
-
-  /// < ggs password
-  external ffi.Pointer<ffi.Int8> ggs_password;
-
-  /// < ggs port
-  external ffi.Pointer<ffi.Int8> ggs_port;
-
-  /// < ggs open number (set it false for tournaments)
-  @ffi.Uint8()
-  external int ggs_open;
-
-  @ffi.Double()
-  external double probcut_d;
-
-  /// < debug PV
-  @ffi.Uint8()
-  external int pv_debug;
-
-  /// < check PV correctness
-  @ffi.Uint8()
-  external int pv_check;
-
-  /// < guess PV missing moves
-  @ffi.Uint8()
-  external int pv_guess;
-
-  /// < game file
-  external ffi.Pointer<ffi.Int8> game_file;
-
-  /// < log file (for search)
-  external ffi.Pointer<ffi.Int8> search_log_file;
-
-  /// < log file (for user interface)
-  external ffi.Pointer<ffi.Int8> ui_log_file;
-
-  /// < log file (for ggs)
-  external ffi.Pointer<ffi.Int8> ggs_log_file;
-
-  /// < program name
-  external ffi.Pointer<ffi.Int8> name;
-
-  /// < start a new game after a game is over
-  @ffi.Uint8()
-  external int auto_start;
-
-  /// < store a game in a book after each game
-  @ffi.Uint8()
-  external int auto_store;
-
-  /// < change computer's side after each game
-  @ffi.Uint8()
-  external int auto_swap;
-
-  /// < quit when game is over
-  @ffi.Uint8()
-  external int auto_quit;
-
-  /// < repeat 'n' games (before quitting)
-  @ffi.Int32()
-  external int repeat;
-}
+typedef Options = UnnamedStruct1;
 
 const int PARALLEL_PREFIX = 1;
 
@@ -4244,123 +3685,135 @@ const int PARSE_OK = 0;
 
 const int PASS = 64;
 
-const int PASS_MAX = 128;
-
-const int PATH_MAX = 1024;
+const int PATH_MAX = 4096;
 
 const int PDP_ENDIAN = 3412;
 
-const int PERSIST_TIMEOUT = 64;
+const int PF_ALG = 38;
 
-const int PF_APPLETALK = 16;
+const int PF_APPLETALK = 5;
 
-const int PF_BOND = 1651469924;
+const int PF_ASH = 18;
 
-const int PF_CCITT = 10;
+const int PF_ATMPVC = 8;
 
-const int PF_CHAOS = 5;
+const int PF_ATMSVC = 20;
 
-const int PF_CNT = 21;
+const int PF_AX25 = 3;
 
-const int PF_COIP = 20;
+const int PF_BLUETOOTH = 31;
 
-const int PF_DATAKIT = 9;
+const int PF_BRIDGE = 7;
+
+const int PF_CAIF = 37;
+
+const int PF_CAN = 29;
 
 const int PF_DECnet = 12;
 
-const int PF_DLI = 13;
+const int PF_ECONET = 19;
 
-const int PF_ECMA = 8;
+const int PF_FILE = 1;
 
-const int PF_HYLINK = 15;
+const int PF_IB = 27;
 
-const int PF_IMPLINK = 3;
+const int PF_IEEE802154 = 36;
 
 const int PF_INET = 2;
 
-const int PF_INET6 = 30;
+const int PF_INET6 = 10;
 
-const int PF_IPX = 23;
+const int PF_IPX = 4;
 
-const int PF_ISDN = 28;
+const int PF_IRDA = 23;
 
-const int PF_ISO = 7;
+const int PF_ISDN = 34;
 
-const int PF_KEY = 29;
+const int PF_IUCV = 32;
 
-const int PF_LAT = 14;
+const int PF_KCM = 41;
 
-const int PF_LINK = 18;
+const int PF_KEY = 15;
+
+const int PF_LLC = 26;
 
 const int PF_LOCAL = 1;
 
-const int PF_MAX = 41;
+const int PF_MAX = 45;
 
-const int PF_NATM = 31;
+const int PF_MPLS = 28;
 
-const int PF_NDRV = 27;
+const int PF_NETBEUI = 13;
 
-const int PF_NETBIOS = 33;
+const int PF_NETLINK = 16;
 
-const int PF_NS = 6;
+const int PF_NETROM = 6;
 
-const int PF_OSI = 7;
+const int PF_NFC = 39;
 
-const int PF_PIP = 25;
+const int PF_PACKET = 17;
 
-const int PF_PPP = 34;
+const int PF_PHONET = 35;
 
-const int PF_PUP = 4;
+const int PF_PPPOX = 24;
 
-const int PF_RESERVED_36 = 36;
+const int PF_QIPCRTR = 42;
 
-const int PF_ROUTE = 17;
+const int PF_RDS = 21;
 
-const int PF_RTIP = 22;
+const int PF_ROSE = 11;
 
-const int PF_SIP = 24;
+const int PF_ROUTE = 16;
 
-const int PF_SNA = 11;
+const int PF_RXRPC = 33;
 
-const int PF_SYSTEM = 32;
+const int PF_SECURITY = 14;
+
+const int PF_SMC = 43;
+
+const int PF_SNA = 22;
+
+const int PF_TIPC = 30;
 
 const int PF_UNIX = 1;
 
 const int PF_UNSPEC = 0;
 
-const int PF_UTUN = 38;
-
-const int PF_VLAN = 1986814318;
-
 const int PF_VSOCK = 40;
 
-const int PF_XTP = 19;
+const int PF_WANPIPE = 25;
 
-const int PIPE_BUF = 512;
+const int PF_X25 = 9;
+
+const int PF_XDP = 44;
+
+const int PIPE_BUF = 4096;
 
 const int PLAY_MESSAGE_MAX_LENGTH = 4096;
 
-const int PLOSS = 6;
-
 const int POLL_ERR = 4;
+
+const int POLL_ERR1 = 4;
 
 const int POLL_HUP = 6;
 
+const int POLL_HUP1 = 6;
+
 const int POLL_IN = 1;
+
+const int POLL_IN1 = 1;
 
 const int POLL_MSG = 3;
 
+const int POLL_MSG1 = 3;
+
 const int POLL_OUT = 2;
+
+const int POLL_OUT1 = 2;
 
 const int POLL_PRI = 5;
 
-const int PRIO_DARWIN_BG = 4096;
-
-const int PRIO_DARWIN_NONUI = 4097;
-
-const int PRIO_DARWIN_PROCESS = 4;
-
-const int PRIO_DARWIN_THREAD = 3;
+const int POLL_PRI1 = 5;
 
 const int PRIO_MAX = 20;
 
@@ -4372,37 +3825,69 @@ const int PRIO_PROCESS = 0;
 
 const int PRIO_USER = 2;
 
-const int PTHREAD_CANCEL_ASYNCHRONOUS = 0;
+const int PTHREAD_BARRIER_SERIAL_THREAD = -1;
 
-const int PTHREAD_CANCEL_DEFERRED = 2;
+const int PTHREAD_CANCEL_ASYNCHRONOUS = 1;
 
-const int PTHREAD_CANCEL_DISABLE = 0;
+const int PTHREAD_CANCEL_ASYNCHRONOUS1 = 1;
 
-const int PTHREAD_CANCEL_ENABLE = 1;
+const int PTHREAD_CANCEL_DEFERRED = 0;
 
-const int PTHREAD_CREATE_DETACHED = 2;
+const int PTHREAD_CANCEL_DEFERRED1 = 0;
 
-const int PTHREAD_CREATE_JOINABLE = 1;
+const int PTHREAD_CANCEL_DISABLE = 1;
+
+const int PTHREAD_CANCEL_DISABLE1 = 1;
+
+const int PTHREAD_CANCEL_ENABLE = 0;
+
+const int PTHREAD_CANCEL_ENABLE1 = 0;
+
+const int PTHREAD_CREATE_DETACHED = 1;
+
+const int PTHREAD_CREATE_DETACHED1 = 1;
+
+const int PTHREAD_CREATE_JOINABLE = 0;
+
+const int PTHREAD_CREATE_JOINABLE1 = 0;
 
 const int PTHREAD_DESTRUCTOR_ITERATIONS = 4;
 
-const int PTHREAD_EXPLICIT_SCHED = 2;
+const int PTHREAD_EXPLICIT_SCHED = 1;
 
-const int PTHREAD_INHERIT_SCHED = 1;
+const int PTHREAD_EXPLICIT_SCHED1 = 1;
 
-const int PTHREAD_KEYS_MAX = 512;
+const int PTHREAD_INHERIT_SCHED = 0;
+
+const int PTHREAD_INHERIT_SCHED1 = 0;
+
+const int PTHREAD_KEYS_MAX = 1024;
+
+const int PTHREAD_MUTEX_ADAPTIVE_NP = 3;
 
 const int PTHREAD_MUTEX_DEFAULT = 0;
 
-const int PTHREAD_MUTEX_ERRORCHECK = 1;
+const int PTHREAD_MUTEX_ERRORCHECK = 2;
+
+const int PTHREAD_MUTEX_ERRORCHECK_NP = 2;
 
 const int PTHREAD_MUTEX_NORMAL = 0;
 
-const int PTHREAD_MUTEX_POLICY_FAIRSHARE_NP = 1;
+const int PTHREAD_MUTEX_RECURSIVE = 1;
 
-const int PTHREAD_MUTEX_POLICY_FIRSTFIT_NP = 3;
+const int PTHREAD_MUTEX_RECURSIVE_NP = 1;
 
-const int PTHREAD_MUTEX_RECURSIVE = 2;
+const int PTHREAD_MUTEX_ROBUST = 1;
+
+const int PTHREAD_MUTEX_ROBUST_NP = 1;
+
+const int PTHREAD_MUTEX_STALLED = 0;
+
+const int PTHREAD_MUTEX_STALLED_NP = 0;
+
+const int PTHREAD_MUTEX_TIMED_NP = 0;
+
+const int PTHREAD_ONCE_INIT = 0;
 
 const int PTHREAD_PRIO_INHERIT = 1;
 
@@ -4410,15 +3895,31 @@ const int PTHREAD_PRIO_NONE = 0;
 
 const int PTHREAD_PRIO_PROTECT = 2;
 
-const int PTHREAD_PROCESS_PRIVATE = 2;
+const int PTHREAD_PROCESS_PRIVATE = 0;
+
+const int PTHREAD_PROCESS_PRIVATE1 = 0;
 
 const int PTHREAD_PROCESS_SHARED = 1;
 
-const int PTHREAD_SCOPE_PROCESS = 2;
+const int PTHREAD_PROCESS_SHARED1 = 1;
 
-const int PTHREAD_SCOPE_SYSTEM = 1;
+const int PTHREAD_RWLOCK_DEFAULT_NP = 0;
 
-const int PTHREAD_STACK_MIN = 8192;
+const int PTHREAD_RWLOCK_PREFER_READER_NP = 0;
+
+const int PTHREAD_RWLOCK_PREFER_WRITER_NONRECURSIVE_NP = 2;
+
+const int PTHREAD_RWLOCK_PREFER_WRITER_NP = 1;
+
+const int PTHREAD_SCOPE_PROCESS = 1;
+
+const int PTHREAD_SCOPE_PROCESS1 = 1;
+
+const int PTHREAD_SCOPE_SYSTEM = 0;
+
+const int PTHREAD_SCOPE_SYSTEM1 = 0;
+
+const int PTHREAD_STACK_MIN = 16384;
 
 const int PTRDIFF_MAX = 9223372036854775807;
 
@@ -4426,7 +3927,7 @@ const int PTRDIFF_MIN = -9223372036854775808;
 
 const int PV_HASH_HEIGHT = 5;
 
-const String P_tmpdir = '/var/tmp/';
+const String P_tmpdir = '/tmp';
 
 /// play structure
 class Play extends ffi.Struct {
@@ -4481,13 +3982,13 @@ class Play extends ffi.Struct {
   external int clock;
 
   @ffi.Array.multi([2])
-  external ffi.Array<UnnamedStruct12> time;
+  external ffi.Array<UnnamedStruct22> time;
 
   /// < forced line
-  external UnnamedStruct13 force;
+  external UnnamedStruct23 force;
 
   @ffi.Array.multi([1])
-  external ffi.Array<UnnamedStruct14> ponder;
+  external ffi.Array<UnnamedStruct24> ponder;
 
   @ffi.Array.multi([4096])
   external ffi.Array<ffi.Int8> error_message;
@@ -4550,7 +4051,7 @@ class Position extends ffi.Struct {
   external int n_lines;
 
   /// < Position value & bounds
-  external UnnamedStruct11 score;
+  external UnnamedStruct21 score;
 
   /// < linking moves number
   @ffi.Uint8()
@@ -4608,95 +4109,63 @@ class PositionName extends ffi.Struct {
 
 class PositionStack extends ffi.Opaque {}
 
-const int QOS_CLASS_BACKGROUND = 9;
-
-const int QOS_CLASS_DEFAULT = 21;
-
-const int QOS_CLASS_UNSPECIFIED = 0;
-
-const int QOS_CLASS_USER_INITIATED = 25;
-
-const int QOS_CLASS_USER_INTERACTIVE = 33;
-
-const int QOS_CLASS_UTILITY = 17;
-
-const int QOS_MIN_RELATIVE_PRIORITY = -15;
-
-const int QUAD_MAX = 9223372036854775807;
-
-const int QUAD_MIN = -9223372036854775808;
-
 const int RAND_MAX = 2147483647;
 
 const double RCD = 0.5;
 
 const int RELEASE = 4;
 
-const int RENAME_EXCL = 4;
+const int RE_DUP_MAX = 32767;
 
-const int RENAME_SECLUDE = 1;
-
-const int RENAME_SWAP = 2;
-
-const int RE_DUP_MAX = 255;
-
-const int RLIMIT_AS = 5;
+const int RLIMIT_AS = 9;
 
 const int RLIMIT_CORE = 4;
 
 const int RLIMIT_CPU = 0;
 
-const int RLIMIT_CPU_USAGE_MONITOR = 2;
-
 const int RLIMIT_DATA = 2;
-
-const int RLIMIT_FOOTPRINT_INTERVAL = 4;
 
 const int RLIMIT_FSIZE = 1;
 
-const int RLIMIT_MEMLOCK = 6;
+const int RLIMIT_LOCKS = 10;
 
-const int RLIMIT_NOFILE = 8;
+const int RLIMIT_MEMLOCK = 8;
 
-const int RLIMIT_NPROC = 7;
+const int RLIMIT_MSGQUEUE = 12;
+
+const int RLIMIT_NICE = 13;
+
+const int RLIMIT_NLIMITS = 16;
+
+const int RLIMIT_NOFILE = 7;
+
+const int RLIMIT_NPROC = 6;
+
+const int RLIMIT_OFILE = 7;
 
 const int RLIMIT_RSS = 5;
 
+const int RLIMIT_RTPRIO = 14;
+
+const int RLIMIT_RTTIME = 15;
+
+const int RLIMIT_SIGPENDING = 11;
+
 const int RLIMIT_STACK = 3;
 
-const int RLIMIT_THREAD_CPULIMITS = 3;
+const int RLIM_INFINITY = -1;
 
-const int RLIMIT_WAKEUPS_MONITOR = 1;
+const int RLIM_NLIMITS = 16;
 
-const int RLIM_INFINITY = 9223372036854775807;
+const int RLIM_SAVED_CUR = -1;
 
-const int RLIM_NLIMITS = 9;
+const int RLIM_SAVED_MAX = -1;
 
-const int RLIM_SAVED_CUR = 9223372036854775807;
-
-const int RLIM_SAVED_MAX = 9223372036854775807;
-
-const int RSIZE_MAX = 9223372036854775807;
+const int RTSIG_MAX = 32;
 
 const int RUSAGE_CHILDREN = -1;
 
-const int RUSAGE_INFO_CURRENT = 5;
-
-const int RUSAGE_INFO_V0 = 0;
-
-const int RUSAGE_INFO_V1 = 1;
-
-const int RUSAGE_INFO_V2 = 2;
-
-const int RUSAGE_INFO_V3 = 3;
-
-const int RUSAGE_INFO_V4 = 4;
-
-const int RUSAGE_INFO_V5 = 5;
-
 const int RUSAGE_SELF = 0;
-
-const int RU_PROC_RUNS_RESLIDE = 1;
 
 const int R_OK = 4;
 
@@ -4738,7 +4207,7 @@ class Result extends ffi.Struct {
   external int n_nodes;
 
   /// < book move origin
-  @ffi.Uint8()
+  @ffi.Int32()
   external int book_move;
 
   /// < total moves to search
@@ -4753,53 +4222,51 @@ class Result extends ffi.Struct {
   external int spin;
 }
 
-const int SAE_ASSOCID_ALL = 4294967295;
+const int SA_INTERRUPT = 536870912;
 
-const int SAE_ASSOCID_ANY = 0;
+const int SA_NOCLDSTOP = 1;
 
-const int SAE_CONNID_ALL = 4294967295;
+const int SA_NOCLDWAIT = 2;
 
-const int SAE_CONNID_ANY = 0;
+const int SA_NODEFER = 1073741824;
 
-const int SA_64REGSET = 512;
+const int SA_NOMASK = 1073741824;
 
-const int SA_NOCLDSTOP = 8;
+const int SA_ONESHOT = 2147483648;
 
-const int SA_NOCLDWAIT = 32;
+const int SA_ONSTACK = 134217728;
 
-const int SA_NODEFER = 16;
+const int SA_RESETHAND = 2147483648;
 
-const int SA_ONSTACK = 1;
+const int SA_RESTART = 268435456;
 
-const int SA_RESETHAND = 4;
+const int SA_SIGINFO = 4;
 
-const int SA_RESTART = 2;
+const int SA_STACK = 134217728;
 
-const int SA_SIGINFO = 64;
+const int SCHED_FIFO = 1;
 
-const int SA_USERSPACE_MASK = 127;
-
-const int SA_USERTRAMP = 256;
-
-const int SCHAR_MAX = 127;
-
-const int SCHAR_MIN = -128;
-
-const int SCHED_FIFO = 4;
-
-const int SCHED_OTHER = 1;
+const int SCHED_OTHER = 0;
 
 const int SCHED_RR = 2;
 
-const int SCM_CREDS = 3;
-
 const int SCM_RIGHTS = 1;
 
-const int SCM_TIMESTAMP = 2;
+const int SCM_RIGHTS1 = 1;
 
-const int SCM_TIMESTAMP_MONOTONIC = 4;
+const int SCM_TIMESTAMP = 29;
 
-const int SCOPE_DELIMITER = 37;
+const int SCM_TIMESTAMPING = 37;
+
+const int SCM_TIMESTAMPING_OPT_STATS = 54;
+
+const int SCM_TIMESTAMPING_PKTINFO = 58;
+
+const int SCM_TIMESTAMPNS = 35;
+
+const int SCM_TXTIME = 61;
+
+const int SCM_WIFI_STATUS = 41;
 
 const int SCORE_INF = 127;
 
@@ -4809,67 +4276,79 @@ const int SCORE_MIN = -64;
 
 const int SEEK_CUR = 1;
 
-const int SEEK_DATA = 4;
-
 const int SEEK_END = 2;
-
-const int SEEK_HOLE = 3;
 
 const int SEEK_SET = 0;
 
+const int SEGV_ACCADI = 5;
+
+const int SEGV_ACCADI1 = 5;
+
 const int SEGV_ACCERR = 2;
+
+const int SEGV_ACCERR1 = 2;
+
+const int SEGV_ADIDERR = 6;
+
+const int SEGV_ADIDERR1 = 6;
+
+const int SEGV_ADIPERR = 7;
+
+const int SEGV_ADIPERR1 = 7;
+
+const int SEGV_BNDERR = 3;
+
+const int SEGV_BNDERR1 = 3;
 
 const int SEGV_MAPERR = 1;
 
-const int SEGV_NOOP = 0;
+const int SEGV_MAPERR1 = 1;
 
-const int SF_APPEND = 262144;
+const int SEGV_PKUERR = 4;
 
-const int SF_ARCHIVED = 65536;
+const int SEGV_PKUERR1 = 4;
 
-const int SF_DATALESS = 1073741824;
-
-const int SF_FIRMLINK = 8388608;
-
-const int SF_IMMUTABLE = 131072;
-
-const int SF_NOUNLINK = 1048576;
-
-const int SF_RESTRICTED = 524288;
-
-const int SF_SETTABLE = 1073676288;
-
-const int SF_SUPPORTED = 10420224;
-
-const int SF_SYNTHETIC = 3221225472;
-
-const int SHRT_MAX = 32767;
-
-const int SHRT_MIN = -32768;
+const int SEM_VALUE_MAX = 2147483647;
 
 const int SHUT_RD = 0;
 
+const int SHUT_RD1 = 0;
+
 const int SHUT_RDWR = 2;
 
+const int SHUT_RDWR1 = 2;
+
 const int SHUT_WR = 1;
+
+const int SHUT_WR1 = 1;
 
 const int SIGABRT = 6;
 
 const int SIGALRM = 14;
 
-const int SIGBUS = 10;
+const int SIGBUS = 7;
 
-const int SIGCHLD = 20;
+const int SIGCHLD = 17;
 
-const int SIGCONT = 19;
+const int SIGCLD = 17;
 
-const int SIGEMT = 7;
+const int SIGCONT = 18;
 
-const int SIGEV_NONE = 0;
+const int SIGEV_NONE = 1;
 
-const int SIGEV_SIGNAL = 1;
+const int SIGEV_NONE1 = 1;
 
-const int SIGEV_THREAD = 3;
+const int SIGEV_SIGNAL = 0;
+
+const int SIGEV_SIGNAL1 = 0;
+
+const int SIGEV_THREAD = 2;
+
+const int SIGEV_THREAD1 = 2;
+
+const int SIGEV_THREAD_ID = 4;
+
+const int SIGEV_THREAD_ID1 = 4;
 
 const int SIGFPE = 8;
 
@@ -4877,11 +4356,9 @@ const int SIGHUP = 1;
 
 const int SIGILL = 4;
 
-const int SIGINFO = 29;
-
 const int SIGINT = 2;
 
-const int SIGIO = 23;
+const int SIGIO = 29;
 
 const int SIGIOT = 6;
 
@@ -4889,33 +4366,39 @@ const int SIGKILL = 9;
 
 const int SIGPIPE = 13;
 
+const int SIGPOLL = 29;
+
 const int SIGPROF = 27;
+
+const int SIGPWR = 30;
 
 const int SIGQUIT = 3;
 
 const int SIGSEGV = 11;
 
-const int SIGSTKSZ = 131072;
+const int SIGSTKFLT = 16;
 
-const int SIGSTOP = 17;
+const int SIGSTKSZ = 8192;
 
-const int SIGSYS = 12;
+const int SIGSTOP = 19;
+
+const int SIGSYS = 31;
 
 const int SIGTERM = 15;
 
 const int SIGTRAP = 5;
 
-const int SIGTSTP = 18;
+const int SIGTSTP = 20;
 
 const int SIGTTIN = 21;
 
 const int SIGTTOU = 22;
 
-const int SIGURG = 16;
+const int SIGURG = 23;
 
-const int SIGUSR1 = 30;
+const int SIGUSR1 = 10;
 
-const int SIGUSR2 = 31;
+const int SIGUSR2 = 12;
 
 const int SIGVTALRM = 26;
 
@@ -4929,35 +4412,79 @@ const int SIG_ATOMIC_MAX = 2147483647;
 
 const int SIG_ATOMIC_MIN = -2147483648;
 
-const int SIG_BLOCK = 1;
+const int SIG_BLOCK = 0;
 
-const int SIG_SETMASK = 3;
+const int SIG_SETMASK = 2;
 
-const int SIG_UNBLOCK = 2;
+const int SIG_UNBLOCK = 1;
 
-const int SING = 2;
+const int SIOCATMARK = 35077;
+
+const int SIOCGPGRP = 35076;
+
+const int SIOCGSTAMPNS_OLD = 35079;
+
+const int SIOCGSTAMP_OLD = 35078;
+
+const int SIOCSPGRP = 35074;
 
 const int SIZE_MAX = -1;
 
-const int SIZE_T_MAX = -1;
+const int SI_ASYNCIO = -4;
 
-const int SI_ASYNCIO = 65540;
+const int SI_ASYNCIO1 = -4;
 
-const int SI_MESGQ = 65541;
+const int SI_ASYNCNL = -60;
 
-const int SI_QUEUE = 65538;
+const int SI_ASYNCNL1 = -60;
 
-const int SI_TIMER = 65539;
+const int SI_DETHREAD = -7;
 
-const int SI_USER = 65537;
+const int SI_DETHREAD1 = -7;
+
+const int SI_KERNEL = 128;
+
+const int SI_KERNEL1 = 128;
+
+const int SI_LOAD_SHIFT = 16;
+
+const int SI_MESGQ = -3;
+
+const int SI_MESGQ1 = -3;
+
+const int SI_QUEUE = -1;
+
+const int SI_QUEUE1 = -1;
+
+const int SI_SIGIO = -5;
+
+const int SI_SIGIO1 = -5;
+
+const int SI_TIMER = -2;
+
+const int SI_TIMER1 = -2;
+
+const int SI_TKILL = -6;
+
+const int SI_TKILL1 = -6;
+
+const int SI_USER = 0;
+
+const int SI_USER1 = 0;
 
 const double SMP_C = 1.0;
 
 const double SMP_W = 49.0;
 
+const int SOCK_CLOEXEC = 524288;
+
+const int SOCK_DCCP = 6;
+
 const int SOCK_DGRAM = 2;
 
-const int SOCK_MAXADDRLEN = 255;
+const int SOCK_NONBLOCK = 2048;
+
+const int SOCK_PACKET = 10;
 
 const int SOCK_RAW = 3;
 
@@ -4967,91 +4494,213 @@ const int SOCK_SEQPACKET = 5;
 
 const int SOCK_STREAM = 1;
 
-const int SOL_SOCKET = 65535;
+const int SOL_AAL = 265;
 
-const int SOMAXCONN = 128;
+const int SOL_ALG = 279;
 
-const int SONPX_SETOPTSHUT = 1;
+const int SOL_ATM = 264;
+
+const int SOL_BLUETOOTH = 274;
+
+const int SOL_CAIF = 278;
+
+const int SOL_DCCP = 269;
+
+const int SOL_DECNET = 261;
+
+const int SOL_ICMPV6 = 58;
+
+const int SOL_IP = 0;
+
+const int SOL_IPV6 = 41;
+
+const int SOL_IRDA = 266;
+
+const int SOL_IUCV = 277;
+
+const int SOL_KCM = 281;
+
+const int SOL_LLC = 268;
+
+const int SOL_NETBEUI = 267;
+
+const int SOL_NETLINK = 270;
+
+const int SOL_NFC = 280;
+
+const int SOL_PACKET = 263;
+
+const int SOL_PNPIPE = 275;
+
+const int SOL_PPPOL2TP = 273;
+
+const int SOL_RAW = 255;
+
+const int SOL_RDS = 276;
+
+const int SOL_RXRPC = 272;
+
+const int SOL_SOCKET = 1;
+
+const int SOL_TCP = 6;
+
+const int SOL_TIPC = 271;
+
+const int SOL_TLS = 282;
+
+const int SOL_X25 = 262;
+
+const int SOL_XDP = 283;
+
+const int SOMAXCONN = 4096;
 
 const int SORT_ALPHA_DELTA = 8;
 
-const int SO_ACCEPTCONN = 2;
+const int SO_ACCEPTCONN = 30;
 
-const int SO_BROADCAST = 32;
+const int SO_ATTACH_BPF = 50;
+
+const int SO_ATTACH_FILTER = 26;
+
+const int SO_ATTACH_REUSEPORT_CBPF = 51;
+
+const int SO_ATTACH_REUSEPORT_EBPF = 52;
+
+const int SO_BINDTODEVICE = 25;
+
+const int SO_BINDTOIFINDEX = 62;
+
+const int SO_BPF_EXTENSIONS = 48;
+
+const int SO_BROADCAST = 6;
+
+const int SO_BSDCOMPAT = 14;
+
+const int SO_BUSY_POLL = 46;
+
+const int SO_CNX_ADVICE = 53;
+
+const int SO_COOKIE = 57;
 
 const int SO_DEBUG = 1;
 
-const int SO_DONTROUTE = 16;
+const int SO_DETACH_BPF = 27;
 
-const int SO_DONTTRUNC = 8192;
+const int SO_DETACH_FILTER = 27;
 
-const int SO_ERROR = 4103;
+const int SO_DETACH_REUSEPORT_BPF = 68;
 
-const int SO_KEEPALIVE = 8;
+const int SO_DOMAIN = 39;
 
-const int SO_LABEL = 4112;
+const int SO_DONTROUTE = 5;
 
-const int SO_LINGER = 128;
+const int SO_ERROR = 4;
 
-const int SO_LINGER_SEC = 4224;
+const int SO_GET_FILTER = 26;
 
-const int SO_NETSVC_MARKING_LEVEL = 4377;
+const int SO_INCOMING_CPU = 49;
 
-const int SO_NET_SERVICE_TYPE = 4374;
+const int SO_INCOMING_NAPI_ID = 56;
 
-const int SO_NKE = 4129;
+const int SO_KEEPALIVE = 9;
 
-const int SO_NOADDRERR = 4131;
+const int SO_LINGER = 13;
 
-const int SO_NOSIGPIPE = 4130;
+const int SO_LOCK_FILTER = 44;
 
-const int SO_NOTIFYCONFLICT = 4134;
+const int SO_MARK = 36;
 
-const int SO_NP_EXTENSIONS = 4227;
+const int SO_MAX_PACING_RATE = 47;
 
-const int SO_NREAD = 4128;
+const int SO_MEMINFO = 55;
 
-const int SO_NUMRCVPKT = 4370;
+const int SO_NOFCS = 43;
 
-const int SO_NWRITE = 4132;
+const int SO_NO_CHECK = 11;
 
-const int SO_OOBINLINE = 256;
+const int SO_OOBINLINE = 10;
 
-const int SO_PEERLABEL = 4113;
+const int SO_PASSCRED = 16;
 
-const int SO_RANDOMPORT = 4226;
+const int SO_PASSSEC = 34;
 
-const int SO_RCVBUF = 4098;
+const int SO_PEEK_OFF = 42;
 
-const int SO_RCVLOWAT = 4100;
+const int SO_PEERCRED = 17;
 
-const int SO_RCVTIMEO = 4102;
+const int SO_PEERGROUPS = 59;
 
-const int SO_REUSEADDR = 4;
+const int SO_PEERNAME = 28;
 
-const int SO_REUSEPORT = 512;
+const int SO_PEERSEC = 31;
 
-const int SO_REUSESHAREUID = 4133;
+const int SO_PRIORITY = 12;
 
-const int SO_SNDBUF = 4097;
+const int SO_PROTOCOL = 38;
 
-const int SO_SNDLOWAT = 4099;
+const int SO_RCVBUF = 8;
 
-const int SO_SNDTIMEO = 4101;
+const int SO_RCVBUFFORCE = 33;
 
-const int SO_TIMESTAMP = 1024;
+const int SO_RCVLOWAT = 18;
 
-const int SO_TIMESTAMP_MONOTONIC = 2048;
+const int SO_RCVTIMEO = 20;
 
-const int SO_TYPE = 4104;
+const int SO_RCVTIMEO_NEW = 66;
 
-const int SO_UPCALLCLOSEWAIT = 4135;
+const int SO_RCVTIMEO_OLD = 20;
 
-const int SO_USELOOPBACK = 64;
+const int SO_REUSEADDR = 2;
 
-const int SO_WANTMORE = 16384;
+const int SO_REUSEPORT = 15;
 
-const int SO_WANTOOBFLAG = 32768;
+const int SO_RXQ_OVFL = 40;
+
+const int SO_SECURITY_AUTHENTICATION = 22;
+
+const int SO_SECURITY_ENCRYPTION_NETWORK = 24;
+
+const int SO_SECURITY_ENCRYPTION_TRANSPORT = 23;
+
+const int SO_SELECT_ERR_QUEUE = 45;
+
+const int SO_SNDBUF = 7;
+
+const int SO_SNDBUFFORCE = 32;
+
+const int SO_SNDLOWAT = 19;
+
+const int SO_SNDTIMEO = 21;
+
+const int SO_SNDTIMEO_NEW = 67;
+
+const int SO_SNDTIMEO_OLD = 21;
+
+const int SO_TIMESTAMP = 29;
+
+const int SO_TIMESTAMPING = 37;
+
+const int SO_TIMESTAMPING_NEW = 65;
+
+const int SO_TIMESTAMPING_OLD = 37;
+
+const int SO_TIMESTAMPNS = 35;
+
+const int SO_TIMESTAMPNS_NEW = 64;
+
+const int SO_TIMESTAMPNS_OLD = 35;
+
+const int SO_TIMESTAMP_NEW = 63;
+
+const int SO_TIMESTAMP_OLD = 29;
+
+const int SO_TXTIME = 61;
+
+const int SO_TYPE = 3;
+
+const int SO_WIFI_STATUS = 41;
+
+const int SO_ZEROCOPY = 60;
 
 const int SPLIT_MAX_SLAVES = 3;
 
@@ -5059,33 +4708,19 @@ const int SPLIT_MIN_DEPTH = 5;
 
 const int SPLIT_MIN_MOVES_TODO = 1;
 
-const int SSIZE_MAX = 9223372036854775807;
+const int SS_DISABLE = 2;
 
-const int SS_DISABLE = 4;
+const int SS_DISABLE1 = 2;
 
 const int SS_ONSTACK = 1;
+
+const int SS_ONSTACK1 = 1;
 
 const int STDERR_FILENO = 2;
 
 const int STDIN_FILENO = 0;
 
 const int STDOUT_FILENO = 1;
-
-const int SV_INTERRUPT = 2;
-
-const int SV_NOCLDSTOP = 8;
-
-const int SV_NODEFER = 16;
-
-const int SV_ONSTACK = 1;
-
-const int SV_RESETHAND = 4;
-
-const int SV_SIGINFO = 64;
-
-const int SYNC_VOLUME_FULLSYNC = 1;
-
-const int SYNC_VOLUME_WAIT = 2;
 
 const int S_BLKSIZE = 512;
 
@@ -5107,8 +4742,6 @@ const int S_IFREG = 32768;
 
 const int S_IFSOCK = 49152;
 
-const int S_IFWHT = 57344;
-
 const int S_IREAD = 256;
 
 const int S_IRGRP = 32;
@@ -5124,8 +4757,6 @@ const int S_IRWXO = 7;
 const int S_IRWXU = 448;
 
 const int S_ISGID = 1024;
-
-const int S_ISTXT = 512;
 
 const int S_ISUID = 2048;
 
@@ -5231,11 +4862,11 @@ class Search extends ffi.Struct {
   external int stop;
 
   /// < allow parallelism
-  @ffi.Uint8()
+  @ffi.Int32()
   external int allow_node_splitting;
 
   /// < time
-  external UnnamedStruct3 time;
+  external UnnamedStruct4 time;
 
   @ffi.Array.multi([1])
   external ffi.Array<MoveList> movelist;
@@ -5251,7 +4882,7 @@ class Search extends ffi.Struct {
   external Bound stability_bound;
 
   /// < local (threadable) options.
-  external UnnamedStruct4 options;
+  external UnnamedStruct5 options;
 
   /// < shared result
   external ffi.Pointer<Result> result;
@@ -5309,7 +4940,7 @@ class ShapeHash extends ffi.Struct {
 }
 
 /// Typedef spinlock (=fast mutex) to a personalized type for portability
-typedef SpinLock = OSSpinLock;
+typedef SpinLock = pthread_spinlock_t;
 
 /// double linked list of squares
 class SquareList extends ffi.Struct {
@@ -5507,33 +5138,21 @@ abstract class Stop {
   static const int STOP_END = 5;
 }
 
-const int TCP6_MSS = 1024;
+const int TCPI_OPT_ECN = 8;
 
-const int TCPCI_FLAG_LOSSRECOVERY = 1;
+const int TCPI_OPT_ECN_SEEN = 16;
 
-const int TCPCI_FLAG_REORDERING_DETECTED = 2;
+const int TCPI_OPT_SACK = 2;
 
-const int TCPCI_OPT_ECN = 8;
+const int TCPI_OPT_SYN_DATA = 32;
 
-const int TCPCI_OPT_SACK = 2;
+const int TCPI_OPT_TIMESTAMPS = 1;
 
-const int TCPCI_OPT_TIMESTAMPS = 1;
-
-const int TCPCI_OPT_WSCALE = 4;
-
-const int TCPOLEN_CC = 6;
-
-const int TCPOLEN_CC_APPA = 8;
-
-const int TCPOLEN_FASTOPEN_REQ = 2;
+const int TCPI_OPT_WSCALE = 4;
 
 const int TCPOLEN_MAXSEG = 4;
 
-const int TCPOLEN_SACK = 8;
-
 const int TCPOLEN_SACK_PERMITTED = 2;
-
-const int TCPOLEN_SIGNATURE = 18;
 
 const int TCPOLEN_TIMESTAMP = 10;
 
@@ -5541,15 +5160,7 @@ const int TCPOLEN_TSTAMP_APPA = 12;
 
 const int TCPOLEN_WINDOW = 3;
 
-const int TCPOPT_CC = 11;
-
-const int TCPOPT_CCECHO = 13;
-
-const int TCPOPT_CCNEW = 12;
-
 const int TCPOPT_EOL = 0;
-
-const int TCPOPT_FASTOPEN = 34;
 
 const int TCPOPT_MAXSEG = 2;
 
@@ -5557,13 +5168,7 @@ const int TCPOPT_NOP = 1;
 
 const int TCPOPT_SACK = 5;
 
-const int TCPOPT_SACK_HDR = 16844032;
-
 const int TCPOPT_SACK_PERMITTED = 4;
-
-const int TCPOPT_SACK_PERMIT_HDR = 16843778;
-
-const int TCPOPT_SIGNATURE = 19;
 
 const int TCPOPT_TIMESTAMP = 8;
 
@@ -5571,61 +5176,149 @@ const int TCPOPT_TSTAMP_HDR = 16844810;
 
 const int TCPOPT_WINDOW = 3;
 
-const int TCP_CONNECTIONTIMEOUT = 32;
+const int TCP_CC_INFO = 26;
 
-const int TCP_CONNECTION_INFO = 262;
+const int TCP_CLOSE = 7;
 
-const int TCP_ENABLE_ECN = 260;
+const int TCP_CLOSE_WAIT = 8;
 
-const int TCP_FASTOPEN = 261;
+const int TCP_CLOSING = 11;
 
-const int TCP_KEEPALIVE = 16;
+const int TCP_CM_INQ = 36;
 
-const int TCP_KEEPCNT = 258;
+const int TCP_CONGESTION = 13;
 
-const int TCP_KEEPINTVL = 257;
+const int TCP_COOKIE_IN_ALWAYS = 1;
 
-const int TCP_MAXHLEN = 60;
+const int TCP_COOKIE_MAX = 16;
 
-const int TCP_MAXOLEN = 40;
+const int TCP_COOKIE_MIN = 8;
+
+const int TCP_COOKIE_OUT_NEVER = 2;
+
+const int TCP_COOKIE_PAIR_SIZE = 32;
+
+const int TCP_COOKIE_TRANSACTIONS = 15;
+
+const int TCP_CORK = 3;
+
+const int TCP_DEFER_ACCEPT = 9;
+
+const int TCP_ESTABLISHED = 1;
+
+const int TCP_FASTOPEN = 23;
+
+const int TCP_FASTOPEN_CONNECT = 30;
+
+const int TCP_FASTOPEN_KEY = 33;
+
+const int TCP_FASTOPEN_NO_COOKIE = 34;
+
+const int TCP_FIN_WAIT1 = 4;
+
+const int TCP_FIN_WAIT2 = 5;
+
+const int TCP_INFO = 11;
+
+const int TCP_INQ = 36;
+
+const int TCP_KEEPCNT = 6;
+
+const int TCP_KEEPIDLE = 4;
+
+const int TCP_KEEPINTVL = 5;
+
+const int TCP_LAST_ACK = 9;
+
+const int TCP_LINGER2 = 8;
+
+const int TCP_LISTEN = 10;
 
 const int TCP_MAXSEG = 2;
 
 const int TCP_MAXWIN = 65535;
 
-const int TCP_MAX_SACK = 4;
-
 const int TCP_MAX_WINSHIFT = 14;
 
-const int TCP_MINMSS = 216;
+const int TCP_MD5SIG = 14;
+
+const int TCP_MD5SIG_EXT = 32;
+
+const int TCP_MD5SIG_FLAG_PREFIX = 1;
+
+const int TCP_MD5SIG_MAXKEYLEN = 80;
 
 const int TCP_MSS = 512;
 
+const int TCP_MSS_DEFAULT = 536;
+
+const int TCP_MSS_DESIRED = 1220;
+
 const int TCP_NODELAY = 1;
 
-const int TCP_NOOPT = 8;
+const int TCP_NOTSENT_LOWAT = 25;
 
-const int TCP_NOPUSH = 4;
+const int TCP_NO_QUEUE = 0;
 
-const int TCP_NOTSENT_LOWAT = 513;
+const int TCP_QUEUES_NR = 3;
 
-const int TCP_RXT_CONNDROPTIME = 128;
+const int TCP_QUEUE_SEQ = 21;
 
-const int TCP_RXT_FINDROP = 256;
+const int TCP_QUICKACK = 12;
 
-const int TCP_SENDMOREACKS = 259;
+const int TCP_RECV_QUEUE = 1;
 
-const int TH_ACCEPT = 23;
+const int TCP_REPAIR = 19;
+
+const int TCP_REPAIR_OFF = 0;
+
+const int TCP_REPAIR_OFF_NO_WP = -1;
+
+const int TCP_REPAIR_ON = 1;
+
+const int TCP_REPAIR_OPTIONS = 22;
+
+const int TCP_REPAIR_QUEUE = 20;
+
+const int TCP_REPAIR_WINDOW = 29;
+
+const int TCP_SAVED_SYN = 28;
+
+const int TCP_SAVE_SYN = 27;
+
+const int TCP_SEND_QUEUE = 2;
+
+const int TCP_SYNCNT = 7;
+
+const int TCP_SYN_RECV = 3;
+
+const int TCP_SYN_SENT = 2;
+
+const int TCP_S_DATA_IN = 4;
+
+const int TCP_S_DATA_OUT = 8;
+
+const int TCP_THIN_DUPACK = 17;
+
+const int TCP_THIN_LINEAR_TIMEOUTS = 16;
+
+const int TCP_TIMESTAMP = 24;
+
+const int TCP_TIME_WAIT = 6;
+
+const int TCP_TX_DELAY = 37;
+
+const int TCP_ULP = 31;
+
+const int TCP_USER_TIMEOUT = 18;
+
+const int TCP_WINDOW_CLAMP = 10;
+
+const int TCP_ZEROCOPY_RECEIVE = 35;
 
 const int TH_ACK = 16;
 
-const int TH_CWR = 128;
-
-const int TH_ECE = 64;
-
 const int TH_FIN = 1;
-
-const int TH_FLAGS = 247;
 
 const int TH_PUSH = 8;
 
@@ -5635,34 +5328,30 @@ const int TH_SYN = 2;
 
 const int TH_URG = 32;
 
+const int TIMER_ABSTIME = 1;
+
 const int TIME_MAX = 31557600000000;
 
 const int TIME_UTC = 1;
 
-const int TLOSS = 5;
-
-const int TMP_MAX = 308915776;
-
-const int TRAP_BRKPT = 1;
-
-const int TRAP_TRACE = 2;
+const int TMP_MAX = 238328;
 
 const int TRY_AGAIN = 2;
 
-const int TTCP_CLIENT_SND_WND = 4096;
+const int TTY_NAME_MAX = 32;
 
 /// A Task is a parallel search thread.
 class Task extends ffi.Struct {
   /// < loop flag
-  @ffi.Uint8()
+  @ffi.Int32()
   external int loop;
 
   /// < run flag
-  @ffi.Uint8()
+  @ffi.Int32()
   external int run;
 
   /// < is helping
-  @ffi.Uint8()
+  @ffi.Int32()
   external int is_helping;
 
   /// < search data
@@ -5675,7 +5364,8 @@ class Task extends ffi.Struct {
   external ffi.Pointer<Move> move;
 
   /// < thread
-  external Thread thread;
+  @Thread()
+  external int thread;
 
   /// < call counter
   @ffi.Uint64()
@@ -5733,26 +5423,6 @@ class Text extends ffi.Struct {
 /// Typedef mutex to a personalized type for portability
 typedef Thread = pthread_t;
 
-const int UCHAR_MAX = 255;
-
-const int UF_APPEND = 4;
-
-const int UF_COMPRESSED = 32;
-
-const int UF_DATAVAULT = 128;
-
-const int UF_HIDDEN = 32768;
-
-const int UF_IMMUTABLE = 2;
-
-const int UF_NODUMP = 1;
-
-const int UF_OPAQUE = 8;
-
-const int UF_SETTABLE = 65535;
-
-const int UF_TRACKED = 64;
-
 /// UI structure
 class UI extends ffi.Struct {
   @ffi.Array.multi([2])
@@ -5765,7 +5435,7 @@ class UI extends ffi.Struct {
   external ffi.Pointer<GGSClient> ggs;
 
   /// < true if play[0] == play[1]
-  @ffi.Uint8()
+  @ffi.Int32()
   external int is_same_play;
 
   /// < type of UI
@@ -5789,8 +5459,6 @@ class UI extends ffi.Struct {
   external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<UI>)>> free;
 }
 
-const int UID_MAX = 2147483647;
-
 const int UINT16_MAX = 65535;
 
 const int UINT32_MAX = 4294967295;
@@ -5803,9 +5471,9 @@ const int UINTMAX_MAX = -1;
 
 const int UINTPTR_MAX = -1;
 
-const int UINT_FAST16_MAX = 65535;
+const int UINT_FAST16_MAX = -1;
 
-const int UINT_FAST32_MAX = 4294967295;
+const int UINT_FAST32_MAX = -1;
 
 const int UINT_FAST64_MAX = -1;
 
@@ -5818,8 +5486,6 @@ const int UINT_LEAST32_MAX = 4294967295;
 const int UINT_LEAST64_MAX = -1;
 
 const int UINT_LEAST8_MAX = 255;
-
-const int UINT_MAX = 4294967295;
 
 const int UI_CASSIO = 1;
 
@@ -5839,14 +5505,6 @@ const int UI_XBOARD = 6;
 
 const int ULLONG_MAX = -1;
 
-const int ULONG_MAX = -1;
-
-const int UNDERFLOW = 4;
-
-const int UQUAD_MAX = -1;
-
-const int USER_ADDR_NULL = 0;
-
 const int USE_ETC = 1;
 
 const int USE_IID = 0;
@@ -5865,13 +5523,309 @@ const int USE_TC = 1;
 
 const int USE_TYPE_PUNING = 1;
 
-const int USHRT_MAX = 65535;
+const int UTIME_NOW = 1073741823;
 
-const int UTIME_NOW = -1;
+const int UTIME_OMIT = 1073741822;
 
-const int UTIME_OMIT = -2;
+/// options to control various heuristics
+class UnnamedStruct1 extends ffi.Struct {
+  /// < size (in number of bits) of the hash table
+  @ffi.Int32()
+  external int hash_table_size;
+
+  @ffi.Array.multi([3])
+  external ffi.Array<ffi.Int32> inc_sort_depth;
+
+  /// < search in parallel, using n_tasks
+  @ffi.Int32()
+  external int n_task;
+
+  /// < set one cpu/thread to diminish context change
+  @ffi.Int32()
+  external int cpu_affinity;
+
+  /// < search display
+  @ffi.Int32()
+  external int verbosity;
+
+  /// < search display min depth
+  @ffi.Int32()
+  external int noise;
+
+  /// < line width
+  @ffi.Int32()
+  external int width;
+
+  /// < repeat user input
+  @ffi.Int32()
+  external int echo;
+
+  /// < info display
+  @ffi.Int32()
+  external int info;
+
+  /// < display debug info in cassio's "fenetre de rapport"
+  @ffi.Int32()
+  external int debug_cassio;
+
+  /// < adapt Cassio requests to search & solve faster
+  @ffi.Int32()
+  external int transgress_cassio;
+
+  /// < level
+  @ffi.Int32()
+  external int level;
+
+  /// < time in sec.
+  @ffi.Int64()
+  external int time;
+
+  /// < game|move-time switch
+  @ffi.Int32()
+  external int play_type;
+
+  /// < pondering on/off
+  @ffi.Int32()
+  external int can_ponder;
+
+  /// < depth (only for testing)
+  @ffi.Int32()
+  external int depth;
+
+  /// < selectivity (only for testing)
+  @ffi.Int32()
+  external int selectivity;
+
+  /// < mode play (human/edax, etc.)
+  @ffi.Int32()
+  external int mode;
+
+  /// < edax speed in N/S (for a more accurate time management)
+  @ffi.Double()
+  external double speed;
+
+  /// < edax assumed speed (for nps based timing
+  @ffi.Double()
+  external double nps;
+
+  /// < alpha bound
+  @ffi.Int32()
+  external int alpha;
+
+  /// < beta bound
+  @ffi.Int32()
+  external int beta;
+
+  /// < search for all best moves when solving problem
+  @ffi.Int32()
+  external int all_best;
+
+  /// < evaluation file
+  external ffi.Pointer<ffi.Int8> eval_file;
+
+  /// < opening book filename
+  external ffi.Pointer<ffi.Int8> book_file;
+
+  /// < switch to use or not the opening book
+  @ffi.Int32()
+  external int book_allowed;
+
+  /// < book randomness
+  @ffi.Int32()
+  external int book_randomness;
+
+  /// < ggs host (ip or host name)
+  external ffi.Pointer<ffi.Int8> ggs_host;
+
+  /// < ggs login
+  external ffi.Pointer<ffi.Int8> ggs_login;
+
+  /// < ggs password
+  external ffi.Pointer<ffi.Int8> ggs_password;
+
+  /// < ggs port
+  external ffi.Pointer<ffi.Int8> ggs_port;
+
+  /// < ggs open number (set it false for tournaments)
+  @ffi.Int32()
+  external int ggs_open;
+
+  @ffi.Double()
+  external double probcut_d;
+
+  /// < debug PV
+  @ffi.Int32()
+  external int pv_debug;
+
+  /// < check PV correctness
+  @ffi.Int32()
+  external int pv_check;
+
+  /// < guess PV missing moves
+  @ffi.Int32()
+  external int pv_guess;
+
+  /// < game file
+  external ffi.Pointer<ffi.Int8> game_file;
+
+  /// < log file (for search)
+  external ffi.Pointer<ffi.Int8> search_log_file;
+
+  /// < log file (for user interface)
+  external ffi.Pointer<ffi.Int8> ui_log_file;
+
+  /// < log file (for ggs)
+  external ffi.Pointer<ffi.Int8> ggs_log_file;
+
+  /// < program name
+  external ffi.Pointer<ffi.Int8> name;
+
+  /// < start a new game after a game is over
+  @ffi.Int32()
+  external int auto_start;
+
+  /// < store a game in a book after each game
+  @ffi.Int32()
+  external int auto_store;
+
+  /// < change computer's side after each game
+  @ffi.Int32()
+  external int auto_swap;
+
+  /// < quit when game is over
+  @ffi.Int32()
+  external int auto_quit;
+
+  /// < repeat 'n' games (before quitting)
+  @ffi.Int32()
+  external int repeat;
+}
 
 class UnnamedStruct10 extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> si_addr;
+
+  @ffi.Int16()
+  external int si_addr_lsb;
+
+  external UnnamedUnion4 _bounds;
+}
+
+class UnnamedStruct11 extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> _lower;
+
+  external ffi.Pointer<ffi.Void> _upper;
+}
+
+class UnnamedStruct12 extends ffi.Struct {
+  @ffi.Int64()
+  external int si_band;
+
+  @ffi.Int32()
+  external int si_fd;
+}
+
+class UnnamedStruct13 extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> _call_addr;
+
+  @ffi.Int32()
+  external int _syscall;
+
+  @ffi.Uint32()
+  external int _arch;
+}
+
+class UnnamedStruct14 extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> ss_sp;
+
+  @ffi.Int32()
+  external int ss_flags;
+
+  @ffi.Int32()
+  external int ss_size;
+}
+
+class UnnamedStruct15 extends ffi.Struct {
+  @ffi.Int32()
+  external int i;
+
+  @ffi.Int32()
+  external int x;
+}
+
+class UnnamedStruct16 extends ffi.Struct {
+  /// <! Move coordinate
+  @ffi.Int32()
+  external int x;
+
+  /// <! Move score
+  @ffi.Int32()
+  external int score;
+}
+
+class UnnamedStruct17 extends ffi.Struct {
+  @ffi.Int16()
+  external int year;
+
+  @ffi.Int8()
+  external int month;
+
+  @ffi.Int8()
+  external int day;
+
+  @ffi.Int8()
+  external int hour;
+
+  @ffi.Int8()
+  external int minute;
+
+  @ffi.Int8()
+  external int second;
+}
+
+class UnnamedStruct18 extends ffi.Struct {
+  @ffi.Int16()
+  external int year;
+
+  @ffi.Int8()
+  external int month;
+
+  @ffi.Int8()
+  external int day;
+
+  @ffi.Int8()
+  external int hour;
+
+  @ffi.Int8()
+  external int minute;
+
+  @ffi.Int8()
+  external int second;
+}
+
+class UnnamedStruct19 extends ffi.Struct {
+  @ffi.Int32()
+  external int level;
+
+  @ffi.Int32()
+  external int n_empties;
+
+  @ffi.Int32()
+  external int midgame_error;
+
+  @ffi.Int32()
+  external int endcut_error;
+
+  @ffi.Int32()
+  external int verbosity;
+}
+
+class UnnamedStruct2 extends ffi.Struct {
+  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(__sigval_t)>> _function;
+
+  external ffi.Pointer<pthread_attr_t> _attribute;
+}
+
+class UnnamedStruct20 extends ffi.Struct {
   @ffi.Int32()
   external int n_nodes;
 
@@ -5882,7 +5836,7 @@ class UnnamedStruct10 extends ffi.Struct {
   external int n_todo;
 }
 
-class UnnamedStruct11 extends ffi.Struct {
+class UnnamedStruct21 extends ffi.Struct {
   @ffi.Int16()
   external int value;
 
@@ -5893,7 +5847,7 @@ class UnnamedStruct11 extends ffi.Struct {
   external int upper;
 }
 
-class UnnamedStruct12 extends ffi.Struct {
+class UnnamedStruct22 extends ffi.Struct {
   /// < time spent
   @ffi.Int64()
   external int spent;
@@ -5907,7 +5861,7 @@ class UnnamedStruct12 extends ffi.Struct {
   external int extra;
 }
 
-class UnnamedStruct13 extends ffi.Struct {
+class UnnamedStruct23 extends ffi.Struct {
   @ffi.Array.multi([80])
   external ffi.Array<Board> real;
 
@@ -5926,9 +5880,10 @@ class UnnamedStruct13 extends ffi.Struct {
   external int i_move;
 }
 
-class UnnamedStruct14 extends ffi.Struct {
+class UnnamedStruct24 extends ffi.Struct {
   /// < thread.
-  external Thread thread;
+  @Thread()
+  external int thread;
 
   /// < lock.
   external Lock lock;
@@ -5937,16 +5892,16 @@ class UnnamedStruct14 extends ffi.Struct {
   external ffi.Array<Board> board;
 
   /// < launched thread
-  @ffi.Uint8()
+  @ffi.Int32()
   external int launched;
 
   /// < verbose pondering
-  @ffi.Uint8()
+  @ffi.Int32()
   external int verbose;
 }
 
 /// Search
-class UnnamedStruct15 extends ffi.Struct {
+class UnnamedStruct25 extends ffi.Struct {
   @ffi.Array.multi([1024])
   external ffi.Array<Board> board;
 
@@ -5955,7 +5910,7 @@ class UnnamedStruct15 extends ffi.Struct {
   external int n;
 }
 
-class UnnamedStruct16 extends ffi.Struct {
+class UnnamedStruct26 extends ffi.Struct {
   /// < command
   external ffi.Pointer<ffi.Int8> cmd;
 
@@ -5968,7 +5923,7 @@ class UnnamedStruct16 extends ffi.Struct {
   external int delay;
 }
 
-class UnnamedStruct17 extends ffi.Struct {
+class UnnamedStruct27 extends ffi.Struct {
   /// < command
   external ffi.Pointer<ffi.Int8> cmd;
 
@@ -5978,6 +5933,14 @@ class UnnamedStruct17 extends ffi.Struct {
 }
 
 class UnnamedStruct3 extends ffi.Struct {
+  @ffi.Array.multi([8])
+  external ffi.Array<ffi.Int64> __cancel_jmp_buf;
+
+  @ffi.Int32()
+  external int __mask_was_saved;
+}
+
+class UnnamedStruct4 extends ffi.Struct {
   /// < extra alloted time
   @ffi.Int64()
   external int extra;
@@ -5987,11 +5950,11 @@ class UnnamedStruct3 extends ffi.Struct {
   external int spent;
 
   /// < flag to extend time only once
-  @ffi.Uint8()
+  @ffi.Int32()
   external int extended;
 
   /// < flag allowing to extend time
-  @ffi.Uint8()
+  @ffi.Int32()
   external int can_update;
 
   /// < minimal alloted time
@@ -6003,7 +5966,7 @@ class UnnamedStruct3 extends ffi.Struct {
   external int maxi;
 }
 
-class UnnamedStruct4 extends ffi.Struct {
+class UnnamedStruct5 extends ffi.Struct {
   /// < depth
   @ffi.Int32()
   external int depth;
@@ -6017,7 +5980,7 @@ class UnnamedStruct4 extends ffi.Struct {
   external int time;
 
   /// < time_per_move or per game ?
-  @ffi.Uint8()
+  @ffi.Int32()
   external int time_per_move;
 
   /// < verbosity level
@@ -6025,7 +5988,7 @@ class UnnamedStruct4 extends ffi.Struct {
   external int verbosity;
 
   /// < keep date
-  @ffi.Uint8()
+  @ffi.Int32()
   external int keep_date;
 
   /// < header for search output
@@ -6035,7 +5998,7 @@ class UnnamedStruct4 extends ffi.Struct {
   external ffi.Pointer<ffi.Int8> separator;
 
   /// < guess PV (in cassio mode only)
-  @ffi.Uint8()
+  @ffi.Int32()
   external int guess_pv;
 
   /// < multi PV depth
@@ -6047,135 +6010,138 @@ class UnnamedStruct4 extends ffi.Struct {
   external int hash_size;
 }
 
-class UnnamedStruct5 extends ffi.Struct {
-  @ffi.Int32()
-  external int i;
-
-  @ffi.Int32()
-  external int x;
-}
-
 class UnnamedStruct6 extends ffi.Struct {
-  /// <! Move coordinate
-  @ffi.Int32()
-  external int x;
+  @__pid_t()
+  external int si_pid;
 
-  /// <! Move score
-  @ffi.Int32()
-  external int score;
+  @__uid_t()
+  external int si_uid;
 }
 
 class UnnamedStruct7 extends ffi.Struct {
-  @ffi.Int16()
-  external int year;
+  @ffi.Int32()
+  external int si_tid;
 
-  @ffi.Int8()
-  external int month;
+  @ffi.Int32()
+  external int si_overrun;
 
-  @ffi.Int8()
-  external int day;
-
-  @ffi.Int8()
-  external int hour;
-
-  @ffi.Int8()
-  external int minute;
-
-  @ffi.Int8()
-  external int second;
+  external __sigval_t si_sigval;
 }
 
 class UnnamedStruct8 extends ffi.Struct {
-  @ffi.Int16()
-  external int year;
+  @__pid_t()
+  external int si_pid;
 
-  @ffi.Int8()
-  external int month;
+  @__uid_t()
+  external int si_uid;
 
-  @ffi.Int8()
-  external int day;
-
-  @ffi.Int8()
-  external int hour;
-
-  @ffi.Int8()
-  external int minute;
-
-  @ffi.Int8()
-  external int second;
+  external __sigval_t si_sigval;
 }
 
 class UnnamedStruct9 extends ffi.Struct {
-  @ffi.Int32()
-  external int level;
+  @__pid_t()
+  external int si_pid;
+
+  @__uid_t()
+  external int si_uid;
 
   @ffi.Int32()
-  external int n_empties;
+  external int si_status;
 
-  @ffi.Int32()
-  external int midgame_error;
+  @__clock_t()
+  external int si_utime;
 
-  @ffi.Int32()
-  external int endcut_error;
-
-  @ffi.Int32()
-  external int verbosity;
+  @__clock_t()
+  external int si_stime;
 }
 
 class UnnamedUnion1 extends ffi.Union {
-  @ffi.Array.multi([16])
-  external ffi.Array<__uint8_t> __u6_addr8;
-
-  @ffi.Array.multi([8])
-  external ffi.Array<__uint16_t> __u6_addr16;
+  @ffi.Uint32()
+  external int __wch;
 
   @ffi.Array.multi([4])
-  external ffi.Array<__uint32_t> __u6_addr32;
+  external ffi.Array<ffi.Int8> __wchb;
+}
+
+class UnnamedUnion2 extends ffi.Union {
+  @ffi.Array.multi([12])
+  external ffi.Array<ffi.Int32> _pad;
+
+  @__pid_t()
+  external int _tid;
+
+  external UnnamedStruct2 _sigev_thread;
+}
+
+class UnnamedUnion3 extends ffi.Union {
+  @ffi.Array.multi([28])
+  external ffi.Array<ffi.Int32> _pad;
+
+  external UnnamedStruct6 _kill;
+
+  external UnnamedStruct7 _timer;
+
+  external UnnamedStruct8 _rt;
+
+  external UnnamedStruct9 _sigchld;
+
+  external UnnamedStruct10 _sigfault;
+
+  external UnnamedStruct12 _sigpoll;
+
+  external UnnamedStruct13 _sigsys;
+}
+
+class UnnamedUnion4 extends ffi.Union {
+  external UnnamedStruct11 _addr_bnd;
+
+  @__uint32_t()
+  external int _pkey;
+}
+
+class UnnamedUnion5 extends ffi.Union {
+  external __sighandler_t sa_handler;
+
+  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Int32, ffi.Pointer<siginfo_t>, ffi.Pointer<ffi.Void>)>>
+      sa_sigaction;
+}
+
+class UnnamedUnion6 extends ffi.Union {
+  @ffi.Array.multi([16])
+  external ffi.Array<ffi.Uint8> __u6_addr8;
+
+  @ffi.Array.multi([8])
+  external ffi.Array<ffi.Uint16> __u6_addr16;
+
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Uint32> __u6_addr32;
 }
 
 const int VERSION = 4;
 
 const String VERSION_STRING = '4.4';
 
-const int WAIT_ANY = -1;
-
-const int WAIT_MYPGRP = 0;
-
-const int WAKEMON_DISABLE = 2;
-
-const int WAKEMON_ENABLE = 1;
-
-const int WAKEMON_GET_PARAMS = 4;
-
-const int WAKEMON_MAKE_FATAL = 16;
-
-const int WAKEMON_SET_DEFAULTS = 8;
-
 const int WCHAR_MAX = 2147483647;
 
 const int WCHAR_MIN = -2147483648;
 
-const int WCONTINUED = 16;
-
-const int WCOREFLAG = 128;
+const int WCONTINUED = 8;
 
 const int WEXITED = 4;
 
 const int WHITE = 1;
 
-const int WINT_MAX = 2147483647;
+const int WINT_MAX = 4294967295;
 
-const int WINT_MIN = -2147483648;
+const int WINT_MIN = 0;
 
 const int WNOHANG = 1;
 
-const int WNOWAIT = 32;
-
-const int WORD_BIT = 32;
+const int WNOWAIT = 16777216;
 
 const int WORD_SIZE = 256;
 
-const int WSTOPPED = 8;
+const int WSTOPPED = 2;
 
 const int WUNTRACED = 2;
 
@@ -6277,6 +6243,12 @@ class WthorHeader extends ffi.Struct {
 
 const int XADE = 1480672325;
 
+const int XATTR_LIST_MAX = 65536;
+
+const int XATTR_NAME_MAX = 255;
+
+const int XATTR_SIZE_MAX = 65536;
+
 class XBoardStats extends ffi.Struct {
   @ffi.Uint64()
   external int time;
@@ -6290,137 +6262,377 @@ class XBoardStats extends ffi.Struct {
 
 const int X_OK = 1;
 
-const double X_TLOSS = 14148475504056880.0;
+const int _ALLOCA_H = 1;
 
-const int _ACCESS_EXTENDED_MASK = 4193792;
+const int _ASSERT_H = 1;
 
-const int _APPEND_OK = 8192;
+const int _ATFILE_SOURCE = 1;
 
-const int _CACHED_RUNES = 256;
+const int _BITS_BYTESWAP_H = 1;
 
-const int _CHOWN_OK = 2097152;
+const int _BITS_CPU_SET_H = 1;
 
-const int _CRMASK = -256;
+const int _BITS_ENDIANNESS_H = 1;
 
-const int _CS_DARWIN_USER_CACHE_DIR = 65538;
+const int _BITS_ENDIAN_H = 1;
 
-const int _CS_DARWIN_USER_DIR = 65536;
+const int _BITS_ERRNO_H = 1;
 
-const int _CS_DARWIN_USER_TEMP_DIR = 65537;
+const int _BITS_LIBM_SIMD_DECL_STUBS_H = 1;
 
-const int _CS_PATH = 1;
+const int _BITS_LOCALE_H = 1;
 
-const int _CS_POSIX_V6_ILP32_OFF32_CFLAGS = 2;
+const int _BITS_POSIX1_LIM_H = 1;
 
-const int _CS_POSIX_V6_ILP32_OFF32_LDFLAGS = 3;
+const int _BITS_POSIX2_LIM_H = 1;
 
-const int _CS_POSIX_V6_ILP32_OFF32_LIBS = 4;
+const int _BITS_POSIX_OPT_H = 1;
 
-const int _CS_POSIX_V6_ILP32_OFFBIG_CFLAGS = 5;
+const int _BITS_PTHREADTYPES_ARCH_H = 1;
 
-const int _CS_POSIX_V6_ILP32_OFFBIG_LDFLAGS = 6;
+const int _BITS_PTHREADTYPES_COMMON_H = 1;
 
-const int _CS_POSIX_V6_ILP32_OFFBIG_LIBS = 7;
+const int _BITS_SCHED_H = 1;
 
-const int _CS_POSIX_V6_LP64_OFF64_CFLAGS = 8;
+const int _BITS_SETJMP_H = 1;
 
-const int _CS_POSIX_V6_LP64_OFF64_LDFLAGS = 9;
+const int _BITS_SIGACTION_H = 1;
 
-const int _CS_POSIX_V6_LP64_OFF64_LIBS = 10;
+const int _BITS_SIGCONTEXT_H = 1;
 
-const int _CS_POSIX_V6_LPBIG_OFFBIG_CFLAGS = 11;
+const int _BITS_SIGEVENT_CONSTS_H = 1;
 
-const int _CS_POSIX_V6_LPBIG_OFFBIG_LDFLAGS = 12;
+const int _BITS_SIGINFO_ARCH_H = 1;
 
-const int _CS_POSIX_V6_LPBIG_OFFBIG_LIBS = 13;
+const int _BITS_SIGINFO_CONSTS_H = 1;
 
-const int _CS_POSIX_V6_WIDTH_RESTRICTED_ENVS = 14;
+const int _BITS_SIGNUM_GENERIC_H = 1;
 
-const int _CS_XBS5_ILP32_OFF32_CFLAGS = 20;
+const int _BITS_SIGNUM_H = 1;
 
-const int _CS_XBS5_ILP32_OFF32_LDFLAGS = 21;
+const int _BITS_SIGSTACK_H = 1;
 
-const int _CS_XBS5_ILP32_OFF32_LIBS = 22;
+const int _BITS_SIGTHREAD_H = 1;
 
-const int _CS_XBS5_ILP32_OFF32_LINTFLAGS = 23;
+const int _BITS_SOCKADDR_H = 1;
 
-const int _CS_XBS5_ILP32_OFFBIG_CFLAGS = 24;
+const int _BITS_SS_FLAGS_H = 1;
 
-const int _CS_XBS5_ILP32_OFFBIG_LDFLAGS = 25;
+const int _BITS_STAT_H = 1;
 
-const int _CS_XBS5_ILP32_OFFBIG_LIBS = 26;
+const int _BITS_STDINT_INTN_H = 1;
 
-const int _CS_XBS5_ILP32_OFFBIG_LINTFLAGS = 27;
+const int _BITS_STDINT_UINTN_H = 1;
 
-const int _CS_XBS5_LP64_OFF64_CFLAGS = 28;
+const int _BITS_STDIO_LIM_H = 1;
 
-const int _CS_XBS5_LP64_OFF64_LDFLAGS = 29;
+const int _BITS_TIME64_H = 1;
 
-const int _CS_XBS5_LP64_OFF64_LIBS = 30;
+const int _BITS_TIME_H = 1;
 
-const int _CS_XBS5_LP64_OFF64_LINTFLAGS = 31;
+const int _BITS_TYPESIZES_H = 1;
 
-const int _CS_XBS5_LPBIG_OFFBIG_CFLAGS = 32;
+const int _BITS_TYPES_H = 1;
 
-const int _CS_XBS5_LPBIG_OFFBIG_LDFLAGS = 33;
+const int _BITS_TYPES_LOCALE_T_H = 1;
 
-const int _CS_XBS5_LPBIG_OFFBIG_LIBS = 34;
+const int _BITS_TYPES_STRUCT_SCHED_PARAM = 1;
 
-const int _CS_XBS5_LPBIG_OFFBIG_LINTFLAGS = 35;
+const int _BITS_TYPES___LOCALE_T_H = 1;
 
-const int _CTYPE_A = 256;
+const int _BITS_UINTN_IDENTITY_H = 1;
 
-const int _CTYPE_B = 131072;
+const int _BITS_WCHAR_H = 1;
 
-const int _CTYPE_C = 512;
+const int _CS_GNU_LIBC_VERSION = 2;
 
-const int _CTYPE_D = 1024;
+const int _CS_GNU_LIBC_VERSION1 = 2;
 
-const int _CTYPE_G = 2048;
+const int _CS_GNU_LIBPTHREAD_VERSION = 3;
 
-const int _CTYPE_I = 524288;
+const int _CS_GNU_LIBPTHREAD_VERSION1 = 3;
 
-const int _CTYPE_L = 4096;
+const int _CS_LFS64_CFLAGS = 1004;
 
-const int _CTYPE_P = 8192;
+const int _CS_LFS64_CFLAGS1 = 1004;
 
-const int _CTYPE_Q = 2097152;
+const int _CS_LFS64_LDFLAGS = 1005;
 
-const int _CTYPE_R = 262144;
+const int _CS_LFS64_LDFLAGS1 = 1005;
 
-const int _CTYPE_S = 16384;
+const int _CS_LFS64_LIBS = 1006;
 
-const int _CTYPE_SW0 = 536870912;
+const int _CS_LFS64_LIBS1 = 1006;
 
-const int _CTYPE_SW1 = 1073741824;
+const int _CS_LFS64_LINTFLAGS = 1007;
 
-const int _CTYPE_SW2 = 2147483648;
+const int _CS_LFS64_LINTFLAGS1 = 1007;
 
-const int _CTYPE_SW3 = 3221225472;
+const int _CS_LFS_CFLAGS = 1000;
 
-const int _CTYPE_SWM = 3758096384;
+const int _CS_LFS_CFLAGS1 = 1000;
 
-const int _CTYPE_SWS = 30;
+const int _CS_LFS_LDFLAGS = 1001;
 
-const int _CTYPE_T = 1048576;
+const int _CS_LFS_LDFLAGS1 = 1001;
 
-const int _CTYPE_U = 32768;
+const int _CS_LFS_LIBS = 1002;
 
-const int _CTYPE_X = 65536;
+const int _CS_LFS_LIBS1 = 1002;
 
-const int _DARWIN_FEATURE_64_BIT_INODE = 1;
+const int _CS_LFS_LINTFLAGS = 1003;
 
-const int _DARWIN_FEATURE_ONLY_UNIX_CONFORMANCE = 1;
+const int _CS_LFS_LINTFLAGS1 = 1003;
 
-const int _DARWIN_FEATURE_UNIX_CONFORMANCE = 3;
+const int _CS_PATH = 0;
 
-const int _DELETE_OK = 4096;
+const int _CS_PATH1 = 0;
 
-const int _EXECUTE_OK = 2048;
+const int _CS_POSIX_V5_WIDTH_RESTRICTED_ENVS = 4;
 
-const int _FORTIFY_SOURCE = 2;
+const int _CS_POSIX_V6_ILP32_OFF32_CFLAGS = 1116;
 
-const int _I386_SIGNAL_H_ = 1;
+const int _CS_POSIX_V6_ILP32_OFF32_CFLAGS1 = 1116;
+
+const int _CS_POSIX_V6_ILP32_OFF32_LDFLAGS = 1117;
+
+const int _CS_POSIX_V6_ILP32_OFF32_LDFLAGS1 = 1117;
+
+const int _CS_POSIX_V6_ILP32_OFF32_LIBS = 1118;
+
+const int _CS_POSIX_V6_ILP32_OFF32_LIBS1 = 1118;
+
+const int _CS_POSIX_V6_ILP32_OFF32_LINTFLAGS = 1119;
+
+const int _CS_POSIX_V6_ILP32_OFF32_LINTFLAGS1 = 1119;
+
+const int _CS_POSIX_V6_ILP32_OFFBIG_CFLAGS = 1120;
+
+const int _CS_POSIX_V6_ILP32_OFFBIG_CFLAGS1 = 1120;
+
+const int _CS_POSIX_V6_ILP32_OFFBIG_LDFLAGS = 1121;
+
+const int _CS_POSIX_V6_ILP32_OFFBIG_LDFLAGS1 = 1121;
+
+const int _CS_POSIX_V6_ILP32_OFFBIG_LIBS = 1122;
+
+const int _CS_POSIX_V6_ILP32_OFFBIG_LIBS1 = 1122;
+
+const int _CS_POSIX_V6_ILP32_OFFBIG_LINTFLAGS = 1123;
+
+const int _CS_POSIX_V6_ILP32_OFFBIG_LINTFLAGS1 = 1123;
+
+const int _CS_POSIX_V6_LP64_OFF64_CFLAGS = 1124;
+
+const int _CS_POSIX_V6_LP64_OFF64_CFLAGS1 = 1124;
+
+const int _CS_POSIX_V6_LP64_OFF64_LDFLAGS = 1125;
+
+const int _CS_POSIX_V6_LP64_OFF64_LDFLAGS1 = 1125;
+
+const int _CS_POSIX_V6_LP64_OFF64_LIBS = 1126;
+
+const int _CS_POSIX_V6_LP64_OFF64_LIBS1 = 1126;
+
+const int _CS_POSIX_V6_LP64_OFF64_LINTFLAGS = 1127;
+
+const int _CS_POSIX_V6_LP64_OFF64_LINTFLAGS1 = 1127;
+
+const int _CS_POSIX_V6_LPBIG_OFFBIG_CFLAGS = 1128;
+
+const int _CS_POSIX_V6_LPBIG_OFFBIG_CFLAGS1 = 1128;
+
+const int _CS_POSIX_V6_LPBIG_OFFBIG_LDFLAGS = 1129;
+
+const int _CS_POSIX_V6_LPBIG_OFFBIG_LDFLAGS1 = 1129;
+
+const int _CS_POSIX_V6_LPBIG_OFFBIG_LIBS = 1130;
+
+const int _CS_POSIX_V6_LPBIG_OFFBIG_LIBS1 = 1130;
+
+const int _CS_POSIX_V6_LPBIG_OFFBIG_LINTFLAGS = 1131;
+
+const int _CS_POSIX_V6_LPBIG_OFFBIG_LINTFLAGS1 = 1131;
+
+const int _CS_POSIX_V6_WIDTH_RESTRICTED_ENVS = 1;
+
+const int _CS_POSIX_V7_ILP32_OFF32_CFLAGS = 1132;
+
+const int _CS_POSIX_V7_ILP32_OFF32_CFLAGS1 = 1132;
+
+const int _CS_POSIX_V7_ILP32_OFF32_LDFLAGS = 1133;
+
+const int _CS_POSIX_V7_ILP32_OFF32_LDFLAGS1 = 1133;
+
+const int _CS_POSIX_V7_ILP32_OFF32_LIBS = 1134;
+
+const int _CS_POSIX_V7_ILP32_OFF32_LIBS1 = 1134;
+
+const int _CS_POSIX_V7_ILP32_OFF32_LINTFLAGS = 1135;
+
+const int _CS_POSIX_V7_ILP32_OFF32_LINTFLAGS1 = 1135;
+
+const int _CS_POSIX_V7_ILP32_OFFBIG_CFLAGS = 1136;
+
+const int _CS_POSIX_V7_ILP32_OFFBIG_CFLAGS1 = 1136;
+
+const int _CS_POSIX_V7_ILP32_OFFBIG_LDFLAGS = 1137;
+
+const int _CS_POSIX_V7_ILP32_OFFBIG_LDFLAGS1 = 1137;
+
+const int _CS_POSIX_V7_ILP32_OFFBIG_LIBS = 1138;
+
+const int _CS_POSIX_V7_ILP32_OFFBIG_LIBS1 = 1138;
+
+const int _CS_POSIX_V7_ILP32_OFFBIG_LINTFLAGS = 1139;
+
+const int _CS_POSIX_V7_ILP32_OFFBIG_LINTFLAGS1 = 1139;
+
+const int _CS_POSIX_V7_LP64_OFF64_CFLAGS = 1140;
+
+const int _CS_POSIX_V7_LP64_OFF64_CFLAGS1 = 1140;
+
+const int _CS_POSIX_V7_LP64_OFF64_LDFLAGS = 1141;
+
+const int _CS_POSIX_V7_LP64_OFF64_LDFLAGS1 = 1141;
+
+const int _CS_POSIX_V7_LP64_OFF64_LIBS = 1142;
+
+const int _CS_POSIX_V7_LP64_OFF64_LIBS1 = 1142;
+
+const int _CS_POSIX_V7_LP64_OFF64_LINTFLAGS = 1143;
+
+const int _CS_POSIX_V7_LP64_OFF64_LINTFLAGS1 = 1143;
+
+const int _CS_POSIX_V7_LPBIG_OFFBIG_CFLAGS = 1144;
+
+const int _CS_POSIX_V7_LPBIG_OFFBIG_CFLAGS1 = 1144;
+
+const int _CS_POSIX_V7_LPBIG_OFFBIG_LDFLAGS = 1145;
+
+const int _CS_POSIX_V7_LPBIG_OFFBIG_LDFLAGS1 = 1145;
+
+const int _CS_POSIX_V7_LPBIG_OFFBIG_LIBS = 1146;
+
+const int _CS_POSIX_V7_LPBIG_OFFBIG_LIBS1 = 1146;
+
+const int _CS_POSIX_V7_LPBIG_OFFBIG_LINTFLAGS = 1147;
+
+const int _CS_POSIX_V7_LPBIG_OFFBIG_LINTFLAGS1 = 1147;
+
+const int _CS_POSIX_V7_WIDTH_RESTRICTED_ENVS = 5;
+
+const int _CS_V5_WIDTH_RESTRICTED_ENVS = 4;
+
+const int _CS_V5_WIDTH_RESTRICTED_ENVS1 = 4;
+
+const int _CS_V6_ENV = 1148;
+
+const int _CS_V6_ENV1 = 1148;
+
+const int _CS_V6_WIDTH_RESTRICTED_ENVS = 1;
+
+const int _CS_V6_WIDTH_RESTRICTED_ENVS1 = 1;
+
+const int _CS_V7_ENV = 1149;
+
+const int _CS_V7_ENV1 = 1149;
+
+const int _CS_V7_WIDTH_RESTRICTED_ENVS = 5;
+
+const int _CS_V7_WIDTH_RESTRICTED_ENVS1 = 5;
+
+const int _CS_XBS5_ILP32_OFF32_CFLAGS = 1100;
+
+const int _CS_XBS5_ILP32_OFF32_CFLAGS1 = 1100;
+
+const int _CS_XBS5_ILP32_OFF32_LDFLAGS = 1101;
+
+const int _CS_XBS5_ILP32_OFF32_LDFLAGS1 = 1101;
+
+const int _CS_XBS5_ILP32_OFF32_LIBS = 1102;
+
+const int _CS_XBS5_ILP32_OFF32_LIBS1 = 1102;
+
+const int _CS_XBS5_ILP32_OFF32_LINTFLAGS = 1103;
+
+const int _CS_XBS5_ILP32_OFF32_LINTFLAGS1 = 1103;
+
+const int _CS_XBS5_ILP32_OFFBIG_CFLAGS = 1104;
+
+const int _CS_XBS5_ILP32_OFFBIG_CFLAGS1 = 1104;
+
+const int _CS_XBS5_ILP32_OFFBIG_LDFLAGS = 1105;
+
+const int _CS_XBS5_ILP32_OFFBIG_LDFLAGS1 = 1105;
+
+const int _CS_XBS5_ILP32_OFFBIG_LIBS = 1106;
+
+const int _CS_XBS5_ILP32_OFFBIG_LIBS1 = 1106;
+
+const int _CS_XBS5_ILP32_OFFBIG_LINTFLAGS = 1107;
+
+const int _CS_XBS5_ILP32_OFFBIG_LINTFLAGS1 = 1107;
+
+const int _CS_XBS5_LP64_OFF64_CFLAGS = 1108;
+
+const int _CS_XBS5_LP64_OFF64_CFLAGS1 = 1108;
+
+const int _CS_XBS5_LP64_OFF64_LDFLAGS = 1109;
+
+const int _CS_XBS5_LP64_OFF64_LDFLAGS1 = 1109;
+
+const int _CS_XBS5_LP64_OFF64_LIBS = 1110;
+
+const int _CS_XBS5_LP64_OFF64_LIBS1 = 1110;
+
+const int _CS_XBS5_LP64_OFF64_LINTFLAGS = 1111;
+
+const int _CS_XBS5_LP64_OFF64_LINTFLAGS1 = 1111;
+
+const int _CS_XBS5_LPBIG_OFFBIG_CFLAGS = 1112;
+
+const int _CS_XBS5_LPBIG_OFFBIG_CFLAGS1 = 1112;
+
+const int _CS_XBS5_LPBIG_OFFBIG_LDFLAGS = 1113;
+
+const int _CS_XBS5_LPBIG_OFFBIG_LDFLAGS1 = 1113;
+
+const int _CS_XBS5_LPBIG_OFFBIG_LIBS = 1114;
+
+const int _CS_XBS5_LPBIG_OFFBIG_LIBS1 = 1114;
+
+const int _CS_XBS5_LPBIG_OFFBIG_LINTFLAGS = 1115;
+
+const int _CS_XBS5_LPBIG_OFFBIG_LINTFLAGS1 = 1115;
+
+const int _CTYPE_H = 1;
+
+const int _DEFAULT_SOURCE = 1;
+
+const int _ENDIAN_H = 1;
+
+const int _ERRNO_H = 1;
+
+const int _FEATURES_H = 1;
+
+const int _GETOPT_CORE_H = 1;
+
+const int _GETOPT_POSIX_H = 1;
+
+class _G_fpos64_t extends ffi.Struct {
+  @__off64_t()
+  external int __pos;
+
+  external __mbstate_t __state;
+}
+
+class _G_fpos_t extends ffi.Struct {
+  @__off_t()
+  external int __pos;
+
+  external __mbstate_t __state;
+}
 
 const int _IOFBF = 0;
 
@@ -6428,7 +6640,142 @@ const int _IOLBF = 1;
 
 const int _IONBF = 2;
 
-const int _LC_LAST = 7;
+const int _IO_EOF_SEEN = 16;
+
+const int _IO_ERR_SEEN = 32;
+
+class _IO_FILE extends ffi.Struct {
+  @ffi.Int32()
+  external int _flags;
+
+  external ffi.Pointer<ffi.Int8> _IO_read_ptr;
+
+  external ffi.Pointer<ffi.Int8> _IO_read_end;
+
+  external ffi.Pointer<ffi.Int8> _IO_read_base;
+
+  external ffi.Pointer<ffi.Int8> _IO_write_base;
+
+  external ffi.Pointer<ffi.Int8> _IO_write_ptr;
+
+  external ffi.Pointer<ffi.Int8> _IO_write_end;
+
+  external ffi.Pointer<ffi.Int8> _IO_buf_base;
+
+  external ffi.Pointer<ffi.Int8> _IO_buf_end;
+
+  external ffi.Pointer<ffi.Int8> _IO_save_base;
+
+  external ffi.Pointer<ffi.Int8> _IO_backup_base;
+
+  external ffi.Pointer<ffi.Int8> _IO_save_end;
+
+  external ffi.Pointer<_IO_marker> _markers;
+
+  external ffi.Pointer<_IO_FILE> _chain;
+
+  @ffi.Int32()
+  external int _fileno;
+
+  @ffi.Int32()
+  external int _flags2;
+
+  @__off_t()
+  external int _old_offset;
+
+  @ffi.Uint16()
+  external int _cur_column;
+
+  @ffi.Int8()
+  external int _vtable_offset;
+
+  @ffi.Array.multi([1])
+  external ffi.Array<ffi.Int8> _shortbuf;
+
+  external ffi.Pointer<_IO_lock_t> _lock;
+
+  @__off64_t()
+  external int _offset;
+
+  external ffi.Pointer<_IO_codecvt> _codecvt;
+
+  external ffi.Pointer<_IO_wide_data> _wide_data;
+
+  external ffi.Pointer<_IO_FILE> _freeres_list;
+
+  external ffi.Pointer<ffi.Void> _freeres_buf;
+
+  @ffi.Int32()
+  external int __pad5;
+
+  @ffi.Int32()
+  external int _mode;
+
+  @ffi.Int8()
+  external int _unused2;
+}
+
+const int _IO_USER_LOCK = 32768;
+
+class _IO_codecvt extends ffi.Opaque {}
+
+typedef _IO_lock_t = ffi.Void;
+
+class _IO_marker extends ffi.Opaque {}
+
+class _IO_wide_data extends ffi.Opaque {}
+
+const int _ISalnum = 8;
+
+const int _ISalpha = 1024;
+
+const int _ISblank = 1;
+
+const int _IScntrl = 2;
+
+const int _ISdigit = 2048;
+
+const int _ISgraph = 32768;
+
+const int _ISlower = 512;
+
+const int _ISprint = 16384;
+
+const int _ISpunct = 4;
+
+const int _ISspace = 8192;
+
+const int _ISupper = 256;
+
+const int _ISxdigit = 4096;
+
+const int _LFS64_ASYNCHRONOUS_IO = 1;
+
+const int _LFS64_LARGEFILE = 1;
+
+const int _LFS64_STDIO = 1;
+
+const int _LFS_ASYNCHRONOUS_IO = 1;
+
+const int _LFS_LARGEFILE = 1;
+
+const int _LIBC_LIMITS_H_ = 1;
+
+const int _LOCALE_H = 1;
+
+const int _MATH_H = 1;
+
+const int _MKNOD_VER = 0;
+
+const int _MKNOD_VER_LINUX = 0;
+
+const int _NETDB_H = 1;
+
+const int _NETINET_IN_H = 1;
+
+const int _NETINET_TCP_H = 1;
+
+const int _NSIG = 65;
 
 const String _PATH_HEQUIV = '/etc/hosts.equiv';
 
@@ -6436,63 +6783,95 @@ const String _PATH_HOSTS = '/etc/hosts';
 
 const String _PATH_NETWORKS = '/etc/networks';
 
+const String _PATH_NSSWITCH_CONF = '/etc/nsswitch.conf';
+
 const String _PATH_PROTOCOLS = '/etc/protocols';
 
 const String _PATH_SERVICES = '/etc/services';
 
-const int _PC_2_SYMLINKS = 15;
+const int _PC_2_SYMLINKS = 20;
 
-const int _PC_ALLOC_SIZE_MIN = 16;
+const int _PC_2_SYMLINKS1 = 20;
 
-const int _PC_ASYNC_IO = 17;
+const int _PC_ALLOC_SIZE_MIN = 18;
 
-const int _PC_AUTH_OPAQUE_NP = 14;
+const int _PC_ALLOC_SIZE_MIN1 = 18;
 
-const int _PC_CASE_PRESERVING = 12;
+const int _PC_ASYNC_IO = 10;
 
-const int _PC_CASE_SENSITIVE = 11;
+const int _PC_ASYNC_IO1 = 10;
 
-const int _PC_CHOWN_RESTRICTED = 7;
+const int _PC_CHOWN_RESTRICTED = 6;
 
-const int _PC_EXTENDED_SECURITY_NP = 13;
+const int _PC_CHOWN_RESTRICTED1 = 6;
 
-const int _PC_FILESIZEBITS = 18;
+const int _PC_FILESIZEBITS = 13;
 
-const int _PC_LINK_MAX = 1;
+const int _PC_FILESIZEBITS1 = 13;
 
-const int _PC_MAX_CANON = 2;
+const int _PC_LINK_MAX = 0;
 
-const int _PC_MAX_INPUT = 3;
+const int _PC_LINK_MAX1 = 0;
 
-const int _PC_MIN_HOLE_SIZE = 27;
+const int _PC_MAX_CANON = 1;
 
-const int _PC_NAME_CHARS_MAX = 10;
+const int _PC_MAX_CANON1 = 1;
 
-const int _PC_NAME_MAX = 4;
+const int _PC_MAX_INPUT = 2;
 
-const int _PC_NO_TRUNC = 8;
+const int _PC_MAX_INPUT1 = 2;
 
-const int _PC_PATH_MAX = 5;
+const int _PC_NAME_MAX = 3;
 
-const int _PC_PIPE_BUF = 6;
+const int _PC_NAME_MAX1 = 3;
 
-const int _PC_PRIO_IO = 19;
+const int _PC_NO_TRUNC = 7;
 
-const int _PC_REC_INCR_XFER_SIZE = 20;
+const int _PC_NO_TRUNC1 = 7;
 
-const int _PC_REC_MAX_XFER_SIZE = 21;
+const int _PC_PATH_MAX = 4;
 
-const int _PC_REC_MIN_XFER_SIZE = 22;
+const int _PC_PATH_MAX1 = 4;
 
-const int _PC_REC_XFER_ALIGN = 23;
+const int _PC_PIPE_BUF = 5;
 
-const int _PC_SYMLINK_MAX = 24;
+const int _PC_PIPE_BUF1 = 5;
 
-const int _PC_SYNC_IO = 25;
+const int _PC_PRIO_IO = 11;
 
-const int _PC_VDISABLE = 9;
+const int _PC_PRIO_IO1 = 11;
 
-const int _PC_XATTR_SIZE_BITS = 26;
+const int _PC_REC_INCR_XFER_SIZE = 14;
+
+const int _PC_REC_INCR_XFER_SIZE1 = 14;
+
+const int _PC_REC_MAX_XFER_SIZE = 15;
+
+const int _PC_REC_MAX_XFER_SIZE1 = 15;
+
+const int _PC_REC_MIN_XFER_SIZE = 16;
+
+const int _PC_REC_MIN_XFER_SIZE1 = 16;
+
+const int _PC_REC_XFER_ALIGN = 17;
+
+const int _PC_REC_XFER_ALIGN1 = 17;
+
+const int _PC_SOCK_MAXBUF = 12;
+
+const int _PC_SOCK_MAXBUF1 = 12;
+
+const int _PC_SYMLINK_MAX = 19;
+
+const int _PC_SYMLINK_MAX1 = 19;
+
+const int _PC_SYNC_IO = 9;
+
+const int _PC_SYNC_IO1 = 9;
+
+const int _PC_VDISABLE = 8;
+
+const int _PC_VDISABLE1 = 8;
 
 const int _POSIX2_BC_BASE_MAX = 99;
 
@@ -6504,47 +6883,29 @@ const int _POSIX2_BC_STRING_MAX = 1000;
 
 const int _POSIX2_CHARCLASS_NAME_MAX = 14;
 
-const int _POSIX2_CHAR_TERM = 200112;
+const int _POSIX2_CHAR_TERM = 200809;
 
 const int _POSIX2_COLL_WEIGHTS_MAX = 2;
 
-const int _POSIX2_C_BIND = 200112;
+const int _POSIX2_C_BIND = 200809;
 
-const int _POSIX2_C_DEV = 200112;
+const int _POSIX2_C_DEV = 200809;
 
-const int _POSIX2_EQUIV_CLASS_MAX = 2;
+const int _POSIX2_C_VERSION = 200809;
 
 const int _POSIX2_EXPR_NEST_MAX = 32;
 
-const int _POSIX2_FORT_DEV = -1;
-
-const int _POSIX2_FORT_RUN = 200112;
-
 const int _POSIX2_LINE_MAX = 2048;
 
-const int _POSIX2_LOCALEDEF = 200112;
-
-const int _POSIX2_PBS = -1;
-
-const int _POSIX2_PBS_ACCOUNTING = -1;
-
-const int _POSIX2_PBS_CHECKPOINT = -1;
-
-const int _POSIX2_PBS_LOCATE = -1;
-
-const int _POSIX2_PBS_MESSAGE = -1;
-
-const int _POSIX2_PBS_TRACK = -1;
+const int _POSIX2_LOCALEDEF = 200809;
 
 const int _POSIX2_RE_DUP_MAX = 255;
 
-const int _POSIX2_SW_DEV = 200112;
+const int _POSIX2_SW_DEV = 200809;
 
-const int _POSIX2_UPE = 200112;
+const int _POSIX2_VERSION = 200809;
 
-const int _POSIX2_VERSION = 200112;
-
-const int _POSIX_ADVISORY_INFO = -1;
+const int _POSIX_ADVISORY_INFO = 200809;
 
 const int _POSIX_AIO_LISTIO_MAX = 2;
 
@@ -6552,49 +6913,53 @@ const int _POSIX_AIO_MAX = 1;
 
 const int _POSIX_ARG_MAX = 4096;
 
-const int _POSIX_ASYNCHRONOUS_IO = -1;
+const int _POSIX_ASYNCHRONOUS_IO = 200809;
 
-const int _POSIX_BARRIERS = -1;
+const int _POSIX_ASYNC_IO = 1;
+
+const int _POSIX_BARRIERS = 200809;
 
 const int _POSIX_CHILD_MAX = 25;
 
-const int _POSIX_CHOWN_RESTRICTED = 200112;
+const int _POSIX_CHOWN_RESTRICTED = 0;
 
 const int _POSIX_CLOCKRES_MIN = 20000000;
 
-const int _POSIX_CLOCK_SELECTION = -1;
+const int _POSIX_CLOCK_SELECTION = 200809;
 
-const int _POSIX_CPUTIME = -1;
+const int _POSIX_CPUTIME = 0;
+
+const int _POSIX_C_SOURCE = 200809;
 
 const int _POSIX_DELAYTIMER_MAX = 32;
 
-const int _POSIX_FSYNC = 200112;
+const int _POSIX_FSYNC = 200809;
 
 const int _POSIX_HOST_NAME_MAX = 255;
 
-const int _POSIX_IPV6 = 200112;
+const int _POSIX_IPV6 = 200809;
 
-const int _POSIX_JOB_CONTROL = 200112;
+const int _POSIX_JOB_CONTROL = 1;
 
 const int _POSIX_LINK_MAX = 8;
 
 const int _POSIX_LOGIN_NAME_MAX = 9;
 
-const int _POSIX_MAPPED_FILES = 200112;
+const int _POSIX_MAPPED_FILES = 200809;
 
 const int _POSIX_MAX_CANON = 255;
 
 const int _POSIX_MAX_INPUT = 255;
 
-const int _POSIX_MEMLOCK = -1;
+const int _POSIX_MEMLOCK = 200809;
 
-const int _POSIX_MEMLOCK_RANGE = -1;
+const int _POSIX_MEMLOCK_RANGE = 200809;
 
-const int _POSIX_MEMORY_PROTECTION = 200112;
+const int _POSIX_MEMORY_PROTECTION = 200809;
 
-const int _POSIX_MESSAGE_PASSING = -1;
+const int _POSIX_MESSAGE_PASSING = 200809;
 
-const int _POSIX_MONOTONIC_CLOCK = -1;
+const int _POSIX_MONOTONIC_CLOCK = 0;
 
 const int _POSIX_MQ_OPEN_MAX = 8;
 
@@ -6604,7 +6969,7 @@ const int _POSIX_NAME_MAX = 14;
 
 const int _POSIX_NGROUPS_MAX = 8;
 
-const int _POSIX_NO_TRUNC = 200112;
+const int _POSIX_NO_TRUNC = 1;
 
 const int _POSIX_OPEN_MAX = 20;
 
@@ -6612,45 +6977,47 @@ const int _POSIX_PATH_MAX = 256;
 
 const int _POSIX_PIPE_BUF = 512;
 
-const int _POSIX_PRIORITIZED_IO = -1;
+const int _POSIX_PRIORITIZED_IO = 200809;
 
-const int _POSIX_PRIORITY_SCHEDULING = -1;
+const int _POSIX_PRIORITY_SCHEDULING = 200809;
 
-const int _POSIX_RAW_SOCKETS = -1;
+const int _POSIX_RAW_SOCKETS = 200809;
 
-const int _POSIX_READER_WRITER_LOCKS = 200112;
+const int _POSIX_READER_WRITER_LOCKS = 200809;
 
-const int _POSIX_REALTIME_SIGNALS = -1;
+const int _POSIX_REALTIME_SIGNALS = 200809;
 
-const int _POSIX_REGEXP = 200112;
+const int _POSIX_REENTRANT_FUNCTIONS = 1;
+
+const int _POSIX_REGEXP = 1;
 
 const int _POSIX_RE_DUP_MAX = 255;
 
 const int _POSIX_RTSIG_MAX = 8;
 
-const int _POSIX_SAVED_IDS = 200112;
+const int _POSIX_SAVED_IDS = 1;
 
-const int _POSIX_SEMAPHORES = -1;
+const int _POSIX_SEMAPHORES = 200809;
 
 const int _POSIX_SEM_NSEMS_MAX = 256;
 
 const int _POSIX_SEM_VALUE_MAX = 32767;
 
-const int _POSIX_SHARED_MEMORY_OBJECTS = -1;
+const int _POSIX_SHARED_MEMORY_OBJECTS = 200809;
 
-const int _POSIX_SHELL = 200112;
+const int _POSIX_SHELL = 1;
 
 const int _POSIX_SIGQUEUE_MAX = 32;
 
-const int _POSIX_SPAWN = -1;
+const int _POSIX_SOURCE = 1;
 
-const int _POSIX_SPIN_LOCKS = -1;
+const int _POSIX_SPAWN = 200809;
+
+const int _POSIX_SPIN_LOCKS = 200809;
 
 const int _POSIX_SPORADIC_SERVER = -1;
 
 const int _POSIX_SSIZE_MAX = 32767;
-
-const int _POSIX_SS_REPL_MAX = 4;
 
 const int _POSIX_STREAM_MAX = 8;
 
@@ -6658,37 +7025,41 @@ const int _POSIX_SYMLINK_MAX = 255;
 
 const int _POSIX_SYMLOOP_MAX = 8;
 
-const int _POSIX_SYNCHRONIZED_IO = -1;
+const int _POSIX_SYNCHRONIZED_IO = 200809;
 
-const int _POSIX_THREADS = 200112;
+const int _POSIX_THREADS = 200809;
 
-const int _POSIX_THREAD_ATTR_STACKADDR = 200112;
+const int _POSIX_THREAD_ATTR_STACKADDR = 200809;
 
-const int _POSIX_THREAD_ATTR_STACKSIZE = 200112;
+const int _POSIX_THREAD_ATTR_STACKSIZE = 200809;
 
-const int _POSIX_THREAD_CPUTIME = -1;
+const int _POSIX_THREAD_CPUTIME = 0;
 
 const int _POSIX_THREAD_DESTRUCTOR_ITERATIONS = 4;
 
 const int _POSIX_THREAD_KEYS_MAX = 128;
 
-const int _POSIX_THREAD_PRIORITY_SCHEDULING = -1;
+const int _POSIX_THREAD_PRIORITY_SCHEDULING = 200809;
 
-const int _POSIX_THREAD_PRIO_INHERIT = -1;
+const int _POSIX_THREAD_PRIO_INHERIT = 200809;
 
-const int _POSIX_THREAD_PRIO_PROTECT = -1;
+const int _POSIX_THREAD_PRIO_PROTECT = 200809;
 
-const int _POSIX_THREAD_PROCESS_SHARED = 200112;
+const int _POSIX_THREAD_PROCESS_SHARED = 200809;
 
-const int _POSIX_THREAD_SAFE_FUNCTIONS = 200112;
+const int _POSIX_THREAD_ROBUST_PRIO_INHERIT = 200809;
+
+const int _POSIX_THREAD_ROBUST_PRIO_PROTECT = -1;
+
+const int _POSIX_THREAD_SAFE_FUNCTIONS = 200809;
 
 const int _POSIX_THREAD_SPORADIC_SERVER = -1;
 
 const int _POSIX_THREAD_THREADS_MAX = 64;
 
-const int _POSIX_TIMEOUTS = -1;
+const int _POSIX_TIMEOUTS = 200809;
 
-const int _POSIX_TIMERS = -1;
+const int _POSIX_TIMERS = 200809;
 
 const int _POSIX_TIMER_MAX = 32;
 
@@ -6696,17 +7067,9 @@ const int _POSIX_TRACE = -1;
 
 const int _POSIX_TRACE_EVENT_FILTER = -1;
 
-const int _POSIX_TRACE_EVENT_NAME_MAX = 30;
-
 const int _POSIX_TRACE_INHERIT = -1;
 
 const int _POSIX_TRACE_LOG = -1;
-
-const int _POSIX_TRACE_NAME_MAX = 8;
-
-const int _POSIX_TRACE_SYS_MAX = 8;
-
-const int _POSIX_TRACE_USER_EVENT_MAX = 32;
 
 const int _POSIX_TTY_NAME_MAX = 9;
 
@@ -6714,1535 +7077,1695 @@ const int _POSIX_TYPED_MEMORY_OBJECTS = -1;
 
 const int _POSIX_TZNAME_MAX = 6;
 
-const int _POSIX_V6_ILP32_OFF32 = -1;
-
-const int _POSIX_V6_ILP32_OFFBIG = -1;
-
 const int _POSIX_V6_LP64_OFF64 = 1;
 
-const int _POSIX_V6_LPBIG_OFFBIG = 1;
-
-const int _POSIX_V7_ILP32_OFF32 = -1;
-
-const int _POSIX_V7_ILP32_OFFBIG = -1;
+const int _POSIX_V6_LPBIG_OFFBIG = -1;
 
 const int _POSIX_V7_LP64_OFF64 = 1;
 
-const int _POSIX_V7_LPBIG_OFFBIG = 1;
+const int _POSIX_V7_LPBIG_OFFBIG = -1;
 
-const int _POSIX_VDISABLE = 255;
+const int _POSIX_VDISABLE = 0;
 
-const int _POSIX_VERSION = 200112;
+const int _POSIX_VERSION = 200809;
 
-const int _PTHREAD_COND_SIG_init = 1018212795;
+const int _PTHREAD_H = 1;
 
-const int _PTHREAD_ERRORCHECK_MUTEX_SIG_init = 850045857;
+const int _RPC_NETDB_H = 1;
 
-const int _PTHREAD_FIRSTFIT_MUTEX_SIG_init = 850045859;
+const int _SCHED_H = 1;
 
-const int _PTHREAD_MUTEX_SIG_init = 850045863;
+const int _SC_2_CHAR_TERM = 95;
 
-const int _PTHREAD_ONCE_SIG_init = 816954554;
+const int _SC_2_CHAR_TERM1 = 95;
 
-const int _PTHREAD_RECURSIVE_MUTEX_SIG_init = 850045858;
+const int _SC_2_C_BIND = 47;
 
-const int _PTHREAD_RWLOCK_SIG_init = 766030772;
+const int _SC_2_C_BIND1 = 47;
 
-const int _QUAD_HIGHWORD = 1;
+const int _SC_2_C_DEV = 48;
 
-const int _QUAD_LOWWORD = 0;
+const int _SC_2_C_DEV1 = 48;
 
-const int _RATTR_OK = 32768;
+const int _SC_2_C_VERSION = 96;
 
-const int _READ_OK = 512;
+const int _SC_2_C_VERSION1 = 96;
 
-const int _REXT_OK = 131072;
+const int _SC_2_FORT_DEV = 49;
 
-const int _RLIMIT_POSIX_FLAG = 4096;
+const int _SC_2_FORT_DEV1 = 49;
 
-const int _RMFILE_OK = 16384;
+const int _SC_2_FORT_RUN = 50;
 
-const int _RPERM_OK = 524288;
+const int _SC_2_FORT_RUN1 = 50;
 
-const String _RUNE_MAGIC_A = 'RuneMagA';
+const int _SC_2_LOCALEDEF = 52;
 
-class _RuneCharClass extends ffi.Struct {
-  @ffi.Array.multi([14])
-  external ffi.Array<ffi.Int8> __name;
+const int _SC_2_LOCALEDEF1 = 52;
 
-  @__uint32_t()
-  external int __mask;
-}
+const int _SC_2_PBS = 168;
 
-class _RuneEntry extends ffi.Struct {
-  @__darwin_rune_t()
-  external int __min;
+const int _SC_2_PBS1 = 168;
 
-  @__darwin_rune_t()
-  external int __max;
+const int _SC_2_PBS_ACCOUNTING = 169;
 
-  @__darwin_rune_t()
-  external int __map;
+const int _SC_2_PBS_ACCOUNTING1 = 169;
 
-  external ffi.Pointer<__uint32_t> __types;
-}
+const int _SC_2_PBS_CHECKPOINT = 175;
 
-class _RuneLocale extends ffi.Struct {
-  @ffi.Array.multi([8])
-  external ffi.Array<ffi.Int8> __magic;
+const int _SC_2_PBS_CHECKPOINT1 = 175;
 
-  @ffi.Array.multi([32])
-  external ffi.Array<ffi.Int8> __encoding;
+const int _SC_2_PBS_LOCATE = 170;
 
-  external ffi.Pointer<
-          ffi.NativeFunction<
-              __darwin_rune_t Function(ffi.Pointer<ffi.Int8>, __darwin_size_t, ffi.Pointer<ffi.Pointer<ffi.Int8>>)>>
-      __sgetrune;
+const int _SC_2_PBS_LOCATE1 = 170;
 
-  external ffi.Pointer<
-      ffi.NativeFunction<
-          ffi.Int32 Function(
-              __darwin_rune_t, ffi.Pointer<ffi.Int8>, __darwin_size_t, ffi.Pointer<ffi.Pointer<ffi.Int8>>)>> __sputrune;
+const int _SC_2_PBS_MESSAGE = 171;
 
-  @__darwin_rune_t()
-  external int __invalid_rune;
+const int _SC_2_PBS_MESSAGE1 = 171;
 
-  @ffi.Array.multi([256])
-  external ffi.Array<__uint32_t> __runetype;
+const int _SC_2_PBS_TRACK = 172;
 
-  @ffi.Array.multi([256])
-  external ffi.Array<__darwin_rune_t> __maplower;
+const int _SC_2_PBS_TRACK1 = 172;
 
-  @ffi.Array.multi([256])
-  external ffi.Array<__darwin_rune_t> __mapupper;
+const int _SC_2_SW_DEV = 51;
 
-  external _RuneRange __runetype_ext;
+const int _SC_2_SW_DEV1 = 51;
 
-  external _RuneRange __maplower_ext;
+const int _SC_2_UPE = 97;
 
-  external _RuneRange __mapupper_ext;
+const int _SC_2_UPE1 = 97;
 
-  external ffi.Pointer<ffi.Void> __variable;
+const int _SC_2_VERSION = 46;
 
-  @ffi.Int32()
-  external int __variable_len;
+const int _SC_2_VERSION1 = 46;
 
-  @ffi.Int32()
-  external int __ncharclasses;
+const int _SC_ADVISORY_INFO = 132;
 
-  external ffi.Pointer<_RuneCharClass> __charclasses;
-}
+const int _SC_ADVISORY_INFO1 = 132;
 
-class _RuneRange extends ffi.Struct {
-  @ffi.Int32()
-  external int __nranges;
+const int _SC_AIO_LISTIO_MAX = 23;
 
-  external ffi.Pointer<_RuneEntry> __ranges;
-}
+const int _SC_AIO_LISTIO_MAX1 = 23;
 
-const int _SC_2_CHAR_TERM = 20;
+const int _SC_AIO_MAX = 24;
 
-const int _SC_2_C_BIND = 18;
+const int _SC_AIO_MAX1 = 24;
 
-const int _SC_2_C_DEV = 19;
+const int _SC_AIO_PRIO_DELTA_MAX = 25;
 
-const int _SC_2_FORT_DEV = 21;
+const int _SC_AIO_PRIO_DELTA_MAX1 = 25;
 
-const int _SC_2_FORT_RUN = 22;
+const int _SC_ARG_MAX = 0;
 
-const int _SC_2_LOCALEDEF = 23;
+const int _SC_ARG_MAX1 = 0;
 
-const int _SC_2_PBS = 59;
+const int _SC_ASYNCHRONOUS_IO = 12;
 
-const int _SC_2_PBS_ACCOUNTING = 60;
+const int _SC_ASYNCHRONOUS_IO1 = 12;
 
-const int _SC_2_PBS_CHECKPOINT = 61;
+const int _SC_ATEXIT_MAX = 87;
 
-const int _SC_2_PBS_LOCATE = 62;
+const int _SC_ATEXIT_MAX1 = 87;
 
-const int _SC_2_PBS_MESSAGE = 63;
+const int _SC_AVPHYS_PAGES = 86;
 
-const int _SC_2_PBS_TRACK = 64;
+const int _SC_AVPHYS_PAGES1 = 86;
 
-const int _SC_2_SW_DEV = 24;
+const int _SC_BARRIERS = 133;
 
-const int _SC_2_UPE = 25;
+const int _SC_BARRIERS1 = 133;
 
-const int _SC_2_VERSION = 17;
+const int _SC_BASE = 134;
 
-const int _SC_ADVISORY_INFO = 65;
+const int _SC_BASE1 = 134;
 
-const int _SC_AIO_LISTIO_MAX = 42;
+const int _SC_BC_BASE_MAX = 36;
 
-const int _SC_AIO_MAX = 43;
+const int _SC_BC_BASE_MAX1 = 36;
 
-const int _SC_AIO_PRIO_DELTA_MAX = 44;
+const int _SC_BC_DIM_MAX = 37;
 
-const int _SC_ARG_MAX = 1;
+const int _SC_BC_DIM_MAX1 = 37;
 
-const int _SC_ASYNCHRONOUS_IO = 28;
+const int _SC_BC_SCALE_MAX = 38;
 
-const int _SC_ATEXIT_MAX = 107;
+const int _SC_BC_SCALE_MAX1 = 38;
 
-const int _SC_BARRIERS = 66;
+const int _SC_BC_STRING_MAX = 39;
 
-const int _SC_BC_BASE_MAX = 9;
+const int _SC_BC_STRING_MAX1 = 39;
 
-const int _SC_BC_DIM_MAX = 10;
+const int _SC_CHARCLASS_NAME_MAX = 45;
 
-const int _SC_BC_SCALE_MAX = 11;
+const int _SC_CHARCLASS_NAME_MAX1 = 45;
 
-const int _SC_BC_STRING_MAX = 12;
+const int _SC_CHAR_BIT = 101;
 
-const int _SC_CHILD_MAX = 2;
+const int _SC_CHAR_BIT1 = 101;
 
-const int _SC_CLK_TCK = 3;
+const int _SC_CHAR_MAX = 102;
 
-const int _SC_CLOCK_SELECTION = 67;
+const int _SC_CHAR_MAX1 = 102;
 
-const int _SC_COLL_WEIGHTS_MAX = 13;
+const int _SC_CHAR_MIN = 103;
 
-const int _SC_CPUTIME = 68;
+const int _SC_CHAR_MIN1 = 103;
 
-const int _SC_DELAYTIMER_MAX = 45;
+const int _SC_CHILD_MAX = 1;
 
-const int _SC_EXPR_NEST_MAX = 14;
+const int _SC_CHILD_MAX1 = 1;
 
-const int _SC_FILE_LOCKING = 69;
+const int _SC_CLK_TCK = 2;
 
-const int _SC_FSYNC = 38;
+const int _SC_CLK_TCK1 = 2;
 
-const int _SC_GETGR_R_SIZE_MAX = 70;
+const int _SC_CLOCK_SELECTION = 137;
 
-const int _SC_GETPW_R_SIZE_MAX = 71;
+const int _SC_CLOCK_SELECTION1 = 137;
 
-const int _SC_HOST_NAME_MAX = 72;
+const int _SC_COLL_WEIGHTS_MAX = 40;
 
-const int _SC_IOV_MAX = 56;
+const int _SC_COLL_WEIGHTS_MAX1 = 40;
 
-const int _SC_IPV6 = 118;
+const int _SC_CPUTIME = 138;
 
-const int _SC_JOB_CONTROL = 6;
+const int _SC_CPUTIME1 = 138;
 
-const int _SC_LINE_MAX = 15;
+const int _SC_C_LANG_SUPPORT = 135;
 
-const int _SC_LOGIN_NAME_MAX = 73;
+const int _SC_C_LANG_SUPPORT1 = 135;
 
-const int _SC_MAPPED_FILES = 47;
+const int _SC_C_LANG_SUPPORT_R = 136;
 
-const int _SC_MEMLOCK = 30;
+const int _SC_C_LANG_SUPPORT_R1 = 136;
 
-const int _SC_MEMLOCK_RANGE = 31;
+const int _SC_DELAYTIMER_MAX = 26;
 
-const int _SC_MEMORY_PROTECTION = 32;
+const int _SC_DELAYTIMER_MAX1 = 26;
 
-const int _SC_MESSAGE_PASSING = 33;
+const int _SC_DEVICE_IO = 140;
 
-const int _SC_MONOTONIC_CLOCK = 74;
+const int _SC_DEVICE_IO1 = 140;
 
-const int _SC_MQ_OPEN_MAX = 46;
+const int _SC_DEVICE_SPECIFIC = 141;
 
-const int _SC_MQ_PRIO_MAX = 75;
+const int _SC_DEVICE_SPECIFIC1 = 141;
 
-const int _SC_NGROUPS_MAX = 4;
+const int _SC_DEVICE_SPECIFIC_R = 142;
 
-const int _SC_NPROCESSORS_CONF = 57;
+const int _SC_DEVICE_SPECIFIC_R1 = 142;
 
-const int _SC_NPROCESSORS_ONLN = 58;
+const int _SC_EQUIV_CLASS_MAX = 41;
 
-const int _SC_OPEN_MAX = 5;
+const int _SC_EQUIV_CLASS_MAX1 = 41;
 
-const int _SC_PAGESIZE = 29;
+const int _SC_EXPR_NEST_MAX = 42;
 
-const int _SC_PAGE_SIZE = 29;
+const int _SC_EXPR_NEST_MAX1 = 42;
 
-const int _SC_PASS_MAX = 131;
+const int _SC_FD_MGMT = 143;
 
-const int _SC_PHYS_PAGES = 200;
+const int _SC_FD_MGMT1 = 143;
 
-const int _SC_PRIORITIZED_IO = 34;
+const int _SC_FIFO = 144;
 
-const int _SC_PRIORITY_SCHEDULING = 35;
+const int _SC_FIFO1 = 144;
 
-const int _SC_RAW_SOCKETS = 119;
+const int _SC_FILE_ATTRIBUTES = 146;
 
-const int _SC_READER_WRITER_LOCKS = 76;
+const int _SC_FILE_ATTRIBUTES1 = 146;
 
-const int _SC_REALTIME_SIGNALS = 36;
+const int _SC_FILE_LOCKING = 147;
 
-const int _SC_REGEXP = 77;
+const int _SC_FILE_LOCKING1 = 147;
 
-const int _SC_RE_DUP_MAX = 16;
+const int _SC_FILE_SYSTEM = 148;
 
-const int _SC_RTSIG_MAX = 48;
+const int _SC_FILE_SYSTEM1 = 148;
 
-const int _SC_SAVED_IDS = 7;
+const int _SC_FSYNC = 15;
 
-const int _SC_SEMAPHORES = 37;
+const int _SC_FSYNC1 = 15;
 
-const int _SC_SEM_NSEMS_MAX = 49;
+const int _SC_GETGR_R_SIZE_MAX = 69;
 
-const int _SC_SEM_VALUE_MAX = 50;
+const int _SC_GETGR_R_SIZE_MAX1 = 69;
 
-const int _SC_SHARED_MEMORY_OBJECTS = 39;
+const int _SC_GETPW_R_SIZE_MAX = 70;
 
-const int _SC_SHELL = 78;
+const int _SC_GETPW_R_SIZE_MAX1 = 70;
 
-const int _SC_SIGQUEUE_MAX = 51;
+const int _SC_HOST_NAME_MAX = 180;
 
-const int _SC_SPAWN = 79;
+const int _SC_HOST_NAME_MAX1 = 180;
 
-const int _SC_SPIN_LOCKS = 80;
+const int _SC_INT_MAX = 104;
 
-const int _SC_SPORADIC_SERVER = 81;
+const int _SC_INT_MAX1 = 104;
 
-const int _SC_SS_REPL_MAX = 126;
+const int _SC_INT_MIN = 105;
 
-const int _SC_STREAM_MAX = 26;
+const int _SC_INT_MIN1 = 105;
 
-const int _SC_SYMLOOP_MAX = 120;
+const int _SC_IOV_MAX = 60;
 
-const int _SC_SYNCHRONIZED_IO = 40;
+const int _SC_IOV_MAX1 = 60;
 
-const int _SC_THREADS = 96;
+const int _SC_IPV6 = 235;
 
-const int _SC_THREAD_ATTR_STACKADDR = 82;
+const int _SC_IPV61 = 235;
 
-const int _SC_THREAD_ATTR_STACKSIZE = 83;
+const int _SC_JOB_CONTROL = 7;
 
-const int _SC_THREAD_CPUTIME = 84;
+const int _SC_JOB_CONTROL1 = 7;
 
-const int _SC_THREAD_DESTRUCTOR_ITERATIONS = 85;
+const int _SC_LEVEL1_DCACHE_ASSOC = 189;
 
-const int _SC_THREAD_KEYS_MAX = 86;
+const int _SC_LEVEL1_DCACHE_ASSOC1 = 189;
 
-const int _SC_THREAD_PRIORITY_SCHEDULING = 89;
+const int _SC_LEVEL1_DCACHE_LINESIZE = 190;
 
-const int _SC_THREAD_PRIO_INHERIT = 87;
+const int _SC_LEVEL1_DCACHE_LINESIZE1 = 190;
 
-const int _SC_THREAD_PRIO_PROTECT = 88;
+const int _SC_LEVEL1_DCACHE_SIZE = 188;
 
-const int _SC_THREAD_PROCESS_SHARED = 90;
+const int _SC_LEVEL1_DCACHE_SIZE1 = 188;
 
-const int _SC_THREAD_SAFE_FUNCTIONS = 91;
+const int _SC_LEVEL1_ICACHE_ASSOC = 186;
 
-const int _SC_THREAD_SPORADIC_SERVER = 92;
+const int _SC_LEVEL1_ICACHE_ASSOC1 = 186;
 
-const int _SC_THREAD_STACK_MIN = 93;
+const int _SC_LEVEL1_ICACHE_LINESIZE = 187;
 
-const int _SC_THREAD_THREADS_MAX = 94;
+const int _SC_LEVEL1_ICACHE_LINESIZE1 = 187;
 
-const int _SC_TIMEOUTS = 95;
+const int _SC_LEVEL1_ICACHE_SIZE = 185;
 
-const int _SC_TIMERS = 41;
+const int _SC_LEVEL1_ICACHE_SIZE1 = 185;
 
-const int _SC_TIMER_MAX = 52;
+const int _SC_LEVEL2_CACHE_ASSOC = 192;
 
-const int _SC_TRACE = 97;
+const int _SC_LEVEL2_CACHE_ASSOC1 = 192;
 
-const int _SC_TRACE_EVENT_FILTER = 98;
+const int _SC_LEVEL2_CACHE_LINESIZE = 193;
 
-const int _SC_TRACE_EVENT_NAME_MAX = 127;
+const int _SC_LEVEL2_CACHE_LINESIZE1 = 193;
 
-const int _SC_TRACE_INHERIT = 99;
+const int _SC_LEVEL2_CACHE_SIZE = 191;
 
-const int _SC_TRACE_LOG = 100;
+const int _SC_LEVEL2_CACHE_SIZE1 = 191;
 
-const int _SC_TRACE_NAME_MAX = 128;
+const int _SC_LEVEL3_CACHE_ASSOC = 195;
 
-const int _SC_TRACE_SYS_MAX = 129;
+const int _SC_LEVEL3_CACHE_ASSOC1 = 195;
 
-const int _SC_TRACE_USER_EVENT_MAX = 130;
+const int _SC_LEVEL3_CACHE_LINESIZE = 196;
 
-const int _SC_TTY_NAME_MAX = 101;
+const int _SC_LEVEL3_CACHE_LINESIZE1 = 196;
 
-const int _SC_TYPED_MEMORY_OBJECTS = 102;
+const int _SC_LEVEL3_CACHE_SIZE = 194;
 
-const int _SC_TZNAME_MAX = 27;
+const int _SC_LEVEL3_CACHE_SIZE1 = 194;
 
-const int _SC_V6_ILP32_OFF32 = 103;
+const int _SC_LEVEL4_CACHE_ASSOC = 198;
 
-const int _SC_V6_ILP32_OFFBIG = 104;
+const int _SC_LEVEL4_CACHE_ASSOC1 = 198;
 
-const int _SC_V6_LP64_OFF64 = 105;
+const int _SC_LEVEL4_CACHE_LINESIZE = 199;
 
-const int _SC_V6_LPBIG_OFFBIG = 106;
+const int _SC_LEVEL4_CACHE_LINESIZE1 = 199;
 
-const int _SC_VERSION = 8;
+const int _SC_LEVEL4_CACHE_SIZE = 197;
 
-const int _SC_XBS5_ILP32_OFF32 = 122;
+const int _SC_LEVEL4_CACHE_SIZE1 = 197;
 
-const int _SC_XBS5_ILP32_OFFBIG = 123;
+const int _SC_LINE_MAX = 43;
 
-const int _SC_XBS5_LP64_OFF64 = 124;
+const int _SC_LINE_MAX1 = 43;
 
-const int _SC_XBS5_LPBIG_OFFBIG = 125;
+const int _SC_LOGIN_NAME_MAX = 71;
 
-const int _SC_XOPEN_CRYPT = 108;
+const int _SC_LOGIN_NAME_MAX1 = 71;
 
-const int _SC_XOPEN_ENH_I18N = 109;
+const int _SC_LONG_BIT = 106;
 
-const int _SC_XOPEN_LEGACY = 110;
+const int _SC_LONG_BIT1 = 106;
 
-const int _SC_XOPEN_REALTIME = 111;
+const int _SC_MAPPED_FILES = 16;
 
-const int _SC_XOPEN_REALTIME_THREADS = 112;
+const int _SC_MAPPED_FILES1 = 16;
 
-const int _SC_XOPEN_SHM = 113;
+const int _SC_MB_LEN_MAX = 108;
 
-const int _SC_XOPEN_STREAMS = 114;
+const int _SC_MB_LEN_MAX1 = 108;
 
-const int _SC_XOPEN_UNIX = 115;
+const int _SC_MEMLOCK = 17;
 
-const int _SC_XOPEN_VERSION = 116;
+const int _SC_MEMLOCK1 = 17;
 
-const int _SC_XOPEN_XCU_VERSION = 121;
+const int _SC_MEMLOCK_RANGE = 18;
 
-const int _SS_ALIGNSIZE = 8;
+const int _SC_MEMLOCK_RANGE1 = 18;
 
-const int _SS_MAXSIZE = 128;
+const int _SC_MEMORY_PROTECTION = 19;
 
-const int _SS_PAD1SIZE = 6;
+const int _SC_MEMORY_PROTECTION1 = 19;
 
-const int _SS_PAD2SIZE = 112;
+const int _SC_MESSAGE_PASSING = 20;
 
-const int _V6_ILP32_OFF32 = -1;
+const int _SC_MESSAGE_PASSING1 = 20;
 
-const int _V6_ILP32_OFFBIG = -1;
+const int _SC_MONOTONIC_CLOCK = 149;
 
-const int _V6_LP64_OFF64 = 1;
+const int _SC_MONOTONIC_CLOCK1 = 149;
 
-const int _V6_LPBIG_OFFBIG = 1;
+const int _SC_MQ_OPEN_MAX = 27;
 
-const int _WATTR_OK = 65536;
+const int _SC_MQ_OPEN_MAX1 = 27;
 
-const int _WEXT_OK = 262144;
+const int _SC_MQ_PRIO_MAX = 28;
 
-const int _WPERM_OK = 1048576;
+const int _SC_MQ_PRIO_MAX1 = 28;
 
-const int _WRITE_OK = 1024;
+const int _SC_MULTI_PROCESS = 150;
 
-const int _WSTOPPED = 127;
+const int _SC_MULTI_PROCESS1 = 150;
 
-const int _X86_INSTRUCTION_STATE_CACHELINE_SIZE = 64;
+const int _SC_NETWORKING = 152;
 
-const int _X86_INSTRUCTION_STATE_MAX_INSN_BYTES = 2380;
+const int _SC_NETWORKING1 = 152;
 
-const int _XBS5_ILP32_OFF32 = -1;
+const int _SC_NGROUPS_MAX = 3;
 
-const int _XBS5_ILP32_OFFBIG = -1;
+const int _SC_NGROUPS_MAX1 = 3;
+
+const int _SC_NL_ARGMAX = 119;
+
+const int _SC_NL_ARGMAX1 = 119;
+
+const int _SC_NL_LANGMAX = 120;
+
+const int _SC_NL_LANGMAX1 = 120;
+
+const int _SC_NL_MSGMAX = 121;
+
+const int _SC_NL_MSGMAX1 = 121;
+
+const int _SC_NL_NMAX = 122;
+
+const int _SC_NL_NMAX1 = 122;
+
+const int _SC_NL_SETMAX = 123;
+
+const int _SC_NL_SETMAX1 = 123;
+
+const int _SC_NL_TEXTMAX = 124;
+
+const int _SC_NL_TEXTMAX1 = 124;
+
+const int _SC_NPROCESSORS_CONF = 83;
+
+const int _SC_NPROCESSORS_CONF1 = 83;
+
+const int _SC_NPROCESSORS_ONLN = 84;
+
+const int _SC_NPROCESSORS_ONLN1 = 84;
+
+const int _SC_NZERO = 109;
+
+const int _SC_NZERO1 = 109;
+
+const int _SC_OPEN_MAX = 4;
+
+const int _SC_OPEN_MAX1 = 4;
+
+const int _SC_PAGESIZE = 30;
+
+const int _SC_PAGESIZE1 = 30;
+
+const int _SC_PAGE_SIZE = 30;
+
+const int _SC_PASS_MAX = 88;
+
+const int _SC_PASS_MAX1 = 88;
+
+const int _SC_PHYS_PAGES = 85;
+
+const int _SC_PHYS_PAGES1 = 85;
+
+const int _SC_PII = 53;
+
+const int _SC_PII1 = 53;
+
+const int _SC_PII_INTERNET = 56;
+
+const int _SC_PII_INTERNET1 = 56;
+
+const int _SC_PII_INTERNET_DGRAM = 62;
+
+const int _SC_PII_INTERNET_DGRAM1 = 62;
+
+const int _SC_PII_INTERNET_STREAM = 61;
+
+const int _SC_PII_INTERNET_STREAM1 = 61;
+
+const int _SC_PII_OSI = 57;
+
+const int _SC_PII_OSI1 = 57;
+
+const int _SC_PII_OSI_CLTS = 64;
+
+const int _SC_PII_OSI_CLTS1 = 64;
+
+const int _SC_PII_OSI_COTS = 63;
+
+const int _SC_PII_OSI_COTS1 = 63;
+
+const int _SC_PII_OSI_M = 65;
+
+const int _SC_PII_OSI_M1 = 65;
+
+const int _SC_PII_SOCKET = 55;
+
+const int _SC_PII_SOCKET1 = 55;
+
+const int _SC_PII_XTI = 54;
+
+const int _SC_PII_XTI1 = 54;
+
+const int _SC_PIPE = 145;
+
+const int _SC_PIPE1 = 145;
+
+const int _SC_POLL = 58;
+
+const int _SC_POLL1 = 58;
+
+const int _SC_PRIORITIZED_IO = 13;
+
+const int _SC_PRIORITIZED_IO1 = 13;
+
+const int _SC_PRIORITY_SCHEDULING = 10;
+
+const int _SC_PRIORITY_SCHEDULING1 = 10;
+
+const int _SC_RAW_SOCKETS = 236;
+
+const int _SC_RAW_SOCKETS1 = 236;
+
+const int _SC_READER_WRITER_LOCKS = 153;
+
+const int _SC_READER_WRITER_LOCKS1 = 153;
+
+const int _SC_REALTIME_SIGNALS = 9;
+
+const int _SC_REALTIME_SIGNALS1 = 9;
+
+const int _SC_REGEXP = 155;
+
+const int _SC_REGEXP1 = 155;
+
+const int _SC_REGEX_VERSION = 156;
+
+const int _SC_REGEX_VERSION1 = 156;
+
+const int _SC_RE_DUP_MAX = 44;
+
+const int _SC_RE_DUP_MAX1 = 44;
+
+const int _SC_RTSIG_MAX = 31;
+
+const int _SC_RTSIG_MAX1 = 31;
+
+const int _SC_SAVED_IDS = 8;
+
+const int _SC_SAVED_IDS1 = 8;
+
+const int _SC_SCHAR_MAX = 111;
+
+const int _SC_SCHAR_MAX1 = 111;
+
+const int _SC_SCHAR_MIN = 112;
+
+const int _SC_SCHAR_MIN1 = 112;
+
+const int _SC_SELECT = 59;
+
+const int _SC_SELECT1 = 59;
+
+const int _SC_SEMAPHORES = 21;
+
+const int _SC_SEMAPHORES1 = 21;
+
+const int _SC_SEM_NSEMS_MAX = 32;
+
+const int _SC_SEM_NSEMS_MAX1 = 32;
+
+const int _SC_SEM_VALUE_MAX = 33;
+
+const int _SC_SEM_VALUE_MAX1 = 33;
+
+const int _SC_SHARED_MEMORY_OBJECTS = 22;
+
+const int _SC_SHARED_MEMORY_OBJECTS1 = 22;
+
+const int _SC_SHELL = 157;
+
+const int _SC_SHELL1 = 157;
+
+const int _SC_SHRT_MAX = 113;
+
+const int _SC_SHRT_MAX1 = 113;
+
+const int _SC_SHRT_MIN = 114;
+
+const int _SC_SHRT_MIN1 = 114;
+
+const int _SC_SIGNALS = 158;
+
+const int _SC_SIGNALS1 = 158;
+
+const int _SC_SIGQUEUE_MAX = 34;
+
+const int _SC_SIGQUEUE_MAX1 = 34;
+
+const int _SC_SINGLE_PROCESS = 151;
+
+const int _SC_SINGLE_PROCESS1 = 151;
+
+const int _SC_SPAWN = 159;
+
+const int _SC_SPAWN1 = 159;
+
+const int _SC_SPIN_LOCKS = 154;
+
+const int _SC_SPIN_LOCKS1 = 154;
+
+const int _SC_SPORADIC_SERVER = 160;
+
+const int _SC_SPORADIC_SERVER1 = 160;
+
+const int _SC_SSIZE_MAX = 110;
+
+const int _SC_SSIZE_MAX1 = 110;
+
+const int _SC_SS_REPL_MAX = 241;
+
+const int _SC_SS_REPL_MAX1 = 241;
+
+const int _SC_STREAMS = 174;
+
+const int _SC_STREAMS1 = 174;
+
+const int _SC_STREAM_MAX = 5;
+
+const int _SC_STREAM_MAX1 = 5;
+
+const int _SC_SYMLOOP_MAX = 173;
+
+const int _SC_SYMLOOP_MAX1 = 173;
+
+const int _SC_SYNCHRONIZED_IO = 14;
+
+const int _SC_SYNCHRONIZED_IO1 = 14;
+
+const int _SC_SYSTEM_DATABASE = 162;
+
+const int _SC_SYSTEM_DATABASE1 = 162;
+
+const int _SC_SYSTEM_DATABASE_R = 163;
+
+const int _SC_SYSTEM_DATABASE_R1 = 163;
+
+const int _SC_THREADS = 67;
+
+const int _SC_THREADS1 = 67;
+
+const int _SC_THREAD_ATTR_STACKADDR = 77;
+
+const int _SC_THREAD_ATTR_STACKADDR1 = 77;
+
+const int _SC_THREAD_ATTR_STACKSIZE = 78;
+
+const int _SC_THREAD_ATTR_STACKSIZE1 = 78;
+
+const int _SC_THREAD_CPUTIME = 139;
+
+const int _SC_THREAD_CPUTIME1 = 139;
+
+const int _SC_THREAD_DESTRUCTOR_ITERATIONS = 73;
+
+const int _SC_THREAD_DESTRUCTOR_ITERATIONS1 = 73;
+
+const int _SC_THREAD_KEYS_MAX = 74;
+
+const int _SC_THREAD_KEYS_MAX1 = 74;
+
+const int _SC_THREAD_PRIORITY_SCHEDULING = 79;
+
+const int _SC_THREAD_PRIORITY_SCHEDULING1 = 79;
+
+const int _SC_THREAD_PRIO_INHERIT = 80;
+
+const int _SC_THREAD_PRIO_INHERIT1 = 80;
+
+const int _SC_THREAD_PRIO_PROTECT = 81;
+
+const int _SC_THREAD_PRIO_PROTECT1 = 81;
+
+const int _SC_THREAD_PROCESS_SHARED = 82;
+
+const int _SC_THREAD_PROCESS_SHARED1 = 82;
+
+const int _SC_THREAD_ROBUST_PRIO_INHERIT = 247;
+
+const int _SC_THREAD_ROBUST_PRIO_INHERIT1 = 247;
+
+const int _SC_THREAD_ROBUST_PRIO_PROTECT = 248;
+
+const int _SC_THREAD_ROBUST_PRIO_PROTECT1 = 248;
+
+const int _SC_THREAD_SAFE_FUNCTIONS = 68;
+
+const int _SC_THREAD_SAFE_FUNCTIONS1 = 68;
+
+const int _SC_THREAD_SPORADIC_SERVER = 161;
+
+const int _SC_THREAD_SPORADIC_SERVER1 = 161;
+
+const int _SC_THREAD_STACK_MIN = 75;
+
+const int _SC_THREAD_STACK_MIN1 = 75;
+
+const int _SC_THREAD_THREADS_MAX = 76;
+
+const int _SC_THREAD_THREADS_MAX1 = 76;
+
+const int _SC_TIMEOUTS = 164;
+
+const int _SC_TIMEOUTS1 = 164;
+
+const int _SC_TIMERS = 11;
+
+const int _SC_TIMERS1 = 11;
+
+const int _SC_TIMER_MAX = 35;
+
+const int _SC_TIMER_MAX1 = 35;
+
+const int _SC_TRACE = 181;
+
+const int _SC_TRACE1 = 181;
+
+const int _SC_TRACE_EVENT_FILTER = 182;
+
+const int _SC_TRACE_EVENT_FILTER1 = 182;
+
+const int _SC_TRACE_EVENT_NAME_MAX = 242;
+
+const int _SC_TRACE_EVENT_NAME_MAX1 = 242;
+
+const int _SC_TRACE_INHERIT = 183;
+
+const int _SC_TRACE_INHERIT1 = 183;
+
+const int _SC_TRACE_LOG = 184;
+
+const int _SC_TRACE_LOG1 = 184;
+
+const int _SC_TRACE_NAME_MAX = 243;
+
+const int _SC_TRACE_NAME_MAX1 = 243;
+
+const int _SC_TRACE_SYS_MAX = 244;
+
+const int _SC_TRACE_SYS_MAX1 = 244;
+
+const int _SC_TRACE_USER_EVENT_MAX = 245;
+
+const int _SC_TRACE_USER_EVENT_MAX1 = 245;
+
+const int _SC_TTY_NAME_MAX = 72;
+
+const int _SC_TTY_NAME_MAX1 = 72;
+
+const int _SC_TYPED_MEMORY_OBJECTS = 165;
+
+const int _SC_TYPED_MEMORY_OBJECTS1 = 165;
+
+const int _SC_TZNAME_MAX = 6;
+
+const int _SC_TZNAME_MAX1 = 6;
+
+const int _SC_T_IOV_MAX = 66;
+
+const int _SC_T_IOV_MAX1 = 66;
+
+const int _SC_UCHAR_MAX = 115;
+
+const int _SC_UCHAR_MAX1 = 115;
+
+const int _SC_UINT_MAX = 116;
+
+const int _SC_UINT_MAX1 = 116;
+
+const int _SC_UIO_MAXIOV = 60;
+
+const int _SC_UIO_MAXIOV1 = 60;
+
+const int _SC_ULONG_MAX = 117;
+
+const int _SC_ULONG_MAX1 = 117;
+
+const int _SC_USER_GROUPS = 166;
+
+const int _SC_USER_GROUPS1 = 166;
+
+const int _SC_USER_GROUPS_R = 167;
+
+const int _SC_USER_GROUPS_R1 = 167;
+
+const int _SC_USHRT_MAX = 118;
+
+const int _SC_USHRT_MAX1 = 118;
+
+const int _SC_V6_ILP32_OFF32 = 176;
+
+const int _SC_V6_ILP32_OFF321 = 176;
+
+const int _SC_V6_ILP32_OFFBIG = 177;
+
+const int _SC_V6_ILP32_OFFBIG1 = 177;
+
+const int _SC_V6_LP64_OFF64 = 178;
+
+const int _SC_V6_LP64_OFF641 = 178;
+
+const int _SC_V6_LPBIG_OFFBIG = 179;
+
+const int _SC_V6_LPBIG_OFFBIG1 = 179;
+
+const int _SC_V7_ILP32_OFF32 = 237;
+
+const int _SC_V7_ILP32_OFF321 = 237;
+
+const int _SC_V7_ILP32_OFFBIG = 238;
+
+const int _SC_V7_ILP32_OFFBIG1 = 238;
+
+const int _SC_V7_LP64_OFF64 = 239;
+
+const int _SC_V7_LP64_OFF641 = 239;
+
+const int _SC_V7_LPBIG_OFFBIG = 240;
+
+const int _SC_V7_LPBIG_OFFBIG1 = 240;
+
+const int _SC_VERSION = 29;
+
+const int _SC_VERSION1 = 29;
+
+const int _SC_WORD_BIT = 107;
+
+const int _SC_WORD_BIT1 = 107;
+
+const int _SC_XBS5_ILP32_OFF32 = 125;
+
+const int _SC_XBS5_ILP32_OFF321 = 125;
+
+const int _SC_XBS5_ILP32_OFFBIG = 126;
+
+const int _SC_XBS5_ILP32_OFFBIG1 = 126;
+
+const int _SC_XBS5_LP64_OFF64 = 127;
+
+const int _SC_XBS5_LP64_OFF641 = 127;
+
+const int _SC_XBS5_LPBIG_OFFBIG = 128;
+
+const int _SC_XBS5_LPBIG_OFFBIG1 = 128;
+
+const int _SC_XOPEN_CRYPT = 92;
+
+const int _SC_XOPEN_CRYPT1 = 92;
+
+const int _SC_XOPEN_ENH_I18N = 93;
+
+const int _SC_XOPEN_ENH_I18N1 = 93;
+
+const int _SC_XOPEN_LEGACY = 129;
+
+const int _SC_XOPEN_LEGACY1 = 129;
+
+const int _SC_XOPEN_REALTIME = 130;
+
+const int _SC_XOPEN_REALTIME1 = 130;
+
+const int _SC_XOPEN_REALTIME_THREADS = 131;
+
+const int _SC_XOPEN_REALTIME_THREADS1 = 131;
+
+const int _SC_XOPEN_SHM = 94;
+
+const int _SC_XOPEN_SHM1 = 94;
+
+const int _SC_XOPEN_STREAMS = 246;
+
+const int _SC_XOPEN_STREAMS1 = 246;
+
+const int _SC_XOPEN_UNIX = 91;
+
+const int _SC_XOPEN_UNIX1 = 91;
+
+const int _SC_XOPEN_VERSION = 89;
+
+const int _SC_XOPEN_VERSION1 = 89;
+
+const int _SC_XOPEN_XCU_VERSION = 90;
+
+const int _SC_XOPEN_XCU_VERSION1 = 90;
+
+const int _SC_XOPEN_XPG2 = 98;
+
+const int _SC_XOPEN_XPG21 = 98;
+
+const int _SC_XOPEN_XPG3 = 99;
+
+const int _SC_XOPEN_XPG31 = 99;
+
+const int _SC_XOPEN_XPG4 = 100;
+
+const int _SC_XOPEN_XPG41 = 100;
+
+const int _SIGSET_NWORDS = 16;
+
+const int _SS_PADSIZE = 118;
+
+const int _SS_SIZE = 128;
+
+const int _STAT_VER = 1;
+
+const int _STAT_VER_KERNEL = 0;
+
+const int _STAT_VER_LINUX = 1;
+
+const int _STDC_PREDEF_H = 1;
+
+const int _STDINT_H = 1;
+
+const int _STDIO_H = 1;
+
+const int _STDLIB_H = 1;
+
+const int _STRINGS_H = 1;
+
+const int _STRING_H = 1;
+
+const int _STRUCT_TIMESPEC = 1;
+
+const int _SYS_CDEFS_H = 1;
+
+const int _SYS_RESOURCE_H = 1;
+
+const int _SYS_SELECT_H = 1;
+
+const int _SYS_SOCKET_H = 1;
+
+const int _SYS_STAT_H = 1;
+
+const int _SYS_SYSINFO_H = 1;
+
+const int _SYS_TIME_H = 1;
+
+const int _SYS_TYPES_H = 1;
+
+const int _SYS_UCONTEXT_H = 1;
+
+const int _THREAD_MUTEX_INTERNAL_H = 1;
+
+const int _THREAD_SHARED_TYPES_H = 1;
+
+const int _TIME_H = 1;
+
+const int _UNISTD_H = 1;
 
 const int _XBS5_LP64_OFF64 = 1;
 
-const int _XBS5_LPBIG_OFFBIG = 1;
-
-const int _XOPEN_CRYPT = 1;
+const int _XBS5_LPBIG_OFFBIG = -1;
 
 const int _XOPEN_ENH_I18N = 1;
 
-const int _XOPEN_IOV_MAX = 16;
+const int _XOPEN_LEGACY = 1;
 
-const int _XOPEN_LEGACY = -1;
+const int _XOPEN_REALTIME = 1;
 
-const int _XOPEN_NAME_MAX = 255;
-
-const int _XOPEN_PATH_MAX = 1024;
-
-const int _XOPEN_REALTIME = -1;
-
-const int _XOPEN_REALTIME_THREADS = -1;
+const int _XOPEN_REALTIME_THREADS = 1;
 
 const int _XOPEN_SHM = 1;
 
-const int _XOPEN_STREAMS = -1;
-
 const int _XOPEN_UNIX = 1;
 
-const int _XOPEN_VERSION = 600;
+const int _XOPEN_VERSION = 700;
 
 const int _XOPEN_XCU_VERSION = 4;
 
-const int __API_TO_BE_DEPRECATED = 100000;
+const int _XOPEN_XPG2 = 1;
 
-const String __ASSERT_FILE_NAME = 'temp_for_macros.hpp';
+const int _XOPEN_XPG3 = 1;
 
-const int __DARWIN_64_BIT_INO_T = 1;
+const int _XOPEN_XPG4 = 1;
 
-const int __DARWIN_ALIGNBYTES = 7;
+const int __BIG_ENDIAN = 4321;
 
-const int __DARWIN_ALIGNBYTES32 = 3;
+const int __BITS_PER_LONG = 64;
 
-const int __DARWIN_BIG_ENDIAN = 4321;
+const int __BIT_TYPES_DEFINED__ = 1;
 
-const int __DARWIN_BYTE_ORDER = 1234;
+const int __BYTE_ORDER = 1234;
 
-const int __DARWIN_CLK_TCK = 100;
+const int __CPU_SETSIZE = 1024;
 
-const int __DARWIN_C_ANSI = 4096;
+const int __ENUM_IDTYPE_T = 1;
 
-const int __DARWIN_C_FULL = 900000;
+const int __FD_SETSIZE = 1024;
 
-const int __DARWIN_C_LEVEL = 900000;
+const String __FD_ZERO_STOS = 'stosq';
 
-const int __DARWIN_FD_SETSIZE = 1024;
+const int __FILE_defined = 1;
 
-const int __DARWIN_IPPORT_RESERVED = 1024;
+const int __FLOAT_WORD_ORDER = 1234;
 
-const int __DARWIN_LITTLE_ENDIAN = 1234;
+const int __FP_LOGB0_IS_MIN = 1;
 
-const int __DARWIN_NBBY = 8;
+const int __FP_LOGBNAN_IS_MIN = 1;
 
-const int __DARWIN_NFDBITS = 32;
+const int __GLIBC_FLT_EVAL_METHOD = 0;
 
-const int __DARWIN_NON_CANCELABLE = 0;
+const int __GLIBC_MINOR__ = 31;
 
-const int __DARWIN_NO_LONG_LONG = 0;
+const int __GLIBC_USE_DEPRECATED_GETS = 0;
 
-const int __DARWIN_NSIG = 32;
+const int __GLIBC_USE_DEPRECATED_SCANF = 0;
 
-const int __DARWIN_NULL = 0;
+const int __GLIBC_USE_IEC_60559_BFP_EXT = 1;
 
-const int __DARWIN_ONLY_64_BIT_INO_T = 0;
+const int __GLIBC_USE_IEC_60559_BFP_EXT_C2X = 1;
 
-const int __DARWIN_ONLY_UNIX_CONFORMANCE = 1;
+const int __GLIBC_USE_IEC_60559_FUNCS_EXT = 1;
 
-const int __DARWIN_ONLY_VERS_1050 = 0;
+const int __GLIBC_USE_IEC_60559_FUNCS_EXT_C2X = 1;
 
-const int __DARWIN_PDP_ENDIAN = 3412;
+const int __GLIBC_USE_IEC_60559_TYPES_EXT = 1;
 
-const String __DARWIN_SUF_1050 = '\$1050';
+const int __GLIBC_USE_ISOC2X = 1;
 
-const String __DARWIN_SUF_64_BIT_INO_T = '\$INODE64';
+const int __GLIBC_USE_LIB_EXT2 = 1;
 
-const String __DARWIN_SUF_EXTSN = '\$DARWIN_EXTSN';
+const int __GLIBC__ = 2;
 
-const int __DARWIN_UNIX03 = 1;
+const int __GNU_LIBRARY__ = 6;
 
-const int __DARWIN_VERS_1050 = 1;
+const int __HAVE_DISTINCT_FLOAT128 = 0;
 
-const int __DARWIN_WCHAR_MAX = 2147483647;
+const int __HAVE_DISTINCT_FLOAT128X = 0;
 
-const int __DARWIN_WCHAR_MIN = -2147483648;
+const int __HAVE_DISTINCT_FLOAT16 = 0;
 
-const int __DARWIN_WEOF = -1;
+const int __HAVE_DISTINCT_FLOAT32 = 0;
 
-const int __DRIVERKIT_19_0 = 190000;
+const int __HAVE_DISTINCT_FLOAT32X = 0;
 
-const int __DRIVERKIT_20_0 = 200000;
+const int __HAVE_DISTINCT_FLOAT64 = 0;
 
-const int __DRIVERKIT_21_0 = 210000;
+const int __HAVE_DISTINCT_FLOAT64X = 0;
 
-const int __ENABLE_LEGACY_MAC_AVAILABILITY = 1;
+const int __HAVE_FLOAT128 = 0;
 
-const int __GNUC_VA_LIST = 1;
+const int __HAVE_FLOAT128X = 0;
 
-const int __ILP32_OFF32 = -1;
+const int __HAVE_FLOAT128_UNLIKE_LDBL = 0;
 
-const int __ILP32_OFFBIG = -1;
+const int __HAVE_FLOAT16 = 0;
 
-const int __IPHONE_10_0 = 100000;
+const int __HAVE_FLOAT32 = 1;
 
-const int __IPHONE_10_1 = 100100;
+const int __HAVE_FLOAT32X = 1;
 
-const int __IPHONE_10_2 = 100200;
+const int __HAVE_FLOAT64 = 1;
 
-const int __IPHONE_10_3 = 100300;
+const int __HAVE_FLOAT64X = 1;
 
-const int __IPHONE_11_0 = 110000;
+const int __HAVE_FLOAT64X_LONG_DOUBLE = 1;
 
-const int __IPHONE_11_1 = 110100;
+const int __HAVE_FLOATN_NOT_TYPEDEF = 0;
 
-const int __IPHONE_11_2 = 110200;
+const int __HAVE_GENERIC_SELECTION = 0;
 
-const int __IPHONE_11_3 = 110300;
+const String __ILP32_OFF32_CFLAGS = '-m32';
 
-const int __IPHONE_11_4 = 110400;
+const String __ILP32_OFF32_LDFLAGS = '-m32';
 
-const int __IPHONE_12_0 = 120000;
+const String __ILP32_OFFBIG_CFLAGS = '-m32 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64';
 
-const int __IPHONE_12_1 = 120100;
+const String __ILP32_OFFBIG_LDFLAGS = '-m32';
 
-const int __IPHONE_12_2 = 120200;
+const int __INO_T_MATCHES_INO64_T = 1;
 
-const int __IPHONE_12_3 = 120300;
+const int __LC_ADDRESS = 9;
 
-const int __IPHONE_12_4 = 120400;
+const int __LC_ALL = 6;
 
-const int __IPHONE_13_0 = 130000;
+const int __LC_COLLATE = 3;
 
-const int __IPHONE_13_1 = 130100;
+const int __LC_CTYPE = 0;
 
-const int __IPHONE_13_2 = 130200;
+const int __LC_IDENTIFICATION = 12;
 
-const int __IPHONE_13_3 = 130300;
+const int __LC_MEASUREMENT = 11;
 
-const int __IPHONE_13_4 = 130400;
+const int __LC_MESSAGES = 5;
 
-const int __IPHONE_13_5 = 130500;
+const int __LC_MONETARY = 4;
 
-const int __IPHONE_13_6 = 130600;
+const int __LC_NAME = 8;
 
-const int __IPHONE_13_7 = 130700;
+const int __LC_NUMERIC = 1;
 
-const int __IPHONE_14_0 = 140000;
+const int __LC_PAPER = 7;
 
-const int __IPHONE_14_1 = 140100;
+const int __LC_TELEPHONE = 10;
 
-const int __IPHONE_14_2 = 140200;
+const int __LC_TIME = 2;
 
-const int __IPHONE_14_3 = 140300;
+const int __LITTLE_ENDIAN = 1234;
 
-const int __IPHONE_14_5 = 140500;
+const int __LONG_DOUBLE_USES_FLOAT128 = 0;
 
-const int __IPHONE_14_6 = 140600;
+const String __LP64_OFF64_CFLAGS = '-m64';
 
-const int __IPHONE_14_7 = 140700;
+const String __LP64_OFF64_LDFLAGS = '-m64';
 
-const int __IPHONE_14_8 = 140800;
+const int __MATH_DECLARE_LDOUBLE = 1;
 
-const int __IPHONE_15_0 = 150000;
+const int __NCPUBITS = 64;
 
-const int __IPHONE_2_0 = 20000;
+const int __NFDBITS = 64;
 
-const int __IPHONE_2_1 = 20100;
+const int __NGREG = 23;
 
-const int __IPHONE_2_2 = 20200;
+const int __OFF_T_MATCHES_OFF64_T = 1;
 
-const int __IPHONE_3_0 = 30000;
+const int __PDP_ENDIAN = 3412;
 
-const int __IPHONE_3_1 = 30100;
+const int __POSIX2_THIS_VERSION = 200809;
 
-const int __IPHONE_3_2 = 30200;
+const int __PTHREAD_MUTEX_HAVE_PREV = 1;
 
-const int __IPHONE_4_0 = 40000;
+const int __PTHREAD_RWLOCK_ELISION_EXTRA = 0;
 
-const int __IPHONE_4_1 = 40100;
+const int __RLIM_T_MATCHES_RLIM64_T = 1;
 
-const int __IPHONE_4_2 = 40200;
+const int __SIGEV_MAX_SIZE = 64;
 
-const int __IPHONE_4_3 = 40300;
+const int __SIGEV_PAD_SIZE = 12;
 
-const int __IPHONE_5_0 = 50000;
+const int __SIGRTMAX = 64;
 
-const int __IPHONE_5_1 = 50100;
+const int __SIGRTMIN = 32;
 
-const int __IPHONE_6_0 = 60000;
+const int __SIZEOF_PTHREAD_ATTR_T = 56;
 
-const int __IPHONE_6_1 = 60100;
+const int __SIZEOF_PTHREAD_BARRIERATTR_T = 4;
 
-const int __IPHONE_7_0 = 70000;
+const int __SIZEOF_PTHREAD_BARRIER_T = 32;
 
-const int __IPHONE_7_1 = 70100;
+const int __SIZEOF_PTHREAD_CONDATTR_T = 4;
 
-const int __IPHONE_8_0 = 80000;
+const int __SIZEOF_PTHREAD_COND_T = 48;
 
-const int __IPHONE_8_1 = 80100;
+const int __SIZEOF_PTHREAD_MUTEXATTR_T = 4;
 
-const int __IPHONE_8_2 = 80200;
+const int __SIZEOF_PTHREAD_MUTEX_T = 40;
 
-const int __IPHONE_8_3 = 80300;
+const int __SIZEOF_PTHREAD_RWLOCKATTR_T = 8;
 
-const int __IPHONE_8_4 = 80400;
+const int __SIZEOF_PTHREAD_RWLOCK_T = 56;
 
-const int __IPHONE_9_0 = 90000;
+const int __SI_ASYNCIO_AFTER_SIGIO = 1;
 
-const int __IPHONE_9_1 = 90100;
+const int __SI_ERRNO_THEN_CODE = 1;
 
-const int __IPHONE_9_2 = 90200;
+const int __SI_HAVE_SIGSYS = 1;
 
-const int __IPHONE_9_3 = 90300;
+const int __SI_MAX_SIZE = 128;
 
-const int __IPV6_ADDR_SCOPE_GLOBAL = 14;
+const int __SI_PAD_SIZE = 28;
 
-const int __IPV6_ADDR_SCOPE_INTFACELOCAL = 1;
+const int __SOCKADDR_COMMON_SIZE = 2;
 
-const int __IPV6_ADDR_SCOPE_LINKLOCAL = 2;
+const int __STATFS_MATCHES_STATFS64 = 1;
 
-const int __IPV6_ADDR_SCOPE_NODELOCAL = 1;
+const int __STDC_IEC_559_COMPLEX__ = 1;
 
-const int __IPV6_ADDR_SCOPE_ORGLOCAL = 8;
+const int __STDC_IEC_559__ = 1;
 
-const int __IPV6_ADDR_SCOPE_SITELOCAL = 5;
+const int __STDC_ISO_10646__ = 201706;
 
-const String __KAME_VERSION = '2009/apple-darwin';
+const int __SYSCALL_WORDSIZE = 64;
 
-const int __LASTBRANCH_MAX = 32;
+const int __S_IEXEC = 64;
 
-const int __LP64_OFF64 = 1;
+const int __S_IFBLK = 24576;
 
-const int __LPBIG_OFFBIG = 1;
+const int __S_IFCHR = 8192;
 
-const int __MAC_10_0 = 1000;
+const int __S_IFDIR = 16384;
 
-const int __MAC_10_1 = 1010;
+const int __S_IFIFO = 4096;
 
-const int __MAC_10_10 = 101000;
+const int __S_IFLNK = 40960;
 
-const int __MAC_10_10_2 = 101002;
+const int __S_IFMT = 61440;
 
-const int __MAC_10_10_3 = 101003;
+const int __S_IFREG = 32768;
 
-const int __MAC_10_11 = 101100;
+const int __S_IFSOCK = 49152;
 
-const int __MAC_10_11_2 = 101102;
+const int __S_IREAD = 256;
 
-const int __MAC_10_11_3 = 101103;
+const int __S_ISGID = 1024;
 
-const int __MAC_10_11_4 = 101104;
+const int __S_ISUID = 2048;
 
-const int __MAC_10_12 = 101200;
+const int __S_ISVTX = 512;
 
-const int __MAC_10_12_1 = 101201;
+const int __S_IWRITE = 128;
 
-const int __MAC_10_12_2 = 101202;
+const int __TIMESIZE = 64;
 
-const int __MAC_10_12_4 = 101204;
+const int __USE_ATFILE = 1;
 
-const int __MAC_10_13 = 101300;
+const int __USE_FORTIFY_LEVEL = 0;
 
-const int __MAC_10_13_1 = 101301;
+const int __USE_ISOC11 = 1;
 
-const int __MAC_10_13_2 = 101302;
+const int __USE_ISOC95 = 1;
 
-const int __MAC_10_13_4 = 101304;
+const int __USE_ISOC99 = 1;
 
-const int __MAC_10_14 = 101400;
+const int __USE_KERNEL_IPV6_DEFS = 0;
 
-const int __MAC_10_14_1 = 101401;
+const int __USE_MISC = 1;
 
-const int __MAC_10_14_4 = 101404;
+const int __USE_POSIX = 1;
 
-const int __MAC_10_14_6 = 101406;
+const int __USE_POSIX199309 = 1;
 
-const int __MAC_10_15 = 101500;
+const int __USE_POSIX199506 = 1;
 
-const int __MAC_10_15_1 = 101501;
+const int __USE_POSIX2 = 1;
 
-const int __MAC_10_15_4 = 101504;
+const int __USE_XOPEN2K = 1;
 
-const int __MAC_10_16 = 101600;
+const int __USE_XOPEN2K8 = 1;
 
-const int __MAC_10_2 = 1020;
+const int __WALL = 1073741824;
 
-const int __MAC_10_3 = 1030;
+const int __WCHAR_MAX = 2147483647;
 
-const int __MAC_10_4 = 1040;
+const int __WCHAR_MIN = -2147483648;
 
-const int __MAC_10_5 = 1050;
+const int __WCLONE = 2147483648;
 
-const int __MAC_10_6 = 1060;
+const int __WCOREFLAG = 128;
 
-const int __MAC_10_7 = 1070;
-
-const int __MAC_10_8 = 1080;
-
-const int __MAC_10_9 = 1090;
-
-const int __MAC_11_0 = 110000;
-
-const int __MAC_11_1 = 110100;
-
-const int __MAC_11_3 = 110300;
-
-const int __MAC_11_4 = 110400;
-
-const int __MAC_11_5 = 110500;
-
-const int __MAC_12_0 = 120000;
-
-const int __MAC_OS_X_VERSION_MAX_ALLOWED = 120000;
-
-const int __MAC_OS_X_VERSION_MIN_REQUIRED = 120000;
-
-const int __PTHREAD_ATTR_SIZE__ = 56;
-
-const int __PTHREAD_CONDATTR_SIZE__ = 8;
-
-const int __PTHREAD_COND_SIZE__ = 40;
-
-const int __PTHREAD_MUTEXATTR_SIZE__ = 8;
-
-const int __PTHREAD_MUTEX_SIZE__ = 56;
-
-const int __PTHREAD_ONCE_SIZE__ = 8;
-
-const int __PTHREAD_RWLOCKATTR_SIZE__ = 16;
-
-const int __PTHREAD_RWLOCK_SIZE__ = 192;
-
-const int __PTHREAD_SIZE__ = 8176;
-
-const int __SALC = 16384;
-
-const int __SAPP = 256;
-
-const int __SCHED_PARAM_SIZE__ = 4;
-
-const int __SEOF = 32;
-
-const int __SERR = 64;
-
-const int __SIGN = 32768;
-
-const int __SLBF = 1;
-
-const int __SMBF = 128;
-
-const int __SMOD = 8192;
-
-const int __SNBF = 2;
-
-const int __SNPT = 2048;
-
-const int __SOFF = 4096;
-
-const int __SOPT = 1024;
-
-const int __SRD = 4;
-
-const int __SRW = 16;
-
-const int __SSTR = 512;
-
-const int __STDC_WANT_LIB_EXT1__ = 1;
-
-const int __SWR = 8;
-
-const int __TVOS_10_0 = 100000;
-
-const int __TVOS_10_0_1 = 100001;
-
-const int __TVOS_10_1 = 100100;
-
-const int __TVOS_10_2 = 100200;
-
-const int __TVOS_11_0 = 110000;
-
-const int __TVOS_11_1 = 110100;
-
-const int __TVOS_11_2 = 110200;
-
-const int __TVOS_11_3 = 110300;
-
-const int __TVOS_11_4 = 110400;
-
-const int __TVOS_12_0 = 120000;
-
-const int __TVOS_12_1 = 120100;
-
-const int __TVOS_12_2 = 120200;
-
-const int __TVOS_12_3 = 120300;
-
-const int __TVOS_12_4 = 120400;
-
-const int __TVOS_13_0 = 130000;
-
-const int __TVOS_13_2 = 130200;
-
-const int __TVOS_13_3 = 130300;
-
-const int __TVOS_13_4 = 130400;
-
-const int __TVOS_14_0 = 140000;
-
-const int __TVOS_14_1 = 140100;
-
-const int __TVOS_14_2 = 140200;
-
-const int __TVOS_14_3 = 140300;
-
-const int __TVOS_14_5 = 140500;
-
-const int __TVOS_14_6 = 140600;
-
-const int __TVOS_14_7 = 140700;
-
-const int __TVOS_15_0 = 150000;
-
-const int __TVOS_9_0 = 90000;
-
-const int __TVOS_9_1 = 90100;
-
-const int __TVOS_9_2 = 90200;
-
-const int __WATCHOS_1_0 = 10000;
-
-const int __WATCHOS_2_0 = 20000;
-
-const int __WATCHOS_2_1 = 20100;
-
-const int __WATCHOS_2_2 = 20200;
-
-const int __WATCHOS_3_0 = 30000;
-
-const int __WATCHOS_3_1 = 30100;
-
-const int __WATCHOS_3_1_1 = 30101;
-
-const int __WATCHOS_3_2 = 30200;
-
-const int __WATCHOS_4_0 = 40000;
-
-const int __WATCHOS_4_1 = 40100;
-
-const int __WATCHOS_4_2 = 40200;
-
-const int __WATCHOS_4_3 = 40300;
-
-const int __WATCHOS_5_0 = 50000;
-
-const int __WATCHOS_5_1 = 50100;
-
-const int __WATCHOS_5_2 = 50200;
-
-const int __WATCHOS_5_3 = 50300;
-
-const int __WATCHOS_6_0 = 60000;
-
-const int __WATCHOS_6_1 = 60100;
-
-const int __WATCHOS_6_2 = 60200;
-
-const int __WATCHOS_7_0 = 70000;
-
-const int __WATCHOS_7_1 = 70100;
-
-const int __WATCHOS_7_2 = 70200;
-
-const int __WATCHOS_7_3 = 70300;
-
-const int __WATCHOS_7_4 = 70400;
-
-const int __WATCHOS_7_5 = 70500;
-
-const int __WATCHOS_7_6 = 70600;
-
-const int __WATCHOS_8_0 = 80000;
+const int __WNOTHREAD = 536870912;
 
 const int __WORDSIZE = 64;
 
-const int __bool_true_false_are_defined = 1;
+const int __WORDSIZE_TIME64_COMPAT32 = 1;
 
-typedef __darwin_blkcnt_t = __int64_t;
-typedef __darwin_blksize_t = __int32_t;
-typedef __darwin_dev_t = __int32_t;
+const int __W_CONTINUED = 65535;
 
-class __darwin_fp_control extends ffi.Opaque {}
+const int ____FILE_defined = 1;
 
-class __darwin_fp_status extends ffi.Opaque {}
+const int _____fpos64_t_defined = 1;
 
-typedef __darwin_gid_t = __uint32_t;
+const int _____fpos_t_defined = 1;
 
-class __darwin_i386_avx512_state extends ffi.Opaque {}
+const int ____mbstate_t_defined = 1;
 
-class __darwin_i386_avx_state extends ffi.Opaque {}
+typedef __blkcnt_t = ffi.Int64;
+typedef __blksize_t = ffi.Int64;
+typedef __clock_t = ffi.Int64;
 
-class __darwin_i386_exception_state extends ffi.Struct {
+const int __clock_t_defined = 1;
+
+const int __clockid_t_defined = 1;
+
+typedef __cpu_mask = ffi.Uint64;
+typedef __dev_t = ffi.Uint64;
+typedef __fd_mask = ffi.Int64;
+
+class __fsid_t extends ffi.Struct {
+  @ffi.Array.multi([2])
+  external ffi.Array<ffi.Int32> __val;
+}
+
+typedef __gid_t = ffi.Uint32;
+
+const int __glibc_c99_flexarr_available = 1;
+
+const int __have_pthread_attr_t = 1;
+
+typedef __ino_t = ffi.Uint64;
+
+const int __iovec_defined = 1;
+
+abstract class __itimer_which {
+  static const int ITIMER_REAL = 0;
+  static const int ITIMER_VIRTUAL = 1;
+  static const int ITIMER_PROF = 2;
+}
+
+const int __itimerspec_defined = 1;
+
+class __jmp_buf_tag extends ffi.Opaque {}
+
+class __kernel_fd_set extends ffi.Struct {
+  @ffi.Array.multi([16])
+  external ffi.Array<ffi.Uint64> fds_bits;
+}
+
+class __kernel_fsid_t extends ffi.Struct {
+  @ffi.Array.multi([2])
+  external ffi.Array<ffi.Int32> val;
+}
+
+typedef __kernel_long_t = ffi.Int64;
+typedef __kernel_ulong_t = ffi.Uint64;
+
+const int __ldiv_t_defined = 1;
+
+const int __lldiv_t_defined = 1;
+
+class __locale_data extends ffi.Opaque {}
+
+class __locale_struct extends ffi.Struct {
+  @ffi.Array.multi([13])
+  external ffi.Array<ffi.Pointer<__locale_data>> __locales;
+
+  external ffi.Pointer<ffi.Uint16> __ctype_b;
+
+  external ffi.Pointer<ffi.Int32> __ctype_tolower;
+
+  external ffi.Pointer<ffi.Int32> __ctype_toupper;
+
+  @ffi.Array.multi([13])
+  external ffi.Array<ffi.Pointer<ffi.Int8>> __names;
+}
+
+class __mbstate_t extends ffi.Struct {
+  @ffi.Int32()
+  external int __count;
+
+  external UnnamedUnion1 __value;
+}
+
+typedef __mode_t = ffi.Uint32;
+typedef __nlink_t = ffi.Uint64;
+typedef __off64_t = ffi.Int64;
+typedef __off_t = ffi.Int64;
+
+const int __osockaddr_defined = 1;
+
+typedef __pid_t = ffi.Int32;
+
+abstract class __priority_which {
+  static const int PRIO_PROCESS = 0;
+  static const int PRIO_PGRP = 1;
+  static const int PRIO_USER = 2;
+}
+
+class __pthread_cleanup_frame extends ffi.Struct {
+  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>> __cancel_routine;
+
+  external ffi.Pointer<ffi.Void> __cancel_arg;
+
+  @ffi.Int32()
+  external int __do_it;
+
+  @ffi.Int32()
+  external int __cancel_type;
+}
+
+class __pthread_cond_s extends ffi.Struct {
+  @ffi.Array.multi([2])
+  external ffi.Array<ffi.Uint32> __g_refs;
+
+  @ffi.Array.multi([2])
+  external ffi.Array<ffi.Uint32> __g_size;
+
+  @ffi.Uint32()
+  external int __g1_orig_size;
+
+  @ffi.Uint32()
+  external int __wrefs;
+
+  @ffi.Array.multi([2])
+  external ffi.Array<ffi.Uint32> __g_signals;
+}
+
+class __pthread_internal_list extends ffi.Struct {
+  external ffi.Pointer<__pthread_internal_list> __prev;
+
+  external ffi.Pointer<__pthread_internal_list> __next;
+}
+
+class __pthread_internal_slist extends ffi.Struct {
+  external ffi.Pointer<__pthread_internal_slist> __next;
+}
+
+typedef __pthread_list_t = __pthread_internal_list;
+
+class __pthread_mutex_s extends ffi.Struct {
+  @ffi.Int32()
+  external int __lock;
+
+  @ffi.Uint32()
+  external int __count;
+
+  @ffi.Int32()
+  external int __owner;
+
+  @ffi.Uint32()
+  external int __nusers;
+
+  @ffi.Int32()
+  external int __kind;
+
+  @ffi.Int16()
+  external int __spins;
+
+  @ffi.Int16()
+  external int __elision;
+
+  external __pthread_list_t __list;
+}
+
+class __pthread_rwlock_arch_t extends ffi.Struct {
+  @ffi.Uint32()
+  external int __readers;
+
+  @ffi.Uint32()
+  external int __writers;
+
+  @ffi.Uint32()
+  external int __wrphase_futex;
+
+  @ffi.Uint32()
+  external int __writers_futex;
+
+  @ffi.Uint32()
+  external int __pad3;
+
+  @ffi.Uint32()
+  external int __pad4;
+
+  @ffi.Int32()
+  external int __cur_writer;
+
+  @ffi.Int32()
+  external int __shared;
+
+  @ffi.Int8()
+  external int __rwelision;
+
+  @ffi.Array.multi([7])
+  external ffi.Array<ffi.Uint8> __pad1;
+
+  @ffi.Uint64()
+  external int __pad2;
+
+  @ffi.Uint32()
+  external int __flags;
+}
+
+class __pthread_unwind_buf_t extends ffi.Struct {
+  @ffi.Array.multi([1])
+  external ffi.Array<UnnamedStruct3> __cancel_jmp_buf;
+
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Pointer<ffi.Void>> __pad;
+}
+
+typedef __rlim_t = ffi.Uint64;
+
+abstract class __rlimit_resource {
+  static const int RLIMIT_CPU = 0;
+  static const int RLIMIT_FSIZE = 1;
+  static const int RLIMIT_DATA = 2;
+  static const int RLIMIT_STACK = 3;
+  static const int RLIMIT_CORE = 4;
+  static const int __RLIMIT_RSS = 5;
+  static const int RLIMIT_NOFILE = 7;
+  static const int __RLIMIT_OFILE = 7;
+  static const int RLIMIT_AS = 9;
+  static const int __RLIMIT_NPROC = 6;
+  static const int __RLIMIT_MEMLOCK = 8;
+  static const int __RLIMIT_LOCKS = 10;
+  static const int __RLIMIT_SIGPENDING = 11;
+  static const int __RLIMIT_MSGQUEUE = 12;
+  static const int __RLIMIT_NICE = 13;
+  static const int __RLIMIT_RTPRIO = 14;
+  static const int __RLIMIT_RTTIME = 15;
+  static const int __RLIMIT_NLIMITS = 16;
+  static const int __RLIM_NLIMITS = 16;
+}
+
+const int __rusage_defined = 1;
+
+abstract class __rusage_who {
+  static const int RUSAGE_SELF = 0;
+  static const int RUSAGE_CHILDREN = -1;
+}
+
+const int __sig_atomic_t_defined = 1;
+
+const int __sigevent_t_defined = 1;
+
+typedef __sighandler_t = ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Int32)>>;
+
+const int __siginfo_t_defined = 1;
+
+class __sigset_t extends ffi.Struct {
+  @ffi.Array.multi([16])
+  external ffi.Array<ffi.Uint64> __val;
+}
+
+const int __sigset_t_defined = 1;
+
+const int __sigstack_defined = 1;
+
+typedef __sigval_t = sigval;
+
+abstract class __socket_type {
+  static const int SOCK_STREAM = 1;
+  static const int SOCK_DGRAM = 2;
+  static const int SOCK_RAW = 3;
+  static const int SOCK_RDM = 4;
+  static const int SOCK_SEQPACKET = 5;
+  static const int SOCK_DCCP = 6;
+  static const int SOCK_PACKET = 10;
+  static const int SOCK_CLOEXEC = 524288;
+  static const int SOCK_NONBLOCK = 2048;
+}
+
+typedef __socklen_t = ffi.Uint32;
+
+const int __stack_t_defined = 1;
+
+const int __struct_FILE_defined = 1;
+
+const int __struct_tm_defined = 1;
+
+typedef __suseconds_t = ffi.Int64;
+typedef __syscall_slong_t = ffi.Int64;
+typedef __time_t = ffi.Int64;
+
+const int __time_t_defined = 1;
+
+const int __timer_t_defined = 1;
+
+const int __timeval_defined = 1;
+
+typedef __u16 = ffi.Uint16;
+typedef __u32 = ffi.Uint32;
+typedef __uid_t = ffi.Uint32;
+typedef __uint16_t = ffi.Uint16;
+typedef __uint32_t = ffi.Uint32;
+typedef __uint64_t = ffi.Uint64;
+
+class _fpreg extends ffi.Struct {
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Uint16> significand;
+
+  @ffi.Uint16()
+  external int exponent;
+}
+
+class _fpstate extends ffi.Struct {
   @__uint16_t()
-  external int __trapno;
+  external int cwd;
 
   @__uint16_t()
-  external int __cpu;
+  external int swd;
+
+  @__uint16_t()
+  external int ftw;
+
+  @__uint16_t()
+  external int fop;
+
+  @__uint64_t()
+  external int rip;
+
+  @__uint64_t()
+  external int rdp;
 
   @__uint32_t()
-  external int __err;
+  external int mxcsr;
 
   @__uint32_t()
-  external int __faultvaddr;
-}
+  external int mxcr_mask;
 
-class __darwin_i386_float_state extends ffi.Opaque {}
-
-class __darwin_i386_thread_state extends ffi.Struct {
-  @ffi.Uint32()
-  external int __eax;
-
-  @ffi.Uint32()
-  external int __ebx;
-
-  @ffi.Uint32()
-  external int __ecx;
-
-  @ffi.Uint32()
-  external int __edx;
-
-  @ffi.Uint32()
-  external int __edi;
-
-  @ffi.Uint32()
-  external int __esi;
-
-  @ffi.Uint32()
-  external int __ebp;
-
-  @ffi.Uint32()
-  external int __esp;
-
-  @ffi.Uint32()
-  external int __ss;
-
-  @ffi.Uint32()
-  external int __eflags;
-
-  @ffi.Uint32()
-  external int __eip;
-
-  @ffi.Uint32()
-  external int __cs;
-
-  @ffi.Uint32()
-  external int __ds;
-
-  @ffi.Uint32()
-  external int __es;
-
-  @ffi.Uint32()
-  external int __fs;
-
-  @ffi.Uint32()
-  external int __gs;
-}
-
-typedef __darwin_ino64_t = __uint64_t;
-typedef __darwin_ino_t = __darwin_ino64_t;
-
-class __darwin_mcontext32 extends ffi.Opaque {}
-
-class __darwin_mcontext64 extends ffi.Opaque {}
-
-class __darwin_mcontext64_full extends ffi.Opaque {}
-
-class __darwin_mcontext_avx32 extends ffi.Opaque {}
-
-class __darwin_mcontext_avx512_32 extends ffi.Opaque {}
-
-class __darwin_mcontext_avx512_64 extends ffi.Opaque {}
-
-class __darwin_mcontext_avx512_64_full extends ffi.Opaque {}
-
-class __darwin_mcontext_avx64 extends ffi.Opaque {}
-
-class __darwin_mcontext_avx64_full extends ffi.Opaque {}
-
-class __darwin_mmst_reg extends ffi.Struct {
-  @ffi.Array.multi([10])
-  external ffi.Array<ffi.Int8> __mmst_reg;
-
-  @ffi.Array.multi([6])
-  external ffi.Array<ffi.Int8> __mmst_rsrv;
-}
-
-typedef __darwin_mode_t = __uint16_t;
-typedef __darwin_off_t = __int64_t;
-
-class __darwin_opmask_reg extends ffi.Struct {
   @ffi.Array.multi([8])
-  external ffi.Array<ffi.Int8> __opmask_reg;
+  external ffi.Array<_fpxreg> _st;
+
+  @ffi.Array.multi([16])
+  external ffi.Array<_xmmreg> _xmm;
+
+  @ffi.Array.multi([24])
+  external ffi.Array<__uint32_t> __glibc_reserved1;
 }
 
-typedef __darwin_pid_t = __int32_t;
-typedef __darwin_pthread_attr_t = _opaque_pthread_attr_t;
-typedef __darwin_pthread_cond_t = _opaque_pthread_cond_t;
+class _fpx_sw_bytes extends ffi.Struct {
+  @__uint32_t()
+  external int magic1;
 
-class __darwin_pthread_handler_rec extends ffi.Struct {
+  @__uint32_t()
+  external int extended_size;
+
+  @__uint64_t()
+  external int xstate_bv;
+
+  @__uint32_t()
+  external int xstate_size;
+
+  @ffi.Array.multi([7])
+  external ffi.Array<__uint32_t> __glibc_reserved1;
+}
+
+class _fpxreg extends ffi.Struct {
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Uint16> significand;
+
+  @ffi.Uint16()
+  external int exponent;
+
+  @ffi.Array.multi([3])
+  external ffi.Array<ffi.Uint16> __glibc_reserved1;
+}
+
+class _libc_fpstate extends ffi.Struct {
+  @__uint16_t()
+  external int cwd;
+
+  @__uint16_t()
+  external int swd;
+
+  @__uint16_t()
+  external int ftw;
+
+  @__uint16_t()
+  external int fop;
+
+  @__uint64_t()
+  external int rip;
+
+  @__uint64_t()
+  external int rdp;
+
+  @__uint32_t()
+  external int mxcsr;
+
+  @__uint32_t()
+  external int mxcr_mask;
+
+  @ffi.Array.multi([8])
+  external ffi.Array<_libc_fpxreg> _st;
+
+  @ffi.Array.multi([16])
+  external ffi.Array<_libc_xmmreg> _xmm;
+
+  @ffi.Array.multi([24])
+  external ffi.Array<__uint32_t> __glibc_reserved1;
+}
+
+class _libc_fpxreg extends ffi.Struct {
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Uint16> significand;
+
+  @ffi.Uint16()
+  external int exponent;
+
+  @ffi.Array.multi([3])
+  external ffi.Array<ffi.Uint16> __glibc_reserved1;
+}
+
+class _libc_xmmreg extends ffi.Struct {
+  @ffi.Array.multi([4])
+  external ffi.Array<__uint32_t> element;
+}
+
+class _pthread_cleanup_buffer extends ffi.Struct {
   external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>> __routine;
 
   external ffi.Pointer<ffi.Void> __arg;
 
-  external ffi.Pointer<__darwin_pthread_handler_rec> __next;
-}
-
-typedef __darwin_pthread_mutex_t = _opaque_pthread_mutex_t;
-typedef __darwin_pthread_t = ffi.Pointer<_opaque_pthread_t>;
-typedef __darwin_rune_t = __darwin_wchar_t;
-
-class __darwin_sigaltstack extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> ss_sp;
-
-  @__darwin_size_t()
-  external int ss_size;
-
   @ffi.Int32()
-  external int ss_flags;
+  external int __canceltype;
+
+  external ffi.Pointer<_pthread_cleanup_buffer> __prev;
 }
 
-typedef __darwin_sigset_t = __uint32_t;
-typedef __darwin_size_t = ffi.Uint64;
-typedef __darwin_socklen_t = __uint32_t;
-typedef __darwin_suseconds_t = __int32_t;
-typedef __darwin_time_t = ffi.Int64;
-
-class __darwin_ucontext extends ffi.Struct {
-  @ffi.Int32()
-  external int uc_onstack;
-
-  @__darwin_sigset_t()
-  external int uc_sigmask;
-
-  external __darwin_sigaltstack uc_stack;
-
-  external ffi.Pointer<__darwin_ucontext> uc_link;
-
-  @__darwin_size_t()
-  external int uc_mcsize;
-
-  external ffi.Pointer<__darwin_mcontext64> uc_mcontext;
+class _xmmreg extends ffi.Struct {
+  @ffi.Array.multi([4])
+  external ffi.Array<__uint32_t> element;
 }
 
-typedef __darwin_uid_t = __uint32_t;
-typedef __darwin_wchar_t = ffi.Int32;
-
-class __darwin_x86_avx512_state64 extends ffi.Opaque {}
-
-class __darwin_x86_avx_state64 extends ffi.Opaque {}
-
-class __darwin_x86_cpmu_state64 extends ffi.Struct {
-  @ffi.Array.multi([16])
-  external ffi.Array<__uint64_t> __ctrs;
-}
-
-class __darwin_x86_debug_state32 extends ffi.Struct {
-  @ffi.Uint32()
-  external int __dr0;
-
-  @ffi.Uint32()
-  external int __dr1;
-
-  @ffi.Uint32()
-  external int __dr2;
-
-  @ffi.Uint32()
-  external int __dr3;
-
-  @ffi.Uint32()
-  external int __dr4;
-
-  @ffi.Uint32()
-  external int __dr5;
-
-  @ffi.Uint32()
-  external int __dr6;
-
-  @ffi.Uint32()
-  external int __dr7;
-}
-
-class __darwin_x86_debug_state64 extends ffi.Struct {
+class _xsave_hdr extends ffi.Struct {
   @__uint64_t()
-  external int __dr0;
-
-  @__uint64_t()
-  external int __dr1;
-
-  @__uint64_t()
-  external int __dr2;
-
-  @__uint64_t()
-  external int __dr3;
-
-  @__uint64_t()
-  external int __dr4;
-
-  @__uint64_t()
-  external int __dr5;
-
-  @__uint64_t()
-  external int __dr6;
-
-  @__uint64_t()
-  external int __dr7;
-}
-
-class __darwin_x86_exception_state64 extends ffi.Struct {
-  @__uint16_t()
-  external int __trapno;
-
-  @__uint16_t()
-  external int __cpu;
-
-  @__uint32_t()
-  external int __err;
-
-  @__uint64_t()
-  external int __faultvaddr;
-}
-
-class __darwin_x86_float_state64 extends ffi.Opaque {}
-
-class __darwin_x86_thread_full_state64 extends ffi.Struct {
-  external __darwin_x86_thread_state64 __ss64;
-
-  @__uint64_t()
-  external int __ds;
-
-  @__uint64_t()
-  external int __es;
-
-  @__uint64_t()
-  external int __ss;
-
-  @__uint64_t()
-  external int __gsbase;
-}
-
-class __darwin_x86_thread_state64 extends ffi.Struct {
-  @__uint64_t()
-  external int __rax;
-
-  @__uint64_t()
-  external int __rbx;
-
-  @__uint64_t()
-  external int __rcx;
-
-  @__uint64_t()
-  external int __rdx;
-
-  @__uint64_t()
-  external int __rdi;
-
-  @__uint64_t()
-  external int __rsi;
-
-  @__uint64_t()
-  external int __rbp;
-
-  @__uint64_t()
-  external int __rsp;
-
-  @__uint64_t()
-  external int __r8;
-
-  @__uint64_t()
-  external int __r9;
-
-  @__uint64_t()
-  external int __r10;
-
-  @__uint64_t()
-  external int __r11;
-
-  @__uint64_t()
-  external int __r12;
-
-  @__uint64_t()
-  external int __r13;
-
-  @__uint64_t()
-  external int __r14;
-
-  @__uint64_t()
-  external int __r15;
-
-  @__uint64_t()
-  external int __rip;
-
-  @__uint64_t()
-  external int __rflags;
-
-  @__uint64_t()
-  external int __cs;
-
-  @__uint64_t()
-  external int __fs;
-
-  @__uint64_t()
-  external int __gs;
-}
-
-class __darwin_xmm_reg extends ffi.Struct {
-  @ffi.Array.multi([16])
-  external ffi.Array<ffi.Int8> __xmm_reg;
-}
-
-class __darwin_ymm_reg extends ffi.Struct {
-  @ffi.Array.multi([32])
-  external ffi.Array<ffi.Int8> __ymm_reg;
-}
-
-class __darwin_zmm_reg extends ffi.Struct {
-  @ffi.Array.multi([64])
-  external ffi.Array<ffi.Int8> __zmm_reg;
-}
-
-class __double2 extends ffi.Struct {
-  @ffi.Double()
-  external double __sinval;
-
-  @ffi.Double()
-  external double __cosval;
-}
-
-class __float2 extends ffi.Struct {
-  @ffi.Float()
-  external double __sinval;
-
-  @ffi.Float()
-  external double __cosval;
-}
-
-typedef __int32_t = ffi.Int32;
-typedef __int64_t = ffi.Int64;
-
-class __last_branch_record extends ffi.Opaque {}
-
-class __last_branch_state extends ffi.Opaque {}
-
-class __mbstate_t extends ffi.Union {
-  @ffi.Array.multi([128])
-  external ffi.Array<ffi.Int8> __mbstate8;
-
-  @ffi.Int64()
-  external int _mbstateL;
-}
-
-@ffi.Packed(4)
-class __msfilterreq extends ffi.Struct {
-  @ffi.Uint32()
-  external int msfr_ifindex;
-
-  @ffi.Uint32()
-  external int msfr_fmode;
-
-  @ffi.Uint32()
-  external int msfr_nsrcs;
-
-  @ffi.Uint32()
-  external int __msfr_align;
-
-  external sockaddr_storage msfr_group;
-
-  external ffi.Pointer<sockaddr_storage> msfr_srcs;
-}
-
-class __sFILE extends ffi.Struct {
-  external ffi.Pointer<ffi.Uint8> _p;
-
-  @ffi.Int32()
-  external int _r;
-
-  @ffi.Int32()
-  external int _w;
-
-  @ffi.Int16()
-  external int _flags;
-
-  @ffi.Int16()
-  external int _file;
-
-  external __sbuf _bf;
-
-  @ffi.Int32()
-  external int _lbfsize;
-
-  external ffi.Pointer<ffi.Void> _cookie;
-
-  external ffi.Pointer<ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<ffi.Void>)>> _close;
-
-  external ffi.Pointer<ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Int8>, ffi.Int32)>>
-      _read;
-
-  external ffi.Pointer<ffi.NativeFunction<fpos_t Function(ffi.Pointer<ffi.Void>, fpos_t, ffi.Int32)>> _seek;
-
-  external ffi.Pointer<ffi.NativeFunction<ffi.Int32 Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Int8>, ffi.Int32)>>
-      _write;
-
-  external __sbuf _ub;
-
-  external ffi.Pointer<__sFILEX> _extra;
-
-  @ffi.Int32()
-  external int _ur;
-
-  @ffi.Array.multi([3])
-  external ffi.Array<ffi.Uint8> _ubuf;
-
-  @ffi.Array.multi([1])
-  external ffi.Array<ffi.Uint8> _nbuf;
-
-  external __sbuf _lb;
-
-  @ffi.Int32()
-  external int _blksize;
-
-  @fpos_t()
-  external int _offset;
-}
-
-class __sFILEX extends ffi.Opaque {}
-
-class __sbuf extends ffi.Struct {
-  external ffi.Pointer<ffi.Uint8> _base;
-
-  @ffi.Int32()
-  external int _size;
-}
-
-class __sigaction extends ffi.Struct {
-  external __sigaction_u __sigaction_u1;
-
-  external ffi.Pointer<
-      ffi.NativeFunction<
-          ffi.Void Function(
-              ffi.Pointer<ffi.Void>, ffi.Int32, ffi.Int32, ffi.Pointer<siginfo_t>, ffi.Pointer<ffi.Void>)>> sa_tramp;
-
-  @sigset_t()
-  external int sa_mask;
-
-  @ffi.Int32()
-  external int sa_flags;
-}
-
-class __sigaction_u extends ffi.Union {
-  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Int32)>> __sa_handler;
-
-  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Int32, ffi.Pointer<__siginfo>, ffi.Pointer<ffi.Void>)>>
-      __sa_sigaction;
-}
-
-class __siginfo extends ffi.Struct {
-  @ffi.Int32()
-  external int si_signo;
-
-  @ffi.Int32()
-  external int si_errno;
-
-  @ffi.Int32()
-  external int si_code;
-
-  @pid_t()
-  external int si_pid;
-
-  @uid_t()
-  external int si_uid;
-
-  @ffi.Int32()
-  external int si_status;
-
-  external ffi.Pointer<ffi.Void> si_addr;
-
-  external sigval si_value;
-
-  @ffi.Int64()
-  external int si_band;
-
-  @ffi.Array.multi([7])
-  external ffi.Array<ffi.Uint64> __pad;
-}
-
-typedef __uint16_t = ffi.Uint16;
-typedef __uint32_t = ffi.Uint32;
-typedef __uint64_t = ffi.Uint64;
-typedef __uint8_t = ffi.Uint8;
-
-class __x86_instruction_state extends ffi.Struct {
-  @ffi.Int32()
-  external int __insn_stream_valid_bytes;
-
-  @ffi.Int32()
-  external int __insn_offset;
-
-  @ffi.Int32()
-  external int __out_of_synch;
-
-  @ffi.Array.multi([2380])
-  external ffi.Array<__uint8_t> __insn_bytes;
-
-  @ffi.Array.multi([64])
-  external ffi.Array<__uint8_t> __insn_cacheline;
-}
-
-class __x86_pagein_state extends ffi.Struct {
-  @ffi.Int32()
-  external int __pagein_error;
-}
-
-class _filesec extends ffi.Opaque {}
-
-class _opaque_pthread_attr_t extends ffi.Struct {
-  @ffi.Int64()
-  external int __sig;
-
-  @ffi.Array.multi([56])
-  external ffi.Array<ffi.Int8> __opaque;
-}
-
-class _opaque_pthread_cond_t extends ffi.Struct {
-  @ffi.Int64()
-  external int __sig;
-
-  @ffi.Array.multi([40])
-  external ffi.Array<ffi.Int8> __opaque;
-}
-
-class _opaque_pthread_condattr_t extends ffi.Struct {
-  @ffi.Int64()
-  external int __sig;
-
-  @ffi.Array.multi([8])
-  external ffi.Array<ffi.Int8> __opaque;
-}
-
-class _opaque_pthread_mutex_t extends ffi.Struct {
-  @ffi.Int64()
-  external int __sig;
-
-  @ffi.Array.multi([56])
-  external ffi.Array<ffi.Int8> __opaque;
-}
-
-class _opaque_pthread_mutexattr_t extends ffi.Struct {
-  @ffi.Int64()
-  external int __sig;
-
-  @ffi.Array.multi([8])
-  external ffi.Array<ffi.Int8> __opaque;
-}
-
-class _opaque_pthread_once_t extends ffi.Struct {
-  @ffi.Int64()
-  external int __sig;
-
-  @ffi.Array.multi([8])
-  external ffi.Array<ffi.Int8> __opaque;
-}
-
-class _opaque_pthread_rwlock_t extends ffi.Struct {
-  @ffi.Int64()
-  external int __sig;
-
-  @ffi.Array.multi([192])
-  external ffi.Array<ffi.Int8> __opaque;
-}
-
-class _opaque_pthread_rwlockattr_t extends ffi.Struct {
-  @ffi.Int64()
-  external int __sig;
-
-  @ffi.Array.multi([16])
-  external ffi.Array<ffi.Int8> __opaque;
-}
-
-class _opaque_pthread_t extends ffi.Struct {
-  @ffi.Int64()
-  external int __sig;
-
-  external ffi.Pointer<__darwin_pthread_handler_rec> __cleanup_stack;
-
-  @ffi.Array.multi([8176])
-  external ffi.Array<ffi.Int8> __opaque;
-}
-
-class accessx_descriptor extends ffi.Struct {
-  @ffi.Uint32()
-  external int ad_name_offset;
-
-  @ffi.Int32()
-  external int ad_flags;
+  external int xstate_bv;
 
   @ffi.Array.multi([2])
-  external ffi.Array<ffi.Int32> ad_pad;
+  external ffi.Array<__uint64_t> __glibc_reserved1;
+
+  @ffi.Array.multi([5])
+  external ffi.Array<__uint64_t> __glibc_reserved2;
+}
+
+class _xstate extends ffi.Struct {
+  external _fpstate fpstate;
+
+  external _xsave_hdr xstate_hdr;
+
+  external _ymmh_state ymmh;
+}
+
+class _ymmh_state extends ffi.Struct {
+  @ffi.Array.multi([64])
+  external ffi.Array<__uint32_t> ymmh_space;
 }
 
 class addrinfo extends ffi.Struct {
@@ -8261,56 +8784,19 @@ class addrinfo extends ffi.Struct {
   @socklen_t()
   external int ai_addrlen;
 
-  external ffi.Pointer<ffi.Int8> ai_canonname;
-
   external ffi.Pointer<sockaddr> ai_addr;
+
+  external ffi.Pointer<ffi.Int8> ai_canonname;
 
   external ffi.Pointer<addrinfo> ai_next;
 }
 
-typedef blkcnt_t = __darwin_blkcnt_t;
-typedef blksize_t = __darwin_blksize_t;
+class cmsghdr extends ffi.Opaque {}
 
-abstract class clockid_t {
-  static const int _CLOCK_REALTIME = 0;
-  static const int _CLOCK_MONOTONIC = 6;
-  static const int _CLOCK_MONOTONIC_RAW = 4;
-  static const int _CLOCK_MONOTONIC_RAW_APPROX = 5;
-  static const int _CLOCK_UPTIME_RAW = 8;
-  static const int _CLOCK_UPTIME_RAW_APPROX = 9;
-  static const int _CLOCK_PROCESS_CPUTIME_ID = 12;
-  static const int _CLOCK_THREAD_CPUTIME_ID = 16;
+class cpu_set_t extends ffi.Struct {
+  @ffi.Array.multi([16])
+  external ffi.Array<__cpu_mask> __bits;
 }
-
-class clockinfo extends ffi.Struct {
-  @ffi.Int32()
-  external int hz;
-
-  @ffi.Int32()
-  external int tick;
-
-  @ffi.Int32()
-  external int tickadj;
-
-  @ffi.Int32()
-  external int stathz;
-
-  @ffi.Int32()
-  external int profhz;
-}
-
-class cmsghdr extends ffi.Struct {
-  @socklen_t()
-  external int cmsg_len;
-
-  @ffi.Int32()
-  external int cmsg_level;
-
-  @ffi.Int32()
-  external int cmsg_type;
-}
-
-typedef dev_t = __darwin_dev_t;
 
 class div_t extends ffi.Struct {
   @ffi.Int32()
@@ -8320,36 +8806,47 @@ class div_t extends ffi.Struct {
   external int rem;
 }
 
-class exception extends ffi.Struct {
-  @ffi.Int32()
-  external int type;
+class drand48_data extends ffi.Struct {
+  @ffi.Array.multi([3])
+  external ffi.Array<ffi.Uint16> __x;
 
-  external ffi.Pointer<ffi.Int8> name;
+  @ffi.Array.multi([3])
+  external ffi.Array<ffi.Uint16> __old_x;
 
-  @ffi.Double()
-  external double arg1;
+  @ffi.Uint16()
+  external int __c;
 
-  @ffi.Double()
-  external double arg2;
+  @ffi.Uint16()
+  external int __init;
 
-  @ffi.Double()
-  external double retval;
+  @ffi.Uint64()
+  external int __a;
 }
-
-const int false1 = 0;
 
 class fd_set extends ffi.Struct {
-  @ffi.Array.multi([32])
-  external ffi.Array<__int32_t> fds_bits;
+  @ffi.Array.multi([16])
+  external ffi.Array<__fd_mask> __fds_bits;
 }
 
-typedef fpos_t = __darwin_off_t;
+typedef fpregset_t = ffi.Pointer<_libc_fpstate>;
+typedef greg_t = ffi.Int64;
 
-class fssearchblock extends ffi.Opaque {}
+class group_filter extends ffi.Struct {
+  @ffi.Uint32()
+  external int gf_interface;
 
-typedef gid_t = __darwin_gid_t;
+  external sockaddr_storage gf_group;
 
-@ffi.Packed(4)
+  @ffi.Uint32()
+  external int gf_fmode;
+
+  @ffi.Uint32()
+  external int gf_numsrc;
+
+  @ffi.Array.multi([1])
+  external ffi.Array<sockaddr_storage> gf_slist;
+}
+
 class group_req extends ffi.Struct {
   @ffi.Uint32()
   external int gr_interface;
@@ -8357,7 +8854,6 @@ class group_req extends ffi.Struct {
   external sockaddr_storage gr_group;
 }
 
-@ffi.Packed(4)
 class group_source_req extends ffi.Struct {
   @ffi.Uint32()
   external int gsr_interface;
@@ -8388,14 +8884,7 @@ abstract class idtype_t {
 }
 
 class in6_addr extends ffi.Struct {
-  external UnnamedUnion1 __u6_addr;
-}
-
-class in6_pktinfo extends ffi.Struct {
-  external in6_addr ipi6_addr;
-
-  @ffi.Uint32()
-  external int ipi6_ifindex;
+  external UnnamedUnion6 __in6_u;
 }
 
 class in_addr extends ffi.Struct {
@@ -8403,10 +8892,10 @@ class in_addr extends ffi.Struct {
   external int s_addr;
 }
 
-typedef in_addr_t = __uint32_t;
+typedef in_addr_t = ffi.Uint32;
 
 class in_pktinfo extends ffi.Struct {
-  @ffi.Uint32()
+  @ffi.Int32()
   external int ipi_ifindex;
 
   external in_addr ipi_spec_dst;
@@ -8414,21 +8903,13 @@ class in_pktinfo extends ffi.Struct {
   external in_addr ipi_addr;
 }
 
-typedef in_port_t = __uint16_t;
-typedef ino_t = __darwin_ino_t;
+typedef in_port_t = ffi.Uint16;
 
 class iovec extends ffi.Struct {
   external ffi.Pointer<ffi.Void> iov_base;
 
-  @size_t()
+  @ffi.Int32()
   external int iov_len;
-}
-
-class ip6_mtuinfo extends ffi.Struct {
-  external sockaddr_in6 ip6m_addr;
-
-  @ffi.Uint32()
-  external int ip6m_mtu;
 }
 
 class ip_mreq extends ffi.Struct {
@@ -8440,9 +8921,9 @@ class ip_mreq extends ffi.Struct {
 class ip_mreq_source extends ffi.Struct {
   external in_addr imr_multiaddr;
 
-  external in_addr imr_sourceaddr;
-
   external in_addr imr_interface;
+
+  external in_addr imr_sourceaddr;
 }
 
 class ip_mreqn extends ffi.Struct {
@@ -8452,6 +8933,21 @@ class ip_mreqn extends ffi.Struct {
 
   @ffi.Int32()
   external int imr_ifindex;
+}
+
+class ip_msfilter extends ffi.Struct {
+  external in_addr imsf_multiaddr;
+
+  external in_addr imsf_interface;
+
+  @ffi.Uint32()
+  external int imsf_fmode;
+
+  @ffi.Uint32()
+  external int imsf_numsrc;
+
+  @ffi.Array.multi([1])
+  external ffi.Array<in_addr> imsf_slist;
 }
 
 class ip_opts extends ffi.Struct {
@@ -8466,6 +8962,12 @@ class ipv6_mreq extends ffi.Struct {
 
   @ffi.Uint32()
   external int ipv6mr_interface;
+}
+
+class itimerspec extends ffi.Struct {
+  external timespec it_interval;
+
+  external timespec it_value;
 }
 
 class itimerval extends ffi.Struct {
@@ -8523,10 +9025,10 @@ class lconv extends ffi.Struct {
   external int int_p_cs_precedes;
 
   @ffi.Int8()
-  external int int_n_cs_precedes;
+  external int int_p_sep_by_space;
 
   @ffi.Int8()
-  external int int_p_sep_by_space;
+  external int int_n_cs_precedes;
 
   @ffi.Int8()
   external int int_n_sep_by_space;
@@ -8562,7 +9064,17 @@ class lldiv_t extends ffi.Struct {
   external int rem;
 }
 
-typedef mode_t = __darwin_mode_t;
+const int math_errhandling = 3;
+
+class mcontext_t extends ffi.Struct {
+  @ffi.Array.multi([23])
+  external ffi.Array<greg_t> gregs;
+
+  external fpregset_t fpregs;
+
+  @ffi.Array.multi([8])
+  external ffi.Array<ffi.Uint64> __reserved1;
+}
 
 class msghdr extends ffi.Struct {
   external ffi.Pointer<ffi.Void> msg_name;
@@ -8577,7 +9089,7 @@ class msghdr extends ffi.Struct {
 
   external ffi.Pointer<ffi.Void> msg_control;
 
-  @socklen_t()
+  @ffi.Int32()
   external int msg_controllen;
 
   @ffi.Int32()
@@ -8596,61 +9108,12 @@ class netent extends ffi.Struct {
   external int n_net;
 }
 
-typedef nlink_t = __uint16_t;
-typedef off_t = __darwin_off_t;
+class osockaddr extends ffi.Struct {
+  @ffi.Uint16()
+  external int sa_family;
 
-class ostat extends ffi.Struct {
-  @__uint16_t()
-  external int st_dev;
-
-  @ino_t()
-  external int st_ino;
-
-  @mode_t()
-  external int st_mode;
-
-  @nlink_t()
-  external int st_nlink;
-
-  @__uint16_t()
-  external int st_uid;
-
-  @__uint16_t()
-  external int st_gid;
-
-  @__uint16_t()
-  external int st_rdev;
-
-  @__int32_t()
-  external int st_size;
-
-  external timespec st_atimespec;
-
-  external timespec st_mtimespec;
-
-  external timespec st_ctimespec;
-
-  @__int32_t()
-  external int st_blksize;
-
-  @__int32_t()
-  external int st_blocks;
-
-  @__uint32_t()
-  external int st_flags;
-
-  @__uint32_t()
-  external int st_gen;
-}
-
-typedef pid_t = __darwin_pid_t;
-
-class proc_rlimit_control_wakeupmon extends ffi.Struct {
-  @ffi.Uint32()
-  external int wm_flags;
-
-  @ffi.Int32()
-  external int wm_rate;
+  @ffi.Array.multi([14])
+  external ffi.Array<ffi.Uint8> sa_data;
 }
 
 class protoent extends ffi.Struct {
@@ -8662,24 +9125,107 @@ class protoent extends ffi.Struct {
   external int p_proto;
 }
 
-const int pseudo_AF_HDRCMPLT = 35;
+class pthread_attr_t extends ffi.Union {
+  @ffi.Array.multi([56])
+  external ffi.Array<ffi.Int8> __size;
 
-const int pseudo_AF_KEY = 29;
+  @ffi.Int64()
+  external int __align;
+}
 
-const int pseudo_AF_PIP = 25;
+class pthread_barrier_t extends ffi.Union {
+  @ffi.Array.multi([32])
+  external ffi.Array<ffi.Int8> __size;
 
-const int pseudo_AF_RTIP = 22;
+  @ffi.Int64()
+  external int __align;
+}
 
-const int pseudo_AF_XTP = 19;
+class pthread_barrierattr_t extends ffi.Union {
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Int8> __size;
 
-typedef pthread_attr_t = __darwin_pthread_attr_t;
-typedef pthread_cond_t = __darwin_pthread_cond_t;
-typedef pthread_mutex_t = __darwin_pthread_mutex_t;
+  @ffi.Int32()
+  external int __align;
+}
 
-class pthread_override_s extends ffi.Opaque {}
+class pthread_cond_t extends ffi.Union {
+  external __pthread_cond_s __data;
 
-typedef pthread_t = __darwin_pthread_t;
-typedef rlim_t = __uint64_t;
+  @ffi.Array.multi([48])
+  external ffi.Array<ffi.Int8> __size;
+
+  @ffi.Int64()
+  external int __align;
+}
+
+class pthread_condattr_t extends ffi.Union {
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Int8> __size;
+
+  @ffi.Int32()
+  external int __align;
+}
+
+class pthread_mutex_t extends ffi.Union {
+  external __pthread_mutex_s __data;
+
+  @ffi.Array.multi([40])
+  external ffi.Array<ffi.Int8> __size;
+
+  @ffi.Int64()
+  external int __align;
+}
+
+class pthread_mutexattr_t extends ffi.Union {
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Int8> __size;
+
+  @ffi.Int32()
+  external int __align;
+}
+
+class pthread_rwlock_t extends ffi.Union {
+  external __pthread_rwlock_arch_t __data;
+
+  @ffi.Array.multi([56])
+  external ffi.Array<ffi.Int8> __size;
+
+  @ffi.Int64()
+  external int __align;
+}
+
+class pthread_rwlockattr_t extends ffi.Union {
+  @ffi.Array.multi([8])
+  external ffi.Array<ffi.Int8> __size;
+
+  @ffi.Int64()
+  external int __align;
+}
+
+typedef pthread_spinlock_t = ffi.Int32;
+typedef pthread_t = ffi.Uint64;
+
+class random_data extends ffi.Struct {
+  external ffi.Pointer<ffi.Int32> fptr;
+
+  external ffi.Pointer<ffi.Int32> rptr;
+
+  external ffi.Pointer<ffi.Int32> state;
+
+  @ffi.Int32()
+  external int rand_type;
+
+  @ffi.Int32()
+  external int rand_deg;
+
+  @ffi.Int32()
+  external int rand_sep;
+
+  external ffi.Pointer<ffi.Int32> end_ptr;
+}
+
+typedef rlim_t = __rlim_t;
 
 class rlimit extends ffi.Struct {
   @rlim_t()
@@ -8702,532 +9248,14 @@ class rusage extends ffi.Struct {
   external timeval ru_utime;
 
   external timeval ru_stime;
-
-  @ffi.Int64()
-  external int ru_maxrss;
-
-  @ffi.Int64()
-  external int ru_ixrss;
-
-  @ffi.Int64()
-  external int ru_idrss;
-
-  @ffi.Int64()
-  external int ru_isrss;
-
-  @ffi.Int64()
-  external int ru_minflt;
-
-  @ffi.Int64()
-  external int ru_majflt;
-
-  @ffi.Int64()
-  external int ru_nswap;
-
-  @ffi.Int64()
-  external int ru_inblock;
-
-  @ffi.Int64()
-  external int ru_oublock;
-
-  @ffi.Int64()
-  external int ru_msgsnd;
-
-  @ffi.Int64()
-  external int ru_msgrcv;
-
-  @ffi.Int64()
-  external int ru_nsignals;
-
-  @ffi.Int64()
-  external int ru_nvcsw;
-
-  @ffi.Int64()
-  external int ru_nivcsw;
 }
 
-class rusage_info_v0 extends ffi.Struct {
-  @ffi.Array.multi([16])
-  external ffi.Array<ffi.Uint8> ri_uuid;
-
-  @ffi.Uint64()
-  external int ri_user_time;
-
-  @ffi.Uint64()
-  external int ri_system_time;
-
-  @ffi.Uint64()
-  external int ri_pkg_idle_wkups;
-
-  @ffi.Uint64()
-  external int ri_interrupt_wkups;
-
-  @ffi.Uint64()
-  external int ri_pageins;
-
-  @ffi.Uint64()
-  external int ri_wired_size;
-
-  @ffi.Uint64()
-  external int ri_resident_size;
-
-  @ffi.Uint64()
-  external int ri_phys_footprint;
-
-  @ffi.Uint64()
-  external int ri_proc_start_abstime;
-
-  @ffi.Uint64()
-  external int ri_proc_exit_abstime;
-}
-
-class rusage_info_v1 extends ffi.Struct {
-  @ffi.Array.multi([16])
-  external ffi.Array<ffi.Uint8> ri_uuid;
-
-  @ffi.Uint64()
-  external int ri_user_time;
-
-  @ffi.Uint64()
-  external int ri_system_time;
-
-  @ffi.Uint64()
-  external int ri_pkg_idle_wkups;
-
-  @ffi.Uint64()
-  external int ri_interrupt_wkups;
-
-  @ffi.Uint64()
-  external int ri_pageins;
-
-  @ffi.Uint64()
-  external int ri_wired_size;
-
-  @ffi.Uint64()
-  external int ri_resident_size;
-
-  @ffi.Uint64()
-  external int ri_phys_footprint;
-
-  @ffi.Uint64()
-  external int ri_proc_start_abstime;
-
-  @ffi.Uint64()
-  external int ri_proc_exit_abstime;
-
-  @ffi.Uint64()
-  external int ri_child_user_time;
-
-  @ffi.Uint64()
-  external int ri_child_system_time;
-
-  @ffi.Uint64()
-  external int ri_child_pkg_idle_wkups;
-
-  @ffi.Uint64()
-  external int ri_child_interrupt_wkups;
-
-  @ffi.Uint64()
-  external int ri_child_pageins;
-
-  @ffi.Uint64()
-  external int ri_child_elapsed_abstime;
-}
-
-class rusage_info_v2 extends ffi.Struct {
-  @ffi.Array.multi([16])
-  external ffi.Array<ffi.Uint8> ri_uuid;
-
-  @ffi.Uint64()
-  external int ri_user_time;
-
-  @ffi.Uint64()
-  external int ri_system_time;
-
-  @ffi.Uint64()
-  external int ri_pkg_idle_wkups;
-
-  @ffi.Uint64()
-  external int ri_interrupt_wkups;
-
-  @ffi.Uint64()
-  external int ri_pageins;
-
-  @ffi.Uint64()
-  external int ri_wired_size;
-
-  @ffi.Uint64()
-  external int ri_resident_size;
-
-  @ffi.Uint64()
-  external int ri_phys_footprint;
-
-  @ffi.Uint64()
-  external int ri_proc_start_abstime;
-
-  @ffi.Uint64()
-  external int ri_proc_exit_abstime;
-
-  @ffi.Uint64()
-  external int ri_child_user_time;
-
-  @ffi.Uint64()
-  external int ri_child_system_time;
-
-  @ffi.Uint64()
-  external int ri_child_pkg_idle_wkups;
-
-  @ffi.Uint64()
-  external int ri_child_interrupt_wkups;
-
-  @ffi.Uint64()
-  external int ri_child_pageins;
-
-  @ffi.Uint64()
-  external int ri_child_elapsed_abstime;
-
-  @ffi.Uint64()
-  external int ri_diskio_bytesread;
-
-  @ffi.Uint64()
-  external int ri_diskio_byteswritten;
-}
-
-class rusage_info_v3 extends ffi.Struct {
-  @ffi.Array.multi([16])
-  external ffi.Array<ffi.Uint8> ri_uuid;
-
-  @ffi.Uint64()
-  external int ri_user_time;
-
-  @ffi.Uint64()
-  external int ri_system_time;
-
-  @ffi.Uint64()
-  external int ri_pkg_idle_wkups;
-
-  @ffi.Uint64()
-  external int ri_interrupt_wkups;
-
-  @ffi.Uint64()
-  external int ri_pageins;
-
-  @ffi.Uint64()
-  external int ri_wired_size;
-
-  @ffi.Uint64()
-  external int ri_resident_size;
-
-  @ffi.Uint64()
-  external int ri_phys_footprint;
-
-  @ffi.Uint64()
-  external int ri_proc_start_abstime;
-
-  @ffi.Uint64()
-  external int ri_proc_exit_abstime;
-
-  @ffi.Uint64()
-  external int ri_child_user_time;
-
-  @ffi.Uint64()
-  external int ri_child_system_time;
-
-  @ffi.Uint64()
-  external int ri_child_pkg_idle_wkups;
-
-  @ffi.Uint64()
-  external int ri_child_interrupt_wkups;
-
-  @ffi.Uint64()
-  external int ri_child_pageins;
-
-  @ffi.Uint64()
-  external int ri_child_elapsed_abstime;
-
-  @ffi.Uint64()
-  external int ri_diskio_bytesread;
-
-  @ffi.Uint64()
-  external int ri_diskio_byteswritten;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_default;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_maintenance;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_background;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_utility;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_legacy;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_user_initiated;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_user_interactive;
-
-  @ffi.Uint64()
-  external int ri_billed_system_time;
-
-  @ffi.Uint64()
-  external int ri_serviced_system_time;
-}
-
-class rusage_info_v4 extends ffi.Struct {
-  @ffi.Array.multi([16])
-  external ffi.Array<ffi.Uint8> ri_uuid;
-
-  @ffi.Uint64()
-  external int ri_user_time;
-
-  @ffi.Uint64()
-  external int ri_system_time;
-
-  @ffi.Uint64()
-  external int ri_pkg_idle_wkups;
-
-  @ffi.Uint64()
-  external int ri_interrupt_wkups;
-
-  @ffi.Uint64()
-  external int ri_pageins;
-
-  @ffi.Uint64()
-  external int ri_wired_size;
-
-  @ffi.Uint64()
-  external int ri_resident_size;
-
-  @ffi.Uint64()
-  external int ri_phys_footprint;
-
-  @ffi.Uint64()
-  external int ri_proc_start_abstime;
-
-  @ffi.Uint64()
-  external int ri_proc_exit_abstime;
-
-  @ffi.Uint64()
-  external int ri_child_user_time;
-
-  @ffi.Uint64()
-  external int ri_child_system_time;
-
-  @ffi.Uint64()
-  external int ri_child_pkg_idle_wkups;
-
-  @ffi.Uint64()
-  external int ri_child_interrupt_wkups;
-
-  @ffi.Uint64()
-  external int ri_child_pageins;
-
-  @ffi.Uint64()
-  external int ri_child_elapsed_abstime;
-
-  @ffi.Uint64()
-  external int ri_diskio_bytesread;
-
-  @ffi.Uint64()
-  external int ri_diskio_byteswritten;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_default;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_maintenance;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_background;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_utility;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_legacy;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_user_initiated;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_user_interactive;
-
-  @ffi.Uint64()
-  external int ri_billed_system_time;
-
-  @ffi.Uint64()
-  external int ri_serviced_system_time;
-
-  @ffi.Uint64()
-  external int ri_logical_writes;
-
-  @ffi.Uint64()
-  external int ri_lifetime_max_phys_footprint;
-
-  @ffi.Uint64()
-  external int ri_instructions;
-
-  @ffi.Uint64()
-  external int ri_cycles;
-
-  @ffi.Uint64()
-  external int ri_billed_energy;
-
-  @ffi.Uint64()
-  external int ri_serviced_energy;
-
-  @ffi.Uint64()
-  external int ri_interval_max_phys_footprint;
-
-  @ffi.Uint64()
-  external int ri_runnable_time;
-}
-
-class rusage_info_v5 extends ffi.Struct {
-  @ffi.Array.multi([16])
-  external ffi.Array<ffi.Uint8> ri_uuid;
-
-  @ffi.Uint64()
-  external int ri_user_time;
-
-  @ffi.Uint64()
-  external int ri_system_time;
-
-  @ffi.Uint64()
-  external int ri_pkg_idle_wkups;
-
-  @ffi.Uint64()
-  external int ri_interrupt_wkups;
-
-  @ffi.Uint64()
-  external int ri_pageins;
-
-  @ffi.Uint64()
-  external int ri_wired_size;
-
-  @ffi.Uint64()
-  external int ri_resident_size;
-
-  @ffi.Uint64()
-  external int ri_phys_footprint;
-
-  @ffi.Uint64()
-  external int ri_proc_start_abstime;
-
-  @ffi.Uint64()
-  external int ri_proc_exit_abstime;
-
-  @ffi.Uint64()
-  external int ri_child_user_time;
-
-  @ffi.Uint64()
-  external int ri_child_system_time;
-
-  @ffi.Uint64()
-  external int ri_child_pkg_idle_wkups;
-
-  @ffi.Uint64()
-  external int ri_child_interrupt_wkups;
-
-  @ffi.Uint64()
-  external int ri_child_pageins;
-
-  @ffi.Uint64()
-  external int ri_child_elapsed_abstime;
-
-  @ffi.Uint64()
-  external int ri_diskio_bytesread;
-
-  @ffi.Uint64()
-  external int ri_diskio_byteswritten;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_default;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_maintenance;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_background;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_utility;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_legacy;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_user_initiated;
-
-  @ffi.Uint64()
-  external int ri_cpu_time_qos_user_interactive;
-
-  @ffi.Uint64()
-  external int ri_billed_system_time;
-
-  @ffi.Uint64()
-  external int ri_serviced_system_time;
-
-  @ffi.Uint64()
-  external int ri_logical_writes;
-
-  @ffi.Uint64()
-  external int ri_lifetime_max_phys_footprint;
-
-  @ffi.Uint64()
-  external int ri_instructions;
-
-  @ffi.Uint64()
-  external int ri_cycles;
-
-  @ffi.Uint64()
-  external int ri_billed_energy;
-
-  @ffi.Uint64()
-  external int ri_serviced_energy;
-
-  @ffi.Uint64()
-  external int ri_interval_max_phys_footprint;
-
-  @ffi.Uint64()
-  external int ri_runnable_time;
-
-  @ffi.Uint64()
-  external int ri_flags;
-}
-
-class sa_endpoints extends ffi.Struct {
-  @ffi.Uint32()
-  external int sae_srcif;
-
-  external ffi.Pointer<sockaddr> sae_srcaddr;
-
-  @socklen_t()
-  external int sae_srcaddrlen;
-
-  external ffi.Pointer<sockaddr> sae_dstaddr;
-
-  @socklen_t()
-  external int sae_dstaddrlen;
-}
-
-typedef sa_family_t = __uint8_t;
+typedef sa_family_t = ffi.Uint16;
 
 class sched_param extends ffi.Struct {
   @ffi.Int32()
   external int sched_priority;
-
-  @ffi.Array.multi([4])
-  external ffi.Array<ffi.Int8> __opaque;
 }
-
-class searchstate extends ffi.Opaque {}
 
 class servent extends ffi.Struct {
   external ffi.Pointer<ffi.Int8> s_name;
@@ -9240,47 +9268,132 @@ class servent extends ffi.Struct {
   external ffi.Pointer<ffi.Int8> s_proto;
 }
 
-class sf_hdtr extends ffi.Struct {
-  external ffi.Pointer<iovec> headers;
-
-  @ffi.Int32()
-  external int hdr_cnt;
-
-  external ffi.Pointer<iovec> trailers;
-
-  @ffi.Int32()
-  external int trl_cnt;
-}
-
 class sigaction extends ffi.Struct {
-  external __sigaction_u __sigaction_u1;
+  external UnnamedUnion5 __sigaction_handler;
 
-  @sigset_t()
-  external int sa_mask;
+  external __sigset_t sa_mask;
 
   @ffi.Int32()
   external int sa_flags;
+
+  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function()>> sa_restorer;
+}
+
+class sigcontext extends ffi.Struct {
+  @__uint64_t()
+  external int r8;
+
+  @__uint64_t()
+  external int r9;
+
+  @__uint64_t()
+  external int r10;
+
+  @__uint64_t()
+  external int r11;
+
+  @__uint64_t()
+  external int r12;
+
+  @__uint64_t()
+  external int r13;
+
+  @__uint64_t()
+  external int r14;
+
+  @__uint64_t()
+  external int r15;
+
+  @__uint64_t()
+  external int rdi;
+
+  @__uint64_t()
+  external int rsi;
+
+  @__uint64_t()
+  external int rbp;
+
+  @__uint64_t()
+  external int rbx;
+
+  @__uint64_t()
+  external int rdx;
+
+  @__uint64_t()
+  external int rax;
+
+  @__uint64_t()
+  external int rcx;
+
+  @__uint64_t()
+  external int rsp;
+
+  @__uint64_t()
+  external int rip;
+
+  @__uint64_t()
+  external int eflags;
+
+  @ffi.Uint16()
+  external int cs;
+
+  @ffi.Uint16()
+  external int gs;
+
+  @ffi.Uint16()
+  external int fs;
+
+  @ffi.Uint16()
+  external int __pad0;
+
+  @__uint64_t()
+  external int err;
+
+  @__uint64_t()
+  external int trapno;
+
+  @__uint64_t()
+  external int oldmask;
+
+  @__uint64_t()
+  external int cr2;
+
+  @ffi.Array.multi([8])
+  external ffi.Array<__uint64_t> __reserved1;
 }
 
 class sigevent extends ffi.Struct {
-  @ffi.Int32()
-  external int sigev_notify;
+  external __sigval_t sigev_value;
 
   @ffi.Int32()
   external int sigev_signo;
 
-  external sigval sigev_value;
+  @ffi.Int32()
+  external int sigev_notify;
 
-  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(sigval)>> sigev_notify_function;
-
-  external ffi.Pointer<pthread_attr_t> sigev_notify_attributes;
+  external UnnamedUnion2 _sigev_un;
 }
 
-typedef siginfo_t = __siginfo;
-typedef sigset_t = __darwin_sigset_t;
+class siginfo_t extends ffi.Struct {
+  @ffi.Int32()
+  external int si_signo;
+
+  @ffi.Int32()
+  external int si_errno;
+
+  @ffi.Int32()
+  external int si_code;
+
+  @ffi.Int32()
+  external int __pad0;
+
+  external UnnamedUnion3 _sifields;
+}
+
+typedef sigset_t = __sigset_t;
 
 class sigstack extends ffi.Struct {
-  external ffi.Pointer<ffi.Int8> ss_sp;
+  external ffi.Pointer<ffi.Void> ss_sp;
 
   @ffi.Int32()
   external int ss_onstack;
@@ -9293,30 +9406,7 @@ class sigval extends ffi.Union {
   external ffi.Pointer<ffi.Void> sival_ptr;
 }
 
-class sigvec extends ffi.Struct {
-  external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Int32)>> sv_handler;
-
-  @ffi.Int32()
-  external int sv_mask;
-
-  @ffi.Int32()
-  external int sv_flags;
-}
-
-typedef size_t = __darwin_size_t;
-
-class so_np_extensions extends ffi.Struct {
-  @u_int32_t()
-  external int npx_flags;
-
-  @u_int32_t()
-  external int npx_mask;
-}
-
 class sockaddr extends ffi.Struct {
-  @__uint8_t()
-  external int sa_len;
-
   @sa_family_t()
   external int sa_family;
 
@@ -9325,9 +9415,6 @@ class sockaddr extends ffi.Struct {
 }
 
 class sockaddr_in extends ffi.Struct {
-  @__uint8_t()
-  external int sin_len;
-
   @sa_family_t()
   external int sin_family;
 
@@ -9337,185 +9424,228 @@ class sockaddr_in extends ffi.Struct {
   external in_addr sin_addr;
 
   @ffi.Array.multi([8])
-  external ffi.Array<ffi.Int8> sin_zero;
+  external ffi.Array<ffi.Uint8> sin_zero;
 }
 
 class sockaddr_in6 extends ffi.Struct {
-  @__uint8_t()
-  external int sin6_len;
-
   @sa_family_t()
   external int sin6_family;
 
   @in_port_t()
   external int sin6_port;
 
-  @__uint32_t()
+  @ffi.Uint32()
   external int sin6_flowinfo;
 
   external in6_addr sin6_addr;
 
-  @__uint32_t()
+  @ffi.Uint32()
   external int sin6_scope_id;
 }
 
 @ffi.Packed(1)
 class sockaddr_storage extends ffi.Struct {
-  @__uint8_t()
-  external int ss_len;
-
   @sa_family_t()
   external int ss_family;
 
-  @ffi.Array.multi([6])
-  external ffi.Array<ffi.Int8> __ss_pad1;
+  @ffi.Array.multi([118])
+  external ffi.Array<ffi.Int8> __ss_padding;
 
-  @__int64_t()
+  @ffi.Uint64()
   external int __ss_align;
-
-  @ffi.Array.multi([112])
-  external ffi.Array<ffi.Int8> __ss_pad2;
 }
 
-typedef socklen_t = __darwin_socklen_t;
-
-class sockproto extends ffi.Struct {
-  @__uint16_t()
-  external int sp_family;
-
-  @__uint16_t()
-  external int sp_protocol;
-}
+typedef socklen_t = __socklen_t;
+typedef stack_t = UnnamedStruct14;
 
 class stat extends ffi.Struct {
-  @dev_t()
+  @__dev_t()
   external int st_dev;
 
-  @mode_t()
-  external int st_mode;
-
-  @nlink_t()
-  external int st_nlink;
-
-  @__darwin_ino64_t()
+  @__ino_t()
   external int st_ino;
 
-  @uid_t()
-  external int st_uid;
-
-  @gid_t()
-  external int st_gid;
-
-  @dev_t()
-  external int st_rdev;
-
-  external timespec st_atimespec;
-
-  external timespec st_mtimespec;
-
-  external timespec st_ctimespec;
-
-  external timespec st_birthtimespec;
-
-  @off_t()
-  external int st_size;
-
-  @blkcnt_t()
-  external int st_blocks;
-
-  @blksize_t()
-  external int st_blksize;
-
-  @__uint32_t()
-  external int st_flags;
-
-  @__uint32_t()
-  external int st_gen;
-
-  @__int32_t()
-  external int st_lspare;
-
-  @ffi.Array.multi([2])
-  external ffi.Array<__int64_t> st_qspare;
-}
-
-class stat64 extends ffi.Struct {
-  @dev_t()
-  external int st_dev;
-
-  @mode_t()
-  external int st_mode;
-
-  @nlink_t()
+  @__nlink_t()
   external int st_nlink;
 
-  @__darwin_ino64_t()
-  external int st_ino;
+  @__mode_t()
+  external int st_mode;
 
-  @uid_t()
+  @__uid_t()
   external int st_uid;
 
-  @gid_t()
+  @__gid_t()
   external int st_gid;
 
-  @dev_t()
+  @ffi.Int32()
+  external int __pad0;
+
+  @__dev_t()
   external int st_rdev;
 
-  external timespec st_atimespec;
-
-  external timespec st_mtimespec;
-
-  external timespec st_ctimespec;
-
-  external timespec st_birthtimespec;
-
-  @off_t()
+  @__off_t()
   external int st_size;
 
-  @blkcnt_t()
-  external int st_blocks;
-
-  @blksize_t()
+  @__blksize_t()
   external int st_blksize;
 
-  @__uint32_t()
-  external int st_flags;
+  @__blkcnt_t()
+  external int st_blocks;
 
-  @__uint32_t()
-  external int st_gen;
+  external timespec st_atim;
 
-  @__int32_t()
-  external int st_lspare;
+  external timespec st_mtim;
 
-  @ffi.Array.multi([2])
-  external ffi.Array<__int64_t> st_qspare;
+  external timespec st_ctim;
+
+  @ffi.Array.multi([3])
+  external ffi.Array<__syscall_slong_t> __glibc_reserved;
 }
 
-class tcp_connection_info extends ffi.Opaque {}
+class sysinfo extends ffi.Struct {
+  @__kernel_long_t()
+  external int uptime;
+
+  @ffi.Array.multi([3])
+  external ffi.Array<__kernel_ulong_t> loads;
+
+  @__kernel_ulong_t()
+  external int totalram;
+
+  @__kernel_ulong_t()
+  external int freeram;
+
+  @__kernel_ulong_t()
+  external int sharedram;
+
+  @__kernel_ulong_t()
+  external int bufferram;
+
+  @__kernel_ulong_t()
+  external int totalswap;
+
+  @__kernel_ulong_t()
+  external int freeswap;
+
+  @__u16()
+  external int procs;
+
+  @__u16()
+  external int pad;
+
+  @__kernel_ulong_t()
+  external int totalhigh;
+
+  @__kernel_ulong_t()
+  external int freehigh;
+
+  @__u32()
+  external int mem_unit;
+
+  @ffi.Array.multi([0])
+  external ffi.Array<ffi.Int8> _f;
+}
+
+abstract class tcp_ca_state {
+  static const int TCP_CA_Open = 0;
+  static const int TCP_CA_Disorder = 1;
+  static const int TCP_CA_CWR = 2;
+  static const int TCP_CA_Recovery = 3;
+  static const int TCP_CA_Loss = 4;
+}
+
+class tcp_cookie_transactions extends ffi.Struct {
+  @ffi.Uint16()
+  external int tcpct_flags;
+
+  @ffi.Uint8()
+  external int __tcpct_pad1;
+
+  @ffi.Uint8()
+  external int tcpct_cookie_desired;
+
+  @ffi.Uint16()
+  external int tcpct_s_data_desired;
+
+  @ffi.Uint16()
+  external int tcpct_used;
+
+  @ffi.Array.multi([536])
+  external ffi.Array<ffi.Uint8> tcpct_value;
+}
+
+class tcp_info extends ffi.Opaque {}
+
+class tcp_md5sig extends ffi.Struct {
+  external sockaddr_storage tcpm_addr;
+
+  @ffi.Uint8()
+  external int tcpm_flags;
+
+  @ffi.Uint8()
+  external int tcpm_prefixlen;
+
+  @ffi.Uint16()
+  external int tcpm_keylen;
+
+  @ffi.Uint32()
+  external int __tcpm_pad;
+
+  @ffi.Array.multi([80])
+  external ffi.Array<ffi.Uint8> tcpm_key;
+}
+
+class tcp_repair_opt extends ffi.Struct {
+  @ffi.Uint32()
+  external int opt_code;
+
+  @ffi.Uint32()
+  external int opt_val;
+}
+
+class tcp_repair_window extends ffi.Struct {
+  @ffi.Uint32()
+  external int snd_wl1;
+
+  @ffi.Uint32()
+  external int snd_wnd;
+
+  @ffi.Uint32()
+  external int max_window;
+
+  @ffi.Uint32()
+  external int rcv_wnd;
+
+  @ffi.Uint32()
+  external int rcv_wup;
+}
+
+class tcp_zerocopy_receive extends ffi.Struct {
+  @ffi.Uint64()
+  external int address;
+
+  @ffi.Uint32()
+  external int length;
+
+  @ffi.Uint32()
+  external int recv_skip_hint;
+}
 
 class tcphdr extends ffi.Opaque {}
 
 class timespec extends ffi.Struct {
-  @__darwin_time_t()
+  @__time_t()
   external int tv_sec;
 
-  @ffi.Int64()
+  @__syscall_slong_t()
   external int tv_nsec;
 }
 
 class timeval extends ffi.Struct {
-  @__darwin_time_t()
+  @__time_t()
   external int tv_sec;
 
-  @__darwin_suseconds_t()
-  external int tv_usec;
-}
-
-class timeval64 extends ffi.Struct {
-  @__int64_t()
-  external int tv_sec;
-
-  @__int64_t()
+  @__suseconds_t()
   external int tv_usec;
 }
 
@@ -9561,9 +9691,20 @@ class tm extends ffi.Struct {
   external ffi.Pointer<ffi.Int8> tm_zone;
 }
 
-const int true1 = 1;
+class ucontext_t extends ffi.Struct {
+  @ffi.Uint64()
+  external int uc_flags;
 
-typedef u_int32_t = ffi.Uint32;
-typedef uid_t = __darwin_uid_t;
+  external ffi.Pointer<ucontext_t> uc_link;
 
-class wait extends ffi.Opaque {}
+  external stack_t uc_stack;
+
+  external mcontext_t uc_mcontext;
+
+  external sigset_t uc_sigmask;
+
+  external _libc_fpstate __fpregs_mem;
+
+  @ffi.Array.multi([4])
+  external ffi.Array<ffi.Uint64> __ssp;
+}
