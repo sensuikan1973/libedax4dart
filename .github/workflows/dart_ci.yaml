@@ -7,6 +7,8 @@ on:
       - 'pubspec.*'
       - '**/analysis_options.yaml'
       - '.github/workflows/dart_ci.yaml'
+      - 'scripts/build_libedax.sh'
+      - '.libedax-version'
       - '.codecov.yml'
   push:
     branches: [ main ]
@@ -15,6 +17,8 @@ on:
       - 'pubspec.*'
       - '**/analysis_options.yaml'
       - '.github/workflows/dart_ci.yaml'
+      - 'scripts/build_libedax.sh'
+      - '.libedax-version'
       - '.codecov.yml'
 
 jobs:
@@ -37,3 +41,53 @@ jobs:
       run: dart pub get
     - name: analyzer
       run: dart analyze --fatal-infos --fatal-warnings .
+
+  test:
+    needs: [format, analyze]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    strategy:
+      matrix:
+        os: [ubuntu-20.04, windows-2019, macos-11]
+        include:
+          - os: ubuntu-20.04
+            libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=linux
+            libedax_bin: libedax.so
+          - os: windows-2019
+            libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=windows
+            libedax_bin: libedax-x64.dll
+          - os: macos-11
+            libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=osx
+            libedax_bin: libedax.dylib
+    steps:
+    - uses: actions/checkout@v2
+    - uses: dart-lang/setup-dart@v1
+
+    - name: build libedax
+      env:
+        dst: '.'
+        libedax_build_command: ${{ matrix.libedax_build_command }}
+      run: sh scripts/build_libedax.sh
+
+    - name: output build info
+      shell: bash
+      run: .github/scripts/output_build_info.sh . gcc && cat env.txt
+
+    # # DEBUG
+    # - name: setup tmate session for debug
+    #   uses: mxschmitt/action-tmate@v3
+
+    - name: install dependencies
+      run: dart pub get
+    - name: test
+      run: dart run test . --coverage=coverage
+    - name: coverage
+      run: dart run coverage:format_coverage --lcov --packages=.packages --in coverage --out lcov.info
+    - uses: codecov/codecov-action@v2.1.0
+      with:
+        file: lcov.info
+
+    - name: run example
+      run: |-
+        cd example && dart pub get && cd ..
+        dart example/example.dart

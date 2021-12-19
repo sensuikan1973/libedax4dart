@@ -36,7 +36,6 @@ Real World example is https://github.com/sensuikan1973/pedax.
 ## Development
 
 ![Dart CI](https://github.com/sensuikan1973/libedax4dart/workflows/Dart%20CI/badge.svg)
-![Integration Test](https://github.com/sensuikan1973/libedax4dart/workflows/Integration%20Test/badge.svg)
 [![codecov](https://codecov.io/gh/sensuikan1973/libedax4dart/branch/main/graph/badge.svg?token=LdDfCMnDhz)](https://codecov.io/gh/sensuikan1973/libedax4dart)
 
 ### commands
