@@ -1,3 +1,7 @@
+# 2.5.0
+
+- upgrade dependencies
+
 # 2.4.0
 
 - upgrade dependencies
