@@ -27,7 +27,6 @@ jobs:
       fail-fast: false # I want results from all OSes even if one fails.
       matrix:
         os: [ubuntu-20.04, windows-2019, macos-11]
-        dart_channel: [beta]
         include:
           - os: ubuntu-20.04
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=linux
@@ -40,10 +39,7 @@ jobs:
             libedax_bin: libedax.dylib
     steps:
     - uses: actions/checkout@v2
-
     - uses: dart-lang/setup-dart@v1
-      with:
-        sdk: ${{ matrix.dart_channel }}
 
     - name: build libedax
       env:

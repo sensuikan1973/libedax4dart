@@ -1,7 +1,5 @@
 # [libedax4dart](https://pub.dev/packages/libedax4dart)
 
-[![dart-channel](https://img.shields.io/badge/Dart-beta-64B5F6.svg?logo=dart)](https://dart.dev/get-dart#release-channels)
-
 Dart wrapper for [libedax](https://github.com/lavox/edax-reversi/tree/libedax).  
 With using libedax4dart, you can execute functions equivalent to [edax](https://sensuikan1973.github.io/edax-reversi/) commands.
 
