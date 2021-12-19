@@ -16,8 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: dart-lang/setup-dart@v1
-        with:
-          sdk: beta
       - name: generate dart docs
         run: dartdoc --output docs/
       - name: upload to GitHub Pages
