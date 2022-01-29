@@ -1,3 +1,7 @@
+# 2.7.0
+
+- add const `ColorChar`.
+
 # 2.6.0
 
 - upgrade dependencies
