@@ -3,6 +3,7 @@
 import 'dart:io';
 
 import 'package:libedax4dart/libedax4dart.dart';
+import 'package:libedax4dart/src/constants.dart';
 import 'package:test/test.dart';
 
 const _testBookFile = './resources/test_book.dat';
@@ -83,14 +84,14 @@ void main() {
     });
 
     test('setBoard', () {
-      const boardString = '-W----W--------------------WB------WBB-----W--------------------B';
+      const boardString = '-O----O--------------------O*------O**-----O--------------------B';
       final edax = LibEdax()..libedaxInitialize();
       sleep(const Duration(seconds: 1));
       edax
         ..edaxInit()
         ..edaxSetboard(boardString);
-      expect(edax.edaxGetDisc(TurnColor.white), 'W'.allMatches(boardString).length);
-      expect(edax.edaxGetDisc(TurnColor.black), 'B'.allMatches(boardString).length - 1);
+      expect(edax.edaxGetDisc(TurnColor.white), ColorChar.white.allMatches(boardString).length);
+      expect(edax.edaxGetDisc(TurnColor.black), ColorChar.black.allMatches(boardString).length);
       expect(edax.edaxGetCurrentPlayer(), TurnColor.black);
       edax.libedaxTerminate();
     });
