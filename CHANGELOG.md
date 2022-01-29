@@ -1,3 +1,7 @@
+# 2.8.0
+
+- add `empty` to `ColorChar`.
+
 # 2.7.0
 
 - add const `ColorChar`.
