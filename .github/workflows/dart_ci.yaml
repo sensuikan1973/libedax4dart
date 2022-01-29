@@ -64,10 +64,11 @@ jobs:
     - uses: dart-lang/setup-dart@v1
 
     - name: build libedax
+      shell: bash
       env:
         dst: '.'
         libedax_build_command: ${{ matrix.libedax_build_command }}
-      run: sh scripts/build_libedax.sh
+      run: ./scripts/build_libedax.sh
 
     - name: output build info
       shell: bash

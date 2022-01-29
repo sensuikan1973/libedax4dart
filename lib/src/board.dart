@@ -58,8 +58,8 @@ class Board {
   ///
   /// e.g. `-------------------*-------**O----**O*-----O--------------------W`.
   String stringApplicableToSetboard(final int currentColor) {
-    final pStone = currentColor == TurnColor.black ? '*' : 'O';
-    final oStone = currentColor == TurnColor.black ? 'O' : '*';
+    final pStone = currentColor == TurnColor.black ? ColorChar.black : ColorChar.white;
+    final oStone = currentColor == TurnColor.black ? ColorChar.white : ColorChar.black;
 
     final buffer = StringBuffer();
     for (var k = 0; k < 8; k++) {
@@ -93,8 +93,8 @@ class Board {
   /// 8 - - - - - - - - 8 <br>
   ///   A B C D E F G H
   String prettyString(final int currentColor) {
-    final pStone = currentColor == TurnColor.black ? '*' : 'O';
-    final oStone = currentColor == TurnColor.black ? 'O' : '*';
+    final pStone = currentColor == TurnColor.black ? ColorChar.black : ColorChar.white;
+    final oStone = currentColor == TurnColor.black ? ColorChar.white : ColorChar.black;
 
     final buffer = StringBuffer()..writeln('  A B C D E F G H');
     for (var k = 0; k < 8; k++) {

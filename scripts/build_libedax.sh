@@ -1,3 +1,6 @@
+#!/bin/bash
+set -euxo pipefail
+
 # NOTE: require some environment variables.
 # libedax_build_command (e.g. make libbuild ARCH=x64-modern COMP=gcc OS=osx)
 # dst: (e.g. build)
@@ -5,14 +8,11 @@
 # example:
 # libedax_build_command="make libbuild ARCH=x64-modern COMP=gcc OS=osx" dst="." ./scripts/build_libedax.sh
 
+rm -rf edax-reversi
 git clone https://github.com/sensuikan1973/edax-reversi
 cd edax-reversi
 git remote update --prune
-
-git checkout .
-
 git switch libedax_sensuikan1973
-git pull
 git checkout $(cat ../.libedax-version)
 
 mkdir -p data

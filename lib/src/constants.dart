@@ -6,6 +6,15 @@ class TurnColor {
   static const white = 1;
 }
 
+/// See: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/board.c#L144-L200
+class ColorChar {
+  /// BLACK char. You can use this for `LibEdax.edaxSetboard`.
+  static const black = '*';
+
+  /// WHITE char. You can use this for `LibEdax.edaxSetboard`.
+  static const white = 'O';
+}
+
 class MoveMark {
   /// PASS string of BLACK.
   ///
