@@ -29,7 +29,7 @@ jobs:
         env:
           dst: ${{ env.OUTPUT_DIR }}
           libedax_build_command: ${{ matrix.libedax_build_command }}
-        run: sh scripts/build_libedax.sh
+        run: ./scripts/build_libedax.sh
 
       - name: output build info
         shell: bash
