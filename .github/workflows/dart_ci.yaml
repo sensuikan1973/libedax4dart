@@ -64,6 +64,7 @@ jobs:
     - uses: dart-lang/setup-dart@v1
 
     - name: build libedax
+      shell: bash
       env:
         dst: '.'
         libedax_build_command: ${{ matrix.libedax_build_command }}

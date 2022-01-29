@@ -26,6 +26,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: build libedax
+        shell: bash
         env:
           dst: ${{ env.OUTPUT_DIR }}
           libedax_build_command: ${{ matrix.libedax_build_command }}
