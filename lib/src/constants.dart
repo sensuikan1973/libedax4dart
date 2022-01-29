@@ -13,6 +13,9 @@ class ColorChar {
 
   /// WHITE char. You can use this for `LibEdax.edaxSetboard`.
   static const white = 'O';
+
+  /// EMPTY char.
+  static const empty = '-';
 }
 
 class MoveMark {

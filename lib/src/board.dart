@@ -70,7 +70,7 @@ class Board {
         } else if ((opponent & mask) != 0) {
           buffer.write(oStone);
         } else {
-          buffer.write('-');
+          buffer.write(ColorChar.empty);
         }
       }
     }
@@ -106,7 +106,7 @@ class Board {
         } else if ((opponent & mask) != 0) {
           buffer.write(oStone);
         } else {
-          buffer.write('-');
+          buffer.write(ColorChar.empty);
         }
         buffer.write(' ');
       }
