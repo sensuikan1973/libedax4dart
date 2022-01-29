@@ -1,3 +1,4 @@
+#!/bin/bash
 set -euxo pipefail
 
 # NOTE: require some environment variables.
