@@ -175,7 +175,10 @@ class LibEdax {
     final dstP = calloc<bindings.Position>();
     final movesPointer = moves.toInt8Pointer();
     final symetry = _bindings.edax_get_bookmove_with_position_by_moves(
-        movesPointer, dstM, dstP,);
+      movesPointer,
+      dstM,
+      dstP,
+    );
     calloc.free(movesPointer);
 
     final moveList = dstM.ref;

@@ -35,8 +35,11 @@ class Position {
         nDraws = cPosition.n_draws,
         nLosses = cPosition.n_losses,
         nLines = cPosition.n_lines,
-        score = Score(cPosition.score.value, cPosition.score.lower,
-            cPosition.score.upper,),
+        score = Score(
+          cPosition.score.value,
+          cPosition.score.lower,
+          cPosition.score.upper,
+        ),
         nLink = cPosition.n_link,
         level = cPosition.level,
         done = cPosition.done,
@@ -47,8 +50,12 @@ class Position {
   static List<Link> _linksFromCStruct(final bindings.Position cPosition) {
     final links = <Link>[];
     for (var k = 0; k < cPosition.n_link; k++) {
-      links.add(Link(cPosition.link.elementAt(k).ref.score,
-          cPosition.link.elementAt(k).ref.move,),);
+      links.add(
+        Link(
+          cPosition.link.elementAt(k).ref.score,
+          cPosition.link.elementAt(k).ref.move,
+        ),
+      );
     }
     return links;
   }
