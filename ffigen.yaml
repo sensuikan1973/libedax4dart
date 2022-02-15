@@ -3,6 +3,9 @@ name: 'LibEdaxBindings'
 description: 'bindings to libedax'
 output: 'lib/src/ffi/bindings.dart'
 sort: true
+# See: https://github.com/dart-lang/pana/issues/1013
+# See: https://dart.dev/guides/language/analysis-options#excluding-code-from-analysis
+preamble: "// ignore_for_file: type=lint"
 headers:
   entry-points:
     - 'edax-reversi/src/all.c'
