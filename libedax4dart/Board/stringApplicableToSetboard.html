@@ -70,8 +70,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">String stringApplicableToSetboard(final int currentColor) {
-  final pStone = currentColor == TurnColor.black ? ColorChar.black : ColorChar.white;
-  final oStone = currentColor == TurnColor.black ? ColorChar.white : ColorChar.black;
+  final pStone =
+      currentColor == TurnColor.black ? ColorChar.black : ColorChar.white;
+  final oStone =
+      currentColor == TurnColor.black ? ColorChar.white : ColorChar.black;
 
   final buffer = StringBuffer();
   for (var k = 0; k &lt; 8; k++) {
@@ -155,7 +157,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      2.9.0
+      2.9.1
   </span>
 
   

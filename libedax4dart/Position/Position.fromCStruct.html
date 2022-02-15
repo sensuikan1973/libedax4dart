@@ -71,7 +71,11 @@
       nDraws = cPosition.n_draws,
       nLosses = cPosition.n_losses,
       nLines = cPosition.n_lines,
-      score = Score(cPosition.score.value, cPosition.score.lower, cPosition.score.upper),
+      score = Score(
+        cPosition.score.value,
+        cPosition.score.lower,
+        cPosition.score.upper,
+      ),
       nLink = cPosition.n_link,
       level = cPosition.level,
       done = cPosition.done,
@@ -149,7 +153,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      2.9.0
+      2.9.1
   </span>
 
   

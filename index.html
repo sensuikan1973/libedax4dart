@@ -92,13 +92,20 @@ With using libedax4dart, you can execute functions equivalent to <a href="https:
 dart example/example.dart
 </code></pre>
 <h4 id="format">format</h4>
-<pre class="language-sh"><code class="language-sh">dart format --fix -l 120 .
+<pre class="language-sh"><code class="language-sh"># fix with line length 80 for pana, although I don't like.
+# See: https://github.com/dart-lang/dart_style/issues/918
+dart format --fix .
 </code></pre>
 <h4 id="test">test</h4>
 <pre class="language-sh"><code class="language-sh">dart run test .
 </code></pre>
 <h4 id="analyze">analyze</h4>
 <pre class="language-sh"><code class="language-sh">dart analyze .
+
+dart fix --apply # auto fix
+</code></pre>
+<h4 id="panahttpspubdevpackagespana"><a href="https://pub.dev/packages/pana">pana</a></h4>
+<pre class="language-sh"><code class="language-sh">dart run pana
 </code></pre>
 <h4 id="document-2">document</h4>
 <pre class="language-sh"><code class="language-sh">dartdoc &amp;&amp; open doc/api/index.html
@@ -108,8 +115,8 @@ dart example/example.dart
 libedax_build_command="make libbuild ARCH=x64-modern COMP=gcc OS=osx" dst="." ./scripts/build_libedax.sh
 </code></pre>
 <h4 id="generate-bindings">generate bindings</h4>
-<pre class="language-sh"><code class="language-sh"># Before this, you must run build_libedax.sh
-dart run ffigen --config ffigen.yaml --verbose severe &amp;&amp; dart format --fix -l 120 .
+<pre class="language-sh"><code class="language-sh"># Before this, you must run build_libedax.sh.
+dart run ffigen --config ffigen.yaml --verbose severe &amp;&amp; dart format --fix .
 </code></pre>
 <h3 id="reference-2">reference</h3>
 <ul>
@@ -189,7 +196,7 @@ dart run ffigen --config ffigen.yaml --verbose severe &amp;&amp; dart format --f
 <footer>
   <span class="no-break">
     libedax4dart
-      2.9.0
+      2.9.1
   </span>
 
   

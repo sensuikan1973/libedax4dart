@@ -70,7 +70,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void edaxRotate(final int angle) {
-  if (![90, 180, 270].contains(angle)) throw Exception(&#39;angle of edaxRotate supports only 90,180,270&#39;);
+  if (![90, 180, 270].contains(angle)) {
+    throw Exception(&#39;angle of edaxRotate supports only 90,180,270&#39;);
+  }
   _bindings.edax_rotate(angle);
 }</code></pre>
 </section>
@@ -170,7 +172,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      2.9.0
+      2.9.1
   </span>
 
   

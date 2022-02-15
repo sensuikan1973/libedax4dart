@@ -80,8 +80,10 @@ A B C D E F G H</p>
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">String prettyString(final int currentColor) {
-  final pStone = currentColor == TurnColor.black ? ColorChar.black : ColorChar.white;
-  final oStone = currentColor == TurnColor.black ? ColorChar.white : ColorChar.black;
+  final pStone =
+      currentColor == TurnColor.black ? ColorChar.black : ColorChar.white;
+  final oStone =
+      currentColor == TurnColor.black ? ColorChar.white : ColorChar.black;
 
   final buffer = StringBuffer()..writeln(&#39;  A B C D E F G H&#39;);
   for (var k = 0; k &lt; 8; k++) {
@@ -168,7 +170,7 @@ A B C D E F G H</p>
 <footer>
   <span class="no-break">
     libedax4dart
-      2.9.0
+      2.9.1
   </span>
 
   

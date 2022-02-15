@@ -72,7 +72,11 @@
   final dstM = calloc&lt;bindings.MoveList&gt;();
   final dstP = calloc&lt;bindings.Position&gt;();
   final movesPointer = moves.toInt8Pointer();
-  final symetry = _bindings.edax_get_bookmove_with_position_by_moves(movesPointer, dstM, dstP);
+  final symetry = _bindings.edax_get_bookmove_with_position_by_moves(
+    movesPointer,
+    dstM,
+    dstP,
+  );
   calloc.free(movesPointer);
 
   final moveList = dstM.ref;
@@ -185,7 +189,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      2.9.0
+      2.9.1
   </span>
 
   

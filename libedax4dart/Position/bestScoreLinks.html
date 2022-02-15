@@ -70,9 +70,12 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">List&lt;Link&gt; get bestScoreLinks {
   if (links.isEmpty) return [];
-  final linksSortedByScore = links..sort((final a, final b) =&gt; b.score.compareTo(a.score));
+  final linksSortedByScore = links
+    ..sort((final a, final b) =&gt; b.score.compareTo(a.score));
   final bestScore = linksSortedByScore.first.score;
-  return linksSortedByScore.where((final element) =&gt; element.score == bestScore).toList();
+  return linksSortedByScore
+      .where((final element) =&gt; element.score == bestScore)
+      .toList();
 }</code></pre>
 </section>
 
@@ -147,7 +150,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      2.9.0
+      2.9.1
   </span>
 
   
