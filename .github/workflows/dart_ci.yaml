@@ -88,6 +88,9 @@ jobs:
       with:
         file: lcov.info
 
+    - name: try run pana to chceck package score before publish
+      run: dart run pana
+
     - name: run example
       run: |-
         cd example && dart pub get && cd ..

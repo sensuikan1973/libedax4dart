@@ -65,6 +65,12 @@ dart run test .
 dart analyze .
 ```
 
+#### [pana](https://pub.dev/packages/pana)
+
+```sh
+dart run pana
+```
+
 #### document
 
 ```sh
