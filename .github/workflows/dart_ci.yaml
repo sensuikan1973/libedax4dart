@@ -87,13 +87,18 @@ jobs:
         file: lcov.info
 
     - name: run pana to chceck package score before publish
-      uses: Sibz/github-status-action@v1
+      id: run_pana_step
+      run: |
+        pub_point_by_pana=$(dart run pana | tail -1)
+        echo "::set-output name=pub_point_by_pana::$pub_point_by_pana"
+
+    - uses: Sibz/github-status-action@v1
       if: runner.os == 'Linux'
       with:
         authToken: ${{ secrets.GITHUB_TOKEN }}
-        context: 'Pub Poits by Pana'
-        description: ${{ dart run pana | tail -1 }}
-        state: 'success'
+        context: Pub Poits by Pana
+        description: ${{ steps.run_pana_step.outputs.pub_point_by_pana }}
+        state: success
         sha: ${{ github.event.pull_request.head.sha || github.sha }}
 
     - name: run example
