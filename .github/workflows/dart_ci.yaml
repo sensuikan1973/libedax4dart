@@ -89,7 +89,14 @@ jobs:
         file: lcov.info
 
     - name: try run pana to chceck package score before publish
-      run: dart run pana
+      uses: Sibz/github-status-action@v1
+      if: runner.os == 'Linux'
+      with:
+        authToken: ${{secrets.GITHUB_TOKEN}}
+        context: 'Test run'
+        description: ${ dart run pana }
+        state: 'success'
+        sha: ${{github.event.pull_request.head.sha || github.sha}}
 
     - name: run example
       run: |-

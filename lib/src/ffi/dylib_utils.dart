@@ -9,6 +9,7 @@ String get _libName {
 }
 
 DynamicLibrary dlopenPlatformSpecific([final String dllPath = '']) {
-  final path = dllPath.isEmpty ? '${Directory.current.path}/$_libName' : dllPath;
+  final path =
+      dllPath.isEmpty ? '${Directory.current.path}/$_libName' : dllPath;
   return DynamicLibrary.open(path);
 }

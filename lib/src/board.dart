@@ -23,13 +23,15 @@ class Board {
   List<int> get squaresOfPlayer => _squares(player);
 
   /// square String list of player's bitboard.
-  List<String> get squareStringsOfPlayer => _squares(player).map(move2String).toList();
+  List<String> get squareStringsOfPlayer =>
+      _squares(player).map(move2String).toList();
 
   /// square list of opponent's bitboard.
   List<int> get squaresOfOpponent => _squares(opponent);
 
   /// square String list of opponent's bitboard.
-  List<String> get squareStringsOfOpponent => _squares(opponent).map(move2String).toList();
+  List<String> get squareStringsOfOpponent =>
+      _squares(opponent).map(move2String).toList();
 
   List<int> _squares(final int bitboard) {
     final result = <int>[];
@@ -37,7 +39,9 @@ class Board {
     var mask = BigInt.from(0x8000000000000000).toUnsigned(64);
     var i = 0;
     while (i <= 63) {
-      if ((mask & target) == mask) result.add(63 - i); // NOTE: head of edax bitboard is "h8".
+      if ((mask & target) == mask) {
+        result.add(63 - i);
+      } // NOTE: head of edax bitboard is "h8".
       mask = mask >> 1;
       i++;
     }
@@ -58,8 +62,10 @@ class Board {
   ///
   /// e.g. `-------------------*-------**O----**O*-----O--------------------W`.
   String stringApplicableToSetboard(final int currentColor) {
-    final pStone = currentColor == TurnColor.black ? ColorChar.black : ColorChar.white;
-    final oStone = currentColor == TurnColor.black ? ColorChar.white : ColorChar.black;
+    final pStone =
+        currentColor == TurnColor.black ? ColorChar.black : ColorChar.white;
+    final oStone =
+        currentColor == TurnColor.black ? ColorChar.white : ColorChar.black;
 
     final buffer = StringBuffer();
     for (var k = 0; k < 8; k++) {
@@ -93,8 +99,10 @@ class Board {
   /// 8 - - - - - - - - 8 <br>
   ///   A B C D E F G H
   String prettyString(final int currentColor) {
-    final pStone = currentColor == TurnColor.black ? ColorChar.black : ColorChar.white;
-    final oStone = currentColor == TurnColor.black ? ColorChar.white : ColorChar.black;
+    final pStone =
+        currentColor == TurnColor.black ? ColorChar.black : ColorChar.white;
+    final oStone =
+        currentColor == TurnColor.black ? ColorChar.white : ColorChar.black;
 
     final buffer = StringBuffer()..writeln('  A B C D E F G H');
     for (var k = 0; k < 8; k++) {

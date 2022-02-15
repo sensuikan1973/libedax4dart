@@ -61,11 +61,15 @@ class LibEdax {
 
   int Function(Pointer<Void>) get _dlCloseFunc {
     final funcName = Platform.isWindows ? 'FreeLibrary' : 'dlclose';
-    return _stdlib.lookup<NativeFunction<Int32 Function(Pointer<Void>)>>(funcName).asFunction();
+    return _stdlib
+        .lookup<NativeFunction<Int32 Function(Pointer<Void>)>>(funcName)
+        .asFunction();
   }
 
   // See: https://github.com/dart-lang/ffi/blob/f3346299c55669cc0db48afae85b8110088bf8da/lib/src/allocation.dart#L8-L11
-  DynamicLibrary get _stdlib => Platform.isWindows ? DynamicLibrary.open('kernel32.dll') : DynamicLibrary.process();
+  DynamicLibrary get _stdlib => Platform.isWindows
+      ? DynamicLibrary.open('kernel32.dll')
+      : DynamicLibrary.process();
 
   /// Init board.
   void edaxInit() => _bindings.edax_init();
@@ -97,7 +101,9 @@ class LibEdax {
   ///
   /// angle: 90 or 180 or 270.
   void edaxRotate(final int angle) {
-    if (![90, 180, 270].contains(angle)) throw Exception('angle of edaxRotate supports only 90,180,270');
+    if (![90, 180, 270].contains(angle)) {
+      throw Exception('angle of edaxRotate supports only 90,180,270');
+    }
     _bindings.edax_rotate(angle);
   }
 
@@ -168,7 +174,8 @@ class LibEdax {
     final dstM = calloc<bindings.MoveList>();
     final dstP = calloc<bindings.Position>();
     final movesPointer = moves.toInt8Pointer();
-    final symetry = _bindings.edax_get_bookmove_with_position_by_moves(movesPointer, dstM, dstP);
+    final symetry = _bindings.edax_get_bookmove_with_position_by_moves(
+        movesPointer, dstM, dstP,);
     calloc.free(movesPointer);
 
     final moveList = dstM.ref;
@@ -262,10 +269,12 @@ class LibEdax {
   /// default is 0.
   ///
   /// edax will choose move with the randomness width.
-  void edaxBookRandomness(final int randomness) => _bindings.edax_book_randomness(randomness);
+  void edaxBookRandomness(final int randomness) =>
+      _bindings.edax_book_randomness(randomness);
 
   /// Create a new book.
-  void edaxBookNew(final int level, final int depth) => _bindings.edax_book_new(level, depth);
+  void edaxBookNew(final int level, final int depth) =>
+      _bindings.edax_book_new(level, depth);
 
   /// Load book.
   void edaxBookLoad(final String bookFile) {
@@ -344,7 +353,8 @@ class LibEdax {
   int edaxGetDisc(final int color) => _bindings.edax_get_disc(color);
 
   /// Get the legal move count.
-  int edaxGetMobilityCount(final int color) => _bindings.edax_get_mobility_count(color);
+  int edaxGetMobilityCount(final int color) =>
+      _bindings.edax_get_mobility_count(color);
 
   /// Count bit.
   int popCount(final int bit) => _bindings.bit_count(bit);
