@@ -87,6 +87,7 @@ jobs:
         file: lcov.info
 
     - name: run pana to chceck package score before publish
+      if: runner.os == 'Linux'
       id: run_pana_step
       run: |
         pub_point_by_pana=$(dart run pana | tail -1)
