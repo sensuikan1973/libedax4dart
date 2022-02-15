@@ -67,7 +67,8 @@ void main() {
         ..edaxInit()
         ..edaxPlay('f5d6c5f4d3');
       final board = edax.edaxGetBoard();
-      final stringApplicableToSetboard = board.stringApplicableToSetboard(edax.edaxGetCurrentPlayer());
+      final stringApplicableToSetboard =
+          board.stringApplicableToSetboard(edax.edaxGetCurrentPlayer());
       expect(
         stringApplicableToSetboard,
         '-------------------*-------**O----**O*-----O--------------------W',
@@ -77,20 +78,30 @@ void main() {
       expect(board.squaresOfPlayer, [29, 36, 43]);
       expect(board.squareStringsOfPlayer, ['f4', 'e5', 'd6']);
       expect(board.squaresOfOpponent, [19, 27, 28, 34, 35, 37]);
-      expect(board.squareStringsOfOpponent, ['d3', 'd4', 'e4', 'c5', 'd5', 'f5']);
+      expect(
+        board.squareStringsOfOpponent,
+        ['d3', 'd4', 'e4', 'c5', 'd5', 'f5'],
+      );
       stdout.writeln(board.prettyString(edax.edaxGetCurrentPlayer()));
       edax.libedaxTerminate();
     });
 
     test('setBoard', () {
-      const boardString = '-O----O--------------------O*------O**-----O--------------------B';
+      const boardString =
+          '-O----O--------------------O*------O**-----O--------------------B';
       final edax = LibEdax()..libedaxInitialize();
       sleep(const Duration(seconds: 1));
       edax
         ..edaxInit()
         ..edaxSetboard(boardString);
-      expect(edax.edaxGetDisc(TurnColor.white), ColorChar.white.allMatches(boardString).length);
-      expect(edax.edaxGetDisc(TurnColor.black), ColorChar.black.allMatches(boardString).length);
+      expect(
+        edax.edaxGetDisc(TurnColor.white),
+        ColorChar.white.allMatches(boardString).length,
+      );
+      expect(
+        edax.edaxGetDisc(TurnColor.black),
+        ColorChar.black.allMatches(boardString).length,
+      );
       expect(edax.edaxGetCurrentPlayer(), TurnColor.black);
       edax.libedaxTerminate();
     });
@@ -107,7 +118,15 @@ void main() {
     });
 
     test('play a short game until game over', () {
-      const initParams = ['', '-eval-file', 'data/eval.dat', '-book-file', 'data/book.dat', '-level', '16'];
+      const initParams = [
+        '',
+        '-eval-file',
+        'data/eval.dat',
+        '-book-file',
+        'data/book.dat',
+        '-level',
+        '16'
+      ];
       final edax = LibEdax()..libedaxInitialize(initParams);
       sleep(const Duration(seconds: 1));
       edax
@@ -122,14 +141,20 @@ void main() {
       expect(edax.edaxGetDisc(TurnColor.white), 0);
       expect(edax.edaxGetDisc(TurnColor.black), 13);
       final board = edax.edaxGetBoard();
-      expect(board.playerRadix16String, List<String>.filled(16, '0').join()); // white bitboard
+      expect(
+        board.playerRadix16String,
+        List<String>.filled(16, '0').join(),
+      ); // white bitboard
       expect(board.opponentRadix16String, '0010387c38100000'); // black bitboard
       expect(edax.edaxCanMove(), false);
       final lastMove = edax.edaxGetLastMove();
       expect(lastMove.moveString, 'e7');
       expect(lastMove.isNoMove, false);
       expect(lastMove.isPass, false);
-      expect(edax.edaxGetMoves(), 'F5d6C5f4E3f6G5e6E7'); // edax return moves with upper scale B move and lower scale W.
+      expect(
+        edax.edaxGetMoves(),
+        'F5d6C5f4E3f6G5e6E7',
+      ); // edax return moves with upper scale B move and lower scale W.
       edax.libedaxTerminate();
     });
   });
@@ -166,7 +191,10 @@ void main() {
       expect(result.position.score.lower, -2);
       expect(result.position.score.upper, 2);
       expect(result.moveList.length, 4);
-      expect(result.moveList.where((final move) => move.score == 0).length, 4); // all moves are +0
+      expect(
+        result.moveList.where((final move) => move.score == 0).length,
+        4,
+      ); // all moves are +0
       expect(result.moveList.first.moveString, 'd3'); // D3
       expect(result.moveList[1].moveString, 'c4'); // C4
       expect(
@@ -254,8 +282,14 @@ void main() {
       expect(hint2.moveString, isIn(moveList));
       final hint3 = edax.edaxHintNext();
       expect(hint3.moveString, isIn(moveList));
-      expect(hint3.moveString, 'f4'); // f4. it's because f4 is the lowest score.
-      expect(hint3.score, lessThan(0)); // mouse opening. BLACK has an advantage.
+      expect(
+        hint3.moveString,
+        'f4',
+      ); // f4. it's because f4 is the lowest score.
+      expect(
+        hint3.score,
+        lessThan(0),
+      ); // mouse opening. BLACK has an advantage.
       final hint4 = edax.edaxHintNext();
       expect(hint4.move, MoveMark.noMove);
       expect(hint4.moveString, 'no move');

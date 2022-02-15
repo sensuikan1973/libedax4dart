@@ -1,3 +1,7 @@
+# 2.9.1
+
+- follow Dart Package ecosystem changed. (See: https://github.com/sensuikan1973/libedax4dart/pull/118)
+
 # 2.9.0
 
 - follow Dart Package ecosystem changed. (See: https://github.com/sensuikan1973/libedax4dart/pull/117)
