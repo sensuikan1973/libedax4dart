@@ -93,8 +93,8 @@ jobs:
       if: runner.os == 'Linux'
       with:
         authToken: ${{ secrets.GITHUB_TOKEN }}
-        context: 'Pana score'
-        description: ${ dart run pana }
+        context: 'Pub Poits by Pana'
+        description: ${{ dart run pana | tail -1 }}
         state: 'success'
         sha: ${{ github.event.pull_request.head.sha || github.sha }}
 
