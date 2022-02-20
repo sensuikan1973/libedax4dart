@@ -1,4 +1,4 @@
-# 2.10.90
+# 2.10.0
 
 - mild update documentation of `edaxBookCountBestpath`.
 
