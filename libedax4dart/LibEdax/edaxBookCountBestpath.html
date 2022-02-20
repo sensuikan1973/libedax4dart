@@ -51,24 +51,19 @@
 
     <section class="multi-line-signature">
       
-<div>
-  <ol class="annotation-list">
-    <li>@<a href="https://pub.dev/documentation/meta/1.7.0/meta/experimental-constant.html">experimental</a></li>
-  </ol>
-</div>
 
 <span class="returntype"><a href="../../libedax4dart/CountBestpathResult-class.html">CountBestpathResult</a></span>
 <span class="name ">edaxBookCountBestpath</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="edaxBookCountBestpath-param-board"><span class="type-annotation"><a href="../../libedax4dart/Board-class.html">Board</a></span> <span class="parameter-name">board</span></span></li>
 </ol>)
 
-      <div class="features">@<a href="https://pub.dev/documentation/meta/1.7.0/meta/experimental-constant.html">experimental</a></div>
+      
 
     </section>
     
 <section class="desc markdown">
   <p>Count bestpath with book</p>
 <p>Compute the indicator of efficiency to win, which means the minimum number you should memorize on the situation both of players always choose one of the best move list.</p>
-<p>This function is not only experimental but also <strong>advanced</strong>. <br>
+<p>This function is very <strong>advanced</strong>. <br>
 <strong>You must understand <a href="https://choi.lavox.net/edax/book">the book structure of edax</a> and following important notice list</strong>.</p>
 <ul>
 <li>Because internal each node lookup is stopped when book has no links, the more lower the accuracy of your book is, the more lower this feature accuracy is.
@@ -88,26 +83,14 @@
 <li>btw, symmetric moves is counted 1 because of edax book structure.</li>
 </ul>
 </li>
-<li>O(k^N). slow.
-<ul>
-<li>TODO(developer): consider following implementation.
-<ul>
-<li>isolation.</li>
-<li>save tree data on local.</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>REF: <a href="https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/book.c#L2438-L2447">https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/book.c#L2438-L2447</a></p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">@experimental
-CountBestpathResult edaxBookCountBestpath(final Board board) {
+  <pre class="language-dart"><code class="language-dart">CountBestpathResult edaxBookCountBestpath(final Board board) {
   final dstP = calloc&lt;bindings.Position&gt;();
   final dstB = calloc&lt;bindings.Board&gt;();
   dstB.ref.player = board.player;
@@ -217,7 +200,7 @@ CountBestpathResult edaxBookCountBestpath(final Board board) {
 <footer>
   <span class="no-break">
     libedax4dart
-      2.9.1
+      2.10.0
   </span>
 
   
