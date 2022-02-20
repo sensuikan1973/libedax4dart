@@ -61,15 +61,11 @@ class LibEdax {
 
   int Function(Pointer<Void>) get _dlCloseFunc {
     final funcName = Platform.isWindows ? 'FreeLibrary' : 'dlclose';
-    return _stdlib
-        .lookup<NativeFunction<Int32 Function(Pointer<Void>)>>(funcName)
-        .asFunction();
+    return _stdlib.lookup<NativeFunction<Int32 Function(Pointer<Void>)>>(funcName).asFunction();
   }
 
   // See: https://github.com/dart-lang/ffi/blob/f3346299c55669cc0db48afae85b8110088bf8da/lib/src/allocation.dart#L8-L11
-  DynamicLibrary get _stdlib => Platform.isWindows
-      ? DynamicLibrary.open('kernel32.dll')
-      : DynamicLibrary.process();
+  DynamicLibrary get _stdlib => Platform.isWindows ? DynamicLibrary.open('kernel32.dll') : DynamicLibrary.process();
 
   /// Init board.
   void edaxInit() => _bindings.edax_init();
@@ -272,12 +268,10 @@ class LibEdax {
   /// default is 0.
   ///
   /// edax will choose move with the randomness width.
-  void edaxBookRandomness(final int randomness) =>
-      _bindings.edax_book_randomness(randomness);
+  void edaxBookRandomness(final int randomness) => _bindings.edax_book_randomness(randomness);
 
   /// Create a new book.
-  void edaxBookNew(final int level, final int depth) =>
-      _bindings.edax_book_new(level, depth);
+  void edaxBookNew(final int level, final int depth) => _bindings.edax_book_new(level, depth);
 
   /// Load book.
   void edaxBookLoad(final String bookFile) {
@@ -356,8 +350,7 @@ class LibEdax {
   int edaxGetDisc(final int color) => _bindings.edax_get_disc(color);
 
   /// Get the legal move count.
-  int edaxGetMobilityCount(final int color) =>
-      _bindings.edax_get_mobility_count(color);
+  int edaxGetMobilityCount(final int color) => _bindings.edax_get_mobility_count(color);
 
   /// Count bit.
   int popCount(final int bit) => _bindings.bit_count(bit);
@@ -366,7 +359,7 @@ class LibEdax {
   ///
   /// Compute the indicator of efficiency to win, which means the minimum number you should memorize on the situation both of players always choose one of the best move list.
   ///
-  /// This function is not only experimental but also __advanced__. <br>
+  /// This function is very __advanced__. <br>
   /// __You must understand [the book structure of edax](https://choi.lavox.net/edax/book) and following important notice list__.
   ///
   /// * Because internal each node lookup is stopped when book has no links, the more lower the accuracy of your book is, the more lower this feature accuracy is.
@@ -377,13 +370,6 @@ class LibEdax {
   /// * The depth of this feature depends on your book.
   /// * The moves which meet up with anoter moves is counted respectively.
   ///   * btw, symmetric moves is counted 1 because of edax book structure.
-  /// * O(k^N). slow.
-  ///   * TODO(developer): consider following implementation.
-  ///     * isolation.
-  ///     * save tree data on local.
-  ///
-  /// REF: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/book.c#L2438-L2447
-  @experimental
   CountBestpathResult edaxBookCountBestpath(final Board board) {
     final dstP = calloc<bindings.Position>();
     final dstB = calloc<bindings.Board>();
