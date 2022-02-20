@@ -366,7 +366,7 @@ class LibEdax {
   ///
   /// Compute the indicator of efficiency to win, which means the minimum number you should memorize on the situation both of players always choose one of the best move list.
   ///
-  /// This function is not only experimental but also __advanced__. <br>
+  /// This function is very __advanced__. <br>
   /// __You must understand [the book structure of edax](https://choi.lavox.net/edax/book) and following important notice list__.
   ///
   /// * Because internal each node lookup is stopped when book has no links, the more lower the accuracy of your book is, the more lower this feature accuracy is.
@@ -377,13 +377,6 @@ class LibEdax {
   /// * The depth of this feature depends on your book.
   /// * The moves which meet up with anoter moves is counted respectively.
   ///   * btw, symmetric moves is counted 1 because of edax book structure.
-  /// * O(k^N). slow.
-  ///   * TODO(developer): consider following implementation.
-  ///     * isolation.
-  ///     * save tree data on local.
-  ///
-  /// REF: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/book.c#L2438-L2447
-  @experimental
   CountBestpathResult edaxBookCountBestpath(final Board board) {
     final dstP = calloc<bindings.Position>();
     final dstB = calloc<bindings.Board>();
