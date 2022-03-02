@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: dart-lang/setup-dart@v1
     - run: dart format . --set-exit-if-changed
 
@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: dart-lang/setup-dart@v1
     - name: install dependencies
       run: dart pub get
@@ -58,7 +58,7 @@ jobs:
             libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=osx
             libedax_bin: libedax.dylib
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: dart-lang/setup-dart@v1
 
     - name: build libedax
