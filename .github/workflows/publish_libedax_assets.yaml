@@ -23,7 +23,7 @@ jobs:
             libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=osx
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: build libedax
         shell: bash
