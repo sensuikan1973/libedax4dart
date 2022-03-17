@@ -1,3 +1,7 @@
+# 2.11.0
+
+- mild upgrade libedax binary.
+
 # 2.10.0
 
 - mild update documentation of `edaxBookCountBestpath`.
