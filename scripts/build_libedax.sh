@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=SC2154
 set -euxo pipefail
 
 # NOTE: require some environment variables.
