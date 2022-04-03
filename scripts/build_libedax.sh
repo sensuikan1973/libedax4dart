@@ -14,7 +14,7 @@ git clone https://github.com/sensuikan1973/edax-reversi
 cd edax-reversi
 git remote update --prune
 git switch libedax_sensuikan1973
-git checkout $(cat ../.libedax-version)
+git checkout "$(cat ../.libedax-version)"
 
 mkdir -p data
 curl -OL https://github.com/abulmo/edax-reversi/releases/download/v4.4/eval.7z
