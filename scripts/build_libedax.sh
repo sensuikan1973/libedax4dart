@@ -34,4 +34,5 @@ cp -r edax-reversi/bin "${dst:-.}/bin"
 cp -r edax-reversi/data "${dst:-.}/data"
 
 # for test
+# shellcheck disable=SC2086
 cp ${dst:-.}/bin/* .
