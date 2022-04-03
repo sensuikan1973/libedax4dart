@@ -1,7 +1,7 @@
 # See: https://github.com/crate-ci/typos#false-positives
 
 [files]
-# extend-exclude = ["foo/**/*"]
+extend-exclude = ["lib/src/ffi/bindings.dart"]
 
 [default.extend-words]
 # foo = "foo"
