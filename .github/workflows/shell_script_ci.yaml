@@ -3,14 +3,12 @@ name: Shell Script CI
 on:
   pull_request:
     paths:
-      - '**/*.zsh'
-      - '.zshrc'
+      - '**/*.sh'
       - '.github/workflows/shell_script_ci.yaml'
   push:
     branches: [main]
     paths:
-      - '**/*.zsh'
-      - '.zshrc'
+      - '**/*.sh'
       - '.github/workflows/shell_script_ci.yaml'
   workflow_dispatch:
 
