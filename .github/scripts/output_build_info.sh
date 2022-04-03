@@ -4,20 +4,24 @@
 # $2: compiler
 
 dst_file="$1/env.txt"
+compiler="$2"
 
-touch $dst_file
+touch "$dst_file"
 
-echo "=== libedax4dart sha ===" >> $dst_file
-echo $GITHUB_SHA >> $dst_file
+{
+  echo "=== libedax4dart sha ==="
+  echo "$GITHUB_SHA"
 
-echo "=== libedax sha ===" >> $dst_file
-cat .libedax-version >> $dst_file
+  echo "=== libedax sha ==="
+  cat .libedax-version
 
-echo "=== os image ===" >> $dst_file
-echo $ImageOS >> $dst_file
+  echo "=== os image ==="
+  # shellcheck disable=SC2154
+  echo "$ImageOS"
 
-echo "=== dart version ===" >> $dst_file
-dart --version >> $dst_file 2>&1
+  echo "=== dart version ==="
+  dart --version 2>&1
 
-echo "=== $2 version ===" >> $dst_file
-$2 --version >> $dst_file
+  echo "=== $compiler version ==="
+  $compiler --version
+} >> "$dst_file"
