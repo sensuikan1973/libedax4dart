@@ -375,7 +375,7 @@ class LibEdax {
   /// * This function only lookup the best score links. So, this indicator can't consider easy win links which is _not_ best score. In reversi game, the situation can sometimes be found in my experience as a player.
   ///   * __In a word, as you know, this indicator isn't perfect. This is just a indicator__.
   /// * The depth of this feature depends on your book.
-  /// * The moves which meet up with anoter moves is counted respectively.
+  /// * The moves which meet up with another moves is counted respectively.
   ///   * btw, symmetric moves is counted 1 because of edax book structure.
   CountBestpathResult edaxBookCountBestpath(final Board board) {
     final dstP = calloc<bindings.Position>();
