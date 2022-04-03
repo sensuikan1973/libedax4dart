@@ -24,13 +24,13 @@ cd src
 $libedax_build_command
 
 cd ../../
-mkdir -p ${dst:-.}
+mkdir -p "${dst:-.}"
 
-rm -rf ${dst:-.}/bin
-rm -rf ${dst:-.}/data
+rm -rf "${dst:-.}/bin"
+rm -rf "${dst:-.}/data"
 
-cp -r edax-reversi/bin ${dst:-.}/bin
-cp -r edax-reversi/data ${dst:-.}/data
+cp -r edax-reversi/bin "${dst:-.}/bin"
+cp -r edax-reversi/data "${dst:-.}/data"
 
 # for test
-cp ${dst:-.}/bin/* .
+cp "${dst:-.}/bin/*" .
