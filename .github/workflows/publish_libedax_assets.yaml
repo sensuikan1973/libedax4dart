@@ -13,11 +13,11 @@ jobs:
     timeout-minutes: 10
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-2019, macos-11]
+        os: [ubuntu-latest, windows-latest, macos-11]
         include:
           - os: ubuntu-latest
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=linux
-          - os: windows-2019
+          - os: windows-latest
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=windows
           - os: macos-11
             libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=osx
