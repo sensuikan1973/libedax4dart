@@ -1,0 +1,46 @@
+name: Dart CI
+
+on:
+  pull_request:
+    paths-ignore:
+      - '**.dart'
+      - 'pubspec.*'
+      - '**/analysis_options.yaml'
+      - '.github/workflows/dart_ci.yaml'
+      - 'scripts/build_libedax.sh'
+      - '.libedax-version'
+      - '.codecov.yml'
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - '**.dart'
+      - 'pubspec.*'
+      - '**/analysis_options.yaml'
+      - '.github/workflows/dart_ci.yaml'
+      - 'scripts/build_libedax.sh'
+      - '.libedax-version'
+      - '.codecov.yml'
+  workflow_dispatch:
+
+jobs:
+  dart_format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: .github/scripts/do_nothing_on_counterpart_workflow.sh
+
+  dart_analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: .github/scripts/do_nothing_on_counterpart_workflow.sh
+
+  dart_test:
+    needs: [dart_format, dart_analyze]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v3
+      - run: .github/scripts/do_nothing_on_counterpart_workflow.sh

@@ -20,6 +20,7 @@ on:
       - 'scripts/build_libedax.sh'
       - '.libedax-version'
       - '.codecov.yml'
+  workflow_dispatch:
 
 # See: https://docs.github.com/ja/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions#changing-github_token-permissions
 # See: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#permissions
@@ -27,7 +28,7 @@ permissions:
   statuses: write
 
 jobs:
-  format:
+  dart_format:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -35,7 +36,7 @@ jobs:
     - uses: dart-lang/setup-dart@v1
     - run: dart format . --set-exit-if-changed
 
-  analyze:
+  dart_analyze:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -45,21 +46,21 @@ jobs:
       run: dart pub get
     - run: dart analyze --fatal-infos --fatal-warnings .
 
-  test:
-    needs: [format, analyze]
+  dart_test:
+    needs: [dart_format, dart_analyze]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 5
     strategy:
       matrix:
-        os: [ubuntu-20.04, windows-2019, macos-11]
+        os: [ubuntu-latest, windows-latest, macos-latest]
         include:
-          - os: ubuntu-20.04
+          - os: ubuntu-latest
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=linux
             libedax_bin: libedax.so
-          - os: windows-2019
+          - os: windows-latest
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=windows
             libedax_bin: libedax-x64.dll
-          - os: macos-11
+          - os: macos-latest
             libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=osx
             libedax_bin: libedax.dylib
     steps:
