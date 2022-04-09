@@ -53,6 +53,7 @@ jobs:
           # See: https://docs.github.com/ja/actions/reference/environment-variables
           cat << EOF > ${{ env.RELEASE_DESCRIPTION_TXT_FILE }}
           See: https://github.com/sensuikan1973/libedax4dart/blob/${{ github.event.inputs.tag }}/CHANGELOG.md
+
           ---
           This is created by $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID.
           EOF
