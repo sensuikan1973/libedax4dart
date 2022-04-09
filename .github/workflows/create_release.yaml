@@ -1,14 +1,18 @@
-name: publish_libedax_assets
+name: Create Release
 
 on:
-  release:
-    types: [created]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'tag'
+        required: true
 
 jobs:
-  build:
+  publish_artifacts:
     env:
       OUTPUT_DIR: libedax_output
       PUBLISH_DIR: dst
+      RELEASE_DESCRIPTION_TXT_FILE: release_description.txt
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
     strategy:
@@ -36,18 +40,27 @@ jobs:
         shell: bash
         run: .github/scripts/output_build_info.sh ${{ env.OUTPUT_DIR }} gcc && cat ${{ env.OUTPUT_DIR }}/env.txt
 
-      - name: zip files (Windows)
+      - name: compress files (Windows)
         if: runner.os == 'Windows'
         run: mkdir -p ${{ env.PUBLISH_DIR }} && powershell Compress-Archive -Path ${{ env.OUTPUT_DIR }} -DestinationPath ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
-      - name: zip files (Linux, MacOS)
+      - name: compress files (Linux, MacOS)
         if: runner.os == 'macOS' || runner.os == 'Linux'
         run: mkdir -p ${{ env.PUBLISH_DIR }} && zip -r ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip ${{ env.OUTPUT_DIR }}
 
-      - uses: actions/upload-release-asset@v1
+      - name: generate release description file
+        shell: bash
+        run: |-
+          # See: https://docs.github.com/ja/actions/reference/environment-variables
+          cat << EOF > ${{ env.RELEASE_DESCRIPTION_TXT_FILE }}
+          See: https://github.com/sensuikan1973/libedax4dart/blob/${{ github.event.inputs.tag }}/CHANGELOG.md
+          ---
+          This is created by $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID.
+          EOF
+
+      - uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
-          asset_name: libedax_${{ runner.os }}.zip
-          asset_content_type: application/zip
+          tag_name: ${{ github.event.inputs.tag }}
+          files: ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
+          body_path: ${{ env.RELEASE_DESCRIPTION_TXT_FILE }}
