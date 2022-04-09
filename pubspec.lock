@@ -189,7 +189,7 @@ packages:
       name: markdown
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.1"
+    version: "5.0.0"
   matcher:
     dependency: transitive
     description:
@@ -231,7 +231,7 @@ packages:
       name: pana
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.21.10"
+    version: "0.21.11"
   path:
     dependency: transitive
     description:
@@ -364,7 +364,7 @@ packages:
       name: tar
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.4"
+    version: "0.5.5"
   term_glyph:
     dependency: transitive
     description:
