@@ -1,3 +1,8 @@
+# 2.12.0
+
+- upgrade dependencies.
+- fix typos om documentation.
+
 # 2.11.0
 
 - mild upgrade libedax binary.
