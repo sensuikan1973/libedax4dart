@@ -1,7 +1,7 @@
 # 2.12.0
 
 - upgrade dependencies.
-- fix typos om documentation.
+- fix typos on documentation.
 
 # 2.11.0
 
