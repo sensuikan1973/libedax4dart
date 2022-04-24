@@ -1,6 +1,6 @@
 # [libedax4dart](https://pub.dev/packages/libedax4dart)
 
-Dart wrapper for [libedax](https://github.com/lavox/edax-reversi/tree/libedax).  
+Dart wrapper for [libedax](https://github.com/sensuikan1973/edax-reversi/tree/libedax_sensuikan1973).  
 With using libedax4dart, you can execute functions equivalent to [edax](https://sensuikan1973.github.io/edax-reversi/) commands.
 
 ## Usage
