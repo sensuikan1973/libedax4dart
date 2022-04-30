@@ -392,6 +392,5 @@ class LibEdax {
   }
 
   /// Stop edaxBookCountBestpath
-  @experimental
   void edaxBookStopCountBestpath() => _bindings.edax_book_stop_count_bestpath();
 }
