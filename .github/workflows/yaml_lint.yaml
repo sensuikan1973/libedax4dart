@@ -12,5 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ibiqlik/action-yamllint@v3
-        # with:
+        with: # See: https://github.com/ibiqlik/action-yamllint#optional-input-parameters
+          format: colored
           # config_file: .yamllint.yml # See: https://yamllint.readthedocs.io/en/stable/configuration.html
