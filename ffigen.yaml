@@ -1,3 +1,4 @@
+---
 # See: https://pub.dev/packages/ffigen#configurations
 name: 'LibEdaxBindings'
 description: 'bindings to libedax'
