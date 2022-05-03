@@ -120,4 +120,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: dart-lang/setup-dart@v1
-    - run: dart publish --dry-run
+    - run: dart pub publish --dry-run
