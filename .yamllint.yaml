@@ -5,4 +5,6 @@ ignore: |
   edax-reversi/ # See: https://github.com/adrienverge/yamllint/issues/360
 
 # See: https://yamllint.readthedocs.io/en/stable/rules.html
-# rules:
+rules:
+  truthy:
+    allowed-values: ['true', 'false', 'on'] # for GitHub Actions
