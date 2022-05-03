@@ -47,21 +47,10 @@ jobs:
         if: runner.os == 'macOS' || runner.os == 'Linux'
         run: mkdir -p ${{ env.PUBLISH_DIR }} && zip -r ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip ${{ env.OUTPUT_DIR }}
 
-      - name: generate release description file
-        shell: bash
-        run: |-
-          # See: https://docs.github.com/ja/actions/reference/environment-variables
-          cat << EOF > ${{ env.RELEASE_DESCRIPTION_TXT_FILE }}
-          See: https://github.com/sensuikan1973/libedax4dart/blob/${{ github.event.inputs.tag }}/CHANGELOG.md
-
-          ---
-          This is created by $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID.
-          EOF
-
       - uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.event.inputs.tag }}
           files: ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
-          body_path: ${{ env.RELEASE_DESCRIPTION_TXT_FILE }}
+          generate_release_notes: true
