@@ -11,3 +11,5 @@ rules:
   truthy:
     allowed-values: ['true', 'false', 'yes', 'no']
     check-keys: false # for GitHub Actions
+  comments:
+    min-spaces-from-content: 1
