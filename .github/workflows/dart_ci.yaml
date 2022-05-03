@@ -112,3 +112,12 @@ jobs:
       run: |-
         cd example && dart pub get && cd ..
         dart example/example.dart
+
+  dart_publish:
+    needs: dart_test
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+    - uses: actions/checkout@v3
+    - uses: dart-lang/setup-dart@v1
+    - run: dart publish --dry-run
