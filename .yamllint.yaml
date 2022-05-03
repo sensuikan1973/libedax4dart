@@ -14,3 +14,5 @@ rules:
   comments:
     min-spaces-from-content: 1
     # quoted-strings: # See: https://stackoverflow.com/a/69850618/10928938
+  line-length:
+    max: 200 # for URL
