@@ -12,7 +12,8 @@ on:
       - '.libedax-version'
       - '.codecov.yml'
   push:
-    branches: [ main ]
+    branches:
+      - main
     paths-ignore:
       - '**.dart'
       - 'pubspec.*'
