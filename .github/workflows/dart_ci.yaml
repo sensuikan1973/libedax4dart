@@ -1,3 +1,4 @@
+---
 name: Dart CI
 
 on:
@@ -11,7 +12,8 @@ on:
       - '.libedax-version'
       - '.codecov.yml'
   push:
-    branches: [ main ]
+    branches:
+      - main
     paths:
       - '**.dart'
       - 'pubspec.*'
@@ -32,19 +34,19 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-    - uses: actions/checkout@v3
-    - uses: dart-lang/setup-dart@v1
-    - run: dart format . --set-exit-if-changed
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+      - run: dart format . --set-exit-if-changed
 
   dart_analyze:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-    - uses: actions/checkout@v3
-    - uses: dart-lang/setup-dart@v1
-    - name: install dependencies
-      run: dart pub get
-    - run: dart analyze --fatal-infos --fatal-warnings .
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+      - name: install dependencies
+        run: dart pub get
+      - run: dart analyze --fatal-infos --fatal-warnings .
 
   dart_test:
     needs: [dart_format, dart_analyze]
@@ -64,60 +66,59 @@ jobs:
             libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=osx
             libedax_bin: libedax.dylib
     steps:
-    - uses: actions/checkout@v3
-    - uses: dart-lang/setup-dart@v1
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
 
-    - name: build libedax
-      shell: bash
-      env:
-        dst: '.'
-        libedax_build_command: ${{ matrix.libedax_build_command }}
-      run: ./scripts/build_libedax.sh
+      - name: build libedax
+        shell: bash
+        env:
+          dst: '.'
+          libedax_build_command: ${{ matrix.libedax_build_command }}
+        run: ./scripts/build_libedax.sh
 
-    - name: output build info
-      shell: bash
-      run: .github/scripts/output_build_info.sh . gcc && cat env.txt
+      - name: output build info
+        shell: bash
+        run: .github/scripts/output_build_info.sh . gcc && cat env.txt
 
-    # # DEBUG
-    # - name: setup tmate session for debug
-    #   uses: mxschmitt/action-tmate@v3
+      # - name: setup tmate session for DEBUG
+      #   uses: mxschmitt/action-tmate@v3
 
-    - name: install dependencies
-      run: dart pub get
-    - name: test
-      run: dart run test . --coverage=coverage
-    - name: coverage
-      run: dart run coverage:format_coverage --lcov --packages=.packages --in coverage --out lcov.info
-    - uses: codecov/codecov-action@v3
-      with:
-        file: lcov.info
+      - name: install dependencies
+        run: dart pub get
+      - name: test
+        run: dart run test . --coverage=coverage
+      - name: coverage
+        run: dart run coverage:format_coverage --lcov --packages=.packages --in coverage --out lcov.info
+      - uses: codecov/codecov-action@v3
+        with:
+          file: lcov.info
 
-    - name: run pana to chceck package score before publish
-      if: runner.os == 'Linux'
-      id: run_pana_step
-      run: |
-        pub_point_by_pana=$(dart run pana | tail -1)
-        echo "::set-output name=pub_point_by_pana::$pub_point_by_pana"
+      - name: run pana to chceck package score before publish
+        if: runner.os == 'Linux'
+        id: run_pana_step
+        run: |
+          pub_point_by_pana=$(dart run pana | tail -1)
+          echo "::set-output name=pub_point_by_pana::$pub_point_by_pana"
 
-    - uses: Sibz/github-status-action@v1
-      if: runner.os == 'Linux'
-      with:
-        authToken: ${{ secrets.GITHUB_TOKEN }}
-        context: Pub Poits by Pana
-        description: ${{ steps.run_pana_step.outputs.pub_point_by_pana }}
-        state: success
-        sha: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: Sibz/github-status-action@v1
+        if: runner.os == 'Linux'
+        with:
+          authToken: ${{ secrets.GITHUB_TOKEN }}
+          context: Pub Poits by Pana
+          description: ${{ steps.run_pana_step.outputs.pub_point_by_pana }}
+          state: success
+          sha: ${{ github.event.pull_request.head.sha || github.sha }}
 
-    - name: run example
-      run: |-
-        cd example && dart pub get && cd ..
-        dart example/example.dart
+      - name: run example
+        run: |-
+          cd example && dart pub get && cd ..
+          dart example/example.dart
 
   dart_publish_dry_run:
     needs: dart_test
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-    - uses: actions/checkout@v3
-    - uses: dart-lang/setup-dart@v1
-    - run: dart pub publish --dry-run
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+      - run: dart pub publish --dry-run
