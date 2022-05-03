@@ -13,3 +13,4 @@ rules:
     check-keys: false # for GitHub Actions
   comments:
     min-spaces-from-content: 1
+  # quoted-strings: # See: https://stackoverflow.com/a/69850618/10928938
