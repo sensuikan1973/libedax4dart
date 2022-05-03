@@ -1,0 +1,15 @@
+name: YAML lint
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+jobs:
+  yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ibiqlik/action-yamllint@v3
+        # with:
+          # config_file: .yamllint.yml # See: https://yamllint.readthedocs.io/en/stable/configuration.html
