@@ -1,10 +1,13 @@
 ---
-extends: default
-
+# See: https://yamllint.readthedocs.io/en/stable/configuration.html#ignoring-paths
+# See: https://github.com/adrienverge/yamllint/issues/360
 ignore: |
-  edax-reversi/ # See: https://github.com/adrienverge/yamllint/issues/360
+  edax-reversi
+
+extends: default
 
 # See: https://yamllint.readthedocs.io/en/stable/rules.html
 rules:
   truthy:
-    allowed-values: ['true', 'false', 'on'] # for GitHub Actions
+    allowed-values: ['true', 'false', 'yes', 'no']
+    check-keys: false # for GitHub Actions
