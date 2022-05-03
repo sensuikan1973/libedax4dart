@@ -44,3 +44,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: .github/scripts/do_nothing_on_counterpart_workflow.sh
+
+  dart_publish_dry_run:
+    needs: dart_test
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+      - run: .github/scripts/do_nothing_on_counterpart_workflow.sh
