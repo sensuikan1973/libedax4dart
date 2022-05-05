@@ -10,7 +10,7 @@ With using libedax4dart, you can execute functions equivalent to [edax](https://
    **If you don't have yours, you can also download from [here](https://github.com/sensuikan1973/libedax4dart/releases/latest)**.
 
 - (Required) dynamic library
-  - macos: `libedax.dylib`
+  - macos: `libedax.universal.dylib`
   - windows: `libedax-x64.dll`
   - linux: `libedax.so`
 - (Optional) data for edax
@@ -85,7 +85,8 @@ dartdoc && open doc/api/index.html
 
 ```sh
 # After you edit .libedax-version, run this.
-libedax_build_command="make libbuild ARCH=x64-modern COMP=gcc OS=osx" dst="." ./scripts/build_libedax.sh
+# See: https://developer.apple.com/documentation/apple-silicon/building-a-universal-macos-binary
+libedax_build_command="make universal_osx_libbuild" dst="." ./scripts/build_libedax.sh
 ```
 
 #### generate bindings

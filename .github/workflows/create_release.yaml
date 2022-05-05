@@ -25,7 +25,7 @@ jobs:
           - os: windows-latest
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=windows
           - os: macos-latest
-            libedax_build_command: make libbuild ARCH=x64-modern COMP=gcc OS=osx
+            libedax_build_command: make universal_osx_libbuild
 
     steps:
       - uses: actions/checkout@v3
