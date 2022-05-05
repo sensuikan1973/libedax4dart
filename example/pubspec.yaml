@@ -1,6 +1,6 @@
 ---
 name: libedax4dart_example
-version: 2.14.1-example
+version: 3.0.0-example
 publish_to: none
 
 environment:
