@@ -85,7 +85,8 @@ dartdoc && open doc/api/index.html
 
 ```sh
 # After you edit .libedax-version, run this.
-libedax_build_command="make libbuild ARCH=x64-modern COMP=gcc OS=osx" dst="." ./scripts/build_libedax.sh
+# See: https://developer.apple.com/documentation/apple-silicon/building-a-universal-macos-binary
+libedax_build_command="make universal_osx_libbuild" dst="." ./scripts/build_libedax.sh
 ```
 
 #### generate bindings

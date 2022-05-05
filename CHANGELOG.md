@@ -1,3 +1,9 @@
+# 3.0.0
+
+- [Breaking Change] if you don't specify dll path, libedax4dart search `libedax.universal.dylib`. in past, that is `libedax.dylib`.
+- upgrade libedax lib to support Apple Silicon.
+  - See: https://developer.apple.com/documentation/apple-silicon/building-a-universal-macos-binary
+
 # 2.14.1
 
 - restore `CHANGELOG.md`.
