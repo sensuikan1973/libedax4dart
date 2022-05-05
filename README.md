@@ -10,7 +10,7 @@ With using libedax4dart, you can execute functions equivalent to [edax](https://
    **If you don't have yours, you can also download from [here](https://github.com/sensuikan1973/libedax4dart/releases/latest)**.
 
 - (Required) dynamic library
-  - macos: `libedax.dylib`
+  - macos: `libedax.universal.dylib`
   - windows: `libedax-x64.dll`
   - linux: `libedax.so`
 - (Optional) data for edax
