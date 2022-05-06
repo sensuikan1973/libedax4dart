@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@v1
       - name: generate dart docs
-        run: dartdoc --output docs/
+        run: dart doc --output docs/
       - name: upload to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
