@@ -112,7 +112,7 @@ jobs:
           dart example/example.dart
 
       - name: generate dart docs
-        run: dart doc
+        run: dart doc .
 
   dart_publish_dry_run:
     needs: dart_test
