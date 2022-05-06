@@ -397,7 +397,8 @@ class LibEdax {
   /// Print play.
   ///
   /// example: after play f5d6c5f4d3, play_print prints
-  ///  A B C D E F G H            BLACK            A  B  C  D  E  F  G  H
+  /// ```txt
+  ///   A B C D E F G H            BLACK            A  B  C  D  E  F  G  H
   /// 1 - - - - - - - - 1         0:00.012       1 |  |  |  |  |  |  |  |  | 1
   /// 2 - - - . - - - - 2    6 discs   6 moves   2 |  |  |  |  |  |  |  |  | 2
   /// 3 - - . * . - - - 3                        3 |  |  |  | 5|  |  |  |  | 3
@@ -407,5 +408,6 @@ class LibEdax {
   /// 7 - - - - - - - - 7    3 discs   8 moves   7 |  |  |  |  |  |  |  |  | 7
   /// 8 - - - - - - - - 8         0:00.000       8 |  |  |  |  |  |  |  |  | 8
   ///   A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
+  /// ```
   void edaxPlayPrint() => _bindings.edax_play_print();
 }
