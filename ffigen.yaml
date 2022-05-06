@@ -52,6 +52,7 @@ functions:
     - 'edax_move'
     - 'edax_new'
     - 'edax_opening'
+    - 'edax_play_print'
     - 'edax_play'
     - 'edax_redo'
     - 'edax_rotate'
