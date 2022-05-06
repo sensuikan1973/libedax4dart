@@ -33,6 +33,16 @@ void main() {
         ..libedaxTerminate();
     });
 
+    test('print play', () {
+      final edax = LibEdax()..libedaxInitialize();
+      sleep(const Duration(seconds: 1));
+      edax
+        ..edaxInit()
+        ..edaxPlay('f5d6c5f4d3')
+        ..edaxPlayPrint()
+        ..libedaxTerminate();
+    });
+
     test('get last move with no moves', () {
       final edax = LibEdax()..libedaxInitialize();
       sleep(const Duration(seconds: 1));

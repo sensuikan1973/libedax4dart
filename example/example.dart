@@ -17,7 +17,10 @@ void main() {
   stdout.writeln(edax.edaxGetBoard().prettyString(edax.edaxGetCurrentPlayer()));
 
   /// play
-  edax.edaxPlay('f5f6f7g7');
+  edax
+    ..edaxPlay('f5f6f7g7')
+    ..edaxPlayPrint();
+
   stdout
     ..writeln(edax.edaxGetBoard().prettyString(edax.edaxGetCurrentPlayer()))
     ..writeln('moves: ${edax.edaxGetMoves()}')

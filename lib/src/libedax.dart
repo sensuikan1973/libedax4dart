@@ -393,4 +393,7 @@ class LibEdax {
 
   /// Stop edaxBookCountBestpath
   void edaxBookStopCountBestpath() => _bindings.edax_book_stop_count_bestpath();
+
+  /// Print play.
+  void edaxPlayPrint() => _bindings.edax_play_print();
 }
