@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the edaxBookShow method from the LibEdax class, for the Dart programming language.">
-  <title>edaxBookShow method - LibEdax class - libedax4dart library - Dart API</title>
+  <meta name="description" content="API docs for the edaxPlayPrint method from the LibEdax class, for the Dart programming language.">
+  <title>edaxPlayPrint method - LibEdax class - libedax4dart library - Dart API</title>
 
 
   
@@ -32,9 +32,9 @@
     <li><a href="../../index.html">libedax4dart</a></li>
     <li><a href="../../libedax4dart/libedax4dart-library.html">libedax4dart</a></li>
     <li><a href="../../libedax4dart/LibEdax-class.html">LibEdax</a></li>
-    <li class="self-crumb">edaxBookShow method</li>
+    <li class="self-crumb">edaxPlayPrint method</li>
   </ol>
-  <div class="self-name">edaxBookShow</div>
+  <div class="self-name">edaxPlayPrint</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -45,37 +45,29 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">edaxBookShow</span> method 
+<h1><span class="kind-method">edaxPlayPrint</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="../../libedax4dart/Position-class.html">Position</a></span>
-<span class="name ">edaxBookShow</span>(<wbr>)
+<span class="returntype">void</span>
+<span class="name ">edaxPlayPrint</span>(<wbr>)
 
       
 
     </section>
     
 <section class="desc markdown">
-  <p>Show book.</p>
-<p>Probably, you should use <a href="../../libedax4dart/LibEdax/edaxGetBookMoveWithPosition.html">edaxGetBookMoveWithPosition()</a>. <br>
-See: <a href="https://github.com/sensuikan1973/libedax4dart/issues/46">https://github.com/sensuikan1973/libedax4dart/issues/46</a></p>
+  <p>Print play.</p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Position edaxBookShow() {
-  final dstP = calloc&lt;bindings.Position&gt;();
-  _bindings.edax_book_show(dstP);
-  final position = Position.fromCStruct(dstP.ref);
-  calloc.free(dstP);
-  return position;
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">void edaxPlayPrint() =&gt; _bindings.edax_play_print();</code></pre>
 </section>
 
 
@@ -92,7 +84,7 @@ See: <a href="https://github.com/sensuikan1973/libedax4dart/issues/46">https://g
   <li><a href="../../index.html">libedax4dart</a></li>
   <li><a href="../../libedax4dart/libedax4dart-library.html">libedax4dart</a></li>
   <li><a href="../../libedax4dart/LibEdax-class.html">LibEdax</a></li>
-  <li class="self-crumb">edaxBookShow method</li>
+  <li class="self-crumb">edaxPlayPrint method</li>
 </ol>
 
 
