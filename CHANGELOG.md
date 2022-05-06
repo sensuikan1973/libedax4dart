@@ -1,6 +1,10 @@
+# 3.1.1
+
+- enhance documentation of `edaxPlayPrint`.
+
 # 3.1.0
 
-- add `edaxPlayPrint`
+- add `edaxPlayPrint`.
 
 # 3.0.0
 

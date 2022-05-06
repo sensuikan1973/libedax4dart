@@ -78,7 +78,7 @@ dart run pana
 #### document
 
 ```sh
-dartdoc && open doc/api/index.html
+dart doc . && open doc/api/index.html
 ```
 
 #### change libedax bin
