@@ -1,3 +1,7 @@
+# 3.1.0
+
+- add `edaxPlayPrint`
+
 # 3.0.0
 
 - [Breaking Change] if you don't specify dll path, libedax4dart search `libedax.universal.dylib`. in past, that is `libedax.dylib`.
