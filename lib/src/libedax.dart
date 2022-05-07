@@ -438,4 +438,16 @@ class LibEdax {
     _bindings.edax_book_save(arg);
     calloc.free(arg);
   }
+
+  /// Enable book_verbose to get stdout by bprint in edax.
+  void edaxEnableBookVerbose() => _bindings.edax_enable_book_verbose();
+
+  /// Disable book_verbose not to get stdout by bprint in edax.
+  void edaxDisableBookVerbose() => _bindings.edax_disable_book_verbose();
+
+  /// Set book verbosity.
+  ///
+  /// NOTE: this verbosity is unrelated to `book_verbose` which shows stdout by bprint in edax.
+  void edaxBookVerbose(final int verbosity) =>
+      _bindings.edax_book_verbose(verbosity);
 }

@@ -768,6 +768,20 @@ class LibEdaxBindings {
   late final _edax_book_store =
       _edax_book_storePtr.asFunction<void Function()>();
 
+  void edax_book_verbose(
+    int arg0,
+  ) {
+    return _edax_book_verbose(
+      arg0,
+    );
+  }
+
+  late final _edax_book_verbosePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int32)>>(
+          'edax_book_verbose');
+  late final _edax_book_verbose =
+      _edax_book_verbosePtr.asFunction<void Function(int)>();
+
   int edax_can_move() {
     return _edax_can_move();
   }
@@ -775,6 +789,26 @@ class LibEdaxBindings {
   late final _edax_can_movePtr =
       _lookup<ffi.NativeFunction<ffi.Int32 Function()>>('edax_can_move');
   late final _edax_can_move = _edax_can_movePtr.asFunction<int Function()>();
+
+  void edax_disable_book_verbose() {
+    return _edax_disable_book_verbose();
+  }
+
+  late final _edax_disable_book_verbosePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function()>>(
+          'edax_disable_book_verbose');
+  late final _edax_disable_book_verbose =
+      _edax_disable_book_verbosePtr.asFunction<void Function()>();
+
+  void edax_enable_book_verbose() {
+    return _edax_enable_book_verbose();
+  }
+
+  late final _edax_enable_book_verbosePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function()>>(
+          'edax_enable_book_verbose');
+  late final _edax_enable_book_verbose =
+      _edax_enable_book_verbosePtr.asFunction<void Function()>();
 
   void edax_get_board(
     ffi.Pointer<Board> arg0,
@@ -1446,11 +1480,11 @@ class LibEdaxBindings {
   set time_clock(ffi.Pointer<ffi.NativeFunction<ffi.Int64 Function()>> value) =>
       _time_clock.value = value;
 
-  late final ffi.Pointer<ffi.Int64> _timezone = _lookup<ffi.Int64>('timezone');
+  late final ffi.Pointer<ffi.Int64> _timezone1 = _lookup<ffi.Int64>('timezone');
 
-  int get timezone => _timezone.value;
+  int get timezone1 => _timezone1.value;
 
-  set timezone(int value) => _timezone.value = value;
+  set timezone1(int value) => _timezone1.value = value;
 
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>> _tzname =
       _lookup<ffi.Pointer<ffi.Pointer<ffi.Int8>>>('tzname');
@@ -9833,7 +9867,7 @@ class timeval64 extends ffi.Struct {
   external int tv_usec;
 }
 
-class timezone1 extends ffi.Struct {
+class timezone extends ffi.Struct {
   @ffi.Int32()
   external int tz_minuteswest;
 
