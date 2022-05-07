@@ -412,6 +412,8 @@ class LibEdax {
   void edaxPlayPrint() => _bindings.edax_play_print();
 
   /// Fix book.
+  ///
+  /// See: https://choi.lavox.net/edax/ref_command_book?s[]=deviate#book_fix
   void edaxBookFix() => _bindings.edax_book_fix();
 
   /// Deviate book.
