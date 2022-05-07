@@ -1,3 +1,8 @@
+# 3.2.0
+
+- add `edaxBookFix`.
+- add `edaxBookDeviate`.
+
 # 3.1.1
 
 - enhance documentation of `edaxPlayPrint`.

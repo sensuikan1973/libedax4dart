@@ -43,6 +43,15 @@ void main() {
         ..libedaxTerminate();
     });
 
+    test('fix book', () {
+      final edax = LibEdax()..libedaxInitialize();
+      sleep(const Duration(seconds: 1));
+      edax
+        ..edaxInit()
+        ..edaxBookFix()
+        ..libedaxTerminate();
+    });
+
     test('get last move with no moves', () {
       final edax = LibEdax()..libedaxInitialize();
       sleep(const Duration(seconds: 1));

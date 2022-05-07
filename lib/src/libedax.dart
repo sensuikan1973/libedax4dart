@@ -410,4 +410,15 @@ class LibEdax {
   ///   A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
   /// ```
   void edaxPlayPrint() => _bindings.edax_play_print();
+
+  /// Fix book.
+  ///
+  /// See: https://choi.lavox.net/edax/ref_command_book?s[]=deviate#book_fix
+  void edaxBookFix() => _bindings.edax_book_fix();
+
+  /// Deviate book.
+  ///
+  /// See: https://choi.lavox.net/edax/ref_command_book?s[]=deviate#book_deviate
+  void edaxBookDeviate(final int relativeError, final int absoluteError) =>
+      _bindings.edax_book_deviate(relativeError, absoluteError);
 }
