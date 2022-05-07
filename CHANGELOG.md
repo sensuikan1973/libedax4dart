@@ -1,3 +1,7 @@
+# 3.6.0
+
+- [internal change] add stdout printing of search result on internal callback.
+
 # 3.5.0
 
 - add `edaxBookVerbose`.
