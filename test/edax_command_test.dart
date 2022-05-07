@@ -370,6 +370,36 @@ void main() {
         ..edaxBookStopCountBestpath()
         ..libedaxTerminate();
     });
+
+    test('play a game with edax vs edax, and book store', () {
+      const bookFile = 'data/book_store_test.dat';
+      if (File(bookFile).existsSync()) {
+        File(bookFile).deleteSync(); // ensure idempotence
+      }
+
+      const initParams = ['', '-book-file', bookFile, '-level', '1'];
+      final edax = LibEdax()..libedaxInitialize(initParams);
+      sleep(const Duration(seconds: 1));
+
+      const opening = 'f5f4f3';
+      edax
+        ..edaxInit()
+        ..edaxPlay(opening);
+      final position = edax.edaxGetBookMoveWithPosition().position;
+      expect(position.nLink, 0);
+      edax
+        ..edaxMode(2) // edax vs edax
+        ..edaxGo()
+        ..edaxPlayPrint()
+        ..edaxBookStore()
+        ..edaxBookSave(bookFile)
+        ..edaxMode(3) // human vs human
+        ..edaxInit()
+        ..edaxPlay(opening);
+      final positionAfterLearning = edax.edaxGetBookMoveWithPosition().position;
+      expect(positionAfterLearning.nLink, 1);
+      edax.libedaxTerminate();
+    });
   });
 
   group('util command', () {
