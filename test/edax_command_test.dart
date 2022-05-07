@@ -372,27 +372,30 @@ void main() {
     });
 
     test('play a short game with edax vs edax, and book store', () {
-      const initParams = [
-        '',
-        '-eval-file',
-        'data/eval.dat',
-        '-book-file',
-        'data/book_store_test.dat',
-        '-level',
-        '1'
-      ];
+      const bookFile = 'data/book_store_test.dat';
+      const initParams = ['', '-book-file', bookFile, '-level', '1'];
       final edax = LibEdax()..libedaxInitialize(initParams);
       sleep(const Duration(seconds: 1));
+
+      const opening = 'f5f4f3';
       edax
         ..edaxInit()
-        ..edaxBookShow()
+        ..edaxPlay(opening);
+      final bookMoveWithPosition = edax.edaxGetBookMoveWithPosition();
+      expect(bookMoveWithPosition.position.nLink, 0);
+      edax
         ..edaxMode(2) // edax vs edax
         ..edaxGo()
+        ..edaxPlayPrint()
         ..edaxBookStore()
-        ..edaxBookSave('data/book_store_test.dat')
+        ..edaxBookSave(bookFile)
+        ..edaxMode(3) // human vs human
         ..edaxInit()
-        ..edaxBookShow()
-        ..libedaxTerminate();
+        ..edaxPlay(opening);
+      final bookMoveWithPositionAfterLearning =
+          edax.edaxGetBookMoveWithPosition();
+      expect(bookMoveWithPositionAfterLearning.position.nLink, 1);
+      edax.libedaxTerminate();
     });
   });
 
