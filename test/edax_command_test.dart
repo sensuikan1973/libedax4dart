@@ -373,7 +373,9 @@ void main() {
 
     test('play a short game with edax vs edax, and book store', () {
       const bookFile = 'data/book_store_test.dat';
-      File(bookFile).deleteSync(); // ensure idempotence
+      if (File(bookFile).existsSync()) {
+        File(bookFile).deleteSync(); // ensure idempotence
+      }
 
       const initParams = ['', '-book-file', bookFile, '-level', '1'];
       final edax = LibEdax()..libedaxInitialize(initParams);
