@@ -373,6 +373,8 @@ void main() {
 
     test('play a short game with edax vs edax, and book store', () {
       const bookFile = 'data/book_store_test.dat';
+      File(bookFile).deleteSync(); // ensure idempotence
+
       const initParams = ['', '-book-file', bookFile, '-level', '1'];
       final edax = LibEdax()..libedaxInitialize(initParams);
       sleep(const Duration(seconds: 1));
@@ -381,8 +383,8 @@ void main() {
       edax
         ..edaxInit()
         ..edaxPlay(opening);
-      final bookMoveWithPosition = edax.edaxGetBookMoveWithPosition();
-      expect(bookMoveWithPosition.position.nLink, 0);
+      final position = edax.edaxGetBookMoveWithPosition().position;
+      expect(position.nLink, 0);
       edax
         ..edaxMode(2) // edax vs edax
         ..edaxGo()
@@ -392,9 +394,8 @@ void main() {
         ..edaxMode(3) // human vs human
         ..edaxInit()
         ..edaxPlay(opening);
-      final bookMoveWithPositionAfterLearning =
-          edax.edaxGetBookMoveWithPosition();
-      expect(bookMoveWithPositionAfterLearning.position.nLink, 1);
+      final positionAfterLearning = edax.edaxGetBookMoveWithPosition().position;
+      expect(positionAfterLearning.nLink, 1);
       edax.libedaxTerminate();
     });
   });
