@@ -23,8 +23,8 @@ Real World example is https://github.com/sensuikan1973/pedax.
 
 ## Document
 
-- **[libedax4dart](https://sensuikan1973.github.io/libedax4dart/)**
-- [libedax](https://lavox.github.io/libedax4py/html/libedax_8c.html): This may be old. In case of that, See [source](https://github.com/lavox/edax-reversi/tree/libedax).
+- [libedax4dart](https://sensuikan1973.github.io/libedax4dart/)
+- [libedax](https://sensuikan1973.github.io/edax-reversi/libedax_8c.html)
 
 ## Reference
 
