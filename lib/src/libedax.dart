@@ -413,4 +413,10 @@ class LibEdax {
 
   /// Fix book.
   void edaxBookFix() => _bindings.edax_book_fix();
+
+  /// Deviate book.
+  ///
+  /// See: https://choi.lavox.net/edax/ref_command_book?s[]=deviate#book_deviate
+  void edaxBookDeviate(final int relativeError, final int absoluteError) =>
+      _bindings.edax_book_deviate(relativeError, absoluteError);
 }
