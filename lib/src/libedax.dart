@@ -424,4 +424,18 @@ class LibEdax {
 
   /// Dump options.
   void edaxOptionsDump() => _bindings.edax_options_dump();
+
+  /// Book store.
+  ///
+  /// See: https://choi.lavox.net/edax/ref_command_book?s[]=deviate#book_store
+  void edaxBookStore() => _bindings.edax_book_store();
+
+  /// Book save.
+  ///
+  /// See: https://choi.lavox.net/edax/ref_command_book?s[]=deviate#book_save
+  void edaxBookSave(final String bookFile) {
+    final arg = bookFile.toInt8Pointer();
+    _bindings.edax_book_save(arg);
+    calloc.free(arg);
+  }
 }
