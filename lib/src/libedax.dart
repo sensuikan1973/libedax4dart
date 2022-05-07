@@ -410,4 +410,7 @@ class LibEdax {
   ///   A B C D E F G H            WHITE            A  B  C  D  E  F  G  H
   /// ```
   void edaxPlayPrint() => _bindings.edax_play_print();
+
+  /// Fix book.
+  void edaxBookFix() => _bindings.edax_book_fix();
 }

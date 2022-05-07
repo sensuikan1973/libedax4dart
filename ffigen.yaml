@@ -24,6 +24,7 @@ functions:
   include:
     - 'bit_count'
     - 'edax_book_count_bestpath'
+    - 'edax_book_fix'
     - 'edax_book_load'
     - 'edax_book_new'
     - 'edax_book_off'
