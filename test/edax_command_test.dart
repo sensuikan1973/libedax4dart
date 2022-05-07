@@ -30,6 +30,7 @@ void main() {
         ..edaxInit()
         ..edaxVersion()
         ..edaxSetOption('level', '15')
+        ..edaxOptionsDump()
         ..libedaxTerminate();
     });
 

@@ -1022,6 +1022,15 @@ class LibEdaxBindings {
   late final _edax_opening =
       _edax_openingPtr.asFunction<ffi.Pointer<ffi.Int8> Function()>();
 
+  void edax_options_dump() {
+    return _edax_options_dump();
+  }
+
+  late final _edax_options_dumpPtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_options_dump');
+  late final _edax_options_dump =
+      _edax_options_dumpPtr.asFunction<void Function()>();
+
   void edax_play(
     ffi.Pointer<ffi.Int8> arg0,
   ) {
@@ -1414,11 +1423,11 @@ class LibEdaxBindings {
   set time_clock(ffi.Pointer<ffi.NativeFunction<ffi.Int64 Function()>> value) =>
       _time_clock.value = value;
 
-  late final ffi.Pointer<ffi.Int64> _timezone = _lookup<ffi.Int64>('timezone');
+  late final ffi.Pointer<ffi.Int64> _timezone1 = _lookup<ffi.Int64>('timezone');
 
-  int get timezone => _timezone.value;
+  int get timezone1 => _timezone1.value;
 
-  set timezone(int value) => _timezone.value = value;
+  set timezone1(int value) => _timezone1.value = value;
 
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>> _tzname =
       _lookup<ffi.Pointer<ffi.Pointer<ffi.Int8>>>('tzname');
@@ -9801,7 +9810,7 @@ class timeval64 extends ffi.Struct {
   external int tv_usec;
 }
 
-class timezone1 extends ffi.Struct {
+class timezone extends ffi.Struct {
   @ffi.Int32()
   external int tz_minuteswest;
 

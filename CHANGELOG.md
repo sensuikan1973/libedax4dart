@@ -1,3 +1,7 @@
+# 3.3.0
+
+- add `edaxOptionsDump`.
+
 # 3.2.0
 
 - add `edaxBookFix`.
