@@ -13,7 +13,8 @@ void main() {
   ];
   final edax = LibEdax()
     ..libedaxInitialize(initParams)
-    ..edaxInit();
+    ..edaxInit()
+    ..edaxOptionsDump();
   stdout.writeln(edax.edaxGetBoard().prettyString(edax.edaxGetCurrentPlayer()));
 
   /// play

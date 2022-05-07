@@ -421,4 +421,7 @@ class LibEdax {
   /// See: https://choi.lavox.net/edax/ref_command_book?s[]=deviate#book_deviate
   void edaxBookDeviate(final int relativeError, final int absoluteError) =>
       _bindings.edax_book_deviate(relativeError, absoluteError);
+
+  /// Dump options.
+  void edaxOptionsDump() => _bindings.edax_options_dump();
 }
