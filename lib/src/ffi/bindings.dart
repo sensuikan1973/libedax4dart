@@ -721,6 +721,20 @@ class LibEdaxBindings {
   late final _edax_book_randomness =
       _edax_book_randomnessPtr.asFunction<void Function(int)>();
 
+  void edax_book_save(
+    ffi.Pointer<ffi.Int8> arg0,
+  ) {
+    return _edax_book_save(
+      arg0,
+    );
+  }
+
+  late final _edax_book_savePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Int8>)>>(
+          'edax_book_save');
+  late final _edax_book_save =
+      _edax_book_savePtr.asFunction<void Function(ffi.Pointer<ffi.Int8>)>();
+
   void edax_book_show(
     ffi.Pointer<Position> arg0,
   ) {
@@ -744,6 +758,15 @@ class LibEdaxBindings {
           'edax_book_stop_count_bestpath');
   late final _edax_book_stop_count_bestpath =
       _edax_book_stop_count_bestpathPtr.asFunction<void Function()>();
+
+  void edax_book_store() {
+    return _edax_book_store();
+  }
+
+  late final _edax_book_storePtr =
+      _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_book_store');
+  late final _edax_book_store =
+      _edax_book_storePtr.asFunction<void Function()>();
 
   int edax_can_move() {
     return _edax_can_move();
@@ -1423,11 +1446,11 @@ class LibEdaxBindings {
   set time_clock(ffi.Pointer<ffi.NativeFunction<ffi.Int64 Function()>> value) =>
       _time_clock.value = value;
 
-  late final ffi.Pointer<ffi.Int64> _timezone1 = _lookup<ffi.Int64>('timezone');
+  late final ffi.Pointer<ffi.Int64> _timezone = _lookup<ffi.Int64>('timezone');
 
-  int get timezone1 => _timezone1.value;
+  int get timezone => _timezone.value;
 
-  set timezone1(int value) => _timezone1.value = value;
+  set timezone(int value) => _timezone.value = value;
 
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>> _tzname =
       _lookup<ffi.Pointer<ffi.Pointer<ffi.Int8>>>('tzname');
@@ -9810,7 +9833,7 @@ class timeval64 extends ffi.Struct {
   external int tv_usec;
 }
 
-class timezone extends ffi.Struct {
+class timezone1 extends ffi.Struct {
   @ffi.Int32()
   external int tz_minuteswest;
 

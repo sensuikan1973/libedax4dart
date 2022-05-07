@@ -1,3 +1,8 @@
+# 3.4.0
+
+- add `edaxBookStore`.
+- add `edaxBookSave`.
+
 # 3.3.0
 
 - add `edaxOptionsDump`.
