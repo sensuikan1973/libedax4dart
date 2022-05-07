@@ -1,3 +1,9 @@
+# 3.5.0
+
+- add `edaxBookVerbose`.
+- add `edaxEnableBookVerbose`.
+- add `edaxDisableBookVerbose`.
+
 # 3.4.0
 
 - add `edaxBookStore`.

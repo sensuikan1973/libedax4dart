@@ -44,12 +44,15 @@ void main() {
         ..libedaxTerminate();
     });
 
-    test('fix book', () {
+    test('fix book with verbose', () {
       final edax = LibEdax()..libedaxInitialize();
       sleep(const Duration(seconds: 1));
       edax
         ..edaxInit()
-        ..edaxBookFix()
+        ..edaxBookVerbose(2)
+        ..edaxDisableBookVerbose()
+        ..edaxEnableBookVerbose()
+        ..edaxBookFix() // Because book-verbose is enabled, this command should print "Fixing book..." and so on.
         ..libedaxTerminate();
     });
 
