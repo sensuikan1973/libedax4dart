@@ -371,7 +371,7 @@ void main() {
         ..libedaxTerminate();
     });
 
-    test('play a short game with edax vs edax, and book store', () {
+    test('play a game with edax vs edax, and book store', () {
       const bookFile = 'data/book_store_test.dat';
       if (File(bookFile).existsSync()) {
         File(bookFile).deleteSync(); // ensure idempotence
