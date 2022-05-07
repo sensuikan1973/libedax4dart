@@ -370,6 +370,30 @@ void main() {
         ..edaxBookStopCountBestpath()
         ..libedaxTerminate();
     });
+
+    test('play a short game with edax vs edax, and book store', () {
+      const initParams = [
+        '',
+        '-eval-file',
+        'data/eval.dat',
+        '-book-file',
+        'data/book_store_test.dat',
+        '-level',
+        '1'
+      ];
+      final edax = LibEdax()..libedaxInitialize(initParams);
+      sleep(const Duration(seconds: 1));
+      edax
+        ..edaxInit()
+        ..edaxBookShow()
+        ..edaxMode(2) // edax vs edax
+        ..edaxGo()
+        ..edaxBookStore()
+        ..edaxBookSave('data/book_store_test.dat')
+        ..edaxInit()
+        ..edaxBookShow()
+        ..libedaxTerminate();
+    });
   });
 
   group('util command', () {
