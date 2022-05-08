@@ -28,7 +28,7 @@ data/
 *.dylib
 *.so
 *.dll
-env.txt
+.env.txt
 
 # coverage
 coverage/

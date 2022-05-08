@@ -73,10 +73,6 @@ jobs:
           libedax_build_command: ${{ matrix.libedax_build_command }}
         run: ./scripts/build_libedax.sh
 
-      - name: output build info
-        shell: bash
-        run: .github/scripts/output_build_info.sh . gcc && cat env.txt
-
       # - name: setup tmate session for DEBUG
       #   uses: mxschmitt/action-tmate@v3
 
