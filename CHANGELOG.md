@@ -1,3 +1,7 @@
+# 3.6.0
+
+- mild update documentation.
+
 # 3.5.0
 
 - add `edaxBookVerbose`.
