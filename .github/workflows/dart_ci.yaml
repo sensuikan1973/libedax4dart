@@ -75,7 +75,7 @@ jobs:
 
       - name: output build info
         shell: bash
-        run: .github/scripts/output_build_info.sh . gcc && cat env.txt
+        run: .github/scripts/output_build_info.sh . && cat env.txt
 
       # - name: setup tmate session for DEBUG
       #   uses: mxschmitt/action-tmate@v3

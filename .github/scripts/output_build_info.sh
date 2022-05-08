@@ -1,10 +1,8 @@
 #!/bin/bash
 
 # $1: dst
-# $2: compiler
 
 dst_file="$1/env.txt"
-compiler="$2"
 
 touch "$dst_file"
 
@@ -22,6 +20,6 @@ touch "$dst_file"
   echo "=== dart version ==="
   dart --version 2>&1
 
-  echo "=== $compiler version ==="
-  $compiler --version
+  echo "=== gcc version ==="
+  gcc --version
 } >> "$dst_file"
