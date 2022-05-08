@@ -39,7 +39,7 @@ jobs:
 
       - name: output build info
         shell: bash
-        run: .github/scripts/output_build_info.sh ${{ env.OUTPUT_DIR }} && cat ${{ env.OUTPUT_DIR }}/env.txt
+        run: .github/scripts/output_build_info.sh ${{ env.OUTPUT_DIR }}
 
       - name: compress files (Windows)
         if: runner.os == 'Windows'
