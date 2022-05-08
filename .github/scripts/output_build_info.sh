@@ -2,7 +2,7 @@
 
 # $1: dst
 
-dst_file="$1/env.txt"
+dst_file="$1/.env.txt"
 
 touch "$dst_file"
 
