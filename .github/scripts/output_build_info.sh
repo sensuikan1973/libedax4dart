@@ -18,9 +18,6 @@ touch "$dst_file"
   # shellcheck disable=SC2154
   echo "$ImageOS"
 
-  echo "=== dart version ==="
-  dart --version 2>&1
-
   echo "=== gcc version ==="
   gcc --version
 } >> "$dst_file"
