@@ -81,7 +81,7 @@ jobs:
       - name: test
         run: dart run test . --coverage=coverage
       - name: coverage
-        run: dart run coverage:format_coverage --lcov --packages=.packages --in coverage --out lcov.info
+        run: dart run coverage:format_coverage --lcov --in coverage --out lcov.info
       - uses: codecov/codecov-action@v3
         with: # ref: https://github.com/codecov/codecov-action/blob/v3.1.0/.github/workflows/main.yml
           files: lcov.info
