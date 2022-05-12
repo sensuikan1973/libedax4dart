@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the edaxSetOption method from the LibEdax class, for the Dart programming language.">
+  <title>edaxSetOption method - LibEdax class - libedax library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">libedax4dart</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax-library.html">libedax</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax-class.html">LibEdax</a></li>
+    <li class="self-crumb">edaxSetOption method</li>
+  </ol>
+  <div class="self-name">edaxSetOption</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">edaxSetOption</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+
+<span class="returntype">void</span>
+<span class="name ">edaxSetOption</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="edaxSetOption-param-optionName"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.17.0/dart-core/String-class.html">String</a></span> <span class="parameter-name">optionName</span>, </span></li>
+<li><span class="parameter" id="edaxSetOption-param-val"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.17.0/dart-core/String-class.html">String</a></span> <span class="parameter-name">val</span></span></li>
+</ol>)
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Set option.</p>
+<p>See <a href="https://sensuikan1973.github.io/edax-reversi/structOptions.html">Options Document</a>.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">void edaxSetOption(final String optionName, final String val) {
+  final optionNameArg = optionName.toInt8Pointer();
+  final valArg = optionName.toInt8Pointer();
+  _bindings.edax_set_option(optionNameArg, valArg);
+  calloc
+    ..free(optionNameArg)
+    ..free(valArg);
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">libedax4dart</a></li>
+  <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax-library.html">libedax</a></li>
+  <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax-class.html">LibEdax</a></li>
+  <li class="self-crumb">edaxSetOption method</li>
+</ol>
+
+
+    <h5>LibEdax class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax-class.html#constructors">Constructors</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/LibEdax.html">LibEdax</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.17.0/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.17.0/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/closeDll.html">closeDll</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxBookCountBestpath.html">edaxBookCountBestpath</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxBookDeviate.html">edaxBookDeviate</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxBookFix.html">edaxBookFix</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxBookLoad.html">edaxBookLoad</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxBookNew.html">edaxBookNew</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxBookOff.html">edaxBookOff</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxBookOn.html">edaxBookOn</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxBookRandomness.html">edaxBookRandomness</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxBookSave.html">edaxBookSave</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxBookShow.html">edaxBookShow</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxBookStopCountBestpath.html">edaxBookStopCountBestpath</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxBookStore.html">edaxBookStore</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxBookVerbose.html">edaxBookVerbose</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxCanMove.html">edaxCanMove</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxDisableBookVerbose.html">edaxDisableBookVerbose</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxEnableBookVerbose.html">edaxEnableBookVerbose</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxGetBoard.html">edaxGetBoard</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxGetBookMove.html">edaxGetBookMove</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxGetBookMoveWithPosition.html">edaxGetBookMoveWithPosition</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxGetBookMoveWithPositionByMoves.html">edaxGetBookMoveWithPositionByMoves</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxGetCurrentPlayer.html">edaxGetCurrentPlayer</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxGetDisc.html">edaxGetDisc</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxGetLastMove.html">edaxGetLastMove</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxGetMobilityCount.html">edaxGetMobilityCount</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxGetMoves.html">edaxGetMoves</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxGo.html">edaxGo</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxHint.html">edaxHint</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxHintNext.html">edaxHintNext</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxHintNextNoMultiPvDepth.html">edaxHintNextNoMultiPvDepth</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxHintPrepare.html">edaxHintPrepare</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxInit.html">edaxInit</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxIsGameOver.html">edaxIsGameOver</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxMode.html">edaxMode</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxMove.html">edaxMove</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxNew.html">edaxNew</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxOpening.html">edaxOpening</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxOptionsDump.html">edaxOptionsDump</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxPlay.html">edaxPlay</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxPlayPrint.html">edaxPlayPrint</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxRedo.html">edaxRedo</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxRotate.html">edaxRotate</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxSetboard.html">edaxSetboard</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxSetOption.html">edaxSetOption</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxStop.html">edaxStop</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxUndo.html">edaxUndo</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxVersion.html">edaxVersion</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/edaxVmirror.html">edaxVmirror</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/libedaxInitialize.html">libedaxInitialize</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/libedaxTerminate.html">libedaxTerminate</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.17.0/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax/popCount.html">popCount</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.17.0/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.dart.dev/stable/2.17.0/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    libedax4dart
+      3.6.0
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+
