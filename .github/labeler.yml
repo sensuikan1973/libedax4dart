@@ -8,3 +8,4 @@ GitHub Actions:
 
 ffigen:
   - ffigen.yaml
+  - lib/src/ffi/bindings.dart
