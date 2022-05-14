@@ -1,3 +1,8 @@
+# 4.0.0
+
+- remove `Pointer<Int8>` extension `toStr` and add `Pointer<Char>` extension `toStringtr`.
+- remove `String` extension `toInt8Pointer` amd add `toCharPointer`.
+
 # 3.6.0
 
 - mild update documentation.
