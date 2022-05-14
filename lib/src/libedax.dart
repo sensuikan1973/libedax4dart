@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
 
-import '../extensions/pointer_int8.dart';
+import '../extensions/pointer_char.dart';
 import '../extensions/string.dart';
 import 'board.dart';
 import 'constants.dart';
@@ -36,10 +36,10 @@ class LibEdax {
   ///
   /// If you want to know more, See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
   void libedaxInitialize([final List<String> args = const []]) {
-    final argsPointers = args.map((final arg) => arg.toInt8Pointer()).toList();
+    final argsPointers = args.map((final arg) => arg.toCharPointer()).toList();
 
     // Why `Int8` ? => See: https://github.com/dart-lang/ffigen/issues/72
-    final pointerPointer = calloc<Pointer<Int8>>(argsPointers.length);
+    final pointerPointer = calloc<Pointer<Char>>(argsPointers.length);
     for (var k = 0; k < argsPointers.length; k++) {
       pointerPointer[k] = argsPointers[k];
     }
@@ -113,7 +113,7 @@ class LibEdax {
   /// you can also pass opening name. (e.g. `brightwell`) <br>
   /// opening names are listed on [opening.c](https://github.com/lavox/edax-reversi/blob/libedax/src/opening.c).
   void edaxPlay(final String moves) {
-    final arg = moves.toInt8Pointer();
+    final arg = moves.toCharPointer();
     _bindings.edax_play(arg);
     calloc.free(arg);
   }
@@ -173,7 +173,7 @@ class LibEdax {
   MoveListWithPosition edaxGetBookMoveWithPositionByMoves(final String moves) {
     final dstM = calloc<bindings.MoveList>();
     final dstP = calloc<bindings.Position>();
-    final movesPointer = moves.toInt8Pointer();
+    final movesPointer = moves.toCharPointer();
     final symetry = _bindings.edax_get_bookmove_with_position_by_moves(
       movesPointer,
       dstM,
@@ -237,7 +237,7 @@ class LibEdax {
   /// you can pass Lower case or Upper case. `f5` `F5` is OK. <br>
   /// if you want to switch turn when mobilicty count is 0, pass `MoveMark.passString`.
   void edaxMove(final String move) {
-    final arg = move.toInt8Pointer();
+    final arg = move.toCharPointer();
     _bindings.edax_move(arg);
     calloc.free(arg);
   }
@@ -251,7 +251,7 @@ class LibEdax {
   ///
   /// Last char is turn.
   void edaxSetboard(final String board) {
-    final arg = board.toInt8Pointer();
+    final arg = board.toCharPointer();
     _bindings.edax_setboard(arg);
     calloc.free(arg);
   }
@@ -259,7 +259,7 @@ class LibEdax {
   /// Get the opening name of the current game, in English.
   ///
   /// e.g. `brightwell`, `tiger`, `rose`, ....
-  String edaxOpening() => _bindings.edax_opening().toStr();
+  String edaxOpening() => _bindings.edax_opening().toDartStr();
 
   /// Use book on `edaxGo`, `edaxHint`, `mode 2`.<br>
   /// default is on.
@@ -281,7 +281,7 @@ class LibEdax {
 
   /// Load book.
   void edaxBookLoad(final String bookFile) {
-    final arg = bookFile.toInt8Pointer();
+    final arg = bookFile.toCharPointer();
     _bindings.edax_book_load(arg);
     calloc.free(arg);
   }
@@ -302,8 +302,8 @@ class LibEdax {
   ///
   /// See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
   void edaxSetOption(final String optionName, final String val) {
-    final optionNameArg = optionName.toInt8Pointer();
-    final valArg = optionName.toInt8Pointer();
+    final optionNameArg = optionName.toCharPointer();
+    final valArg = optionName.toCharPointer();
     _bindings.edax_set_option(optionNameArg, valArg);
     calloc
       ..free(optionNameArg)
@@ -312,8 +312,8 @@ class LibEdax {
 
   /// Get current moves.
   String edaxGetMoves() {
-    final moves = calloc<Int8>(80 * 2 + 1);
-    final result = _bindings.edax_get_moves(moves).toStr();
+    final moves = calloc<Char>(80 * 2 + 1);
+    final result = _bindings.edax_get_moves(moves).toDartStr();
     calloc.free(moves);
     return result;
   }
@@ -434,7 +434,7 @@ class LibEdax {
   ///
   /// See: https://choi.lavox.net/edax/ref_command_book?s[]=deviate#book_save
   void edaxBookSave(final String bookFile) {
-    final arg = bookFile.toInt8Pointer();
+    final arg = bookFile.toCharPointer();
     _bindings.edax_book_save(arg);
     calloc.free(arg);
   }
