@@ -34,3 +34,4 @@ comment: # See: https://docs.codecov.io/docs/pull-request-comments
 
 ignore: # See: https://docs.codecov.io/docs/ignoring-paths
   - lib/src/ffi/bindings.dart
+  - test/**/*.dart
