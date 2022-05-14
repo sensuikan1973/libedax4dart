@@ -54,7 +54,7 @@
 <section id="getter">
 
 <section class="multi-line-signature">
-  <span class="returntype"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/Pointer-class.html">Pointer</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/Pointer-class.html">Pointer</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/NativeFunction-class.html">NativeFunction</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/Uint64-class.html">Uint64</a> Function<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/Uint64-class.html">Uint64</a></span>, </span><span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/Uint64-class.html">Uint64</a></span></span>)</span></span>&gt;</span></span>&gt;</span></span>&gt;</span></span>
+  <span class="returntype"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/Pointer-class.html">Pointer</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/Pointer-class.html">Pointer</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/NativeFunction-class.html">NativeFunction</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/UnsignedLongLong-class.html">UnsignedLongLong</a> Function<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/UnsignedLongLong-class.html">UnsignedLongLong</a></span>, </span><span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/UnsignedLongLong-class.html">UnsignedLongLong</a></span></span>)</span></span>&gt;</span></span>&gt;</span></span>&gt;</span></span>
   <span class="name ">flip</span>
   
 
@@ -66,9 +66,11 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">ffi.Pointer&lt;
-        ffi.Pointer&lt;
-            ffi.NativeFunction&lt;ffi.Uint64 Function(ffi.Uint64, ffi.Uint64)&gt;&gt;&gt;
-    get flip =&gt; _flip.value;</code></pre>
+    ffi.Pointer&lt;
+        ffi.NativeFunction&lt;
+            ffi.UnsignedLongLong Function(
+                ffi.UnsignedLongLong, ffi.UnsignedLongLong)&gt;&gt;&gt; get flip =&gt;
+    _flip.value;</code></pre>
 </section>
 
 </section>
@@ -79,7 +81,7 @@
 
 <section class="multi-line-signature">
   <span class="returntype">void</span>
-  <span class="name ">flip=</span><span class="signature">(<wbr><span class="parameter" id="flip=-param-value"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/Pointer-class.html">Pointer</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/Pointer-class.html">Pointer</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/NativeFunction-class.html">NativeFunction</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/Uint64-class.html">Uint64</a> Function<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/Uint64-class.html">Uint64</a></span>, </span><span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/Uint64-class.html">Uint64</a></span></span>)</span></span>&gt;</span></span>&gt;</span></span>&gt;</span></span> <span class="parameter-name">value</span></span>)</span>
+  <span class="name ">flip=</span><span class="signature">(<wbr><span class="parameter" id="flip=-param-value"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/Pointer-class.html">Pointer</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/Pointer-class.html">Pointer</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/NativeFunction-class.html">NativeFunction</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/UnsignedLongLong-class.html">UnsignedLongLong</a> Function<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/UnsignedLongLong-class.html">UnsignedLongLong</a></span>, </span><span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.17.0/dart-ffi/UnsignedLongLong-class.html">UnsignedLongLong</a></span></span>)</span></span>&gt;</span></span>&gt;</span></span>&gt;</span></span> <span class="parameter-name">value</span></span>)</span>
   
 
 </section>
@@ -93,7 +95,8 @@
         ffi.Pointer&lt;
                 ffi.Pointer&lt;
                     ffi.NativeFunction&lt;
-                        ffi.Uint64 Function(ffi.Uint64, ffi.Uint64)&gt;&gt;&gt;
+                        ffi.UnsignedLongLong Function(
+                            ffi.UnsignedLongLong, ffi.UnsignedLongLong)&gt;&gt;&gt;
             value) =&gt;
     _flip.value = value;</code></pre>
 </section>
@@ -242,6 +245,7 @@
 
     <li class="section-title"><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings-class.html#instance-methods">Methods</a></li>
     <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/bit_count.html">bit_count</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/bit_count1.html">bit_count1</a></li>
     <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_count_bestpath.html">edax_book_count_bestpath</a></li>
     <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_deviate.html">edax_book_deviate</a></li>
     <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_fix.html">edax_book_fix</a></li>

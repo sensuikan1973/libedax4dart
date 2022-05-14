@@ -68,8 +68,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">String edaxGetMoves() {
-  final moves = calloc&lt;Int8&gt;(80 * 2 + 1);
-  final result = _bindings.edax_get_moves(moves).toStr();
+  final moves = calloc&lt;Char&gt;(80 * 2 + 1);
+  final result = _bindings.edax_get_moves(moves).toDartStr();
   calloc.free(moves);
   return result;
 }</code></pre>

@@ -70,7 +70,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void edaxBookSave(final String bookFile) {
-  final arg = bookFile.toInt8Pointer();
+  final arg = bookFile.toCharPointer();
   _bindings.edax_book_save(arg);
   calloc.free(arg);
 }</code></pre>

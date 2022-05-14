@@ -71,8 +71,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void edaxSetOption(final String optionName, final String val) {
-  final optionNameArg = optionName.toInt8Pointer();
-  final valArg = optionName.toInt8Pointer();
+  final optionNameArg = optionName.toCharPointer();
+  final valArg = optionName.toCharPointer();
   _bindings.edax_set_option(optionNameArg, valArg);
   calloc
     ..free(optionNameArg)
