@@ -4,7 +4,7 @@ import 'dart:ffi';
 
 import 'package:ffi/ffi.dart';
 
-extension Int8PointerString on Pointer<Int8> {
+extension CharPointerString on Pointer<Char> {
   // See: https://pub.dev/packages/ffigen#how-does-ffigen-handle-c-strings
-  String toStr() => cast<Utf8>().toDartString();
+  String toDartStr() => cast<Utf8>().toDartString();
 }
