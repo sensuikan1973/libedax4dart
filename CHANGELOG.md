@@ -1,6 +1,10 @@
+# 4.0.1
+
+- fix typo on CHANGELOG.
+
 # 4.0.0
 
-- remove `Pointer<Int8>` extension `toStr` and add `Pointer<Char>` extension `toStringtr`.
+- remove `Pointer<Int8>` extension `toStr` and add `Pointer<Char>` extension `toDartStr`.
 - remove `String` extension `toInt8Pointer` amd add `toCharPointer`.
 
 # 3.6.0
