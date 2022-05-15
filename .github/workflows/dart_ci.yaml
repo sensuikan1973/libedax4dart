@@ -3,25 +3,9 @@ name: Dart CI
 
 on:
   pull_request:
-    paths:
-      - '**.dart'
-      - 'pubspec.*'
-      - '**/analysis_options.yaml'
-      - '.github/workflows/dart_ci.yaml'
-      - 'scripts/build_libedax.sh'
-      - '.libedax-version'
-      - '.codecov.yml'
   push:
     branches:
       - main
-    paths:
-      - '**.dart'
-      - 'pubspec.*'
-      - '**/analysis_options.yaml'
-      - '.github/workflows/dart_ci.yaml'
-      - 'scripts/build_libedax.sh'
-      - '.libedax-version'
-      - '.codecov.yml'
   workflow_dispatch:
 
 # See: https://docs.github.com/ja/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions#changing-github_token-permissions
