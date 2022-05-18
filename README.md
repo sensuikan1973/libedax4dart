@@ -19,15 +19,16 @@ With using libedax4dart, you can execute functions equivalent to [edax](https://
 
 3. With using `LibEdax`, you can run edax commands !
 
-## Real World Example
-
-- [pedax](https://github.com/sensuikan1973/pedax) : Flutter Desktop app
-- [edax_runner](https://github.com/sensuikan1973/edax_runner) : Dart native app
-
 ## Document
 
 - [libedax4dart](https://sensuikan1973.github.io/libedax4dart/)
 - [libedax](https://sensuikan1973.github.io/edax-reversi/libedax_8c.html)
+
+
+## Real World Example
+
+- [pedax](https://github.com/sensuikan1973/pedax) : Flutter Desktop app
+- [edax_runner](https://github.com/sensuikan1973/edax_runner) : Dart native app
 
 ## Reference
 
