@@ -49,7 +49,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@v1
-
       - name: build libedax
         shell: bash
         env:
@@ -71,16 +70,33 @@ jobs:
           files: lcov.info
           flags: unit_test,${{ matrix.os }}
           fail_ci_if_error: true
+      - name: run example
+        run: |-
+          cd example && dart pub get && cd ..
+          dart example/example.dart
 
-      - name: run pana to chceck package score before publish
-        if: runner.os == 'Linux'
-        id: run_pana_step
+  dart_docs:
+    needs: [dart_format, dart_analyze]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+      - run: dart doc .
+
+  dart_pana:
+    needs: [dart_format, dart_analyze]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+      - run: dart pub get
+      - id: run_pana_step
         run: |
           pub_point_by_pana=$(dart run pana | tail -1)
           echo "::set-output name=pub_point_by_pana::$pub_point_by_pana"
-
       - uses: Sibz/github-status-action@v1
-        if: runner.os == 'Linux'
         with:
           authToken: ${{ secrets.GITHUB_TOKEN }}
           context: Pub Poits by Pana
@@ -88,16 +104,8 @@ jobs:
           state: success
           sha: ${{ github.event.pull_request.head.sha || github.sha }}
 
-      - name: run example
-        run: |-
-          cd example && dart pub get && cd ..
-          dart example/example.dart
-
-      - name: generate dart docs
-        run: dart doc .
-
   dart_publish_dry_run:
-    needs: dart_test
+    needs: [dart_format, dart_analyze]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
