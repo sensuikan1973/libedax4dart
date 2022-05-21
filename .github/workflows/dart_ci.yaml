@@ -49,7 +49,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@v1
-
       - name: build libedax
         shell: bash
         env:
@@ -79,6 +78,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@v1
+      - name: build libedax
+        shell: bash
+        env:
+          dst: '.'
+          libedax_build_command: ${{ matrix.libedax_build_command }}
+        run: ./scripts/build_libedax.sh
       - run: |-
           cd example && dart pub get && cd ..
           dart example/example.dart
