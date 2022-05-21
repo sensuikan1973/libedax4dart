@@ -85,7 +85,7 @@ jobs:
       - run: dart doc .
 
   dart_pana:
-    needs: dart_test
+    needs: [dart_format, dart_analyze]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -105,7 +105,7 @@ jobs:
           sha: ${{ github.event.pull_request.head.sha || github.sha }}
 
   dart_publish_dry_run:
-    needs: dart_test
+    needs: [dart_format, dart_analyze]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
