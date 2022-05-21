@@ -72,29 +72,41 @@ jobs:
           flags: unit_test,${{ matrix.os }}
           fail_ci_if_error: true
 
-      - name: run pana to chceck package score before publish
-        if: runner.os == 'Linux'
-        id: run_pana_step
+  dart_example:
+    needs: [dart_format, dart_analyze]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - run: |-
+          cd example && dart pub get && cd ..
+          dart example/example.dart
+
+  dart_docs:
+    needs: [dart_format, dart_analyze]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - run: dart doc .
+
+  dart_pana:
+    needs: dart_test
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
+      - run: dart pub get
+      - id: run_pana_step
         run: |
           pub_point_by_pana=$(dart run pana | tail -1)
           echo "::set-output name=pub_point_by_pana::$pub_point_by_pana"
-
       - uses: Sibz/github-status-action@v1
-        if: runner.os == 'Linux'
         with:
           authToken: ${{ secrets.GITHUB_TOKEN }}
           context: Pub Poits by Pana
           description: ${{ steps.run_pana_step.outputs.pub_point_by_pana }}
           state: success
           sha: ${{ github.event.pull_request.head.sha || github.sha }}
-
-      - name: run example
-        run: |-
-          cd example && dart pub get && cd ..
-          dart example/example.dart
-
-      - name: generate dart docs
-        run: dart doc .
 
   dart_publish_dry_run:
     needs: dart_test
