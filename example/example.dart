@@ -39,6 +39,4 @@ void main() {
     ..writeln(
       '2nd move: ${hintList[1].moveString}, ${hintList[1].scoreString}',
     );
-
-  // NOTE: If you use another command, See: https://sensuikan1973.github.io/libedax4dart/libedax4dart/LibEdax-class.html
 }
