@@ -77,6 +77,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
       - run: |-
           cd example && dart pub get && cd ..
           dart example/example.dart
@@ -86,6 +88,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - uses: actions/checkout@v3
+      - uses: dart-lang/setup-dart@v1
       - run: dart doc .
 
   dart_pana:
