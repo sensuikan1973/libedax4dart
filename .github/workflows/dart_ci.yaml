@@ -70,21 +70,8 @@ jobs:
           files: lcov.info
           flags: unit_test,${{ matrix.os }}
           fail_ci_if_error: true
-
-  dart_example:
-    needs: [dart_format, dart_analyze]
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - uses: actions/checkout@v3
-      - uses: dart-lang/setup-dart@v1
-      - name: build libedax
-        shell: bash
-        env:
-          dst: '.'
-          libedax_build_command: ${{ matrix.libedax_build_command }}
-        run: ./scripts/build_libedax.sh
-      - run: |-
+      - name: run example
+        run: |-
           cd example && dart pub get && cd ..
           dart example/example.dart
 
