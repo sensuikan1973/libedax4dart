@@ -1,3 +1,7 @@
+# 4.0.3
+
+- downgrade Dart SDK min version for pub.
+
 # 4.0.2
 
 - mild update README and example.
