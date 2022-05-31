@@ -651,12 +651,12 @@ class LibEdaxBindings {
           'bit_count');
   late final _bit_count1 = _bit_count1Ptr.asFunction<int Function(int)>();
 
-  late final ffi.Pointer<ffi.Uint8> _book_verbose =
-      _lookup<ffi.Uint8>('book_verbose');
+  late final ffi.Pointer<ffi.Bool> _book_verbose =
+      _lookup<ffi.Bool>('book_verbose');
 
-  int get book_verbose => _book_verbose.value;
+  bool get book_verbose => _book_verbose.value;
 
-  set book_verbose(int value) => _book_verbose.value = value;
+  set book_verbose(bool value) => _book_verbose.value = value;
 
   late final ffi.Pointer<ffi.Int> _daylight = _lookup<ffi.Int>('daylight');
 
@@ -1791,8 +1791,8 @@ class Book extends ffi.Struct {
   @ffi.Int()
   external int n_nodes;
 
-  @ffi.Uint8()
-  external int need_saving;
+  @ffi.Bool()
+  external bool need_saving;
 
   @ffi.Array.multi([1])
   external ffi.Array<Random> random;
@@ -2256,8 +2256,8 @@ class Engine extends ffi.Struct {
 
   external UnnamedStruct15 last_position;
 
-  @ffi.Uint8()
-  external int is_searching;
+  @ffi.Bool()
+  external bool is_searching;
 }
 
 /// struct Eval
@@ -2273,8 +2273,8 @@ class Eval extends ffi.Struct {
 /// Event management data
 class Event extends ffi.Struct {
   /// !< flag allowing to loop, waiting for events
-  @ffi.Uint8()
-  external int loop;
+  @ffi.Bool()
+  external bool loop;
 
   /// !< ring of buffers
   external ffi.Pointer<ffi.Pointer<ffi.Char>> ring;
@@ -2513,8 +2513,8 @@ class GGSClient extends ffi.Struct {
   external ffi.Pointer<ffi.Char> me;
 
   /// < is Edax playing ?
-  @ffi.Uint8()
-  external int is_playing;
+  @ffi.Bool()
+  external bool is_playing;
 
   /// < date of last refresh
   @ffi.LongLong()
@@ -2572,8 +2572,8 @@ class GGSEvent extends ffi.Struct {
   external int socket;
 
   /// < loop
-  @ffi.Uint8()
-  external int loop;
+  @ffi.Bool()
+  external bool loop;
 
   /// < read buffer
   external ffi.Pointer<ffi.Char> buffer;
@@ -2913,8 +2913,8 @@ class Hint extends ffi.Struct {
   external int n_nodes;
 
   /// < book move origin
-  @ffi.Uint8()
-  external int book_move;
+  @ffi.Bool()
+  external bool book_move;
 }
 
 /// Hint list (for libEdax)
@@ -4365,8 +4365,8 @@ class Options extends ffi.Struct {
   external int n_task;
 
   /// < set one cpu/thread to diminish context change
-  @ffi.Uint8()
-  external int cpu_affinity;
+  @ffi.Bool()
+  external bool cpu_affinity;
 
   /// < search display
   @ffi.Int()
@@ -4381,20 +4381,20 @@ class Options extends ffi.Struct {
   external int width;
 
   /// < repeat user input
-  @ffi.Uint8()
-  external int echo;
+  @ffi.Bool()
+  external bool echo;
 
   /// < info display
-  @ffi.Uint8()
-  external int info;
+  @ffi.Bool()
+  external bool info;
 
   /// < display debug info in cassio's "fenetre de rapport"
-  @ffi.Uint8()
-  external int debug_cassio;
+  @ffi.Bool()
+  external bool debug_cassio;
 
   /// < adapt Cassio requests to search & solve faster
-  @ffi.Uint8()
-  external int transgress_cassio;
+  @ffi.Bool()
+  external bool transgress_cassio;
 
   /// < level
   @ffi.Int()
@@ -4409,8 +4409,8 @@ class Options extends ffi.Struct {
   external int play_type;
 
   /// < pondering on/off
-  @ffi.Uint8()
-  external int can_ponder;
+  @ffi.Bool()
+  external bool can_ponder;
 
   /// < depth (only for testing)
   @ffi.Int()
@@ -4441,8 +4441,8 @@ class Options extends ffi.Struct {
   external int beta;
 
   /// < search for all best moves when solving problem
-  @ffi.Uint8()
-  external int all_best;
+  @ffi.Bool()
+  external bool all_best;
 
   /// < evaluation file
   external ffi.Pointer<ffi.Char> eval_file;
@@ -4451,8 +4451,8 @@ class Options extends ffi.Struct {
   external ffi.Pointer<ffi.Char> book_file;
 
   /// < switch to use or not the opening book
-  @ffi.Uint8()
-  external int book_allowed;
+  @ffi.Bool()
+  external bool book_allowed;
 
   /// < book randomness
   @ffi.Int()
@@ -4471,23 +4471,23 @@ class Options extends ffi.Struct {
   external ffi.Pointer<ffi.Char> ggs_port;
 
   /// < ggs open number (set it false for tournaments)
-  @ffi.Uint8()
-  external int ggs_open;
+  @ffi.Bool()
+  external bool ggs_open;
 
   @ffi.Double()
   external double probcut_d;
 
   /// < debug PV
-  @ffi.Uint8()
-  external int pv_debug;
+  @ffi.Bool()
+  external bool pv_debug;
 
   /// < check PV correctness
-  @ffi.Uint8()
-  external int pv_check;
+  @ffi.Bool()
+  external bool pv_check;
 
   /// < guess PV missing moves
-  @ffi.Uint8()
-  external int pv_guess;
+  @ffi.Bool()
+  external bool pv_guess;
 
   /// < game file
   external ffi.Pointer<ffi.Char> game_file;
@@ -4505,20 +4505,20 @@ class Options extends ffi.Struct {
   external ffi.Pointer<ffi.Char> name;
 
   /// < start a new game after a game is over
-  @ffi.Uint8()
-  external int auto_start;
+  @ffi.Bool()
+  external bool auto_start;
 
   /// < store a game in a book after each game
-  @ffi.Uint8()
-  external int auto_store;
+  @ffi.Bool()
+  external bool auto_store;
 
   /// < change computer's side after each game
-  @ffi.Uint8()
-  external int auto_swap;
+  @ffi.Bool()
+  external bool auto_swap;
 
   /// < quit when game is over
-  @ffi.Uint8()
-  external int auto_quit;
+  @ffi.Bool()
+  external bool auto_quit;
 
   /// < repeat 'n' games (before quitting)
   @ffi.Int()
@@ -4969,8 +4969,8 @@ class Result extends ffi.Struct {
   external int n_nodes;
 
   /// < book move origin
-  @ffi.Uint8()
-  external int book_move;
+  @ffi.Bool()
+  external bool book_move;
 
   /// < total moves to search
   @ffi.Int()
@@ -5765,16 +5765,16 @@ const int TTCP_CLIENT_SND_WND = 4096;
 /// A Task is a parallel search thread.
 class Task extends ffi.Struct {
   /// < loop flag
-  @ffi.Uint8()
-  external int loop;
+  @ffi.Bool()
+  external bool loop;
 
   /// < run flag
-  @ffi.Uint8()
-  external int run;
+  @ffi.Bool()
+  external bool run;
 
   /// < is helping
-  @ffi.Uint8()
-  external int is_helping;
+  @ffi.Bool()
+  external bool is_helping;
 
   /// < search data
   external ffi.Pointer<Search> search;
