@@ -13,7 +13,7 @@ class Hint {
     this.score,
     this.upper,
     this.lower,
-    this.bookMove,
+    this.isBookMove, // ignore: avoid_positional_boolean_parameters
   );
 
   /// initialize from C struct
@@ -24,7 +24,7 @@ class Hint {
         score = cHint.score,
         upper = cHint.upper,
         lower = cHint.lower,
-        bookMove = cHint.book_move;
+        isBookMove = cHint.book_move;
 
   /// searched depth(except book moves).
   final int depth;
@@ -45,9 +45,7 @@ class Hint {
   final int lower;
 
   /// book move origin.
-  final int bookMove;
-
-  bool get isBookMove => bookMove == 1;
+  final bool isBookMove;
 
   bool get isNoMove => move == MoveMark.noMove;
 
