@@ -1,3 +1,7 @@
+# 4.1.0
+
+- upgrade dependencies.
+
 # 4.0.3
 
 - downgrade Dart SDK min version for pub.
