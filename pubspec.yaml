@@ -22,4 +22,4 @@ dev_dependencies:
   ffigen: ^6.0.1
   pana: ^0.21.12
   pedantic_sensuikan1973: ^3.2.0
-  test: ^1.21.1
+  test: ^1.21.2
