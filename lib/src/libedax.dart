@@ -404,8 +404,7 @@ edaxBookCountBestpath is alias of edaxBookCountBoardBestpath({board}, playerColo
         bindings.BESTPATH_BEST, // by default, only best moves
     final int opponentLowerLimit =
         bindings.BESTPATH_BEST, // by default, only best moves
-  } // return position of this color
-      ) {
+  }) {
     final dstP = calloc<bindings.Position>();
     final dstB = calloc<bindings.Board>();
     dstB.ref.player = board.player;
