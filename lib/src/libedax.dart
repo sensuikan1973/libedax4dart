@@ -365,7 +365,7 @@ class LibEdax {
   @Deprecated(
     '''
 Use edaxBookCountBoardBestpath.
-edaxBookCountBestpath is alias of edaxBookCountBoardBestpath({board}, 0, 0, {current turn}).
+edaxBookCountBestpath is alias of edaxBookCountBoardBestpath({board}, playerColor: {current turn}).
 ''',
   )
   CountBestpathResult edaxBookCountBestpath(final Board board) {
@@ -384,7 +384,7 @@ edaxBookCountBestpath is alias of edaxBookCountBoardBestpath({board}, 0, 0, {cur
 
   /// Count bestpath with book
   ///
-  /// Compute the indicator of efficiency to win, which means the minimum number you should memorize on the situation both of players always choose one of the best move list in the range each lower limit.
+  /// Compute the indicator of efficiency to win, which means the minimum number you should memorize on the situation both of players always choose one of the move list which of score is larger than lower limit.
   ///
   /// This function is very __advanced__. <br>
   /// __You must understand [the book structure of edax](https://choi.lavox.net/edax/book) and following important notice list__.
@@ -398,11 +398,14 @@ edaxBookCountBestpath is alias of edaxBookCountBoardBestpath({board}, 0, 0, {cur
   /// * The moves which meet up with another moves is counted respectively.
   ///   * btw, symmetric moves is counted 1 because of edax book structure.
   CountBestpathResult edaxBookCountBoardBestpath(
-    final Board board,
-    final int playerLowerLimit,
-    final int opponentLowerLimit,
-    final int color, // return position of this color
-  ) {
+    final Board board, {
+    required final int playerColor,
+    final int playerLowerLimit =
+        bindings.BESTPATH_BEST, // by default, only best moves
+    final int opponentLowerLimit =
+        bindings.BESTPATH_BEST, // by default, only best moves
+  } // return position of this color
+      ) {
     final dstP = calloc<bindings.Position>();
     final dstB = calloc<bindings.Board>();
     dstB.ref.player = board.player;
@@ -412,7 +415,7 @@ edaxBookCountBestpath is alias of edaxBookCountBoardBestpath({board}, 0, 0, {cur
       dstP,
       playerLowerLimit,
       opponentLowerLimit,
-      color,
+      playerColor,
     );
 
     final position = Position.fromCStruct(dstP.ref);
