@@ -383,8 +383,8 @@ void main() {
         ..edaxMove('f5');
       final bestpathResult = edax.edaxBookCountBoardBestpath(
         edax.edaxGetBoard(),
-        0,
-        0,
+        128,
+        128,
         TurnColor.white,
       );
       expect(bestpathResult.position.nPlayerBestpaths, 1);
@@ -393,8 +393,8 @@ void main() {
       edax.edaxMove('f6');
       final bestpathResult2 = edax.edaxBookCountBoardBestpath(
         edax.edaxGetBoard(),
-        0,
-        0,
+        128,
+        128,
         TurnColor.black,
       );
       expect(bestpathResult2.position.nPlayerBestpaths, 1);
