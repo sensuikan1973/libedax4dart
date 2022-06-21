@@ -35,12 +35,12 @@ class Board {
 
   List<int> _squares(final int bitboard) {
     final result = <int>[];
-    final target = BigInt.from(bitboard).toUnsigned(64);
-    var mask = BigInt.from(0x8000000000000000).toUnsigned(64);
-    var i = 0;
-    while (i <= 63) {
+    final target = BigInt.from(bitboard).toUnsigned(bindings.BOARD_SIZE);
+    var mask = BigInt.from(0x8000000000000000).toUnsigned(bindings.BOARD_SIZE);
+    var i = 1;
+    while (i <= bindings.BOARD_SIZE) {
       if ((mask & target) == mask) {
-        result.add(63 - i);
+        result.add(bindings.BOARD_SIZE - i);
       } // NOTE: head of edax bitboard is "h8".
       mask = mask >> 1;
       i++;
