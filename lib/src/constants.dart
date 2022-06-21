@@ -1,5 +1,7 @@
 import 'ffi/bindings.dart' as bindings;
 
+const boardSize = bindings.BOARD_SIZE;
+
 class TurnColor {
   /// BLACK turn.
   static const black = bindings.BLACK;
