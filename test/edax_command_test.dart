@@ -397,8 +397,8 @@ void main() {
         0,
         TurnColor.black,
       );
-      expect(bestpathResult2.position.nPlayerBestpaths, 2);
-      expect(bestpathResult2.position.nOpponentBestpaths, 1);
+      expect(bestpathResult2.position.nPlayerBestpaths, 1);
+      expect(bestpathResult2.position.nOpponentBestpaths, 2);
       edax
         ..edaxBookStopCountBestpath()
         ..libedaxTerminate();
