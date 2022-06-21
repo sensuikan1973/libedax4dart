@@ -1,3 +1,9 @@
+# 5.1.0
+
+- add constants.
+  - `boardSize`
+  - `BookCountBoardBestPathLowerLimit.best`
+
 # 5.0.1
 
 - fix the arguments of `edaxBookCountBoardBestpath`.
