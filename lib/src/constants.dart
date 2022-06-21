@@ -41,7 +41,7 @@ class MoveMark {
 }
 
 /// `LowerLimit` constants for `edaxBookCountBoardBestpath`.
-class BestPathLowerLimit {
+class BookCountBoardBestPathLowerLimit {
   /// only best moves.
   static const best = bindings.BESTPATH_BEST;
 }
