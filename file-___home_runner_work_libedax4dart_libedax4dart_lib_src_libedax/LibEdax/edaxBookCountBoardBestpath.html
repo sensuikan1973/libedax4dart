@@ -55,8 +55,8 @@
 <span class="returntype"><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_count_bestpath_result/CountBestpathResult-class.html">CountBestpathResult</a></span>
 <span class="name ">edaxBookCountBoardBestpath</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="edaxBookCountBoardBestpath-param-board"><span class="type-annotation"><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_board/Board-class.html">Board</a></span> <span class="parameter-name">board</span>, </span></li>
 <li><span class="parameter" id="edaxBookCountBoardBestpath-param-playerColor">{<span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/2.17.3/dart-core/int-class.html">int</a></span> <span class="parameter-name">playerColor</span>, </span></li>
-<li><span class="parameter" id="edaxBookCountBoardBestpath-param-playerLowerLimit"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.17.3/dart-core/int-class.html">int</a></span> <span class="parameter-name">playerLowerLimit</span> = <span class="default-value">bindings.BESTPATH_BEST</span>, </span></li>
-<li><span class="parameter" id="edaxBookCountBoardBestpath-param-opponentLowerLimit"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.17.3/dart-core/int-class.html">int</a></span> <span class="parameter-name">opponentLowerLimit</span> = <span class="default-value">bindings.BESTPATH_BEST</span>}</span></li>
+<li><span class="parameter" id="edaxBookCountBoardBestpath-param-playerLowerLimit"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.17.3/dart-core/int-class.html">int</a></span> <span class="parameter-name">playerLowerLimit</span> = <span class="default-value">BookCountBoardBestPathLowerLimit.best</span>, </span></li>
+<li><span class="parameter" id="edaxBookCountBoardBestpath-param-opponentLowerLimit"><span class="type-annotation"><a href="https://api.dart.dev/stable/2.17.3/dart-core/int-class.html">int</a></span> <span class="parameter-name">opponentLowerLimit</span> = <span class="default-value">BookCountBoardBestPathLowerLimit.best</span>}</span></li>
 </ol>)
 
       
@@ -97,8 +97,8 @@
   final Board board, {
   required final int playerColor,
   &#47;&#47; by default, LowerLimit is only best moves.
-  final int playerLowerLimit = bindings.BESTPATH_BEST,
-  final int opponentLowerLimit = bindings.BESTPATH_BEST,
+  final int playerLowerLimit = BookCountBoardBestPathLowerLimit.best,
+  final int opponentLowerLimit = BookCountBoardBestPathLowerLimit.best,
 }) {
   final dstP = calloc&lt;bindings.Position&gt;();
   final dstB = calloc&lt;bindings.Board&gt;();
@@ -225,7 +225,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      5.0.1
+      5.1.0
   </span>
 
   
