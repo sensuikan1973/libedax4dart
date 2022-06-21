@@ -1,3 +1,8 @@
+# 5.0.1
+
+- fix the arguments of `edaxBookCountBoardBestpath`.
+- fix the documentation of `edaxBookCountBoardBestpath`.
+
 # 5.0.0
 
 - [Breaking Change] integrate `done` flag and `todo` flag on `Position` class to `flag`.

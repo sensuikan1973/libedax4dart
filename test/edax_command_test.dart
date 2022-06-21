@@ -354,7 +354,7 @@ void main() {
       edax.libedaxTerminate();
     });
 
-    test('book count bestpath', () {
+    test('[Deprecated] book count bestpath', () {
       const initParams = ['', '-book-file', _testBookFile];
       final edax = LibEdax()..libedaxInitialize(initParams);
       sleep(const Duration(seconds: 1));
@@ -367,6 +367,32 @@ void main() {
 
       edax.edaxMove('f6');
       final bestpathResult2 = edax.edaxBookCountBestpath(edax.edaxGetBoard());
+      expect(bestpathResult2.position.nPlayerBestpaths, 2);
+      expect(bestpathResult2.position.nOpponentBestpaths, 1);
+      edax
+        ..edaxBookStopCountBestpath()
+        ..libedaxTerminate();
+    });
+
+    test('book count board bestpath', () {
+      const initParams = ['', '-book-file', _testBookFile];
+      final edax = LibEdax()..libedaxInitialize(initParams);
+      sleep(const Duration(seconds: 1));
+      edax
+        ..edaxInit()
+        ..edaxMove('f5');
+      final bestpathResult = edax.edaxBookCountBoardBestpath(
+        edax.edaxGetBoard(),
+        playerColor: TurnColor.white,
+      );
+      expect(bestpathResult.position.nPlayerBestpaths, 1);
+      expect(bestpathResult.position.nOpponentBestpaths, 1);
+
+      edax.edaxMove('f6');
+      final bestpathResult2 = edax.edaxBookCountBoardBestpath(
+        edax.edaxGetBoard(),
+        playerColor: TurnColor.black,
+      );
       expect(bestpathResult2.position.nPlayerBestpaths, 2);
       expect(bestpathResult2.position.nOpponentBestpaths, 1);
       edax
