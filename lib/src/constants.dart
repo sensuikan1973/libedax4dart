@@ -1,17 +1,23 @@
+import 'ffi/bindings.dart' as bindings;
+
+const boardSize = bindings.BOARD_SIZE;
+
 class TurnColor {
   /// BLACK turn.
-  static const black = 0;
+  static const black = bindings.BLACK;
 
   /// WHITE turn.
-  static const white = 1;
+  static const white = bindings.WHITE;
 }
 
 /// See: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/board.c#L144-L200
+///
+/// You can use this for `LibEdax.edaxSetboard`.
 class ColorChar {
-  /// BLACK char. You can use this for `LibEdax.edaxSetboard`.
+  /// BLACK char.
   static const black = '*';
 
-  /// WHITE char. You can use this for `LibEdax.edaxSetboard`.
+  /// WHITE char.
   static const white = 'O';
 
   /// EMPTY char.
@@ -30,8 +36,14 @@ class MoveMark {
   static const passStringOfWhite = 'pa';
 
   /// PASS move.
-  static const pass = 64;
+  static const pass = bindings.PASS;
 
   /// No move.
-  static const noMove = 65;
+  static const noMove = bindings.NOMOVE;
+}
+
+/// `LowerLimit` constants for `edaxBookCountBoardBestpath`.
+class BookCountBoardBestPathLowerLimit {
+  /// only best moves.
+  static const best = bindings.BESTPATH_BEST;
 }
