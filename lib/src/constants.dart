@@ -11,11 +11,13 @@ class TurnColor {
 }
 
 /// See: https://github.com/abulmo/edax-reversi/blob/1ae7c9fe5322ac01975f1b3196e788b0d25c1e10/src/board.c#L144-L200
+///
+/// You can use this for `LibEdax.edaxSetboard`.
 class ColorChar {
-  /// BLACK char. You can use this for `LibEdax.edaxSetboard`.
+  /// BLACK char.
   static const black = '*';
 
-  /// WHITE char. You can use this for `LibEdax.edaxSetboard`.
+  /// WHITE char.
   static const white = 'O';
 
   /// EMPTY char.
