@@ -82,7 +82,20 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@v1
-      - run: dart doc .
+      - run: dart doc . --output-dir docs/
+
+      # https://github.community/t/serving-html-artifacts/159407
+      - uses: pavi2410/html-preview-action@v2
+        id: html_preview
+        with:
+          html_file: './docs/index.html'
+      - uses: Sibz/github-status-action@v1
+        with:
+          authToken: ${{ secrets.GITHUB_TOKEN }}
+          context: dart documentation preview link
+          target_url: ${{ steps.html_preview.outputs.url }}
+          state: success
+          sha: ${{ github.event.pull_request.head.sha || github.sha }}
 
   dart_pana:
     needs: [dart_format, dart_analyze]
@@ -99,7 +112,7 @@ jobs:
       - uses: Sibz/github-status-action@v1
         with:
           authToken: ${{ secrets.GITHUB_TOKEN }}
-          context: Pub Poits by Pana
+          context: pub poits by pana
           description: ${{ steps.run_pana_step.outputs.pub_point_by_pana }}
           state: success
           sha: ${{ github.event.pull_request.head.sha || github.sha }}
