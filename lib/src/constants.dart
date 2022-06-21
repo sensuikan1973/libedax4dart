@@ -40,7 +40,7 @@ class MoveMark {
   static const noMove = bindings.NOMOVE;
 }
 
-/// `LowerLimit` constatns for `edaxBookCountBoardBestpath`.
+/// `LowerLimit` constants for `edaxBookCountBoardBestpath`.
 class BestPathLowerLimit {
   /// only best moves.
   static const best = bindings.BESTPATH_BEST;
