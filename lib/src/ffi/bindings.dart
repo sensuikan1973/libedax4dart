@@ -615,10 +615,10 @@ class LibEdaxBindings {
   /// @param b 64-bit integer to count bits of.
   /// @return the number of bits set.
   int bit_count(
-    int b,
+    int arg0,
   ) {
     return _bit_count(
-      b,
+      arg0,
     );
   }
 
@@ -639,10 +639,10 @@ class LibEdaxBindings {
   /// @param b 64-bit integer to count bits of.
   /// @return the number of bits set.
   int bit_count1(
-    int arg0,
+    int b,
   ) {
     return _bit_count1(
-      arg0,
+      b,
     );
   }
 
@@ -1559,11 +1559,11 @@ class LibEdaxBindings {
           ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>> value) =>
       _time_clock.value = value;
 
-  late final ffi.Pointer<ffi.Long> _timezone = _lookup<ffi.Long>('timezone');
+  late final ffi.Pointer<ffi.Long> _timezone1 = _lookup<ffi.Long>('timezone');
 
-  int get timezone => _timezone.value;
+  int get timezone1 => _timezone1.value;
 
-  set timezone(int value) => _timezone.value = value;
+  set timezone1(int value) => _timezone1.value = value;
 
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Char>>> _tzname =
       _lookup<ffi.Pointer<ffi.Pointer<ffi.Char>>>('tzname');
@@ -4894,10 +4894,6 @@ const int RELEASE = 4;
 
 const int RENAME_EXCL = 4;
 
-const int RENAME_NOFOLLOW_ANY = 16;
-
-const int RENAME_RESERVED1 = 8;
-
 const int RENAME_SECLUDE = 1;
 
 const int RENAME_SWAP = 2;
@@ -7295,10 +7291,6 @@ const int __IPHONE_15_1 = 150100;
 
 const int __IPHONE_15_2 = 150200;
 
-const int __IPHONE_15_3 = 150300;
-
-const int __IPHONE_15_4 = 150400;
-
 const int __IPHONE_2_0 = 20000;
 
 const int __IPHONE_2_1 = 20100;
@@ -7451,13 +7443,9 @@ const int __MAC_12_0 = 120000;
 
 const int __MAC_12_1 = 120100;
 
-const int __MAC_12_2 = 120200;
+const int __MAC_OS_X_VERSION_MAX_ALLOWED = 120100;
 
-const int __MAC_12_3 = 120300;
-
-const int __MAC_OS_X_VERSION_MAX_ALLOWED = 120300;
-
-const int __MAC_OS_X_VERSION_MIN_REQUIRED = 120000;
+const int __MAC_OS_X_VERSION_MIN_REQUIRED = 110000;
 
 const int __PTHREAD_ATTR_SIZE__ = 56;
 
@@ -7569,10 +7557,6 @@ const int __TVOS_15_1 = 150100;
 
 const int __TVOS_15_2 = 150200;
 
-const int __TVOS_15_3 = 150300;
-
-const int __TVOS_15_4 = 150400;
-
 const int __TVOS_9_0 = 90000;
 
 const int __TVOS_9_1 = 90100;
@@ -7636,10 +7620,6 @@ const int __WATCHOS_8_0 = 80000;
 const int __WATCHOS_8_1 = 80100;
 
 const int __WATCHOS_8_3 = 80300;
-
-const int __WATCHOS_8_4 = 80400;
-
-const int __WATCHOS_8_5 = 80500;
 
 const int __WORDSIZE = 64;
 
@@ -8004,8 +7984,6 @@ class __float2 extends ffi.Struct {
   @ffi.Float()
   external double __cosval;
 }
-
-const int __has_ptrcheck = 0;
 
 typedef __int32_t = ffi.Int;
 typedef __int64_t = ffi.LongLong;
@@ -9556,7 +9534,7 @@ class timeval64 extends ffi.Struct {
   external int tv_usec;
 }
 
-class timezone1 extends ffi.Struct {
+class timezone extends ffi.Struct {
   @ffi.Int()
   external int tz_minuteswest;
 
