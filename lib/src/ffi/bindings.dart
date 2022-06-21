@@ -681,6 +681,31 @@ class LibEdaxBindings {
   late final _edax_book_count_bestpath = _edax_book_count_bestpathPtr
       .asFunction<void Function(ffi.Pointer<Board>, ffi.Pointer<Position>)>();
 
+  void edax_book_count_board_bestpath(
+    ffi.Pointer<Board> arg0,
+    ffi.Pointer<Position> arg1,
+    int arg2,
+    int arg3,
+    int arg4,
+  ) {
+    return _edax_book_count_board_bestpath(
+      arg0,
+      arg1,
+      arg2,
+      arg3,
+      arg4,
+    );
+  }
+
+  late final _edax_book_count_board_bestpathPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Pointer<Board>, ffi.Pointer<Position>, ffi.Int,
+              ffi.Int, ffi.Int)>>('edax_book_count_board_bestpath');
+  late final _edax_book_count_board_bestpath =
+      _edax_book_count_board_bestpathPtr.asFunction<
+          void Function(
+              ffi.Pointer<Board>, ffi.Pointer<Position>, int, int, int)>();
+
   void edax_book_deviate(
     int arg0,
     int arg1,
