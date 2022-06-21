@@ -1534,11 +1534,11 @@ class LibEdaxBindings {
           ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>> value) =>
       _time_clock.value = value;
 
-  late final ffi.Pointer<ffi.Long> _timezone1 = _lookup<ffi.Long>('timezone');
+  late final ffi.Pointer<ffi.Long> _timezone = _lookup<ffi.Long>('timezone');
 
-  int get timezone1 => _timezone1.value;
+  int get timezone => _timezone.value;
 
-  set timezone1(int value) => _timezone1.value = value;
+  set timezone(int value) => _timezone.value = value;
 
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Char>>> _tzname =
       _lookup<ffi.Pointer<ffi.Pointer<ffi.Char>>>('tzname');
@@ -1702,6 +1702,8 @@ const int BC_DIM_MAX = 2048;
 const int BC_SCALE_MAX = 99;
 
 const int BC_STRING_MAX = 1000;
+
+const int BESTPATH_BEST = 128;
 
 const int BIG_ENDIAN = 4321;
 
@@ -2328,6 +2330,12 @@ const int FD_SETSIZE = 1024;
 typedef FILE = __sFILE;
 
 const int FILENAME_MAX = 1024;
+
+const int FLAG_BESTPATH_BLACK = 4;
+
+const int FLAG_DONE = 1;
+
+const int FLAG_TODO = 2;
 
 const int FOOTPRINT_INTERVAL_RESET = 1;
 
@@ -4761,6 +4769,18 @@ class Position extends ffi.Struct {
   /// < best remaining move
   external Link leaf;
 
+  /// < done/undone, todo flag
+  @ffi.UnsignedChar()
+  external int flag;
+
+  /// < count of best paths for player
+  @ffi.UnsignedShort()
+  external int n_player_bestpaths;
+
+  /// < count of best paths for opponent
+  @ffi.UnsignedShort()
+  external int n_opponent_bestpaths;
+
   /// < linking moves
   external ffi.Pointer<Link> link;
 
@@ -4790,22 +4810,6 @@ class Position extends ffi.Struct {
   /// < search level
   @ffi.UnsignedChar()
   external int level;
-
-  /// < done/undone flag
-  @ffi.UnsignedChar()
-  external int done;
-
-  /// < todo flag
-  @ffi.UnsignedChar()
-  external int todo;
-
-  /// < count of best paths for player
-  @ffi.UnsignedShort()
-  external int n_player_bestpaths;
-
-  /// < count of best paths for opponent
-  @ffi.UnsignedShort()
-  external int n_opponent_bestpaths;
 }
 
 /// @brief An array with positions.
@@ -4864,6 +4868,10 @@ const double RCD = 0.5;
 const int RELEASE = 4;
 
 const int RENAME_EXCL = 4;
+
+const int RENAME_NOFOLLOW_ANY = 16;
+
+const int RENAME_RESERVED1 = 8;
 
 const int RENAME_SECLUDE = 1;
 
@@ -7262,6 +7270,10 @@ const int __IPHONE_15_1 = 150100;
 
 const int __IPHONE_15_2 = 150200;
 
+const int __IPHONE_15_3 = 150300;
+
+const int __IPHONE_15_4 = 150400;
+
 const int __IPHONE_2_0 = 20000;
 
 const int __IPHONE_2_1 = 20100;
@@ -7414,9 +7426,13 @@ const int __MAC_12_0 = 120000;
 
 const int __MAC_12_1 = 120100;
 
-const int __MAC_OS_X_VERSION_MAX_ALLOWED = 120100;
+const int __MAC_12_2 = 120200;
 
-const int __MAC_OS_X_VERSION_MIN_REQUIRED = 110000;
+const int __MAC_12_3 = 120300;
+
+const int __MAC_OS_X_VERSION_MAX_ALLOWED = 120300;
+
+const int __MAC_OS_X_VERSION_MIN_REQUIRED = 120000;
 
 const int __PTHREAD_ATTR_SIZE__ = 56;
 
@@ -7528,6 +7544,10 @@ const int __TVOS_15_1 = 150100;
 
 const int __TVOS_15_2 = 150200;
 
+const int __TVOS_15_3 = 150300;
+
+const int __TVOS_15_4 = 150400;
+
 const int __TVOS_9_0 = 90000;
 
 const int __TVOS_9_1 = 90100;
@@ -7591,6 +7611,10 @@ const int __WATCHOS_8_0 = 80000;
 const int __WATCHOS_8_1 = 80100;
 
 const int __WATCHOS_8_3 = 80300;
+
+const int __WATCHOS_8_4 = 80400;
+
+const int __WATCHOS_8_5 = 80500;
 
 const int __WORDSIZE = 64;
 
@@ -7955,6 +7979,8 @@ class __float2 extends ffi.Struct {
   @ffi.Float()
   external double __cosval;
 }
+
+const int __has_ptrcheck = 0;
 
 typedef __int32_t = ffi.Int;
 typedef __int64_t = ffi.LongLong;
@@ -9505,7 +9531,7 @@ class timeval64 extends ffi.Struct {
   external int tv_usec;
 }
 
-class timezone extends ffi.Struct {
+class timezone1 extends ffi.Struct {
   @ffi.Int()
   external int tz_minuteswest;
 

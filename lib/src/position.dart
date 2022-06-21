@@ -20,8 +20,7 @@ class Position {
     this.score,
     this.nLink,
     this.level,
-    this.done,
-    this.todo,
+    this.flag,
     this.nPlayerBestpaths,
     this.nOpponentBestpaths,
   );
@@ -42,8 +41,7 @@ class Position {
         ),
         nLink = cPosition.n_link,
         level = cPosition.level,
-        done = cPosition.done,
-        todo = cPosition.todo,
+        flag = cPosition.flag,
         nPlayerBestpaths = cPosition.n_player_bestpaths,
         nOpponentBestpaths = cPosition.n_opponent_bestpaths;
 
@@ -90,10 +88,7 @@ class Position {
   final int level;
 
   /// done/undone flag
-  final int done;
-
-  /// todo flag
-  final int todo;
+  final int flag;
 
   /// bestpath count of player
   final int nPlayerBestpaths;
