@@ -365,7 +365,7 @@ class LibEdax {
   @Deprecated(
     '''
 Use edaxBookCountBoardBestpath.
-edaxBookCountBestpath is alias of edaxBookCountBoardBestpath(board, ).
+edaxBookCountBestpath is alias of edaxBookCountBoardBestpath({board}, 0, 0, {current turn}).
 ''',
   )
   CountBestpathResult edaxBookCountBestpath(final Board board) {
