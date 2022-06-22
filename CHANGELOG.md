@@ -1,6 +1,6 @@
 # 5.3.1
 
-- loose the version of `meta` package.
+- loose the version of `meta` package in dependencies.
 
 # 5.3.0
 
