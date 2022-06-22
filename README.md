@@ -24,7 +24,6 @@ With using libedax4dart, you can execute functions equivalent to [edax](https://
 - [libedax4dart](https://sensuikan1973.github.io/libedax4dart/)
 - [libedax](https://sensuikan1973.github.io/edax-reversi/libedax_8c.html)
 
-
 ## Real World Example
 
 - [pedax](https://github.com/sensuikan1973/pedax) : Flutter Desktop app
@@ -82,7 +81,7 @@ dart run pana
 #### document
 
 ```sh
-dart doc . && open doc/api/index.html
+dart doc . --validate-links && open doc/api/index.html
 ```
 
 #### change libedax bin
