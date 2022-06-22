@@ -4,11 +4,11 @@ import 'dart:io';
 import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
 
-import '../extensions/pointer_char.dart';
-import '../extensions/string.dart';
 import 'board.dart';
 import 'constants.dart';
 import 'count_bestpath_result.dart';
+import 'extensions/pointer_char.dart';
+import 'extensions/string.dart';
 import 'ffi/bindings.dart' as bindings;
 import 'ffi/dylib_utils.dart';
 import 'hint.dart';
@@ -16,6 +16,7 @@ import 'move.dart';
 import 'move_list_with_position.dart';
 import 'position.dart';
 
+/// main class which call libedax api with ffi.
 @immutable
 class LibEdax {
   LibEdax([final String dllPath = '']) {
@@ -50,7 +51,7 @@ class LibEdax {
   /// Terminate libedax.
   void libedaxTerminate() => _bindings.libedax_terminate();
 
-  /// close dll
+  /// Close dll.
   ///
   /// FIXME: this is workaround Function.
   /// See: https://github.com/dart-lang/sdk/issues/40159
@@ -77,12 +78,12 @@ class LibEdax {
   /// Init board based on setboard command.
   void edaxNew() => _bindings.edax_new();
 
-  /// Undo.
+  /// Undo move.
   ///
   /// If mode is 0 or 2, undo until human's turn.
   void edaxUndo() => _bindings.edax_undo();
 
-  /// Redo.
+  /// Redo move.
   ///
   /// If mode is 0 or 2, redo until human's turn.
   void edaxRedo() => _bindings.edax_redo();
@@ -382,7 +383,7 @@ edaxBookCountBestpath is alias of edaxBookCountBoardBestpath({board}, playerColo
     return CountBestpathResult(board, position);
   }
 
-  /// Count bestpath with book
+  /// Count bestpath with book.
   ///
   /// Compute the indicator of efficiency to win, which means the minimum number you should memorize on the situation both of players always choose one of the move list which of score is larger than lower limit.
   ///
@@ -423,7 +424,7 @@ edaxBookCountBestpath is alias of edaxBookCountBoardBestpath({board}, playerColo
     return CountBestpathResult(board, position);
   }
 
-  /// Stop edaxBookCountBestpath
+  /// Stop [edaxBookCountBoardBestpath].
   void edaxBookStopCountBestpath() => _bindings.edax_book_stop_count_bestpath();
 
   /// Print play.

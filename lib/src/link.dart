@@ -2,6 +2,7 @@ import 'package:meta/meta.dart';
 
 import 'util.dart';
 
+/// dart representation of Link in libedax world.
 @immutable
 class Link {
   const Link(this.score, this.move);

@@ -7,6 +7,7 @@ import 'ffi/bindings.dart' as bindings;
 import 'link.dart';
 import 'score.dart';
 
+/// dart representation of Position in libedax world.
 @immutable
 class Position {
   const Position(

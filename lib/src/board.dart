@@ -4,6 +4,7 @@ import 'constants.dart';
 import 'ffi/bindings.dart' as bindings;
 import 'util.dart';
 
+/// dart representation of Board in libedax world,
 @immutable
 class Board {
   const Board(this.player, this.opponent);

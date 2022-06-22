@@ -1,5 +1,6 @@
 import 'package:meta/meta.dart';
 
+/// dart representation of Score in libedax world.
 @immutable
 class Score {
   const Score(this.value, this.lower, this.upper);

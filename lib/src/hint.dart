@@ -4,6 +4,7 @@ import 'constants.dart';
 import 'ffi/bindings.dart' as bindings;
 import 'util.dart';
 
+/// dart representation of Hint in libedax world.
 @immutable
 class Hint {
   const Hint(

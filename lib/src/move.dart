@@ -4,6 +4,7 @@ import 'constants.dart';
 import 'ffi/bindings.dart' as bindings;
 import 'util.dart';
 
+/// dart representation of Move in libedax world.
 @immutable
 class Move {
   const Move(this.flipped, this.x, this.score, this.cost);
