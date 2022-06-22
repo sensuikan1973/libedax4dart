@@ -424,7 +424,7 @@ edaxBookCountBestpath is alias of edaxBookCountBoardBestpath({board}, playerColo
     return CountBestpathResult(board, position);
   }
 
-  /// Stop [edaxBookCountBoardBestpath], [edaxBookCountBestpath].
+  /// Stop [edaxBookCountBoardBestpath].
   void edaxBookStopCountBestpath() => _bindings.edax_book_stop_count_bestpath();
 
   /// Print play.
