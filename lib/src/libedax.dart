@@ -51,7 +51,7 @@ class LibEdax {
   /// Terminate libedax.
   void libedaxTerminate() => _bindings.libedax_terminate();
 
-  /// close dll
+  /// Close dll.
   ///
   /// FIXME: this is workaround Function.
   /// See: https://github.com/dart-lang/sdk/issues/40159
