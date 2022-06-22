@@ -1,3 +1,7 @@
+# 5.3.0
+
+- remove redundant Documentation link on pub.dev.
+
 # 5.2.0
 
 - fix module public/private scope.
