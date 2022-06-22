@@ -383,7 +383,7 @@ edaxBookCountBestpath is alias of edaxBookCountBoardBestpath({board}, playerColo
     return CountBestpathResult(board, position);
   }
 
-  /// Count bestpath with book
+  /// Count bestpath with book.
   ///
   /// Compute the indicator of efficiency to win, which means the minimum number you should memorize on the situation both of players always choose one of the move list which of score is larger than lower limit.
   ///
@@ -424,7 +424,7 @@ edaxBookCountBestpath is alias of edaxBookCountBoardBestpath({board}, playerColo
     return CountBestpathResult(board, position);
   }
 
-  /// Stop edaxBookCountBestpath
+  /// Stop [edaxBookCountBoardBestpath], [edaxBookCountBestpath].
   void edaxBookStopCountBestpath() => _bindings.edax_book_stop_count_bestpath();
 
   /// Print play.
