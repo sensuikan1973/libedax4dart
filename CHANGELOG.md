@@ -1,3 +1,7 @@
+# 5.2.0
+
+- fix module public/private scope.
+
 # 5.1.0
 
 - add constants.

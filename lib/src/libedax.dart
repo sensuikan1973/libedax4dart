@@ -4,11 +4,11 @@ import 'dart:io';
 import 'package:ffi/ffi.dart';
 import 'package:meta/meta.dart';
 
-import '../extensions/pointer_char.dart';
-import '../extensions/string.dart';
 import 'board.dart';
 import 'constants.dart';
 import 'count_bestpath_result.dart';
+import 'extensions/pointer_char.dart';
+import 'extensions/string.dart';
 import 'ffi/bindings.dart' as bindings;
 import 'ffi/dylib_utils.dart';
 import 'hint.dart';
