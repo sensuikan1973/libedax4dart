@@ -78,12 +78,12 @@ class LibEdax {
   /// Init board based on setboard command.
   void edaxNew() => _bindings.edax_new();
 
-  /// Undo.
+  /// Undo move.
   ///
   /// If mode is 0 or 2, undo until human's turn.
   void edaxUndo() => _bindings.edax_undo();
 
-  /// Redo.
+  /// Redo move.
   ///
   /// If mode is 0 or 2, redo until human's turn.
   void edaxRedo() => _bindings.edax_redo();
