@@ -67,9 +67,9 @@ class LibEdax {
         .asFunction();
   }
 
-  // See: https://github.com/dart-lang/ffi/blob/f3346299c55669cc0db48afae85b8110088bf8da/lib/src/allocation.dart#L8-L11
+  // See: https://github.com/dart-lang/ffi/blob/18b2b549d55009ff594600b04705ff6161681e07/lib/src/allocation.dart#L8-L11
   DynamicLibrary get _stdlib => Platform.isWindows
-      ? DynamicLibrary.open('kernel32.dll')
+      ? DynamicLibrary.open('ole32.dll')
       : DynamicLibrary.process();
 
   /// Init board.
