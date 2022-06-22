@@ -1,3 +1,7 @@
+# 5.3.1
+
+- loose the version of `meta` package.
+
 # 5.3.0
 
 - remove redundant Documentation link on pub.dev.
