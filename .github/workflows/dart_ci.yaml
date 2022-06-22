@@ -82,7 +82,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: dart-lang/setup-dart@v1
-      - run: dart doc .
+      - run: dart doc . --validate-links
 
   dart_pana:
     needs: [dart_format, dart_analyze]
