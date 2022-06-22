@@ -16,6 +16,7 @@ import 'move.dart';
 import 'move_list_with_position.dart';
 import 'position.dart';
 
+/// main class which call libedax api with ffi.
 @immutable
 class LibEdax {
   LibEdax([final String dllPath = '']) {
