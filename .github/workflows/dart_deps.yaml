@@ -17,7 +17,7 @@ jobs:
       - uses: dart-lang/setup-dart@v1
 
       - name: setup llvm for ffigen
-        run: brew install llvm@13
+        run: brew install llvm@14
 
       - name: upgrade dependencies on lib
         run: dart pub upgrade --null-safety # See: https://dart.dev/tools/pub/cmd/pub-upgrade#--null-safety
