@@ -33,6 +33,3 @@ data/
 # coverage
 coverage/
 lcov.info
-
-# CI
-llvm
