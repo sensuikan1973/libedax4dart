@@ -7,14 +7,14 @@ packages:
       name: _fe_analyzer_shared
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "40.0.0"
+    version: "41.0.0"
   analyzer:
     dependency: "direct dev"
     description:
       name: analyzer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.1.0"
+    version: "4.2.0"
   args:
     dependency: transitive
     description:
@@ -77,7 +77,7 @@ packages:
       name: coverage
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.0"
+    version: "1.5.0"
   crypto:
     dependency: transitive
     description:
@@ -175,7 +175,7 @@ packages:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.5.0"
+    version: "4.6.0"
   logging:
     dependency: transitive
     description:
@@ -196,7 +196,7 @@ packages:
       name: matcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.11"
+    version: "0.12.12"
   meta:
     dependency: "direct main"
     description:
@@ -231,7 +231,7 @@ packages:
       name: pana
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.21.12"
+    version: "0.21.14"
   path:
     dependency: transitive
     description:
@@ -378,21 +378,21 @@ packages:
       name: test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.21.2"
+    version: "1.21.4"
   test_api:
     dependency: transitive
     description:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.10"
+    version: "0.4.12"
   test_core:
     dependency: transitive
     description:
       name: test_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.14"
+    version: "0.4.16"
   typed_data:
     dependency: transitive
     description:
@@ -436,4 +436,4 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.17.0 <3.0.0"
+  dart: ">=2.17.5 <3.0.0"

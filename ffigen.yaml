@@ -18,7 +18,7 @@ structs:
   # See: https://github.com/sensuikan1973/libedax4dart/pull/85#issuecomment-955761136
   dependency-only: opaque
 llvm-path: # https://github.com/dart-lang/ffigen#installing-llvm
-  - '/usr/local/opt/llvm@13' # NOTE: This is for macos, and require `brew install llvm@13`.
+  - '/usr/local/opt/llvm' # NOTE: This is for macos, and require `brew install llvm`.
 functions:
   include:
     - 'bit_count'
