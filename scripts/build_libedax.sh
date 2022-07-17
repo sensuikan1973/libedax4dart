@@ -35,4 +35,5 @@ cp -r edax-reversi/data "${dst:-.}/data"
 
 # for test
 # shellcheck disable=SC2086
+rm ./libedax.*.dylib
 cp ${dst:-.}/bin/* .
