@@ -5,7 +5,7 @@ import 'dart:io';
 import 'package:libedax4dart/libedax4dart.dart';
 import 'package:test/test.dart';
 
-const _testBookFile = './resources/test_book.dat';
+const _testBookFile = './リソース/test_book.dat';
 
 void main() {
   test('wrong dll path', () {
