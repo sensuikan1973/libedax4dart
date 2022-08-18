@@ -10,8 +10,7 @@ on:
 
 # See: https://docs.github.com/ja/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions#changing-github_token-permissions
 # See: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#permissions
-permissions:
-  statuses: write
+permissions: write-all
 
 jobs:
   dart_format:
