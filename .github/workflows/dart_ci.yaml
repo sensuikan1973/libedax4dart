@@ -12,6 +12,7 @@ on:
 # See: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#permissions
 permissions:
   statuses: write
+  pull-requests: write
 
 jobs:
   dart_format:
