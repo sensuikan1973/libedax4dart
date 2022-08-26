@@ -98,7 +98,7 @@ packages:
       name: ffigen
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.1.1"
+    version: "6.1.2"
   file:
     dependency: transitive
     description:
@@ -357,7 +357,7 @@ packages:
       name: tar
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.5+1"
+    version: "0.5.6"
   term_glyph:
     dependency: transitive
     description:
