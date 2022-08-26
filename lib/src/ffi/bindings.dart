@@ -627,30 +627,6 @@ class LibEdaxBindings {
           'bit_count');
   late final _bit_count = _bit_countPtr.asFunction<int Function(int)>();
 
-  /// @brief Count the number of bits set to one in an unsigned long long.
-  ///
-  /// This is the classical popcount function.
-  /// Since 2007, it is part of the instruction set of some modern CPU,
-  /// (>= barcelona for AMD or >= nelhacem for Intel). Alternatively,
-  /// a fast SWAR algorithm, adding bits in parallel is provided here.
-  /// This function is massively used to count discs on the board,
-  /// the mobility, or the stability.
-  ///
-  /// @param b 64-bit integer to count bits of.
-  /// @return the number of bits set.
-  int bit_count1(
-    int b,
-  ) {
-    return _bit_count1(
-      b,
-    );
-  }
-
-  late final _bit_count1Ptr =
-      _lookup<ffi.NativeFunction<ffi.Int Function(ffi.UnsignedLongLong)>>(
-          'bit_count');
-  late final _bit_count1 = _bit_count1Ptr.asFunction<int Function(int)>();
-
   late final ffi.Pointer<ffi.Bool> _book_verbose =
       _lookup<ffi.Bool>('book_verbose');
 
