@@ -1,3 +1,7 @@
+# 5.5.0
+
+- upgrade dependencies.
+
 # 5.4.1
 
 - loose the version of `meta` package in dependencies.
