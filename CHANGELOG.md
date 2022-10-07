@@ -1,3 +1,7 @@
+# 5.6.0
+
+- upgrade dependencies.
+
 # 5.5.0
 
 - upgrade dependencies.
