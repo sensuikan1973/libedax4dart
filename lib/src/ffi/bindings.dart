@@ -1873,24 +1873,6 @@ const int CLD_TRAPPED = 4;
 
 const int CLK_TCK = 100;
 
-const int CLOCKS_PER_SEC = 1000000;
-
-const int CLOCK_MONOTONIC = 6;
-
-const int CLOCK_MONOTONIC_RAW = 4;
-
-const int CLOCK_MONOTONIC_RAW_APPROX = 5;
-
-const int CLOCK_PROCESS_CPUTIME_ID = 12;
-
-const int CLOCK_REALTIME = 0;
-
-const int CLOCK_THREAD_CPUTIME_ID = 16;
-
-const int CLOCK_UPTIME_RAW = 8;
-
-const int CLOCK_UPTIME_RAW_APPROX = 9;
-
 const int COLL_WEIGHTS_MAX = 2;
 
 const int CONNECT_DATA_AUTHENTICATED = 4;
@@ -2960,29 +2942,7 @@ const int ILL_PRVOPC = 3;
 
 const int ILL_PRVREG = 6;
 
-const int INADDR_ALLHOSTS_GROUP = 3758096385;
-
-const int INADDR_ALLMDNS_GROUP = 3758096635;
-
-const int INADDR_ALLRPTS_GROUP = 3758096406;
-
-const int INADDR_ALLRTRS_GROUP = 3758096386;
-
-const int INADDR_ANY = 0;
-
-const int INADDR_BROADCAST = 4294967295;
-
-const int INADDR_CARP_GROUP = 3758096402;
-
-const int INADDR_LOOPBACK = 2130706433;
-
-const int INADDR_MAX_LOCAL_GROUP = 3758096639;
-
 const int INADDR_NONE = 4294967295;
-
-const int INADDR_PFSYNC_GROUP = 3758096624;
-
-const int INADDR_UNSPEC_GROUP = 3758096384;
 
 const int INET6_ADDRSTRLEN = 46;
 
@@ -3077,8 +3037,6 @@ const int IN_CLASSD_HOST = 268435455;
 const int IN_CLASSD_NET = 4026531840;
 
 const int IN_CLASSD_NSHIFT = 28;
-
-const int IN_LINKLOCALNETNUM = 2851995648;
 
 const int IN_LOOPBACKNET = 127;
 
@@ -4226,8 +4184,6 @@ const int NET_SERVICE_TYPE_VI = 3;
 
 const int NET_SERVICE_TYPE_VO = 4;
 
-const int NFDBITS = 32;
-
 const int NGROUPS_MAX = 16;
 
 const int NI_DGRAM = 16;
@@ -4556,8 +4512,6 @@ const int PERSIST_TIMEOUT = 64;
 
 const int PF_APPLETALK = 16;
 
-const int PF_BOND = 1651469924;
-
 const int PF_CCITT = 10;
 
 const int PF_CHAOS = 5;
@@ -4631,8 +4585,6 @@ const int PF_UNIX = 1;
 const int PF_UNSPEC = 0;
 
 const int PF_UTUN = 38;
-
-const int PF_VLAN = 1986814318;
 
 const int PF_VSOCK = 40;
 
@@ -4908,13 +4860,7 @@ const int RLIMIT_THREAD_CPULIMITS = 3;
 
 const int RLIMIT_WAKEUPS_MONITOR = 1;
 
-const int RLIM_INFINITY = 9223372036854775807;
-
 const int RLIM_NLIMITS = 9;
-
-const int RLIM_SAVED_CUR = 9223372036854775807;
-
-const int RLIM_SAVED_MAX = 9223372036854775807;
 
 const int RSIZE_MAX = 9223372036854775807;
 
@@ -4993,11 +4939,7 @@ class Result extends ffi.Struct {
   external int spin;
 }
 
-const int SAE_ASSOCID_ALL = 4294967295;
-
 const int SAE_ASSOCID_ANY = 0;
-
-const int SAE_CONNID_ALL = 4294967295;
 
 const int SAE_CONNID_ANY = 0;
 
@@ -5707,8 +5649,6 @@ const int TCP_KEEPINTVL = 257;
 
 const int TCP_MAXHLEN = 60;
 
-const int TCP_MAXOLEN = 40;
-
 const int TCP_MAXSEG = 2;
 
 const int TCP_MAXWIN = 65535;
@@ -5931,8 +5871,6 @@ const int ULONG_MAX = -1;
 const int UNDERFLOW = 4;
 
 const int UQUAD_MAX = -1;
-
-const int USER_ADDR_NULL = 0;
 
 const int USE_ETC = 1;
 
@@ -7063,13 +7001,7 @@ const int _SC_XOPEN_VERSION = 116;
 
 const int _SC_XOPEN_XCU_VERSION = 121;
 
-const int _SS_ALIGNSIZE = 8;
-
 const int _SS_MAXSIZE = 128;
-
-const int _SS_PAD1SIZE = 6;
-
-const int _SS_PAD2SIZE = 112;
 
 const int _V6_ILP32_OFF32 = -1;
 
@@ -7133,10 +7065,6 @@ const String __ASSERT_FILE_NAME = 'temp_for_macros.hpp';
 
 const int __DARWIN_64_BIT_INO_T = 1;
 
-const int __DARWIN_ALIGNBYTES = 7;
-
-const int __DARWIN_ALIGNBYTES32 = 3;
-
 const int __DARWIN_BIG_ENDIAN = 4321;
 
 const int __DARWIN_BYTE_ORDER = 1234;
@@ -7156,8 +7084,6 @@ const int __DARWIN_IPPORT_RESERVED = 1024;
 const int __DARWIN_LITTLE_ENDIAN = 1234;
 
 const int __DARWIN_NBBY = 8;
-
-const int __DARWIN_NFDBITS = 32;
 
 const int __DARWIN_NON_CANCELABLE = 0;
 
@@ -7188,8 +7114,6 @@ const int __DARWIN_VERS_1050 = 1;
 const int __DARWIN_WCHAR_MAX = 2147483647;
 
 const int __DARWIN_WCHAR_MIN = -2147483648;
-
-const int __DARWIN_WEOF = -1;
 
 const int __DRIVERKIT_19_0 = 190000;
 
