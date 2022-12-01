@@ -1,6 +1,6 @@
 # 5.9.2
 
-fix bug of internal development workflow
+fix bug of internal development workflow.
 
 # 5.9.1
 
