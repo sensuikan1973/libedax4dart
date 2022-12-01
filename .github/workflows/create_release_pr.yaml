@@ -41,7 +41,8 @@ jobs:
         run: |
           echo "# ${{ env.CURRENT_VERSION }}" >> CHANGELOG.md.tmp
           echo "" >> CHANGELOG.md.tmp
-          echo "${{ github.event.inputs.version_bump_part }}" >> CHANGELOG.md.tmp
+          echo "${{ github.event.inputs.changelog_description }}" >> CHANGELOG.md.tmp
+          echo "" >> CHANGELOG.md.tmp
 
           cat CHANGELOG.md >> CHANGELOG.md.tmp
           cat CHANGELOG.md.tmp > CHANGELOG.md
