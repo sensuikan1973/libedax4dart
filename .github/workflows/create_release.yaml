@@ -61,3 +61,5 @@ jobs:
           tag_name: ${{ env.CURRENT_VERSION }}
           files: ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
           generate_release_notes: true
+
+      # https://github.com/dart-lang/pub-dev/issues/5388
