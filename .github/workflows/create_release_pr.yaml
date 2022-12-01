@@ -44,7 +44,7 @@ jobs:
           echo "${{ github.event.inputs.version_bump_part }}" >> CHANGELOG.md.tmp
 
           cat CHANGELOG.md >> CHANGELOG.md.tmp
-          cat CHANGELOG.md.tmp >> CHANGELOG.md
+          cat CHANGELOG.md.tmp > CHANGELOG.md
 
       # See: https://github.com/peter-evans/create-pull-request/tree/master#reference-example
       - name: create PR
