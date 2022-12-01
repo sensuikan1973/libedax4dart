@@ -36,7 +36,7 @@ jobs:
 
       - name: inject current version
         shell: bash # for windows
-        run: echo "CURRENT_VERSION=$(pub run cider version)" >> $GITHUB_ENV
+        run: echo "CURRENT_VERSION=$(cider version)" >> $GITHUB_ENV
 
       - name: build libedax
         shell: bash

@@ -35,7 +35,7 @@ jobs:
         run: cider bump ${{ github.event.inputs.version_bump_part }}
 
       - name: inject current version
-        run: echo "CURRENT_VERSION=$(pub run cider version)" >> $GITHUB_ENV
+        run: echo "CURRENT_VERSION=$(cider version)" >> $GITHUB_ENV
 
       - name: update CHANGELOG
         run: |
@@ -47,6 +47,7 @@ jobs:
 
           cat CHANGELOG.md >> "${TMP_FILE}"
           cat "${TMP_FILE}" > CHANGELOG.md
+          rm "${TMP_FILE}"
 
       # See: https://github.com/peter-evans/create-pull-request/tree/master#reference-example
       - name: create PR
