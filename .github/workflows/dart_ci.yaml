@@ -71,6 +71,9 @@ jobs:
           files: lcov.info
           flags: unit_test,${{ matrix.os }}
           fail_ci_if_error: true
+          # See: https://github.com/codecov/codecov-action/issues/837
+          # https://app.codecov.io/gh/sensuikan1973/libedax4dart/settings
+          token: ${{ secrets.CODECOV_TOKEN }}
       - name: run example
         run: |-
           cd example && dart pub get && cd ..

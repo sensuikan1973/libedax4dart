@@ -3,13 +3,14 @@ name: Create Release
 
 on:
   workflow_dispatch:
-    inputs:
-      tag:
-        description: 'tag'
-        required: true
+  pull_request:
+    branches: [main]
+    types: [closed]
 
 jobs:
   create_release:
+    # See: .github/workflows/create_release_pr.yaml
+    if: ${{ github.head_ref == 'prepare_for_release' }}
     env:
       OUTPUT_DIR: libedax_output
       PUBLISH_DIR: dst
@@ -29,6 +30,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
+      - uses: dart-lang/setup-dart@v1
+      - run: dart pub global activate cider
+
+      - name: inject current version
+        shell: bash # for windows
+        run: echo "CURRENT_VERSION=$(pub run cider version)" >> $GITHUB_ENV
 
       - name: build libedax
         shell: bash
@@ -52,6 +60,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.event.inputs.tag }}
+          tag_name: ${{ env.CURRENT_VERSION }}
           files: ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
           generate_release_notes: true

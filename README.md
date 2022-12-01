@@ -99,6 +99,14 @@ libedax_build_command="make universal_osx_libbuild" dst="." ./scripts/build_libe
 dart run ffigen --config ffigen.yaml --verbose severe && dart format --fix .
 ```
 
+#### publish
+
+https://github.com/dart-lang/pub-dev/issues/5388
+
+```sh
+dart pub publish
+```
+
 ### reference
 
 - [dart:ffi](https://dart.dev/guides/libraries/c-interop)
