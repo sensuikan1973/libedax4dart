@@ -9,16 +9,16 @@ issue_tracker: https://github.com/sensuikan1973/libedax4dart/issues
 repository: https://github.com/sensuikan1973/libedax4dart
 
 environment:
-  sdk: '>=2.18.4 <3.0.0' # See: https://dart.dev/null-safety#enable-null-safety
+  sdk: '>=2.18.5 <3.0.0' # See: https://dart.dev/null-safety#enable-null-safety
 
 dependencies:
   ffi: ^2.0.1
   meta: ^1.8.0
 
 dev_dependencies:
-  analyzer: ^5.1.0
+  analyzer: ^5.2.0
   coverage: ^1.6.1 # See: https://github.com/dart-lang/test/issues/1265
-  ffigen: ^7.0.0
-  pana: ^0.21.18
-  pedantic_sensuikan1973: ^3.5.0
-  test: ^1.21.6
+  ffigen: ^7.2.2
+  pana: ^0.21.21
+  pedantic_sensuikan1973: ^3.6.0
+  test: ^1.22.0
