@@ -35,7 +35,7 @@ jobs:
         run: cider bump ${{ github.event.inputs.version_bump_part }}
 
       - name: inject current version
-        run: echo "CURRENT_VERSION=$(cider version)" >> $GITHUB_ENV
+        run: echo "CURRENT_VERSION=$(dart pub global run cider version)" >> $GITHUB_ENV
 
       - name: update CHANGELOG
         run: |
