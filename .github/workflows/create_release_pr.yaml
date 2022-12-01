@@ -39,13 +39,14 @@ jobs:
 
       - name: update CHANGELOG
         run: |
-          echo "# ${{ env.CURRENT_VERSION }}" >> CHANGELOG.md.tmp
-          echo "" >> CHANGELOG.md.tmp
-          echo "${{ github.event.inputs.changelog_description }}" >> CHANGELOG.md.tmp
-          echo "" >> CHANGELOG.md.tmp
+          TMP_FILE="CHANGELOG.md.tmp"
+          echo "# ${{ env.CURRENT_VERSION }}" >> "${TMP_FILE}"
+          echo "" >> "${TMP_FILE}"
+          echo "${{ github.event.inputs.changelog_description }}" >> "${TMP_FILE}"
+          echo "" >> "${TMP_FILE}"
 
-          cat CHANGELOG.md >> CHANGELOG.md.tmp
-          cat CHANGELOG.md.tmp > CHANGELOG.md
+          cat CHANGELOG.md >> "${TMP_FILE}"
+          cat "${TMP_FILE}" > CHANGELOG.md
 
       # See: https://github.com/peter-evans/create-pull-request/tree/master#reference-example
       - name: create PR
