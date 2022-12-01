@@ -9,6 +9,8 @@ on:
 
 jobs:
   create_release:
+    # See: .github/workflows/create_release_pr.yaml
+    if: ${{ github.head_ref == 'prepare_for_release' }}
     env:
       OUTPUT_DIR: libedax_output
       PUBLISH_DIR: dst
