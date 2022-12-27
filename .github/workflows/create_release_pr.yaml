@@ -29,13 +29,12 @@ jobs:
       - uses: actions/checkout@v3
 
       - uses: dart-lang/setup-dart@v1
-      - run: dart pub global activate cider
 
       - name: bump version
-        run: cider bump ${{ github.event.inputs.version_bump_part }}
+        run: dart run cider bump ${{ github.event.inputs.version_bump_part }}
 
       - name: inject current version
-        run: echo "CURRENT_VERSION=$(dart pub global run cider version)" >> $GITHUB_ENV
+        run: echo "CURRENT_VERSION=$(dart run cider version)" >> $GITHUB_ENV
 
       - name: update CHANGELOG
         run: |
