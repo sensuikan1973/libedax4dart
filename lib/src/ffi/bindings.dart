@@ -1535,11 +1535,11 @@ class LibEdaxBindings {
           ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>> value) =>
       _time_clock.value = value;
 
-  late final ffi.Pointer<ffi.Long> _timezone = _lookup<ffi.Long>('timezone');
+  late final ffi.Pointer<ffi.Long> _timezone1 = _lookup<ffi.Long>('timezone');
 
-  int get timezone => _timezone.value;
+  int get timezone1 => _timezone1.value;
 
-  set timezone(int value) => _timezone.value = value;
+  set timezone1(int value) => _timezone1.value = value;
 
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Char>>> _tzname =
       _lookup<ffi.Pointer<ffi.Pointer<ffi.Char>>>('tzname');
@@ -3076,6 +3076,8 @@ const int IOPOL_TYPE_VFS_ALLOW_LOW_SPACE_WRITES = 9;
 
 const int IOPOL_TYPE_VFS_ATIME_UPDATES = 2;
 
+const int IOPOL_TYPE_VFS_DISALLOW_RW_FOR_O_EVTONLY = 10;
+
 const int IOPOL_TYPE_VFS_IGNORE_CONTENT_PROTECTION = 6;
 
 const int IOPOL_TYPE_VFS_IGNORE_PERMISSIONS = 7;
@@ -3097,6 +3099,10 @@ const int IOPOL_VFS_ALLOW_LOW_SPACE_WRITES_ON = 1;
 const int IOPOL_VFS_CONTENT_PROTECTION_DEFAULT = 0;
 
 const int IOPOL_VFS_CONTENT_PROTECTION_IGNORE = 1;
+
+const int IOPOL_VFS_DISALLOW_RW_FOR_O_EVTONLY_DEFAULT = 0;
+
+const int IOPOL_VFS_DISALLOW_RW_FOR_O_EVTONLY_ON = 1;
 
 const int IOPOL_VFS_IGNORE_PERMISSIONS_OFF = 0;
 
@@ -3881,6 +3887,8 @@ class Log extends ffi.Struct {
 const int MAC_OS_VERSION_11_0 = 110000;
 
 const int MAC_OS_VERSION_12_0 = 120000;
+
+const int MAC_OS_VERSION_13_0 = 130000;
 
 const int MAC_OS_X_VERSION_10_0 = 1000;
 
@@ -4866,7 +4874,7 @@ const int RSIZE_MAX = 9223372036854775807;
 
 const int RUSAGE_CHILDREN = -1;
 
-const int RUSAGE_INFO_CURRENT = 5;
+const int RUSAGE_INFO_CURRENT = 6;
 
 const int RUSAGE_INFO_V0 = 0;
 
@@ -4879,6 +4887,8 @@ const int RUSAGE_INFO_V3 = 3;
 const int RUSAGE_INFO_V4 = 4;
 
 const int RUSAGE_INFO_V5 = 5;
+
+const int RUSAGE_INFO_V6 = 6;
 
 const int RUSAGE_SELF = 0;
 
@@ -5208,6 +5218,8 @@ const int SO_RCVBUF = 4098;
 const int SO_RCVLOWAT = 4100;
 
 const int SO_RCVTIMEO = 4102;
+
+const int SO_RESOLVER_SIGNATURE = 4401;
 
 const int SO_REUSEADDR = 4;
 
@@ -5583,6 +5595,10 @@ const int TCPCI_OPT_TIMESTAMPS = 1;
 
 const int TCPCI_OPT_WSCALE = 4;
 
+const int TCPOLEN_ACCECN_COUNTER = 3;
+
+const int TCPOLEN_ACCECN_EMPTY = 2;
+
 const int TCPOLEN_CC = 6;
 
 const int TCPOLEN_CC_APPA = 8;
@@ -5602,6 +5618,10 @@ const int TCPOLEN_TIMESTAMP = 10;
 const int TCPOLEN_TSTAMP_APPA = 12;
 
 const int TCPOLEN_WINDOW = 3;
+
+const int TCPOPT_ACCECN0 = 172;
+
+const int TCPOPT_ACCECN1 = 174;
 
 const int TCPOPT_CC = 11;
 
@@ -5677,7 +5697,11 @@ const int TCP_SENDMOREACKS = 259;
 
 const int TH_ACCEPT = 23;
 
+const int TH_ACE = 448;
+
 const int TH_ACK = 16;
+
+const int TH_AE = 256;
 
 const int TH_CWR = 128;
 
@@ -5686,6 +5710,8 @@ const int TH_ECE = 64;
 const int TH_FIN = 1;
 
 const int TH_FLAGS = 247;
+
+const int TH_FLAGS_ALL = 255;
 
 const int TH_PUSH = 8;
 
@@ -7061,6 +7087,18 @@ const int _XOPEN_XCU_VERSION = 4;
 
 const int __API_TO_BE_DEPRECATED = 100000;
 
+const int __API_TO_BE_DEPRECATED_DRIVERKIT = 100000;
+
+const int __API_TO_BE_DEPRECATED_IOS = 100000;
+
+const int __API_TO_BE_DEPRECATED_MACCATALYST = 100000;
+
+const int __API_TO_BE_DEPRECATED_MACOS = 100000;
+
+const int __API_TO_BE_DEPRECATED_TVOS = 100000;
+
+const int __API_TO_BE_DEPRECATED_WATCHOS = 100000;
+
 const String __ASSERT_FILE_NAME = 'temp_for_macros.hpp';
 
 const int __DARWIN_64_BIT_INO_T = 1;
@@ -7198,6 +7236,12 @@ const int __IPHONE_15_2 = 150200;
 const int __IPHONE_15_3 = 150300;
 
 const int __IPHONE_15_4 = 150400;
+
+const int __IPHONE_16_0 = 160000;
+
+const int __IPHONE_16_1 = 160100;
+
+const int __IPHONE_16_2 = 160200;
 
 const int __IPHONE_2_0 = 20000;
 
@@ -7355,7 +7399,11 @@ const int __MAC_12_2 = 120200;
 
 const int __MAC_12_3 = 120300;
 
-const int __MAC_OS_X_VERSION_MAX_ALLOWED = 120300;
+const int __MAC_13_0 = 130000;
+
+const int __MAC_13_1 = 130100;
+
+const int __MAC_OS_X_VERSION_MAX_ALLOWED = 130100;
 
 const int __MAC_OS_X_VERSION_MIN_REQUIRED = 120000;
 
@@ -7473,6 +7521,12 @@ const int __TVOS_15_3 = 150300;
 
 const int __TVOS_15_4 = 150400;
 
+const int __TVOS_16_0 = 160000;
+
+const int __TVOS_16_1 = 160100;
+
+const int __TVOS_16_2 = 160200;
+
 const int __TVOS_9_0 = 90000;
 
 const int __TVOS_9_1 = 90100;
@@ -7540,6 +7594,12 @@ const int __WATCHOS_8_3 = 80300;
 const int __WATCHOS_8_4 = 80400;
 
 const int __WATCHOS_8_5 = 80500;
+
+const int __WATCHOS_9_0 = 90000;
+
+const int __WATCHOS_9_1 = 90100;
+
+const int __WATCHOS_9_2 = 90200;
 
 const int __WORDSIZE = 64;
 
@@ -8066,6 +8126,14 @@ class __siginfo extends ffi.Struct {
 
   @ffi.Array.multi([7])
   external ffi.Array<ffi.UnsignedLong> __pad;
+}
+
+class __sockaddr_header extends ffi.Struct {
+  @__uint8_t()
+  external int sa_len;
+
+  @sa_family_t()
+  external int sa_family;
 }
 
 typedef __uint16_t = ffi.UnsignedShort;
@@ -9139,6 +9207,140 @@ class rusage_info_v5 extends ffi.Struct {
   external int ri_flags;
 }
 
+class rusage_info_v6 extends ffi.Struct {
+  @ffi.Array.multi([16])
+  external ffi.Array<ffi.Uint8> ri_uuid;
+
+  @ffi.Uint64()
+  external int ri_user_time;
+
+  @ffi.Uint64()
+  external int ri_system_time;
+
+  @ffi.Uint64()
+  external int ri_pkg_idle_wkups;
+
+  @ffi.Uint64()
+  external int ri_interrupt_wkups;
+
+  @ffi.Uint64()
+  external int ri_pageins;
+
+  @ffi.Uint64()
+  external int ri_wired_size;
+
+  @ffi.Uint64()
+  external int ri_resident_size;
+
+  @ffi.Uint64()
+  external int ri_phys_footprint;
+
+  @ffi.Uint64()
+  external int ri_proc_start_abstime;
+
+  @ffi.Uint64()
+  external int ri_proc_exit_abstime;
+
+  @ffi.Uint64()
+  external int ri_child_user_time;
+
+  @ffi.Uint64()
+  external int ri_child_system_time;
+
+  @ffi.Uint64()
+  external int ri_child_pkg_idle_wkups;
+
+  @ffi.Uint64()
+  external int ri_child_interrupt_wkups;
+
+  @ffi.Uint64()
+  external int ri_child_pageins;
+
+  @ffi.Uint64()
+  external int ri_child_elapsed_abstime;
+
+  @ffi.Uint64()
+  external int ri_diskio_bytesread;
+
+  @ffi.Uint64()
+  external int ri_diskio_byteswritten;
+
+  @ffi.Uint64()
+  external int ri_cpu_time_qos_default;
+
+  @ffi.Uint64()
+  external int ri_cpu_time_qos_maintenance;
+
+  @ffi.Uint64()
+  external int ri_cpu_time_qos_background;
+
+  @ffi.Uint64()
+  external int ri_cpu_time_qos_utility;
+
+  @ffi.Uint64()
+  external int ri_cpu_time_qos_legacy;
+
+  @ffi.Uint64()
+  external int ri_cpu_time_qos_user_initiated;
+
+  @ffi.Uint64()
+  external int ri_cpu_time_qos_user_interactive;
+
+  @ffi.Uint64()
+  external int ri_billed_system_time;
+
+  @ffi.Uint64()
+  external int ri_serviced_system_time;
+
+  @ffi.Uint64()
+  external int ri_logical_writes;
+
+  @ffi.Uint64()
+  external int ri_lifetime_max_phys_footprint;
+
+  @ffi.Uint64()
+  external int ri_instructions;
+
+  @ffi.Uint64()
+  external int ri_cycles;
+
+  @ffi.Uint64()
+  external int ri_billed_energy;
+
+  @ffi.Uint64()
+  external int ri_serviced_energy;
+
+  @ffi.Uint64()
+  external int ri_interval_max_phys_footprint;
+
+  @ffi.Uint64()
+  external int ri_runnable_time;
+
+  @ffi.Uint64()
+  external int ri_flags;
+
+  @ffi.Uint64()
+  external int ri_user_ptime;
+
+  @ffi.Uint64()
+  external int ri_system_ptime;
+
+  @ffi.Uint64()
+  external int ri_pinstructions;
+
+  @ffi.Uint64()
+  external int ri_pcycles;
+
+  @ffi.Uint64()
+  external int ri_energy_nj;
+
+  @ffi.Uint64()
+  external int ri_penergy_nj;
+
+  @ffi.Array.multi([14])
+  external ffi.Array<ffi.Uint64> ri_reserved;
+}
+
 class sa_endpoints extends ffi.Struct {
   @ffi.UnsignedInt()
   external int sae_srcif;
@@ -9456,7 +9658,7 @@ class timeval64 extends ffi.Struct {
   external int tv_usec;
 }
 
-class timezone1 extends ffi.Struct {
+class timezone extends ffi.Struct {
   @ffi.Int()
   external int tz_minuteswest;
 
