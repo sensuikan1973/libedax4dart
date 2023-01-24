@@ -11,7 +11,7 @@
   
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
   
   <link rel="stylesheet" href="../../static-assets/github.css?v1">
   <link rel="stylesheet" href="../../static-assets/styles.css?v1">
@@ -21,12 +21,12 @@
 </head>
 
 
-<body data-base-href="../../" data-using-base-href="false">
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
 
 <div id="overlay-under-drawer"></div>
 
 <header id="title">
-  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">libedax4dart</a></li>
     <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings-library.html">bindings</a></li>
@@ -37,10 +37,16 @@
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
+  <div class="toggle" id="theme-button">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span class="material-symbols-outlined">
+        brightness_4
+      </span>
+    </label>
+  </div>
 </header>
-
 <main>
-
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
@@ -53,6 +59,7 @@
 <section id="getter">
 
 <section class="multi-line-signature">
+  
   <span class="returntype"><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/HashData-class.html">HashData</a></span>
   <span class="name ">HASH_DATA_INIT</span>
   
@@ -95,178 +102,178 @@
           <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/LibEdaxBindings.fromLookup.html">fromLookup</a></li>
 
 
-    <li class="section-title">
-      <a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings-class.html#instance-properties">Properties</a>
-    </li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/A1_A8.html">A1_A8</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/admin_list.html">admin_list</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/BAD_LINK.html">BAD_LINK</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/BOOK_INFO_RESOLUTION.html">BOOK_INFO_RESOLUTION</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/book_verbose.html">book_verbose</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/COUNT_FLIP_2.html">COUNT_FLIP_2</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/COUNT_FLIP_3.html">COUNT_FLIP_3</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/COUNT_FLIP_4.html">COUNT_FLIP_4</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/COUNT_FLIP_5.html">COUNT_FLIP_5</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/COUNT_FLIP_L.html">COUNT_FLIP_L</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/COUNT_FLIP_R.html">COUNT_FLIP_R</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/COUNT_LAST_FLIP.html">COUNT_LAST_FLIP</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/daylight.html">daylight</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_log.html">edax_log</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edge_stability.html">edge_stability</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/engine_log.html">engine_log</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/engine_result.html">engine_result</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_A.html">EVAL_A</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_a.html">EVAL_a</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_B.html">EVAL_B</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_b.html">EVAL_b</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_C.html">EVAL_C</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_c.html">EVAL_c</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_C9.html">EVAL_C9</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_C10.html">EVAL_C10</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_F2X.html">EVAL_F2X</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_LOADED.html">EVAL_LOADED</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_MAX_VALUE.html">EVAL_MAX_VALUE</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_N_FEATURE.html">EVAL_N_FEATURE</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_N_PLY.html">EVAL_N_PLY</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_N_WEIGHT.html">EVAL_N_WEIGHT</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_OFFSET.html">EVAL_OFFSET</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_PACKED_SIZE.html">EVAL_PACKED_SIZE</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_S4.html">EVAL_S4</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_S5.html">EVAL_S5</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_S6.html">EVAL_S6</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_S7.html">EVAL_S7</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_S8.html">EVAL_S8</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_S10.html">EVAL_S10</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_SIZE.html">EVAL_SIZE</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_WEIGHT.html">EVAL_WEIGHT</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_X2F.html">EVAL_X2F</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/flip.html">flip</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/FLIPPED_2_H.html">FLIPPED_2_H</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/FLIPPED_2_V.html">FLIPPED_2_V</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/FLIPPED_3_H.html">FLIPPED_3_H</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/FLIPPED_3_V.html">FLIPPED_3_V</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/FLIPPED_4_H.html">FLIPPED_4_H</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/FLIPPED_4_V.html">FLIPPED_4_V</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/FLIPPED_5_H.html">FLIPPED_5_H</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/FLIPPED_5_V.html">FLIPPED_5_V</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/GAME_HASH_INIT.html">GAME_HASH_INIT</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/GAME_STATISTICS_INIT.html">GAME_STATISTICS_INIT</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/getdate_err.html">getdate_err</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/GGS_CLOCK_INI.html">GGS_CLOCK_INI</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/ggs_log.html">ggs_log</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/GGS_MATCH_TYPE_INI.html">GGS_MATCH_TYPE_INI</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/gtp_log.html">gtp_log</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/H1_H8.html">H1_H8</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/h_errno.html">h_errno</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/HASH_DATA_INIT.html">HASH_DATA_INIT</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/hash_move.html">hash_move</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/hash_rank.html">hash_rank</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.18.7/dart-core/Object/hashCode.html">hashCode</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/in6addr_any.html">in6addr_any</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/in6addr_linklocal_allnodes.html">in6addr_linklocal_allnodes</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/in6addr_linklocal_allrouters.html">in6addr_linklocal_allrouters</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/in6addr_linklocal_allv2routers.html">in6addr_linklocal_allv2routers</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/in6addr_loopback.html">in6addr_loopback</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/in6addr_nodelocal_allnodes.html">in6addr_nodelocal_allnodes</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/last_line_sent.html">last_line_sent</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/LEVEL.html">LEVEL</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/MOVE_INIT.html">MOVE_INIT</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/MOVE_PASS.html">MOVE_PASS</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/nboard_log.html">nboard_log</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/NEIGHBOUR.html">NEIGHBOUR</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/NO_SELECTIVITY.html">NO_SELECTIVITY</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/NOM_POSITION.html">NOM_POSITION</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/NWS_STABILITY_THRESHOLD.html">NWS_STABILITY_THRESHOLD</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/OPENING_NAME.html">OPENING_NAME</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/optarg.html">optarg</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/opterr.html">opterr</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/optind.html">optind</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/options.html">options</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/optopt.html">optopt</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/optreset.html">optreset</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/OUTFLANK_2.html">OUTFLANK_2</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/OUTFLANK_3.html">OUTFLANK_3</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/OUTFLANK_4.html">OUTFLANK_4</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/OUTFLANK_5.html">OUTFLANK_5</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/OUTFLANK_7.html">OUTFLANK_7</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/POSITION_NAME.html">POSITION_NAME</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/PVS_STABILITY_THRESHOLD.html">PVS_STABILITY_THRESHOLD</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/QUADRANT_ID.html">QUADRANT_ID</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.18.7/dart-core/Object/runtimeType.html">runtimeType</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/search_log.html">search_log</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/selectivity_table.html">selectivity_table</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/signgam.html">signgam</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/SQUARE_TYPE.html">SQUARE_TYPE</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/SQUARE_VALUE.html">SQUARE_VALUE</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/statistics.html">statistics</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/suboptarg.html">suboptarg</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/sys_errlist.html">sys_errlist</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/sys_nerr.html">sys_nerr</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/sys_siglist.html">sys_siglist</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/sys_signame.html">sys_signame</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/time_clock.html">time_clock</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/timezone1.html">timezone1</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/tzname.html">tzname</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/X_TO_BIT.html">X_TO_BIT</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/xboard_log.html">xboard_log</a></li>
+        <li class="section-title">
+          <a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings-class.html#instance-properties">Properties</a>
+        </li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/A1_A8.html">A1_A8</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/admin_list.html">admin_list</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/BAD_LINK.html">BAD_LINK</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/BOOK_INFO_RESOLUTION.html">BOOK_INFO_RESOLUTION</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/book_verbose.html">book_verbose</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/COUNT_FLIP_2.html">COUNT_FLIP_2</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/COUNT_FLIP_3.html">COUNT_FLIP_3</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/COUNT_FLIP_4.html">COUNT_FLIP_4</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/COUNT_FLIP_5.html">COUNT_FLIP_5</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/COUNT_FLIP_L.html">COUNT_FLIP_L</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/COUNT_FLIP_R.html">COUNT_FLIP_R</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/COUNT_LAST_FLIP.html">COUNT_LAST_FLIP</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/daylight.html">daylight</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_log.html">edax_log</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edge_stability.html">edge_stability</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/engine_log.html">engine_log</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/engine_result.html">engine_result</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_A.html">EVAL_A</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_a.html">EVAL_a</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_B.html">EVAL_B</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_b.html">EVAL_b</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_C.html">EVAL_C</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_c.html">EVAL_c</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_C9.html">EVAL_C9</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_C10.html">EVAL_C10</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_F2X.html">EVAL_F2X</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_LOADED.html">EVAL_LOADED</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_MAX_VALUE.html">EVAL_MAX_VALUE</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_N_FEATURE.html">EVAL_N_FEATURE</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_N_PLY.html">EVAL_N_PLY</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_N_WEIGHT.html">EVAL_N_WEIGHT</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_OFFSET.html">EVAL_OFFSET</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_PACKED_SIZE.html">EVAL_PACKED_SIZE</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_S4.html">EVAL_S4</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_S5.html">EVAL_S5</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_S6.html">EVAL_S6</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_S7.html">EVAL_S7</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_S8.html">EVAL_S8</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_S10.html">EVAL_S10</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_SIZE.html">EVAL_SIZE</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_WEIGHT.html">EVAL_WEIGHT</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/EVAL_X2F.html">EVAL_X2F</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/flip.html">flip</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/FLIPPED_2_H.html">FLIPPED_2_H</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/FLIPPED_2_V.html">FLIPPED_2_V</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/FLIPPED_3_H.html">FLIPPED_3_H</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/FLIPPED_3_V.html">FLIPPED_3_V</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/FLIPPED_4_H.html">FLIPPED_4_H</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/FLIPPED_4_V.html">FLIPPED_4_V</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/FLIPPED_5_H.html">FLIPPED_5_H</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/FLIPPED_5_V.html">FLIPPED_5_V</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/GAME_HASH_INIT.html">GAME_HASH_INIT</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/GAME_STATISTICS_INIT.html">GAME_STATISTICS_INIT</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/getdate_err.html">getdate_err</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/GGS_CLOCK_INI.html">GGS_CLOCK_INI</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/ggs_log.html">ggs_log</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/GGS_MATCH_TYPE_INI.html">GGS_MATCH_TYPE_INI</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/gtp_log.html">gtp_log</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/H1_H8.html">H1_H8</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/h_errno.html">h_errno</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/HASH_DATA_INIT.html">HASH_DATA_INIT</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/hash_move.html">hash_move</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/hash_rank.html">hash_rank</a></li>
+          <li class="inherited"><a href="https://api.dart.dev/stable/2.19.0/dart-core/Object/hashCode.html">hashCode</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/in6addr_any.html">in6addr_any</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/in6addr_linklocal_allnodes.html">in6addr_linklocal_allnodes</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/in6addr_linklocal_allrouters.html">in6addr_linklocal_allrouters</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/in6addr_linklocal_allv2routers.html">in6addr_linklocal_allv2routers</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/in6addr_loopback.html">in6addr_loopback</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/in6addr_nodelocal_allnodes.html">in6addr_nodelocal_allnodes</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/last_line_sent.html">last_line_sent</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/LEVEL.html">LEVEL</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/MOVE_INIT.html">MOVE_INIT</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/MOVE_PASS.html">MOVE_PASS</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/nboard_log.html">nboard_log</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/NEIGHBOUR.html">NEIGHBOUR</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/NO_SELECTIVITY.html">NO_SELECTIVITY</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/NOM_POSITION.html">NOM_POSITION</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/NWS_STABILITY_THRESHOLD.html">NWS_STABILITY_THRESHOLD</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/OPENING_NAME.html">OPENING_NAME</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/optarg.html">optarg</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/opterr.html">opterr</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/optind.html">optind</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/options.html">options</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/optopt.html">optopt</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/optreset.html">optreset</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/OUTFLANK_2.html">OUTFLANK_2</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/OUTFLANK_3.html">OUTFLANK_3</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/OUTFLANK_4.html">OUTFLANK_4</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/OUTFLANK_5.html">OUTFLANK_5</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/OUTFLANK_7.html">OUTFLANK_7</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/POSITION_NAME.html">POSITION_NAME</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/PVS_STABILITY_THRESHOLD.html">PVS_STABILITY_THRESHOLD</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/QUADRANT_ID.html">QUADRANT_ID</a></li>
+          <li class="inherited"><a href="https://api.dart.dev/stable/2.19.0/dart-core/Object/runtimeType.html">runtimeType</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/search_log.html">search_log</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/selectivity_table.html">selectivity_table</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/signgam.html">signgam</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/SQUARE_TYPE.html">SQUARE_TYPE</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/SQUARE_VALUE.html">SQUARE_VALUE</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/statistics.html">statistics</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/suboptarg.html">suboptarg</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/sys_errlist.html">sys_errlist</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/sys_nerr.html">sys_nerr</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/sys_siglist.html">sys_siglist</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/sys_signame.html">sys_signame</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/time_clock.html">time_clock</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/timezone1.html">timezone1</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/tzname.html">tzname</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/X_TO_BIT.html">X_TO_BIT</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/xboard_log.html">xboard_log</a></li>
 
-    <li class="section-title"><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings-class.html#instance-methods">Methods</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/bit_count.html">bit_count</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_count_bestpath.html">edax_book_count_bestpath</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_count_board_bestpath.html">edax_book_count_board_bestpath</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_deviate.html">edax_book_deviate</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_fix.html">edax_book_fix</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_load.html">edax_book_load</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_new.html">edax_book_new</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_off.html">edax_book_off</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_on.html">edax_book_on</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_randomness.html">edax_book_randomness</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_save.html">edax_book_save</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_show.html">edax_book_show</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_stop_count_bestpath.html">edax_book_stop_count_bestpath</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_store.html">edax_book_store</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_verbose.html">edax_book_verbose</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_can_move.html">edax_can_move</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_disable_book_verbose.html">edax_disable_book_verbose</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_enable_book_verbose.html">edax_enable_book_verbose</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_get_board.html">edax_get_board</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_get_bookmove.html">edax_get_bookmove</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_get_bookmove_with_position.html">edax_get_bookmove_with_position</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_get_bookmove_with_position_by_moves.html">edax_get_bookmove_with_position_by_moves</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_get_current_player.html">edax_get_current_player</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_get_disc.html">edax_get_disc</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_get_last_move.html">edax_get_last_move</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_get_mobility_count.html">edax_get_mobility_count</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_get_moves.html">edax_get_moves</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_go.html">edax_go</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_hint.html">edax_hint</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_hint_next.html">edax_hint_next</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_hint_next_no_multipv_depth.html">edax_hint_next_no_multipv_depth</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_hint_prepare.html">edax_hint_prepare</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_init.html">edax_init</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_is_game_over.html">edax_is_game_over</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_mode.html">edax_mode</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_move.html">edax_move</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_new.html">edax_new</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_opening.html">edax_opening</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_options_dump.html">edax_options_dump</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_play.html">edax_play</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_play_print.html">edax_play_print</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_redo.html">edax_redo</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_rotate.html">edax_rotate</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_set_option.html">edax_set_option</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_setboard.html">edax_setboard</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_stop.html">edax_stop</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_undo.html">edax_undo</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_version.html">edax_version</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_vmirror.html">edax_vmirror</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/libedax_initialize.html">libedax_initialize</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/libedax_terminate.html">libedax_terminate</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.18.7/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.18.7/dart-core/Object/toString.html">toString</a></li>
+        <li class="section-title"><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings-class.html#instance-methods">Methods</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/bit_count.html">bit_count</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_count_bestpath.html">edax_book_count_bestpath</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_count_board_bestpath.html">edax_book_count_board_bestpath</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_deviate.html">edax_book_deviate</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_fix.html">edax_book_fix</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_load.html">edax_book_load</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_new.html">edax_book_new</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_off.html">edax_book_off</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_on.html">edax_book_on</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_randomness.html">edax_book_randomness</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_save.html">edax_book_save</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_show.html">edax_book_show</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_stop_count_bestpath.html">edax_book_stop_count_bestpath</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_store.html">edax_book_store</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_book_verbose.html">edax_book_verbose</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_can_move.html">edax_can_move</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_disable_book_verbose.html">edax_disable_book_verbose</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_enable_book_verbose.html">edax_enable_book_verbose</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_get_board.html">edax_get_board</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_get_bookmove.html">edax_get_bookmove</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_get_bookmove_with_position.html">edax_get_bookmove_with_position</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_get_bookmove_with_position_by_moves.html">edax_get_bookmove_with_position_by_moves</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_get_current_player.html">edax_get_current_player</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_get_disc.html">edax_get_disc</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_get_last_move.html">edax_get_last_move</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_get_mobility_count.html">edax_get_mobility_count</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_get_moves.html">edax_get_moves</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_go.html">edax_go</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_hint.html">edax_hint</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_hint_next.html">edax_hint_next</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_hint_next_no_multipv_depth.html">edax_hint_next_no_multipv_depth</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_hint_prepare.html">edax_hint_prepare</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_init.html">edax_init</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_is_game_over.html">edax_is_game_over</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_mode.html">edax_mode</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_move.html">edax_move</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_new.html">edax_new</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_opening.html">edax_opening</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_options_dump.html">edax_options_dump</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_play.html">edax_play</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_play_print.html">edax_play_print</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_redo.html">edax_redo</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_rotate.html">edax_rotate</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_set_option.html">edax_set_option</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_setboard.html">edax_setboard</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_stop.html">edax_stop</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_undo.html">edax_undo</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_version.html">edax_version</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/edax_vmirror.html">edax_vmirror</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/libedax_initialize.html">libedax_initialize</a></li>
+          <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings/libedax_terminate.html">libedax_terminate</a></li>
+          <li class="inherited"><a href="https://api.dart.dev/stable/2.19.0/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+          <li class="inherited"><a href="https://api.dart.dev/stable/2.19.0/dart-core/Object/toString.html">toString</a></li>
 
-    <li class="section-title inherited"><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings-class.html#operators">Operators</a></li>
-    <li class="inherited"><a href="https://api.dart.dev/stable/2.18.7/dart-core/Object/operator_equals.html">operator ==</a></li>
+        <li class="section-title inherited"><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings-class.html#operators">Operators</a></li>
+          <li class="inherited"><a href="https://api.dart.dev/stable/2.19.0/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 
 
