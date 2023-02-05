@@ -1,3 +1,7 @@
+# 5.12.0
+
+upgrade dependencies.
+
 # 5.11.2
 
 fix release workflow.
