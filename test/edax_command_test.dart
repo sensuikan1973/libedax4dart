@@ -208,8 +208,8 @@ void main() {
       final edax = LibEdax()..libedaxInitialize(initParams);
       sleep(const Duration(seconds: 1));
       edax
-        ..edaxInit()
-        ..edaxSetOption('info', '1');
+        ..edaxSetOption('info', '1')
+        ..edaxInit();
       final result = edax.edaxGetBookMoveWithPosition();
       expect(result.position.nLines, 264 + 16);
       expect(result.position.score.value, 0);
