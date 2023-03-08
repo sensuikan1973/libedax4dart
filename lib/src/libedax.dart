@@ -283,8 +283,6 @@ class LibEdax {
   /// Load book.
   void edaxBookLoad(final String bookFile) {
     final arg = bookFile.toCharPointer();
-    // ignore: avoid_print
-    print(arg.toDartStr());
     _bindings.edax_book_load(arg);
     calloc.free(arg);
   }
