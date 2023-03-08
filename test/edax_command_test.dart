@@ -188,7 +188,6 @@ void main() {
       sleep(const Duration(seconds: 1));
       edax
         ..edaxInit()
-        ..edaxSetOption('info', '1')
         ..edaxBookLoad(_testBookFile)
         ..edaxMove('f5')
         ..libedaxTerminate();
@@ -208,7 +207,9 @@ void main() {
       const initParams = ['', '-book-file', _testBookFile];
       final edax = LibEdax()..libedaxInitialize(initParams);
       sleep(const Duration(seconds: 1));
-      edax.edaxInit();
+      edax
+        ..edaxInit()
+        ..edaxSetOption('info', '1');
       final result = edax.edaxGetBookMoveWithPosition();
       expect(result.position.nLines, 264 + 16);
       expect(result.position.score.value, 0);
