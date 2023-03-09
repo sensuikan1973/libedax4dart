@@ -363,26 +363,6 @@ class LibEdax {
   /// Count bit.
   int popCount(final int bit) => _bindings.bit_count(bit);
 
-  @Deprecated(
-    '''
-Use edaxBookCountBoardBestpath.
-edaxBookCountBestpath is alias of edaxBookCountBoardBestpath({board}, playerColor: {current turn}).
-''',
-  )
-  CountBestpathResult edaxBookCountBestpath(final Board board) {
-    final dstP = calloc<bindings.Position>();
-    final dstB = calloc<bindings.Board>();
-    dstB.ref.player = board.player;
-    dstB.ref.opponent = board.opponent;
-    _bindings.edax_book_count_bestpath(dstB, dstP);
-
-    final position = Position.fromCStruct(dstP.ref);
-    calloc
-      ..free(dstP)
-      ..free(dstB);
-    return CountBestpathResult(board, position);
-  }
-
   /// Count bestpath with book.
   ///
   /// Compute the indicator of efficiency to win, which means the minimum number you should memorize on the situation both of players always choose one of the move list which of score is larger than lower limit.
