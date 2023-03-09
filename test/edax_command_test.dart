@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:libedax4dart/libedax4dart.dart';
 import 'package:test/test.dart';
+import 'package:path/path.dart' as p;
 
 const _testBookFile = './resources/test_book.dat';
 
@@ -250,7 +251,8 @@ void main() {
     });
 
     test('get book move with position by moves', () {
-      const initParams = ['', '-book-file', _testBookFile];
+      final filePath = p.canonicalize(_testBookFile);
+      final initParams = ['', '-book-file', filePath];
       final edax = LibEdax()..libedaxInitialize(initParams);
       sleep(const Duration(seconds: 1));
       edax
@@ -258,7 +260,7 @@ void main() {
         ..edaxBookVerbose(2)
         ..edaxSetOption('info', '1')
         ..edaxOptionsDump()
-        ..edaxBookLoad(_testBookFile);
+        ..edaxBookLoad(filePath);
       // ignore: avoid_print
       print('#################');
       final resultAfterF5F6 = edax.edaxGetBookMoveWithPositionByMoves('f5f6');
