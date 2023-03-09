@@ -63,7 +63,7 @@ jobs:
       - name: install dependencies
         run: dart pub get
       - name: test
-        run: dart run test --plain-name 'get book move with position by moves' --coverage=coverage
+        run: dart run test . --coverage=coverage
       - name: coverage
         run: dart run coverage:format_coverage --lcov --in coverage --out lcov.info
       - uses: codecov/codecov-action@v3
