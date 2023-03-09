@@ -254,7 +254,9 @@ void main() {
       const initParams = ['', '-book-file', _testBookFile];
       final edax = LibEdax()..libedaxInitialize(initParams);
       sleep(const Duration(seconds: 1));
-      edax.edaxInit();
+      edax
+        ..edaxInit()
+        ..edaxBookVerbose(2);
       final resultAfterF5F6 = edax.edaxGetBookMoveWithPositionByMoves('f5f6');
       expect(resultAfterF5F6.position.score.value, 1);
       expect(resultAfterF5F6.position.score.lower, -2);
