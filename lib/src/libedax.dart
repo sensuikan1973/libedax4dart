@@ -15,7 +15,6 @@ import 'hint.dart';
 import 'move.dart';
 import 'move_list_with_position.dart';
 import 'position.dart';
-import 'package:path/path.dart' as p;
 
 /// main class which call libedax api with ffi.
 @immutable
