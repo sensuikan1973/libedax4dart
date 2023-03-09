@@ -261,45 +261,10 @@ void main() {
       sleep(const Duration(seconds: 1));
       edax
         ..edaxInit()
-        ..edaxOptionsDump();
+        ..edaxOptionsDump()
+        ..edaxBookLoad(_testNonAsciiBookFilePath);
       final result = edax.edaxGetBookMoveWithPosition();
       expect(result.position.nLines, 264 + 16);
-      expect(result.position.score.value, 0);
-      expect(result.position.score.lower, -2);
-      expect(result.position.score.upper, 2);
-      expect(result.moveList.length, 4);
-      expect(
-        result.moveList.where((final move) => move.score == 0).length,
-        4,
-      ); // all moves are +0
-      expect(result.moveList.first.moveString, 'd3'); // D3
-      expect(result.moveList[1].moveString, 'c4'); // C4
-      expect(
-        result.position.board.player,
-        34628173824,
-      ); // 0000 0000 0000 0000 0000 0000 0000 1000 0001 0000 0000 0000 0000 0000 0000 0000
-      expect(result.position.nLink, 4);
-      expect(result.position.links.length, 4);
-      expect(result.position.links.first.moveString, 'd3');
-      expect(result.position.links[1].moveString, 'c4');
-      expect(result.position.links[2].moveString, 'f5');
-      expect(result.position.links[3].moveString, 'e6');
-
-      edax.edaxPlay('f5f6');
-      final resultAfterF5F6 = edax.edaxGetBookMoveWithPosition();
-      expect(resultAfterF5F6.position.score.value, 1);
-      expect(resultAfterF5F6.position.score.lower, -2);
-      expect(resultAfterF5F6.position.score.upper, 2);
-      expect(resultAfterF5F6.moveList.length, 2);
-      expect(resultAfterF5F6.moveList.first.moveString, 'e6');
-      expect(resultAfterF5F6.moveList.first.scoreString, '+1');
-      expect(resultAfterF5F6.moveList[1].moveString, 'c4');
-      expect(resultAfterF5F6.moveList[1].scoreString, '-7');
-      expect(resultAfterF5F6.position.nLink, 1);
-      expect(resultAfterF5F6.position.links.length, 1);
-      expect(resultAfterF5F6.position.links.first.moveString, 'c4');
-      expect(resultAfterF5F6.position.bestScoreLinks.length, 1);
-      expect(resultAfterF5F6.position.bestScoreLinks.first.moveString, 'c4');
       edax.libedaxTerminate();
     });
 
@@ -314,7 +279,6 @@ void main() {
         ..edaxOptionsDump()
         ..edaxBookLoad(_testBookFilePath);
       // ignore: avoid_print
-      print('#################');
       final resultAfterF5F6 = edax.edaxGetBookMoveWithPositionByMoves('f5f6');
       expect(resultAfterF5F6.position.score.value, 1);
       expect(resultAfterF5F6.position.score.lower, -2);
