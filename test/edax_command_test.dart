@@ -10,6 +10,9 @@ const _testNonAsciiBookFile = './resources/nonASCIIパス_book.dat';
 final _testNonAsciiBookFilePath = p.canonicalize(_testNonAsciiBookFile);
 
 void main() {
+  // ignore: avoid_print
+  print(_testNonAsciiBookFilePath);
+
   test('wrong dll path', () {
     expect(() => LibEdax('foo/bar'), throwsArgumentError);
   });
@@ -256,7 +259,9 @@ void main() {
       final initParams = ['', '-book-file', _testNonAsciiBookFilePath];
       final edax = LibEdax()..libedaxInitialize(initParams);
       sleep(const Duration(seconds: 1));
-      edax.edaxInit();
+      edax
+        ..edaxInit()
+        ..edaxOptionsDump();
       final result = edax.edaxGetBookMoveWithPosition();
       expect(result.position.nLines, 264 + 16);
       expect(result.position.score.value, 0);
