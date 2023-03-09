@@ -304,7 +304,7 @@ class LibEdax {
   /// See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
   void edaxSetOption(final String optionName, final String val) {
     final optionNameArg = optionName.toCharPointer();
-    final valArg = optionName.toCharPointer();
+    final valArg = val.toCharPointer();
     _bindings.edax_set_option(optionNameArg, valArg);
     calloc
       ..free(optionNameArg)
