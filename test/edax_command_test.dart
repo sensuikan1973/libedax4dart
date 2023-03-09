@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use_from_same_package
-
 import 'dart:io';
 
 import 'package:libedax4dart/libedax4dart.dart';
