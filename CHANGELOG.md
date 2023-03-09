@@ -1,6 +1,7 @@
 # 6.0.0
 
-TODO
+- fix bug that `edaxSetOption` does nothing.
+- remove deprecated method `edaxBookCountBestpath`.
 
 # 5.15.0
 
