@@ -255,7 +255,9 @@ void main() {
       sleep(const Duration(seconds: 1));
       edax
         ..edaxInit()
-        ..edaxBookVerbose(2);
+        ..edaxBookVerbose(2)
+        ..edaxSetOption('info', '1')
+        ..edaxBookLoad(_testBookFile);
       final resultAfterF5F6 = edax.edaxGetBookMoveWithPositionByMoves('f5f6');
       expect(resultAfterF5F6.position.score.value, 1);
       expect(resultAfterF5F6.position.score.lower, -2);
