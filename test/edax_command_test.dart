@@ -188,7 +188,6 @@ void main() {
       sleep(const Duration(seconds: 1));
       edax
         ..edaxInit()
-        ..edaxSetOption('info', '1')
         ..edaxBookLoad(_testBookFile)
         ..edaxMove('f5')
         ..libedaxTerminate();
