@@ -251,6 +251,7 @@ void main() {
       edax.libedaxTerminate();
     });
 
+    // See: https://github.com/sensuikan1973/libedax4dart/pull/330
     test('[non ASCII path book file] get book move with position', () {
       final initParams = ['', '-book-file', _testNonAsciiBookFilePath];
       final edax = LibEdax()..libedaxInitialize(initParams);
