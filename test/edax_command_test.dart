@@ -5,7 +5,7 @@ import 'dart:io';
 import 'package:libedax4dart/libedax4dart.dart';
 import 'package:test/test.dart';
 
-const _testBookFile = './resources/テスト_book.dat';
+const _testBookFile = './resources/test_book.dat';
 
 void main() {
   test('wrong dll path', () {
@@ -259,6 +259,8 @@ void main() {
         ..edaxSetOption('info', '1')
         ..edaxOptionsDump()
         ..edaxBookLoad(_testBookFile);
+      // ignore: avoid_print
+      print('#################');
       final resultAfterF5F6 = edax.edaxGetBookMoveWithPositionByMoves('f5f6');
       expect(resultAfterF5F6.position.score.value, 1);
       expect(resultAfterF5F6.position.score.lower, -2);
