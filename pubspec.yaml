@@ -9,11 +9,11 @@ issue_tracker: https://github.com/sensuikan1973/libedax4dart/issues
 repository: https://github.com/sensuikan1973/libedax4dart
 
 environment:
-  sdk: '>=2.19.4 <4.0.0' # See: https://dart.dev/null-safety#enable-null-safety
+  sdk: '>=2.19.5 <4.0.0' # See: https://dart.dev/null-safety#enable-null-safety
 
 dependencies:
   ffi: ^2.0.1
-  meta: ^1.9.1
+  meta: ^1.8.0
 
 dev_dependencies:
   analyzer: ^5.10.0
