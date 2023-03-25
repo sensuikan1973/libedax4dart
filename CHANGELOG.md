@@ -1,3 +1,7 @@
+# 6.1.0
+
+upgrade dependencies.
+
 # 6.0.0
 
 - fix bug that `edaxSetOption` does nothing.
