@@ -1,3 +1,7 @@
+# 6.2.0
+
+fix bug thath evaluation value is wrong on Apple Silicon Mac
+
 # 6.1.0
 
 upgrade dependencies.
