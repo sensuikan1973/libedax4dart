@@ -7237,8 +7237,6 @@ const int __DRIVERKIT_21_0 = 210000;
 
 const int __ENABLE_LEGACY_MAC_AVAILABILITY = 1;
 
-const int __GNUC_VA_LIST = 1;
-
 const int __ILP32_OFF32 = -1;
 
 const int __ILP32_OFFBIG = -1;
