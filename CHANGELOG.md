@@ -1,3 +1,7 @@
+# 6.3.0
+
+loose Dart SDK limitation.
+
 # 6.2.1
 
 fix  dependencies.
