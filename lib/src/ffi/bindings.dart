@@ -1535,11 +1535,11 @@ class LibEdaxBindings {
           ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>> value) =>
       _time_clock.value = value;
 
-  late final ffi.Pointer<ffi.Long> _timezone = _lookup<ffi.Long>('timezone');
+  late final ffi.Pointer<ffi.Long> _timezone1 = _lookup<ffi.Long>('timezone');
 
-  int get timezone => _timezone.value;
+  int get timezone1 => _timezone1.value;
 
-  set timezone(int value) => _timezone.value = value;
+  set timezone1(int value) => _timezone1.value = value;
 
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Char>>> _tzname =
       _lookup<ffi.Pointer<ffi.Pointer<ffi.Char>>>('tzname');
@@ -6633,7 +6633,7 @@ const int _POSIX_SHELL = 200112;
 
 const int _POSIX_SIGQUEUE_MAX = 32;
 
-const int _POSIX_SPAWN = 200112;
+const int _POSIX_SPAWN = -1;
 
 const int _POSIX_SPIN_LOCKS = -1;
 
@@ -7317,10 +7317,6 @@ const int __IPHONE_16_1 = 160100;
 
 const int __IPHONE_16_2 = 160200;
 
-const int __IPHONE_16_3 = 160300;
-
-const int __IPHONE_16_4 = 160400;
-
 const int __IPHONE_2_0 = 20000;
 
 const int __IPHONE_2_1 = 20100;
@@ -7481,13 +7477,9 @@ const int __MAC_13_0 = 130000;
 
 const int __MAC_13_1 = 130100;
 
-const int __MAC_13_2 = 130200;
+const int __MAC_OS_X_VERSION_MAX_ALLOWED = 130100;
 
-const int __MAC_13_3 = 130300;
-
-const int __MAC_OS_X_VERSION_MAX_ALLOWED = 130300;
-
-const int __MAC_OS_X_VERSION_MIN_REQUIRED = 130000;
+const int __MAC_OS_X_VERSION_MIN_REQUIRED = 120000;
 
 const int __PTHREAD_ATTR_SIZE__ = 56;
 
@@ -7609,10 +7601,6 @@ const int __TVOS_16_1 = 160100;
 
 const int __TVOS_16_2 = 160200;
 
-const int __TVOS_16_3 = 160300;
-
-const int __TVOS_16_4 = 160400;
-
 const int __TVOS_9_0 = 90000;
 
 const int __TVOS_9_1 = 90100;
@@ -7686,10 +7674,6 @@ const int __WATCHOS_9_0 = 90000;
 const int __WATCHOS_9_1 = 90100;
 
 const int __WATCHOS_9_2 = 90200;
-
-const int __WATCHOS_9_3 = 90300;
-
-const int __WATCHOS_9_4 = 90400;
 
 const int __WORDSIZE = 64;
 
@@ -9748,7 +9732,7 @@ final class timeval64 extends ffi.Struct {
   external int tv_usec;
 }
 
-final class timezone1 extends ffi.Struct {
+final class timezone extends ffi.Struct {
   @ffi.Int()
   external int tz_minuteswest;
 
