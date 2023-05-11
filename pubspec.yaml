@@ -19,7 +19,7 @@ dev_dependencies:
   analyzer: ^5.11.1
   cider: ^0.1.5
   coverage: ^1.6.3 # See: https://github.com/dart-lang/test/issues/1265
-  ffigen: ^7.2.11
+  ffigen: ^8.0.0
   pana: ^0.21.32
-  pedantic_sensuikan1973: ^4.4.0
+  pedantic_sensuikan1973: ^5.0.0
   test: ^1.24.2
