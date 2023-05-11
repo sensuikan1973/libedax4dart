@@ -1535,11 +1535,11 @@ class LibEdaxBindings {
           ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>> value) =>
       _time_clock.value = value;
 
-  late final ffi.Pointer<ffi.Long> _timezone1 = _lookup<ffi.Long>('timezone');
+  late final ffi.Pointer<ffi.Long> _timezone = _lookup<ffi.Long>('timezone');
 
-  int get timezone1 => _timezone1.value;
+  int get timezone => _timezone.value;
 
-  set timezone1(int value) => _timezone1.value = value;
+  set timezone(int value) => _timezone.value = value;
 
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Char>>> _tzname =
       _lookup<ffi.Pointer<ffi.Pointer<ffi.Char>>>('tzname');
@@ -1730,7 +1730,7 @@ const int BUS_OBJERR = 3;
 
 const int BYTE_ORDER = 1234;
 
-class Base extends ffi.Struct {
+final class Base extends ffi.Struct {
   external ffi.Pointer<Game> game;
 
   @ffi.Int()
@@ -1741,7 +1741,7 @@ class Base extends ffi.Struct {
 }
 
 /// Bench result structure
-class BenchResult extends ffi.Struct {
+final class BenchResult extends ffi.Struct {
   @ffi.UnsignedLongLong()
   external int T;
 
@@ -1755,7 +1755,7 @@ class BenchResult extends ffi.Struct {
 }
 
 /// Board : board representation
-class Board extends ffi.Struct {
+final class Board extends ffi.Struct {
   /// < bitboard representation
   @ffi.UnsignedLongLong()
   external int player;
@@ -1765,7 +1765,7 @@ class Board extends ffi.Struct {
 }
 
 /// HashTable of shapes
-class BoardCache extends ffi.Struct {
+final class BoardCache extends ffi.Struct {
   external ffi.Pointer<Board> array;
 
   @ffi.Int()
@@ -1777,7 +1777,7 @@ class BoardCache extends ffi.Struct {
 
 /// struct Book
 /// @brief The opening book.
-class Book extends ffi.Struct {
+final class Book extends ffi.Struct {
   external UnnamedStruct8 date;
 
   external UnnamedStruct9 options;
@@ -1806,7 +1806,7 @@ class Book extends ffi.Struct {
   external int count_bestpath_stop;
 }
 
-class BookCheckGame extends ffi.Struct {
+final class BookCheckGame extends ffi.Struct {
   @ffi.UnsignedLongLong()
   external int missing;
 
@@ -1818,7 +1818,7 @@ class BookCheckGame extends ffi.Struct {
 }
 
 /// Bound
-class Bound extends ffi.Struct {
+final class Bound extends ffi.Struct {
   @ffi.Int()
   external int lower;
 
@@ -1842,7 +1842,7 @@ const int C7 = 50;
 
 const int C8 = 58;
 
-class CBoard extends ffi.Struct {
+final class CBoard extends ffi.Struct {
   @ffi.Array.multi([13])
   external ffi.Array<ffi.UnsignedChar> x;
 }
@@ -1907,7 +1907,7 @@ const int CPUMON_MAKE_FATAL = 4096;
 typedef Condition = pthread_cond_t;
 
 /// coordinate to feature conversion
-class CoordinateToFeature extends ffi.Struct {
+final class CoordinateToFeature extends ffi.Struct {
   @ffi.Int()
   external int n_feature;
 
@@ -2250,7 +2250,7 @@ const int EXIT_SUCCESS = 0;
 const int EXPR_NEST_MAX = 32;
 
 /// Engine management data
-class Engine extends ffi.Struct {
+final class Engine extends ffi.Struct {
   @ffi.Array.multi([1])
   external ffi.Array<Event> event;
 
@@ -2265,7 +2265,7 @@ class Engine extends ffi.Struct {
 
 /// struct Eval
 /// @brief evaluation function
-class Eval extends ffi.Struct {
+final class Eval extends ffi.Struct {
   external ffi.Pointer<ffi.Int> feature;
 
   /// !< discs' features
@@ -2274,7 +2274,7 @@ class Eval extends ffi.Struct {
 }
 
 /// Event management data
-class Event extends ffi.Struct {
+final class Event extends ffi.Struct {
   /// !< flag allowing to loop, waiting for events
   @ffi.Bool()
   external bool loop;
@@ -2407,7 +2407,7 @@ const int F_TLOCK = 2;
 const int F_ULOCK = 0;
 
 /// feature to coordinates conversion
-class FeatureToCoordinate extends ffi.Struct {
+final class FeatureToCoordinate extends ffi.Struct {
   @ffi.Int()
   external int n_square;
 
@@ -2433,7 +2433,7 @@ const int G8 = 62;
 
 const int GAME_SIZE = 80;
 
-class GGSAdmin extends ffi.Struct {
+final class GGSAdmin extends ffi.Struct {
   /// < admin command
   external ffi.Pointer<ffi.Char> command;
 
@@ -2441,7 +2441,7 @@ class GGSAdmin extends ffi.Struct {
   external ffi.Array<ffi.Char> name;
 }
 
-class GGSBoard extends ffi.Struct {
+final class GGSBoard extends ffi.Struct {
   /// < match request id
   external ffi.Pointer<ffi.Char> id;
 
@@ -2499,7 +2499,7 @@ class GGSBoard extends ffi.Struct {
   external int move_list_n;
 }
 
-class GGSClient extends ffi.Struct {
+final class GGSClient extends ffi.Struct {
   @ffi.Array.multi([1])
   external ffi.Array<GGSBoard> board;
 
@@ -2537,7 +2537,7 @@ class GGSClient extends ffi.Struct {
 }
 
 /// GGS clock (to play a game)
-class GGSClock extends ffi.Struct {
+final class GGSClock extends ffi.Struct {
   /// < base time flag. true = NOT loss
   @ffi.Int()
   external int ini_flag;
@@ -2575,7 +2575,7 @@ class GGSClock extends ffi.Struct {
   external int ext_time;
 }
 
-class GGSEvent extends ffi.Struct {
+final class GGSEvent extends ffi.Struct {
   /// < socket
   @ffi.Int()
   external int socket;
@@ -2594,7 +2594,7 @@ class GGSEvent extends ffi.Struct {
   external Lock lock;
 }
 
-class GGSMatchOff extends ffi.Struct {
+final class GGSMatchOff extends ffi.Struct {
   /// < match id
   external ffi.Pointer<ffi.Char> id;
 
@@ -2602,7 +2602,7 @@ class GGSMatchOff extends ffi.Struct {
   external ffi.Array<GGSPlayer> player;
 }
 
-class GGSMatchOn extends ffi.Struct {
+final class GGSMatchOn extends ffi.Struct {
   /// < match id
   external ffi.Pointer<ffi.Char> id;
 
@@ -2614,7 +2614,7 @@ class GGSMatchOn extends ffi.Struct {
 }
 
 /// Match type description
-class GGSMatchType extends ffi.Struct {
+final class GGSMatchType extends ffi.Struct {
   /// < is game saved ?
   @ffi.Int()
   external int is_saved;
@@ -2649,7 +2649,7 @@ class GGSMatchType extends ffi.Struct {
 }
 
 /// GGS player
-class GGSPlayer extends ffi.Struct {
+final class GGSPlayer extends ffi.Struct {
   /// < player's name on GGS
   external ffi.Pointer<ffi.Char> name;
 
@@ -2658,7 +2658,7 @@ class GGSPlayer extends ffi.Struct {
   external double rating;
 }
 
-class GGSRequest extends ffi.Struct {
+final class GGSRequest extends ffi.Struct {
   /// < match request id
   external ffi.Pointer<ffi.Char> id;
 
@@ -2676,7 +2676,7 @@ const int GGS_BOARD_SIZE = 256;
 
 const int GID_MAX = 2147483647;
 
-class Game extends ffi.Struct {
+final class Game extends ffi.Struct {
   @ffi.Array.multi([1])
   external ffi.Array<Board> initial_board;
 
@@ -2696,7 +2696,7 @@ class Game extends ffi.Struct {
 }
 
 /// Hash entry;
-class GameHash extends ffi.Struct {
+final class GameHash extends ffi.Struct {
   /// < board
   external Board board;
 
@@ -2709,7 +2709,7 @@ class GameHash extends ffi.Struct {
 }
 
 /// HashTable
-class GameHashTable extends ffi.Struct {
+final class GameHashTable extends ffi.Struct {
   /// < array of hash entries
   external ffi.Pointer<GameHash> array;
 
@@ -2731,7 +2731,7 @@ class GameHashTable extends ffi.Struct {
 }
 
 /// Gathered statistiscs
-class GameStatistics extends ffi.Struct {
+final class GameStatistics extends ffi.Struct {
   @ffi.UnsignedLongLong()
   external int n_moves;
 
@@ -2756,7 +2756,7 @@ class GameStatistics extends ffi.Struct {
 
 /// struct GameStat
 /// @brief Game statistics
-class GameStats extends ffi.Struct {
+final class GameStats extends ffi.Struct {
   /// < game win count
   @ffi.UnsignedLongLong()
   external int n_wins;
@@ -2807,14 +2807,14 @@ const double HUGE_VALF = double.infinity;
 const double HUGE_VALL = double.infinity;
 
 /// Hash  : item stored in the hash table
-class Hash extends ffi.Struct {
+final class Hash extends ffi.Struct {
   external Board board;
 
   external HashData data;
 }
 
 /// HashData : data stored in the hash table
-class HashData extends ffi.Struct {
+final class HashData extends ffi.Struct {
   /// !< depth
   @ffi.UnsignedChar()
   external int depth;
@@ -2844,13 +2844,13 @@ class HashData extends ffi.Struct {
 }
 
 /// HashLock : lock for table entries
-class HashLock extends ffi.Struct {
+final class HashLock extends ffi.Struct {
   @SpinLock()
   external int spin;
 }
 
 /// HashTable: position storage
-class HashTable extends ffi.Struct {
+final class HashTable extends ffi.Struct {
   /// !< allocated memory
   external ffi.Pointer<ffi.Void> memory;
 
@@ -2885,7 +2885,7 @@ class HashTable extends ffi.Struct {
 ///
 /// @author lavox
 /// @date 2018/1/17
-class Hint extends ffi.Struct {
+final class Hint extends ffi.Struct {
   /// < searched depth(except book moves)
   @ffi.Int()
   external int depth;
@@ -2930,7 +2930,7 @@ class Hint extends ffi.Struct {
 ///
 /// @author lavox
 /// @date 2018/1/17
-class HintList extends ffi.Struct {
+final class HintList extends ffi.Struct {
   @ffi.Array.multi([34])
   external ffi.Array<Hint> hint;
 
@@ -3883,7 +3883,7 @@ const int L_ctermid = 1024;
 const int L_tmpnam = 1024;
 
 /// levels
-class Level extends ffi.Struct {
+final class Level extends ffi.Struct {
   @ffi.Int()
   external int depth;
 
@@ -3893,7 +3893,7 @@ class Level extends ffi.Struct {
 }
 
 /// (simple) sequence of a legal moves
-class Line extends ffi.Struct {
+final class Line extends ffi.Struct {
   @ffi.Array.multi([80])
   external ffi.Array<ffi.Char> move;
 
@@ -3906,7 +3906,7 @@ class Line extends ffi.Struct {
 
 /// struct Link
 /// @brief a move (with its score) linking to another Position.
-class Link extends ffi.Struct {
+final class Link extends ffi.Struct {
   /// < move score
   @ffi.SignedChar()
   external int score;
@@ -3920,7 +3920,7 @@ class Link extends ffi.Struct {
 typedef Lock = pthread_mutex_t;
 
 /// @brief LogFile.
-class Log extends ffi.Struct {
+final class Log extends ffi.Struct {
   external ffi.Pointer<FILE> f;
 
   external Lock lock;
@@ -4019,7 +4019,7 @@ const int MAX_THREADS = 64;
 const int MB_LEN_MAX = 6;
 
 /// A position and a move issued from it.
-class MBoard extends ffi.Struct {
+final class MBoard extends ffi.Struct {
   external Board board;
 
   @ffi.Int()
@@ -4123,7 +4123,7 @@ const double M_SQRT1_2 = 0.7071067811865476;
 const double M_SQRT2 = 1.4142135623730951;
 
 /// move representation
-class Move extends ffi.Struct {
+final class Move extends ffi.Struct {
   /// < bitboard representation of flipped squares
   @ffi.UnsignedLongLong()
   external int flipped;
@@ -4145,7 +4145,7 @@ class Move extends ffi.Struct {
 }
 
 /// Array of MBoard.
-class MoveArray extends ffi.Struct {
+final class MoveArray extends ffi.Struct {
   /// < dynamic array
   external ffi.Pointer<MBoard> item;
 
@@ -4159,7 +4159,7 @@ class MoveArray extends ffi.Struct {
 }
 
 /// HashTable of position + move
-class MoveHash extends ffi.Struct {
+final class MoveHash extends ffi.Struct {
   external ffi.Pointer<MoveArray> array;
 
   @ffi.Int()
@@ -4170,7 +4170,7 @@ class MoveHash extends ffi.Struct {
 }
 
 /// (simple) list of a legal moves
-class MoveList extends ffi.Struct {
+final class MoveList extends ffi.Struct {
   @ffi.Array.multi([34])
   external ffi.Array<Move> move;
 
@@ -4284,7 +4284,7 @@ const int NZERO = 20;
 
 /// A Node is a position in the search tree, containing information shared with
 /// parallel threads.
-class Node extends ffi.Opaque {}
+final class Node extends ffi.Opaque {}
 
 /// node type
 abstract class NodeType {
@@ -4294,7 +4294,7 @@ abstract class NodeType {
 }
 
 /// OBF structure: Othello Board File
-class OBF extends ffi.Struct {
+final class OBF extends ffi.Struct {
   @ffi.Array.multi([1])
   external ffi.Array<Board> board;
 
@@ -4345,7 +4345,7 @@ const int OS_SPINLOCK_INIT = 0;
 
 const int OVERFLOW = 3;
 
-class OkoGame extends ffi.Struct {
+final class OkoGame extends ffi.Struct {
   @ffi.Char()
   external int n;
 
@@ -4360,7 +4360,7 @@ class OkoGame extends ffi.Struct {
 }
 
 /// opening name structure
-class OpeningName extends ffi.Struct {
+final class OpeningName extends ffi.Struct {
   /// < move sequence
   external ffi.Pointer<ffi.Char> line;
 
@@ -4369,7 +4369,7 @@ class OpeningName extends ffi.Struct {
 }
 
 /// options to control various heuristics
-class Options extends ffi.Struct {
+final class Options extends ffi.Struct {
   /// < size (in number of bits) of the hash table
   @ffi.Int()
   external int hash_table_size;
@@ -4739,7 +4739,7 @@ const int PV_HASH_HEIGHT = 5;
 const String P_tmpdir = '/var/tmp/';
 
 /// play structure
-class Play extends ffi.Opaque {}
+final class Play extends ffi.Opaque {}
 
 /// Edax state.
 abstract class PlayState {
@@ -4756,7 +4756,7 @@ abstract class PlayType {
 }
 
 /// Array of position.
-class PosArray extends ffi.Struct {
+final class PosArray extends ffi.Struct {
   /// < dynamic array
   external ffi.Pointer<CBoard> item;
 
@@ -4771,7 +4771,7 @@ class PosArray extends ffi.Struct {
 
 /// struct Position
 /// @brief A position stored in the book.
-class Position extends ffi.Struct {
+final class Position extends ffi.Struct {
   @ffi.Array.multi([1])
   external ffi.Array<Board> board;
 
@@ -4822,7 +4822,7 @@ class Position extends ffi.Struct {
 }
 
 /// @brief An array with positions.
-class PositionArray extends ffi.Struct {
+final class PositionArray extends ffi.Struct {
   external ffi.Pointer<Position> positions;
 
   @ffi.Int()
@@ -4833,7 +4833,7 @@ class PositionArray extends ffi.Struct {
 }
 
 /// HashTable of positions
-class PositionHash extends ffi.Struct {
+final class PositionHash extends ffi.Struct {
   external ffi.Pointer<PosArray> array;
 
   @ffi.Int()
@@ -4844,13 +4844,13 @@ class PositionHash extends ffi.Struct {
 }
 
 /// reverse opening name
-class PositionName extends ffi.Struct {
+final class PositionName extends ffi.Struct {
   external Board board;
 
   external ffi.Pointer<ffi.Char> name;
 }
 
-class PositionStack extends ffi.Opaque {}
+final class PositionStack extends ffi.Opaque {}
 
 const int QOS_CLASS_BACKGROUND = 9;
 
@@ -4950,13 +4950,13 @@ const int RU_PROC_RUNS_RESLIDE = 1;
 
 const int R_OK = 4;
 
-class Random extends ffi.Struct {
+final class Random extends ffi.Struct {
   @ffi.UnsignedLongLong()
   external int x;
 }
 
 /// Result
-class Result extends ffi.Struct {
+final class Result extends ffi.Struct {
   /// < searched depth
   @ffi.Int()
   external int depth;
@@ -5398,10 +5398,10 @@ const int S_IXOTH = 1;
 const int S_IXUSR = 64;
 
 /// search stare
-class Search extends ffi.Opaque {}
+final class Search extends ffi.Opaque {}
 
 /// Selectivity probcut
-class Selectivity extends ffi.Struct {
+final class Selectivity extends ffi.Struct {
   /// < selectivity value
   @ffi.Double()
   external double t;
@@ -5416,7 +5416,7 @@ class Selectivity extends ffi.Struct {
 }
 
 /// Array of shape.
-class ShapeArray extends ffi.Struct {
+final class ShapeArray extends ffi.Struct {
   /// < dynamic array
   external ffi.Pointer<ffi.UnsignedLongLong> item;
 
@@ -5430,7 +5430,7 @@ class ShapeArray extends ffi.Struct {
 }
 
 /// HashTable of shapes
-class ShapeHash extends ffi.Struct {
+final class ShapeHash extends ffi.Struct {
   external ffi.Pointer<ShapeArray> array;
 
   @ffi.Int()
@@ -5444,7 +5444,7 @@ class ShapeHash extends ffi.Struct {
 typedef SpinLock = OSSpinLock;
 
 /// double linked list of squares
-class SquareList extends ffi.Struct {
+final class SquareList extends ffi.Struct {
   /// !< bit representation of the square location
   @ffi.UnsignedLongLong()
   external int b;
@@ -5465,7 +5465,7 @@ class SquareList extends ffi.Struct {
 }
 
 /// \struct Statistics
-class Statistics extends ffi.Struct {
+final class Statistics extends ffi.Struct {
   @ffi.UnsignedLongLong()
   external int n_nodes;
 
@@ -5798,7 +5798,7 @@ const int TRY_AGAIN = 2;
 const int TTCP_CLIENT_SND_WND = 4096;
 
 /// A Task is a parallel search thread.
-class Task extends ffi.Struct {
+final class Task extends ffi.Struct {
   /// < loop flag
   @ffi.Bool()
   external bool loop;
@@ -5841,12 +5841,12 @@ class Task extends ffi.Struct {
   external ffi.Pointer<TaskStack> container;
 }
 
-class TaskQueue extends ffi.Opaque {}
+final class TaskQueue extends ffi.Opaque {}
 
 /// @struct TaskStack
 ///
 /// A FILO of tasks
-class TaskStack extends ffi.Struct {
+final class TaskStack extends ffi.Struct {
   /// < mutex
   @SpinLock()
   external int spin;
@@ -5867,7 +5867,7 @@ class TaskStack extends ffi.Struct {
 }
 
 /// Text (set of lines) representation
-class Text extends ffi.Struct {
+final class Text extends ffi.Struct {
   /// < array of lines
   external ffi.Pointer<ffi.Pointer<ffi.Char>> line;
 
@@ -5900,7 +5900,7 @@ const int UF_SETTABLE = 65535;
 const int UF_TRACKED = 64;
 
 /// UI structure
-class UI extends ffi.Opaque {}
+final class UI extends ffi.Opaque {}
 
 const int UID_MAX = 2147483647;
 
@@ -5984,7 +5984,7 @@ const int UTIME_NOW = -1;
 
 const int UTIME_OMIT = -2;
 
-class UnnamedStruct10 extends ffi.Struct {
+final class UnnamedStruct10 extends ffi.Struct {
   @ffi.Int()
   external int n_nodes;
 
@@ -5995,7 +5995,7 @@ class UnnamedStruct10 extends ffi.Struct {
   external int n_todo;
 }
 
-class UnnamedStruct11 extends ffi.Struct {
+final class UnnamedStruct11 extends ffi.Struct {
   @ffi.Short()
   external int value;
 
@@ -6006,7 +6006,7 @@ class UnnamedStruct11 extends ffi.Struct {
   external int upper;
 }
 
-class UnnamedStruct15 extends ffi.Struct {
+final class UnnamedStruct15 extends ffi.Struct {
   /// < command
   external ffi.Pointer<ffi.Char> cmd;
 
@@ -6019,7 +6019,7 @@ class UnnamedStruct15 extends ffi.Struct {
   external int delay;
 }
 
-class UnnamedStruct16 extends ffi.Struct {
+final class UnnamedStruct16 extends ffi.Struct {
   /// < command
   external ffi.Pointer<ffi.Char> cmd;
 
@@ -6029,7 +6029,7 @@ class UnnamedStruct16 extends ffi.Struct {
 }
 
 /// Search
-class UnnamedStruct17 extends ffi.Struct {
+final class UnnamedStruct17 extends ffi.Struct {
   @ffi.Array.multi([1024])
   external ffi.Array<Board> board;
 
@@ -6038,7 +6038,7 @@ class UnnamedStruct17 extends ffi.Struct {
   external int n;
 }
 
-class UnnamedStruct5 extends ffi.Struct {
+final class UnnamedStruct5 extends ffi.Struct {
   @ffi.Int()
   external int i;
 
@@ -6046,7 +6046,7 @@ class UnnamedStruct5 extends ffi.Struct {
   external int x;
 }
 
-class UnnamedStruct6 extends ffi.Struct {
+final class UnnamedStruct6 extends ffi.Struct {
   /// <! Move coordinate
   @ffi.Int()
   external int x;
@@ -6056,7 +6056,7 @@ class UnnamedStruct6 extends ffi.Struct {
   external int score;
 }
 
-class UnnamedStruct7 extends ffi.Struct {
+final class UnnamedStruct7 extends ffi.Struct {
   @ffi.Short()
   external int year;
 
@@ -6076,7 +6076,7 @@ class UnnamedStruct7 extends ffi.Struct {
   external int second;
 }
 
-class UnnamedStruct8 extends ffi.Struct {
+final class UnnamedStruct8 extends ffi.Struct {
   @ffi.Short()
   external int year;
 
@@ -6096,7 +6096,7 @@ class UnnamedStruct8 extends ffi.Struct {
   external int second;
 }
 
-class UnnamedStruct9 extends ffi.Struct {
+final class UnnamedStruct9 extends ffi.Struct {
   @ffi.Int()
   external int level;
 
@@ -6113,7 +6113,7 @@ class UnnamedStruct9 extends ffi.Struct {
   external int verbosity;
 }
 
-class UnnamedUnion1 extends ffi.Union {
+final class UnnamedUnion1 extends ffi.Union {
   @ffi.Array.multi([16])
   external ffi.Array<__uint8_t> __u6_addr8;
 
@@ -6172,7 +6172,7 @@ const int WUNTRACED = 2;
 
 const int W_OK = 2;
 
-class WthorBase extends ffi.Struct {
+final class WthorBase extends ffi.Struct {
   @ffi.Array.multi([1])
   external ffi.Array<WthorHeader> header;
 
@@ -6198,7 +6198,7 @@ class WthorBase extends ffi.Struct {
   external int n_games;
 }
 
-class WthorGame extends ffi.Struct {
+final class WthorGame extends ffi.Struct {
   @ffi.Short()
   external int tournament;
 
@@ -6220,7 +6220,7 @@ class WthorGame extends ffi.Struct {
 
 /// struct WthorHeader
 /// @brief Header for wthor files
-class WthorHeader extends ffi.Struct {
+final class WthorHeader extends ffi.Struct {
   /// < Century.
   @ffi.Char()
   external int century;
@@ -6268,7 +6268,7 @@ class WthorHeader extends ffi.Struct {
 
 const int XADE = 1480672325;
 
-class XBoardStats extends ffi.Struct {
+final class XBoardStats extends ffi.Struct {
   @ffi.UnsignedLongLong()
   external int time;
 
@@ -6633,7 +6633,7 @@ const int _POSIX_SHELL = 200112;
 
 const int _POSIX_SIGQUEUE_MAX = 32;
 
-const int _POSIX_SPAWN = -1;
+const int _POSIX_SPAWN = 200112;
 
 const int _POSIX_SPIN_LOCKS = -1;
 
@@ -6757,7 +6757,7 @@ const int _RPERM_OK = 524288;
 
 const String _RUNE_MAGIC_A = 'RuneMagA';
 
-class _RuneCharClass extends ffi.Struct {
+final class _RuneCharClass extends ffi.Struct {
   @ffi.Array.multi([14])
   external ffi.Array<ffi.Char> __name;
 
@@ -6765,7 +6765,7 @@ class _RuneCharClass extends ffi.Struct {
   external int __mask;
 }
 
-class _RuneEntry extends ffi.Struct {
+final class _RuneEntry extends ffi.Struct {
   @__darwin_rune_t()
   external int __min;
 
@@ -6778,7 +6778,7 @@ class _RuneEntry extends ffi.Struct {
   external ffi.Pointer<__uint32_t> __types;
 }
 
-class _RuneLocale extends ffi.Struct {
+final class _RuneLocale extends ffi.Struct {
   @ffi.Array.multi([8])
   external ffi.Array<ffi.Char> __magic;
 
@@ -6824,7 +6824,7 @@ class _RuneLocale extends ffi.Struct {
   external ffi.Pointer<_RuneCharClass> __charclasses;
 }
 
-class _RuneRange extends ffi.Struct {
+final class _RuneRange extends ffi.Struct {
   @ffi.Int()
   external int __nranges;
 
@@ -7317,6 +7317,10 @@ const int __IPHONE_16_1 = 160100;
 
 const int __IPHONE_16_2 = 160200;
 
+const int __IPHONE_16_3 = 160300;
+
+const int __IPHONE_16_4 = 160400;
+
 const int __IPHONE_2_0 = 20000;
 
 const int __IPHONE_2_1 = 20100;
@@ -7477,9 +7481,13 @@ const int __MAC_13_0 = 130000;
 
 const int __MAC_13_1 = 130100;
 
-const int __MAC_OS_X_VERSION_MAX_ALLOWED = 130100;
+const int __MAC_13_2 = 130200;
 
-const int __MAC_OS_X_VERSION_MIN_REQUIRED = 120000;
+const int __MAC_13_3 = 130300;
+
+const int __MAC_OS_X_VERSION_MAX_ALLOWED = 130300;
+
+const int __MAC_OS_X_VERSION_MIN_REQUIRED = 130000;
 
 const int __PTHREAD_ATTR_SIZE__ = 56;
 
@@ -7601,6 +7609,10 @@ const int __TVOS_16_1 = 160100;
 
 const int __TVOS_16_2 = 160200;
 
+const int __TVOS_16_3 = 160300;
+
+const int __TVOS_16_4 = 160400;
+
 const int __TVOS_9_0 = 90000;
 
 const int __TVOS_9_1 = 90100;
@@ -7675,6 +7687,10 @@ const int __WATCHOS_9_1 = 90100;
 
 const int __WATCHOS_9_2 = 90200;
 
+const int __WATCHOS_9_3 = 90300;
+
+const int __WATCHOS_9_4 = 90400;
+
 const int __WORDSIZE = 64;
 
 const int __bool_true_false_are_defined = 1;
@@ -7683,17 +7699,17 @@ typedef __darwin_blkcnt_t = __int64_t;
 typedef __darwin_blksize_t = __int32_t;
 typedef __darwin_dev_t = __int32_t;
 
-class __darwin_fp_control extends ffi.Opaque {}
+final class __darwin_fp_control extends ffi.Opaque {}
 
-class __darwin_fp_status extends ffi.Opaque {}
+final class __darwin_fp_status extends ffi.Opaque {}
 
 typedef __darwin_gid_t = __uint32_t;
 
-class __darwin_i386_avx512_state extends ffi.Opaque {}
+final class __darwin_i386_avx512_state extends ffi.Opaque {}
 
-class __darwin_i386_avx_state extends ffi.Opaque {}
+final class __darwin_i386_avx_state extends ffi.Opaque {}
 
-class __darwin_i386_exception_state extends ffi.Struct {
+final class __darwin_i386_exception_state extends ffi.Struct {
   @__uint16_t()
   external int __trapno;
 
@@ -7707,9 +7723,9 @@ class __darwin_i386_exception_state extends ffi.Struct {
   external int __faultvaddr;
 }
 
-class __darwin_i386_float_state extends ffi.Opaque {}
+final class __darwin_i386_float_state extends ffi.Opaque {}
 
-class __darwin_i386_thread_state extends ffi.Struct {
+final class __darwin_i386_thread_state extends ffi.Struct {
   @ffi.UnsignedInt()
   external int __eax;
 
@@ -7762,25 +7778,25 @@ class __darwin_i386_thread_state extends ffi.Struct {
 typedef __darwin_ino64_t = __uint64_t;
 typedef __darwin_ino_t = __darwin_ino64_t;
 
-class __darwin_mcontext32 extends ffi.Opaque {}
+final class __darwin_mcontext32 extends ffi.Opaque {}
 
-class __darwin_mcontext64 extends ffi.Opaque {}
+final class __darwin_mcontext64 extends ffi.Opaque {}
 
-class __darwin_mcontext64_full extends ffi.Opaque {}
+final class __darwin_mcontext64_full extends ffi.Opaque {}
 
-class __darwin_mcontext_avx32 extends ffi.Opaque {}
+final class __darwin_mcontext_avx32 extends ffi.Opaque {}
 
-class __darwin_mcontext_avx512_32 extends ffi.Opaque {}
+final class __darwin_mcontext_avx512_32 extends ffi.Opaque {}
 
-class __darwin_mcontext_avx512_64 extends ffi.Opaque {}
+final class __darwin_mcontext_avx512_64 extends ffi.Opaque {}
 
-class __darwin_mcontext_avx512_64_full extends ffi.Opaque {}
+final class __darwin_mcontext_avx512_64_full extends ffi.Opaque {}
 
-class __darwin_mcontext_avx64 extends ffi.Opaque {}
+final class __darwin_mcontext_avx64 extends ffi.Opaque {}
 
-class __darwin_mcontext_avx64_full extends ffi.Opaque {}
+final class __darwin_mcontext_avx64_full extends ffi.Opaque {}
 
-class __darwin_mmst_reg extends ffi.Struct {
+final class __darwin_mmst_reg extends ffi.Struct {
   @ffi.Array.multi([10])
   external ffi.Array<ffi.Char> __mmst_reg;
 
@@ -7791,7 +7807,7 @@ class __darwin_mmst_reg extends ffi.Struct {
 typedef __darwin_mode_t = __uint16_t;
 typedef __darwin_off_t = __int64_t;
 
-class __darwin_opmask_reg extends ffi.Struct {
+final class __darwin_opmask_reg extends ffi.Struct {
   @ffi.Array.multi([8])
   external ffi.Array<ffi.Char> __opmask_reg;
 }
@@ -7800,7 +7816,7 @@ typedef __darwin_pid_t = __int32_t;
 typedef __darwin_pthread_attr_t = _opaque_pthread_attr_t;
 typedef __darwin_pthread_cond_t = _opaque_pthread_cond_t;
 
-class __darwin_pthread_handler_rec extends ffi.Struct {
+final class __darwin_pthread_handler_rec extends ffi.Struct {
   external ffi
           .Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>
       __routine;
@@ -7814,7 +7830,7 @@ typedef __darwin_pthread_mutex_t = _opaque_pthread_mutex_t;
 typedef __darwin_pthread_t = ffi.Pointer<_opaque_pthread_t>;
 typedef __darwin_rune_t = __darwin_wchar_t;
 
-class __darwin_sigaltstack extends ffi.Struct {
+final class __darwin_sigaltstack extends ffi.Struct {
   external ffi.Pointer<ffi.Void> ss_sp;
 
   @__darwin_size_t()
@@ -7830,7 +7846,7 @@ typedef __darwin_socklen_t = __uint32_t;
 typedef __darwin_suseconds_t = __int32_t;
 typedef __darwin_time_t = ffi.Long;
 
-class __darwin_ucontext extends ffi.Struct {
+final class __darwin_ucontext extends ffi.Struct {
   @ffi.Int()
   external int uc_onstack;
 
@@ -7850,16 +7866,16 @@ class __darwin_ucontext extends ffi.Struct {
 typedef __darwin_uid_t = __uint32_t;
 typedef __darwin_wchar_t = ffi.Int;
 
-class __darwin_x86_avx512_state64 extends ffi.Opaque {}
+final class __darwin_x86_avx512_state64 extends ffi.Opaque {}
 
-class __darwin_x86_avx_state64 extends ffi.Opaque {}
+final class __darwin_x86_avx_state64 extends ffi.Opaque {}
 
-class __darwin_x86_cpmu_state64 extends ffi.Struct {
+final class __darwin_x86_cpmu_state64 extends ffi.Struct {
   @ffi.Array.multi([16])
   external ffi.Array<__uint64_t> __ctrs;
 }
 
-class __darwin_x86_debug_state32 extends ffi.Struct {
+final class __darwin_x86_debug_state32 extends ffi.Struct {
   @ffi.UnsignedInt()
   external int __dr0;
 
@@ -7885,7 +7901,7 @@ class __darwin_x86_debug_state32 extends ffi.Struct {
   external int __dr7;
 }
 
-class __darwin_x86_debug_state64 extends ffi.Struct {
+final class __darwin_x86_debug_state64 extends ffi.Struct {
   @__uint64_t()
   external int __dr0;
 
@@ -7911,7 +7927,7 @@ class __darwin_x86_debug_state64 extends ffi.Struct {
   external int __dr7;
 }
 
-class __darwin_x86_exception_state64 extends ffi.Struct {
+final class __darwin_x86_exception_state64 extends ffi.Struct {
   @__uint16_t()
   external int __trapno;
 
@@ -7925,9 +7941,9 @@ class __darwin_x86_exception_state64 extends ffi.Struct {
   external int __faultvaddr;
 }
 
-class __darwin_x86_float_state64 extends ffi.Opaque {}
+final class __darwin_x86_float_state64 extends ffi.Opaque {}
 
-class __darwin_x86_thread_full_state64 extends ffi.Struct {
+final class __darwin_x86_thread_full_state64 extends ffi.Struct {
   external __darwin_x86_thread_state64 __ss64;
 
   @__uint64_t()
@@ -7943,7 +7959,7 @@ class __darwin_x86_thread_full_state64 extends ffi.Struct {
   external int __gsbase;
 }
 
-class __darwin_x86_thread_state64 extends ffi.Struct {
+final class __darwin_x86_thread_state64 extends ffi.Struct {
   @__uint64_t()
   external int __rax;
 
@@ -8008,22 +8024,22 @@ class __darwin_x86_thread_state64 extends ffi.Struct {
   external int __gs;
 }
 
-class __darwin_xmm_reg extends ffi.Struct {
+final class __darwin_xmm_reg extends ffi.Struct {
   @ffi.Array.multi([16])
   external ffi.Array<ffi.Char> __xmm_reg;
 }
 
-class __darwin_ymm_reg extends ffi.Struct {
+final class __darwin_ymm_reg extends ffi.Struct {
   @ffi.Array.multi([32])
   external ffi.Array<ffi.Char> __ymm_reg;
 }
 
-class __darwin_zmm_reg extends ffi.Struct {
+final class __darwin_zmm_reg extends ffi.Struct {
   @ffi.Array.multi([64])
   external ffi.Array<ffi.Char> __zmm_reg;
 }
 
-class __double2 extends ffi.Struct {
+final class __double2 extends ffi.Struct {
   @ffi.Double()
   external double __sinval;
 
@@ -8031,7 +8047,7 @@ class __double2 extends ffi.Struct {
   external double __cosval;
 }
 
-class __float2 extends ffi.Struct {
+final class __float2 extends ffi.Struct {
   @ffi.Float()
   external double __sinval;
 
@@ -8044,11 +8060,11 @@ const int __has_ptrcheck = 0;
 typedef __int32_t = ffi.Int;
 typedef __int64_t = ffi.LongLong;
 
-class __last_branch_record extends ffi.Opaque {}
+final class __last_branch_record extends ffi.Opaque {}
 
-class __last_branch_state extends ffi.Opaque {}
+final class __last_branch_state extends ffi.Opaque {}
 
-class __mbstate_t extends ffi.Union {
+final class __mbstate_t extends ffi.Union {
   @ffi.Array.multi([128])
   external ffi.Array<ffi.Char> __mbstate8;
 
@@ -8057,7 +8073,7 @@ class __mbstate_t extends ffi.Union {
 }
 
 @ffi.Packed(4)
-class __msfilterreq extends ffi.Struct {
+final class __msfilterreq extends ffi.Struct {
   @ffi.Uint32()
   external int msfr_ifindex;
 
@@ -8075,7 +8091,7 @@ class __msfilterreq extends ffi.Struct {
   external ffi.Pointer<sockaddr_storage> msfr_srcs;
 }
 
-class __sFILE extends ffi.Struct {
+final class __sFILE extends ffi.Struct {
   external ffi.Pointer<ffi.UnsignedChar> _p;
 
   @ffi.Int()
@@ -8137,16 +8153,16 @@ class __sFILE extends ffi.Struct {
   external int _offset;
 }
 
-class __sFILEX extends ffi.Opaque {}
+final class __sFILEX extends ffi.Opaque {}
 
-class __sbuf extends ffi.Struct {
+final class __sbuf extends ffi.Struct {
   external ffi.Pointer<ffi.UnsignedChar> _base;
 
   @ffi.Int()
   external int _size;
 }
 
-class __sigaction extends ffi.Struct {
+final class __sigaction extends ffi.Struct {
   external __sigaction_u __sigaction_u1;
 
   external ffi.Pointer<
@@ -8161,7 +8177,7 @@ class __sigaction extends ffi.Struct {
   external int sa_flags;
 }
 
-class __sigaction_u extends ffi.Union {
+final class __sigaction_u extends ffi.Union {
   external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Int)>>
       __sa_handler;
 
@@ -8172,7 +8188,7 @@ class __sigaction_u extends ffi.Union {
       __sa_sigaction;
 }
 
-class __siginfo extends ffi.Struct {
+final class __siginfo extends ffi.Struct {
   @ffi.Int()
   external int si_signo;
 
@@ -8202,7 +8218,7 @@ class __siginfo extends ffi.Struct {
   external ffi.Array<ffi.UnsignedLong> __pad;
 }
 
-class __sockaddr_header extends ffi.Struct {
+final class __sockaddr_header extends ffi.Struct {
   @__uint8_t()
   external int sa_len;
 
@@ -8215,7 +8231,7 @@ typedef __uint32_t = ffi.UnsignedInt;
 typedef __uint64_t = ffi.UnsignedLongLong;
 typedef __uint8_t = ffi.UnsignedChar;
 
-class __x86_instruction_state extends ffi.Struct {
+final class __x86_instruction_state extends ffi.Struct {
   @ffi.Int()
   external int __insn_stream_valid_bytes;
 
@@ -8232,14 +8248,14 @@ class __x86_instruction_state extends ffi.Struct {
   external ffi.Array<__uint8_t> __insn_cacheline;
 }
 
-class __x86_pagein_state extends ffi.Struct {
+final class __x86_pagein_state extends ffi.Struct {
   @ffi.Int()
   external int __pagein_error;
 }
 
-class _filesec extends ffi.Opaque {}
+final class _filesec extends ffi.Opaque {}
 
-class _opaque_pthread_attr_t extends ffi.Struct {
+final class _opaque_pthread_attr_t extends ffi.Struct {
   @ffi.Long()
   external int __sig;
 
@@ -8247,7 +8263,7 @@ class _opaque_pthread_attr_t extends ffi.Struct {
   external ffi.Array<ffi.Char> __opaque;
 }
 
-class _opaque_pthread_cond_t extends ffi.Struct {
+final class _opaque_pthread_cond_t extends ffi.Struct {
   @ffi.Long()
   external int __sig;
 
@@ -8255,7 +8271,7 @@ class _opaque_pthread_cond_t extends ffi.Struct {
   external ffi.Array<ffi.Char> __opaque;
 }
 
-class _opaque_pthread_condattr_t extends ffi.Struct {
+final class _opaque_pthread_condattr_t extends ffi.Struct {
   @ffi.Long()
   external int __sig;
 
@@ -8263,7 +8279,7 @@ class _opaque_pthread_condattr_t extends ffi.Struct {
   external ffi.Array<ffi.Char> __opaque;
 }
 
-class _opaque_pthread_mutex_t extends ffi.Struct {
+final class _opaque_pthread_mutex_t extends ffi.Struct {
   @ffi.Long()
   external int __sig;
 
@@ -8271,7 +8287,7 @@ class _opaque_pthread_mutex_t extends ffi.Struct {
   external ffi.Array<ffi.Char> __opaque;
 }
 
-class _opaque_pthread_mutexattr_t extends ffi.Struct {
+final class _opaque_pthread_mutexattr_t extends ffi.Struct {
   @ffi.Long()
   external int __sig;
 
@@ -8279,7 +8295,7 @@ class _opaque_pthread_mutexattr_t extends ffi.Struct {
   external ffi.Array<ffi.Char> __opaque;
 }
 
-class _opaque_pthread_once_t extends ffi.Struct {
+final class _opaque_pthread_once_t extends ffi.Struct {
   @ffi.Long()
   external int __sig;
 
@@ -8287,7 +8303,7 @@ class _opaque_pthread_once_t extends ffi.Struct {
   external ffi.Array<ffi.Char> __opaque;
 }
 
-class _opaque_pthread_rwlock_t extends ffi.Struct {
+final class _opaque_pthread_rwlock_t extends ffi.Struct {
   @ffi.Long()
   external int __sig;
 
@@ -8295,7 +8311,7 @@ class _opaque_pthread_rwlock_t extends ffi.Struct {
   external ffi.Array<ffi.Char> __opaque;
 }
 
-class _opaque_pthread_rwlockattr_t extends ffi.Struct {
+final class _opaque_pthread_rwlockattr_t extends ffi.Struct {
   @ffi.Long()
   external int __sig;
 
@@ -8303,7 +8319,7 @@ class _opaque_pthread_rwlockattr_t extends ffi.Struct {
   external ffi.Array<ffi.Char> __opaque;
 }
 
-class _opaque_pthread_t extends ffi.Struct {
+final class _opaque_pthread_t extends ffi.Struct {
   @ffi.Long()
   external int __sig;
 
@@ -8313,7 +8329,7 @@ class _opaque_pthread_t extends ffi.Struct {
   external ffi.Array<ffi.Char> __opaque;
 }
 
-class accessx_descriptor extends ffi.Struct {
+final class accessx_descriptor extends ffi.Struct {
   @ffi.UnsignedInt()
   external int ad_name_offset;
 
@@ -8324,7 +8340,7 @@ class accessx_descriptor extends ffi.Struct {
   external ffi.Array<ffi.Int> ad_pad;
 }
 
-class addrinfo extends ffi.Struct {
+final class addrinfo extends ffi.Struct {
   @ffi.Int()
   external int ai_flags;
 
@@ -8361,7 +8377,7 @@ abstract class clockid_t {
   static const int _CLOCK_THREAD_CPUTIME_ID = 16;
 }
 
-class clockinfo extends ffi.Struct {
+final class clockinfo extends ffi.Struct {
   @ffi.Int()
   external int hz;
 
@@ -8378,7 +8394,7 @@ class clockinfo extends ffi.Struct {
   external int profhz;
 }
 
-class cmsghdr extends ffi.Struct {
+final class cmsghdr extends ffi.Struct {
   @socklen_t()
   external int cmsg_len;
 
@@ -8391,7 +8407,7 @@ class cmsghdr extends ffi.Struct {
 
 typedef dev_t = __darwin_dev_t;
 
-class div_t extends ffi.Struct {
+final class div_t extends ffi.Struct {
   @ffi.Int()
   external int quot;
 
@@ -8399,7 +8415,7 @@ class div_t extends ffi.Struct {
   external int rem;
 }
 
-class exception extends ffi.Struct {
+final class exception extends ffi.Struct {
   @ffi.Int()
   external int type;
 
@@ -8417,19 +8433,19 @@ class exception extends ffi.Struct {
 
 const int false1 = 0;
 
-class fd_set extends ffi.Struct {
+final class fd_set extends ffi.Struct {
   @ffi.Array.multi([32])
   external ffi.Array<__int32_t> fds_bits;
 }
 
 typedef fpos_t = __darwin_off_t;
 
-class fssearchblock extends ffi.Opaque {}
+final class fssearchblock extends ffi.Opaque {}
 
 typedef gid_t = __darwin_gid_t;
 
 @ffi.Packed(4)
-class group_req extends ffi.Struct {
+final class group_req extends ffi.Struct {
   @ffi.Uint32()
   external int gr_interface;
 
@@ -8437,7 +8453,7 @@ class group_req extends ffi.Struct {
 }
 
 @ffi.Packed(4)
-class group_source_req extends ffi.Struct {
+final class group_source_req extends ffi.Struct {
   @ffi.Uint32()
   external int gsr_interface;
 
@@ -8446,7 +8462,7 @@ class group_source_req extends ffi.Struct {
   external sockaddr_storage gsr_source;
 }
 
-class hostent extends ffi.Struct {
+final class hostent extends ffi.Struct {
   external ffi.Pointer<ffi.Char> h_name;
 
   external ffi.Pointer<ffi.Pointer<ffi.Char>> h_aliases;
@@ -8466,25 +8482,25 @@ abstract class idtype_t {
   static const int P_PGID = 2;
 }
 
-class in6_addr extends ffi.Struct {
+final class in6_addr extends ffi.Struct {
   external UnnamedUnion1 __u6_addr;
 }
 
-class in6_pktinfo extends ffi.Struct {
+final class in6_pktinfo extends ffi.Struct {
   external in6_addr ipi6_addr;
 
   @ffi.UnsignedInt()
   external int ipi6_ifindex;
 }
 
-class in_addr extends ffi.Struct {
+final class in_addr extends ffi.Struct {
   @in_addr_t()
   external int s_addr;
 }
 
 typedef in_addr_t = __uint32_t;
 
-class in_pktinfo extends ffi.Struct {
+final class in_pktinfo extends ffi.Struct {
   @ffi.UnsignedInt()
   external int ipi_ifindex;
 
@@ -8496,27 +8512,27 @@ class in_pktinfo extends ffi.Struct {
 typedef in_port_t = __uint16_t;
 typedef ino_t = __darwin_ino_t;
 
-class iovec extends ffi.Struct {
+final class iovec extends ffi.Struct {
   external ffi.Pointer<ffi.Void> iov_base;
 
   @ffi.Size()
   external int iov_len;
 }
 
-class ip6_mtuinfo extends ffi.Struct {
+final class ip6_mtuinfo extends ffi.Struct {
   external sockaddr_in6 ip6m_addr;
 
   @ffi.Uint32()
   external int ip6m_mtu;
 }
 
-class ip_mreq extends ffi.Struct {
+final class ip_mreq extends ffi.Struct {
   external in_addr imr_multiaddr;
 
   external in_addr imr_interface;
 }
 
-class ip_mreq_source extends ffi.Struct {
+final class ip_mreq_source extends ffi.Struct {
   external in_addr imr_multiaddr;
 
   external in_addr imr_sourceaddr;
@@ -8524,7 +8540,7 @@ class ip_mreq_source extends ffi.Struct {
   external in_addr imr_interface;
 }
 
-class ip_mreqn extends ffi.Struct {
+final class ip_mreqn extends ffi.Struct {
   external in_addr imr_multiaddr;
 
   external in_addr imr_address;
@@ -8533,27 +8549,27 @@ class ip_mreqn extends ffi.Struct {
   external int imr_ifindex;
 }
 
-class ip_opts extends ffi.Struct {
+final class ip_opts extends ffi.Struct {
   external in_addr ip_dst;
 
   @ffi.Array.multi([40])
   external ffi.Array<ffi.Char> ip_opts1;
 }
 
-class ipv6_mreq extends ffi.Struct {
+final class ipv6_mreq extends ffi.Struct {
   external in6_addr ipv6mr_multiaddr;
 
   @ffi.UnsignedInt()
   external int ipv6mr_interface;
 }
 
-class itimerval extends ffi.Struct {
+final class itimerval extends ffi.Struct {
   external timeval it_interval;
 
   external timeval it_value;
 }
 
-class lconv extends ffi.Struct {
+final class lconv extends ffi.Struct {
   external ffi.Pointer<ffi.Char> decimal_point;
 
   external ffi.Pointer<ffi.Char> thousands_sep;
@@ -8617,7 +8633,7 @@ class lconv extends ffi.Struct {
   external int int_n_sign_posn;
 }
 
-class ldiv_t extends ffi.Struct {
+final class ldiv_t extends ffi.Struct {
   @ffi.Long()
   external int quot;
 
@@ -8625,7 +8641,7 @@ class ldiv_t extends ffi.Struct {
   external int rem;
 }
 
-class linger extends ffi.Struct {
+final class linger extends ffi.Struct {
   @ffi.Int()
   external int l_onoff;
 
@@ -8633,7 +8649,7 @@ class linger extends ffi.Struct {
   external int l_linger;
 }
 
-class lldiv_t extends ffi.Struct {
+final class lldiv_t extends ffi.Struct {
   @ffi.LongLong()
   external int quot;
 
@@ -8643,7 +8659,7 @@ class lldiv_t extends ffi.Struct {
 
 typedef mode_t = __darwin_mode_t;
 
-class msghdr extends ffi.Struct {
+final class msghdr extends ffi.Struct {
   external ffi.Pointer<ffi.Void> msg_name;
 
   @socklen_t()
@@ -8663,7 +8679,7 @@ class msghdr extends ffi.Struct {
   external int msg_flags;
 }
 
-class netent extends ffi.Struct {
+final class netent extends ffi.Struct {
   external ffi.Pointer<ffi.Char> n_name;
 
   external ffi.Pointer<ffi.Pointer<ffi.Char>> n_aliases;
@@ -8678,7 +8694,7 @@ class netent extends ffi.Struct {
 typedef nlink_t = __uint16_t;
 typedef off_t = __darwin_off_t;
 
-class ostat extends ffi.Struct {
+final class ostat extends ffi.Struct {
   @__uint16_t()
   external int st_dev;
 
@@ -8724,7 +8740,7 @@ class ostat extends ffi.Struct {
 
 typedef pid_t = __darwin_pid_t;
 
-class proc_rlimit_control_wakeupmon extends ffi.Struct {
+final class proc_rlimit_control_wakeupmon extends ffi.Struct {
   @ffi.Uint32()
   external int wm_flags;
 
@@ -8732,7 +8748,7 @@ class proc_rlimit_control_wakeupmon extends ffi.Struct {
   external int wm_rate;
 }
 
-class protoent extends ffi.Struct {
+final class protoent extends ffi.Struct {
   external ffi.Pointer<ffi.Char> p_name;
 
   external ffi.Pointer<ffi.Pointer<ffi.Char>> p_aliases;
@@ -8755,12 +8771,12 @@ typedef pthread_attr_t = __darwin_pthread_attr_t;
 typedef pthread_cond_t = __darwin_pthread_cond_t;
 typedef pthread_mutex_t = __darwin_pthread_mutex_t;
 
-class pthread_override_s extends ffi.Opaque {}
+final class pthread_override_s extends ffi.Opaque {}
 
 typedef pthread_t = __darwin_pthread_t;
 typedef rlim_t = __uint64_t;
 
-class rlimit extends ffi.Struct {
+final class rlimit extends ffi.Struct {
   @rlim_t()
   external int rlim_cur;
 
@@ -8768,7 +8784,7 @@ class rlimit extends ffi.Struct {
   external int rlim_max;
 }
 
-class rpcent extends ffi.Struct {
+final class rpcent extends ffi.Struct {
   external ffi.Pointer<ffi.Char> r_name;
 
   external ffi.Pointer<ffi.Pointer<ffi.Char>> r_aliases;
@@ -8777,7 +8793,7 @@ class rpcent extends ffi.Struct {
   external int r_number;
 }
 
-class rusage extends ffi.Struct {
+final class rusage extends ffi.Struct {
   external timeval ru_utime;
 
   external timeval ru_stime;
@@ -8825,7 +8841,7 @@ class rusage extends ffi.Struct {
   external int ru_nivcsw;
 }
 
-class rusage_info_v0 extends ffi.Struct {
+final class rusage_info_v0 extends ffi.Struct {
   @ffi.Array.multi([16])
   external ffi.Array<ffi.Uint8> ri_uuid;
 
@@ -8860,7 +8876,7 @@ class rusage_info_v0 extends ffi.Struct {
   external int ri_proc_exit_abstime;
 }
 
-class rusage_info_v1 extends ffi.Struct {
+final class rusage_info_v1 extends ffi.Struct {
   @ffi.Array.multi([16])
   external ffi.Array<ffi.Uint8> ri_uuid;
 
@@ -8913,7 +8929,7 @@ class rusage_info_v1 extends ffi.Struct {
   external int ri_child_elapsed_abstime;
 }
 
-class rusage_info_v2 extends ffi.Struct {
+final class rusage_info_v2 extends ffi.Struct {
   @ffi.Array.multi([16])
   external ffi.Array<ffi.Uint8> ri_uuid;
 
@@ -8972,7 +8988,7 @@ class rusage_info_v2 extends ffi.Struct {
   external int ri_diskio_byteswritten;
 }
 
-class rusage_info_v3 extends ffi.Struct {
+final class rusage_info_v3 extends ffi.Struct {
   @ffi.Array.multi([16])
   external ffi.Array<ffi.Uint8> ri_uuid;
 
@@ -9058,7 +9074,7 @@ class rusage_info_v3 extends ffi.Struct {
   external int ri_serviced_system_time;
 }
 
-class rusage_info_v4 extends ffi.Struct {
+final class rusage_info_v4 extends ffi.Struct {
   @ffi.Array.multi([16])
   external ffi.Array<ffi.Uint8> ri_uuid;
 
@@ -9168,7 +9184,7 @@ class rusage_info_v4 extends ffi.Struct {
   external int ri_runnable_time;
 }
 
-class rusage_info_v5 extends ffi.Struct {
+final class rusage_info_v5 extends ffi.Struct {
   @ffi.Array.multi([16])
   external ffi.Array<ffi.Uint8> ri_uuid;
 
@@ -9281,7 +9297,7 @@ class rusage_info_v5 extends ffi.Struct {
   external int ri_flags;
 }
 
-class rusage_info_v6 extends ffi.Struct {
+final class rusage_info_v6 extends ffi.Struct {
   @ffi.Array.multi([16])
   external ffi.Array<ffi.Uint8> ri_uuid;
 
@@ -9415,7 +9431,7 @@ class rusage_info_v6 extends ffi.Struct {
   external ffi.Array<ffi.Uint64> ri_reserved;
 }
 
-class sa_endpoints extends ffi.Struct {
+final class sa_endpoints extends ffi.Struct {
   @ffi.UnsignedInt()
   external int sae_srcif;
 
@@ -9432,7 +9448,7 @@ class sa_endpoints extends ffi.Struct {
 
 typedef sa_family_t = __uint8_t;
 
-class sched_param extends ffi.Struct {
+final class sched_param extends ffi.Struct {
   @ffi.Int()
   external int sched_priority;
 
@@ -9440,9 +9456,9 @@ class sched_param extends ffi.Struct {
   external ffi.Array<ffi.Char> __opaque;
 }
 
-class searchstate extends ffi.Opaque {}
+final class searchstate extends ffi.Opaque {}
 
-class servent extends ffi.Struct {
+final class servent extends ffi.Struct {
   external ffi.Pointer<ffi.Char> s_name;
 
   external ffi.Pointer<ffi.Pointer<ffi.Char>> s_aliases;
@@ -9453,7 +9469,7 @@ class servent extends ffi.Struct {
   external ffi.Pointer<ffi.Char> s_proto;
 }
 
-class sf_hdtr extends ffi.Struct {
+final class sf_hdtr extends ffi.Struct {
   external ffi.Pointer<iovec> headers;
 
   @ffi.Int()
@@ -9465,7 +9481,7 @@ class sf_hdtr extends ffi.Struct {
   external int trl_cnt;
 }
 
-class sigaction extends ffi.Struct {
+final class sigaction extends ffi.Struct {
   external __sigaction_u __sigaction_u1;
 
   @sigset_t()
@@ -9475,7 +9491,7 @@ class sigaction extends ffi.Struct {
   external int sa_flags;
 }
 
-class sigevent extends ffi.Struct {
+final class sigevent extends ffi.Struct {
   @ffi.Int()
   external int sigev_notify;
 
@@ -9493,21 +9509,21 @@ class sigevent extends ffi.Struct {
 typedef siginfo_t = __siginfo;
 typedef sigset_t = __darwin_sigset_t;
 
-class sigstack extends ffi.Struct {
+final class sigstack extends ffi.Struct {
   external ffi.Pointer<ffi.Char> ss_sp;
 
   @ffi.Int()
   external int ss_onstack;
 }
 
-class sigval extends ffi.Union {
+final class sigval extends ffi.Union {
   @ffi.Int()
   external int sival_int;
 
   external ffi.Pointer<ffi.Void> sival_ptr;
 }
 
-class sigvec extends ffi.Struct {
+final class sigvec extends ffi.Struct {
   external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Int)>>
       sv_handler;
 
@@ -9518,7 +9534,7 @@ class sigvec extends ffi.Struct {
   external int sv_flags;
 }
 
-class so_np_extensions extends ffi.Struct {
+final class so_np_extensions extends ffi.Struct {
   @u_int32_t()
   external int npx_flags;
 
@@ -9526,7 +9542,7 @@ class so_np_extensions extends ffi.Struct {
   external int npx_mask;
 }
 
-class sockaddr extends ffi.Struct {
+final class sockaddr extends ffi.Struct {
   @__uint8_t()
   external int sa_len;
 
@@ -9537,7 +9553,7 @@ class sockaddr extends ffi.Struct {
   external ffi.Array<ffi.Char> sa_data;
 }
 
-class sockaddr_in extends ffi.Struct {
+final class sockaddr_in extends ffi.Struct {
   @__uint8_t()
   external int sin_len;
 
@@ -9553,7 +9569,7 @@ class sockaddr_in extends ffi.Struct {
   external ffi.Array<ffi.Char> sin_zero;
 }
 
-class sockaddr_in6 extends ffi.Struct {
+final class sockaddr_in6 extends ffi.Struct {
   @__uint8_t()
   external int sin6_len;
 
@@ -9573,7 +9589,7 @@ class sockaddr_in6 extends ffi.Struct {
 }
 
 @ffi.Packed(1)
-class sockaddr_storage extends ffi.Struct {
+final class sockaddr_storage extends ffi.Struct {
   @__uint8_t()
   external int ss_len;
 
@@ -9592,7 +9608,7 @@ class sockaddr_storage extends ffi.Struct {
 
 typedef socklen_t = __darwin_socklen_t;
 
-class sockproto extends ffi.Struct {
+final class sockproto extends ffi.Struct {
   @__uint16_t()
   external int sp_family;
 
@@ -9600,7 +9616,7 @@ class sockproto extends ffi.Struct {
   external int sp_protocol;
 }
 
-class stat extends ffi.Struct {
+final class stat extends ffi.Struct {
   @dev_t()
   external int st_dev;
 
@@ -9652,7 +9668,7 @@ class stat extends ffi.Struct {
   external ffi.Array<__int64_t> st_qspare;
 }
 
-class stat64 extends ffi.Struct {
+final class stat64 extends ffi.Struct {
   @dev_t()
   external int st_dev;
 
@@ -9704,11 +9720,11 @@ class stat64 extends ffi.Struct {
   external ffi.Array<__int64_t> st_qspare;
 }
 
-class tcp_connection_info extends ffi.Opaque {}
+final class tcp_connection_info extends ffi.Opaque {}
 
-class tcphdr extends ffi.Opaque {}
+final class tcphdr extends ffi.Opaque {}
 
-class timespec extends ffi.Struct {
+final class timespec extends ffi.Struct {
   @__darwin_time_t()
   external int tv_sec;
 
@@ -9716,7 +9732,7 @@ class timespec extends ffi.Struct {
   external int tv_nsec;
 }
 
-class timeval extends ffi.Struct {
+final class timeval extends ffi.Struct {
   @__darwin_time_t()
   external int tv_sec;
 
@@ -9724,7 +9740,7 @@ class timeval extends ffi.Struct {
   external int tv_usec;
 }
 
-class timeval64 extends ffi.Struct {
+final class timeval64 extends ffi.Struct {
   @__int64_t()
   external int tv_sec;
 
@@ -9732,7 +9748,7 @@ class timeval64 extends ffi.Struct {
   external int tv_usec;
 }
 
-class timezone extends ffi.Struct {
+final class timezone1 extends ffi.Struct {
   @ffi.Int()
   external int tz_minuteswest;
 
@@ -9740,7 +9756,7 @@ class timezone extends ffi.Struct {
   external int tz_dsttime;
 }
 
-class tm extends ffi.Struct {
+final class tm extends ffi.Struct {
   @ffi.Int()
   external int tm_sec;
 
@@ -9779,4 +9795,4 @@ const int true1 = 1;
 typedef u_int32_t = ffi.UnsignedInt;
 typedef uid_t = __darwin_uid_t;
 
-class wait extends ffi.Opaque {}
+final class wait extends ffi.Opaque {}
