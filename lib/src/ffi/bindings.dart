@@ -2257,7 +2257,7 @@ final class Engine extends ffi.Struct {
   /// Events
   external ffi.Pointer<Search> search;
 
-  external UnnamedStruct17 last_position;
+  external UnnamedStruct15 last_position;
 
   @ffi.Bool()
   external bool is_searching;
@@ -2530,10 +2530,10 @@ final class GGSClient extends ffi.Struct {
   external int last_refresh;
 
   @ffi.Array.multi([1])
-  external ffi.Array<UnnamedStruct15> loop;
+  external ffi.Array<UnnamedStruct16> loop;
 
   @ffi.Array.multi([1])
-  external ffi.Array<UnnamedStruct16> once;
+  external ffi.Array<UnnamedStruct17> once;
 }
 
 /// GGS clock (to play a game)
@@ -6006,7 +6006,17 @@ final class UnnamedStruct11 extends ffi.Struct {
   external int upper;
 }
 
+/// Search
 final class UnnamedStruct15 extends ffi.Struct {
+  @ffi.Array.multi([1024])
+  external ffi.Array<Board> board;
+
+  /// Last position
+  @ffi.Int()
+  external int n;
+}
+
+final class UnnamedStruct16 extends ffi.Struct {
   /// < command
   external ffi.Pointer<ffi.Char> cmd;
 
@@ -6019,23 +6029,13 @@ final class UnnamedStruct15 extends ffi.Struct {
   external int delay;
 }
 
-final class UnnamedStruct16 extends ffi.Struct {
+final class UnnamedStruct17 extends ffi.Struct {
   /// < command
   external ffi.Pointer<ffi.Char> cmd;
 
   /// < delay
   @ffi.LongLong()
   external int delay;
-}
-
-/// Search
-final class UnnamedStruct17 extends ffi.Struct {
-  @ffi.Array.multi([1024])
-  external ffi.Array<Board> board;
-
-  /// Last position
-  @ffi.Int()
-  external int n;
 }
 
 final class UnnamedStruct5 extends ffi.Struct {
