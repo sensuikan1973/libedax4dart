@@ -261,10 +261,10 @@ packages:
     dependency: transitive
     description:
       name: logging
-      sha256: "04094f2eb032cbb06c6f6e8d3607edcfcb0455e2bb6cbc010cb01171dcb64e6d"
+      sha256: "623a88c9594aa774443aa3eb2d41807a48486b5613e67599fb4c41c0ad47c340"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.1"
+    version: "1.2.0"
   markdown:
     dependency: transitive
     description:
@@ -341,10 +341,10 @@ packages:
     dependency: "direct dev"
     description:
       name: pedantic_sensuikan1973
-      sha256: c0295b3dca4892728ff5941e359f73a6da62b1f5beccee90be2ddfec96978e16
+      sha256: e1b5b1becba176a0088230c08f45198e55437f40792672654a11f66a36e5736a
       url: "https://pub.dev"
     source: hosted
-    version: "5.1.0"
+    version: "5.2.0"
   pool:
     dependency: transitive
     description:
@@ -594,4 +594,4 @@ packages:
     source: hosted
     version: "2.1.1"
 sdks:
-  dart: ">=3.0.0 <4.0.0"
+  dart: ">=3.0.1 <4.0.0"
