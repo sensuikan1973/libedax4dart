@@ -17,7 +17,7 @@ dependencies:
 
 dev_dependencies:
   analyzer: ^5.11.1
-  cider: ^0.1.5
+  cider: ^0.2.1
   coverage: ^1.6.3 # See: https://github.com/dart-lang/test/issues/1265
   ffigen: ^8.0.0
   pana: ^0.21.32
