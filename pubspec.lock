@@ -45,10 +45,10 @@ packages:
     dependency: transitive
     description:
       name: change
-      sha256: b4d4aceb94f5081d40a2c08211bd779e55373265ce2304b7b38b5c4c218a9263
+      sha256: b6d35f856cb92c34ac1930669d0447d9b4e5b68b40323989f5ebb78e172d2a40
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.0"
+    version: "0.7.1"
   checked_yaml:
     dependency: transitive
     description:
@@ -61,10 +61,10 @@ packages:
     dependency: "direct dev"
     description:
       name: cider
-      sha256: "9523d2f326caea6fbf8a1b6eeb9f1d80acf26a3eeaf5a2eaabfd8b90aaf811b8"
+      sha256: "33ff2a85ca251f098c721c91dd982a65aa09f8dabcaf1aaecd444c12e7d59c76"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.1"
+    version: "0.2.2"
   cli_util:
     dependency: transitive
     description:
@@ -145,14 +145,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.4"
-  fixnum:
-    dependency: transitive
-    description:
-      name: fixnum
-      sha256: "25517a4deb0c03aa0f32fd12db525856438902d9c16536311e76cdc57b31d7d1"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.0"
   flutter_lints:
     dependency: transitive
     description:
@@ -345,14 +337,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.5.1"
-  protobuf:
-    dependency: transitive
-    description:
-      name: protobuf
-      sha256: "01dd9bd0fa02548bf2ceee13545d4a0ec6046459d847b6b061d8a27237108a08"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.0"
   pub_semver:
     dependency: transitive
     description:
@@ -541,10 +525,10 @@ packages:
     dependency: transitive
     description:
       name: vm_service
-      sha256: "1311639ad908dfdcb64734ac1fbd60416234c06e4351846783a79c56848a5185"
+      sha256: c620a6f783fa22436da68e42db7ebbf18b8c44b9a46ab911f666ff09ffd9153f
       url: "https://pub.dev"
     source: hosted
-    version: "11.7.0"
+    version: "11.7.1"
   watcher:
     dependency: transitive
     description:
