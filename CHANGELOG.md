@@ -1,3 +1,7 @@
+# 7.6.0
+
+upgrade dependencies.
+
 # 7.5.1
 
 fix publish workflow.
