@@ -141,10 +141,10 @@ packages:
     dependency: "direct dev"
     description:
       name: ffigen
-      sha256: "7e1c3788980e7fa41318a180c2fad9c5ba0b408624660f3679e444aa4b3014b8"
+      sha256: "3a80687577e7e51ba915114742f389a128e8aa241c52ce69a0f70aecb8e14365"
       url: "https://pub.dev"
     source: hosted
-    version: "9.0.0"
+    version: "9.0.1"
   file:
     dependency: transitive
     description:

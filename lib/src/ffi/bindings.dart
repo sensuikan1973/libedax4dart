@@ -2437,6 +2437,7 @@ final class GGSAdmin extends ffi.Struct {
   /// < admin command
   external ffi.Pointer<ffi.Char> command;
 
+  /// < admin name
   @ffi.Array.multi([16])
   external ffi.Array<ffi.Char> name;
 }
@@ -2445,12 +2446,15 @@ final class GGSBoard extends ffi.Struct {
   /// < match request id
   external ffi.Pointer<ffi.Char> id;
 
+  /// < match players
   @ffi.Array.multi([2])
   external ffi.Array<GGSPlayer> player;
 
+  /// < match type
   @ffi.Array.multi([1])
   external ffi.Array<GGSMatchType> match_type;
 
+  /// < match clock
   @ffi.Array.multi([2])
   external ffi.Array<GGSClock> clock;
 
@@ -2474,9 +2478,11 @@ final class GGSBoard extends ffi.Struct {
   @ffi.Int()
   external int move_no;
 
+  /// < color
   @ffi.Array.multi([2])
   external ffi.Array<ffi.Char> color;
 
+  /// < current board
   @ffi.Array.multi([256])
   external ffi.Array<ffi.Char> board;
 
@@ -2484,6 +2490,7 @@ final class GGSBoard extends ffi.Struct {
   @ffi.Char()
   external int turn;
 
+  /// < initial board
   @ffi.Array.multi([256])
   external ffi.Array<ffi.Char> board_init;
 
@@ -2491,6 +2498,7 @@ final class GGSBoard extends ffi.Struct {
   @ffi.Char()
   external int turn_init;
 
+  /// < list of played moves
   @ffi.Array.multi([256])
   external ffi.Array<ffi.Int> move_list;
 
@@ -2500,18 +2508,23 @@ final class GGSBoard extends ffi.Struct {
 }
 
 final class GGSClient extends ffi.Struct {
+  /// < ggs board
   @ffi.Array.multi([1])
   external ffi.Array<GGSBoard> board;
 
+  /// < ggs request
   @ffi.Array.multi([1])
   external ffi.Array<GGSRequest> request;
 
+  /// < ggs match on
   @ffi.Array.multi([1])
   external ffi.Array<GGSMatchOn> match_on;
 
+  /// < ggs match off
   @ffi.Array.multi([1])
   external ffi.Array<GGSMatchOff> match_off;
 
+  /// < ggs admin
   @ffi.Array.multi([1])
   external ffi.Array<GGSAdmin> admin;
 
@@ -2529,9 +2542,11 @@ final class GGSClient extends ffi.Struct {
   @ffi.LongLong()
   external int last_refresh;
 
+  /// < loop instruction
   @ffi.Array.multi([1])
   external ffi.Array<UnnamedStruct16> loop;
 
+  /// < command issued once after some delay
   @ffi.Array.multi([1])
   external ffi.Array<UnnamedStruct17> once;
 }
@@ -2598,6 +2613,7 @@ final class GGSMatchOff extends ffi.Struct {
   /// < match id
   external ffi.Pointer<ffi.Char> id;
 
+  /// < match players
   @ffi.Array.multi([2])
   external ffi.Array<GGSPlayer> player;
 }
@@ -2606,9 +2622,11 @@ final class GGSMatchOn extends ffi.Struct {
   /// < match id
   external ffi.Pointer<ffi.Char> id;
 
+  /// < match players
   @ffi.Array.multi([2])
   external ffi.Array<GGSPlayer> player;
 
+  /// < match type
   @ffi.Array.multi([1])
   external ffi.Array<GGSMatchType> match_type;
 }
@@ -2662,12 +2680,15 @@ final class GGSRequest extends ffi.Struct {
   /// < match request id
   external ffi.Pointer<ffi.Char> id;
 
+  /// < match players
   @ffi.Array.multi([2])
   external ffi.Array<GGSPlayer> player;
 
+  /// < match type
   @ffi.Array.multi([1])
   external ffi.Array<GGSMatchType> match_type;
 
+  /// < match clock
   @ffi.Array.multi([2])
   external ffi.Array<GGSClock> clock;
 }
@@ -2839,6 +2860,7 @@ final class HashData extends ffi.Struct {
   @ffi.SignedChar()
   external int upper;
 
+  /// !< best moves
   @ffi.Array.multi([2])
   external ffi.Array<ffi.UnsignedChar> move;
 }
@@ -2910,6 +2932,7 @@ final class Hint extends ffi.Struct {
   @ffi.Int()
   external int lower;
 
+  /// < principal variation
   @ffi.Array.multi([1])
   external ffi.Array<Line> pv;
 
@@ -2931,6 +2954,7 @@ final class Hint extends ffi.Struct {
 /// @author lavox
 /// @date 2018/1/17
 final class HintList extends ffi.Struct {
+  /// < array of hints
   @ffi.Array.multi([34])
   external ffi.Array<Hint> hint;
 
@@ -3894,6 +3918,7 @@ final class Level extends ffi.Struct {
 
 /// (simple) sequence of a legal moves
 final class Line extends ffi.Struct {
+  /// < array of a suite of moves
   @ffi.Array.multi([80])
   external ffi.Array<ffi.Char> move;
 
@@ -4171,6 +4196,7 @@ final class MoveHash extends ffi.Struct {
 
 /// (simple) list of a legal moves
 final class MoveList extends ffi.Struct {
+  /// < array of legal moves
   @ffi.Array.multi([34])
   external ffi.Array<Move> move;
 
@@ -4295,6 +4321,7 @@ abstract class NodeType {
 
 /// OBF structure: Othello Board File
 final class OBF extends ffi.Struct {
+  /// <! Othello board
   @ffi.Array.multi([1])
   external ffi.Array<Board> board;
 
@@ -4302,6 +4329,7 @@ final class OBF extends ffi.Struct {
   @ffi.Int()
   external int player;
 
+  /// <! Move array
   @ffi.Array.multi([32])
   external ffi.Array<UnnamedStruct6> move;
 
@@ -4374,6 +4402,7 @@ final class Options extends ffi.Struct {
   @ffi.Int()
   external int hash_table_size;
 
+  /// < increment sorting depth
   @ffi.Array.multi([3])
   external ffi.Array<ffi.Int> inc_sort_depth;
 
@@ -4772,6 +4801,7 @@ final class PosArray extends ffi.Struct {
 /// struct Position
 /// @brief A position stored in the book.
 final class Position extends ffi.Struct {
+  /// < (unique) board
   @ffi.Array.multi([1])
   external ffi.Array<Board> board;
 
@@ -4973,9 +5003,11 @@ final class Result extends ffi.Struct {
   @ffi.Int()
   external int score;
 
+  /// < score bounds / move
   @ffi.Array.multi([66])
   external ffi.Array<Bound> bound;
 
+  /// < principal variation
   @ffi.Array.multi([1])
   external ffi.Array<Line> pv;
 
