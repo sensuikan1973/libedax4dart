@@ -1,3 +1,7 @@
+# 7.8.0
+
+upgrade dependencies.
+
 # 7.7.0
 
 upgrade dependencies.
