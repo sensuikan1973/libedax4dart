@@ -95,15 +95,15 @@ class LibEdaxBindings {
                           ffi.UnsignedLongLong)>>>>('COUNT_LAST_FLIP');
 
   ffi.Pointer<
-          ffi.Pointer<
-              ffi.NativeFunction<ffi.Int Function(ffi.UnsignedLongLong)>>>
+          ffi
+          .Pointer<ffi.NativeFunction<ffi.Int Function(ffi.UnsignedLongLong)>>>
       get COUNT_LAST_FLIP => _COUNT_LAST_FLIP.value;
 
   set COUNT_LAST_FLIP(
           ffi.Pointer<
                   ffi.Pointer<
-                      ffi.NativeFunction<
-                          ffi.Int Function(ffi.UnsignedLongLong)>>>
+                      ffi
+                      .NativeFunction<ffi.Int Function(ffi.UnsignedLongLong)>>>
               value) =>
       _COUNT_LAST_FLIP.value = value;
 
@@ -1007,8 +1007,9 @@ class LibEdaxBindings {
   }
 
   late final _edax_hintPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Int, ffi.Pointer<HintList>)>>('edax_hint');
+          ffi
+          .NativeFunction<ffi.Void Function(ffi.Int, ffi.Pointer<HintList>)>>(
+      'edax_hint');
   late final _edax_hint =
       _edax_hintPtr.asFunction<void Function(int, ffi.Pointer<HintList>)>();
 
@@ -1523,7 +1524,7 @@ class LibEdaxBindings {
   ///
   /// @return time in milliseconds.
   late final ffi
-          .Pointer<ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>>>
+      .Pointer<ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>>>
       _time_clock =
       _lookup<ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>>>(
           'time_clock');
@@ -7834,7 +7835,7 @@ typedef __darwin_pthread_cond_t = _opaque_pthread_cond_t;
 
 final class __darwin_pthread_handler_rec extends ffi.Struct {
   external ffi
-          .Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>
+      .Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>
       __routine;
 
   external ffi.Pointer<ffi.Void> __arg;
@@ -8130,7 +8131,7 @@ final class __sFILE extends ffi.Struct {
   external ffi.Pointer<ffi.Void> _cookie;
 
   external ffi
-          .Pointer<ffi.NativeFunction<ffi.Int Function(ffi.Pointer<ffi.Void>)>>
+      .Pointer<ffi.NativeFunction<ffi.Int Function(ffi.Pointer<ffi.Void>)>>
       _close;
 
   external ffi.Pointer<
