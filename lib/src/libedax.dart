@@ -57,11 +57,6 @@ class LibEdax {
   @experimental
   void closeDll() => _dylib.close();
 
-  // See: https://github.com/dart-lang/ffi/blob/f3346299c55669cc0db48afae85b8110088bf8da/lib/src/allocation.dart#L8-L11
-  DynamicLibrary get _stdlib => Platform.isWindows
-      ? DynamicLibrary.open('kernel32.dll')
-      : DynamicLibrary.process();
-
   /// Init board.
   void edaxInit() => _bindings.edax_init();
 
