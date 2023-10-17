@@ -57,13 +57,6 @@ class LibEdax {
   @experimental
   void closeDll() => _dylib.close();
 
-  int Function(Pointer<Void>) get _dlCloseFunc {
-    final funcName = Platform.isWindows ? 'FreeLibrary' : 'dlclose';
-    return _stdlib
-        .lookup<NativeFunction<Int32 Function(Pointer<Void>)>>(funcName)
-        .asFunction();
-  }
-
   // See: https://github.com/dart-lang/ffi/blob/f3346299c55669cc0db48afae85b8110088bf8da/lib/src/allocation.dart#L8-L11
   DynamicLibrary get _stdlib => Platform.isWindows
       ? DynamicLibrary.open('kernel32.dll')
