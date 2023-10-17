@@ -53,12 +53,9 @@ class LibEdax {
 
   /// Close dll.
   ///
-  /// FIXME: this is workaround Function.
-  /// See: https://github.com/dart-lang/sdk/issues/40159
-  ///
   /// After you call this, if you use edax command, you have to recreate [LibEdax] instance.
   @experimental
-  void closeDll() => _dlCloseFunc(_dylib.handle);
+  void closeDll() => _dylib.close();
 
   int Function(Pointer<Void>) get _dlCloseFunc {
     final funcName = Platform.isWindows ? 'FreeLibrary' : 'dlclose';
