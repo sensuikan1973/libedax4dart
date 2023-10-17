@@ -72,8 +72,6 @@
     
 <section class="desc markdown">
   <p>Close dll.</p>
-<p>FIXME: this is workaround Function.
-See: <a href="https://github.com/dart-lang/sdk/issues/40159">https://github.com/dart-lang/sdk/issues/40159</a></p>
 <p>After you call this, if you use edax command, you have to recreate <a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax-class.html">LibEdax</a> instance.</p>
 </section>
 
@@ -82,7 +80,7 @@ See: <a href="https://github.com/dart-lang/sdk/issues/40159">https://github.com/
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@experimental
-void closeDll() =&gt; _dlCloseFunc(_dylib.handle);</code></pre>
+void closeDll() =&gt; _dylib.close();</code></pre>
 </section>
 
 
