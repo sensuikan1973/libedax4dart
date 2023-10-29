@@ -385,7 +385,7 @@ class LibEdax {
     calloc
       ..free(dstP)
       ..free(dstB);
-    return CountBestpathResult(board, position);
+    return CountBestpathResult(board, position, playerColor);
   }
 
   /// Stop [edaxBookCountBoardBestpath].

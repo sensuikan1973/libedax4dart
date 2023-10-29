@@ -365,6 +365,7 @@ void main() {
         edax.edaxGetBoard(),
         playerColor: TurnColor.white,
       );
+      expect(bestpathResult.playerColor, TurnColor.white);
       expect(bestpathResult.position.nPlayerBestpaths, 1);
       expect(bestpathResult.position.nOpponentBestpaths, 1);
 
@@ -373,6 +374,7 @@ void main() {
         edax.edaxGetBoard(),
         playerColor: TurnColor.black,
       );
+      expect(bestpathResult2.playerColor, TurnColor.black);
       expect(bestpathResult2.position.nPlayerBestpaths, 2);
       expect(bestpathResult2.position.nOpponentBestpaths, 1);
       edax
