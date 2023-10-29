@@ -9,9 +9,12 @@ class CountBestpathResult {
   const CountBestpathResult(
     this.board,
     this.position,
+    this.playerColor,
   );
 
   final Board board;
 
   final Position position;
+
+  final int playerColor;
 }
