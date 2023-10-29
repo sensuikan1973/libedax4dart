@@ -1,6 +1,6 @@
 # 7.12.0
 
-add  field to 
+add `playerColor` field to `CountBestpathResult`.
 
 # 7.11.0
 
