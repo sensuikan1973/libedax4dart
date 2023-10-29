@@ -1,3 +1,7 @@
+# 7.12.0
+
+add `playerColor` field to `CountBestpathResult`.
+
 # 7.11.0
 
 upgrade dependencies.
