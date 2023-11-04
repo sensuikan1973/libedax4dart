@@ -427,6 +427,27 @@ void main() {
       expect(edax.edaxBoardIsPass(edax.edaxGetBoard()), true);
       edax.libedaxTerminate();
     });
+
+    test('edaxBoardGetSquareColor', () {
+      const initParams = ['', '-book-file', _testBookFile];
+      final edax = LibEdax()..libedaxInitialize(initParams);
+      sleep(const Duration(seconds: 1));
+
+      const opening = 'f5f6';
+      edax
+        ..edaxInit()
+        ..edaxPlay(opening);
+      final board = edax.edaxGetBoard();
+      final lastMove = edax.edaxGetLastMove();
+      expect(lastMove.x, 45);
+      expect(edax.edaxBoardGetSquareColor(board, lastMove.x), 1); // f6
+      expect(edax.edaxBoardGetSquareColor(board, 37), 0); // f5
+      expect(edax.edaxBoardGetSquareColor(board, 36), 1); // e5
+      expect(edax.edaxBoardGetSquareColor(board, 35), 0); // d5
+      expect(edax.edaxBoardGetSquareColor(board, 28), 0); // e4
+      expect(edax.edaxBoardGetSquareColor(board, 27), 1); // d4
+      edax.libedaxTerminate();
+    });
   });
 
   group('util command', () {
