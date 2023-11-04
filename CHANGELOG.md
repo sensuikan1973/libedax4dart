@@ -1,9 +1,5 @@
 # 7.14.0
 
-add 
-
-# 7.13.0
-
 add `edaxBoardIsPass`.
 
 # 7.12.0
