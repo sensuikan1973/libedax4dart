@@ -1,3 +1,7 @@
+# 7.13.0
+
+add `edaxBoardIsPass`.
+
 # 7.12.0
 
 add `playerColor` field to `CountBestpathResult`.
