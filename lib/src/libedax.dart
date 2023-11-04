@@ -470,7 +470,7 @@ class LibEdax {
     return result == 1;
   }
 
-  /// et square color.
+  /// Get square color.
   /// 0 = player, 1 = opponent, 2 = empty.
   int edaxBoardGetSquareColor(final Board board, final int x) {
     final dstB = calloc<bindings.Board>();
