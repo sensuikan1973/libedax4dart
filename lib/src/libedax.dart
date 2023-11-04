@@ -337,6 +337,18 @@ class LibEdax {
   /// * 1: WHITE
   int edaxGetCurrentPlayer() => _bindings.edax_get_current_player();
 
+  /// Get the opponent player.
+  /// * 0: BLACK
+  /// * 1: WHITE
+  int edaxGetOpponentPlayer() {
+    final currentPlayer = _bindings.edax_get_current_player();
+    if (currentPlayer == TurnColor.black) {
+      return TurnColor.white;
+    } else {
+      return TurnColor.black;
+    }
+  }
+
   /// Get the current number of discs.
   int edaxGetDisc(final int color) => _bindings.edax_get_disc(color);
 

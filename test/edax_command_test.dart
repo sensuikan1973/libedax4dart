@@ -98,6 +98,7 @@ void main() {
       );
       edax.edaxSetboard(stringApplicableToSetboard);
       expect(edax.edaxGetCurrentPlayer(), TurnColor.white);
+      expect(edax.edaxGetOpponentPlayer(), TurnColor.black);
       expect(board.squaresOfPlayer, [29, 36, 43]);
       expect(board.squareStringsOfPlayer, ['f4', 'e5', 'd6']);
       expect(board.squaresOfOpponent, [19, 27, 28, 34, 35, 37]);
