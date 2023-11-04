@@ -640,6 +640,22 @@ class LibEdaxBindings {
 
   set daylight(int value) => _daylight.value = value;
 
+  int edax_board_get_square_color(
+    ffi.Pointer<Board> arg0,
+    int arg1,
+  ) {
+    return _edax_board_get_square_color(
+      arg0,
+      arg1,
+    );
+  }
+
+  late final _edax_board_get_square_colorPtr = _lookup<
+          ffi.NativeFunction<ffi.Int Function(ffi.Pointer<Board>, ffi.Int)>>(
+      'edax_board_get_square_color');
+  late final _edax_board_get_square_color = _edax_board_get_square_colorPtr
+      .asFunction<int Function(ffi.Pointer<Board>, int)>();
+
   int edax_board_is_pass(
     ffi.Pointer<Board> arg0,
   ) {
@@ -1550,11 +1566,11 @@ class LibEdaxBindings {
           ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>> value) =>
       _time_clock.value = value;
 
-  late final ffi.Pointer<ffi.Long> _timezone = _lookup<ffi.Long>('timezone');
+  late final ffi.Pointer<ffi.Long> _timezone1 = _lookup<ffi.Long>('timezone');
 
-  int get timezone => _timezone.value;
+  int get timezone1 => _timezone1.value;
 
-  set timezone(int value) => _timezone.value = value;
+  set timezone1(int value) => _timezone1.value = value;
 
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Char>>> _tzname =
       _lookup<ffi.Pointer<ffi.Pointer<ffi.Char>>>('tzname');
@@ -9779,7 +9795,7 @@ final class timeval64 extends ffi.Struct {
   external int tv_usec;
 }
 
-final class timezone1 extends ffi.Struct {
+final class timezone extends ffi.Struct {
   @ffi.Int()
   external int tz_minuteswest;
 

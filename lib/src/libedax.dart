@@ -460,6 +460,7 @@ class LibEdax {
   void edaxBookVerbose(final int verbosity) =>
       _bindings.edax_book_verbose(verbosity);
 
+  /// Check if current player should pass.
   bool edaxBoardIsPass(final Board board) {
     final dstB = calloc<bindings.Board>();
     dstB.ref.player = board.player;
@@ -467,5 +468,16 @@ class LibEdax {
     final result = _bindings.edax_board_is_pass(dstB);
     calloc.free(dstB);
     return result == 1;
+  }
+
+  /// Get square color.
+  /// 0 = player, 1 = opponent, 2 = empty.
+  int edaxBoardGetSquareColor(final Board board, final int x) {
+    final dstB = calloc<bindings.Board>();
+    dstB.ref.player = board.player;
+    dstB.ref.opponent = board.opponent;
+    final result = _bindings.edax_board_get_square_color(dstB, x);
+    calloc.free(dstB);
+    return result;
   }
 }
