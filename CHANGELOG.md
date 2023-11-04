@@ -1,3 +1,7 @@
+# 7.15.0
+
+add edaxGetOpponentPlayer.
+
 # 7.14.0
 
 add `edaxBoardIsPass`.
