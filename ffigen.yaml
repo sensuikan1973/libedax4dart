@@ -71,5 +71,6 @@ functions:
     - 'edax_version'
     - 'edax_vmirror'
     - 'edax_board_is_pass'
+    - 'edax_board_get_square_color'
     - 'libedax_initialize'
     - 'libedax_terminate'
