@@ -2088,6 +2088,8 @@ const int EF_MAY_SHARE_BLOCKS = 1;
 
 const int EF_NO_XATTRS = 2;
 
+const int EF_SHARES_ALL_BLOCKS = 64;
+
 const int EHOSTDOWN = 64;
 
 const int EHOSTUNREACH = 65;
@@ -3189,6 +3191,10 @@ const int IOPOL_VFS_IGNORE_PERMISSIONS_OFF = 0;
 
 const int IOPOL_VFS_IGNORE_PERMISSIONS_ON = 1;
 
+const int IOPOL_VFS_NOCACHE_WRITE_FS_BLKSIZE_DEFAULT = 0;
+
+const int IOPOL_VFS_NOCACHE_WRITE_FS_BLKSIZE_ON = 1;
+
 const int IOPOL_VFS_SKIP_MTIME_UPDATE_OFF = 0;
 
 const int IOPOL_VFS_SKIP_MTIME_UPDATE_ON = 1;
@@ -3968,9 +3974,39 @@ final class Log extends ffi.Struct {
 
 const int MAC_OS_VERSION_11_0 = 110000;
 
+const int MAC_OS_VERSION_11_1 = 110100;
+
+const int MAC_OS_VERSION_11_3 = 110300;
+
+const int MAC_OS_VERSION_11_4 = 110400;
+
+const int MAC_OS_VERSION_11_5 = 110500;
+
+const int MAC_OS_VERSION_11_6 = 110600;
+
 const int MAC_OS_VERSION_12_0 = 120000;
 
+const int MAC_OS_VERSION_12_1 = 120100;
+
+const int MAC_OS_VERSION_12_2 = 120200;
+
+const int MAC_OS_VERSION_12_3 = 120300;
+
+const int MAC_OS_VERSION_12_4 = 120400;
+
+const int MAC_OS_VERSION_12_5 = 120500;
+
 const int MAC_OS_VERSION_13_0 = 130000;
+
+const int MAC_OS_VERSION_13_1 = 130100;
+
+const int MAC_OS_VERSION_13_2 = 130200;
+
+const int MAC_OS_VERSION_13_3 = 130300;
+
+const int MAC_OS_VERSION_13_4 = 130400;
+
+const int MAC_OS_VERSION_14_0 = 140000;
 
 const int MAC_OS_X_VERSION_10_0 = 1000;
 
@@ -4012,11 +4048,15 @@ const int MAC_OS_X_VERSION_10_14_1 = 101401;
 
 const int MAC_OS_X_VERSION_10_14_4 = 101404;
 
+const int MAC_OS_X_VERSION_10_14_5 = 101405;
+
 const int MAC_OS_X_VERSION_10_14_6 = 101406;
 
 const int MAC_OS_X_VERSION_10_15 = 101500;
 
 const int MAC_OS_X_VERSION_10_15_1 = 101501;
+
+const int MAC_OS_X_VERSION_10_15_4 = 101504;
 
 const int MAC_OS_X_VERSION_10_16 = 101600;
 
@@ -6680,7 +6720,7 @@ const int _POSIX_SHELL = 200112;
 
 const int _POSIX_SIGQUEUE_MAX = 32;
 
-const int _POSIX_SPAWN = -1;
+const int _POSIX_SPAWN = 200112;
 
 const int _POSIX_SPIN_LOCKS = -1;
 
@@ -7214,7 +7254,49 @@ const int __API_TO_BE_DEPRECATED_TVOS = 100000;
 
 const int __API_TO_BE_DEPRECATED_WATCHOS = 100000;
 
+const int __API_TO_BE_DEPRECATED_XROS = 100000;
+
 const String __ASSERT_FILE_NAME = 'temp_for_macros.hpp';
+
+const int __BRIDGEOS_2_0 = 20000;
+
+const int __BRIDGEOS_3_0 = 30000;
+
+const int __BRIDGEOS_3_1 = 30100;
+
+const int __BRIDGEOS_3_4 = 30400;
+
+const int __BRIDGEOS_4_0 = 40000;
+
+const int __BRIDGEOS_4_1 = 40100;
+
+const int __BRIDGEOS_5_0 = 50000;
+
+const int __BRIDGEOS_5_1 = 50100;
+
+const int __BRIDGEOS_5_3 = 50300;
+
+const int __BRIDGEOS_6_0 = 60000;
+
+const int __BRIDGEOS_6_2 = 60200;
+
+const int __BRIDGEOS_6_4 = 60400;
+
+const int __BRIDGEOS_6_5 = 60500;
+
+const int __BRIDGEOS_6_6 = 60600;
+
+const int __BRIDGEOS_7_0 = 70000;
+
+const int __BRIDGEOS_7_1 = 70100;
+
+const int __BRIDGEOS_7_2 = 70200;
+
+const int __BRIDGEOS_7_3 = 70300;
+
+const int __BRIDGEOS_7_4 = 70400;
+
+const int __BRIDGEOS_8_0 = 80000;
 
 const int __DARWIN_64_BIT_INO_T = 1;
 
@@ -7282,6 +7364,14 @@ const int __DRIVERKIT_20_0 = 200000;
 
 const int __DRIVERKIT_21_0 = 210000;
 
+const int __DRIVERKIT_22_0 = 220000;
+
+const int __DRIVERKIT_22_4 = 220400;
+
+const int __DRIVERKIT_22_5 = 220500;
+
+const int __DRIVERKIT_23_0 = 230000;
+
 const int __ENABLE_LEGACY_MAC_AVAILABILITY = 1;
 
 const int __ILP32_OFF32 = -1;
@@ -7340,6 +7430,8 @@ const int __IPHONE_14_2 = 140200;
 
 const int __IPHONE_14_3 = 140300;
 
+const int __IPHONE_14_4 = 140400;
+
 const int __IPHONE_14_5 = 140500;
 
 const int __IPHONE_14_6 = 140600;
@@ -7358,11 +7450,23 @@ const int __IPHONE_15_3 = 150300;
 
 const int __IPHONE_15_4 = 150400;
 
+const int __IPHONE_15_5 = 150500;
+
+const int __IPHONE_15_6 = 150600;
+
 const int __IPHONE_16_0 = 160000;
 
 const int __IPHONE_16_1 = 160100;
 
 const int __IPHONE_16_2 = 160200;
+
+const int __IPHONE_16_3 = 160300;
+
+const int __IPHONE_16_4 = 160400;
+
+const int __IPHONE_16_5 = 160500;
+
+const int __IPHONE_17_0 = 170000;
 
 const int __IPHONE_2_0 = 20000;
 
@@ -7474,6 +7578,8 @@ const int __MAC_10_14_1 = 101401;
 
 const int __MAC_10_14_4 = 101404;
 
+const int __MAC_10_14_5 = 101405;
+
 const int __MAC_10_14_6 = 101406;
 
 const int __MAC_10_15 = 101500;
@@ -7520,13 +7626,25 @@ const int __MAC_12_2 = 120200;
 
 const int __MAC_12_3 = 120300;
 
+const int __MAC_12_4 = 120400;
+
+const int __MAC_12_5 = 120500;
+
 const int __MAC_13_0 = 130000;
 
 const int __MAC_13_1 = 130100;
 
-const int __MAC_OS_X_VERSION_MAX_ALLOWED = 130100;
+const int __MAC_13_2 = 130200;
 
-const int __MAC_OS_X_VERSION_MIN_REQUIRED = 120000;
+const int __MAC_13_3 = 130300;
+
+const int __MAC_13_4 = 130400;
+
+const int __MAC_14_0 = 140000;
+
+const int __MAC_OS_X_VERSION_MAX_ALLOWED = 140000;
+
+const int __MAC_OS_X_VERSION_MIN_REQUIRED = 140000;
 
 const int __PTHREAD_ATTR_SIZE__ = 56;
 
@@ -7642,17 +7760,31 @@ const int __TVOS_15_3 = 150300;
 
 const int __TVOS_15_4 = 150400;
 
+const int __TVOS_15_5 = 150500;
+
+const int __TVOS_15_6 = 150600;
+
 const int __TVOS_16_0 = 160000;
 
 const int __TVOS_16_1 = 160100;
 
 const int __TVOS_16_2 = 160200;
 
+const int __TVOS_16_3 = 160300;
+
+const int __TVOS_16_4 = 160400;
+
+const int __TVOS_16_5 = 160500;
+
+const int __TVOS_17_0 = 170000;
+
 const int __TVOS_9_0 = 90000;
 
 const int __TVOS_9_1 = 90100;
 
 const int __TVOS_9_2 = 90200;
+
+const int __WATCHOS_10_0 = 100000;
 
 const int __WATCHOS_1_0 = 10000;
 
@@ -7716,13 +7848,25 @@ const int __WATCHOS_8_4 = 80400;
 
 const int __WATCHOS_8_5 = 80500;
 
+const int __WATCHOS_8_6 = 80600;
+
+const int __WATCHOS_8_7 = 80700;
+
 const int __WATCHOS_9_0 = 90000;
 
 const int __WATCHOS_9_1 = 90100;
 
 const int __WATCHOS_9_2 = 90200;
 
+const int __WATCHOS_9_3 = 90300;
+
+const int __WATCHOS_9_4 = 90400;
+
+const int __WATCHOS_9_5 = 90500;
+
 const int __WORDSIZE = 64;
+
+const int __XROS_1_0 = 10000;
 
 const int __bool_true_false_are_defined = 1;
 
@@ -8285,6 +8429,8 @@ final class __x86_pagein_state extends ffi.Struct {
 }
 
 final class _filesec extends ffi.Opaque {}
+
+final class _malloc_zone_t extends ffi.Opaque {}
 
 final class _opaque_pthread_attr_t extends ffi.Struct {
   @ffi.Long()
