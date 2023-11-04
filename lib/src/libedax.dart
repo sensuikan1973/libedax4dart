@@ -447,4 +447,13 @@ class LibEdax {
   /// NOTE: this verbosity is unrelated to `book_verbose` which shows stdout by bprint in edax.
   void edaxBookVerbose(final int verbosity) =>
       _bindings.edax_book_verbose(verbosity);
+
+  bool edaxBoardIsPass(final Board board) {
+    final dstB = calloc<bindings.Board>();
+    dstB.ref.player = board.player;
+    dstB.ref.opponent = board.opponent;
+    final result = _bindings.edax_board_is_pass(dstB);
+    calloc.free(dstB);
+    return result == 1;
+  }
 }

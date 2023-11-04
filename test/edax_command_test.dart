@@ -411,6 +411,21 @@ void main() {
       expect(positionAfterLearning.nLink, 1);
       edax.libedaxTerminate();
     });
+
+    test('edaxBoardIsPass', () {
+      const initParams = ['', '-book-file', _testBookFile];
+      final edax = LibEdax()..libedaxInitialize(initParams);
+      sleep(const Duration(seconds: 1));
+
+      const opening = 'f5f6d3g5h5h4f7';
+      edax
+        ..edaxInit()
+        ..edaxPlay(opening);
+      expect(edax.edaxBoardIsPass(edax.edaxGetBoard()), false);
+      edax.edaxMove('h6');
+      expect(edax.edaxBoardIsPass(edax.edaxGetBoard()), true);
+      edax.libedaxTerminate();
+    });
   });
 
   group('util command', () {

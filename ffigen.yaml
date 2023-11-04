@@ -70,5 +70,6 @@ functions:
     - 'edax_undo'
     - 'edax_version'
     - 'edax_vmirror'
+    - 'edax_board_is_pass'
     - 'libedax_initialize'
     - 'libedax_terminate'
