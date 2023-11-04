@@ -1,6 +1,6 @@
 # 7.15.0
 
-add edaxGetOpponentPlayer.
+add `edaxGetOpponentPlayer`.
 
 # 7.14.0
 
