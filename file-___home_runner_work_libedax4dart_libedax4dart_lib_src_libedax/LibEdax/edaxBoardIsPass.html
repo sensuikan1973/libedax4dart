@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the timezone1 property from the LibEdaxBindings class, for the Dart programming language.">
-  <title>timezone1 property - LibEdaxBindings class - bindings library - Dart API</title>
+  <meta name="description" content="API docs for the edaxBoardIsPass method from the LibEdax class, for the Dart programming language.">
+  <title>edaxBoardIsPass method - LibEdax class - libedax library - Dart API</title>
 
 
   
@@ -29,11 +29,11 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">libedax4dart</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings-library.html">bindings</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings-class.html">LibEdaxBindings</a></li>
-    <li class="self-crumb">timezone1 property</li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax-library.html">libedax</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax-class.html">LibEdax</a></li>
+    <li class="self-crumb">edaxBoardIsPass method</li>
   </ol>
-  <div class="self-name">timezone1</div>
+  <div class="self-name">edaxBoardIsPass</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -54,55 +54,38 @@
   <div
       id="dartdoc-main-content"
       class="main-content"
-      data-above-sidebar="file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings&#47;LibEdaxBindings-class-sidebar.html"
+      data-above-sidebar="file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax&#47;LibEdax-class-sidebar.html"
       data-below-sidebar="">
       <div>
-<h1><span class="kind-property">timezone1</span> property 
+<h1><span class="kind-method">edaxBoardIsPass</span> method 
 </h1></div>
 
+    <section class="multi-line-signature">
+      
 
-        
-<section id="getter">
+<span class="returntype"><a href="https://api.dart.dev/stable/3.1.5/dart-core/bool-class.html">bool</a></span>
+<span class="name ">edaxBoardIsPass</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="edaxBoardIsPass-param-board"><span class="type-annotation"><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_board/Board-class.html">Board</a></span> <span class="parameter-name">board</span></span></li>
+</ol>)
 
-<section class="multi-line-signature">
-  
-  <span class="returntype"><a href="https://api.dart.dev/stable/3.1.5/dart-core/int-class.html">int</a></span>
-  <span class="name ">timezone1</span>
-  
+      
 
-</section>
-
-
+    </section>
+    
 
 
+    
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">int get timezone1 =&gt; _timezone1.value;</code></pre>
+  <pre class="language-dart"><code class="language-dart">bool edaxBoardIsPass(final Board board) {
+  final dstB = calloc&lt;bindings.Board&gt;();
+  dstB.ref.player = board.player;
+  dstB.ref.opponent = board.opponent;
+  final result = _bindings.edax_board_is_pass(dstB);
+  calloc.free(dstB);
+  return result == 1;
+}</code></pre>
 </section>
 
-</section>
-
-
-        
-<section id="setter">
-
-<section class="multi-line-signature">
-  
-  <span class="returntype">void</span>
-  <span class="name ">timezone1=</span><span class="signature">(<wbr><span class="parameter" id="timezone1=-param-value"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.1.5/dart-core/int-class.html">int</a></span> <span class="parameter-name">value</span></span>)</span>
-  
-
-</section>
-
-
-
-
-<section class="summary source-code" id="source">
-  <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">set timezone1(int value) =&gt; _timezone1.value = value;</code></pre>
-</section>
-
-</section>
 
   </div> <!-- /.main-content -->
 
@@ -116,13 +99,13 @@
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">libedax4dart</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings-library.html">bindings</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/LibEdaxBindings-class.html">LibEdaxBindings</a></li>
-    <li class="self-crumb">timezone1 property</li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax-library.html">libedax</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax-class.html">LibEdax</a></li>
+    <li class="self-crumb">edaxBoardIsPass method</li>
 </ol>
 
 
-    <h5>LibEdaxBindings class</h5>
+    <h5>LibEdax class</h5>
   </div><!--/.sidebar-offcanvas-->
 
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
@@ -133,7 +116,7 @@
 <footer>
   <span class="no-break">
     libedax4dart
-      7.12.0
+      7.13.0
   </span>
 
   
