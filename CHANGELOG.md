@@ -1,3 +1,7 @@
+# 7.16.0
+
+add edaxBoardGetSquareColor.
+
 # 7.15.0
 
 add `edaxGetOpponentPlayer`.
