@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the tz_minuteswest property from the timezone1 class, for the Dart programming language.">
-  <title>tz_minuteswest property - timezone1 class - bindings library - Dart API</title>
+  <meta name="description" content="API docs for the edaxBoardGetSquareColor method from the LibEdax class, for the Dart programming language.">
+  <title>edaxBoardGetSquareColor method - LibEdax class - libedax library - Dart API</title>
 
 
   
@@ -29,11 +29,11 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">libedax4dart</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings-library.html">bindings</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/timezone1-class.html">timezone1</a></li>
-    <li class="self-crumb">tz_minuteswest property</li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax-library.html">libedax</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax-class.html">LibEdax</a></li>
+    <li class="self-crumb">edaxBoardGetSquareColor method</li>
   </ol>
-  <div class="self-name">tz_minuteswest</div>
+  <div class="self-name">edaxBoardGetSquareColor</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -54,31 +54,41 @@
   <div
       id="dartdoc-main-content"
       class="main-content"
-      data-above-sidebar="file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings&#47;timezone1-class-sidebar.html"
+      data-above-sidebar="file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax&#47;LibEdax-class-sidebar.html"
       data-below-sidebar="">
       <div>
-<h1><span class="kind-property">tz_minuteswest</span> property 
+<h1><span class="kind-method">edaxBoardGetSquareColor</span> method 
 </h1></div>
 
-        <section class="multi-line-signature">
-          
-  <div>
-    <ol class="annotation-list">
-        <li>@<a href="https://api.dart.dev/stable/3.1.5/dart-ffi/Int-class.html">Int</a>()</li>
-    </ol>
-  </div>
-          <a href="https://api.dart.dev/stable/3.1.5/dart-core/int-class.html">int</a>
-          <span class="name ">tz_minuteswest</span>
-          <div class="features"><span class="feature">read / write</span></div>
+    <section class="multi-line-signature">
+      
 
-        </section>
-        
+<span class="returntype"><a href="https://api.dart.dev/stable/3.1.5/dart-core/int-class.html">int</a></span>
+<span class="name ">edaxBoardGetSquareColor</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="edaxBoardGetSquareColor-param-board"><span class="type-annotation"><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_board/Board-class.html">Board</a></span> <span class="parameter-name">board</span>, </span></li>
+<li><span class="parameter" id="edaxBoardGetSquareColor-param-x"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.1.5/dart-core/int-class.html">int</a></span> <span class="parameter-name">x</span></span></li>
+</ol>)
 
-        
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Get square color.
+0 = player, 1 = opponent, 2 = empty.</p>
+</section>
+
+
+    
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">@ffi.Int()
-external int tz_minuteswest;</code></pre>
+  <pre class="language-dart"><code class="language-dart">int edaxBoardGetSquareColor(final Board board, final int x) {
+  final dstB = calloc&lt;bindings.Board&gt;();
+  dstB.ref.player = board.player;
+  dstB.ref.opponent = board.opponent;
+  final result = _bindings.edax_board_get_square_color(dstB, x);
+  calloc.free(dstB);
+  return result;
+}</code></pre>
 </section>
 
 
@@ -94,13 +104,13 @@ external int tz_minuteswest;</code></pre>
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">libedax4dart</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings-library.html">bindings</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/timezone1-class.html">timezone1</a></li>
-    <li class="self-crumb">tz_minuteswest property</li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax-library.html">libedax</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_libedax/LibEdax-class.html">LibEdax</a></li>
+    <li class="self-crumb">edaxBoardGetSquareColor method</li>
 </ol>
 
 
-    <h5>timezone1 class</h5>
+    <h5>LibEdax class</h5>
   </div><!--/.sidebar-offcanvas-->
 
   <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
