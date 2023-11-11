@@ -1,3 +1,7 @@
+# 7.17.0
+
+upgrade dependencies.
+
 # 7.16.0
 
 add edaxBoardGetSquareColor.
