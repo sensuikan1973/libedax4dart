@@ -1037,9 +1037,8 @@ class LibEdaxBindings {
   }
 
   late final _edax_hintPtr = _lookup<
-          ffi
-          .NativeFunction<ffi.Void Function(ffi.Int, ffi.Pointer<HintList>)>>(
-      'edax_hint');
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int, ffi.Pointer<HintList>)>>('edax_hint');
   late final _edax_hint =
       _edax_hintPtr.asFunction<void Function(int, ffi.Pointer<HintList>)>();
 
@@ -4399,6 +4398,7 @@ const int OSSPINLOCK_DEPRECATED = 1;
 /// You should always initialize a spinlock to {@link OS_SPINLOCK_INIT} before
 /// using it.
 typedef OSSpinLock = ffi.Int32;
+typedef DartOSSpinLock = int;
 
 const int OS_SPINLOCK_INIT = 0;
 
@@ -7889,9 +7889,11 @@ final class __darwin_sigaltstack extends ffi.Struct {
 
 typedef __darwin_sigset_t = __uint32_t;
 typedef __darwin_size_t = ffi.UnsignedLong;
+typedef Dart__darwin_size_t = int;
 typedef __darwin_socklen_t = __uint32_t;
 typedef __darwin_suseconds_t = __int32_t;
 typedef __darwin_time_t = ffi.Long;
+typedef Dart__darwin_time_t = int;
 
 final class __darwin_ucontext extends ffi.Struct {
   @ffi.Int()
@@ -7912,6 +7914,7 @@ final class __darwin_ucontext extends ffi.Struct {
 
 typedef __darwin_uid_t = __uint32_t;
 typedef __darwin_wchar_t = ffi.Int;
+typedef Dart__darwin_wchar_t = int;
 
 final class __darwin_x86_avx512_state64 extends ffi.Opaque {}
 
@@ -8105,7 +8108,9 @@ final class __float2 extends ffi.Struct {
 const int __has_ptrcheck = 0;
 
 typedef __int32_t = ffi.Int;
+typedef Dart__int32_t = int;
 typedef __int64_t = ffi.LongLong;
+typedef Dart__int64_t = int;
 
 final class __last_branch_record extends ffi.Opaque {}
 
@@ -8274,9 +8279,13 @@ final class __sockaddr_header extends ffi.Struct {
 }
 
 typedef __uint16_t = ffi.UnsignedShort;
+typedef Dart__uint16_t = int;
 typedef __uint32_t = ffi.UnsignedInt;
+typedef Dart__uint32_t = int;
 typedef __uint64_t = ffi.UnsignedLongLong;
+typedef Dart__uint64_t = int;
 typedef __uint8_t = ffi.UnsignedChar;
+typedef Dart__uint8_t = int;
 
 final class __x86_instruction_state extends ffi.Struct {
   @ffi.Int()
@@ -9840,6 +9849,7 @@ final class tm extends ffi.Struct {
 const int true1 = 1;
 
 typedef u_int32_t = ffi.UnsignedInt;
+typedef Dartu_int32_t = int;
 typedef uid_t = __darwin_uid_t;
 
 final class wait extends ffi.Opaque {}
