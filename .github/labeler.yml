@@ -1,14 +1,17 @@
 ---
 'GitHub Actions':
-  - .github/workflows/**/*
-  - .github/scripts/**/*
-  - .github/dependabot.yml
-  - .github/labeler.yml
-  - .github/.typos_config.toml
+  - changed-files:
+    - .github/workflows/**/*
+    - .github/scripts/**/*
+    - .github/dependabot.yml
+    - .github/labeler.yml
+    - .github/.typos_config.toml
 
 ffigen:
-  - ffigen.yaml
-  - lib/src/ffi/bindings.dart
+  - changed-files:
+    - ffigen.yaml
+    - lib/src/ffi/bindings.dart
 
 codecov:
-  - .codecov.yml
+  - changed-files:
+    - .codecov.yml
