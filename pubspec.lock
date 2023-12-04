@@ -381,10 +381,10 @@ packages:
     dependency: transitive
     description:
       name: safe_url_check
-      sha256: b85685b48d74dcd9659e1f2228f900b9fb37cd3b4ba085ca4f593d06c00c36a6
+      sha256: "49a3e060a7869cbafc8f4845ca1ecbbaaa53179980a32f4fdfeab1607e90f41d"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.1"
+    version: "1.1.2"
   shelf:
     dependency: transitive
     description:
