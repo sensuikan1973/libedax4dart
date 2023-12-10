@@ -469,10 +469,10 @@ packages:
     dependency: transitive
     description:
       name: tar
-      sha256: "451629b6ed9dd18be43688f4b42de34dd0ddd9e0a7da76a42b9e0b4ac7e9c68d"
+      sha256: "1680219f82dfa81c8d0e76e849b7b34ea969c721f55a8ebd294a9a95e740dd42"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.2"
+    version: "1.0.3"
   term_glyph:
     dependency: transitive
     description:
