@@ -87,7 +87,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "7.18.0"
+    version: "7.19.0"
   lints:
     dependency: transitive
     description:
