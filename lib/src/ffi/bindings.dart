@@ -37,8 +37,6 @@ class LibEdaxBindings {
 
   int get BOOK_INFO_RESOLUTION => _BOOK_INFO_RESOLUTION.value;
 
-  set BOOK_INFO_RESOLUTION(int value) => _BOOK_INFO_RESOLUTION.value = value;
-
   late final ffi.Pointer<ffi.Pointer<ffi.Char>> _COUNT_FLIP_2 =
       _lookup<ffi.Pointer<ffi.Char>>('COUNT_FLIP_2');
 
@@ -174,22 +172,16 @@ class LibEdaxBindings {
 
   int get EVAL_N_FEATURE => _EVAL_N_FEATURE.value;
 
-  set EVAL_N_FEATURE(int value) => _EVAL_N_FEATURE.value = value;
-
   /// number of plies
   late final ffi.Pointer<ffi.Int> _EVAL_N_PLY = _lookup<ffi.Int>('EVAL_N_PLY');
 
   int get EVAL_N_PLY => _EVAL_N_PLY.value;
-
-  set EVAL_N_PLY(int value) => _EVAL_N_PLY.value = value;
 
   /// number of (unpacked) weights
   late final ffi.Pointer<ffi.Int> _EVAL_N_WEIGHT =
       _lookup<ffi.Int>('EVAL_N_WEIGHT');
 
   int get EVAL_N_WEIGHT => _EVAL_N_WEIGHT.value;
-
-  set EVAL_N_WEIGHT(int value) => _EVAL_N_WEIGHT.value = value;
 
   /// feature offset
   late final ffi.Pointer<ffi.Pointer<ffi.Int>> _EVAL_OFFSET =
@@ -441,8 +433,6 @@ class LibEdaxBindings {
       _lookup<ffi.Int>('NO_SELECTIVITY');
 
   int get NO_SELECTIVITY => _NO_SELECTIVITY.value;
-
-  set NO_SELECTIVITY(int value) => _NO_SELECTIVITY.value = value;
 
   /// threshold values to try stability cutoff during NWS search
   late final ffi.Pointer<ffi.Pointer<ffi.Int>> _NWS_STABILITY_THRESHOLD =
@@ -1528,8 +1518,6 @@ class LibEdaxBindings {
   late final ffi.Pointer<ffi.Int> _sys_nerr = _lookup<ffi.Int>('sys_nerr');
 
   int get sys_nerr => _sys_nerr.value;
-
-  set sys_nerr(int value) => _sys_nerr.value = value;
 
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Char>>> _sys_siglist =
       _lookup<ffi.Pointer<ffi.Pointer<ffi.Char>>>('sys_siglist');
