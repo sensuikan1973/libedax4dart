@@ -1,3 +1,7 @@
+# 7.20.0
+
+change ffigen option.
+
 # 7.19.0
 
 upgrade dependencies.
