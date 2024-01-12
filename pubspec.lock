@@ -541,10 +541,10 @@ packages:
     dependency: transitive
     description:
       name: web
-      sha256: a4fcead029d8cbde2df1674cdc4585640a28bddd1e46878b9ceebeaf9d7a5913
+      sha256: "4188706108906f002b3a293509234588823c8c979dc83304e229ff400c996b05"
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.1"
+    version: "0.4.2"
   web_socket_channel:
     dependency: transitive
     description:
