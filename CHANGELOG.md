@@ -1,3 +1,7 @@
+# 7.22.0
+
+upgrade libedax-version.
+
 # 7.21.0
 
 upgrade dependencies.
