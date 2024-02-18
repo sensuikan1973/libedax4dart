@@ -51,8 +51,8 @@ class Position {
     for (var k = 0; k < cPosition.n_link; k++) {
       links.add(
         Link(
-          cPosition.link.elementAt(k).ref.score,
-          cPosition.link.elementAt(k).ref.move,
+          (cPosition.link + k).ref.score,
+          (cPosition.link + k).ref.move,
         ),
       );
     }
