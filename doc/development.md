@@ -1,18 +1,15 @@
-## Development
+# Development
 
-![Dart CI](https://github.com/sensuikan1973/libedax4dart/workflows/Dart%20CI/badge.svg)
-[![codecov](https://codecov.io/gh/sensuikan1973/libedax4dart/branch/main/graph/badge.svg?token=LdDfCMnDhz)](https://codecov.io/gh/sensuikan1973/libedax4dart)
+## commands
 
-### commands
-
-#### run example
+### run example
 
 ```sh
 cd example && dart pub get && cd ..
 dart example/example.dart
 ```
 
-#### format
+### format
 
 ```sh
 # fix with line length 80 for pana, although I don't like.
@@ -20,13 +17,13 @@ dart example/example.dart
 dart format --fix .
 ```
 
-#### test
+### test
 
 ```sh
 dart run test .
 ```
 
-#### analyze
+### analyze
 
 ```sh
 dart analyze .
@@ -34,19 +31,19 @@ dart analyze .
 dart fix --apply # auto fix
 ```
 
-#### [pana](https://pub.dev/packages/pana)
+### [pana](https://pub.dev/packages/pana)
 
 ```sh
 dart run pana
 ```
 
-#### document
+### document
 
 ```sh
 dart doc . --validate-links && open doc/api/index.html
 ```
 
-#### change libedax bin
+### change libedax bin
 
 ```sh
 # After you edit .libedax-version, run this.
@@ -54,14 +51,14 @@ dart doc . --validate-links && open doc/api/index.html
 libedax_build_command="make universal_osx_libbuild" dst="." ./scripts/build_libedax.sh
 ```
 
-#### generate bindings
+### generate bindings
 
 ```sh
 # Before this, you must run build_libedax.sh.
 dart run ffigen --config ffigen.yaml --verbose severe && dart format --fix .
 ```
 
-#### publish
+### publish
 
 https://github.com/dart-lang/pub-dev/issues/5388
 
@@ -69,7 +66,7 @@ https://github.com/dart-lang/pub-dev/issues/5388
 dart pub publish
 ```
 
-### reference
+## references
 
 - [dart:ffi](https://dart.dev/guides/libraries/c-interop)
   - [dart-lang/samples/ffi](https://github.com/dart-lang/samples/tree/master/ffi) : simple sample
