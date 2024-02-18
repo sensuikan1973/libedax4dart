@@ -27,12 +27,12 @@ With using libedax4dart, you can execute functions equivalent to [edax](https://
 ## Real World Example
 
 - [pedax](https://github.com/sensuikan1973/pedax) : Flutter Desktop app
-- [edax_runner](https://github.com/sensuikan1973/edax_runner) : Dart native app
+- [edax_runner](https://github.com/sensuikan1973/edax_runner) : Dart native CLI app
 
-## Reference
+## References
 
-- python version: [libedax4py](https://github.com/lavox/libedax4py)
-- java version: [libedax4j](https://github.com/lavox/libedax4j)
+- python edition: [libedax4py](https://github.com/lavox/libedax4py)
+- java edition: [libedax4j](https://github.com/lavox/libedax4j)
 
 ---
 
