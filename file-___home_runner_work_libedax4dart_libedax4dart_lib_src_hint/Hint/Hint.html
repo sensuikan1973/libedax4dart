@@ -29,7 +29,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">libedax4dart</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_hint/file-___home_runner_work_libedax4dart_libedax4dart_lib_src_hint-library.html">hint</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_hint/file-___home_runner_work_libedax4dart_libedax4dart_lib_src_hint-library.html">src&#47;hint.dart</a></li>
     <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_hint/Hint-class.html">Hint</a></li>
     <li class="self-crumb">Hint const constructor</li>
   </ol>
@@ -62,13 +62,13 @@
 
     <section class="multi-line-signature">
       const
-      <span class="name ">Hint</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-depth"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.2.6/dart-core/int-class.html">int</a></span> <span class="parameter-name">depth</span>, </span></li>
-<li><span class="parameter" id="-param-selectivity"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.2.6/dart-core/int-class.html">int</a></span> <span class="parameter-name">selectivity</span>, </span></li>
-<li><span class="parameter" id="-param-move"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.2.6/dart-core/int-class.html">int</a></span> <span class="parameter-name">move</span>, </span></li>
-<li><span class="parameter" id="-param-score"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.2.6/dart-core/int-class.html">int</a></span> <span class="parameter-name">score</span>, </span></li>
-<li><span class="parameter" id="-param-upper"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.2.6/dart-core/int-class.html">int</a></span> <span class="parameter-name">upper</span>, </span></li>
-<li><span class="parameter" id="-param-lower"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.2.6/dart-core/int-class.html">int</a></span> <span class="parameter-name">lower</span>, </span></li>
-<li><span class="parameter" id="-param-isBookMove"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.2.6/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isBookMove</span></span></li>
+      <span class="name ">Hint</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-depth"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.3.0/dart-core/int-class.html">int</a></span> <span class="parameter-name">depth</span>, </span></li>
+<li><span class="parameter" id="-param-selectivity"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.3.0/dart-core/int-class.html">int</a></span> <span class="parameter-name">selectivity</span>, </span></li>
+<li><span class="parameter" id="-param-move"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.3.0/dart-core/int-class.html">int</a></span> <span class="parameter-name">move</span>, </span></li>
+<li><span class="parameter" id="-param-score"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.3.0/dart-core/int-class.html">int</a></span> <span class="parameter-name">score</span>, </span></li>
+<li><span class="parameter" id="-param-upper"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.3.0/dart-core/int-class.html">int</a></span> <span class="parameter-name">upper</span>, </span></li>
+<li><span class="parameter" id="-param-lower"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.3.0/dart-core/int-class.html">int</a></span> <span class="parameter-name">lower</span>, </span></li>
+<li><span class="parameter" id="-param-isBookMove"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.3.0/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isBookMove</span></span></li>
 </ol>)
     </section>
 
@@ -78,7 +78,15 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">const Hint</code></pre>
+  <pre class="language-dart"><code class="language-dart">const Hint(
+  this.depth,
+  this.selectivity,
+  this.move,
+  this.score,
+  this.upper,
+  this.lower,
+  this.isBookMove, &#47;&#47; ignore: avoid_positional_boolean_parameters
+);</code></pre>
 </section>
 
 
