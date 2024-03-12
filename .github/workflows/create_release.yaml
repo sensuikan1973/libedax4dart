@@ -55,7 +55,7 @@ jobs:
         if: runner.os == 'macOS' || runner.os == 'Linux'
         run: mkdir -p ${{ env.PUBLISH_DIR }} && zip -r ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip ${{ env.OUTPUT_DIR }}
 
-      - uses: softprops/action-gh-release@v1
+      - uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
