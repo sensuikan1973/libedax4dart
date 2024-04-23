@@ -2091,6 +2091,8 @@ const int EF_MAY_SHARE_BLOCKS = 1;
 
 const int EF_NO_XATTRS = 2;
 
+const int EF_SHARES_ALL_BLOCKS = 64;
+
 const int EHOSTDOWN = 64;
 
 const int EHOSTUNREACH = 65;
@@ -2378,7 +2380,11 @@ const int FPE_INTOVF = 8;
 
 const int FPE_NOOP = 0;
 
-const int FP_CHOP = 3;
+const int FP_FAST_FMA = 1;
+
+const int FP_FAST_FMAF = 1;
+
+const int FP_FAST_FMAL = 1;
 
 const int FP_ILOGB0 = -2147483648;
 
@@ -2390,23 +2396,9 @@ const int FP_NAN = 1;
 
 const int FP_NORMAL = 4;
 
-const int FP_PREC_24B = 0;
-
-const int FP_PREC_53B = 2;
-
-const int FP_PREC_64B = 3;
-
 const int FP_QNAN = 1;
 
-const int FP_RND_DOWN = 1;
-
-const int FP_RND_NEAR = 0;
-
-const int FP_RND_UP = 2;
-
 const int FP_SNAN = 1;
-
-const int FP_STATE_BYTES = 512;
 
 const int FP_SUBNORMAL = 5;
 
@@ -3192,6 +3184,10 @@ const int IOPOL_VFS_IGNORE_PERMISSIONS_OFF = 0;
 
 const int IOPOL_VFS_IGNORE_PERMISSIONS_ON = 1;
 
+const int IOPOL_VFS_NOCACHE_WRITE_FS_BLKSIZE_DEFAULT = 0;
+
+const int IOPOL_VFS_NOCACHE_WRITE_FS_BLKSIZE_ON = 1;
+
 const int IOPOL_VFS_SKIP_MTIME_UPDATE_OFF = 0;
 
 const int IOPOL_VFS_SKIP_MTIME_UPDATE_ON = 1;
@@ -3971,9 +3967,39 @@ final class Log extends ffi.Struct {
 
 const int MAC_OS_VERSION_11_0 = 110000;
 
+const int MAC_OS_VERSION_11_1 = 110100;
+
+const int MAC_OS_VERSION_11_3 = 110300;
+
+const int MAC_OS_VERSION_11_4 = 110400;
+
+const int MAC_OS_VERSION_11_5 = 110500;
+
+const int MAC_OS_VERSION_11_6 = 110600;
+
 const int MAC_OS_VERSION_12_0 = 120000;
 
+const int MAC_OS_VERSION_12_1 = 120100;
+
+const int MAC_OS_VERSION_12_2 = 120200;
+
+const int MAC_OS_VERSION_12_3 = 120300;
+
+const int MAC_OS_VERSION_12_4 = 120400;
+
+const int MAC_OS_VERSION_12_5 = 120500;
+
 const int MAC_OS_VERSION_13_0 = 130000;
+
+const int MAC_OS_VERSION_13_1 = 130100;
+
+const int MAC_OS_VERSION_13_2 = 130200;
+
+const int MAC_OS_VERSION_13_3 = 130300;
+
+const int MAC_OS_VERSION_13_4 = 130400;
+
+const int MAC_OS_VERSION_14_0 = 140000;
 
 const int MAC_OS_X_VERSION_10_0 = 1000;
 
@@ -4015,11 +4041,15 @@ const int MAC_OS_X_VERSION_10_14_1 = 101401;
 
 const int MAC_OS_X_VERSION_10_14_4 = 101404;
 
+const int MAC_OS_X_VERSION_10_14_5 = 101405;
+
 const int MAC_OS_X_VERSION_10_14_6 = 101406;
 
 const int MAC_OS_X_VERSION_10_15 = 101500;
 
 const int MAC_OS_X_VERSION_10_15_1 = 101501;
+
+const int MAC_OS_X_VERSION_10_15_4 = 101504;
 
 const int MAC_OS_X_VERSION_10_16 = 101600;
 
@@ -4776,7 +4806,7 @@ const int PTHREAD_SCOPE_PROCESS = 2;
 
 const int PTHREAD_SCOPE_SYSTEM = 1;
 
-const int PTHREAD_STACK_MIN = 8192;
+const int PTHREAD_STACK_MIN = 16384;
 
 const int PTRDIFF_MAX = 9223372036854775807;
 
@@ -6338,6 +6368,8 @@ const int _ACCESS_EXTENDED_MASK = 4193792;
 
 const int _APPEND_OK = 8192;
 
+const int _ARM_SIGNAL_ = 1;
+
 const int _CACHED_RUNES = 256;
 
 const int _CHOWN_OK = 2097152;
@@ -6452,7 +6484,11 @@ const int _CTYPE_X = 65536;
 
 const int _DARWIN_FEATURE_64_BIT_INODE = 1;
 
+const int _DARWIN_FEATURE_ONLY_64_BIT_INODE = 1;
+
 const int _DARWIN_FEATURE_ONLY_UNIX_CONFORMANCE = 1;
+
+const int _DARWIN_FEATURE_ONLY_VERS_1050 = 1;
 
 const int _DARWIN_FEATURE_UNIX_CONFORMANCE = 3;
 
@@ -6462,8 +6498,6 @@ const int _EXECUTE_OK = 2048;
 
 const int _FORTIFY_SOURCE = 2;
 
-const int _I386_SIGNAL_H_ = 1;
-
 const int _IOFBF = 0;
 
 const int _IOLBF = 1;
@@ -6471,6 +6505,24 @@ const int _IOLBF = 1;
 const int _IONBF = 2;
 
 const int _LC_LAST = 7;
+
+@ffi.Packed(1)
+final class _OSUnalignedU16 extends ffi.Struct {
+  @ffi.Uint16()
+  external int __val;
+}
+
+@ffi.Packed(1)
+final class _OSUnalignedU32 extends ffi.Struct {
+  @ffi.Uint32()
+  external int __val;
+}
+
+@ffi.Packed(1)
+final class _OSUnalignedU64 extends ffi.Struct {
+  @ffi.Uint64()
+  external int __val;
+}
 
 const String _PATH_HEQUIV = '/etc/hosts.equiv';
 
@@ -6684,7 +6736,7 @@ const int _POSIX_SHELL = 200112;
 
 const int _POSIX_SIGQUEUE_MAX = 32;
 
-const int _POSIX_SPAWN = -1;
+const int _POSIX_SPAWN = 200112;
 
 const int _POSIX_SPIN_LOCKS = -1;
 
@@ -7166,10 +7218,6 @@ const int _WRITE_OK = 1024;
 
 const int _WSTOPPED = 127;
 
-const int _X86_INSTRUCTION_STATE_CACHELINE_SIZE = 64;
-
-const int _X86_INSTRUCTION_STATE_MAX_INSN_BYTES = 2380;
-
 const int _XBS5_ILP32_OFF32 = -1;
 
 const int _XBS5_ILP32_OFFBIG = -1;
@@ -7218,7 +7266,49 @@ const int __API_TO_BE_DEPRECATED_TVOS = 100000;
 
 const int __API_TO_BE_DEPRECATED_WATCHOS = 100000;
 
+const int __API_TO_BE_DEPRECATED_XROS = 100000;
+
 const String __ASSERT_FILE_NAME = 'temp_for_macros.hpp';
+
+const int __BRIDGEOS_2_0 = 20000;
+
+const int __BRIDGEOS_3_0 = 30000;
+
+const int __BRIDGEOS_3_1 = 30100;
+
+const int __BRIDGEOS_3_4 = 30400;
+
+const int __BRIDGEOS_4_0 = 40000;
+
+const int __BRIDGEOS_4_1 = 40100;
+
+const int __BRIDGEOS_5_0 = 50000;
+
+const int __BRIDGEOS_5_1 = 50100;
+
+const int __BRIDGEOS_5_3 = 50300;
+
+const int __BRIDGEOS_6_0 = 60000;
+
+const int __BRIDGEOS_6_2 = 60200;
+
+const int __BRIDGEOS_6_4 = 60400;
+
+const int __BRIDGEOS_6_5 = 60500;
+
+const int __BRIDGEOS_6_6 = 60600;
+
+const int __BRIDGEOS_7_0 = 70000;
+
+const int __BRIDGEOS_7_1 = 70100;
+
+const int __BRIDGEOS_7_2 = 70200;
+
+const int __BRIDGEOS_7_3 = 70300;
+
+const int __BRIDGEOS_7_4 = 70400;
+
+const int __BRIDGEOS_8_0 = 80000;
 
 const int __DARWIN_64_BIT_INO_T = 1;
 
@@ -7256,17 +7346,15 @@ const int __DARWIN_NSIG = 32;
 
 const int __DARWIN_NULL = 0;
 
-const int __DARWIN_ONLY_64_BIT_INO_T = 0;
+const int __DARWIN_ONLY_64_BIT_INO_T = 1;
 
 const int __DARWIN_ONLY_UNIX_CONFORMANCE = 1;
 
-const int __DARWIN_ONLY_VERS_1050 = 0;
+const int __DARWIN_ONLY_VERS_1050 = 1;
+
+const int __DARWIN_OPAQUE_ARM_THREAD_STATE64 = 0;
 
 const int __DARWIN_PDP_ENDIAN = 3412;
-
-const String __DARWIN_SUF_1050 = '\$1050';
-
-const String __DARWIN_SUF_64_BIT_INO_T = '\$INODE64';
 
 const String __DARWIN_SUF_EXTSN = '\$DARWIN_EXTSN';
 
@@ -7286,7 +7374,17 @@ const int __DRIVERKIT_20_0 = 200000;
 
 const int __DRIVERKIT_21_0 = 210000;
 
+const int __DRIVERKIT_22_0 = 220000;
+
+const int __DRIVERKIT_22_4 = 220400;
+
+const int __DRIVERKIT_22_5 = 220500;
+
+const int __DRIVERKIT_23_0 = 230000;
+
 const int __ENABLE_LEGACY_MAC_AVAILABILITY = 1;
+
+const int __GNUC_VA_LIST = 1;
 
 const int __ILP32_OFF32 = -1;
 
@@ -7344,6 +7442,8 @@ const int __IPHONE_14_2 = 140200;
 
 const int __IPHONE_14_3 = 140300;
 
+const int __IPHONE_14_4 = 140400;
+
 const int __IPHONE_14_5 = 140500;
 
 const int __IPHONE_14_6 = 140600;
@@ -7362,11 +7462,23 @@ const int __IPHONE_15_3 = 150300;
 
 const int __IPHONE_15_4 = 150400;
 
+const int __IPHONE_15_5 = 150500;
+
+const int __IPHONE_15_6 = 150600;
+
 const int __IPHONE_16_0 = 160000;
 
 const int __IPHONE_16_1 = 160100;
 
 const int __IPHONE_16_2 = 160200;
+
+const int __IPHONE_16_3 = 160300;
+
+const int __IPHONE_16_4 = 160400;
+
+const int __IPHONE_16_5 = 160500;
+
+const int __IPHONE_17_0 = 170000;
 
 const int __IPHONE_2_0 = 20000;
 
@@ -7432,8 +7544,6 @@ const int __IPV6_ADDR_SCOPE_SITELOCAL = 5;
 
 const String __KAME_VERSION = '2009/apple-darwin';
 
-const int __LASTBRANCH_MAX = 32;
-
 const int __LP64_OFF64 = 1;
 
 const int __LPBIG_OFFBIG = 1;
@@ -7477,6 +7587,8 @@ const int __MAC_10_14 = 101400;
 const int __MAC_10_14_1 = 101401;
 
 const int __MAC_10_14_4 = 101404;
+
+const int __MAC_10_14_5 = 101405;
 
 const int __MAC_10_14_6 = 101406;
 
@@ -7524,13 +7636,25 @@ const int __MAC_12_2 = 120200;
 
 const int __MAC_12_3 = 120300;
 
+const int __MAC_12_4 = 120400;
+
+const int __MAC_12_5 = 120500;
+
 const int __MAC_13_0 = 130000;
 
 const int __MAC_13_1 = 130100;
 
-const int __MAC_OS_X_VERSION_MAX_ALLOWED = 130100;
+const int __MAC_13_2 = 130200;
 
-const int __MAC_OS_X_VERSION_MIN_REQUIRED = 120000;
+const int __MAC_13_3 = 130300;
+
+const int __MAC_13_4 = 130400;
+
+const int __MAC_14_0 = 140000;
+
+const int __MAC_OS_X_VERSION_MAX_ALLOWED = 140000;
+
+const int __MAC_OS_X_VERSION_MIN_REQUIRED = 140000;
 
 const int __PTHREAD_ATTR_SIZE__ = 56;
 
@@ -7646,17 +7770,31 @@ const int __TVOS_15_3 = 150300;
 
 const int __TVOS_15_4 = 150400;
 
+const int __TVOS_15_5 = 150500;
+
+const int __TVOS_15_6 = 150600;
+
 const int __TVOS_16_0 = 160000;
 
 const int __TVOS_16_1 = 160100;
 
 const int __TVOS_16_2 = 160200;
 
+const int __TVOS_16_3 = 160300;
+
+const int __TVOS_16_4 = 160400;
+
+const int __TVOS_16_5 = 160500;
+
+const int __TVOS_17_0 = 170000;
+
 const int __TVOS_9_0 = 90000;
 
 const int __TVOS_9_1 = 90100;
 
 const int __TVOS_9_2 = 90200;
+
+const int __WATCHOS_10_0 = 100000;
 
 const int __WATCHOS_1_0 = 10000;
 
@@ -7720,133 +7858,179 @@ const int __WATCHOS_8_4 = 80400;
 
 const int __WATCHOS_8_5 = 80500;
 
+const int __WATCHOS_8_6 = 80600;
+
+const int __WATCHOS_8_7 = 80700;
+
 const int __WATCHOS_9_0 = 90000;
 
 const int __WATCHOS_9_1 = 90100;
 
 const int __WATCHOS_9_2 = 90200;
 
+const int __WATCHOS_9_3 = 90300;
+
+const int __WATCHOS_9_4 = 90400;
+
+const int __WATCHOS_9_5 = 90500;
+
 const int __WORDSIZE = 64;
 
+const int __XROS_1_0 = 10000;
+
+final class __arm_legacy_debug_state extends ffi.Struct {
+  @ffi.Array.multi([16])
+  external ffi.Array<__uint32_t> __bvr;
+
+  @ffi.Array.multi([16])
+  external ffi.Array<__uint32_t> __bcr;
+
+  @ffi.Array.multi([16])
+  external ffi.Array<__uint32_t> __wvr;
+
+  @ffi.Array.multi([16])
+  external ffi.Array<__uint32_t> __wcr;
+}
+
+final class __arm_pagein_state extends ffi.Struct {
+  @ffi.Int()
+  external int __pagein_error;
+}
+
 const int __bool_true_false_are_defined = 1;
+
+final class __darwin_arm_cpmu_state64 extends ffi.Struct {
+  @ffi.Array.multi([16])
+  external ffi.Array<__uint64_t> __ctrs;
+}
+
+final class __darwin_arm_debug_state32 extends ffi.Struct {
+  @ffi.Array.multi([16])
+  external ffi.Array<__uint32_t> __bvr;
+
+  @ffi.Array.multi([16])
+  external ffi.Array<__uint32_t> __bcr;
+
+  @ffi.Array.multi([16])
+  external ffi.Array<__uint32_t> __wvr;
+
+  @ffi.Array.multi([16])
+  external ffi.Array<__uint32_t> __wcr;
+
+  @__uint64_t()
+  external int __mdscr_el1;
+}
+
+final class __darwin_arm_debug_state64 extends ffi.Struct {
+  @ffi.Array.multi([16])
+  external ffi.Array<__uint64_t> __bvr;
+
+  @ffi.Array.multi([16])
+  external ffi.Array<__uint64_t> __bcr;
+
+  @ffi.Array.multi([16])
+  external ffi.Array<__uint64_t> __wvr;
+
+  @ffi.Array.multi([16])
+  external ffi.Array<__uint64_t> __wcr;
+
+  @__uint64_t()
+  external int __mdscr_el1;
+}
+
+final class __darwin_arm_exception_state extends ffi.Struct {
+  @__uint32_t()
+  external int __exception;
+
+  @__uint32_t()
+  external int __fsr;
+
+  @__uint32_t()
+  external int __far;
+}
+
+final class __darwin_arm_exception_state64 extends ffi.Struct {
+  @__uint64_t()
+  external int __far;
+
+  @__uint32_t()
+  external int __esr;
+
+  @__uint32_t()
+  external int __exception;
+}
+
+final class __darwin_arm_neon_state extends ffi.Opaque {}
+
+final class __darwin_arm_neon_state64 extends ffi.Opaque {}
+
+final class __darwin_arm_thread_state extends ffi.Struct {
+  @ffi.Array.multi([13])
+  external ffi.Array<__uint32_t> __r;
+
+  @__uint32_t()
+  external int __sp;
+
+  @__uint32_t()
+  external int __lr;
+
+  @__uint32_t()
+  external int __pc;
+
+  @__uint32_t()
+  external int __cpsr;
+}
+
+final class __darwin_arm_thread_state64 extends ffi.Struct {
+  @ffi.Array.multi([29])
+  external ffi.Array<__uint64_t> __x;
+
+  @__uint64_t()
+  external int __fp;
+
+  @__uint64_t()
+  external int __lr;
+
+  @__uint64_t()
+  external int __sp;
+
+  @__uint64_t()
+  external int __pc;
+
+  @__uint32_t()
+  external int __cpsr;
+
+  @__uint32_t()
+  external int __pad;
+}
+
+final class __darwin_arm_vfp_state extends ffi.Struct {
+  @ffi.Array.multi([64])
+  external ffi.Array<__uint32_t> __r;
+
+  @__uint32_t()
+  external int __fpscr;
+}
 
 typedef __darwin_blkcnt_t = __int64_t;
 typedef __darwin_blksize_t = __int32_t;
 typedef __darwin_dev_t = __int32_t;
-
-final class __darwin_fp_control extends ffi.Opaque {}
-
-final class __darwin_fp_status extends ffi.Opaque {}
-
 typedef __darwin_gid_t = __uint32_t;
-
-final class __darwin_i386_avx512_state extends ffi.Opaque {}
-
-final class __darwin_i386_avx_state extends ffi.Opaque {}
-
-final class __darwin_i386_exception_state extends ffi.Struct {
-  @__uint16_t()
-  external int __trapno;
-
-  @__uint16_t()
-  external int __cpu;
-
-  @__uint32_t()
-  external int __err;
-
-  @__uint32_t()
-  external int __faultvaddr;
-}
-
-final class __darwin_i386_float_state extends ffi.Opaque {}
-
-final class __darwin_i386_thread_state extends ffi.Struct {
-  @ffi.UnsignedInt()
-  external int __eax;
-
-  @ffi.UnsignedInt()
-  external int __ebx;
-
-  @ffi.UnsignedInt()
-  external int __ecx;
-
-  @ffi.UnsignedInt()
-  external int __edx;
-
-  @ffi.UnsignedInt()
-  external int __edi;
-
-  @ffi.UnsignedInt()
-  external int __esi;
-
-  @ffi.UnsignedInt()
-  external int __ebp;
-
-  @ffi.UnsignedInt()
-  external int __esp;
-
-  @ffi.UnsignedInt()
-  external int __ss;
-
-  @ffi.UnsignedInt()
-  external int __eflags;
-
-  @ffi.UnsignedInt()
-  external int __eip;
-
-  @ffi.UnsignedInt()
-  external int __cs;
-
-  @ffi.UnsignedInt()
-  external int __ds;
-
-  @ffi.UnsignedInt()
-  external int __es;
-
-  @ffi.UnsignedInt()
-  external int __fs;
-
-  @ffi.UnsignedInt()
-  external int __gs;
-}
-
 typedef __darwin_ino64_t = __uint64_t;
 typedef __darwin_ino_t = __darwin_ino64_t;
 
-final class __darwin_mcontext32 extends ffi.Opaque {}
+final class __darwin_mcontext32 extends ffi.Struct {
+  external __darwin_arm_exception_state __es;
+
+  external __darwin_arm_thread_state __ss;
+
+  external __darwin_arm_vfp_state __fs;
+}
 
 final class __darwin_mcontext64 extends ffi.Opaque {}
 
-final class __darwin_mcontext64_full extends ffi.Opaque {}
-
-final class __darwin_mcontext_avx32 extends ffi.Opaque {}
-
-final class __darwin_mcontext_avx512_32 extends ffi.Opaque {}
-
-final class __darwin_mcontext_avx512_64 extends ffi.Opaque {}
-
-final class __darwin_mcontext_avx512_64_full extends ffi.Opaque {}
-
-final class __darwin_mcontext_avx64 extends ffi.Opaque {}
-
-final class __darwin_mcontext_avx64_full extends ffi.Opaque {}
-
-final class __darwin_mmst_reg extends ffi.Struct {
-  @ffi.Array.multi([10])
-  external ffi.Array<ffi.Char> __mmst_reg;
-
-  @ffi.Array.multi([6])
-  external ffi.Array<ffi.Char> __mmst_rsrv;
-}
-
 typedef __darwin_mode_t = __uint16_t;
 typedef __darwin_off_t = __int64_t;
-
-final class __darwin_opmask_reg extends ffi.Struct {
-  @ffi.Array.multi([8])
-  external ffi.Array<ffi.Char> __opmask_reg;
-}
-
 typedef __darwin_pid_t = __int32_t;
 typedef __darwin_pthread_attr_t = _opaque_pthread_attr_t;
 typedef __darwin_pthread_cond_t = _opaque_pthread_cond_t;
@@ -7904,179 +8088,6 @@ typedef __darwin_uid_t = __uint32_t;
 typedef __darwin_wchar_t = ffi.Int;
 typedef Dart__darwin_wchar_t = int;
 
-final class __darwin_x86_avx512_state64 extends ffi.Opaque {}
-
-final class __darwin_x86_avx_state64 extends ffi.Opaque {}
-
-final class __darwin_x86_cpmu_state64 extends ffi.Struct {
-  @ffi.Array.multi([16])
-  external ffi.Array<__uint64_t> __ctrs;
-}
-
-final class __darwin_x86_debug_state32 extends ffi.Struct {
-  @ffi.UnsignedInt()
-  external int __dr0;
-
-  @ffi.UnsignedInt()
-  external int __dr1;
-
-  @ffi.UnsignedInt()
-  external int __dr2;
-
-  @ffi.UnsignedInt()
-  external int __dr3;
-
-  @ffi.UnsignedInt()
-  external int __dr4;
-
-  @ffi.UnsignedInt()
-  external int __dr5;
-
-  @ffi.UnsignedInt()
-  external int __dr6;
-
-  @ffi.UnsignedInt()
-  external int __dr7;
-}
-
-final class __darwin_x86_debug_state64 extends ffi.Struct {
-  @__uint64_t()
-  external int __dr0;
-
-  @__uint64_t()
-  external int __dr1;
-
-  @__uint64_t()
-  external int __dr2;
-
-  @__uint64_t()
-  external int __dr3;
-
-  @__uint64_t()
-  external int __dr4;
-
-  @__uint64_t()
-  external int __dr5;
-
-  @__uint64_t()
-  external int __dr6;
-
-  @__uint64_t()
-  external int __dr7;
-}
-
-final class __darwin_x86_exception_state64 extends ffi.Struct {
-  @__uint16_t()
-  external int __trapno;
-
-  @__uint16_t()
-  external int __cpu;
-
-  @__uint32_t()
-  external int __err;
-
-  @__uint64_t()
-  external int __faultvaddr;
-}
-
-final class __darwin_x86_float_state64 extends ffi.Opaque {}
-
-final class __darwin_x86_thread_full_state64 extends ffi.Struct {
-  external __darwin_x86_thread_state64 __ss64;
-
-  @__uint64_t()
-  external int __ds;
-
-  @__uint64_t()
-  external int __es;
-
-  @__uint64_t()
-  external int __ss;
-
-  @__uint64_t()
-  external int __gsbase;
-}
-
-final class __darwin_x86_thread_state64 extends ffi.Struct {
-  @__uint64_t()
-  external int __rax;
-
-  @__uint64_t()
-  external int __rbx;
-
-  @__uint64_t()
-  external int __rcx;
-
-  @__uint64_t()
-  external int __rdx;
-
-  @__uint64_t()
-  external int __rdi;
-
-  @__uint64_t()
-  external int __rsi;
-
-  @__uint64_t()
-  external int __rbp;
-
-  @__uint64_t()
-  external int __rsp;
-
-  @__uint64_t()
-  external int __r8;
-
-  @__uint64_t()
-  external int __r9;
-
-  @__uint64_t()
-  external int __r10;
-
-  @__uint64_t()
-  external int __r11;
-
-  @__uint64_t()
-  external int __r12;
-
-  @__uint64_t()
-  external int __r13;
-
-  @__uint64_t()
-  external int __r14;
-
-  @__uint64_t()
-  external int __r15;
-
-  @__uint64_t()
-  external int __rip;
-
-  @__uint64_t()
-  external int __rflags;
-
-  @__uint64_t()
-  external int __cs;
-
-  @__uint64_t()
-  external int __fs;
-
-  @__uint64_t()
-  external int __gs;
-}
-
-final class __darwin_xmm_reg extends ffi.Struct {
-  @ffi.Array.multi([16])
-  external ffi.Array<ffi.Char> __xmm_reg;
-}
-
-final class __darwin_ymm_reg extends ffi.Struct {
-  @ffi.Array.multi([32])
-  external ffi.Array<ffi.Char> __ymm_reg;
-}
-
-final class __darwin_zmm_reg extends ffi.Struct {
-  @ffi.Array.multi([64])
-  external ffi.Array<ffi.Char> __zmm_reg;
-}
-
 final class __double2 extends ffi.Struct {
   @ffi.Double()
   external double __sinval;
@@ -8099,10 +8110,6 @@ typedef __int32_t = ffi.Int;
 typedef Dart__int32_t = int;
 typedef __int64_t = ffi.LongLong;
 typedef Dart__int64_t = int;
-
-final class __last_branch_record extends ffi.Opaque {}
-
-final class __last_branch_state extends ffi.Opaque {}
 
 final class __mbstate_t extends ffi.Union {
   @ffi.Array.multi([128])
@@ -8275,29 +8282,9 @@ typedef Dart__uint64_t = int;
 typedef __uint8_t = ffi.UnsignedChar;
 typedef Dart__uint8_t = int;
 
-final class __x86_instruction_state extends ffi.Struct {
-  @ffi.Int()
-  external int __insn_stream_valid_bytes;
-
-  @ffi.Int()
-  external int __insn_offset;
-
-  @ffi.Int()
-  external int __out_of_synch;
-
-  @ffi.Array.multi([2380])
-  external ffi.Array<__uint8_t> __insn_bytes;
-
-  @ffi.Array.multi([64])
-  external ffi.Array<__uint8_t> __insn_cacheline;
-}
-
-final class __x86_pagein_state extends ffi.Struct {
-  @ffi.Int()
-  external int __pagein_error;
-}
-
 final class _filesec extends ffi.Opaque {}
+
+final class _malloc_zone_t extends ffi.Opaque {}
 
 final class _opaque_pthread_attr_t extends ffi.Struct {
   @ffi.Long()
@@ -9661,58 +9648,6 @@ final class sockproto extends ffi.Struct {
 }
 
 final class stat extends ffi.Struct {
-  @dev_t()
-  external int st_dev;
-
-  @mode_t()
-  external int st_mode;
-
-  @nlink_t()
-  external int st_nlink;
-
-  @__darwin_ino64_t()
-  external int st_ino;
-
-  @uid_t()
-  external int st_uid;
-
-  @gid_t()
-  external int st_gid;
-
-  @dev_t()
-  external int st_rdev;
-
-  external timespec st_atimespec;
-
-  external timespec st_mtimespec;
-
-  external timespec st_ctimespec;
-
-  external timespec st_birthtimespec;
-
-  @off_t()
-  external int st_size;
-
-  @blkcnt_t()
-  external int st_blocks;
-
-  @blksize_t()
-  external int st_blksize;
-
-  @__uint32_t()
-  external int st_flags;
-
-  @__uint32_t()
-  external int st_gen;
-
-  @__int32_t()
-  external int st_lspare;
-
-  @ffi.Array.multi([2])
-  external ffi.Array<__int64_t> st_qspare;
-}
-
-final class stat64 extends ffi.Struct {
   @dev_t()
   external int st_dev;
 
