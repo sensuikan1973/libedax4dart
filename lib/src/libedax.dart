@@ -422,12 +422,12 @@ class LibEdax {
 
   /// Fix book.
   ///
-  /// See: https://choi.lavox.net/edax/ref_command_book?s[]=deviate#book_fix
+  /// See: https://choi.lavox.net/edax/ref_command_book#book_fix
   void edaxBookFix() => _bindings.edax_book_fix();
 
   /// Book deviate.
   ///
-  /// See: https://choi.lavox.net/edax/ref_command_book?s[]=deviate#book_deviate
+  /// See: https://choi.lavox.net/edax/ref_command_book#book_deviate
   void edaxBookDeviate(final int relativeError, final int absoluteError) =>
       _bindings.edax_book_deviate(relativeError, absoluteError);
 
@@ -436,12 +436,12 @@ class LibEdax {
 
   /// Book store.
   ///
-  /// See: https://choi.lavox.net/edax/ref_command_book?s[]=deviate#book_store
+  /// See: https://choi.lavox.net/edax/ref_command_book#book_store
   void edaxBookStore() => _bindings.edax_book_store();
 
   /// Book save.
   ///
-  /// See: https://choi.lavox.net/edax/ref_command_book?s[]=deviate#book_save
+  /// See: https://choi.lavox.net/edax/ref_command_book#book_save
   void edaxBookSave(final String bookFile) {
     final arg = bookFile.toCharPointer();
     _bindings.edax_book_save(arg);
