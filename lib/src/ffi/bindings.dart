@@ -1820,7 +1820,7 @@ final class Book extends ffi.Struct {
 
   external ffi.Pointer<Search> search;
 
-  @ffi.Int32()
+  @ffi.UnsignedInt()
   external int count_bestpath_stop;
 }
 
@@ -4361,10 +4361,20 @@ const int NZERO = 20;
 final class Node extends ffi.Opaque {}
 
 /// node type
-abstract class NodeType {
-  static const int PV_NODE = 0;
-  static const int CUT_NODE = 1;
-  static const int ALL_NODE = 2;
+enum NodeType {
+  PV_NODE(0),
+  CUT_NODE(1),
+  ALL_NODE(2);
+
+  final int value;
+  const NodeType(this.value);
+
+  static NodeType fromValue(int value) => switch (value) {
+        0 => PV_NODE,
+        1 => CUT_NODE,
+        2 => ALL_NODE,
+        _ => throw ArgumentError("Unknown value for NodeType: $value"),
+      };
 }
 
 /// OBF structure: Othello Board File
@@ -4500,7 +4510,7 @@ final class Options extends ffi.Struct {
   external int time;
 
   /// < game|move-time switch
-  @ffi.Int32()
+  @ffi.UnsignedInt()
   external int play_type;
 
   /// < pondering on/off
@@ -4820,17 +4830,38 @@ const String P_tmpdir = '/var/tmp/';
 final class Play extends ffi.Opaque {}
 
 /// Edax state.
-abstract class PlayState {
-  static const int IS_WAITING = 0;
-  static const int IS_PONDERING = 1;
-  static const int IS_ANALYZING = 2;
-  static const int IS_THINKING = 3;
+enum PlayState {
+  IS_WAITING(0),
+  IS_PONDERING(1),
+  IS_ANALYZING(2),
+  IS_THINKING(3);
+
+  final int value;
+  const PlayState(this.value);
+
+  static PlayState fromValue(int value) => switch (value) {
+        0 => IS_WAITING,
+        1 => IS_PONDERING,
+        2 => IS_ANALYZING,
+        3 => IS_THINKING,
+        _ => throw ArgumentError("Unknown value for PlayState: $value"),
+      };
 }
 
-abstract class PlayType {
-  static const int EDAX_FIXED_LEVEL = 0;
-  static const int EDAX_TIME_PER_GAME = 1;
-  static const int EDAX_TIME_PER_MOVE = 2;
+enum PlayType {
+  EDAX_FIXED_LEVEL(0),
+  EDAX_TIME_PER_GAME(1),
+  EDAX_TIME_PER_MOVE(2);
+
+  final int value;
+  const PlayType(this.value);
+
+  static PlayType fromValue(int value) => switch (value) {
+        0 => EDAX_FIXED_LEVEL,
+        1 => EDAX_TIME_PER_GAME,
+        2 => EDAX_TIME_PER_MOVE,
+        _ => throw ArgumentError("Unknown value for PlayType: $value"),
+      };
 }
 
 /// Array of position.
@@ -5711,13 +5742,26 @@ final class Statistics extends ffi.Struct {
 }
 
 /// constants for search interruption
-abstract class Stop {
-  static const int RUNNING = 0;
-  static const int STOP_PARALLEL_SEARCH = 1;
-  static const int STOP_PONDERING = 2;
-  static const int STOP_TIMEOUT = 3;
-  static const int STOP_ON_DEMAND = 4;
-  static const int STOP_END = 5;
+enum Stop {
+  RUNNING(0),
+  STOP_PARALLEL_SEARCH(1),
+  STOP_PONDERING(2),
+  STOP_TIMEOUT(3),
+  STOP_ON_DEMAND(4),
+  STOP_END(5);
+
+  final int value;
+  const Stop(this.value);
+
+  static Stop fromValue(int value) => switch (value) {
+        0 => RUNNING,
+        1 => STOP_PARALLEL_SEARCH,
+        2 => STOP_PONDERING,
+        3 => STOP_TIMEOUT,
+        4 => STOP_ON_DEMAND,
+        5 => STOP_END,
+        _ => throw ArgumentError("Unknown value for Stop: $value"),
+      };
 }
 
 const int TCP6_MSS = 1024;
@@ -8397,15 +8441,30 @@ final class addrinfo extends ffi.Struct {
 typedef blkcnt_t = __darwin_blkcnt_t;
 typedef blksize_t = __darwin_blksize_t;
 
-abstract class clockid_t {
-  static const int _CLOCK_REALTIME = 0;
-  static const int _CLOCK_MONOTONIC = 6;
-  static const int _CLOCK_MONOTONIC_RAW = 4;
-  static const int _CLOCK_MONOTONIC_RAW_APPROX = 5;
-  static const int _CLOCK_UPTIME_RAW = 8;
-  static const int _CLOCK_UPTIME_RAW_APPROX = 9;
-  static const int _CLOCK_PROCESS_CPUTIME_ID = 12;
-  static const int _CLOCK_THREAD_CPUTIME_ID = 16;
+enum clockid_t {
+  _CLOCK_REALTIME(0),
+  _CLOCK_MONOTONIC(6),
+  _CLOCK_MONOTONIC_RAW(4),
+  _CLOCK_MONOTONIC_RAW_APPROX(5),
+  _CLOCK_UPTIME_RAW(8),
+  _CLOCK_UPTIME_RAW_APPROX(9),
+  _CLOCK_PROCESS_CPUTIME_ID(12),
+  _CLOCK_THREAD_CPUTIME_ID(16);
+
+  final int value;
+  const clockid_t(this.value);
+
+  static clockid_t fromValue(int value) => switch (value) {
+        0 => _CLOCK_REALTIME,
+        6 => _CLOCK_MONOTONIC,
+        4 => _CLOCK_MONOTONIC_RAW,
+        5 => _CLOCK_MONOTONIC_RAW_APPROX,
+        8 => _CLOCK_UPTIME_RAW,
+        9 => _CLOCK_UPTIME_RAW_APPROX,
+        12 => _CLOCK_PROCESS_CPUTIME_ID,
+        16 => _CLOCK_THREAD_CPUTIME_ID,
+        _ => throw ArgumentError("Unknown value for clockid_t: $value"),
+      };
 }
 
 final class clockinfo extends ffi.Struct {
@@ -8507,10 +8566,20 @@ final class hostent extends ffi.Struct {
   external ffi.Pointer<ffi.Pointer<ffi.Char>> h_addr_list;
 }
 
-abstract class idtype_t {
-  static const int P_ALL = 0;
-  static const int P_PID = 1;
-  static const int P_PGID = 2;
+enum idtype_t {
+  P_ALL(0),
+  P_PID(1),
+  P_PGID(2);
+
+  final int value;
+  const idtype_t(this.value);
+
+  static idtype_t fromValue(int value) => switch (value) {
+        0 => P_ALL,
+        1 => P_PID,
+        2 => P_PGID,
+        _ => throw ArgumentError("Unknown value for idtype_t: $value"),
+      };
 }
 
 final class in6_addr extends ffi.Struct {
