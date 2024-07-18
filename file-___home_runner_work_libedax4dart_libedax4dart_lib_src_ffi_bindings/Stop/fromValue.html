@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the STOP_ON_DEMAND constant from the Stop class, for the Dart programming language.">
-  <title>STOP_ON_DEMAND constant - Stop class - bindings library - Dart API</title>
+  <meta name="description" content="API docs for the fromValue method from the Stop enum, for the Dart programming language.">
+  <title>fromValue method - Stop enum - bindings library - Dart API</title>
 
 
   
@@ -30,10 +30,10 @@
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">libedax4dart</a></li>
     <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings-library.html">src&#47;ffi&#47;bindings.dart</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/Stop-class.html">Stop</a></li>
-    <li class="self-crumb">STOP_ON_DEMAND constant</li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/Stop.html">Stop</a></li>
+    <li class="self-crumb">fromValue static method</li>
   </ol>
-  <div class="self-name">STOP_ON_DEMAND</div>
+  <div class="self-name">fromValue</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -54,32 +54,44 @@
 <div
     id="dartdoc-main-content"
     class="main-content"
-    data-above-sidebar="file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings&#47;Stop-class-sidebar.html"
+    data-above-sidebar="file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings&#47;Stop-enum-sidebar.html"
     data-below-sidebar="">
     <div>
-<h1><span class="kind-property">STOP_ON_DEMAND</span> constant 
+<h1><span class="kind-method">fromValue</span> static method 
 </h1></div>
 
-      <section class="multi-line-signature">
-        
-        <a href="https://api.dart.dev/stable/3.4.4/dart-core/int-class.html">int</a>
-        const <span class="name ">STOP_ON_DEMAND</span>
-        
-
-      </section>
+    <section class="multi-line-signature">
       
 
+<span class="returntype"><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/Stop.html">Stop</a></span>
+<span class="name ">fromValue</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="fromValue-param-value"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.4.4/dart-core/int-class.html">int</a></span> <span class="parameter-name">value</span></span></li>
+</ol>)
+
       
+
+    </section>
+    
+
+
+    
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static const int STOP_ON_DEMAND = 4;</code></pre>
+  <pre class="language-dart"><code class="language-dart">static Stop fromValue(int value) =&gt; switch (value) {
+      0 =&gt; RUNNING,
+      1 =&gt; STOP_PARALLEL_SEARCH,
+      2 =&gt; STOP_PONDERING,
+      3 =&gt; STOP_TIMEOUT,
+      4 =&gt; STOP_ON_DEMAND,
+      5 =&gt; STOP_END,
+      _ =&gt; throw ArgumentError(&quot;Unknown value for Stop: $value&quot;),
+    };</code></pre>
 </section>
 
 
-</div> <!-- /.main-content -->
+  </div> <!-- /.main-content -->
 
-<div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
-  <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
 <header id="header-search-sidebar" class="hidden-l">
   <form class="search-sidebar" role="search">
     <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
@@ -89,16 +101,16 @@
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">libedax4dart</a></li>
     <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings-library.html">bindings</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/Stop-class.html">Stop</a></li>
-    <li class="self-crumb">STOP_ON_DEMAND constant</li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/Stop.html">Stop</a></li>
+    <li class="self-crumb">fromValue static method</li>
 </ol>
 
 
-  <h5>Stop class</h5>
-  <div id="dartdoc-sidebar-left-content"></div>
-</div><!--/.sidebar-offcanvas-->
+    <h5>Stop enum</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
 
-<div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
 </div><!--/.sidebar-offcanvas-->
 
 </main>
