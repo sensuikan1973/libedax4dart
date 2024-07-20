@@ -1553,11 +1553,11 @@ class LibEdaxBindings {
           ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>> value) =>
       _time_clock.value = value;
 
-  late final ffi.Pointer<ffi.Long> _timezone1 = _lookup<ffi.Long>('timezone');
+  late final ffi.Pointer<ffi.Long> _timezone = _lookup<ffi.Long>('timezone');
 
-  int get timezone1 => _timezone1.value;
+  int get timezone => _timezone.value;
 
-  set timezone1(int value) => _timezone1.value = value;
+  set timezone(int value) => _timezone.value = value;
 
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Char>>> _tzname =
       _lookup<ffi.Pointer<ffi.Pointer<ffi.Char>>>('tzname');
@@ -9796,7 +9796,7 @@ final class timeval64 extends ffi.Struct {
   external int tv_usec;
 }
 
-final class timezone extends ffi.Struct {
+final class timezone1 extends ffi.Struct {
   @ffi.Int()
   external int tz_minuteswest;
 
