@@ -3989,6 +3989,10 @@ const int MAC_OS_VERSION_12_4 = 120400;
 
 const int MAC_OS_VERSION_12_5 = 120500;
 
+const int MAC_OS_VERSION_12_6 = 120600;
+
+const int MAC_OS_VERSION_12_7 = 120700;
+
 const int MAC_OS_VERSION_13_0 = 130000;
 
 const int MAC_OS_VERSION_13_1 = 130100;
@@ -3999,7 +4003,21 @@ const int MAC_OS_VERSION_13_3 = 130300;
 
 const int MAC_OS_VERSION_13_4 = 130400;
 
+const int MAC_OS_VERSION_13_5 = 130500;
+
+const int MAC_OS_VERSION_13_6 = 130600;
+
 const int MAC_OS_VERSION_14_0 = 140000;
+
+const int MAC_OS_VERSION_14_1 = 140100;
+
+const int MAC_OS_VERSION_14_2 = 140200;
+
+const int MAC_OS_VERSION_14_3 = 140300;
+
+const int MAC_OS_VERSION_14_4 = 140400;
+
+const int MAC_OS_VERSION_14_5 = 140500;
 
 const int MAC_OS_X_VERSION_10_0 = 1000;
 
@@ -5764,6 +5782,42 @@ enum Stop {
       };
 }
 
+const int TARGET_ABI_USES_IOS_VALUES = 1;
+
+const int TARGET_CPU_68K = 0;
+
+const int TARGET_CPU_ALPHA = 0;
+
+const int TARGET_CPU_ARM = 0;
+
+const int TARGET_CPU_ARM64 = 1;
+
+const int TARGET_CPU_MIPS = 0;
+
+const int TARGET_CPU_PPC = 0;
+
+const int TARGET_CPU_PPC64 = 0;
+
+const int TARGET_CPU_SPARC = 0;
+
+const int TARGET_CPU_X86 = 0;
+
+const int TARGET_CPU_X86_64 = 0;
+
+const int TARGET_OS_RTKIT = 0;
+
+const int TARGET_OS_VISION = 0;
+
+const int TARGET_RT_64_BIT = 1;
+
+const int TARGET_RT_BIG_ENDIAN = 0;
+
+const int TARGET_RT_LITTLE_ENDIAN = 1;
+
+const int TARGET_RT_MAC_CFM = 0;
+
+const int TARGET_RT_MAC_MACHO = 1;
+
 const int TCP6_MSS = 1024;
 
 const int TCPCI_FLAG_LOSSRECOVERY = 1;
@@ -7308,9 +7362,9 @@ const int __API_TO_BE_DEPRECATED_MACOS = 100000;
 
 const int __API_TO_BE_DEPRECATED_TVOS = 100000;
 
-const int __API_TO_BE_DEPRECATED_WATCHOS = 100000;
+const int __API_TO_BE_DEPRECATED_VISIONOS = 100000;
 
-const int __API_TO_BE_DEPRECATED_XROS = 100000;
+const int __API_TO_BE_DEPRECATED_WATCHOS = 100000;
 
 const String __ASSERT_FILE_NAME = 'temp_for_macros.hpp';
 
@@ -7352,7 +7406,19 @@ const int __BRIDGEOS_7_3 = 70300;
 
 const int __BRIDGEOS_7_4 = 70400;
 
+const int __BRIDGEOS_7_6 = 70600;
+
 const int __BRIDGEOS_8_0 = 80000;
+
+const int __BRIDGEOS_8_1 = 80100;
+
+const int __BRIDGEOS_8_2 = 80200;
+
+const int __BRIDGEOS_8_3 = 80300;
+
+const int __BRIDGEOS_8_4 = 80400;
+
+const int __BRIDGEOS_8_5 = 80500;
 
 const int __DARWIN_64_BIT_INO_T = 1;
 
@@ -7424,7 +7490,19 @@ const int __DRIVERKIT_22_4 = 220400;
 
 const int __DRIVERKIT_22_5 = 220500;
 
+const int __DRIVERKIT_22_6 = 220600;
+
 const int __DRIVERKIT_23_0 = 230000;
+
+const int __DRIVERKIT_23_1 = 230100;
+
+const int __DRIVERKIT_23_2 = 230200;
+
+const int __DRIVERKIT_23_3 = 230300;
+
+const int __DRIVERKIT_23_4 = 230400;
+
+const int __DRIVERKIT_23_5 = 230500;
 
 const int __ENABLE_LEGACY_MAC_AVAILABILITY = 1;
 
@@ -7510,6 +7588,10 @@ const int __IPHONE_15_5 = 150500;
 
 const int __IPHONE_15_6 = 150600;
 
+const int __IPHONE_15_7 = 150700;
+
+const int __IPHONE_15_8 = 150800;
+
 const int __IPHONE_16_0 = 160000;
 
 const int __IPHONE_16_1 = 160100;
@@ -7522,7 +7604,21 @@ const int __IPHONE_16_4 = 160400;
 
 const int __IPHONE_16_5 = 160500;
 
+const int __IPHONE_16_6 = 160600;
+
+const int __IPHONE_16_7 = 160700;
+
 const int __IPHONE_17_0 = 170000;
+
+const int __IPHONE_17_1 = 170100;
+
+const int __IPHONE_17_2 = 170200;
+
+const int __IPHONE_17_3 = 170300;
+
+const int __IPHONE_17_4 = 170400;
+
+const int __IPHONE_17_5 = 170500;
 
 const int __IPHONE_2_0 = 20000;
 
@@ -7684,6 +7780,10 @@ const int __MAC_12_4 = 120400;
 
 const int __MAC_12_5 = 120500;
 
+const int __MAC_12_6 = 120600;
+
+const int __MAC_12_7 = 120700;
+
 const int __MAC_13_0 = 130000;
 
 const int __MAC_13_1 = 130100;
@@ -7694,9 +7794,23 @@ const int __MAC_13_3 = 130300;
 
 const int __MAC_13_4 = 130400;
 
+const int __MAC_13_5 = 130500;
+
+const int __MAC_13_6 = 130600;
+
 const int __MAC_14_0 = 140000;
 
-const int __MAC_OS_X_VERSION_MAX_ALLOWED = 140000;
+const int __MAC_14_1 = 140100;
+
+const int __MAC_14_2 = 140200;
+
+const int __MAC_14_3 = 140300;
+
+const int __MAC_14_4 = 140400;
+
+const int __MAC_14_5 = 140500;
+
+const int __MAC_OS_X_VERSION_MAX_ALLOWED = 140500;
 
 const int __MAC_OS_X_VERSION_MIN_REQUIRED = 140000;
 
@@ -7830,7 +7944,19 @@ const int __TVOS_16_4 = 160400;
 
 const int __TVOS_16_5 = 160500;
 
+const int __TVOS_16_6 = 160600;
+
 const int __TVOS_17_0 = 170000;
+
+const int __TVOS_17_1 = 170100;
+
+const int __TVOS_17_2 = 170200;
+
+const int __TVOS_17_3 = 170300;
+
+const int __TVOS_17_4 = 170400;
+
+const int __TVOS_17_5 = 170500;
 
 const int __TVOS_9_0 = 90000;
 
@@ -7838,7 +7964,23 @@ const int __TVOS_9_1 = 90100;
 
 const int __TVOS_9_2 = 90200;
 
+const int __VISIONOS_1_0 = 10000;
+
+const int __VISIONOS_1_1 = 10100;
+
+const int __VISIONOS_1_2 = 10200;
+
 const int __WATCHOS_10_0 = 100000;
+
+const int __WATCHOS_10_1 = 100100;
+
+const int __WATCHOS_10_2 = 100200;
+
+const int __WATCHOS_10_3 = 100300;
+
+const int __WATCHOS_10_4 = 100400;
+
+const int __WATCHOS_10_5 = 100500;
 
 const int __WATCHOS_1_0 = 10000;
 
@@ -7906,6 +8048,8 @@ const int __WATCHOS_8_6 = 80600;
 
 const int __WATCHOS_8_7 = 80700;
 
+const int __WATCHOS_8_8 = 80800;
+
 const int __WATCHOS_9_0 = 90000;
 
 const int __WATCHOS_9_1 = 90100;
@@ -7918,9 +8062,9 @@ const int __WATCHOS_9_4 = 90400;
 
 const int __WATCHOS_9_5 = 90500;
 
-const int __WORDSIZE = 64;
+const int __WATCHOS_9_6 = 90600;
 
-const int __XROS_1_0 = 10000;
+const int __WORDSIZE = 64;
 
 final class __arm_legacy_debug_state extends ffi.Struct {
   @ffi.Array.multi([16])
@@ -8149,6 +8293,8 @@ final class __float2 extends ffi.Struct {
 }
 
 const int __has_ptrcheck = 0;
+
+const int __has_safe_buffers = 1;
 
 typedef __int32_t = ffi.Int;
 typedef Dart__int32_t = int;
@@ -9527,7 +9673,13 @@ final class rusage_info_v6 extends ffi.Struct {
   @ffi.Uint64()
   external int ri_penergy_nj;
 
-  @ffi.Array.multi([14])
+  @ffi.Uint64()
+  external int ri_secure_time_in_system;
+
+  @ffi.Uint64()
+  external int ri_secure_ptime_in_system;
+
+  @ffi.Array.multi([12])
   external ffi.Array<ffi.Uint64> ri_reserved;
 }
 
