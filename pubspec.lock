@@ -154,10 +154,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_lints
-      sha256: a25a15ebbdfc33ab1cd26c63a6ee519df92338a9c10f122adda92938253bef04
+      sha256: "3f41d009ba7172d5ff9be5f6e6e6abb4300e263aab8866d2a0842ed2a70f8f0c"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.3"
+    version: "4.0.0"
   frontend_server_client:
     dependency: transitive
     description:
@@ -242,10 +242,10 @@ packages:
     dependency: transitive
     description:
       name: lints
-      sha256: "0a217c6c989d21039f1498c3ed9f3ed71b354e69873f13a8dfc3c9fe76f1b452"
+      sha256: "976c774dd944a42e83e2467f4cc670daef7eed6295b10b36ae8c85bcbf828235"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.1"
+    version: "4.0.0"
   logging:
     dependency: transitive
     description:
@@ -322,10 +322,10 @@ packages:
     dependency: "direct dev"
     description:
       name: pana
-      sha256: "6f4372d5d2af5fe3fc6491c18f575601743bceb8433c7f179a6fffd162ee55f1"
+      sha256: f0e7f53b2972ca8d2e00b32a9577a10ef140aafcd1796b087e8de425c51699dd
       url: "https://pub.dev"
     source: hosted
-    version: "0.21.39"
+    version: "0.22.10"
   path:
     dependency: transitive
     description:
@@ -338,10 +338,10 @@ packages:
     dependency: "direct dev"
     description:
       name: pedantic_sensuikan1973
-      sha256: "8a19424803bb0bdc45c481d54a381623ac34b8f78bf770f04b295cefe64c5b26"
+      sha256: "631212eb2e7ae5a19ffe9014f5b2f8796ddc900b7e5bb6cd7954a3dcecfa8fcb"
       url: "https://pub.dev"
     source: hosted
-    version: "5.3.0"
+    version: "5.6.1"
   pool:
     dependency: transitive
     description:
@@ -482,10 +482,10 @@ packages:
     dependency: transitive
     description:
       name: tar
-      sha256: "22f67e2d77b51050436620b2a5de521c58ca6f0b75af1d9ab3c8cae2eae58fcd"
+      sha256: "8e67ab1baa07d3ef2c5d52cfb84e7ed4742799141e9e2ac3d0801a1a7ccb7575"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.5"
+    version: "2.0.0"
   term_glyph:
     dependency: transitive
     description:
