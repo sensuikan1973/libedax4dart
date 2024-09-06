@@ -1821,7 +1821,9 @@ final class Book extends ffi.Struct {
   external ffi.Pointer<Search> search;
 
   @ffi.UnsignedInt()
-  external int count_bestpath_stop;
+  external int count_bestpath_stopAsInt;
+
+  Stop get count_bestpath_stop => Stop.fromValue(count_bestpath_stopAsInt);
 }
 
 final class BookCheckGame extends ffi.Struct {
@@ -4529,7 +4531,9 @@ final class Options extends ffi.Struct {
 
   /// < game|move-time switch
   @ffi.UnsignedInt()
-  external int play_type;
+  external int play_typeAsInt;
+
+  PlayType get play_type => PlayType.fromValue(play_typeAsInt);
 
   /// < pondering on/off
   @ffi.Bool()
