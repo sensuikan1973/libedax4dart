@@ -5810,8 +5810,6 @@ const int TARGET_CPU_X86_64 = 0;
 
 const int TARGET_OS_RTKIT = 0;
 
-const int TARGET_OS_VISION = 0;
-
 const int TARGET_RT_64_BIT = 1;
 
 const int TARGET_RT_BIG_ENDIAN = 0;
