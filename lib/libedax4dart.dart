@@ -1,5 +1,5 @@
 /// dart wrapper for libedax
-library libedax4dart;
+library;
 
 export 'src/board.dart' show Board;
 export 'src/constants.dart'
