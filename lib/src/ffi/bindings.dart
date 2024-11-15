@@ -1796,11 +1796,11 @@ final class BoardCache extends ffi.Struct {
 /// struct Book
 /// @brief The opening book.
 final class Book extends ffi.Struct {
-  external UnnamedStruct8 date;
+  external UnnamedStruct10 date;
 
-  external UnnamedStruct9 options;
+  external UnnamedStruct11 options;
 
-  external UnnamedStruct10 stats;
+  external UnnamedStruct12 stats;
 
   external ffi.Pointer<PositionArray> array;
 
@@ -1932,7 +1932,7 @@ final class CoordinateToFeature extends ffi.Struct {
   external int n_feature;
 
   @ffi.Array.multi([16])
-  external ffi.Array<UnnamedStruct5> feature;
+  external ffi.Array<UnnamedStruct7> feature;
 }
 
 const int D1 = 3;
@@ -2279,7 +2279,7 @@ final class Engine extends ffi.Struct {
   /// Events
   external ffi.Pointer<Search> search;
 
-  external UnnamedStruct15 last_position;
+  external UnnamedStruct19 last_position;
 
   @ffi.Bool()
   external bool is_searching;
@@ -2556,11 +2556,11 @@ final class GGSClient extends ffi.Struct {
 
   /// < loop instruction
   @ffi.Array.multi([1])
-  external ffi.Array<UnnamedStruct16> loop;
+  external ffi.Array<UnnamedStruct17> loop;
 
   /// < command issued once after some delay
   @ffi.Array.multi([1])
-  external ffi.Array<UnnamedStruct17> once;
+  external ffi.Array<UnnamedStruct18> once;
 }
 
 /// GGS clock (to play a game)
@@ -2713,7 +2713,7 @@ final class Game extends ffi.Struct {
   @ffi.Array.multi([1])
   external ffi.Array<Board> initial_board;
 
-  external UnnamedStruct7 date;
+  external UnnamedStruct9 date;
 
   @ffi.Array.multi([2, 32])
   external ffi.Array<ffi.Array<ffi.Char>> name;
@@ -4409,7 +4409,7 @@ final class OBF extends ffi.Struct {
 
   /// <! Move array
   @ffi.Array.multi([32])
-  external ffi.Array<UnnamedStruct6> move;
+  external ffi.Array<UnnamedStruct8> move;
 
   /// <! Move number
   @ffi.Int()
@@ -4438,6 +4438,11 @@ const int OFF_SIDE = 3;
 const int OPEN_MAX = 10240;
 
 const int OSATOMIC_DEPRECATED = 1;
+
+typedef OSAtomic_int64_aligned64_t = ffi.Int64;
+typedef DartOSAtomic_int64_aligned64_t = int;
+typedef OSFifoQueueHead = UnnamedStruct3;
+typedef OSQueueHead = UnnamedStruct4;
 
 const int OSSPINLOCK_DEPRECATED = 1;
 
@@ -4942,7 +4947,7 @@ final class Position extends ffi.Struct {
   external int n_lines;
 
   /// < Position value & bounds
-  external UnnamedStruct11 score;
+  external UnnamedStruct13 score;
 
   /// < linking moves number
   @ffi.UnsignedChar()
@@ -6166,118 +6171,26 @@ const int UTIME_NOW = -1;
 const int UTIME_OMIT = -2;
 
 final class UnnamedStruct10 extends ffi.Struct {
-  @ffi.Int()
-  external int n_nodes;
+  @ffi.Short()
+  external int year;
 
-  @ffi.Int()
-  external int n_links;
+  @ffi.Char()
+  external int month;
 
-  @ffi.Int()
-  external int n_todo;
+  @ffi.Char()
+  external int day;
+
+  @ffi.Char()
+  external int hour;
+
+  @ffi.Char()
+  external int minute;
+
+  @ffi.Char()
+  external int second;
 }
 
 final class UnnamedStruct11 extends ffi.Struct {
-  @ffi.Short()
-  external int value;
-
-  @ffi.Short()
-  external int lower;
-
-  @ffi.Short()
-  external int upper;
-}
-
-/// Search
-final class UnnamedStruct15 extends ffi.Struct {
-  @ffi.Array.multi([1024])
-  external ffi.Array<Board> board;
-
-  /// Last position
-  @ffi.Int()
-  external int n;
-}
-
-final class UnnamedStruct16 extends ffi.Struct {
-  /// < command
-  external ffi.Pointer<ffi.Char> cmd;
-
-  /// < iteration number
-  @ffi.Int()
-  external int i;
-
-  /// < delay between commands
-  @ffi.LongLong()
-  external int delay;
-}
-
-final class UnnamedStruct17 extends ffi.Struct {
-  /// < command
-  external ffi.Pointer<ffi.Char> cmd;
-
-  /// < delay
-  @ffi.LongLong()
-  external int delay;
-}
-
-final class UnnamedStruct5 extends ffi.Struct {
-  @ffi.Int()
-  external int i;
-
-  @ffi.Int()
-  external int x;
-}
-
-final class UnnamedStruct6 extends ffi.Struct {
-  /// <! Move coordinate
-  @ffi.Int()
-  external int x;
-
-  /// <! Move score
-  @ffi.Int()
-  external int score;
-}
-
-final class UnnamedStruct7 extends ffi.Struct {
-  @ffi.Short()
-  external int year;
-
-  @ffi.SignedChar()
-  external int month;
-
-  @ffi.SignedChar()
-  external int day;
-
-  @ffi.SignedChar()
-  external int hour;
-
-  @ffi.SignedChar()
-  external int minute;
-
-  @ffi.SignedChar()
-  external int second;
-}
-
-final class UnnamedStruct8 extends ffi.Struct {
-  @ffi.Short()
-  external int year;
-
-  @ffi.Char()
-  external int month;
-
-  @ffi.Char()
-  external int day;
-
-  @ffi.Char()
-  external int hour;
-
-  @ffi.Char()
-  external int minute;
-
-  @ffi.Char()
-  external int second;
-}
-
-final class UnnamedStruct9 extends ffi.Struct {
   @ffi.Int()
   external int level;
 
@@ -6292,6 +6205,114 @@ final class UnnamedStruct9 extends ffi.Struct {
 
   @ffi.Int()
   external int verbosity;
+}
+
+final class UnnamedStruct12 extends ffi.Struct {
+  @ffi.Int()
+  external int n_nodes;
+
+  @ffi.Int()
+  external int n_links;
+
+  @ffi.Int()
+  external int n_todo;
+}
+
+final class UnnamedStruct13 extends ffi.Struct {
+  @ffi.Short()
+  external int value;
+
+  @ffi.Short()
+  external int lower;
+
+  @ffi.Short()
+  external int upper;
+}
+
+final class UnnamedStruct17 extends ffi.Struct {
+  /// < command
+  external ffi.Pointer<ffi.Char> cmd;
+
+  /// < iteration number
+  @ffi.Int()
+  external int i;
+
+  /// < delay between commands
+  @ffi.LongLong()
+  external int delay;
+}
+
+final class UnnamedStruct18 extends ffi.Struct {
+  /// < command
+  external ffi.Pointer<ffi.Char> cmd;
+
+  /// < delay
+  @ffi.LongLong()
+  external int delay;
+}
+
+/// Search
+final class UnnamedStruct19 extends ffi.Struct {
+  @ffi.Array.multi([1024])
+  external ffi.Array<Board> board;
+
+  /// Last position
+  @ffi.Int()
+  external int n;
+}
+
+final class UnnamedStruct3 extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> opaque1;
+
+  external ffi.Pointer<ffi.Void> opaque2;
+
+  @ffi.Int()
+  external int opaque3;
+}
+
+final class UnnamedStruct4 extends ffi.Struct {
+  external ffi.Pointer<ffi.Void> opaque1;
+
+  @ffi.Long()
+  external int opaque2;
+}
+
+final class UnnamedStruct7 extends ffi.Struct {
+  @ffi.Int()
+  external int i;
+
+  @ffi.Int()
+  external int x;
+}
+
+final class UnnamedStruct8 extends ffi.Struct {
+  /// <! Move coordinate
+  @ffi.Int()
+  external int x;
+
+  /// <! Move score
+  @ffi.Int()
+  external int score;
+}
+
+final class UnnamedStruct9 extends ffi.Struct {
+  @ffi.Short()
+  external int year;
+
+  @ffi.SignedChar()
+  external int month;
+
+  @ffi.SignedChar()
+  external int day;
+
+  @ffi.SignedChar()
+  external int hour;
+
+  @ffi.SignedChar()
+  external int minute;
+
+  @ffi.SignedChar()
+  external int second;
 }
 
 final class UnnamedUnion1 extends ffi.Union {
@@ -8089,6 +8110,8 @@ final class __arm_pagein_state extends ffi.Struct {
 
 const int __bool_true_false_are_defined = 1;
 
+typedef __builtin_va_list = ffi.Pointer<ffi.Char>;
+
 final class __darwin_arm_cpmu_state64 extends ffi.Struct {
   @ffi.Array.multi([16])
   external ffi.Array<__uint64_t> __ctrs;
@@ -8204,10 +8227,24 @@ final class __darwin_arm_vfp_state extends ffi.Struct {
 
 typedef __darwin_blkcnt_t = __int64_t;
 typedef __darwin_blksize_t = __int32_t;
+typedef __darwin_clock_t = ffi.UnsignedLong;
+typedef Dart__darwin_clock_t = int;
+typedef __darwin_ct_rune_t = ffi.Int;
+typedef Dart__darwin_ct_rune_t = int;
 typedef __darwin_dev_t = __int32_t;
+typedef __darwin_fsblkcnt_t = ffi.UnsignedInt;
+typedef Dart__darwin_fsblkcnt_t = int;
+typedef __darwin_fsfilcnt_t = ffi.UnsignedInt;
+typedef Dart__darwin_fsfilcnt_t = int;
 typedef __darwin_gid_t = __uint32_t;
+typedef __darwin_id_t = __uint32_t;
 typedef __darwin_ino64_t = __uint64_t;
 typedef __darwin_ino_t = __darwin_ino64_t;
+typedef __darwin_intptr_t = ffi.Long;
+typedef Dart__darwin_intptr_t = int;
+typedef __darwin_mach_port_name_t = __darwin_natural_t;
+typedef __darwin_mach_port_t = __darwin_mach_port_name_t;
+typedef __darwin_mbstate_t = __mbstate_t;
 
 final class __darwin_mcontext32 extends ffi.Struct {
   external __darwin_arm_exception_state __es;
@@ -8220,10 +8257,15 @@ final class __darwin_mcontext32 extends ffi.Struct {
 final class __darwin_mcontext64 extends ffi.Opaque {}
 
 typedef __darwin_mode_t = __uint16_t;
+typedef __darwin_natural_t = ffi.UnsignedInt;
+typedef Dart__darwin_natural_t = int;
+typedef __darwin_nl_item = ffi.Int;
+typedef Dart__darwin_nl_item = int;
 typedef __darwin_off_t = __int64_t;
 typedef __darwin_pid_t = __int32_t;
 typedef __darwin_pthread_attr_t = _opaque_pthread_attr_t;
 typedef __darwin_pthread_cond_t = _opaque_pthread_cond_t;
+typedef __darwin_pthread_condattr_t = _opaque_pthread_condattr_t;
 
 final class __darwin_pthread_handler_rec extends ffi.Struct {
   external ffi
@@ -8235,8 +8277,16 @@ final class __darwin_pthread_handler_rec extends ffi.Struct {
   external ffi.Pointer<__darwin_pthread_handler_rec> __next;
 }
 
+typedef __darwin_pthread_key_t = ffi.UnsignedLong;
+typedef Dart__darwin_pthread_key_t = int;
 typedef __darwin_pthread_mutex_t = _opaque_pthread_mutex_t;
+typedef __darwin_pthread_mutexattr_t = _opaque_pthread_mutexattr_t;
+typedef __darwin_pthread_once_t = _opaque_pthread_once_t;
+typedef __darwin_pthread_rwlock_t = _opaque_pthread_rwlock_t;
+typedef __darwin_pthread_rwlockattr_t = _opaque_pthread_rwlockattr_t;
 typedef __darwin_pthread_t = ffi.Pointer<_opaque_pthread_t>;
+typedef __darwin_ptrdiff_t = ffi.Long;
+typedef Dart__darwin_ptrdiff_t = int;
 typedef __darwin_rune_t = __darwin_wchar_t;
 
 final class __darwin_sigaltstack extends ffi.Struct {
@@ -8253,6 +8303,8 @@ typedef __darwin_sigset_t = __uint32_t;
 typedef __darwin_size_t = ffi.UnsignedLong;
 typedef Dart__darwin_size_t = int;
 typedef __darwin_socklen_t = __uint32_t;
+typedef __darwin_ssize_t = ffi.Long;
+typedef Dart__darwin_ssize_t = int;
 typedef __darwin_suseconds_t = __int32_t;
 typedef __darwin_time_t = ffi.Long;
 typedef Dart__darwin_time_t = int;
@@ -8275,8 +8327,15 @@ final class __darwin_ucontext extends ffi.Struct {
 }
 
 typedef __darwin_uid_t = __uint32_t;
+typedef __darwin_useconds_t = __uint32_t;
+typedef __darwin_va_list = __builtin_va_list;
 typedef __darwin_wchar_t = ffi.Int;
 typedef Dart__darwin_wchar_t = int;
+typedef __darwin_wctrans_t = ffi.Int;
+typedef Dart__darwin_wctrans_t = int;
+typedef __darwin_wctype_t = __uint32_t;
+typedef __darwin_wint_t = ffi.Int;
+typedef Dart__darwin_wint_t = int;
 
 final class __double2 extends ffi.Struct {
   @ffi.Double()
@@ -8294,14 +8353,20 @@ final class __float2 extends ffi.Struct {
   external double __cosval;
 }
 
+typedef __gnuc_va_list = __builtin_va_list;
+
 const int __has_ptrcheck = 0;
 
 const int __has_safe_buffers = 1;
 
+typedef __int16_t = ffi.Short;
+typedef Dart__int16_t = int;
 typedef __int32_t = ffi.Int;
 typedef Dart__int32_t = int;
 typedef __int64_t = ffi.LongLong;
 typedef Dart__int64_t = int;
+typedef __int8_t = ffi.SignedChar;
+typedef Dart__int8_t = int;
 
 final class __mbstate_t extends ffi.Union {
   @ffi.Array.multi([128])
@@ -8588,6 +8653,8 @@ final class addrinfo extends ffi.Struct {
 
 typedef blkcnt_t = __darwin_blkcnt_t;
 typedef blksize_t = __darwin_blksize_t;
+typedef caddr_t = ffi.Pointer<ffi.Char>;
+typedef clock_t = __darwin_clock_t;
 
 enum clockid_t {
   _CLOCK_REALTIME(0),
@@ -8643,6 +8710,9 @@ final class cmsghdr extends ffi.Struct {
   external int cmsg_type;
 }
 
+typedef ct_rune_t = __darwin_ct_rune_t;
+typedef daddr_t = ffi.Int32;
+typedef Dartdaddr_t = int;
 typedef dev_t = __darwin_dev_t;
 
 final class div_t extends ffi.Struct {
@@ -8652,6 +8722,11 @@ final class div_t extends ffi.Struct {
   @ffi.Int()
   external int rem;
 }
+
+typedef double_t = ffi.Double;
+typedef Dartdouble_t = double;
+typedef errno_t = ffi.Int;
+typedef Darterrno_t = int;
 
 final class exception extends ffi.Struct {
   @ffi.Int()
@@ -8671,12 +8746,20 @@ final class exception extends ffi.Struct {
 
 const int false1 = 0;
 
+typedef fd_mask = __int32_t;
+
 final class fd_set extends ffi.Struct {
   @ffi.Array.multi([32])
   external ffi.Array<__int32_t> fds_bits;
 }
 
+typedef filesec_t = ffi.Pointer<_filesec>;
+typedef fixpt_t = u_int32_t;
+typedef float_t = ffi.Float;
+typedef Dartfloat_t = double;
 typedef fpos_t = __darwin_off_t;
+typedef fsblkcnt_t = __darwin_fsblkcnt_t;
+typedef fsfilcnt_t = __darwin_fsfilcnt_t;
 
 final class fssearchblock extends ffi.Opaque {}
 
@@ -8714,6 +8797,8 @@ final class hostent extends ffi.Struct {
   external ffi.Pointer<ffi.Pointer<ffi.Char>> h_addr_list;
 }
 
+typedef id_t = __darwin_id_t;
+
 enum idtype_t {
   P_ALL(0),
   P_PID(1),
@@ -8733,6 +8818,8 @@ enum idtype_t {
 final class in6_addr extends ffi.Struct {
   external UnnamedUnion1 __u6_addr;
 }
+
+typedef in6_addr_t = in6_addr;
 
 final class in6_pktinfo extends ffi.Struct {
   external in6_addr ipi6_addr;
@@ -8758,7 +8845,26 @@ final class in_pktinfo extends ffi.Struct {
 }
 
 typedef in_port_t = __uint16_t;
+typedef ino64_t = __darwin_ino64_t;
 typedef ino_t = __darwin_ino_t;
+typedef int_fast16_t = ffi.Int16;
+typedef Dartint_fast16_t = int;
+typedef int_fast32_t = ffi.Int32;
+typedef Dartint_fast32_t = int;
+typedef int_fast64_t = ffi.Int64;
+typedef Dartint_fast64_t = int;
+typedef int_fast8_t = ffi.Int8;
+typedef Dartint_fast8_t = int;
+typedef int_least16_t = ffi.Int16;
+typedef Dartint_least16_t = int;
+typedef int_least32_t = ffi.Int32;
+typedef Dartint_least32_t = int;
+typedef int_least64_t = ffi.Int64;
+typedef Dartint_least64_t = int;
+typedef int_least8_t = ffi.Int8;
+typedef Dartint_least8_t = int;
+typedef intmax_t = ffi.Long;
+typedef Dartintmax_t = int;
 
 final class iovec extends ffi.Struct {
   external ffi.Pointer<ffi.Void> iov_base;
@@ -8816,6 +8922,8 @@ final class itimerval extends ffi.Struct {
 
   external timeval it_value;
 }
+
+typedef key_t = __int32_t;
 
 final class lconv extends ffi.Struct {
   external ffi.Pointer<ffi.Char> decimal_point;
@@ -8905,6 +9013,11 @@ final class lldiv_t extends ffi.Struct {
   external int rem;
 }
 
+typedef mach_port_t = __darwin_mach_port_t;
+typedef malloc_type_id_t = ffi.UnsignedLongLong;
+typedef Dartmalloc_type_id_t = int;
+typedef malloc_zone_t = _malloc_zone_t;
+typedef mcontext_t = ffi.Pointer<__darwin_mcontext64>;
 typedef mode_t = __darwin_mode_t;
 
 final class msghdr extends ffi.Struct {
@@ -9017,11 +9130,65 @@ const int pseudo_AF_XTP = 19;
 
 typedef pthread_attr_t = __darwin_pthread_attr_t;
 typedef pthread_cond_t = __darwin_pthread_cond_t;
+typedef pthread_condattr_t = __darwin_pthread_condattr_t;
+
+/// !
+/// @typedef pthread_jit_write_callback_t
+/// The type of a function that can be supplied to {@link
+/// pthread_jit_write_with_callback_np} to write to the MAP_JIT region while it
+/// is writeable.
+///
+/// @param ctx
+/// A pointer to context that will be passed through to the callback function.
+///
+/// @result
+/// A result code to be returned to the caller of @{link
+/// pthread_jit_write_with_callback_np}.  The system does not interpret/act on
+/// the value of this result.
+typedef pthread_jit_write_callback_t
+    = ffi.Pointer<ffi.NativeFunction<pthread_jit_write_callback_tFunction>>;
+typedef pthread_jit_write_callback_tFunction = ffi.Int Function(
+    ffi.Pointer<ffi.Void> ctx);
+typedef Dartpthread_jit_write_callback_tFunction = int Function(
+    ffi.Pointer<ffi.Void> ctx);
+typedef pthread_key_t = __darwin_pthread_key_t;
 typedef pthread_mutex_t = __darwin_pthread_mutex_t;
+typedef pthread_mutexattr_t = __darwin_pthread_mutexattr_t;
+typedef pthread_once_t = __darwin_pthread_once_t;
 
 final class pthread_override_s extends ffi.Opaque {}
 
+/// !
+/// @typedef pthread_override_t
+///
+/// @abstract
+/// An opaque object representing a QOS class override of a thread.
+///
+/// @discussion
+/// A QOS class override of a target thread expresses that an item of pending
+/// work classified with a specific QOS class and relative priority depends on
+/// the completion of the work currently being executed by the thread (e.g. due
+/// to ordering requirements).
+///
+/// While overrides are in effect, the target thread will execute at the maximum
+/// QOS class and relative priority of all overrides and of the QOS class
+/// requested by the thread itself.
+///
+/// A QOS class override does not modify the target thread's requested QOS class
+/// value and the effect of an override is not visible to the qos_class_self()
+/// and pthread_get_qos_class_np() interfaces.
+typedef pthread_override_t = ffi.Pointer<pthread_override_s>;
+typedef pthread_rwlock_t = __darwin_pthread_rwlock_t;
+typedef pthread_rwlockattr_t = __darwin_pthread_rwlockattr_t;
 typedef pthread_t = __darwin_pthread_t;
+typedef ptrdiff_t = __darwin_ptrdiff_t;
+typedef qaddr_t = ffi.Pointer<quad_t>;
+typedef qos_class_t = ffi.UnsignedInt;
+typedef Dartqos_class_t = int;
+typedef quad_t = ffi.Int64;
+typedef Dartquad_t = int;
+typedef register_t = ffi.Int64;
+typedef Dartregister_t = int;
 typedef rlim_t = __uint64_t;
 
 final class rlimit extends ffi.Struct {
@@ -9040,6 +9207,9 @@ final class rpcent extends ffi.Struct {
   @ffi.Int()
   external int r_number;
 }
+
+typedef rsize_t = __darwin_size_t;
+typedef rune_t = __darwin_rune_t;
 
 final class rusage extends ffi.Struct {
   external timeval ru_utime;
@@ -9088,6 +9258,9 @@ final class rusage extends ffi.Struct {
   @ffi.Long()
   external int ru_nivcsw;
 }
+
+typedef rusage_info_current = rusage_info_v6;
+typedef rusage_info_t = ffi.Pointer<ffi.Void>;
 
 final class rusage_info_v0 extends ffi.Struct {
   @ffi.Array.multi([16])
@@ -9700,7 +9873,10 @@ final class sa_endpoints extends ffi.Struct {
   external int sae_dstaddrlen;
 }
 
+typedef sa_endpoints_t = sa_endpoints;
 typedef sa_family_t = __uint8_t;
+typedef sae_associd_t = __uint32_t;
+typedef sae_connid_t = __uint32_t;
 
 final class sched_param extends ffi.Struct {
   @ffi.Int()
@@ -9711,6 +9887,9 @@ final class sched_param extends ffi.Struct {
 }
 
 final class searchstate extends ffi.Opaque {}
+
+typedef segsz_t = ffi.Int32;
+typedef Dartsegsz_t = int;
 
 final class servent extends ffi.Struct {
   external ffi.Pointer<ffi.Char> s_name;
@@ -9734,6 +9913,12 @@ final class sf_hdtr extends ffi.Struct {
   @ffi.Int()
   external int trl_cnt;
 }
+
+typedef sig_atomic_t = ffi.Int;
+typedef Dartsig_atomic_t = int;
+typedef sig_t = ffi.Pointer<ffi.NativeFunction<sig_tFunction>>;
+typedef sig_tFunction = ffi.Void Function(ffi.Int);
+typedef Dartsig_tFunction = void Function(int);
 
 final class sigaction extends ffi.Struct {
   external __sigaction_u __sigaction_u1;
@@ -9870,6 +10055,9 @@ final class sockproto extends ffi.Struct {
   external int sp_protocol;
 }
 
+typedef ssize_t = __darwin_ssize_t;
+typedef stack_t = __darwin_sigaltstack;
+
 final class stat extends ffi.Struct {
   @dev_t()
   external int st_dev;
@@ -9922,9 +10110,19 @@ final class stat extends ffi.Struct {
   external ffi.Array<__int64_t> st_qspare;
 }
 
+typedef suseconds_t = __darwin_suseconds_t;
+typedef swblk_t = ffi.Int32;
+typedef Dartswblk_t = int;
+typedef syscall_arg_t = u_int64_t;
+typedef tcp_cc = __uint32_t;
+
 final class tcp_connection_info extends ffi.Opaque {}
 
+typedef tcp_seq = __uint32_t;
+
 final class tcphdr extends ffi.Opaque {}
+
+typedef time_t = __darwin_time_t;
 
 final class timespec extends ffi.Struct {
   @__darwin_time_t()
@@ -9994,8 +10192,61 @@ final class tm extends ffi.Struct {
 
 const int true1 = 1;
 
+typedef u_char = ffi.UnsignedChar;
+typedef Dartu_char = int;
+typedef u_int = ffi.UnsignedInt;
+typedef Dartu_int = int;
+typedef u_int16_t = ffi.UnsignedShort;
+typedef Dartu_int16_t = int;
 typedef u_int32_t = ffi.UnsignedInt;
 typedef Dartu_int32_t = int;
+typedef u_int64_t = ffi.UnsignedLongLong;
+typedef Dartu_int64_t = int;
+typedef u_int8_t = ffi.UnsignedChar;
+typedef Dartu_int8_t = int;
+typedef u_long = ffi.UnsignedLong;
+typedef Dartu_long = int;
+typedef u_quad_t = u_int64_t;
+typedef u_short = ffi.UnsignedShort;
+typedef Dartu_short = int;
+typedef ucontext_t = __darwin_ucontext;
 typedef uid_t = __darwin_uid_t;
+typedef uint = ffi.UnsignedInt;
+typedef Dartuint = int;
+typedef uint_fast16_t = ffi.Uint16;
+typedef Dartuint_fast16_t = int;
+typedef uint_fast32_t = ffi.Uint32;
+typedef Dartuint_fast32_t = int;
+typedef uint_fast64_t = ffi.Uint64;
+typedef Dartuint_fast64_t = int;
+typedef uint_fast8_t = ffi.Uint8;
+typedef Dartuint_fast8_t = int;
+typedef uint_least16_t = ffi.Uint16;
+typedef Dartuint_least16_t = int;
+typedef uint_least32_t = ffi.Uint32;
+typedef Dartuint_least32_t = int;
+typedef uint_least64_t = ffi.Uint64;
+typedef Dartuint_least64_t = int;
+typedef uint_least8_t = ffi.Uint8;
+typedef Dartuint_least8_t = int;
+typedef uintmax_t = ffi.UnsignedLong;
+typedef Dartuintmax_t = int;
+typedef useconds_t = __darwin_useconds_t;
+typedef user_addr_t = u_int64_t;
+typedef user_long_t = ffi.Int64;
+typedef Dartuser_long_t = int;
+typedef user_off_t = ffi.Int64;
+typedef Dartuser_off_t = int;
+typedef user_size_t = u_int64_t;
+typedef user_ssize_t = ffi.Int64;
+typedef Dartuser_ssize_t = int;
+typedef user_time_t = ffi.Int64;
+typedef Dartuser_time_t = int;
+typedef user_ulong_t = u_int64_t;
+typedef ushort = ffi.UnsignedShort;
+typedef Dartushort = int;
+typedef va_list = __darwin_va_list;
 
 final class wait extends ffi.Opaque {}
+
+typedef wint_t = __darwin_wint_t;

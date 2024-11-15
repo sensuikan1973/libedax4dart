@@ -126,6 +126,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.2"
+  dart_style:
+    dependency: transitive
+    description:
+      name: dart_style
+      sha256: "7856d364b589d1f08986e140938578ed36ed948581fbc3bc9aef1805039ac5ab"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.7"
   ffi:
     dependency: "direct main"
     description:
@@ -138,10 +146,10 @@ packages:
     dependency: "direct dev"
     description:
       name: ffigen
-      sha256: a0ca4853028c6a9e4d9a0a40bb744fceb898c89d75931d08e87b3987d0087060
+      sha256: e0bdaa4ff30106aab68e7fa19311df4ced2035dc07be30f2e112855e8dcd3259
       url: "https://pub.dev"
     source: hosted
-    version: "15.0.0"
+    version: "16.0.0"
   file:
     dependency: transitive
     description:
