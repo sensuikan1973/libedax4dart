@@ -2,7 +2,7 @@
 # See: https://dart.dev/tools/pub/publishing
 
 name: libedax4dart
-version: 7.32.0
+version: 7.33.0
 description: Dart wrapper for libedax. With using libedax4dart, you can execute functions equivalent to edax.
 homepage: https://github.com/sensuikan1973/libedax4dart
 issue_tracker: https://github.com/sensuikan1973/libedax4dart/issues
@@ -17,7 +17,6 @@ dependencies:
 
 dev_dependencies:
   analyzer: ^6.11.0
-  cider: ^0.2.8
   coverage: ^1.11.1 # See: https://github.com/dart-lang/test/issues/1265
   ffigen: ^16.0.0
   pana: ^0.22.17
