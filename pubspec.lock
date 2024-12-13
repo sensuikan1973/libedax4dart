@@ -46,14 +46,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.2"
-  change:
-    dependency: transitive
-    description:
-      name: change
-      sha256: "65db7f966dc7e786687f49900a94c5f08b0eb9ca8c4a3e7eed3a55e980b455e2"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.7.4"
   checked_yaml:
     dependency: transitive
     description:
@@ -62,14 +54,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
-  cider:
-    dependency: "direct dev"
-    description:
-      name: cider
-      sha256: dfff70e9324f99e315857c596c31f54cb7380cfa20dfdfdca11a3631e05b7d3e
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.8"
   cli_util:
     dependency: transitive
     description:
@@ -78,14 +62,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.2"
-  clock:
-    dependency: transitive
-    description:
-      name: clock
-      sha256: fddb70d9b5277016c77a80201021d40a2247104d9f4aa7bab7157b7e3f05b84b
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.2"
   collection:
     dependency: transitive
     description:
@@ -214,14 +190,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.1"
-  intl:
-    dependency: transitive
-    description:
-      name: intl
-      sha256: d6f56758b7d3014a48af9701c085700aac781a92a87a62b1333b46d8879661cf
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.19.0"
   io:
     dependency: transitive
     description:
@@ -278,14 +246,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.2.2"
-  marker:
-    dependency: transitive
-    description:
-      name: marker
-      sha256: "3dadd01f3b0ffae148ffb3b1bc04290a98e54a465cddbab59727bd2a9fe57750"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.6.0"
   matcher:
     dependency: transitive
     description:
@@ -390,14 +350,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.2"
-  rfc_6901:
-    dependency: transitive
-    description:
-      name: rfc_6901
-      sha256: df1bbfa3d023009598f19636d6114c6ac1e0b7bb7bf6a260f0e6e6ce91416820
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.0"
   safe_url_check:
     dependency: transitive
     description:
@@ -534,14 +486,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.0"
-  version_manipulation:
-    dependency: transitive
-    description:
-      name: version_manipulation
-      sha256: e90782d610bde19765d2808ec06bc8ed9e04640a4dd07d1a3d370728ce9dae7f
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.0"
   vm_service:
     dependency: transitive
     description:

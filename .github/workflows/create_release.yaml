@@ -35,7 +35,7 @@ jobs:
 
       - name: inject current version
         shell: bash # for windows
-        run: echo "CURRENT_VERSION=$(dart run cider version)" >> $GITHUB_ENV
+        run: echo "CURRENT_VERSION=$(dart pub deps --style compact | grep "libedax4dart" | cut -c 14-)" >> $GITHUB_ENV
 
       - name: build libedax
         shell: bash
