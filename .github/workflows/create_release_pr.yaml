@@ -35,7 +35,7 @@ jobs:
         run: dart pub bump ${{ github.event.inputs.version_bump_part }}
 
       - name: inject current version
-        run: echo "CURRENT_VERSION=$(dart pub deps --style compact | grep "libedax4dart" | cut -c 14-)" >> $GITHUB_ENV
+        run: echo "CURRENT_VERSION=$(dart pub deps --style compact | grep "libedax4dart" | grep -Eo '[0-9]{1,}.[0-9]{1,}.[0-9]{1,}')" >> $GITHUB_ENV
 
       - name: update CHANGELOG
         run: |
