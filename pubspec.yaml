@@ -21,7 +21,7 @@ dev_dependencies:
   ffigen: ^16.0.0
   pana: ^0.22.17
   pedantic_sensuikan1973: ^5.8.1
-  test: ^1.25.12
+  test: ^1.25.13
 
 topics:
   - reversi
