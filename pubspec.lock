@@ -290,10 +290,10 @@ packages:
     dependency: "direct dev"
     description:
       name: pana
-      sha256: be1fdf41fb7b1085069d596ef55c0172cce336692e4b4ee97957c999694d777d
+      sha256: "3bd9ca2adbfdb9a3ac0fc75039a1a007811826ade9bc05cf3a30b803812f99f8"
       url: "https://pub.dev"
     source: hosted
-    version: "0.22.17"
+    version: "0.22.18"
   path:
     dependency: transitive
     description:
