@@ -25,7 +25,7 @@
   <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
     <li><a href="../../index.html">libedax4dart</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_position/file-___home_runner_work_libedax4dart_libedax4dart_lib_src_position-library.html">src&#47;position.dart</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_position">src&#47;position.dart</a></li>
     <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_position/Position-class.html">Position</a></li>
     <li class="self-crumb">Position.fromCStruct constructor</li>
   </ol>
@@ -70,23 +70,23 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">Position.fromCStruct(final bindings.Position cPosition)
-    : board = Board(cPosition.board[0].player, cPosition.board[0].opponent),
-      leaf = Link(cPosition.leaf.score, cPosition.leaf.move),
-      links = _linksFromCStruct(cPosition),
-      nWins = cPosition.n_wins,
-      nDraws = cPosition.n_draws,
-      nLosses = cPosition.n_losses,
-      nLines = cPosition.n_lines,
-      score = Score(
-        cPosition.score.value,
-        cPosition.score.lower,
-        cPosition.score.upper,
-      ),
-      nLink = cPosition.n_link,
-      level = cPosition.level,
-      flag = cPosition.flag,
-      nPlayerBestpaths = cPosition.n_player_bestpaths,
-      nOpponentBestpaths = cPosition.n_opponent_bestpaths;</code></pre>
+  : board = Board(cPosition.board[0].player, cPosition.board[0].opponent),
+    leaf = Link(cPosition.leaf.score, cPosition.leaf.move),
+    links = _linksFromCStruct(cPosition),
+    nWins = cPosition.n_wins,
+    nDraws = cPosition.n_draws,
+    nLosses = cPosition.n_losses,
+    nLines = cPosition.n_lines,
+    score = Score(
+      cPosition.score.value,
+      cPosition.score.lower,
+      cPosition.score.upper,
+    ),
+    nLink = cPosition.n_link,
+    level = cPosition.level,
+    flag = cPosition.flag,
+    nPlayerBestpaths = cPosition.n_player_bestpaths,
+    nOpponentBestpaths = cPosition.n_opponent_bestpaths;</code></pre>
 </section>
 
 
@@ -100,7 +100,7 @@
 </header>
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
     <li><a href="../../index.html">libedax4dart</a></li>
-    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_position/file-___home_runner_work_libedax4dart_libedax4dart_lib_src_position-library.html">position</a></li>
+    <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_position">position</a></li>
     <li><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_position/Position-class.html">Position</a></li>
     <li class="self-crumb">Position.fromCStruct constructor</li>
 </ol>
