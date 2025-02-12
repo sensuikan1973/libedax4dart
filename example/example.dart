@@ -9,12 +9,13 @@ void main() {
     '-book-file',
     './resources/test_book.dat',
     '-level',
-    '16'
+    '16',
   ];
-  final edax = LibEdax()
-    ..libedaxInitialize(initParams)
-    ..edaxInit()
-    ..edaxOptionsDump();
+  final edax =
+      LibEdax()
+        ..libedaxInitialize(initParams)
+        ..edaxInit()
+        ..edaxOptionsDump();
   stdout.writeln(edax.edaxGetBoard().prettyString(edax.edaxGetCurrentPlayer()));
 
   /// play

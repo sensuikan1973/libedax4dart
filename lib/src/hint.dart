@@ -19,13 +19,13 @@ class Hint {
 
   /// initialize from C struct
   Hint.fromCStruct(final bindings.Hint cHint)
-      : depth = cHint.depth,
-        selectivity = cHint.selectivity,
-        move = cHint.move,
-        score = cHint.score,
-        upper = cHint.upper,
-        lower = cHint.lower,
-        isBookMove = cHint.book_move;
+    : depth = cHint.depth,
+      selectivity = cHint.selectivity,
+      move = cHint.move,
+      score = cHint.score,
+      upper = cHint.upper,
+      lower = cHint.lower,
+      isBookMove = cHint.book_move;
 
   /// searched depth(except book moves).
   final int depth;
