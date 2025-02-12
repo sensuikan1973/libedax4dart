@@ -12,9 +12,7 @@ dart example/example.dart
 ### format
 
 ```sh
-# fix with line length 80 for pana, although I don't like.
-# See: https://github.com/dart-lang/dart_style/issues/918
-dart format --fix .
+dart format
 ```
 
 ### test
@@ -55,7 +53,7 @@ libedax_build_command="make universal_osx_libbuild" dst="." ./scripts/build_libe
 
 ```sh
 # Before this, you must run build_libedax.sh.
-dart run ffigen --config ffigen.yaml --verbose severe && dart format --fix .
+dart run ffigen --config ffigen.yaml --verbose severe && dart format .
 ```
 
 ### publish
