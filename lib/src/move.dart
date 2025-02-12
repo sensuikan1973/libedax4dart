@@ -11,10 +11,10 @@ class Move {
 
   /// initialize from C struct
   Move.fromCStruct(final bindings.Move cMove)
-      : flipped = cMove.flipped,
-        x = cMove.x,
-        score = cMove.score,
-        cost = cMove.cost;
+    : flipped = cMove.flipped,
+      x = cMove.x,
+      score = cMove.score,
+      cost = cMove.cost;
 
   /// player's bitboard.
   final int flipped;

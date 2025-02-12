@@ -11,8 +11,8 @@ class Board {
 
   /// initialize from C struct
   Board.fromCStruct(final bindings.Board cBoard)
-      : player = cBoard.player,
-        opponent = cBoard.opponent;
+    : player = cBoard.player,
+      opponent = cBoard.opponent;
 
   /// player's bitboard.
   final int player;

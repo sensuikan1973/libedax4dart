@@ -90,8 +90,9 @@ void main() {
         ..edaxInit()
         ..edaxPlay('f5d6c5f4d3');
       final board = edax.edaxGetBoard();
-      final stringApplicableToSetboard =
-          board.stringApplicableToSetboard(edax.edaxGetCurrentPlayer());
+      final stringApplicableToSetboard = board.stringApplicableToSetboard(
+        edax.edaxGetCurrentPlayer(),
+      );
       expect(
         stringApplicableToSetboard,
         '-------------------*-------**O----**O*-----O--------------------W',
@@ -102,10 +103,14 @@ void main() {
       expect(board.squaresOfPlayer, [29, 36, 43]);
       expect(board.squareStringsOfPlayer, ['f4', 'e5', 'd6']);
       expect(board.squaresOfOpponent, [19, 27, 28, 34, 35, 37]);
-      expect(
-        board.squareStringsOfOpponent,
-        ['d3', 'd4', 'e4', 'c5', 'd5', 'f5'],
-      );
+      expect(board.squareStringsOfOpponent, [
+        'd3',
+        'd4',
+        'e4',
+        'c5',
+        'd5',
+        'f5',
+      ]);
       stdout.writeln(board.prettyString(edax.edaxGetCurrentPlayer()));
       edax.libedaxTerminate();
     });
@@ -149,7 +154,7 @@ void main() {
         '-book-file',
         'data/book.dat',
         '-level',
-        '16'
+        '16',
       ];
       final edax = LibEdax()..libedaxInitialize(initParams);
       sleep(const Duration(seconds: 1));

@@ -8,17 +8,16 @@ import 'dart:ffi' as ffi;
 class LibEdaxBindings {
   /// Holds the symbol lookup function.
   final ffi.Pointer<T> Function<T extends ffi.NativeType>(String symbolName)
-      _lookup;
+  _lookup;
 
   /// The symbols are looked up in [dynamicLibrary].
   LibEdaxBindings(ffi.DynamicLibrary dynamicLibrary)
-      : _lookup = dynamicLibrary.lookup;
+    : _lookup = dynamicLibrary.lookup;
 
   /// The symbols are looked up with [lookup].
   LibEdaxBindings.fromLookup(
-      ffi.Pointer<T> Function<T extends ffi.NativeType>(String symbolName)
-          lookup)
-      : _lookup = lookup;
+    ffi.Pointer<T> Function<T extends ffi.NativeType>(String symbolName) lookup,
+  ) : _lookup = lookup;
 
   /// conversion from an 8-bit line to the A1-A8 line
   late final ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> _A1_A8 =
@@ -32,8 +31,9 @@ class LibEdaxBindings {
 
   Link get BAD_LINK => _BAD_LINK.ref;
 
-  late final ffi.Pointer<ffi.Int> _BOOK_INFO_RESOLUTION =
-      _lookup<ffi.Int>('BOOK_INFO_RESOLUTION');
+  late final ffi.Pointer<ffi.Int> _BOOK_INFO_RESOLUTION = _lookup<ffi.Int>(
+    'BOOK_INFO_RESOLUTION',
+  );
 
   int get BOOK_INFO_RESOLUTION => _BOOK_INFO_RESOLUTION.value;
 
@@ -82,28 +82,27 @@ class LibEdaxBindings {
 
   /// Array of functions to count flipped discs of the last move
   late final ffi.Pointer<
-          ffi.Pointer<
-              ffi.Pointer<
-                  ffi.NativeFunction<ffi.Int Function(ffi.UnsignedLongLong)>>>>
-      _COUNT_LAST_FLIP = _lookup<
-          ffi.Pointer<
-              ffi.Pointer<
-                  ffi.NativeFunction<
-                      ffi.Int Function(
-                          ffi.UnsignedLongLong)>>>>('COUNT_LAST_FLIP');
+    ffi.Pointer<
+      ffi.Pointer<ffi.NativeFunction<ffi.Int Function(ffi.UnsignedLongLong)>>
+    >
+  >
+  _COUNT_LAST_FLIP = _lookup<
+    ffi.Pointer<
+      ffi.Pointer<ffi.NativeFunction<ffi.Int Function(ffi.UnsignedLongLong)>>
+    >
+  >('COUNT_LAST_FLIP');
 
   ffi.Pointer<
-          ffi
-          .Pointer<ffi.NativeFunction<ffi.Int Function(ffi.UnsignedLongLong)>>>
-      get COUNT_LAST_FLIP => _COUNT_LAST_FLIP.value;
+    ffi.Pointer<ffi.NativeFunction<ffi.Int Function(ffi.UnsignedLongLong)>>
+  >
+  get COUNT_LAST_FLIP => _COUNT_LAST_FLIP.value;
 
   set COUNT_LAST_FLIP(
-          ffi.Pointer<
-                  ffi.Pointer<
-                      ffi
-                      .NativeFunction<ffi.Int Function(ffi.UnsignedLongLong)>>>
-              value) =>
-      _COUNT_LAST_FLIP.value = value;
+    ffi.Pointer<
+      ffi.Pointer<ffi.NativeFunction<ffi.Int Function(ffi.UnsignedLongLong)>>
+    >
+    value,
+  ) => _COUNT_LAST_FLIP.value = value;
 
   /// evaluation function error coefficient parameters
   late final ffi.Pointer<ffi.Double> _EVAL_A = _lookup<ffi.Double>('EVAL_A');
@@ -151,8 +150,9 @@ class LibEdaxBindings {
       _EVAL_F2X.value = value;
 
   /// eval weight load status
-  late final ffi.Pointer<ffi.Int> _EVAL_LOADED =
-      _lookup<ffi.Int>('EVAL_LOADED');
+  late final ffi.Pointer<ffi.Int> _EVAL_LOADED = _lookup<ffi.Int>(
+    'EVAL_LOADED',
+  );
 
   int get EVAL_LOADED => _EVAL_LOADED.value;
 
@@ -167,8 +167,9 @@ class LibEdaxBindings {
       _EVAL_MAX_VALUE.value = value;
 
   /// number of features
-  late final ffi.Pointer<ffi.Int> _EVAL_N_FEATURE =
-      _lookup<ffi.Int>('EVAL_N_FEATURE');
+  late final ffi.Pointer<ffi.Int> _EVAL_N_FEATURE = _lookup<ffi.Int>(
+    'EVAL_N_FEATURE',
+  );
 
   int get EVAL_N_FEATURE => _EVAL_N_FEATURE.value;
 
@@ -178,8 +179,9 @@ class LibEdaxBindings {
   int get EVAL_N_PLY => _EVAL_N_PLY.value;
 
   /// number of (unpacked) weights
-  late final ffi.Pointer<ffi.Int> _EVAL_N_WEIGHT =
-      _lookup<ffi.Int>('EVAL_N_WEIGHT');
+  late final ffi.Pointer<ffi.Int> _EVAL_N_WEIGHT = _lookup<ffi.Int>(
+    'EVAL_N_WEIGHT',
+  );
 
   int get EVAL_N_WEIGHT => _EVAL_N_WEIGHT.value;
 
@@ -258,8 +260,9 @@ class LibEdaxBindings {
 
   /// eval weights
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Short>>>>
-      _EVAL_WEIGHT =
-      _lookup<ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Short>>>>('EVAL_WEIGHT');
+  _EVAL_WEIGHT = _lookup<ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Short>>>>(
+    'EVAL_WEIGHT',
+  );
 
   ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Short>>> get EVAL_WEIGHT =>
       _EVAL_WEIGHT.value;
@@ -360,8 +363,9 @@ class LibEdaxBindings {
       _FLIPPED_5_V.value = value;
 
   /// Hash entry initial value
-  late final ffi.Pointer<GameHash> _GAME_HASH_INIT =
-      _lookup<GameHash>('GAME_HASH_INIT');
+  late final ffi.Pointer<GameHash> _GAME_HASH_INIT = _lookup<GameHash>(
+    'GAME_HASH_INIT',
+  );
 
   GameHash get GAME_HASH_INIT => _GAME_HASH_INIT.ref;
 
@@ -371,8 +375,9 @@ class LibEdaxBindings {
 
   GameStatistics get GAME_STATISTICS_INIT => _GAME_STATISTICS_INIT.ref;
 
-  late final ffi.Pointer<GGSClock> _GGS_CLOCK_INI =
-      _lookup<GGSClock>('GGS_CLOCK_INI');
+  late final ffi.Pointer<GGSClock> _GGS_CLOCK_INI = _lookup<GGSClock>(
+    'GGS_CLOCK_INI',
+  );
 
   GGSClock get GGS_CLOCK_INI => _GGS_CLOCK_INI.ref;
 
@@ -390,8 +395,9 @@ class LibEdaxBindings {
   set H1_H8(ffi.Pointer<ffi.UnsignedLongLong> value) => _H1_H8.value = value;
 
   /// HashData init value
-  late final ffi.Pointer<HashData> _HASH_DATA_INIT =
-      _lookup<HashData>('HASH_DATA_INIT');
+  late final ffi.Pointer<HashData> _HASH_DATA_INIT = _lookup<HashData>(
+    'HASH_DATA_INIT',
+  );
 
   HashData get HASH_DATA_INIT => _HASH_DATA_INIT.ref;
 
@@ -429,8 +435,9 @@ class LibEdaxBindings {
       _NOM_POSITION.value = value;
 
   /// level with no selectivity
-  late final ffi.Pointer<ffi.Int> _NO_SELECTIVITY =
-      _lookup<ffi.Int>('NO_SELECTIVITY');
+  late final ffi.Pointer<ffi.Int> _NO_SELECTIVITY = _lookup<ffi.Int>(
+    'NO_SELECTIVITY',
+  );
 
   int get NO_SELECTIVITY => _NO_SELECTIVITY.value;
 
@@ -557,8 +564,9 @@ class LibEdaxBindings {
 
   _RuneLocale get _DefaultRuneLocale => __DefaultRuneLocale.ref;
 
-  late final ffi.Pointer<ffi.Int> ___mb_cur_max =
-      _lookup<ffi.Int>('__mb_cur_max');
+  late final ffi.Pointer<ffi.Int> ___mb_cur_max = _lookup<ffi.Int>(
+    '__mb_cur_max',
+  );
 
   int get __mb_cur_max => ___mb_cur_max.value;
 
@@ -604,21 +612,19 @@ class LibEdaxBindings {
   ///
   /// @param b 64-bit integer to count bits of.
   /// @return the number of bits set.
-  int bit_count(
-    int arg0,
-  ) {
-    return _bit_count(
-      arg0,
-    );
+  int bit_count(int arg0) {
+    return _bit_count(arg0);
   }
 
   late final _bit_countPtr =
       _lookup<ffi.NativeFunction<ffi.Int Function(ffi.UnsignedLongLong)>>(
-          'bit_count');
+        'bit_count',
+      );
   late final _bit_count = _bit_countPtr.asFunction<int Function(int)>();
 
-  late final ffi.Pointer<ffi.Bool> _book_verbose =
-      _lookup<ffi.Bool>('book_verbose');
+  late final ffi.Pointer<ffi.Bool> _book_verbose = _lookup<ffi.Bool>(
+    'book_verbose',
+  );
 
   bool get book_verbose => _book_verbose.value;
 
@@ -630,33 +636,25 @@ class LibEdaxBindings {
 
   set daylight(int value) => _daylight.value = value;
 
-  int edax_board_get_square_color(
-    ffi.Pointer<Board> arg0,
-    int arg1,
-  ) {
-    return _edax_board_get_square_color(
-      arg0,
-      arg1,
-    );
+  int edax_board_get_square_color(ffi.Pointer<Board> arg0, int arg1) {
+    return _edax_board_get_square_color(arg0, arg1);
   }
 
   late final _edax_board_get_square_colorPtr = _lookup<
-          ffi.NativeFunction<ffi.Int Function(ffi.Pointer<Board>, ffi.Int)>>(
-      'edax_board_get_square_color');
-  late final _edax_board_get_square_color = _edax_board_get_square_colorPtr
-      .asFunction<int Function(ffi.Pointer<Board>, int)>();
+    ffi.NativeFunction<ffi.Int Function(ffi.Pointer<Board>, ffi.Int)>
+  >('edax_board_get_square_color');
+  late final _edax_board_get_square_color =
+      _edax_board_get_square_colorPtr
+          .asFunction<int Function(ffi.Pointer<Board>, int)>();
 
-  int edax_board_is_pass(
-    ffi.Pointer<Board> arg0,
-  ) {
-    return _edax_board_is_pass(
-      arg0,
-    );
+  int edax_board_is_pass(ffi.Pointer<Board> arg0) {
+    return _edax_board_is_pass(arg0);
   }
 
   late final _edax_board_is_passPtr =
       _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Pointer<Board>)>>(
-          'edax_board_is_pass');
+        'edax_board_is_pass',
+      );
   late final _edax_board_is_pass =
       _edax_board_is_passPtr.asFunction<int Function(ffi.Pointer<Board>)>();
 
@@ -664,18 +662,19 @@ class LibEdaxBindings {
     ffi.Pointer<Board> arg0,
     ffi.Pointer<Position> arg1,
   ) {
-    return _edax_book_count_bestpath(
-      arg0,
-      arg1,
-    );
+    return _edax_book_count_bestpath(arg0, arg1);
   }
 
   late final _edax_book_count_bestpathPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Pointer<Board>,
-              ffi.Pointer<Position>)>>('edax_book_count_bestpath');
-  late final _edax_book_count_bestpath = _edax_book_count_bestpathPtr
-      .asFunction<void Function(ffi.Pointer<Board>, ffi.Pointer<Position>)>();
+    ffi.NativeFunction<
+      ffi.Void Function(ffi.Pointer<Board>, ffi.Pointer<Position>)
+    >
+  >('edax_book_count_bestpath');
+  late final _edax_book_count_bestpath =
+      _edax_book_count_bestpathPtr
+          .asFunction<
+            void Function(ffi.Pointer<Board>, ffi.Pointer<Position>)
+          >();
 
   void edax_book_count_board_bestpath(
     ffi.Pointer<Board> arg0,
@@ -684,37 +683,40 @@ class LibEdaxBindings {
     int arg3,
     int arg4,
   ) {
-    return _edax_book_count_board_bestpath(
-      arg0,
-      arg1,
-      arg2,
-      arg3,
-      arg4,
-    );
+    return _edax_book_count_board_bestpath(arg0, arg1, arg2, arg3, arg4);
   }
 
   late final _edax_book_count_board_bestpathPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Pointer<Board>, ffi.Pointer<Position>, ffi.Int,
-              ffi.Int, ffi.Int)>>('edax_book_count_board_bestpath');
+    ffi.NativeFunction<
+      ffi.Void Function(
+        ffi.Pointer<Board>,
+        ffi.Pointer<Position>,
+        ffi.Int,
+        ffi.Int,
+        ffi.Int,
+      )
+    >
+  >('edax_book_count_board_bestpath');
   late final _edax_book_count_board_bestpath =
-      _edax_book_count_board_bestpathPtr.asFunction<
-          void Function(
-              ffi.Pointer<Board>, ffi.Pointer<Position>, int, int, int)>();
+      _edax_book_count_board_bestpathPtr
+          .asFunction<
+            void Function(
+              ffi.Pointer<Board>,
+              ffi.Pointer<Position>,
+              int,
+              int,
+              int,
+            )
+          >();
 
-  void edax_book_deviate(
-    int arg0,
-    int arg1,
-  ) {
-    return _edax_book_deviate(
-      arg0,
-      arg1,
-    );
+  void edax_book_deviate(int arg0, int arg1) {
+    return _edax_book_deviate(arg0, arg1);
   }
 
   late final _edax_book_deviatePtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int, ffi.Int)>>(
-          'edax_book_deviate');
+        'edax_book_deviate',
+      );
   late final _edax_book_deviate =
       _edax_book_deviatePtr.asFunction<void Function(int, int)>();
 
@@ -726,33 +728,25 @@ class LibEdaxBindings {
       _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_book_fix');
   late final _edax_book_fix = _edax_book_fixPtr.asFunction<void Function()>();
 
-  void edax_book_load(
-    ffi.Pointer<ffi.Char> arg0,
-  ) {
-    return _edax_book_load(
-      arg0,
-    );
+  void edax_book_load(ffi.Pointer<ffi.Char> arg0) {
+    return _edax_book_load(arg0);
   }
 
   late final _edax_book_loadPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>>(
-          'edax_book_load');
+        'edax_book_load',
+      );
   late final _edax_book_load =
       _edax_book_loadPtr.asFunction<void Function(ffi.Pointer<ffi.Char>)>();
 
-  void edax_book_new(
-    int arg0,
-    int arg1,
-  ) {
-    return _edax_book_new(
-      arg0,
-      arg1,
-    );
+  void edax_book_new(int arg0, int arg1) {
+    return _edax_book_new(arg0, arg1);
   }
 
   late final _edax_book_newPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int, ffi.Int)>>(
-          'edax_book_new');
+        'edax_book_new',
+      );
   late final _edax_book_new =
       _edax_book_newPtr.asFunction<void Function(int, int)>();
 
@@ -772,45 +766,36 @@ class LibEdaxBindings {
       _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_book_on');
   late final _edax_book_on = _edax_book_onPtr.asFunction<void Function()>();
 
-  void edax_book_randomness(
-    int arg0,
-  ) {
-    return _edax_book_randomness(
-      arg0,
-    );
+  void edax_book_randomness(int arg0) {
+    return _edax_book_randomness(arg0);
   }
 
   late final _edax_book_randomnessPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int)>>(
-          'edax_book_randomness');
+        'edax_book_randomness',
+      );
   late final _edax_book_randomness =
       _edax_book_randomnessPtr.asFunction<void Function(int)>();
 
-  void edax_book_save(
-    ffi.Pointer<ffi.Char> arg0,
-  ) {
-    return _edax_book_save(
-      arg0,
-    );
+  void edax_book_save(ffi.Pointer<ffi.Char> arg0) {
+    return _edax_book_save(arg0);
   }
 
   late final _edax_book_savePtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>>(
-          'edax_book_save');
+        'edax_book_save',
+      );
   late final _edax_book_save =
       _edax_book_savePtr.asFunction<void Function(ffi.Pointer<ffi.Char>)>();
 
-  void edax_book_show(
-    ffi.Pointer<Position> arg0,
-  ) {
-    return _edax_book_show(
-      arg0,
-    );
+  void edax_book_show(ffi.Pointer<Position> arg0) {
+    return _edax_book_show(arg0);
   }
 
   late final _edax_book_showPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<Position>)>>(
-          'edax_book_show');
+        'edax_book_show',
+      );
   late final _edax_book_show =
       _edax_book_showPtr.asFunction<void Function(ffi.Pointer<Position>)>();
 
@@ -820,7 +805,8 @@ class LibEdaxBindings {
 
   late final _edax_book_stop_count_bestpathPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function()>>(
-          'edax_book_stop_count_bestpath');
+        'edax_book_stop_count_bestpath',
+      );
   late final _edax_book_stop_count_bestpath =
       _edax_book_stop_count_bestpathPtr.asFunction<void Function()>();
 
@@ -833,17 +819,14 @@ class LibEdaxBindings {
   late final _edax_book_store =
       _edax_book_storePtr.asFunction<void Function()>();
 
-  void edax_book_verbose(
-    int arg0,
-  ) {
-    return _edax_book_verbose(
-      arg0,
-    );
+  void edax_book_verbose(int arg0) {
+    return _edax_book_verbose(arg0);
   }
 
   late final _edax_book_verbosePtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int)>>(
-          'edax_book_verbose');
+        'edax_book_verbose',
+      );
   late final _edax_book_verbose =
       _edax_book_verbosePtr.asFunction<void Function(int)>();
 
@@ -861,7 +844,8 @@ class LibEdaxBindings {
 
   late final _edax_disable_book_verbosePtr =
       _lookup<ffi.NativeFunction<ffi.Void Function()>>(
-          'edax_disable_book_verbose');
+        'edax_disable_book_verbose',
+      );
   late final _edax_disable_book_verbose =
       _edax_disable_book_verbosePtr.asFunction<void Function()>();
 
@@ -871,35 +855,30 @@ class LibEdaxBindings {
 
   late final _edax_enable_book_verbosePtr =
       _lookup<ffi.NativeFunction<ffi.Void Function()>>(
-          'edax_enable_book_verbose');
+        'edax_enable_book_verbose',
+      );
   late final _edax_enable_book_verbose =
       _edax_enable_book_verbosePtr.asFunction<void Function()>();
 
-  void edax_get_board(
-    ffi.Pointer<Board> arg0,
-  ) {
-    return _edax_get_board(
-      arg0,
-    );
+  void edax_get_board(ffi.Pointer<Board> arg0) {
+    return _edax_get_board(arg0);
   }
 
   late final _edax_get_boardPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<Board>)>>(
-          'edax_get_board');
+        'edax_get_board',
+      );
   late final _edax_get_board =
       _edax_get_boardPtr.asFunction<void Function(ffi.Pointer<Board>)>();
 
-  void edax_get_bookmove(
-    ffi.Pointer<MoveList> arg0,
-  ) {
-    return _edax_get_bookmove(
-      arg0,
-    );
+  void edax_get_bookmove(ffi.Pointer<MoveList> arg0) {
+    return _edax_get_bookmove(arg0);
   }
 
   late final _edax_get_bookmovePtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<MoveList>)>>(
-          'edax_get_bookmove');
+        'edax_get_bookmove',
+      );
   late final _edax_get_bookmove =
       _edax_get_bookmovePtr.asFunction<void Function(ffi.Pointer<MoveList>)>();
 
@@ -907,41 +886,46 @@ class LibEdaxBindings {
     ffi.Pointer<MoveList> arg0,
     ffi.Pointer<Position> arg1,
   ) {
-    return _edax_get_bookmove_with_position(
-      arg0,
-      arg1,
-    );
+    return _edax_get_bookmove_with_position(arg0, arg1);
   }
 
   late final _edax_get_bookmove_with_positionPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Int Function(ffi.Pointer<MoveList>,
-              ffi.Pointer<Position>)>>('edax_get_bookmove_with_position');
+    ffi.NativeFunction<
+      ffi.Int Function(ffi.Pointer<MoveList>, ffi.Pointer<Position>)
+    >
+  >('edax_get_bookmove_with_position');
   late final _edax_get_bookmove_with_position =
-      _edax_get_bookmove_with_positionPtr.asFunction<
-          int Function(ffi.Pointer<MoveList>, ffi.Pointer<Position>)>();
+      _edax_get_bookmove_with_positionPtr
+          .asFunction<
+            int Function(ffi.Pointer<MoveList>, ffi.Pointer<Position>)
+          >();
 
   int edax_get_bookmove_with_position_by_moves(
     ffi.Pointer<ffi.Char> arg0,
     ffi.Pointer<MoveList> arg1,
     ffi.Pointer<Position> arg2,
   ) {
-    return _edax_get_bookmove_with_position_by_moves(
-      arg0,
-      arg1,
-      arg2,
-    );
+    return _edax_get_bookmove_with_position_by_moves(arg0, arg1, arg2);
   }
 
   late final _edax_get_bookmove_with_position_by_movesPtr = _lookup<
-          ffi.NativeFunction<
-              ffi.Int Function(ffi.Pointer<ffi.Char>, ffi.Pointer<MoveList>,
-                  ffi.Pointer<Position>)>>(
-      'edax_get_bookmove_with_position_by_moves');
+    ffi.NativeFunction<
+      ffi.Int Function(
+        ffi.Pointer<ffi.Char>,
+        ffi.Pointer<MoveList>,
+        ffi.Pointer<Position>,
+      )
+    >
+  >('edax_get_bookmove_with_position_by_moves');
   late final _edax_get_bookmove_with_position_by_moves =
-      _edax_get_bookmove_with_position_by_movesPtr.asFunction<
-          int Function(ffi.Pointer<ffi.Char>, ffi.Pointer<MoveList>,
-              ffi.Pointer<Position>)>();
+      _edax_get_bookmove_with_position_by_movesPtr
+          .asFunction<
+            int Function(
+              ffi.Pointer<ffi.Char>,
+              ffi.Pointer<MoveList>,
+              ffi.Pointer<Position>,
+            )
+          >();
 
   int edax_get_current_player() {
     return _edax_get_current_player();
@@ -949,129 +933,102 @@ class LibEdaxBindings {
 
   late final _edax_get_current_playerPtr =
       _lookup<ffi.NativeFunction<ffi.Int Function()>>(
-          'edax_get_current_player');
+        'edax_get_current_player',
+      );
   late final _edax_get_current_player =
       _edax_get_current_playerPtr.asFunction<int Function()>();
 
-  int edax_get_disc(
-    int arg0,
-  ) {
-    return _edax_get_disc(
-      arg0,
-    );
+  int edax_get_disc(int arg0) {
+    return _edax_get_disc(arg0);
   }
 
   late final _edax_get_discPtr =
       _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Int)>>('edax_get_disc');
   late final _edax_get_disc = _edax_get_discPtr.asFunction<int Function(int)>();
 
-  void edax_get_last_move(
-    ffi.Pointer<Move> arg0,
-  ) {
-    return _edax_get_last_move(
-      arg0,
-    );
+  void edax_get_last_move(ffi.Pointer<Move> arg0) {
+    return _edax_get_last_move(arg0);
   }
 
   late final _edax_get_last_movePtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<Move>)>>(
-          'edax_get_last_move');
+        'edax_get_last_move',
+      );
   late final _edax_get_last_move =
       _edax_get_last_movePtr.asFunction<void Function(ffi.Pointer<Move>)>();
 
-  int edax_get_mobility_count(
-    int arg0,
-  ) {
-    return _edax_get_mobility_count(
-      arg0,
-    );
+  int edax_get_mobility_count(int arg0) {
+    return _edax_get_mobility_count(arg0);
   }
 
   late final _edax_get_mobility_countPtr =
       _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Int)>>(
-          'edax_get_mobility_count');
+        'edax_get_mobility_count',
+      );
   late final _edax_get_mobility_count =
       _edax_get_mobility_countPtr.asFunction<int Function(int)>();
 
-  ffi.Pointer<ffi.Char> edax_get_moves(
-    ffi.Pointer<ffi.Char> arg0,
-  ) {
-    return _edax_get_moves(
-      arg0,
-    );
+  ffi.Pointer<ffi.Char> edax_get_moves(ffi.Pointer<ffi.Char> arg0) {
+    return _edax_get_moves(arg0);
   }
 
   late final _edax_get_movesPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Pointer<ffi.Char> Function(
-              ffi.Pointer<ffi.Char>)>>('edax_get_moves');
-  late final _edax_get_moves = _edax_get_movesPtr
-      .asFunction<ffi.Pointer<ffi.Char> Function(ffi.Pointer<ffi.Char>)>();
+    ffi.NativeFunction<ffi.Pointer<ffi.Char> Function(ffi.Pointer<ffi.Char>)>
+  >('edax_get_moves');
+  late final _edax_get_moves =
+      _edax_get_movesPtr
+          .asFunction<ffi.Pointer<ffi.Char> Function(ffi.Pointer<ffi.Char>)>();
 
   void edax_go() {
     return _edax_go();
   }
 
-  late final _edax_goPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_go');
+  late final _edax_goPtr = _lookup<ffi.NativeFunction<ffi.Void Function()>>(
+    'edax_go',
+  );
   late final _edax_go = _edax_goPtr.asFunction<void Function()>();
 
-  void edax_hint(
-    int arg0,
-    ffi.Pointer<HintList> arg1,
-  ) {
-    return _edax_hint(
-      arg0,
-      arg1,
-    );
+  void edax_hint(int arg0, ffi.Pointer<HintList> arg1) {
+    return _edax_hint(arg0, arg1);
   }
 
   late final _edax_hintPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Int, ffi.Pointer<HintList>)>>('edax_hint');
+    ffi.NativeFunction<ffi.Void Function(ffi.Int, ffi.Pointer<HintList>)>
+  >('edax_hint');
   late final _edax_hint =
       _edax_hintPtr.asFunction<void Function(int, ffi.Pointer<HintList>)>();
 
-  void edax_hint_next(
-    ffi.Pointer<Hint> arg0,
-  ) {
-    return _edax_hint_next(
-      arg0,
-    );
+  void edax_hint_next(ffi.Pointer<Hint> arg0) {
+    return _edax_hint_next(arg0);
   }
 
   late final _edax_hint_nextPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<Hint>)>>(
-          'edax_hint_next');
+        'edax_hint_next',
+      );
   late final _edax_hint_next =
       _edax_hint_nextPtr.asFunction<void Function(ffi.Pointer<Hint>)>();
 
-  void edax_hint_next_no_multipv_depth(
-    ffi.Pointer<Hint> arg0,
-  ) {
-    return _edax_hint_next_no_multipv_depth(
-      arg0,
-    );
+  void edax_hint_next_no_multipv_depth(ffi.Pointer<Hint> arg0) {
+    return _edax_hint_next_no_multipv_depth(arg0);
   }
 
   late final _edax_hint_next_no_multipv_depthPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<Hint>)>>(
-          'edax_hint_next_no_multipv_depth');
+        'edax_hint_next_no_multipv_depth',
+      );
   late final _edax_hint_next_no_multipv_depth =
       _edax_hint_next_no_multipv_depthPtr
           .asFunction<void Function(ffi.Pointer<Hint>)>();
 
-  void edax_hint_prepare(
-    ffi.Pointer<MoveList> arg0,
-  ) {
-    return _edax_hint_prepare(
-      arg0,
-    );
+  void edax_hint_prepare(ffi.Pointer<MoveList> arg0) {
+    return _edax_hint_prepare(arg0);
   }
 
   late final _edax_hint_preparePtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<MoveList>)>>(
-          'edax_hint_prepare');
+        'edax_hint_prepare',
+      );
   late final _edax_hint_prepare =
       _edax_hint_preparePtr.asFunction<void Function(ffi.Pointer<MoveList>)>();
 
@@ -1079,8 +1036,9 @@ class LibEdaxBindings {
     return _edax_init();
   }
 
-  late final _edax_initPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_init');
+  late final _edax_initPtr = _lookup<ffi.NativeFunction<ffi.Void Function()>>(
+    'edax_init',
+  );
   late final _edax_init = _edax_initPtr.asFunction<void Function()>();
 
   int edax_is_game_over() {
@@ -1099,29 +1057,22 @@ class LibEdaxBindings {
 
   set edax_log(ffi.Pointer<Log> value) => _edax_log.value = value;
 
-  void edax_mode(
-    int arg0,
-  ) {
-    return _edax_mode(
-      arg0,
-    );
+  void edax_mode(int arg0) {
+    return _edax_mode(arg0);
   }
 
   late final _edax_modePtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int)>>('edax_mode');
   late final _edax_mode = _edax_modePtr.asFunction<void Function(int)>();
 
-  int edax_move(
-    ffi.Pointer<ffi.Char> arg0,
-  ) {
-    return _edax_move(
-      arg0,
-    );
+  int edax_move(ffi.Pointer<ffi.Char> arg0) {
+    return _edax_move(arg0);
   }
 
   late final _edax_movePtr =
       _lookup<ffi.NativeFunction<ffi.Int Function(ffi.Pointer<ffi.Char>)>>(
-          'edax_move');
+        'edax_move',
+      );
   late final _edax_move =
       _edax_movePtr.asFunction<int Function(ffi.Pointer<ffi.Char>)>();
 
@@ -1129,8 +1080,9 @@ class LibEdaxBindings {
     return _edax_new();
   }
 
-  late final _edax_newPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_new');
+  late final _edax_newPtr = _lookup<ffi.NativeFunction<ffi.Void Function()>>(
+    'edax_new',
+  );
   late final _edax_new = _edax_newPtr.asFunction<void Function()>();
 
   ffi.Pointer<ffi.Char> edax_opening() {
@@ -1139,7 +1091,8 @@ class LibEdaxBindings {
 
   late final _edax_openingPtr =
       _lookup<ffi.NativeFunction<ffi.Pointer<ffi.Char> Function()>>(
-          'edax_opening');
+        'edax_opening',
+      );
   late final _edax_opening =
       _edax_openingPtr.asFunction<ffi.Pointer<ffi.Char> Function()>();
 
@@ -1152,17 +1105,14 @@ class LibEdaxBindings {
   late final _edax_options_dump =
       _edax_options_dumpPtr.asFunction<void Function()>();
 
-  void edax_play(
-    ffi.Pointer<ffi.Char> arg0,
-  ) {
-    return _edax_play(
-      arg0,
-    );
+  void edax_play(ffi.Pointer<ffi.Char> arg0) {
+    return _edax_play(arg0);
   }
 
   late final _edax_playPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>>(
-          'edax_play');
+        'edax_play',
+      );
   late final _edax_play =
       _edax_playPtr.asFunction<void Function(ffi.Pointer<ffi.Char>)>();
 
@@ -1179,50 +1129,42 @@ class LibEdaxBindings {
     return _edax_redo();
   }
 
-  late final _edax_redoPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_redo');
+  late final _edax_redoPtr = _lookup<ffi.NativeFunction<ffi.Void Function()>>(
+    'edax_redo',
+  );
   late final _edax_redo = _edax_redoPtr.asFunction<void Function()>();
 
-  void edax_rotate(
-    int arg0,
-  ) {
-    return _edax_rotate(
-      arg0,
-    );
+  void edax_rotate(int arg0) {
+    return _edax_rotate(arg0);
   }
 
   late final _edax_rotatePtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Int)>>('edax_rotate');
   late final _edax_rotate = _edax_rotatePtr.asFunction<void Function(int)>();
 
-  void edax_set_option(
-    ffi.Pointer<ffi.Char> arg0,
-    ffi.Pointer<ffi.Char> arg1,
-  ) {
-    return _edax_set_option(
-      arg0,
-      arg1,
-    );
+  void edax_set_option(ffi.Pointer<ffi.Char> arg0, ffi.Pointer<ffi.Char> arg1) {
+    return _edax_set_option(arg0, arg1);
   }
 
   late final _edax_set_optionPtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Pointer<ffi.Char>,
-              ffi.Pointer<ffi.Char>)>>('edax_set_option');
-  late final _edax_set_option = _edax_set_optionPtr.asFunction<
-      void Function(ffi.Pointer<ffi.Char>, ffi.Pointer<ffi.Char>)>();
+    ffi.NativeFunction<
+      ffi.Void Function(ffi.Pointer<ffi.Char>, ffi.Pointer<ffi.Char>)
+    >
+  >('edax_set_option');
+  late final _edax_set_option =
+      _edax_set_optionPtr
+          .asFunction<
+            void Function(ffi.Pointer<ffi.Char>, ffi.Pointer<ffi.Char>)
+          >();
 
-  void edax_setboard(
-    ffi.Pointer<ffi.Char> arg0,
-  ) {
-    return _edax_setboard(
-      arg0,
-    );
+  void edax_setboard(ffi.Pointer<ffi.Char> arg0) {
+    return _edax_setboard(arg0);
   }
 
   late final _edax_setboardPtr =
       _lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Char>)>>(
-          'edax_setboard');
+        'edax_setboard',
+      );
   late final _edax_setboard =
       _edax_setboardPtr.asFunction<void Function(ffi.Pointer<ffi.Char>)>();
 
@@ -1230,16 +1172,18 @@ class LibEdaxBindings {
     return _edax_stop();
   }
 
-  late final _edax_stopPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_stop');
+  late final _edax_stopPtr = _lookup<ffi.NativeFunction<ffi.Void Function()>>(
+    'edax_stop',
+  );
   late final _edax_stop = _edax_stopPtr.asFunction<void Function()>();
 
   void edax_undo() {
     return _edax_undo();
   }
 
-  late final _edax_undoPtr =
-      _lookup<ffi.NativeFunction<ffi.Void Function()>>('edax_undo');
+  late final _edax_undoPtr = _lookup<ffi.NativeFunction<ffi.Void Function()>>(
+    'edax_undo',
+  );
   late final _edax_undo = _edax_undoPtr.asFunction<void Function()>();
 
   void edax_version() {
@@ -1260,8 +1204,9 @@ class LibEdaxBindings {
 
   /// edge stability global data
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.UnsignedChar>>>
-      _edge_stability =
-      _lookup<ffi.Pointer<ffi.Pointer<ffi.UnsignedChar>>>('edge_stability');
+  _edge_stability = _lookup<ffi.Pointer<ffi.Pointer<ffi.UnsignedChar>>>(
+    'edge_stability',
+  );
 
   ffi.Pointer<ffi.Pointer<ffi.UnsignedChar>> get edge_stability =>
       _edge_stability.value;
@@ -1287,49 +1232,75 @@ class LibEdaxBindings {
 
   /// Array of functions to compute flipped discs
   late final ffi.Pointer<
+    ffi.Pointer<
       ffi.Pointer<
-          ffi.Pointer<
-              ffi.NativeFunction<
-                  ffi.UnsignedLongLong Function(ffi.UnsignedLongLong,
-                      ffi.UnsignedLongLong)>>>> _flip = _lookup<
+        ffi.NativeFunction<
+          ffi.UnsignedLongLong Function(
+            ffi.UnsignedLongLong,
+            ffi.UnsignedLongLong,
+          )
+        >
+      >
+    >
+  >
+  _flip = _lookup<
+    ffi.Pointer<
       ffi.Pointer<
-          ffi.Pointer<
-              ffi.NativeFunction<
-                  ffi.UnsignedLongLong Function(
-                      ffi.UnsignedLongLong, ffi.UnsignedLongLong)>>>>('flip');
+        ffi.NativeFunction<
+          ffi.UnsignedLongLong Function(
+            ffi.UnsignedLongLong,
+            ffi.UnsignedLongLong,
+          )
+        >
+      >
+    >
+  >('flip');
 
   ffi.Pointer<
-      ffi.Pointer<
-          ffi.NativeFunction<
-              ffi.UnsignedLongLong Function(
-                  ffi.UnsignedLongLong, ffi.UnsignedLongLong)>>> get flip =>
-      _flip.value;
+    ffi.Pointer<
+      ffi.NativeFunction<
+        ffi.UnsignedLongLong Function(
+          ffi.UnsignedLongLong,
+          ffi.UnsignedLongLong,
+        )
+      >
+    >
+  >
+  get flip => _flip.value;
 
   set flip(
-          ffi.Pointer<
-                  ffi.Pointer<
-                      ffi.NativeFunction<
-                          ffi.UnsignedLongLong Function(
-                              ffi.UnsignedLongLong, ffi.UnsignedLongLong)>>>
-              value) =>
-      _flip.value = value;
+    ffi.Pointer<
+      ffi.Pointer<
+        ffi.NativeFunction<
+          ffi.UnsignedLongLong Function(
+            ffi.UnsignedLongLong,
+            ffi.UnsignedLongLong,
+          )
+        >
+      >
+    >
+    value,
+  ) => _flip.value = value;
 
-  late final ffi.Pointer<ffi.Int> _getdate_err =
-      _lookup<ffi.Int>('getdate_err');
+  late final ffi.Pointer<ffi.Int> _getdate_err = _lookup<ffi.Int>(
+    'getdate_err',
+  );
 
   int get getdate_err => _getdate_err.value;
 
   set getdate_err(int value) => _getdate_err.value = value;
 
-  late final ffi.Pointer<ffi.Pointer<Log>> _ggs_log =
-      _lookup<ffi.Pointer<Log>>('ggs_log');
+  late final ffi.Pointer<ffi.Pointer<Log>> _ggs_log = _lookup<ffi.Pointer<Log>>(
+    'ggs_log',
+  );
 
   ffi.Pointer<Log> get ggs_log => _ggs_log.value;
 
   set ggs_log(ffi.Pointer<Log> value) => _ggs_log.value = value;
 
-  late final ffi.Pointer<ffi.Pointer<Log>> _gtp_log =
-      _lookup<ffi.Pointer<Log>>('gtp_log');
+  late final ffi.Pointer<ffi.Pointer<Log>> _gtp_log = _lookup<ffi.Pointer<Log>>(
+    'gtp_log',
+  );
 
   ffi.Pointer<Log> get gtp_log => _gtp_log.value;
 
@@ -1343,8 +1314,9 @@ class LibEdaxBindings {
 
   /// hashing global data
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>>>
-      _hash_move =
-      _lookup<ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>>>('hash_move');
+  _hash_move = _lookup<ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>>>(
+    'hash_move',
+  );
 
   ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> get hash_move =>
       _hash_move.value;
@@ -1354,8 +1326,9 @@ class LibEdaxBindings {
 
   /// hashing global data
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>>>
-      _hash_rank =
-      _lookup<ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>>>('hash_rank');
+  _hash_rank = _lookup<ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>>>(
+    'hash_rank',
+  );
 
   ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> get hash_rank =>
       _hash_rank.value;
@@ -1363,8 +1336,9 @@ class LibEdaxBindings {
   set hash_rank(ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> value) =>
       _hash_rank.value = value;
 
-  late final ffi.Pointer<in6_addr> _in6addr_any =
-      _lookup<in6_addr>('in6addr_any');
+  late final ffi.Pointer<in6_addr> _in6addr_any = _lookup<in6_addr>(
+    'in6addr_any',
+  );
 
   in6_addr get in6addr_any => _in6addr_any.ref;
 
@@ -1385,8 +1359,9 @@ class LibEdaxBindings {
   in6_addr get in6addr_linklocal_allv2routers =>
       _in6addr_linklocal_allv2routers.ref;
 
-  late final ffi.Pointer<in6_addr> _in6addr_loopback =
-      _lookup<in6_addr>('in6addr_loopback');
+  late final ffi.Pointer<in6_addr> _in6addr_loopback = _lookup<in6_addr>(
+    'in6addr_loopback',
+  );
 
   in6_addr get in6addr_loopback => _in6addr_loopback.ref;
 
@@ -1404,22 +1379,18 @@ class LibEdaxBindings {
   set last_line_sent(ffi.Pointer<ffi.Char> value) =>
       _last_line_sent.value = value;
 
-  void libedax_initialize(
-    int arg0,
-    ffi.Pointer<ffi.Pointer<ffi.Char>> arg1,
-  ) {
-    return _libedax_initialize(
-      arg0,
-      arg1,
-    );
+  void libedax_initialize(int arg0, ffi.Pointer<ffi.Pointer<ffi.Char>> arg1) {
+    return _libedax_initialize(arg0, arg1);
   }
 
   late final _libedax_initializePtr = _lookup<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Int,
-              ffi.Pointer<ffi.Pointer<ffi.Char>>)>>('libedax_initialize');
-  late final _libedax_initialize = _libedax_initializePtr
-      .asFunction<void Function(int, ffi.Pointer<ffi.Pointer<ffi.Char>>)>();
+    ffi.NativeFunction<
+      ffi.Void Function(ffi.Int, ffi.Pointer<ffi.Pointer<ffi.Char>>)
+    >
+  >('libedax_initialize');
+  late final _libedax_initialize =
+      _libedax_initializePtr
+          .asFunction<void Function(int, ffi.Pointer<ffi.Pointer<ffi.Char>>)>();
 
   void libedax_terminate() {
     return _libedax_terminate();
@@ -1495,8 +1466,9 @@ class LibEdaxBindings {
 
   set signgam(int value) => _signgam.value = value;
 
-  late final ffi.Pointer<Statistics> _statistics =
-      _lookup<Statistics>('statistics');
+  late final ffi.Pointer<Statistics> _statistics = _lookup<Statistics>(
+    'statistics',
+  );
 
   Statistics get statistics => _statistics.ref;
 
@@ -1540,18 +1512,20 @@ class LibEdaxBindings {
   /// Can be set as a real_clock or a cpu_clock.
   ///
   /// @return time in milliseconds.
-  late final ffi
-      .Pointer<ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>>>
-      _time_clock =
+  late final ffi.Pointer<
+    ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>>
+  >
+  _time_clock =
       _lookup<ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>>>(
-          'time_clock');
+        'time_clock',
+      );
 
   ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>> get time_clock =>
       _time_clock.value;
 
   set time_clock(
-          ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>> value) =>
-      _time_clock.value = value;
+    ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>> value,
+  ) => _time_clock.value = value;
 
   late final ffi.Pointer<ffi.Long> _timezone1 = _lookup<ffi.Long>('timezone');
 
@@ -4390,11 +4364,11 @@ enum NodeType {
   const NodeType(this.value);
 
   static NodeType fromValue(int value) => switch (value) {
-        0 => PV_NODE,
-        1 => CUT_NODE,
-        2 => ALL_NODE,
-        _ => throw ArgumentError("Unknown value for NodeType: $value"),
-      };
+    0 => PV_NODE,
+    1 => CUT_NODE,
+    2 => ALL_NODE,
+    _ => throw ArgumentError("Unknown value for NodeType: $value"),
+  };
 }
 
 /// OBF structure: Othello Board File
@@ -4867,12 +4841,12 @@ enum PlayState {
   const PlayState(this.value);
 
   static PlayState fromValue(int value) => switch (value) {
-        0 => IS_WAITING,
-        1 => IS_PONDERING,
-        2 => IS_ANALYZING,
-        3 => IS_THINKING,
-        _ => throw ArgumentError("Unknown value for PlayState: $value"),
-      };
+    0 => IS_WAITING,
+    1 => IS_PONDERING,
+    2 => IS_ANALYZING,
+    3 => IS_THINKING,
+    _ => throw ArgumentError("Unknown value for PlayState: $value"),
+  };
 }
 
 enum PlayType {
@@ -4884,11 +4858,11 @@ enum PlayType {
   const PlayType(this.value);
 
   static PlayType fromValue(int value) => switch (value) {
-        0 => EDAX_FIXED_LEVEL,
-        1 => EDAX_TIME_PER_GAME,
-        2 => EDAX_TIME_PER_MOVE,
-        _ => throw ArgumentError("Unknown value for PlayType: $value"),
-      };
+    0 => EDAX_FIXED_LEVEL,
+    1 => EDAX_TIME_PER_GAME,
+    2 => EDAX_TIME_PER_MOVE,
+    _ => throw ArgumentError("Unknown value for PlayType: $value"),
+  };
 }
 
 /// Array of position.
@@ -5781,14 +5755,14 @@ enum Stop {
   const Stop(this.value);
 
   static Stop fromValue(int value) => switch (value) {
-        0 => RUNNING,
-        1 => STOP_PARALLEL_SEARCH,
-        2 => STOP_PONDERING,
-        3 => STOP_TIMEOUT,
-        4 => STOP_ON_DEMAND,
-        5 => STOP_END,
-        _ => throw ArgumentError("Unknown value for Stop: $value"),
-      };
+    0 => RUNNING,
+    1 => STOP_PARALLEL_SEARCH,
+    2 => STOP_PONDERING,
+    3 => STOP_TIMEOUT,
+    4 => STOP_ON_DEMAND,
+    5 => STOP_END,
+    _ => throw ArgumentError("Unknown value for Stop: $value"),
+  };
 }
 
 const int TARGET_ABI_USES_IOS_VALUES = 1;
@@ -7010,14 +6984,27 @@ final class _RuneLocale extends ffi.Struct {
   external ffi.Array<ffi.Char> __encoding;
 
   external ffi.Pointer<
-      ffi.NativeFunction<
-          __darwin_rune_t Function(ffi.Pointer<ffi.Char>, __darwin_size_t,
-              ffi.Pointer<ffi.Pointer<ffi.Char>>)>> __sgetrune;
+    ffi.NativeFunction<
+      __darwin_rune_t Function(
+        ffi.Pointer<ffi.Char>,
+        __darwin_size_t,
+        ffi.Pointer<ffi.Pointer<ffi.Char>>,
+      )
+    >
+  >
+  __sgetrune;
 
   external ffi.Pointer<
-      ffi.NativeFunction<
-          ffi.Int Function(__darwin_rune_t, ffi.Pointer<ffi.Char>,
-              __darwin_size_t, ffi.Pointer<ffi.Pointer<ffi.Char>>)>> __sputrune;
+    ffi.NativeFunction<
+      ffi.Int Function(
+        __darwin_rune_t,
+        ffi.Pointer<ffi.Char>,
+        __darwin_size_t,
+        ffi.Pointer<ffi.Pointer<ffi.Char>>,
+      )
+    >
+  >
+  __sputrune;
 
   @__darwin_rune_t()
   external int __invalid_rune;
@@ -8268,9 +8255,10 @@ typedef __darwin_pthread_cond_t = _opaque_pthread_cond_t;
 typedef __darwin_pthread_condattr_t = _opaque_pthread_condattr_t;
 
 final class __darwin_pthread_handler_rec extends ffi.Struct {
-  external ffi
-      .Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>
-      __routine;
+  external ffi.Pointer<
+    ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>
+  >
+  __routine;
 
   external ffi.Pointer<ffi.Void> __arg;
 
@@ -8417,23 +8405,29 @@ final class __sFILE extends ffi.Struct {
 
   external ffi.Pointer<ffi.Void> _cookie;
 
-  external ffi
-      .Pointer<ffi.NativeFunction<ffi.Int Function(ffi.Pointer<ffi.Void>)>>
-      _close;
+  external ffi.Pointer<
+    ffi.NativeFunction<ffi.Int Function(ffi.Pointer<ffi.Void>)>
+  >
+  _close;
 
   external ffi.Pointer<
-      ffi.NativeFunction<
-          ffi.Int Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Char>, ffi.Int)>> _read;
+    ffi.NativeFunction<
+      ffi.Int Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Char>, ffi.Int)
+    >
+  >
+  _read;
 
   external ffi.Pointer<
-      ffi.NativeFunction<
-          fpos_t Function(ffi.Pointer<ffi.Void>, fpos_t, ffi.Int)>> _seek;
+    ffi.NativeFunction<fpos_t Function(ffi.Pointer<ffi.Void>, fpos_t, ffi.Int)>
+  >
+  _seek;
 
   external ffi.Pointer<
-      ffi.NativeFunction<
-          ffi.Int Function(
-              ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Char>, ffi.Int)>> _write;
+    ffi.NativeFunction<
+      ffi.Int Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Char>, ffi.Int)
+    >
+  >
+  _write;
 
   external __sbuf _ub;
 
@@ -8470,9 +8464,17 @@ final class __sigaction extends ffi.Struct {
   external __sigaction_u __sigaction_u1;
 
   external ffi.Pointer<
-      ffi.NativeFunction<
-          ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Int, ffi.Int,
-              ffi.Pointer<siginfo_t>, ffi.Pointer<ffi.Void>)>> sa_tramp;
+    ffi.NativeFunction<
+      ffi.Void Function(
+        ffi.Pointer<ffi.Void>,
+        ffi.Int,
+        ffi.Int,
+        ffi.Pointer<siginfo_t>,
+        ffi.Pointer<ffi.Void>,
+      )
+    >
+  >
+  sa_tramp;
 
   @sigset_t()
   external int sa_mask;
@@ -8483,13 +8485,14 @@ final class __sigaction extends ffi.Struct {
 
 final class __sigaction_u extends ffi.Union {
   external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Int)>>
-      __sa_handler;
+  __sa_handler;
 
   external ffi.Pointer<
-          ffi.NativeFunction<
-              ffi.Void Function(
-                  ffi.Int, ffi.Pointer<__siginfo>, ffi.Pointer<ffi.Void>)>>
-      __sa_sigaction;
+    ffi.NativeFunction<
+      ffi.Void Function(ffi.Int, ffi.Pointer<__siginfo>, ffi.Pointer<ffi.Void>)
+    >
+  >
+  __sa_sigaction;
 }
 
 final class __siginfo extends ffi.Struct {
@@ -8670,16 +8673,16 @@ enum clockid_t {
   const clockid_t(this.value);
 
   static clockid_t fromValue(int value) => switch (value) {
-        0 => _CLOCK_REALTIME,
-        6 => _CLOCK_MONOTONIC,
-        4 => _CLOCK_MONOTONIC_RAW,
-        5 => _CLOCK_MONOTONIC_RAW_APPROX,
-        8 => _CLOCK_UPTIME_RAW,
-        9 => _CLOCK_UPTIME_RAW_APPROX,
-        12 => _CLOCK_PROCESS_CPUTIME_ID,
-        16 => _CLOCK_THREAD_CPUTIME_ID,
-        _ => throw ArgumentError("Unknown value for clockid_t: $value"),
-      };
+    0 => _CLOCK_REALTIME,
+    6 => _CLOCK_MONOTONIC,
+    4 => _CLOCK_MONOTONIC_RAW,
+    5 => _CLOCK_MONOTONIC_RAW_APPROX,
+    8 => _CLOCK_UPTIME_RAW,
+    9 => _CLOCK_UPTIME_RAW_APPROX,
+    12 => _CLOCK_PROCESS_CPUTIME_ID,
+    16 => _CLOCK_THREAD_CPUTIME_ID,
+    _ => throw ArgumentError("Unknown value for clockid_t: $value"),
+  };
 }
 
 final class clockinfo extends ffi.Struct {
@@ -8808,11 +8811,11 @@ enum idtype_t {
   const idtype_t(this.value);
 
   static idtype_t fromValue(int value) => switch (value) {
-        0 => P_ALL,
-        1 => P_PID,
-        2 => P_PGID,
-        _ => throw ArgumentError("Unknown value for idtype_t: $value"),
-      };
+    0 => P_ALL,
+    1 => P_PID,
+    2 => P_PGID,
+    _ => throw ArgumentError("Unknown value for idtype_t: $value"),
+  };
 }
 
 final class in6_addr extends ffi.Struct {
@@ -9145,12 +9148,12 @@ typedef pthread_condattr_t = __darwin_pthread_condattr_t;
 /// A result code to be returned to the caller of @{link
 /// pthread_jit_write_with_callback_np}.  The system does not interpret/act on
 /// the value of this result.
-typedef pthread_jit_write_callback_t
-    = ffi.Pointer<ffi.NativeFunction<pthread_jit_write_callback_tFunction>>;
-typedef pthread_jit_write_callback_tFunction = ffi.Int Function(
-    ffi.Pointer<ffi.Void> ctx);
-typedef Dartpthread_jit_write_callback_tFunction = int Function(
-    ffi.Pointer<ffi.Void> ctx);
+typedef pthread_jit_write_callback_t =
+    ffi.Pointer<ffi.NativeFunction<pthread_jit_write_callback_tFunction>>;
+typedef pthread_jit_write_callback_tFunction =
+    ffi.Int Function(ffi.Pointer<ffi.Void> ctx);
+typedef Dartpthread_jit_write_callback_tFunction =
+    int Function(ffi.Pointer<ffi.Void> ctx);
 typedef pthread_key_t = __darwin_pthread_key_t;
 typedef pthread_mutex_t = __darwin_pthread_mutex_t;
 typedef pthread_mutexattr_t = __darwin_pthread_mutexattr_t;
@@ -9940,7 +9943,7 @@ final class sigevent extends ffi.Struct {
   external sigval sigev_value;
 
   external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(sigval)>>
-      sigev_notify_function;
+  sigev_notify_function;
 
   external ffi.Pointer<pthread_attr_t> sigev_notify_attributes;
 }
@@ -9964,7 +9967,7 @@ final class sigval extends ffi.Union {
 
 final class sigvec extends ffi.Struct {
   external ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Int)>>
-      sv_handler;
+  sv_handler;
 
   @ffi.Int()
   external int sv_mask;

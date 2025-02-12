@@ -28,32 +28,29 @@ class Position {
 
   /// initialize from C struct
   Position.fromCStruct(final bindings.Position cPosition)
-      : board = Board(cPosition.board[0].player, cPosition.board[0].opponent),
-        leaf = Link(cPosition.leaf.score, cPosition.leaf.move),
-        links = _linksFromCStruct(cPosition),
-        nWins = cPosition.n_wins,
-        nDraws = cPosition.n_draws,
-        nLosses = cPosition.n_losses,
-        nLines = cPosition.n_lines,
-        score = Score(
-          cPosition.score.value,
-          cPosition.score.lower,
-          cPosition.score.upper,
-        ),
-        nLink = cPosition.n_link,
-        level = cPosition.level,
-        flag = cPosition.flag,
-        nPlayerBestpaths = cPosition.n_player_bestpaths,
-        nOpponentBestpaths = cPosition.n_opponent_bestpaths;
+    : board = Board(cPosition.board[0].player, cPosition.board[0].opponent),
+      leaf = Link(cPosition.leaf.score, cPosition.leaf.move),
+      links = _linksFromCStruct(cPosition),
+      nWins = cPosition.n_wins,
+      nDraws = cPosition.n_draws,
+      nLosses = cPosition.n_losses,
+      nLines = cPosition.n_lines,
+      score = Score(
+        cPosition.score.value,
+        cPosition.score.lower,
+        cPosition.score.upper,
+      ),
+      nLink = cPosition.n_link,
+      level = cPosition.level,
+      flag = cPosition.flag,
+      nPlayerBestpaths = cPosition.n_player_bestpaths,
+      nOpponentBestpaths = cPosition.n_opponent_bestpaths;
 
   static List<Link> _linksFromCStruct(final bindings.Position cPosition) {
     final links = <Link>[];
     for (var k = 0; k < cPosition.n_link; k++) {
       links.add(
-        Link(
-          (cPosition.link + k).ref.score,
-          (cPosition.link + k).ref.move,
-        ),
+        Link((cPosition.link + k).ref.score, (cPosition.link + k).ref.move),
       );
     }
     return links;
@@ -100,8 +97,8 @@ class Position {
   /// best score links
   List<Link> get bestScoreLinks {
     if (links.isEmpty) return [];
-    final linksSortedByScore = links
-      ..sort((final a, final b) => b.score.compareTo(a.score));
+    final linksSortedByScore =
+        links..sort((final a, final b) => b.score.compareTo(a.score));
     final bestScore = linksSortedByScore.first.score;
     return linksSortedByScore
         .where((final element) => element.score == bestScore)
