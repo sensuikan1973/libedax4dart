@@ -21,6 +21,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dart-lang/setup-dart@v1
+      - name: install dependencies
+        run: dart pub get
       - run: dart format . --set-exit-if-changed
 
   dart_analyze:
