@@ -20,12 +20,10 @@ class LibEdaxBindings {
   ) : _lookup = lookup;
 
   /// conversion from an 8-bit line to the A1-A8 line
-  late final ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> _A1_A8 =
-      _lookup<ffi.Pointer<ffi.UnsignedLongLong>>('A1_A8');
+  late final ffi.Pointer<ffi.UnsignedLongLong> _A1_A8 =
+      _lookup<ffi.UnsignedLongLong>('A1_A8');
 
-  ffi.Pointer<ffi.UnsignedLongLong> get A1_A8 => _A1_A8.value;
-
-  set A1_A8(ffi.Pointer<ffi.UnsignedLongLong> value) => _A1_A8.value = value;
+  ffi.Pointer<ffi.UnsignedLongLong> get A1_A8 => _A1_A8;
 
   late final ffi.Pointer<Link> _BAD_LINK = _lookup<Link>('BAD_LINK');
 
@@ -37,72 +35,55 @@ class LibEdaxBindings {
 
   int get BOOK_INFO_RESOLUTION => _BOOK_INFO_RESOLUTION.value;
 
-  late final ffi.Pointer<ffi.Pointer<ffi.Char>> _COUNT_FLIP_2 =
-      _lookup<ffi.Pointer<ffi.Char>>('COUNT_FLIP_2');
+  late final ffi.Pointer<ffi.Char> _COUNT_FLIP_2 = _lookup<ffi.Char>(
+    'COUNT_FLIP_2',
+  );
 
-  ffi.Pointer<ffi.Char> get COUNT_FLIP_2 => _COUNT_FLIP_2.value;
+  ffi.Pointer<ffi.Char> get COUNT_FLIP_2 => _COUNT_FLIP_2;
 
-  set COUNT_FLIP_2(ffi.Pointer<ffi.Char> value) => _COUNT_FLIP_2.value = value;
+  late final ffi.Pointer<ffi.Char> _COUNT_FLIP_3 = _lookup<ffi.Char>(
+    'COUNT_FLIP_3',
+  );
 
-  late final ffi.Pointer<ffi.Pointer<ffi.Char>> _COUNT_FLIP_3 =
-      _lookup<ffi.Pointer<ffi.Char>>('COUNT_FLIP_3');
+  ffi.Pointer<ffi.Char> get COUNT_FLIP_3 => _COUNT_FLIP_3;
 
-  ffi.Pointer<ffi.Char> get COUNT_FLIP_3 => _COUNT_FLIP_3.value;
+  late final ffi.Pointer<ffi.Char> _COUNT_FLIP_4 = _lookup<ffi.Char>(
+    'COUNT_FLIP_4',
+  );
 
-  set COUNT_FLIP_3(ffi.Pointer<ffi.Char> value) => _COUNT_FLIP_3.value = value;
+  ffi.Pointer<ffi.Char> get COUNT_FLIP_4 => _COUNT_FLIP_4;
 
-  late final ffi.Pointer<ffi.Pointer<ffi.Char>> _COUNT_FLIP_4 =
-      _lookup<ffi.Pointer<ffi.Char>>('COUNT_FLIP_4');
+  late final ffi.Pointer<ffi.Char> _COUNT_FLIP_5 = _lookup<ffi.Char>(
+    'COUNT_FLIP_5',
+  );
 
-  ffi.Pointer<ffi.Char> get COUNT_FLIP_4 => _COUNT_FLIP_4.value;
+  ffi.Pointer<ffi.Char> get COUNT_FLIP_5 => _COUNT_FLIP_5;
 
-  set COUNT_FLIP_4(ffi.Pointer<ffi.Char> value) => _COUNT_FLIP_4.value = value;
+  late final ffi.Pointer<ffi.Char> _COUNT_FLIP_L = _lookup<ffi.Char>(
+    'COUNT_FLIP_L',
+  );
 
-  late final ffi.Pointer<ffi.Pointer<ffi.Char>> _COUNT_FLIP_5 =
-      _lookup<ffi.Pointer<ffi.Char>>('COUNT_FLIP_5');
-
-  ffi.Pointer<ffi.Char> get COUNT_FLIP_5 => _COUNT_FLIP_5.value;
-
-  set COUNT_FLIP_5(ffi.Pointer<ffi.Char> value) => _COUNT_FLIP_5.value = value;
-
-  late final ffi.Pointer<ffi.Pointer<ffi.Char>> _COUNT_FLIP_L =
-      _lookup<ffi.Pointer<ffi.Char>>('COUNT_FLIP_L');
-
-  ffi.Pointer<ffi.Char> get COUNT_FLIP_L => _COUNT_FLIP_L.value;
-
-  set COUNT_FLIP_L(ffi.Pointer<ffi.Char> value) => _COUNT_FLIP_L.value = value;
+  ffi.Pointer<ffi.Char> get COUNT_FLIP_L => _COUNT_FLIP_L;
 
   /// precomputed count flip array
-  late final ffi.Pointer<ffi.Pointer<ffi.Char>> _COUNT_FLIP_R =
-      _lookup<ffi.Pointer<ffi.Char>>('COUNT_FLIP_R');
+  late final ffi.Pointer<ffi.Char> _COUNT_FLIP_R = _lookup<ffi.Char>(
+    'COUNT_FLIP_R',
+  );
 
-  ffi.Pointer<ffi.Char> get COUNT_FLIP_R => _COUNT_FLIP_R.value;
-
-  set COUNT_FLIP_R(ffi.Pointer<ffi.Char> value) => _COUNT_FLIP_R.value = value;
+  ffi.Pointer<ffi.Char> get COUNT_FLIP_R => _COUNT_FLIP_R;
 
   /// Array of functions to count flipped discs of the last move
   late final ffi.Pointer<
-    ffi.Pointer<
-      ffi.Pointer<ffi.NativeFunction<ffi.Int Function(ffi.UnsignedLongLong)>>
-    >
+    ffi.Pointer<ffi.NativeFunction<ffi.Int Function(ffi.UnsignedLongLong)>>
   >
   _COUNT_LAST_FLIP = _lookup<
-    ffi.Pointer<
-      ffi.Pointer<ffi.NativeFunction<ffi.Int Function(ffi.UnsignedLongLong)>>
-    >
+    ffi.Pointer<ffi.NativeFunction<ffi.Int Function(ffi.UnsignedLongLong)>>
   >('COUNT_LAST_FLIP');
 
   ffi.Pointer<
     ffi.Pointer<ffi.NativeFunction<ffi.Int Function(ffi.UnsignedLongLong)>>
   >
-  get COUNT_LAST_FLIP => _COUNT_LAST_FLIP.value;
-
-  set COUNT_LAST_FLIP(
-    ffi.Pointer<
-      ffi.Pointer<ffi.NativeFunction<ffi.Int Function(ffi.UnsignedLongLong)>>
-    >
-    value,
-  ) => _COUNT_LAST_FLIP.value = value;
+  get COUNT_LAST_FLIP => _COUNT_LAST_FLIP;
 
   /// evaluation function error coefficient parameters
   late final ffi.Pointer<ffi.Double> _EVAL_A = _lookup<ffi.Double>('EVAL_A');
@@ -124,30 +105,21 @@ class LibEdaxBindings {
   set EVAL_C(double value) => _EVAL_C.value = value;
 
   /// feature symetry packing
-  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int>>> _EVAL_C10 =
-      _lookup<ffi.Pointer<ffi.Pointer<ffi.Int>>>('EVAL_C10');
+  late final ffi.Pointer<ffi.Pointer<ffi.Int>> _EVAL_C10 =
+      _lookup<ffi.Pointer<ffi.Int>>('EVAL_C10');
 
-  ffi.Pointer<ffi.Pointer<ffi.Int>> get EVAL_C10 => _EVAL_C10.value;
+  ffi.Pointer<ffi.Pointer<ffi.Int>> get EVAL_C10 => _EVAL_C10;
 
-  set EVAL_C10(ffi.Pointer<ffi.Pointer<ffi.Int>> value) =>
-      _EVAL_C10.value = value;
+  late final ffi.Pointer<ffi.Pointer<ffi.Int>> _EVAL_C9 =
+      _lookup<ffi.Pointer<ffi.Int>>('EVAL_C9');
 
-  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int>>> _EVAL_C9 =
-      _lookup<ffi.Pointer<ffi.Pointer<ffi.Int>>>('EVAL_C9');
-
-  ffi.Pointer<ffi.Pointer<ffi.Int>> get EVAL_C9 => _EVAL_C9.value;
-
-  set EVAL_C9(ffi.Pointer<ffi.Pointer<ffi.Int>> value) =>
-      _EVAL_C9.value = value;
+  ffi.Pointer<ffi.Pointer<ffi.Int>> get EVAL_C9 => _EVAL_C9;
 
   /// array to convert features into coordinates
-  late final ffi.Pointer<ffi.Pointer<FeatureToCoordinate>> _EVAL_F2X =
-      _lookup<ffi.Pointer<FeatureToCoordinate>>('EVAL_F2X');
+  late final ffi.Pointer<FeatureToCoordinate> _EVAL_F2X =
+      _lookup<FeatureToCoordinate>('EVAL_F2X');
 
-  ffi.Pointer<FeatureToCoordinate> get EVAL_F2X => _EVAL_F2X.value;
-
-  set EVAL_F2X(ffi.Pointer<FeatureToCoordinate> value) =>
-      _EVAL_F2X.value = value;
+  ffi.Pointer<FeatureToCoordinate> get EVAL_F2X => _EVAL_F2X;
 
   /// eval weight load status
   late final ffi.Pointer<ffi.Int> _EVAL_LOADED = _lookup<ffi.Int>(
@@ -158,13 +130,11 @@ class LibEdaxBindings {
 
   set EVAL_LOADED(int value) => _EVAL_LOADED.value = value;
 
-  late final ffi.Pointer<ffi.Pointer<ffi.Int>> _EVAL_MAX_VALUE =
-      _lookup<ffi.Pointer<ffi.Int>>('EVAL_MAX_VALUE');
+  late final ffi.Pointer<ffi.Int> _EVAL_MAX_VALUE = _lookup<ffi.Int>(
+    'EVAL_MAX_VALUE',
+  );
 
-  ffi.Pointer<ffi.Int> get EVAL_MAX_VALUE => _EVAL_MAX_VALUE.value;
-
-  set EVAL_MAX_VALUE(ffi.Pointer<ffi.Int> value) =>
-      _EVAL_MAX_VALUE.value = value;
+  ffi.Pointer<ffi.Int> get EVAL_MAX_VALUE => _EVAL_MAX_VALUE;
 
   /// number of features
   late final ffi.Pointer<ffi.Int> _EVAL_N_FEATURE = _lookup<ffi.Int>(
@@ -186,77 +156,53 @@ class LibEdaxBindings {
   int get EVAL_N_WEIGHT => _EVAL_N_WEIGHT.value;
 
   /// feature offset
-  late final ffi.Pointer<ffi.Pointer<ffi.Int>> _EVAL_OFFSET =
-      _lookup<ffi.Pointer<ffi.Int>>('EVAL_OFFSET');
+  late final ffi.Pointer<ffi.Int> _EVAL_OFFSET = _lookup<ffi.Int>(
+    'EVAL_OFFSET',
+  );
 
-  ffi.Pointer<ffi.Int> get EVAL_OFFSET => _EVAL_OFFSET.value;
-
-  set EVAL_OFFSET(ffi.Pointer<ffi.Int> value) => _EVAL_OFFSET.value = value;
+  ffi.Pointer<ffi.Int> get EVAL_OFFSET => _EVAL_OFFSET;
 
   /// packed feature size
-  late final ffi.Pointer<ffi.Pointer<ffi.Int>> _EVAL_PACKED_SIZE =
-      _lookup<ffi.Pointer<ffi.Int>>('EVAL_PACKED_SIZE');
+  late final ffi.Pointer<ffi.Int> _EVAL_PACKED_SIZE = _lookup<ffi.Int>(
+    'EVAL_PACKED_SIZE',
+  );
 
-  ffi.Pointer<ffi.Int> get EVAL_PACKED_SIZE => _EVAL_PACKED_SIZE.value;
+  ffi.Pointer<ffi.Int> get EVAL_PACKED_SIZE => _EVAL_PACKED_SIZE;
 
-  set EVAL_PACKED_SIZE(ffi.Pointer<ffi.Int> value) =>
-      _EVAL_PACKED_SIZE.value = value;
+  late final ffi.Pointer<ffi.Pointer<ffi.Int>> _EVAL_S10 =
+      _lookup<ffi.Pointer<ffi.Int>>('EVAL_S10');
 
-  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int>>> _EVAL_S10 =
-      _lookup<ffi.Pointer<ffi.Pointer<ffi.Int>>>('EVAL_S10');
+  ffi.Pointer<ffi.Pointer<ffi.Int>> get EVAL_S10 => _EVAL_S10;
 
-  ffi.Pointer<ffi.Pointer<ffi.Int>> get EVAL_S10 => _EVAL_S10.value;
+  late final ffi.Pointer<ffi.Pointer<ffi.Int>> _EVAL_S4 =
+      _lookup<ffi.Pointer<ffi.Int>>('EVAL_S4');
 
-  set EVAL_S10(ffi.Pointer<ffi.Pointer<ffi.Int>> value) =>
-      _EVAL_S10.value = value;
+  ffi.Pointer<ffi.Pointer<ffi.Int>> get EVAL_S4 => _EVAL_S4;
 
-  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int>>> _EVAL_S4 =
-      _lookup<ffi.Pointer<ffi.Pointer<ffi.Int>>>('EVAL_S4');
+  late final ffi.Pointer<ffi.Pointer<ffi.Int>> _EVAL_S5 =
+      _lookup<ffi.Pointer<ffi.Int>>('EVAL_S5');
 
-  ffi.Pointer<ffi.Pointer<ffi.Int>> get EVAL_S4 => _EVAL_S4.value;
+  ffi.Pointer<ffi.Pointer<ffi.Int>> get EVAL_S5 => _EVAL_S5;
 
-  set EVAL_S4(ffi.Pointer<ffi.Pointer<ffi.Int>> value) =>
-      _EVAL_S4.value = value;
+  late final ffi.Pointer<ffi.Pointer<ffi.Int>> _EVAL_S6 =
+      _lookup<ffi.Pointer<ffi.Int>>('EVAL_S6');
 
-  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int>>> _EVAL_S5 =
-      _lookup<ffi.Pointer<ffi.Pointer<ffi.Int>>>('EVAL_S5');
+  ffi.Pointer<ffi.Pointer<ffi.Int>> get EVAL_S6 => _EVAL_S6;
 
-  ffi.Pointer<ffi.Pointer<ffi.Int>> get EVAL_S5 => _EVAL_S5.value;
+  late final ffi.Pointer<ffi.Pointer<ffi.Int>> _EVAL_S7 =
+      _lookup<ffi.Pointer<ffi.Int>>('EVAL_S7');
 
-  set EVAL_S5(ffi.Pointer<ffi.Pointer<ffi.Int>> value) =>
-      _EVAL_S5.value = value;
+  ffi.Pointer<ffi.Pointer<ffi.Int>> get EVAL_S7 => _EVAL_S7;
 
-  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int>>> _EVAL_S6 =
-      _lookup<ffi.Pointer<ffi.Pointer<ffi.Int>>>('EVAL_S6');
+  late final ffi.Pointer<ffi.Pointer<ffi.Int>> _EVAL_S8 =
+      _lookup<ffi.Pointer<ffi.Int>>('EVAL_S8');
 
-  ffi.Pointer<ffi.Pointer<ffi.Int>> get EVAL_S6 => _EVAL_S6.value;
-
-  set EVAL_S6(ffi.Pointer<ffi.Pointer<ffi.Int>> value) =>
-      _EVAL_S6.value = value;
-
-  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int>>> _EVAL_S7 =
-      _lookup<ffi.Pointer<ffi.Pointer<ffi.Int>>>('EVAL_S7');
-
-  ffi.Pointer<ffi.Pointer<ffi.Int>> get EVAL_S7 => _EVAL_S7.value;
-
-  set EVAL_S7(ffi.Pointer<ffi.Pointer<ffi.Int>> value) =>
-      _EVAL_S7.value = value;
-
-  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int>>> _EVAL_S8 =
-      _lookup<ffi.Pointer<ffi.Pointer<ffi.Int>>>('EVAL_S8');
-
-  ffi.Pointer<ffi.Pointer<ffi.Int>> get EVAL_S8 => _EVAL_S8.value;
-
-  set EVAL_S8(ffi.Pointer<ffi.Pointer<ffi.Int>> value) =>
-      _EVAL_S8.value = value;
+  ffi.Pointer<ffi.Pointer<ffi.Int>> get EVAL_S8 => _EVAL_S8;
 
   /// feature size
-  late final ffi.Pointer<ffi.Pointer<ffi.Int>> _EVAL_SIZE =
-      _lookup<ffi.Pointer<ffi.Int>>('EVAL_SIZE');
+  late final ffi.Pointer<ffi.Int> _EVAL_SIZE = _lookup<ffi.Int>('EVAL_SIZE');
 
-  ffi.Pointer<ffi.Int> get EVAL_SIZE => _EVAL_SIZE.value;
-
-  set EVAL_SIZE(ffi.Pointer<ffi.Int> value) => _EVAL_SIZE.value = value;
+  ffi.Pointer<ffi.Int> get EVAL_SIZE => _EVAL_SIZE;
 
   /// eval weights
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Short>>>>
@@ -271,13 +217,10 @@ class LibEdaxBindings {
       _EVAL_WEIGHT.value = value;
 
   /// array to convert coordinates into feature
-  late final ffi.Pointer<ffi.Pointer<CoordinateToFeature>> _EVAL_X2F =
-      _lookup<ffi.Pointer<CoordinateToFeature>>('EVAL_X2F');
+  late final ffi.Pointer<CoordinateToFeature> _EVAL_X2F =
+      _lookup<CoordinateToFeature>('EVAL_X2F');
 
-  ffi.Pointer<CoordinateToFeature> get EVAL_X2F => _EVAL_X2F.value;
-
-  set EVAL_X2F(ffi.Pointer<CoordinateToFeature> value) =>
-      _EVAL_X2F.value = value;
+  ffi.Pointer<CoordinateToFeature> get EVAL_X2F => _EVAL_X2F;
 
   late final ffi.Pointer<ffi.Double> _EVAL_a = _lookup<ffi.Double>('EVAL_a');
 
@@ -298,69 +241,45 @@ class LibEdaxBindings {
   set EVAL_c(double value) => _EVAL_c.value = value;
 
   /// flip array (indexed with outflank, returns inner 6 bits)
-  late final ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> _FLIPPED_2_H =
-      _lookup<ffi.Pointer<ffi.UnsignedLongLong>>('FLIPPED_2_H');
+  late final ffi.Pointer<ffi.UnsignedLongLong> _FLIPPED_2_H =
+      _lookup<ffi.UnsignedLongLong>('FLIPPED_2_H');
 
-  ffi.Pointer<ffi.UnsignedLongLong> get FLIPPED_2_H => _FLIPPED_2_H.value;
+  ffi.Pointer<ffi.UnsignedLongLong> get FLIPPED_2_H => _FLIPPED_2_H;
 
-  set FLIPPED_2_H(ffi.Pointer<ffi.UnsignedLongLong> value) =>
-      _FLIPPED_2_H.value = value;
+  late final ffi.Pointer<ffi.UnsignedLongLong> _FLIPPED_2_V =
+      _lookup<ffi.UnsignedLongLong>('FLIPPED_2_V');
 
-  late final ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> _FLIPPED_2_V =
-      _lookup<ffi.Pointer<ffi.UnsignedLongLong>>('FLIPPED_2_V');
+  ffi.Pointer<ffi.UnsignedLongLong> get FLIPPED_2_V => _FLIPPED_2_V;
 
-  ffi.Pointer<ffi.UnsignedLongLong> get FLIPPED_2_V => _FLIPPED_2_V.value;
+  late final ffi.Pointer<ffi.UnsignedLongLong> _FLIPPED_3_H =
+      _lookup<ffi.UnsignedLongLong>('FLIPPED_3_H');
 
-  set FLIPPED_2_V(ffi.Pointer<ffi.UnsignedLongLong> value) =>
-      _FLIPPED_2_V.value = value;
+  ffi.Pointer<ffi.UnsignedLongLong> get FLIPPED_3_H => _FLIPPED_3_H;
 
-  late final ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> _FLIPPED_3_H =
-      _lookup<ffi.Pointer<ffi.UnsignedLongLong>>('FLIPPED_3_H');
+  late final ffi.Pointer<ffi.UnsignedLongLong> _FLIPPED_3_V =
+      _lookup<ffi.UnsignedLongLong>('FLIPPED_3_V');
 
-  ffi.Pointer<ffi.UnsignedLongLong> get FLIPPED_3_H => _FLIPPED_3_H.value;
+  ffi.Pointer<ffi.UnsignedLongLong> get FLIPPED_3_V => _FLIPPED_3_V;
 
-  set FLIPPED_3_H(ffi.Pointer<ffi.UnsignedLongLong> value) =>
-      _FLIPPED_3_H.value = value;
+  late final ffi.Pointer<ffi.UnsignedLongLong> _FLIPPED_4_H =
+      _lookup<ffi.UnsignedLongLong>('FLIPPED_4_H');
 
-  late final ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> _FLIPPED_3_V =
-      _lookup<ffi.Pointer<ffi.UnsignedLongLong>>('FLIPPED_3_V');
+  ffi.Pointer<ffi.UnsignedLongLong> get FLIPPED_4_H => _FLIPPED_4_H;
 
-  ffi.Pointer<ffi.UnsignedLongLong> get FLIPPED_3_V => _FLIPPED_3_V.value;
+  late final ffi.Pointer<ffi.UnsignedLongLong> _FLIPPED_4_V =
+      _lookup<ffi.UnsignedLongLong>('FLIPPED_4_V');
 
-  set FLIPPED_3_V(ffi.Pointer<ffi.UnsignedLongLong> value) =>
-      _FLIPPED_3_V.value = value;
+  ffi.Pointer<ffi.UnsignedLongLong> get FLIPPED_4_V => _FLIPPED_4_V;
 
-  late final ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> _FLIPPED_4_H =
-      _lookup<ffi.Pointer<ffi.UnsignedLongLong>>('FLIPPED_4_H');
+  late final ffi.Pointer<ffi.UnsignedLongLong> _FLIPPED_5_H =
+      _lookup<ffi.UnsignedLongLong>('FLIPPED_5_H');
 
-  ffi.Pointer<ffi.UnsignedLongLong> get FLIPPED_4_H => _FLIPPED_4_H.value;
+  ffi.Pointer<ffi.UnsignedLongLong> get FLIPPED_5_H => _FLIPPED_5_H;
 
-  set FLIPPED_4_H(ffi.Pointer<ffi.UnsignedLongLong> value) =>
-      _FLIPPED_4_H.value = value;
+  late final ffi.Pointer<ffi.UnsignedLongLong> _FLIPPED_5_V =
+      _lookup<ffi.UnsignedLongLong>('FLIPPED_5_V');
 
-  late final ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> _FLIPPED_4_V =
-      _lookup<ffi.Pointer<ffi.UnsignedLongLong>>('FLIPPED_4_V');
-
-  ffi.Pointer<ffi.UnsignedLongLong> get FLIPPED_4_V => _FLIPPED_4_V.value;
-
-  set FLIPPED_4_V(ffi.Pointer<ffi.UnsignedLongLong> value) =>
-      _FLIPPED_4_V.value = value;
-
-  late final ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> _FLIPPED_5_H =
-      _lookup<ffi.Pointer<ffi.UnsignedLongLong>>('FLIPPED_5_H');
-
-  ffi.Pointer<ffi.UnsignedLongLong> get FLIPPED_5_H => _FLIPPED_5_H.value;
-
-  set FLIPPED_5_H(ffi.Pointer<ffi.UnsignedLongLong> value) =>
-      _FLIPPED_5_H.value = value;
-
-  late final ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> _FLIPPED_5_V =
-      _lookup<ffi.Pointer<ffi.UnsignedLongLong>>('FLIPPED_5_V');
-
-  ffi.Pointer<ffi.UnsignedLongLong> get FLIPPED_5_V => _FLIPPED_5_V.value;
-
-  set FLIPPED_5_V(ffi.Pointer<ffi.UnsignedLongLong> value) =>
-      _FLIPPED_5_V.value = value;
+  ffi.Pointer<ffi.UnsignedLongLong> get FLIPPED_5_V => _FLIPPED_5_V;
 
   /// Hash entry initial value
   late final ffi.Pointer<GameHash> _GAME_HASH_INIT = _lookup<GameHash>(
@@ -387,12 +306,10 @@ class LibEdaxBindings {
   GGSMatchType get GGS_MATCH_TYPE_INI => _GGS_MATCH_TYPE_INI.ref;
 
   /// conversion from an 8-bit line to the H1-H8 line
-  late final ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> _H1_H8 =
-      _lookup<ffi.Pointer<ffi.UnsignedLongLong>>('H1_H8');
+  late final ffi.Pointer<ffi.UnsignedLongLong> _H1_H8 =
+      _lookup<ffi.UnsignedLongLong>('H1_H8');
 
-  ffi.Pointer<ffi.UnsignedLongLong> get H1_H8 => _H1_H8.value;
-
-  set H1_H8(ffi.Pointer<ffi.UnsignedLongLong> value) => _H1_H8.value = value;
+  ffi.Pointer<ffi.UnsignedLongLong> get H1_H8 => _H1_H8;
 
   /// HashData init value
   late final ffi.Pointer<HashData> _HASH_DATA_INIT = _lookup<HashData>(
@@ -401,12 +318,10 @@ class LibEdaxBindings {
 
   HashData get HASH_DATA_INIT => _HASH_DATA_INIT.ref;
 
-  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<Level>>> _LEVEL =
-      _lookup<ffi.Pointer<ffi.Pointer<Level>>>('LEVEL');
+  late final ffi.Pointer<ffi.Pointer<Level>> _LEVEL =
+      _lookup<ffi.Pointer<Level>>('LEVEL');
 
-  ffi.Pointer<ffi.Pointer<Level>> get LEVEL => _LEVEL.value;
-
-  set LEVEL(ffi.Pointer<ffi.Pointer<Level>> value) => _LEVEL.value = value;
+  ffi.Pointer<ffi.Pointer<Level>> get LEVEL => _LEVEL;
 
   late final ffi.Pointer<Move> _MOVE_INIT = _lookup<Move>('MOVE_INIT');
 
@@ -426,13 +341,11 @@ class LibEdaxBindings {
       _NEIGHBOUR.value = value;
 
   /// The list of french opening names
-  late final ffi.Pointer<ffi.Pointer<PositionName>> _NOM_POSITION =
-      _lookup<ffi.Pointer<PositionName>>('NOM_POSITION');
+  late final ffi.Pointer<PositionName> _NOM_POSITION = _lookup<PositionName>(
+    'NOM_POSITION',
+  );
 
-  ffi.Pointer<PositionName> get NOM_POSITION => _NOM_POSITION.value;
-
-  set NOM_POSITION(ffi.Pointer<PositionName> value) =>
-      _NOM_POSITION.value = value;
+  ffi.Pointer<PositionName> get NOM_POSITION => _NOM_POSITION;
 
   /// level with no selectivity
   late final ffi.Pointer<ffi.Int> _NO_SELECTIVITY = _lookup<ffi.Int>(
@@ -452,62 +365,43 @@ class LibEdaxBindings {
       _NWS_STABILITY_THRESHOLD.value = value;
 
   /// The list of french & english opening names
-  late final ffi.Pointer<ffi.Pointer<OpeningName>> _OPENING_NAME =
-      _lookup<ffi.Pointer<OpeningName>>('OPENING_NAME');
+  late final ffi.Pointer<OpeningName> _OPENING_NAME = _lookup<OpeningName>(
+    'OPENING_NAME',
+  );
 
-  ffi.Pointer<OpeningName> get OPENING_NAME => _OPENING_NAME.value;
+  ffi.Pointer<OpeningName> get OPENING_NAME => _OPENING_NAME;
 
-  set OPENING_NAME(ffi.Pointer<OpeningName> value) =>
-      _OPENING_NAME.value = value;
+  late final ffi.Pointer<ffi.UnsignedChar> _OUTFLANK_2 =
+      _lookup<ffi.UnsignedChar>('OUTFLANK_2');
 
-  late final ffi.Pointer<ffi.Pointer<ffi.UnsignedChar>> _OUTFLANK_2 =
-      _lookup<ffi.Pointer<ffi.UnsignedChar>>('OUTFLANK_2');
+  ffi.Pointer<ffi.UnsignedChar> get OUTFLANK_2 => _OUTFLANK_2;
 
-  ffi.Pointer<ffi.UnsignedChar> get OUTFLANK_2 => _OUTFLANK_2.value;
+  late final ffi.Pointer<ffi.UnsignedChar> _OUTFLANK_3 =
+      _lookup<ffi.UnsignedChar>('OUTFLANK_3');
 
-  set OUTFLANK_2(ffi.Pointer<ffi.UnsignedChar> value) =>
-      _OUTFLANK_2.value = value;
+  ffi.Pointer<ffi.UnsignedChar> get OUTFLANK_3 => _OUTFLANK_3;
 
-  late final ffi.Pointer<ffi.Pointer<ffi.UnsignedChar>> _OUTFLANK_3 =
-      _lookup<ffi.Pointer<ffi.UnsignedChar>>('OUTFLANK_3');
+  late final ffi.Pointer<ffi.UnsignedChar> _OUTFLANK_4 =
+      _lookup<ffi.UnsignedChar>('OUTFLANK_4');
 
-  ffi.Pointer<ffi.UnsignedChar> get OUTFLANK_3 => _OUTFLANK_3.value;
+  ffi.Pointer<ffi.UnsignedChar> get OUTFLANK_4 => _OUTFLANK_4;
 
-  set OUTFLANK_3(ffi.Pointer<ffi.UnsignedChar> value) =>
-      _OUTFLANK_3.value = value;
+  late final ffi.Pointer<ffi.UnsignedChar> _OUTFLANK_5 =
+      _lookup<ffi.UnsignedChar>('OUTFLANK_5');
 
-  late final ffi.Pointer<ffi.Pointer<ffi.UnsignedChar>> _OUTFLANK_4 =
-      _lookup<ffi.Pointer<ffi.UnsignedChar>>('OUTFLANK_4');
+  ffi.Pointer<ffi.UnsignedChar> get OUTFLANK_5 => _OUTFLANK_5;
 
-  ffi.Pointer<ffi.UnsignedChar> get OUTFLANK_4 => _OUTFLANK_4.value;
+  late final ffi.Pointer<ffi.UnsignedChar> _OUTFLANK_7 =
+      _lookup<ffi.UnsignedChar>('OUTFLANK_7');
 
-  set OUTFLANK_4(ffi.Pointer<ffi.UnsignedChar> value) =>
-      _OUTFLANK_4.value = value;
-
-  late final ffi.Pointer<ffi.Pointer<ffi.UnsignedChar>> _OUTFLANK_5 =
-      _lookup<ffi.Pointer<ffi.UnsignedChar>>('OUTFLANK_5');
-
-  ffi.Pointer<ffi.UnsignedChar> get OUTFLANK_5 => _OUTFLANK_5.value;
-
-  set OUTFLANK_5(ffi.Pointer<ffi.UnsignedChar> value) =>
-      _OUTFLANK_5.value = value;
-
-  late final ffi.Pointer<ffi.Pointer<ffi.UnsignedChar>> _OUTFLANK_7 =
-      _lookup<ffi.Pointer<ffi.UnsignedChar>>('OUTFLANK_7');
-
-  ffi.Pointer<ffi.UnsignedChar> get OUTFLANK_7 => _OUTFLANK_7.value;
-
-  set OUTFLANK_7(ffi.Pointer<ffi.UnsignedChar> value) =>
-      _OUTFLANK_7.value = value;
+  ffi.Pointer<ffi.UnsignedChar> get OUTFLANK_7 => _OUTFLANK_7;
 
   /// The list of french opening names
-  late final ffi.Pointer<ffi.Pointer<PositionName>> _POSITION_NAME =
-      _lookup<ffi.Pointer<PositionName>>('POSITION_NAME');
+  late final ffi.Pointer<PositionName> _POSITION_NAME = _lookup<PositionName>(
+    'POSITION_NAME',
+  );
 
-  ffi.Pointer<PositionName> get POSITION_NAME => _POSITION_NAME.value;
-
-  set POSITION_NAME(ffi.Pointer<PositionName> value) =>
-      _POSITION_NAME.value = value;
+  ffi.Pointer<PositionName> get POSITION_NAME => _POSITION_NAME;
 
   /// threshold values to try stability cutoff during PVS search
   late final ffi.Pointer<ffi.Pointer<ffi.Int>> _PVS_STABILITY_THRESHOLD =
@@ -535,12 +429,11 @@ class LibEdaxBindings {
 
   set SQUARE_TYPE(ffi.Pointer<ffi.Int> value) => _SQUARE_TYPE.value = value;
 
-  late final ffi.Pointer<ffi.Pointer<ffi.Int>> _SQUARE_VALUE =
-      _lookup<ffi.Pointer<ffi.Int>>('SQUARE_VALUE');
+  late final ffi.Pointer<ffi.Int> _SQUARE_VALUE = _lookup<ffi.Int>(
+    'SQUARE_VALUE',
+  );
 
-  ffi.Pointer<ffi.Int> get SQUARE_VALUE => _SQUARE_VALUE.value;
-
-  set SQUARE_VALUE(ffi.Pointer<ffi.Int> value) => _SQUARE_VALUE.value = value;
+  ffi.Pointer<ffi.Int> get SQUARE_VALUE => _SQUARE_VALUE;
 
   /// coordinate to bit table converter
   late final ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> _X_TO_BIT =
@@ -593,13 +486,10 @@ class LibEdaxBindings {
 
   set __stdoutp(ffi.Pointer<FILE> value) => ___stdoutp.value = value;
 
-  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Char>>> _admin_list =
-      _lookup<ffi.Pointer<ffi.Pointer<ffi.Char>>>('admin_list');
+  late final ffi.Pointer<ffi.Pointer<ffi.Char>> _admin_list =
+      _lookup<ffi.Pointer<ffi.Char>>('admin_list');
 
-  ffi.Pointer<ffi.Pointer<ffi.Char>> get admin_list => _admin_list.value;
-
-  set admin_list(ffi.Pointer<ffi.Pointer<ffi.Char>> value) =>
-      _admin_list.value = value;
+  ffi.Pointer<ffi.Pointer<ffi.Char>> get admin_list => _admin_list;
 
   /// @brief Count the number of bits set to one in an unsigned long long.
   ///
@@ -1050,12 +940,9 @@ class LibEdaxBindings {
   late final _edax_is_game_over =
       _edax_is_game_overPtr.asFunction<int Function()>();
 
-  late final ffi.Pointer<ffi.Pointer<Log>> _edax_log =
-      _lookup<ffi.Pointer<Log>>('edax_log');
+  late final ffi.Pointer<Log> _edax_log = _lookup<Log>('edax_log');
 
-  ffi.Pointer<Log> get edax_log => _edax_log.value;
-
-  set edax_log(ffi.Pointer<Log> value) => _edax_log.value = value;
+  ffi.Pointer<Log> get edax_log => _edax_log;
 
   void edax_mode(int arg0) {
     return _edax_mode(arg0);
@@ -1203,55 +1090,41 @@ class LibEdaxBindings {
   late final _edax_vmirror = _edax_vmirrorPtr.asFunction<void Function()>();
 
   /// edge stability global data
-  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.UnsignedChar>>>
-  _edge_stability = _lookup<ffi.Pointer<ffi.Pointer<ffi.UnsignedChar>>>(
-    'edge_stability',
-  );
+  late final ffi.Pointer<ffi.Pointer<ffi.UnsignedChar>> _edge_stability =
+      _lookup<ffi.Pointer<ffi.UnsignedChar>>('edge_stability');
 
   ffi.Pointer<ffi.Pointer<ffi.UnsignedChar>> get edge_stability =>
-      _edge_stability.value;
+      _edge_stability;
 
-  set edge_stability(ffi.Pointer<ffi.Pointer<ffi.UnsignedChar>> value) =>
-      _edge_stability.value = value;
+  late final ffi.Pointer<Log> _engine_log = _lookup<Log>('engine_log');
 
-  late final ffi.Pointer<ffi.Pointer<Log>> _engine_log =
-      _lookup<ffi.Pointer<Log>>('engine_log');
-
-  ffi.Pointer<Log> get engine_log => _engine_log.value;
-
-  set engine_log(ffi.Pointer<Log> value) => _engine_log.value = value;
+  ffi.Pointer<Log> get engine_log => _engine_log;
 
   /// a global variable used to display the search result
-  late final ffi.Pointer<ffi.Pointer<ffi.Char>> _engine_result =
-      _lookup<ffi.Pointer<ffi.Char>>('engine_result');
+  late final ffi.Pointer<ffi.Char> _engine_result = _lookup<ffi.Char>(
+    'engine_result',
+  );
 
-  ffi.Pointer<ffi.Char> get engine_result => _engine_result.value;
-
-  set engine_result(ffi.Pointer<ffi.Char> value) =>
-      _engine_result.value = value;
+  ffi.Pointer<ffi.Char> get engine_result => _engine_result;
 
   /// Array of functions to compute flipped discs
   late final ffi.Pointer<
     ffi.Pointer<
-      ffi.Pointer<
-        ffi.NativeFunction<
-          ffi.UnsignedLongLong Function(
-            ffi.UnsignedLongLong,
-            ffi.UnsignedLongLong,
-          )
-        >
+      ffi.NativeFunction<
+        ffi.UnsignedLongLong Function(
+          ffi.UnsignedLongLong,
+          ffi.UnsignedLongLong,
+        )
       >
     >
   >
   _flip = _lookup<
     ffi.Pointer<
-      ffi.Pointer<
-        ffi.NativeFunction<
-          ffi.UnsignedLongLong Function(
-            ffi.UnsignedLongLong,
-            ffi.UnsignedLongLong,
-          )
-        >
+      ffi.NativeFunction<
+        ffi.UnsignedLongLong Function(
+          ffi.UnsignedLongLong,
+          ffi.UnsignedLongLong,
+        )
       >
     >
   >('flip');
@@ -1266,21 +1139,7 @@ class LibEdaxBindings {
       >
     >
   >
-  get flip => _flip.value;
-
-  set flip(
-    ffi.Pointer<
-      ffi.Pointer<
-        ffi.NativeFunction<
-          ffi.UnsignedLongLong Function(
-            ffi.UnsignedLongLong,
-            ffi.UnsignedLongLong,
-          )
-        >
-      >
-    >
-    value,
-  ) => _flip.value = value;
+  get flip => _flip;
 
   late final ffi.Pointer<ffi.Int> _getdate_err = _lookup<ffi.Int>(
     'getdate_err',
@@ -1290,21 +1149,13 @@ class LibEdaxBindings {
 
   set getdate_err(int value) => _getdate_err.value = value;
 
-  late final ffi.Pointer<ffi.Pointer<Log>> _ggs_log = _lookup<ffi.Pointer<Log>>(
-    'ggs_log',
-  );
+  late final ffi.Pointer<Log> _ggs_log = _lookup<Log>('ggs_log');
 
-  ffi.Pointer<Log> get ggs_log => _ggs_log.value;
+  ffi.Pointer<Log> get ggs_log => _ggs_log;
 
-  set ggs_log(ffi.Pointer<Log> value) => _ggs_log.value = value;
+  late final ffi.Pointer<Log> _gtp_log = _lookup<Log>('gtp_log');
 
-  late final ffi.Pointer<ffi.Pointer<Log>> _gtp_log = _lookup<ffi.Pointer<Log>>(
-    'gtp_log',
-  );
-
-  ffi.Pointer<Log> get gtp_log => _gtp_log.value;
-
-  set gtp_log(ffi.Pointer<Log> value) => _gtp_log.value = value;
+  ffi.Pointer<Log> get gtp_log => _gtp_log;
 
   late final ffi.Pointer<ffi.Int> _h_errno = _lookup<ffi.Int>('h_errno');
 
@@ -1313,28 +1164,16 @@ class LibEdaxBindings {
   set h_errno(int value) => _h_errno.value = value;
 
   /// hashing global data
-  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>>>
-  _hash_move = _lookup<ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>>>(
-    'hash_move',
-  );
+  late final ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> _hash_move =
+      _lookup<ffi.Pointer<ffi.UnsignedLongLong>>('hash_move');
 
-  ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> get hash_move =>
-      _hash_move.value;
-
-  set hash_move(ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> value) =>
-      _hash_move.value = value;
+  ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> get hash_move => _hash_move;
 
   /// hashing global data
-  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>>>
-  _hash_rank = _lookup<ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>>>(
-    'hash_rank',
-  );
+  late final ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> _hash_rank =
+      _lookup<ffi.Pointer<ffi.UnsignedLongLong>>('hash_rank');
 
-  ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> get hash_rank =>
-      _hash_rank.value;
-
-  set hash_rank(ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> value) =>
-      _hash_rank.value = value;
+  ffi.Pointer<ffi.Pointer<ffi.UnsignedLongLong>> get hash_rank => _hash_rank;
 
   late final ffi.Pointer<in6_addr> _in6addr_any = _lookup<in6_addr>(
     'in6addr_any',
@@ -1371,13 +1210,11 @@ class LibEdaxBindings {
   in6_addr get in6addr_nodelocal_allnodes => _in6addr_nodelocal_allnodes.ref;
 
   /// a global string with the last result sent to avoid duplicate result lines
-  late final ffi.Pointer<ffi.Pointer<ffi.Char>> _last_line_sent =
-      _lookup<ffi.Pointer<ffi.Char>>('last_line_sent');
+  late final ffi.Pointer<ffi.Char> _last_line_sent = _lookup<ffi.Char>(
+    'last_line_sent',
+  );
 
-  ffi.Pointer<ffi.Char> get last_line_sent => _last_line_sent.value;
-
-  set last_line_sent(ffi.Pointer<ffi.Char> value) =>
-      _last_line_sent.value = value;
+  ffi.Pointer<ffi.Char> get last_line_sent => _last_line_sent;
 
   void libedax_initialize(int arg0, ffi.Pointer<ffi.Pointer<ffi.Char>> arg1) {
     return _libedax_initialize(arg0, arg1);
@@ -1401,12 +1238,9 @@ class LibEdaxBindings {
   late final _libedax_terminate =
       _libedax_terminatePtr.asFunction<void Function()>();
 
-  late final ffi.Pointer<ffi.Pointer<Log>> _nboard_log =
-      _lookup<ffi.Pointer<Log>>('nboard_log');
+  late final ffi.Pointer<Log> _nboard_log = _lookup<Log>('nboard_log');
 
-  ffi.Pointer<Log> get nboard_log => _nboard_log.value;
-
-  set nboard_log(ffi.Pointer<Log> value) => _nboard_log.value = value;
+  ffi.Pointer<Log> get nboard_log => _nboard_log;
 
   late final ffi.Pointer<ffi.Pointer<ffi.Char>> _optarg =
       _lookup<ffi.Pointer<ffi.Char>>('optarg');
@@ -1444,12 +1278,9 @@ class LibEdaxBindings {
 
   set optreset(int value) => _optreset.value = value;
 
-  late final ffi.Pointer<ffi.Pointer<Log>> _search_log =
-      _lookup<ffi.Pointer<Log>>('search_log');
+  late final ffi.Pointer<Log> _search_log = _lookup<Log>('search_log');
 
-  ffi.Pointer<Log> get search_log => _search_log.value;
-
-  set search_log(ffi.Pointer<Log> value) => _search_log.value = value;
+  ffi.Pointer<Log> get search_log => _search_log;
 
   /// predefined selectivity
   late final ffi.Pointer<ffi.Pointer<Selectivity>> _selectivity_table =
@@ -1491,21 +1322,15 @@ class LibEdaxBindings {
 
   int get sys_nerr => _sys_nerr.value;
 
-  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Char>>> _sys_siglist =
-      _lookup<ffi.Pointer<ffi.Pointer<ffi.Char>>>('sys_siglist');
+  late final ffi.Pointer<ffi.Pointer<ffi.Char>> _sys_siglist =
+      _lookup<ffi.Pointer<ffi.Char>>('sys_siglist');
 
-  ffi.Pointer<ffi.Pointer<ffi.Char>> get sys_siglist => _sys_siglist.value;
+  ffi.Pointer<ffi.Pointer<ffi.Char>> get sys_siglist => _sys_siglist;
 
-  set sys_siglist(ffi.Pointer<ffi.Pointer<ffi.Char>> value) =>
-      _sys_siglist.value = value;
+  late final ffi.Pointer<ffi.Pointer<ffi.Char>> _sys_signame =
+      _lookup<ffi.Pointer<ffi.Char>>('sys_signame');
 
-  late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Char>>> _sys_signame =
-      _lookup<ffi.Pointer<ffi.Pointer<ffi.Char>>>('sys_signame');
-
-  ffi.Pointer<ffi.Pointer<ffi.Char>> get sys_signame => _sys_signame.value;
-
-  set sys_signame(ffi.Pointer<ffi.Pointer<ffi.Char>> value) =>
-      _sys_signame.value = value;
+  ffi.Pointer<ffi.Pointer<ffi.Char>> get sys_signame => _sys_signame;
 
   /// @brief Time clock.
   ///
@@ -1540,12 +1365,9 @@ class LibEdaxBindings {
 
   set tzname(ffi.Pointer<ffi.Pointer<ffi.Char>> value) => _tzname.value = value;
 
-  late final ffi.Pointer<ffi.Pointer<Log>> _xboard_log =
-      _lookup<ffi.Pointer<Log>>('xboard_log');
+  late final ffi.Pointer<Log> _xboard_log = _lookup<Log>('xboard_log');
 
-  ffi.Pointer<Log> get xboard_log => _xboard_log.value;
-
-  set xboard_log(ffi.Pointer<Log> value) => _xboard_log.value = value;
+  ffi.Pointer<Log> get xboard_log => _xboard_log;
 }
 
 const int A1 = 0;
