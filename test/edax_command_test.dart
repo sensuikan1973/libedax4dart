@@ -404,10 +404,15 @@ void main() {
         ..edaxPlay(opening);
       final position = edax.edaxGetBookMoveWithPosition().position;
       expect(position.nLink, 0);
+
+      edax.edaxMode(2); // edax vs edax;
+      sleep(const Duration(seconds: 1));
+      edax.edaxGo();
+      sleep(const Duration(seconds: 1));
+
+      edax.edaxMode(3); // human vs human
+      sleep(const Duration(seconds: 1));
       edax
-        ..edaxMode(2) // edax vs edax
-        ..edaxGo()
-        ..edaxMode(3) // human vs human
         ..edaxPlayPrint()
         ..edaxBookStore()
         ..edaxBookSave(bookFile)
