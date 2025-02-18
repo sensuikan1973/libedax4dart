@@ -412,7 +412,8 @@ void main() {
         ..edaxBookStore()
         ..edaxBookSave(bookFile)
         ..edaxInit()
-        ..edaxPlay(opening);
+        ..edaxPlay(opening)
+        ..edaxPlayPrint();
       final positionAfterLearning = edax.edaxGetBookMoveWithPosition().position;
       expect(positionAfterLearning.nLink, 1);
       edax.libedaxTerminate();
