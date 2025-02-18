@@ -407,10 +407,10 @@ void main() {
       edax
         ..edaxMode(2) // edax vs edax
         ..edaxGo()
+        ..edaxMode(3) // human vs human
         ..edaxPlayPrint()
         ..edaxBookStore()
         ..edaxBookSave(bookFile)
-        ..edaxMode(3) // human vs human
         ..edaxInit()
         ..edaxPlay(opening);
       final positionAfterLearning = edax.edaxGetBookMoveWithPosition().position;
