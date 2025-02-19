@@ -396,11 +396,12 @@ void main() {
 
       const initParams = ['', '-book-file', bookFile, '-level', '1'];
       final edax = LibEdax()..libedaxInitialize(initParams);
-      sleep(const Duration(seconds: 2));
+      sleep(const Duration(seconds: 1));
 
       const opening = 'f5f4f3';
       edax
         ..edaxInit()
+        ..edaxBookLoad(bookFile)
         ..edaxPlay(opening);
       final position = edax.edaxGetBookMoveWithPosition().position;
       expect(position.nLink, 0);
