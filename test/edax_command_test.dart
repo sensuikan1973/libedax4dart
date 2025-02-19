@@ -401,7 +401,6 @@ void main() {
       const opening = 'f5f4f3';
       edax
         ..edaxInit()
-        ..edaxBookShow()
         ..edaxPlay(opening);
       final position = edax.edaxGetBookMoveWithPosition().position;
       expect(position.nLink, 0);
@@ -409,6 +408,7 @@ void main() {
         ..edaxMode(2) // edax vs edax
         ..edaxGo()
         ..edaxPlayPrint()
+        ..edaxBookSave(bookFile)
         ..edaxBookStore()
         ..edaxBookSave(bookFile)
         ..edaxMode(3) // human vs human
