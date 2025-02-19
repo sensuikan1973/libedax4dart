@@ -401,7 +401,7 @@ void main() {
       const opening = 'f5f4f3';
       edax
         ..edaxInit()
-        ..edaxBookLoad(bookFile)
+        ..edaxBookShow()
         ..edaxPlay(opening);
       final position = edax.edaxGetBookMoveWithPosition().position;
       expect(position.nLink, 0);
