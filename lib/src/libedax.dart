@@ -38,7 +38,7 @@ class LibEdax {
   void libedaxInitialize([final List<String> args = const []]) {
     final argsPointers = args.map((final arg) => arg.toCharPointer()).toList();
 
-    // Why `Int8` ? => See: https://github.com/dart-lang/ffigen/issues/72
+    // See: https://github.com/dart-lang/ffigen/issues/72
     final pointerPointer = calloc<Pointer<Char>>(argsPointers.length);
     for (var k = 0; k < argsPointers.length; k++) {
       pointerPointer[k] = argsPointers[k];
