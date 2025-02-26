@@ -34,5 +34,14 @@ With using libedax4dart, you can execute functions equivalent to [edax](https://
 
 ## References
 
-- python edition: [libedax4py](https://github.com/lavox/libedax4py)
-- java edition: [libedax4j](https://github.com/lavox/libedax4j)
+- other language editions
+  - python edition: [libedax4py](https://github.com/lavox/libedax4py)
+  - java edition: [libedax4j](https://github.com/lavox/libedax4j)
+- dev
+  - [dart:ffi](https://dart.dev/guides/libraries/c-interop)
+    - [dart-lang/samples/ffi](https://github.com/dart-lang/samples/tree/master/ffi) : simple sample
+    - [dart-lang/sdk/samples/ffi](https://github.com/dart-lang/sdk/tree/master/samples/ffi) : complicated sample
+    - issues
+      - [dart-lang/ffi/issues](https://github.com/dart-lang/ffi/issues)
+      - [dart-lang/sdk/labels/library-ffi](https://github.com/dart-lang/sdk/labels/library-ffi)
+  - [Effective Dart: Documentation](https://dart.dev/guides/language/effective-dart/documentation)
