@@ -22,7 +22,7 @@ jobs:
       - name: run ffigen
         run: |
           libedax_build_command="make universal_osx_libbuild" dst="." ./scripts/build_libedax.sh
-          dart run ffigen --config ffigen.yaml --verbose severe && dart format .
+          dart run ffigen --config ffigen.yaml --verbose severe
       - name: upgrade dependencies on example
         run: cd example && dart pub upgrade --major-versions --tighten
 

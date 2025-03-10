@@ -7,7 +7,9 @@ sort: true
 ignore-source-errors: true # workaround for https://github.com/sensuikan1973/libedax4dart/issues/482
 # See: https://github.com/dart-lang/pana/issues/1013
 # See: https://dart.dev/guides/language/analysis-options#excluding-code-from-analysis
-preamble: "// ignore_for_file: type=lint, unused_element, unused_field"
+preamble: |-
+  // ignore_for_file: type=lint, unused_element, unused_field
+  // dart format off
 headers:
   entry-points:
     - 'edax-reversi/src/all.c'
