@@ -71,16 +71,16 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static clockid_t fromValue(int value) =&gt; switch (value) {
-  0 =&gt; _CLOCK_REALTIME,
-  6 =&gt; _CLOCK_MONOTONIC,
-  4 =&gt; _CLOCK_MONOTONIC_RAW,
-  5 =&gt; _CLOCK_MONOTONIC_RAW_APPROX,
-  8 =&gt; _CLOCK_UPTIME_RAW,
-  9 =&gt; _CLOCK_UPTIME_RAW_APPROX,
-  12 =&gt; _CLOCK_PROCESS_CPUTIME_ID,
-  16 =&gt; _CLOCK_THREAD_CPUTIME_ID,
-  _ =&gt; throw ArgumentError(&quot;Unknown value for clockid_t: $value&quot;),
-};</code></pre>
+      0 =&gt; _CLOCK_REALTIME,
+      6 =&gt; _CLOCK_MONOTONIC,
+      4 =&gt; _CLOCK_MONOTONIC_RAW,
+      5 =&gt; _CLOCK_MONOTONIC_RAW_APPROX,
+      8 =&gt; _CLOCK_UPTIME_RAW,
+      9 =&gt; _CLOCK_UPTIME_RAW_APPROX,
+      12 =&gt; _CLOCK_PROCESS_CPUTIME_ID,
+      16 =&gt; _CLOCK_THREAD_CPUTIME_ID,
+      _ =&gt; throw ArgumentError(&quot;Unknown value for clockid_t: $value&quot;),
+    };</code></pre>
 </section>
 
 
