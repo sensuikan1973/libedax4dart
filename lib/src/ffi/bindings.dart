@@ -1377,11 +1377,11 @@ class LibEdaxBindings {
           ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>> value) =>
       _time_clock.value = value;
 
-  late final ffi.Pointer<ffi.Long> _timezone1 = _lookup<ffi.Long>('timezone');
+  late final ffi.Pointer<ffi.Long> _timezone$1 = _lookup<ffi.Long>('timezone');
 
-  int get timezone1 => _timezone1.value;
+  int get timezone$1 => _timezone$1.value;
 
-  set timezone1(int value) => _timezone1.value = value;
+  set timezone$1(int value) => _timezone$1.value = value;
 
   late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Char>>> _tzname =
       _lookup<ffi.Pointer<ffi.Pointer<ffi.Char>>>('tzname');
@@ -4214,7 +4214,7 @@ enum NodeType {
         0 => PV_NODE,
         1 => CUT_NODE,
         2 => ALL_NODE,
-        _ => throw ArgumentError("Unknown value for NodeType: $value"),
+        _ => throw ArgumentError('Unknown value for NodeType: $value'),
       };
 }
 
@@ -4692,7 +4692,7 @@ enum PlayState {
         1 => IS_PONDERING,
         2 => IS_ANALYZING,
         3 => IS_THINKING,
-        _ => throw ArgumentError("Unknown value for PlayState: $value"),
+        _ => throw ArgumentError('Unknown value for PlayState: $value'),
       };
 }
 
@@ -4708,7 +4708,7 @@ enum PlayType {
         0 => EDAX_FIXED_LEVEL,
         1 => EDAX_TIME_PER_GAME,
         2 => EDAX_TIME_PER_MOVE,
-        _ => throw ArgumentError("Unknown value for PlayType: $value"),
+        _ => throw ArgumentError('Unknown value for PlayType: $value'),
       };
 }
 
@@ -5608,7 +5608,7 @@ enum Stop {
         3 => STOP_TIMEOUT,
         4 => STOP_ON_DEMAND,
         5 => STOP_END,
-        _ => throw ArgumentError("Unknown value for Stop: $value"),
+        _ => throw ArgumentError('Unknown value for Stop: $value'),
       };
 }
 
@@ -8288,7 +8288,7 @@ final class __sbuf extends ffi.Struct {
 }
 
 final class __sigaction extends ffi.Struct {
-  external __sigaction_u __sigaction_u1;
+  external __sigaction_u __sigaction_u$1;
 
   external ffi.Pointer<
       ffi.NativeFunction<
@@ -8499,7 +8499,7 @@ enum clockid_t {
         9 => _CLOCK_UPTIME_RAW_APPROX,
         12 => _CLOCK_PROCESS_CPUTIME_ID,
         16 => _CLOCK_THREAD_CPUTIME_ID,
-        _ => throw ArgumentError("Unknown value for clockid_t: $value"),
+        _ => throw ArgumentError('Unknown value for clockid_t: $value'),
       };
 }
 
@@ -8565,7 +8565,7 @@ final class exception extends ffi.Struct {
   external double retval;
 }
 
-const int false1 = 0;
+const int false$ = 0;
 
 typedef fd_mask = __int32_t;
 
@@ -8632,7 +8632,7 @@ enum idtype_t {
         0 => P_ALL,
         1 => P_PID,
         2 => P_PGID,
-        _ => throw ArgumentError("Unknown value for idtype_t: $value"),
+        _ => throw ArgumentError('Unknown value for idtype_t: $value'),
       };
 }
 
@@ -8728,7 +8728,7 @@ final class ip_opts extends ffi.Struct {
   external in_addr ip_dst;
 
   @ffi.Array.multi([40])
-  external ffi.Array<ffi.Char> ip_opts1;
+  external ffi.Array<ffi.Char> ip_opts$1;
 }
 
 final class ipv6_mreq extends ffi.Struct {
@@ -9742,7 +9742,7 @@ typedef sig_tFunction = ffi.Void Function(ffi.Int);
 typedef Dartsig_tFunction = void Function(int);
 
 final class sigaction extends ffi.Struct {
-  external __sigaction_u __sigaction_u1;
+  external __sigaction_u __sigaction_u$1;
 
   @sigset_t()
   external int sa_mask;
@@ -10011,7 +10011,7 @@ final class tm extends ffi.Struct {
   external ffi.Pointer<ffi.Char> tm_zone;
 }
 
-const int true1 = 1;
+const int true$ = 1;
 
 typedef u_char = ffi.UnsignedChar;
 typedef Dartu_char = int;
