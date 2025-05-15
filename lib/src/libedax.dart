@@ -53,7 +53,6 @@ class LibEdax {
   /// Close dll.
   ///
   /// After you call this, if you use edax command, you have to recreate [LibEdax] instance.
-  @experimental
   void closeDll() => _dylib.close();
 
   /// Init board.
