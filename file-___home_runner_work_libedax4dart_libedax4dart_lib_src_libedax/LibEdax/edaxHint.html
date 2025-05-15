@@ -73,7 +73,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">List&lt;Hint&gt; edaxHint(final int n) {
+  <pre class="language-dart"><code class="language-dart">@useResult
+List&lt;Hint&gt; edaxHint(final int n) {
   final dst = calloc&lt;bindings.HintList&gt;();
   _bindings.edax_hint(n, dst);
   final hintList = dst.ref;

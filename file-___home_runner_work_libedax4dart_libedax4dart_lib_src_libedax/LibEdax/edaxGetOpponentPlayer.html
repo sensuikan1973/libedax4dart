@@ -76,7 +76,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">int edaxGetOpponentPlayer() {
+  <pre class="language-dart"><code class="language-dart">@useResult
+int edaxGetOpponentPlayer() {
   final currentPlayer = _bindings.edax_get_current_player();
   if (currentPlayer == TurnColor.black) {
     return TurnColor.white;

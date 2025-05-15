@@ -72,7 +72,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">List&lt;Move&gt; edaxGetBookMove() {
+  <pre class="language-dart"><code class="language-dart">@useResult
+List&lt;Move&gt; edaxGetBookMove() {
   final dst = calloc&lt;bindings.MoveList&gt;();
   _bindings.edax_get_bookmove(dst);
   final moveList = dst.ref;

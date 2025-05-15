@@ -72,7 +72,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">MoveListWithPosition edaxGetBookMoveWithPosition() {
+  <pre class="language-dart"><code class="language-dart">@useResult
+MoveListWithPosition edaxGetBookMoveWithPosition() {
   final dstM = calloc&lt;bindings.MoveList&gt;();
   final dstP = calloc&lt;bindings.Position&gt;();
   final symetry = _bindings.edax_get_bookmove_with_position(dstM, dstP);

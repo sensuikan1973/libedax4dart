@@ -75,7 +75,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">int edaxBoardGetSquareColor(final Board board, final int x) {
+  <pre class="language-dart"><code class="language-dart">@useResult
+int edaxBoardGetSquareColor(final Board board, final int x) {
   final dstB = calloc&lt;bindings.Board&gt;();
   dstB.ref.player = board.player;
   dstB.ref.opponent = board.opponent;

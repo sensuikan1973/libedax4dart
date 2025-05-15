@@ -74,7 +74,8 @@ If there are no more hints, <code>hint.isNoMove</code> will be true.</p>
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Hint edaxHintNext() {
+  <pre class="language-dart"><code class="language-dart">@useResult
+Hint edaxHintNext() {
   final dst = calloc&lt;bindings.Hint&gt;();
   _bindings.edax_hint_next(dst);
   final hint = Hint.fromCStruct(dst.ref);

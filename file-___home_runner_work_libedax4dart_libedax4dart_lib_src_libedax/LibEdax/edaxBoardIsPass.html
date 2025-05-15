@@ -73,7 +73,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">bool edaxBoardIsPass(final Board board) {
+  <pre class="language-dart"><code class="language-dart">@useResult
+bool edaxBoardIsPass(final Board board) {
   final dstB = calloc&lt;bindings.Board&gt;();
   dstB.ref.player = board.player;
   dstB.ref.opponent = board.opponent;

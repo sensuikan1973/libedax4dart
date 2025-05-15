@@ -72,7 +72,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Board edaxGetBoard() {
+  <pre class="language-dart"><code class="language-dart">@useResult
+Board edaxGetBoard() {
   final dst = calloc&lt;bindings.Board&gt;();
   _bindings.edax_get_board(dst);
   final board = Board.fromCStruct(dst.ref);
