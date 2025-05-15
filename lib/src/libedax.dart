@@ -106,6 +106,7 @@ class LibEdax {
   void edaxGo() => _bindings.edax_go();
 
   /// Get hint.
+  @useResult
   List<Hint> edaxHint(final int n) {
     final dst = calloc<bindings.HintList>();
     _bindings.edax_hint(n, dst);
@@ -120,6 +121,7 @@ class LibEdax {
   }
 
   /// Get book move list.
+  @useResult
   List<Move> edaxGetBookMove() {
     final dst = calloc<bindings.MoveList>();
     _bindings.edax_get_bookmove(dst);
@@ -134,6 +136,7 @@ class LibEdax {
   }
 
   /// Get book move list with position.
+  @useResult
   MoveListWithPosition edaxGetBookMoveWithPosition() {
     final dstM = calloc<bindings.MoveList>();
     final dstP = calloc<bindings.Position>();
@@ -154,6 +157,7 @@ class LibEdax {
   }
 
   /// Get book move list with position by specified moves.
+  @useResult
   MoveListWithPosition edaxGetBookMoveWithPositionByMoves(final String moves) {
     final dstM = calloc<bindings.MoveList>();
     final dstP = calloc<bindings.Position>();
@@ -189,6 +193,7 @@ class LibEdax {
   ///
   /// __Call [edaxHintPrepare] before calling this function__. <br>
   /// If there are no more hints, `hint.isNoMove` will be true.
+  @useResult
   Hint edaxHintNext() {
     final dst = calloc<bindings.Hint>();
     _bindings.edax_hint_next(dst);
@@ -202,6 +207,7 @@ class LibEdax {
   /// __Call [edaxHintPrepare] before calling this function__. <br>
   /// If there are no more hints, `hint.isNoMove` will be true. <br>
   /// __This function doesn't use Multi-PV search for analyze usecase. This can be faster than [edaxHintNext]__.
+  @useResult
   Hint edaxHintNextNoMultiPvDepth() {
     final dst = calloc<bindings.Hint>();
     _bindings.edax_hint_next_no_multipv_depth(dst);
@@ -243,6 +249,7 @@ class LibEdax {
   /// Get the opening name of the current game, in English.
   ///
   /// e.g. `brightwell`, `tiger`, `rose`, ....
+  @useResult
   String edaxOpening() => _bindings.edax_opening().toDartStr();
 
   /// Use book on `edaxGo`, `edaxHint`, `mode 2`.<br>
@@ -295,6 +302,7 @@ class LibEdax {
   }
 
   /// Get current moves.
+  @useResult
   String edaxGetMoves() {
     final moves = calloc<Char>(80 * 2 + 1);
     final result = _bindings.edax_get_moves(moves).toDartStr();
@@ -303,14 +311,17 @@ class LibEdax {
   }
 
   /// Check if the current game is over.
+  @useResult
   bool edaxIsGameOver() => _bindings.edax_is_game_over() == 1;
 
   /// Check if the current player can move.
+  @useResult
   bool edaxCanMove() => _bindings.edax_can_move() == 1;
 
   /// Get the last move.
   ///
   /// NOTE: you have to handle the case that noMove is true.
+  @useResult
   Move edaxGetLastMove() {
     final moves = edaxGetMoves();
     if (moves.isEmpty) return const Move(0, MoveMark.noMove, 0, 0);
@@ -323,6 +334,7 @@ class LibEdax {
   }
 
   /// Get the current board.
+  @useResult
   Board edaxGetBoard() {
     final dst = calloc<bindings.Board>();
     _bindings.edax_get_board(dst);
@@ -334,11 +346,13 @@ class LibEdax {
   /// Get the current player.
   /// * 0: BLACK
   /// * 1: WHITE
+  @useResult
   int edaxGetCurrentPlayer() => _bindings.edax_get_current_player();
 
   /// Get the opponent player.
   /// * 0: BLACK
   /// * 1: WHITE
+  @useResult
   int edaxGetOpponentPlayer() {
     final currentPlayer = _bindings.edax_get_current_player();
     if (currentPlayer == TurnColor.black) {
@@ -349,13 +363,16 @@ class LibEdax {
   }
 
   /// Get the current number of discs.
+  @useResult
   int edaxGetDisc(final int color) => _bindings.edax_get_disc(color);
 
   /// Get the legal move count.
+  @useResult
   int edaxGetMobilityCount(final int color) =>
       _bindings.edax_get_mobility_count(color);
 
   /// Count bit.
+  @useResult
   int popCount(final int bit) => _bindings.bit_count(bit);
 
   /// Count bestpath with book.
@@ -373,6 +390,7 @@ class LibEdax {
   /// * The depth of this feature depends on your book.
   /// * The moves which meet up with another moves is counted respectively.
   ///   * btw, symmetric moves is counted 1 because of edax book structure.
+  @useResult
   CountBestpathResult edaxBookCountBoardBestpath(
     final Board board, {
     required final int playerColor,
@@ -460,6 +478,7 @@ class LibEdax {
       _bindings.edax_book_verbose(verbosity);
 
   /// Check if current player should pass.
+  @useResult
   bool edaxBoardIsPass(final Board board) {
     final dstB = calloc<bindings.Board>();
     dstB.ref.player = board.player;
@@ -471,6 +490,7 @@ class LibEdax {
 
   /// Get square color.
   /// 0 = player, 1 = opponent, 2 = empty.
+  @useResult
   int edaxBoardGetSquareColor(final Board board, final int x) {
     final dstB = calloc<bindings.Board>();
     dstB.ref.player = board.player;
