@@ -1,3 +1,7 @@
+# 7.45.0
+
+upgrade dependencies.
+
 # 7.44.0
 
 update annotations.
