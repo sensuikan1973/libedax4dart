@@ -52,12 +52,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dart-lang/setup-dart@v1
-      - name: build libedax
-        shell: bash
-        env:
-          dst: '.'
-          libedax_build_command: ${{ matrix.libedax_build_command }}
-        run: ./scripts/build_libedax.sh
 
       # - name: setup tmate session for DEBUG
       #   uses: mxschmitt/action-tmate@v3
@@ -65,7 +59,7 @@ jobs:
       - name: install dependencies
         run: dart pub get
       - name: test
-        run: dart run test . --coverage=coverage --concurrency 1
+        run: dart --enable-experiment=native-assets run test . --coverage=coverage --concurrency 1
       - name: coverage
         run: dart run coverage:format_coverage --lcov --in coverage --out lcov.info
       - uses: codecov/codecov-action@v5
@@ -79,7 +73,7 @@ jobs:
       - name: run example
         run: |-
           cd example && dart pub get && cd ..
-          dart example/example.dart
+          dart --enable-experiment=native-assets example/example.dart
 
   dart_docs:
     needs: [dart_format, dart_analyze]

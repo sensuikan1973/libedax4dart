@@ -10,9 +10,12 @@ ignore-source-errors: true # workaround for https://github.com/sensuikan1973/lib
 preamble: |-
   // ignore_for_file: type=lint, unused_element, unused_field
   // dart format off
+# The header entry point below assumes that the native assets build (triggered by 'dart pub get' or 'flutter pub get')
+# has already run and cloned the 'edax-reversi' repository into the build output directory.
+# If 'dart run ffigen' fails to find the header, ensure that the native assets build has completed successfully.
 headers:
   entry-points:
-    - 'edax-reversi/src/all.c'
+    - '.dart_tool/libedax4dart/native_assets_builder/out/edax_source/src/all.c'
 structs:
   pack:
     # See: https://github.com/sensuikan1973/libedax4dart/pull/74#issuecomment-890427516
