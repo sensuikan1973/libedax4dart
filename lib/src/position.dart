@@ -97,8 +97,8 @@ class Position {
   /// best score links
   List<Link> get bestScoreLinks {
     if (links.isEmpty) return [];
-    final linksSortedByScore =
-        links..sort((final a, final b) => b.score.compareTo(a.score));
+    final linksSortedByScore = links
+      ..sort((final a, final b) => b.score.compareTo(a.score));
     final bestScore = linksSortedByScore.first.score;
     return linksSortedByScore
         .where((final element) => element.score == bestScore)
