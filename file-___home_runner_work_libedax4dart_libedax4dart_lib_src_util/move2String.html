@@ -72,7 +72,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">String move2String(final int x) {
-  if (x &lt; boardSize) return _moveStringTable[x];
+  if (0 &lt;= x &amp;&amp; x &lt; boardSize) return _moveStringTable[x];
   if (x == MoveMark.pass) return &#39;pass&#39;;
   if (x == MoveMark.noMove) return &#39;no move&#39;;
   return &#39;&#39;;
