@@ -4,7 +4,7 @@ import 'constants.dart';
 ///
 ///  e.g. `f5`
 String move2String(final int x) {
-  if (x < boardSize) return _moveStringTable[x];
+  if (0 <= x && x < boardSize) return _moveStringTable[x];
   if (x == MoveMark.pass) return 'pass';
   if (x == MoveMark.noMove) return 'no move';
   return '';
