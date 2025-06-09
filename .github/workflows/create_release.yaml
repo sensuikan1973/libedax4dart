@@ -18,6 +18,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
     strategy:
+      max-parallel: 1 # workaround for https://github.com/softprops/action-gh-release/issues/445
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         include:
