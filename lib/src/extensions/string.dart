@@ -5,5 +5,7 @@ import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 
 extension CharPointer on String {
-  Pointer<Char> toCharPointer() => toNativeUtf8().cast<Char>();
+  Pointer<Char> toCharPointer(Allocator? allocator) => allocator == null
+      ? toNativeUtf8().cast<Char>()
+      : toNativeUtf8(allocator: allocator).cast<Char>();
 }

@@ -36,19 +36,18 @@ class LibEdax {
   ///
   /// If you want to know more, See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
   void libedaxInitialize([final List<String> args = const []]) {
-    final argsPointers = args.map((final arg) => arg.toCharPointer()).toList();
+    using((Arena arena) {
+      final argsPointers = args
+          .map((final arg) => arg.toCharPointer(arena))
+          .toList();
 
-    // See: https://github.com/dart-lang/ffigen/issues/72
-    final pointerPointer = calloc<Pointer<Char>>(argsPointers.length);
-    for (var k = 0; k < argsPointers.length; k++) {
-      pointerPointer[k] = argsPointers[k];
-    }
-    _bindings.libedax_initialize(args.length, pointerPointer);
-    calloc.free(pointerPointer);
-
-    for (final ptr in argsPointers) {
-      calloc.free(ptr);
-    }
+      // See: https://github.com/dart-lang/ffigen/issues/72
+      final pointerPointer = arena<Pointer<Char>>(argsPointers.length);
+      for (var k = 0; k < argsPointers.length; k++) {
+        pointerPointer[k] = argsPointers[k];
+      }
+      _bindings.libedax_initialize(args.length, pointerPointer);
+    });
   }
 
   /// Terminate libedax.
@@ -101,9 +100,10 @@ class LibEdax {
   /// you can also pass opening name. (e.g. `brightwell`) <br>
   /// opening names are listed on [opening.c](https://github.com/lavox/edax-reversi/blob/libedax/src/opening.c).
   void edaxPlay(final String moves) {
-    final arg = moves.toCharPointer();
-    _bindings.edax_play(arg);
-    calloc.free(arg);
+    using((Arena arena) {
+      final arg = moves.toCharPointer(arena);
+      _bindings.edax_play(arg);
+    });
   }
 
   /// Let edax move.
@@ -112,79 +112,80 @@ class LibEdax {
   /// Get hint.
   @useResult
   List<Hint> edaxHint(final int n) {
-    final dst = calloc<bindings.HintList>();
-    _bindings.edax_hint(n, dst);
-    final hintList = dst.ref;
-    final result = <Hint>[];
-    for (var k = 0; k < hintList.n_hints; k++) {
-      final h = hintList.hint[k + 1];
-      result.add(Hint.fromCStruct(h));
-    }
-    calloc.free(dst);
-    return result;
+    return using((Arena arena) {
+      final dst = arena<bindings.HintList>();
+      _bindings.edax_hint(n, dst);
+      final hintList = dst.ref;
+      final result = <Hint>[];
+      for (var k = 0; k < hintList.n_hints; k++) {
+        final h = hintList.hint[k + 1];
+        result.add(Hint.fromCStruct(h));
+      }
+      return result;
+    });
   }
 
   /// Get book move list.
   @useResult
   List<Move> edaxGetBookMove() {
-    final dst = calloc<bindings.MoveList>();
-    _bindings.edax_get_bookmove(dst);
-    final moveList = dst.ref;
-    final result = <Move>[];
-    for (var k = 0; k < moveList.n_moves; k++) {
-      final m = moveList.move[k + 1];
-      result.add(Move.fromCStruct(m));
-    }
-    calloc.free(dst);
-    return result;
+    return using((Arena arena) {
+      final dst = arena<bindings.MoveList>();
+      _bindings.edax_get_bookmove(dst);
+      final moveList = dst.ref;
+      final result = <Move>[];
+      for (var k = 0; k < moveList.n_moves; k++) {
+        final m = moveList.move[k + 1];
+        result.add(Move.fromCStruct(m));
+      }
+      return result;
+    });
   }
 
   /// Get book move list with position.
   @useResult
   MoveListWithPosition edaxGetBookMoveWithPosition() {
-    final dstM = calloc<bindings.MoveList>();
-    final dstP = calloc<bindings.Position>();
-    final symetry = _bindings.edax_get_bookmove_with_position(dstM, dstP);
+    return using((Arena arena) {
+      final dstM = arena<bindings.MoveList>();
+      final dstP = arena<bindings.Position>();
+      final symetry = _bindings.edax_get_bookmove_with_position(dstM, dstP);
 
-    final moveList = dstM.ref;
-    final resultMoveList = <Move>[];
-    for (var k = 0; k < moveList.n_moves; k++) {
-      final m = moveList.move[k + 1];
-      resultMoveList.add(Move.fromCStruct(m));
-    }
-    calloc.free(dstM);
+      final moveList = dstM.ref;
+      final resultMoveList = <Move>[];
+      for (var k = 0; k < moveList.n_moves; k++) {
+        final m = moveList.move[k + 1];
+        resultMoveList.add(Move.fromCStruct(m));
+      }
 
-    final position = Position.fromCStruct(dstP.ref);
-    calloc.free(dstP);
+      final position = Position.fromCStruct(dstP.ref);
 
-    return MoveListWithPosition(resultMoveList, position, symetry);
+      return MoveListWithPosition(resultMoveList, position, symetry);
+    });
   }
 
   /// Get book move list with position by specified moves.
   @useResult
   MoveListWithPosition edaxGetBookMoveWithPositionByMoves(final String moves) {
-    final dstM = calloc<bindings.MoveList>();
-    final dstP = calloc<bindings.Position>();
-    final movesPointer = moves.toCharPointer();
-    final symetry = _bindings.edax_get_bookmove_with_position_by_moves(
-      movesPointer,
-      dstM,
-      dstP,
-    );
-    calloc.free(movesPointer);
+    return using((Arena arena) {
+      final dstM = arena<bindings.MoveList>();
+      final dstP = arena<bindings.Position>();
+      final movesPointer = moves.toCharPointer(arena);
+      final symetry = _bindings.edax_get_bookmove_with_position_by_moves(
+        movesPointer,
+        dstM,
+        dstP,
+      );
 
-    final moveList = dstM.ref;
-    final resultMoveList = <Move>[];
-    for (var k = 0; k < moveList.n_moves; k++) {
-      final m = moveList.move[k + 1];
-      resultMoveList.add(Move.fromCStruct(m));
-    }
-    calloc.free(dstM);
+      final moveList = dstM.ref;
+      final resultMoveList = <Move>[];
+      for (var k = 0; k < moveList.n_moves; k++) {
+        final m = moveList.move[k + 1];
+        resultMoveList.add(Move.fromCStruct(m));
+      }
 
-    final position = Position.fromCStruct(dstP.ref);
-    calloc.free(dstP);
+      final position = Position.fromCStruct(dstP.ref);
 
-    return MoveListWithPosition(resultMoveList, position, symetry);
+      return MoveListWithPosition(resultMoveList, position, symetry);
+    });
   }
 
   /// Prepare to get hint.
@@ -199,11 +200,12 @@ class LibEdax {
   /// If there are no more hints, `hint.isNoMove` will be true.
   @useResult
   Hint edaxHintNext() {
-    final dst = calloc<bindings.Hint>();
-    _bindings.edax_hint_next(dst);
-    final hint = Hint.fromCStruct(dst.ref);
-    calloc.free(dst);
-    return hint;
+    return using((Arena arena) {
+      final dst = arena<bindings.Hint>();
+      _bindings.edax_hint_next(dst);
+      final hint = Hint.fromCStruct(dst.ref);
+      return hint;
+    });
   }
 
   /// Get a hint.
@@ -213,11 +215,12 @@ class LibEdax {
   /// __This function doesn't use Multi-PV search for analyze usecase. This can be faster than [edaxHintNext]__.
   @useResult
   Hint edaxHintNextNoMultiPvDepth() {
-    final dst = calloc<bindings.Hint>();
-    _bindings.edax_hint_next_no_multipv_depth(dst);
-    final hint = Hint.fromCStruct(dst.ref);
-    calloc.free(dst);
-    return hint;
+    return using((Arena arena) {
+      final dst = arena<bindings.Hint>();
+      _bindings.edax_hint_next_no_multipv_depth(dst);
+      final hint = Hint.fromCStruct(dst.ref);
+      return hint;
+    });
   }
 
   /// Stop edax search process, and set mode 3.
@@ -231,9 +234,10 @@ class LibEdax {
   /// you can pass Lower case or Upper case. `f5` `F5` is OK. <br>
   /// if you want to switch turn when mobilicty count is 0, pass `MoveMark.passString`.
   void edaxMove(final String move) {
-    final arg = move.toCharPointer();
-    _bindings.edax_move(arg);
-    calloc.free(arg);
+    using((Arena arena) {
+      final arg = move.toCharPointer(arena);
+      _bindings.edax_move(arg);
+    });
   }
 
   /// Set board from string.
@@ -245,9 +249,10 @@ class LibEdax {
   ///
   /// Last char is turn.
   void edaxSetboard(final String board) {
-    final arg = board.toCharPointer();
-    _bindings.edax_setboard(arg);
-    calloc.free(arg);
+    using((Arena arena) {
+      final arg = board.toCharPointer(arena);
+      _bindings.edax_setboard(arg);
+    });
   }
 
   /// Get the opening name of the current game, in English.
@@ -276,9 +281,10 @@ class LibEdax {
 
   /// Load book.
   void edaxBookLoad(final String bookFile) {
-    final arg = bookFile.toCharPointer();
-    _bindings.edax_book_load(arg);
-    calloc.free(arg);
+    using((Arena arena) {
+      final arg = bookFile.toCharPointer(arena);
+      _bindings.edax_book_load(arg);
+    });
   }
 
   /// Show book.
@@ -286,32 +292,33 @@ class LibEdax {
   /// Probably, you should use [edaxGetBookMoveWithPosition()]. <br>
   /// See: https://github.com/sensuikan1973/libedax4dart/issues/46
   Position edaxBookShow() {
-    final dstP = calloc<bindings.Position>();
-    _bindings.edax_book_show(dstP);
-    final position = Position.fromCStruct(dstP.ref);
-    calloc.free(dstP);
-    return position;
+    return using((Arena arena) {
+      final dstP = arena<bindings.Position>();
+      _bindings.edax_book_show(dstP);
+      final position = Position.fromCStruct(dstP.ref);
+      return position;
+    });
   }
 
   /// Set option.
   ///
   /// See [Options Document](https://sensuikan1973.github.io/edax-reversi/structOptions.html).
   void edaxSetOption(final String optionName, final String val) {
-    final optionNameArg = optionName.toCharPointer();
-    final valArg = val.toCharPointer();
-    _bindings.edax_set_option(optionNameArg, valArg);
-    calloc
-      ..free(optionNameArg)
-      ..free(valArg);
+    using((Arena arena) {
+      final optionNameArg = optionName.toCharPointer(arena);
+      final valArg = val.toCharPointer(arena);
+      _bindings.edax_set_option(optionNameArg, valArg);
+    });
   }
 
   /// Get current moves.
   @useResult
   String edaxGetMoves() {
-    final moves = calloc<Char>(80 * 2 + 1);
-    final result = _bindings.edax_get_moves(moves).toDartStr();
-    calloc.free(moves);
-    return result;
+    return using((Arena arena) {
+      final moves = arena<Char>(80 * 2 + 1);
+      final result = _bindings.edax_get_moves(moves).toDartStr();
+      return result;
+    });
   }
 
   /// Check if the current game is over.
@@ -327,24 +334,26 @@ class LibEdax {
   /// NOTE: you have to handle the case that noMove is true.
   @useResult
   Move edaxGetLastMove() {
-    final moves = edaxGetMoves();
-    if (moves.isEmpty) return const Move(0, MoveMark.noMove, 0, 0);
+    return using((Arena arena) {
+      final moves = edaxGetMoves();
+      if (moves.isEmpty) return const Move(0, MoveMark.noMove, 0, 0);
 
-    final dst = calloc<bindings.Move>();
-    _bindings.edax_get_last_move(dst);
-    final move = Move.fromCStruct(dst.ref);
-    calloc.free(dst);
-    return move;
+      final dst = arena<bindings.Move>();
+      _bindings.edax_get_last_move(dst);
+      final move = Move.fromCStruct(dst.ref);
+      return move;
+    });
   }
 
   /// Get the current board.
   @useResult
   Board edaxGetBoard() {
-    final dst = calloc<bindings.Board>();
-    _bindings.edax_get_board(dst);
-    final board = Board.fromCStruct(dst.ref);
-    calloc.free(dst);
-    return board;
+    return using((Arena arena) {
+      final dst = arena<bindings.Board>();
+      _bindings.edax_get_board(dst);
+      final board = Board.fromCStruct(dst.ref);
+      return board;
+    });
   }
 
   /// Get the current player.
@@ -402,23 +411,22 @@ class LibEdax {
     final int playerLowerLimit = BookCountBoardBestPathLowerLimit.best,
     final int opponentLowerLimit = BookCountBoardBestPathLowerLimit.best,
   }) {
-    final dstP = calloc<bindings.Position>();
-    final dstB = calloc<bindings.Board>();
-    dstB.ref.player = board.player;
-    dstB.ref.opponent = board.opponent;
-    _bindings.edax_book_count_board_bestpath(
-      dstB,
-      dstP,
-      playerLowerLimit,
-      opponentLowerLimit,
-      playerColor,
-    );
+    return using((Arena arena) {
+      final dstP = arena<bindings.Position>();
+      final dstB = arena<bindings.Board>();
+      dstB.ref.player = board.player;
+      dstB.ref.opponent = board.opponent;
+      _bindings.edax_book_count_board_bestpath(
+        dstB,
+        dstP,
+        playerLowerLimit,
+        opponentLowerLimit,
+        playerColor,
+      );
 
-    final position = Position.fromCStruct(dstP.ref);
-    calloc
-      ..free(dstP)
-      ..free(dstB);
-    return CountBestpathResult(board, position, playerColor);
+      final position = Position.fromCStruct(dstP.ref);
+      return CountBestpathResult(board, position, playerColor);
+    });
   }
 
   /// Stop [edaxBookCountBoardBestpath].
@@ -464,9 +472,10 @@ class LibEdax {
   ///
   /// See: https://choi.lavox.net/edax/ref_command_book#book_save
   void edaxBookSave(final String bookFile) {
-    final arg = bookFile.toCharPointer();
-    _bindings.edax_book_save(arg);
-    calloc.free(arg);
+    using((Arena arena) {
+      final arg = bookFile.toCharPointer(arena);
+      _bindings.edax_book_save(arg);
+    });
   }
 
   /// Enable book_verbose to get stdout by bprint in edax.
@@ -484,23 +493,25 @@ class LibEdax {
   /// Check if current player should pass.
   @useResult
   bool edaxBoardIsPass(final Board board) {
-    final dstB = calloc<bindings.Board>();
-    dstB.ref.player = board.player;
-    dstB.ref.opponent = board.opponent;
-    final result = _bindings.edax_board_is_pass(dstB);
-    calloc.free(dstB);
-    return result == 1;
+    return using((Arena arena) {
+      final dstB = arena<bindings.Board>();
+      dstB.ref.player = board.player;
+      dstB.ref.opponent = board.opponent;
+      final result = _bindings.edax_board_is_pass(dstB);
+      return result == 1;
+    });
   }
 
   /// Get square color.
   /// 0 = player, 1 = opponent, 2 = empty.
   @useResult
   int edaxBoardGetSquareColor(final Board board, final int x) {
-    final dstB = calloc<bindings.Board>();
-    dstB.ref.player = board.player;
-    dstB.ref.opponent = board.opponent;
-    final result = _bindings.edax_board_get_square_color(dstB, x);
-    calloc.free(dstB);
-    return result;
+    return using((Arena arena) {
+      final dstB = arena<bindings.Board>();
+      dstB.ref.player = board.player;
+      dstB.ref.opponent = board.opponent;
+      final result = _bindings.edax_board_get_square_color(dstB, x);
+      return result;
+    });
   }
 }
