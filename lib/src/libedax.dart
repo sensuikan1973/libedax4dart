@@ -45,6 +45,10 @@ class LibEdax {
     }
     _bindings.libedax_initialize(args.length, pointerPointer);
     calloc.free(pointerPointer);
+
+    for (final ptr in argsPointers) {
+      calloc.free(ptr);
+    }
   }
 
   /// Terminate libedax.
