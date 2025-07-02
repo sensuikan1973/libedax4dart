@@ -85,6 +85,10 @@ edax.libedaxInitialize(['', '-eval-file', 'data/eval.dat', '-book-file', 'data/b
   }
   _bindings.libedax_initialize(args.length, pointerPointer);
   calloc.free(pointerPointer);
+
+  for (final ptr in argsPointers) {
+    calloc.free(ptr);
+  }
 }</code></pre>
 </section>
 
