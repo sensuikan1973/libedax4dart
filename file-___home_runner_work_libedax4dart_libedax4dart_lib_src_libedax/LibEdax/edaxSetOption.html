@@ -73,12 +73,11 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void edaxSetOption(final String optionName, final String val) {
-  final optionNameArg = optionName.toCharPointer();
-  final valArg = val.toCharPointer();
-  _bindings.edax_set_option(optionNameArg, valArg);
-  calloc
-    ..free(optionNameArg)
-    ..free(valArg);
+  using((Arena arena) {
+    final optionNameArg = optionName.toCharPointer(arena);
+    final valArg = val.toCharPointer(arena);
+    _bindings.edax_set_option(optionNameArg, valArg);
+  });
 }</code></pre>
 </section>
 

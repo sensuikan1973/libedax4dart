@@ -72,16 +72,17 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@useResult
 List&lt;Hint&gt; edaxHint(final int n) {
-  final dst = calloc&lt;bindings.HintList&gt;();
-  _bindings.edax_hint(n, dst);
-  final hintList = dst.ref;
-  final result = &lt;Hint&gt;[];
-  for (var k = 0; k &lt; hintList.n_hints; k++) {
-    final h = hintList.hint[k + 1];
-    result.add(Hint.fromCStruct(h));
-  }
-  calloc.free(dst);
-  return result;
+  return using((Arena arena) {
+    final dst = arena&lt;bindings.HintList&gt;();
+    _bindings.edax_hint(n, dst);
+    final hintList = dst.ref;
+    final result = &lt;Hint&gt;[];
+    for (var k = 0; k &lt; hintList.n_hints; k++) {
+      final h = hintList.hint[k + 1];
+      result.add(Hint.fromCStruct(h));
+    }
+    return result;
+  });
 }</code></pre>
 </section>
 

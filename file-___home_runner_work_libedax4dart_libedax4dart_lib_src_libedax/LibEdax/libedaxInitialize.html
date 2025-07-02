@@ -76,19 +76,18 @@ edax.libedaxInitialize(['', '-eval-file', 'data/eval.dat', '-book-file', 'data/b
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void libedaxInitialize([final List&lt;String&gt; args = const []]) {
-  final argsPointers = args.map((final arg) =&gt; arg.toCharPointer()).toList();
+  using((Arena arena) {
+    final argsPointers = args
+        .map((final arg) =&gt; arg.toCharPointer(arena))
+        .toList();
 
-  &#47;&#47; See: https:&#47;&#47;github.com&#47;dart-lang&#47;ffigen&#47;issues&#47;72
-  final pointerPointer = calloc&lt;Pointer&lt;Char&gt;&gt;(argsPointers.length);
-  for (var k = 0; k &lt; argsPointers.length; k++) {
-    pointerPointer[k] = argsPointers[k];
-  }
-  _bindings.libedax_initialize(args.length, pointerPointer);
-  calloc.free(pointerPointer);
-
-  for (final ptr in argsPointers) {
-    calloc.free(ptr);
-  }
+    &#47;&#47; See: https:&#47;&#47;github.com&#47;dart-lang&#47;ffigen&#47;issues&#47;72
+    final pointerPointer = arena&lt;Pointer&lt;Char&gt;&gt;(argsPointers.length);
+    for (var k = 0; k &lt; argsPointers.length; k++) {
+      pointerPointer[k] = argsPointers[k];
+    }
+    _bindings.libedax_initialize(args.length, pointerPointer);
+  });
 }</code></pre>
 </section>
 

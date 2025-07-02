@@ -78,9 +78,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void edaxSetboard(final String board) {
-  final arg = board.toCharPointer();
-  _bindings.edax_setboard(arg);
-  calloc.free(arg);
+  using((Arena arena) {
+    final arg = board.toCharPointer(arena);
+    _bindings.edax_setboard(arg);
+  });
 }</code></pre>
 </section>
 

@@ -71,10 +71,11 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@useResult
 String edaxGetMoves() {
-  final moves = calloc&lt;Char&gt;(80 * 2 + 1);
-  final result = _bindings.edax_get_moves(moves).toDartStr();
-  calloc.free(moves);
-  return result;
+  return using((Arena arena) {
+    final moves = arena&lt;Char&gt;(80 * 2 + 1);
+    final result = _bindings.edax_get_moves(moves).toDartStr();
+    return result;
+  });
 }</code></pre>
 </section>
 

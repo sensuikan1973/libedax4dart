@@ -72,14 +72,15 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@useResult
 Move edaxGetLastMove() {
-  final moves = edaxGetMoves();
-  if (moves.isEmpty) return const Move(0, MoveMark.noMove, 0, 0);
+  return using((Arena arena) {
+    final moves = edaxGetMoves();
+    if (moves.isEmpty) return const Move(0, MoveMark.noMove, 0, 0);
 
-  final dst = calloc&lt;bindings.Move&gt;();
-  _bindings.edax_get_last_move(dst);
-  final move = Move.fromCStruct(dst.ref);
-  calloc.free(dst);
-  return move;
+    final dst = arena&lt;bindings.Move&gt;();
+    _bindings.edax_get_last_move(dst);
+    final move = Move.fromCStruct(dst.ref);
+    return move;
+  });
 }</code></pre>
 </section>
 

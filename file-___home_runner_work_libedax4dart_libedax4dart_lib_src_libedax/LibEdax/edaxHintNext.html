@@ -73,11 +73,12 @@ If there are no more hints, <code>hint.isNoMove</code> will be true.</p>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@useResult
 Hint edaxHintNext() {
-  final dst = calloc&lt;bindings.Hint&gt;();
-  _bindings.edax_hint_next(dst);
-  final hint = Hint.fromCStruct(dst.ref);
-  calloc.free(dst);
-  return hint;
+  return using((Arena arena) {
+    final dst = arena&lt;bindings.Hint&gt;();
+    _bindings.edax_hint_next(dst);
+    final hint = Hint.fromCStruct(dst.ref);
+    return hint;
+  });
 }</code></pre>
 </section>
 

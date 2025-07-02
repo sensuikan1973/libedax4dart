@@ -71,22 +71,22 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@useResult
 MoveListWithPosition edaxGetBookMoveWithPosition() {
-  final dstM = calloc&lt;bindings.MoveList&gt;();
-  final dstP = calloc&lt;bindings.Position&gt;();
-  final symetry = _bindings.edax_get_bookmove_with_position(dstM, dstP);
+  return using((Arena arena) {
+    final dstM = arena&lt;bindings.MoveList&gt;();
+    final dstP = arena&lt;bindings.Position&gt;();
+    final symetry = _bindings.edax_get_bookmove_with_position(dstM, dstP);
 
-  final moveList = dstM.ref;
-  final resultMoveList = &lt;Move&gt;[];
-  for (var k = 0; k &lt; moveList.n_moves; k++) {
-    final m = moveList.move[k + 1];
-    resultMoveList.add(Move.fromCStruct(m));
-  }
-  calloc.free(dstM);
+    final moveList = dstM.ref;
+    final resultMoveList = &lt;Move&gt;[];
+    for (var k = 0; k &lt; moveList.n_moves; k++) {
+      final m = moveList.move[k + 1];
+      resultMoveList.add(Move.fromCStruct(m));
+    }
 
-  final position = Position.fromCStruct(dstP.ref);
-  calloc.free(dstP);
+    final position = Position.fromCStruct(dstP.ref);
 
-  return MoveListWithPosition(resultMoveList, position, symetry);
+    return MoveListWithPosition(resultMoveList, position, symetry);
+  });
 }</code></pre>
 </section>
 

@@ -55,7 +55,8 @@
     <section class="multi-line-signature">
       
 <span class="returntype"><a href="https://api.dart.dev/stable/3.8.1/dart-ffi/Pointer-class.html">Pointer</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/3.8.1/dart-ffi/Char-class.html">Char</a></span>&gt;</span></span>
-<span class="name ">toCharPointer</span>(<wbr>)
+<span class="name ">toCharPointer</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="toCharPointer-param-allocator"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.8.1/dart-ffi/Allocator-class.html">Allocator</a></span> <span class="parameter-name">allocator</span></span></li>
+</ol>)
 
       
 
@@ -66,7 +67,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Pointer&lt;Char&gt; toCharPointer() =&gt; toNativeUtf8().cast&lt;Char&gt;();</code></pre>
+  <pre class="language-dart"><code class="language-dart">Pointer&lt;Char&gt; toCharPointer(Allocator allocator) =&gt;
+    toNativeUtf8(allocator: allocator).cast&lt;Char&gt;();</code></pre>
 </section>
 
 

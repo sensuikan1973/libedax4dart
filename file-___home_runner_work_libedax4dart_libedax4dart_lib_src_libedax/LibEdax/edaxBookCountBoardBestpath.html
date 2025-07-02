@@ -103,23 +103,22 @@ CountBestpathResult edaxBookCountBoardBestpath(
   final int playerLowerLimit = BookCountBoardBestPathLowerLimit.best,
   final int opponentLowerLimit = BookCountBoardBestPathLowerLimit.best,
 }) {
-  final dstP = calloc&lt;bindings.Position&gt;();
-  final dstB = calloc&lt;bindings.Board&gt;();
-  dstB.ref.player = board.player;
-  dstB.ref.opponent = board.opponent;
-  _bindings.edax_book_count_board_bestpath(
-    dstB,
-    dstP,
-    playerLowerLimit,
-    opponentLowerLimit,
-    playerColor,
-  );
+  return using((Arena arena) {
+    final dstP = arena&lt;bindings.Position&gt;();
+    final dstB = arena&lt;bindings.Board&gt;();
+    dstB.ref.player = board.player;
+    dstB.ref.opponent = board.opponent;
+    _bindings.edax_book_count_board_bestpath(
+      dstB,
+      dstP,
+      playerLowerLimit,
+      opponentLowerLimit,
+      playerColor,
+    );
 
-  final position = Position.fromCStruct(dstP.ref);
-  calloc
-    ..free(dstP)
-    ..free(dstB);
-  return CountBestpathResult(board, position, playerColor);
+    final position = Position.fromCStruct(dstP.ref);
+    return CountBestpathResult(board, position, playerColor);
+  });
 }</code></pre>
 </section>
 

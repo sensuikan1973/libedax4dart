@@ -71,9 +71,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void edaxBookLoad(final String bookFile) {
-  final arg = bookFile.toCharPointer();
-  _bindings.edax_book_load(arg);
-  calloc.free(arg);
+  using((Arena arena) {
+    final arg = bookFile.toCharPointer(arena);
+    _bindings.edax_book_load(arg);
+  });
 }</code></pre>
 </section>
 

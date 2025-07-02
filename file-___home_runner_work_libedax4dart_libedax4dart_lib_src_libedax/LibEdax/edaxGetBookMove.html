@@ -71,16 +71,17 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@useResult
 List&lt;Move&gt; edaxGetBookMove() {
-  final dst = calloc&lt;bindings.MoveList&gt;();
-  _bindings.edax_get_bookmove(dst);
-  final moveList = dst.ref;
-  final result = &lt;Move&gt;[];
-  for (var k = 0; k &lt; moveList.n_moves; k++) {
-    final m = moveList.move[k + 1];
-    result.add(Move.fromCStruct(m));
-  }
-  calloc.free(dst);
-  return result;
+  return using((Arena arena) {
+    final dst = arena&lt;bindings.MoveList&gt;();
+    _bindings.edax_get_bookmove(dst);
+    final moveList = dst.ref;
+    final result = &lt;Move&gt;[];
+    for (var k = 0; k &lt; moveList.n_moves; k++) {
+      final m = moveList.move[k + 1];
+      result.add(Move.fromCStruct(m));
+    }
+    return result;
+  });
 }</code></pre>
 </section>
 
