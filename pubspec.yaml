@@ -12,10 +12,10 @@ environment:
 
 dependencies:
   ffi: ^2.1.4
-  meta: ^1.16.0
+  meta: ^1.17.0
 
 dev_dependencies:
-  analyzer: ^7.5.2
+  analyzer: ^7.5.4
   coverage: ^1.14.1 # See: https://github.com/dart-lang/test/issues/1265
   ffigen: ^19.0.0
   pana: ^0.22.21
