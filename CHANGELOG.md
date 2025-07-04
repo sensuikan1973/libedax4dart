@@ -1,3 +1,7 @@
+# 7.49.0
+
+upgrade dependencies.
+
 # 7.48.0
 
 use Arena to manage all allocations.
