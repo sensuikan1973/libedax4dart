@@ -1097,11 +1097,11 @@ ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>> get time_clock => _time
 
 set time_clock(ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>> value) =>_time_clock.value = value;
 
-late final ffi.Pointer<ffi.Long> _timezone$1 = _lookup<ffi.Long>('timezone');
+late final ffi.Pointer<ffi.Long> _timezone = _lookup<ffi.Long>('timezone');
 
-int get timezone$1 => _timezone$1.value;
+int get timezone => _timezone.value;
 
-set timezone$1(int value) =>_timezone$1.value = value;
+set timezone(int value) =>_timezone.value = value;
 
 late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Char>>> _tzname = _lookup<ffi.Pointer<ffi.Pointer<ffi.Char>>>('tzname');
 
@@ -4460,6 +4460,9 @@ const int MAC_OS_VERSION_14_4 = 140400;
 const int MAC_OS_VERSION_14_5 = 140500;
 
 
+const int MAC_OS_VERSION_15_0 = 150000;
+
+
 const int MAC_OS_X_VERSION_10_0 = 1000;
 
 
@@ -6243,6 +6246,9 @@ const int SORT_ALPHA_DELTA = 8;
 const int SO_ACCEPTCONN = 2;
 
 
+const int SO_BINDTODEVICE = 4404;
+
+
 const int SO_BROADCAST = 32;
 
 
@@ -7861,27 +7867,6 @@ const int _IONBF = 2;
 
 const int _LC_LAST = 7;
 
-@ffi.Packed(1)
-final class _OSUnalignedU16 extends ffi.Struct{
-  @ffi.Uint16()
-  external int __val;
-
-}
-
-@ffi.Packed(1)
-final class _OSUnalignedU32 extends ffi.Struct{
-  @ffi.Uint32()
-  external int __val;
-
-}
-
-@ffi.Packed(1)
-final class _OSUnalignedU64 extends ffi.Struct{
-  @ffi.Uint64()
-  external int __val;
-
-}
-
 
 const String _PATH_HEQUIV = '/etc/hosts.equiv';
 
@@ -9041,6 +9026,9 @@ const int __BRIDGEOS_8_4 = 80400;
 const int __BRIDGEOS_8_5 = 80500;
 
 
+const int __BRIDGEOS_9_0 = 90000;
+
+
 const int __DARWIN_64_BIT_INO_T = 1;
 
 
@@ -9167,10 +9155,10 @@ const int __DRIVERKIT_23_4 = 230400;
 const int __DRIVERKIT_23_5 = 230500;
 
 
+const int __DRIVERKIT_24_0 = 240000;
+
+
 const int __ENABLE_LEGACY_MAC_AVAILABILITY = 1;
-
-
-const int __GNUC_VA_LIST = 1;
 
 
 const int __ILP32_OFF32 = -1;
@@ -9339,6 +9327,9 @@ const int __IPHONE_17_4 = 170400;
 
 
 const int __IPHONE_17_5 = 170500;
+
+
+const int __IPHONE_18_0 = 180000;
 
 
 const int __IPHONE_2_0 = 20000;
@@ -9626,10 +9617,13 @@ const int __MAC_14_4 = 140400;
 const int __MAC_14_5 = 140500;
 
 
-const int __MAC_OS_X_VERSION_MAX_ALLOWED = 140500;
+const int __MAC_15_0 = 150000;
 
 
-const int __MAC_OS_X_VERSION_MIN_REQUIRED = 140000;
+const int __MAC_OS_X_VERSION_MAX_ALLOWED = 150000;
+
+
+const int __MAC_OS_X_VERSION_MIN_REQUIRED = 150000;
 
 
 const int __PTHREAD_ATTR_SIZE__ = 56;
@@ -9848,6 +9842,9 @@ const int __TVOS_17_4 = 170400;
 const int __TVOS_17_5 = 170500;
 
 
+const int __TVOS_18_0 = 180000;
+
+
 const int __TVOS_9_0 = 90000;
 
 
@@ -9866,6 +9863,9 @@ const int __VISIONOS_1_1 = 10100;
 const int __VISIONOS_1_2 = 10200;
 
 
+const int __VISIONOS_2_0 = 20000;
+
+
 const int __WATCHOS_10_0 = 100000;
 
 
@@ -9882,6 +9882,9 @@ const int __WATCHOS_10_4 = 100400;
 
 
 const int __WATCHOS_10_5 = 100500;
+
+
+const int __WATCHOS_11_0 = 110000;
 
 
 const int __WATCHOS_1_0 = 10000;
@@ -10097,6 +10100,15 @@ final class __darwin_arm_exception_state64 extends ffi.Struct{
 
   @__uint32_t()
   external int __exception;
+
+}
+
+final class __darwin_arm_exception_state64_v2 extends ffi.Struct{
+  @__uint64_t()
+  external int __far;
+
+  @__uint64_t()
+  external int __esr;
 
 }
 
@@ -11817,7 +11829,16 @@ final class rusage_info_v6 extends ffi.Struct{
   @ffi.Uint64()
   external int ri_secure_ptime_in_system;
 
-@ffi.Array.multi([12])
+  @ffi.Uint64()
+  external int ri_neural_footprint;
+
+  @ffi.Uint64()
+  external int ri_lifetime_max_neural_footprint;
+
+  @ffi.Uint64()
+  external int ri_interval_max_neural_footprint;
+
+@ffi.Array.multi([9])
   external ffi.Array<ffi.Uint64> ri_reserved;
 
 }
@@ -12123,7 +12144,7 @@ final class timeval64 extends ffi.Struct{
 
 }
 
-final class timezone extends ffi.Struct{
+final class timezone$1 extends ffi.Struct{
   @ffi.Int()
   external int tz_minuteswest;
 
