@@ -1097,11 +1097,11 @@ ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>> get time_clock => _time
 
 set time_clock(ffi.Pointer<ffi.NativeFunction<ffi.LongLong Function()>> value) =>_time_clock.value = value;
 
-late final ffi.Pointer<ffi.Long> _timezone$1 = _lookup<ffi.Long>('timezone');
+late final ffi.Pointer<ffi.Long> _timezone = _lookup<ffi.Long>('timezone');
 
-int get timezone$1 => _timezone$1.value;
+int get timezone => _timezone.value;
 
-set timezone$1(int value) =>_timezone$1.value = value;
+set timezone(int value) =>_timezone.value = value;
 
 late final ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Char>>> _tzname = _lookup<ffi.Pointer<ffi.Pointer<ffi.Char>>>('tzname');
 
@@ -3233,6 +3233,9 @@ const int IOPOL_VFS_NOCACHE_WRITE_FS_BLKSIZE_DEFAULT = 0;
 const int IOPOL_VFS_NOCACHE_WRITE_FS_BLKSIZE_ON = 1;
 
 
+const int IOPOL_VFS_SKIP_MTIME_UPDATE_IGNORE = 2;
+
+
 const int IOPOL_VFS_SKIP_MTIME_UPDATE_OFF = 0;
 
 
@@ -4274,22 +4277,43 @@ const int LAVE = 1279350341;
 const int LC_ALL = 0;
 
 
+const int LC_ALL_MASK = 63;
+
+
 const int LC_COLLATE = 1;
+
+
+const int LC_COLLATE_MASK = 1;
 
 
 const int LC_CTYPE = 2;
 
 
+const int LC_CTYPE_MASK = 2;
+
+
 const int LC_MESSAGES = 6;
+
+
+const int LC_MESSAGES_MASK = 4;
 
 
 const int LC_MONETARY = 3;
 
 
+const int LC_MONETARY_MASK = 8;
+
+
 const int LC_NUMERIC = 4;
 
 
+const int LC_NUMERIC_MASK = 16;
+
+
 const int LC_TIME = 5;
+
+
+const int LC_TIME_MASK = 32;
 
 
 const int LINE_MAX = 2048;
@@ -4442,6 +4466,9 @@ const int MAC_OS_VERSION_13_5 = 130500;
 const int MAC_OS_VERSION_13_6 = 130600;
 
 
+const int MAC_OS_VERSION_13_7 = 130700;
+
+
 const int MAC_OS_VERSION_14_0 = 140000;
 
 
@@ -4460,7 +4487,28 @@ const int MAC_OS_VERSION_14_4 = 140400;
 const int MAC_OS_VERSION_14_5 = 140500;
 
 
+const int MAC_OS_VERSION_14_6 = 140600;
+
+
+const int MAC_OS_VERSION_14_7 = 140700;
+
+
 const int MAC_OS_VERSION_15_0 = 150000;
+
+
+const int MAC_OS_VERSION_15_1 = 150100;
+
+
+const int MAC_OS_VERSION_15_2 = 150200;
+
+
+const int MAC_OS_VERSION_15_3 = 150300;
+
+
+const int MAC_OS_VERSION_15_4 = 150400;
+
+
+const int MAC_OS_VERSION_15_5 = 150500;
 
 
 const int MAC_OS_X_VERSION_10_0 = 1000;
@@ -7868,6 +7916,12 @@ const int _IONBF = 2;
 const int _LC_LAST = 7;
 
 
+const int _LC_LAST_MASK = 32;
+
+
+const int _LC_NUM_MASK = 6;
+
+
 const String _PATH_HEQUIV = '/etc/hosts.equiv';
 
 
@@ -8930,22 +8984,52 @@ const int __API_TO_BE_DEPRECATED_DRIVERKIT = 100000;
 const int __API_TO_BE_DEPRECATED_IOS = 100000;
 
 
+const int __API_TO_BE_DEPRECATED_IOSAPPLICATIONEXTENSION = 100000;
+
+
+const int __API_TO_BE_DEPRECATED_KERNELKIT = 100000;
+
+
 const int __API_TO_BE_DEPRECATED_MACCATALYST = 100000;
+
+
+const int __API_TO_BE_DEPRECATED_MACCATALYSTAPPLICATIONEXTENSION = 100000;
 
 
 const int __API_TO_BE_DEPRECATED_MACOS = 100000;
 
 
+const int __API_TO_BE_DEPRECATED_MACOSAPPLICATIONEXTENSION = 100000;
+
+
 const int __API_TO_BE_DEPRECATED_TVOS = 100000;
+
+
+const int __API_TO_BE_DEPRECATED_TVOSAPPLICATIONEXTENSION = 100000;
 
 
 const int __API_TO_BE_DEPRECATED_VISIONOS = 100000;
 
 
+const int __API_TO_BE_DEPRECATED_VISIONOSAPPLICATIONEXTENSION = 100000;
+
+
 const int __API_TO_BE_DEPRECATED_WATCHOS = 100000;
 
 
+const int __API_TO_BE_DEPRECATED_WATCHOSAPPLICATIONEXTENSION = 100000;
+
+
 const String __ASSERT_FILE_NAME = 'temp_for_macros.hpp';
+
+
+const String __AVAILABILITY_FILE = 'AvailabilityVersions.h';
+
+
+const int __AVAILABILITY_VERSIONS_VERSION_HASH = 93585900;
+
+
+const String __AVAILABILITY_VERSIONS_VERSION_STRING = 'Local';
 
 
 const int __BRIDGEOS_2_0 = 20000;
@@ -9026,7 +9110,25 @@ const int __BRIDGEOS_8_4 = 80400;
 const int __BRIDGEOS_8_5 = 80500;
 
 
+const int __BRIDGEOS_8_6 = 80600;
+
+
 const int __BRIDGEOS_9_0 = 90000;
+
+
+const int __BRIDGEOS_9_1 = 90100;
+
+
+const int __BRIDGEOS_9_2 = 90200;
+
+
+const int __BRIDGEOS_9_3 = 90300;
+
+
+const int __BRIDGEOS_9_4 = 90400;
+
+
+const int __BRIDGEOS_9_5 = 90500;
 
 
 const int __DARWIN_64_BIT_INO_T = 1;
@@ -9155,7 +9257,25 @@ const int __DRIVERKIT_23_4 = 230400;
 const int __DRIVERKIT_23_5 = 230500;
 
 
+const int __DRIVERKIT_23_6 = 230600;
+
+
 const int __DRIVERKIT_24_0 = 240000;
+
+
+const int __DRIVERKIT_24_1 = 240100;
+
+
+const int __DRIVERKIT_24_2 = 240200;
+
+
+const int __DRIVERKIT_24_3 = 240300;
+
+
+const int __DRIVERKIT_24_4 = 240400;
+
+
+const int __DRIVERKIT_24_5 = 240500;
 
 
 const int __ENABLE_LEGACY_MAC_AVAILABILITY = 1;
@@ -9329,7 +9449,28 @@ const int __IPHONE_17_4 = 170400;
 const int __IPHONE_17_5 = 170500;
 
 
+const int __IPHONE_17_6 = 170600;
+
+
+const int __IPHONE_17_7 = 170700;
+
+
 const int __IPHONE_18_0 = 180000;
+
+
+const int __IPHONE_18_1 = 180100;
+
+
+const int __IPHONE_18_2 = 180200;
+
+
+const int __IPHONE_18_3 = 180300;
+
+
+const int __IPHONE_18_4 = 180400;
+
+
+const int __IPHONE_18_5 = 180500;
 
 
 const int __IPHONE_2_0 = 20000;
@@ -9599,6 +9740,9 @@ const int __MAC_13_5 = 130500;
 const int __MAC_13_6 = 130600;
 
 
+const int __MAC_13_7 = 130700;
+
+
 const int __MAC_14_0 = 140000;
 
 
@@ -9617,10 +9761,31 @@ const int __MAC_14_4 = 140400;
 const int __MAC_14_5 = 140500;
 
 
+const int __MAC_14_6 = 140600;
+
+
+const int __MAC_14_7 = 140700;
+
+
 const int __MAC_15_0 = 150000;
 
 
-const int __MAC_OS_X_VERSION_MAX_ALLOWED = 150000;
+const int __MAC_15_1 = 150100;
+
+
+const int __MAC_15_2 = 150200;
+
+
+const int __MAC_15_3 = 150300;
+
+
+const int __MAC_15_4 = 150400;
+
+
+const int __MAC_15_5 = 150500;
+
+
+const int __MAC_OS_X_VERSION_MAX_ALLOWED = 150500;
 
 
 const int __MAC_OS_X_VERSION_MIN_REQUIRED = 150000;
@@ -9842,7 +10007,25 @@ const int __TVOS_17_4 = 170400;
 const int __TVOS_17_5 = 170500;
 
 
+const int __TVOS_17_6 = 170600;
+
+
 const int __TVOS_18_0 = 180000;
+
+
+const int __TVOS_18_1 = 180100;
+
+
+const int __TVOS_18_2 = 180200;
+
+
+const int __TVOS_18_3 = 180300;
+
+
+const int __TVOS_18_4 = 180400;
+
+
+const int __TVOS_18_5 = 180500;
 
 
 const int __TVOS_9_0 = 90000;
@@ -9863,7 +10046,25 @@ const int __VISIONOS_1_1 = 10100;
 const int __VISIONOS_1_2 = 10200;
 
 
+const int __VISIONOS_1_3 = 10300;
+
+
 const int __VISIONOS_2_0 = 20000;
+
+
+const int __VISIONOS_2_1 = 20100;
+
+
+const int __VISIONOS_2_2 = 20200;
+
+
+const int __VISIONOS_2_3 = 20300;
+
+
+const int __VISIONOS_2_4 = 20400;
+
+
+const int __VISIONOS_2_5 = 20500;
 
 
 const int __WATCHOS_10_0 = 100000;
@@ -9884,7 +10085,28 @@ const int __WATCHOS_10_4 = 100400;
 const int __WATCHOS_10_5 = 100500;
 
 
+const int __WATCHOS_10_6 = 100600;
+
+
+const int __WATCHOS_10_7 = 100700;
+
+
 const int __WATCHOS_11_0 = 110000;
+
+
+const int __WATCHOS_11_1 = 110100;
+
+
+const int __WATCHOS_11_2 = 110200;
+
+
+const int __WATCHOS_11_3 = 110300;
+
+
+const int __WATCHOS_11_4 = 110400;
+
+
+const int __WATCHOS_11_5 = 110500;
 
 
 const int __WATCHOS_1_0 = 10000;
@@ -10118,6 +10340,42 @@ final class __darwin_arm_neon_state extends ffi.Opaque{
 final class __darwin_arm_neon_state64 extends ffi.Opaque{
 }
 
+final class __darwin_arm_sme2_state extends ffi.Struct{
+@ffi.Array.multi([64])
+  external ffi.Array<ffi.Char> __zt0;
+
+}
+
+final class __darwin_arm_sme_state extends ffi.Struct{
+  @__uint64_t()
+  external int __svcr;
+
+  @__uint64_t()
+  external int __tpidr2_el0;
+
+  @__uint16_t()
+  external int __svl_b;
+
+}
+
+final class __darwin_arm_sme_za_state extends ffi.Struct{
+@ffi.Array.multi([4096])
+  external ffi.Array<ffi.Char> __za;
+
+}
+
+final class __darwin_arm_sve_p_state extends ffi.Struct{
+@ffi.Array.multi([16, 32])
+  external ffi.Array<ffi.Array<ffi.Char>> __p;
+
+}
+
+final class __darwin_arm_sve_z_state extends ffi.Struct{
+@ffi.Array.multi([16, 256])
+  external ffi.Array<ffi.Array<ffi.Char>> __z;
+
+}
+
 final class __darwin_arm_thread_state extends ffi.Struct{
 @ffi.Array.multi([13])
   external ffi.Array<__uint32_t> __r;
@@ -10298,6 +10556,9 @@ final class __float2 extends ffi.Struct{
 }
 
 typedef __gnuc_va_list = __builtin_va_list;
+
+const int __has_bounds_safety_attributes = 0;
+
 
 const int __has_ptrcheck = 0;
 
@@ -10560,6 +10821,9 @@ final class _opaque_pthread_t extends ffi.Struct{
 @ffi.Array.multi([8176])
   external ffi.Array<ffi.Char> __opaque;
 
+}
+
+final class _xlocale extends ffi.Opaque{
 }
 
 final class accessx_descriptor extends ffi.Struct{
@@ -10979,6 +11243,7 @@ final class lldiv_t extends ffi.Struct{
 
 }
 
+typedef locale_t = ffi.Pointer<_xlocale>;
 typedef mach_port_t = __darwin_mach_port_t;
 typedef malloc_type_id_t = ffi.UnsignedLongLong;
 typedef Dartmalloc_type_id_t = int;
@@ -12144,7 +12409,7 @@ final class timeval64 extends ffi.Struct{
 
 }
 
-final class timezone extends ffi.Struct{
+final class timezone$1 extends ffi.Struct{
   @ffi.Int()
   external int tz_minuteswest;
 
