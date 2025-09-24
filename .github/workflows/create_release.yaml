@@ -38,6 +38,11 @@ jobs:
         shell: bash # for windows
         run: echo "CURRENT_VERSION=$(dart pub deps --style compact | grep "libedax4dart" | cut -c 14-)" >> $GITHUB_ENV
 
+      - name: workaround for https://github.com/sensuikan1973/libedax4dart/issues/828
+        if: runner.os == 'Windows'
+        shell: bash
+        run: git config --system core.longpaths true
+
       - name: build libedax
         shell: bash
         env:
