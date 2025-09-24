@@ -1,3 +1,6 @@
+# 7.54.0
+upgrade libedax. See: https://github.com/sensuikan1973/edax-reversi/compare/f3c864412563797dbef94b059eaebcf6ea06dfaa...sensuikan1973:edax-reversi:b80bcc1af736a83ba0f84429d064a4876609ce14
+
 # 7.53.0
 
 upgrade dependencies.
