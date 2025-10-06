@@ -397,7 +397,7 @@ class LibEdax {
   ///
   /// * Because internal each node lookup is stopped when book has no links, the more lower the accuracy of your book is, the more lower this feature accuracy is.
   ///   * In addition, if your book has some depth links (e.g. 24, 30, 40, ...), shallow depth link (≈ path is few) can be taken with a reasonable probability.
-  ///   * __In a word, if the accuracy of your book is low, you shouldn't use this function__. For you reference, if your book has N GB and the depth is more than 30, this feature can probably be inidicator.
+  ///   * __In a word, if the accuracy of your book is low, you shouldn't use this function__. For you reference, if your book has N GB and the depth is more than 30, this feature can probably be indicator.
   /// * This function only lookup the best score links. So, this indicator can't consider easy win links which is _not_ best score. In reversi game, the situation can sometimes be found in my experience as a player.
   ///   * __In a word, as you know, this indicator isn't perfect. This is just a indicator__.
   /// * The depth of this feature depends on your book.
