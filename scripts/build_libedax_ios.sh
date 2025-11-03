@@ -85,8 +85,8 @@ cd ../../
 dst=${dst:-"build_ios"}
 mkdir -p "${dst}"
 
-rm -rf "${dst}/bin"
-rm -rf "${dst}/data"
+rm -rf "${dst:?}/bin"
+rm -rf "${dst:?}/data"
 
 cp -r edax-reversi/bin "${dst}/bin"
 cp -r edax-reversi/data "${dst}/data"
