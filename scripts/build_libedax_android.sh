@@ -1,11 +1,12 @@
 #!/bin/bash
-# shellcheck disable=SC2154,SC2086
+# shellcheck disable=SC2154,SC2086 source=build_libedax_common.sh
 set -euxo pipefail
 
 # Get script directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Source common build functions
+# shellcheck source=build_libedax_common.sh
 source "$SCRIPT_DIR/build_libedax_common.sh"
 
 # NOTE: require some environment variables.
