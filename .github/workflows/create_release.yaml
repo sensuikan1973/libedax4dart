@@ -120,3 +120,45 @@ jobs:
           tag_name: ${{ env.CURRENT_VERSION }}
           files: ${{ env.PUBLISH_DIR }}/Android-${{ matrix.android_abi }}.zip
           generate_release_notes: true
+
+  create_ios_release:
+    # See: .github/workflows/create_release_pr.yaml
+    if: ${{ github.head_ref == 'prepare_for_release' && github.event.pull_request.merged == true }}
+    env:
+      OUTPUT_DIR: libedax_output
+      PUBLISH_DIR: dst
+    runs-on: macos-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: dart-lang/setup-dart@v1
+
+      - name: inject current version
+        shell: bash
+        run: echo "CURRENT_VERSION=$(dart pub deps --style compact | grep "libedax4dart" | cut -c 14-)" >> $GITHUB_ENV
+
+      - name: Install p7zip
+        run: brew install p7zip
+
+      - name: Build iOS libedax
+        shell: bash
+        env:
+          dst: ${{ env.OUTPUT_DIR }}
+        run: ./scripts/build_libedax_ios.sh
+
+      - name: compress iOS files
+        shell: bash
+        run: |
+          mkdir -p ${{ env.PUBLISH_DIR }}
+          cd ${{ env.OUTPUT_DIR }}
+          zip -r ../${{ env.PUBLISH_DIR }}/iOS.zip .
+
+      - uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+        with:
+          tag_name: ${{ env.CURRENT_VERSION }}
+          files: ${{ env.PUBLISH_DIR }}/iOS.zip
+          generate_release_notes: true
