@@ -16,6 +16,7 @@ With using libedax4dart, you can execute functions equivalent to [edax](https://
   - macos: `libedax.universal.dylib`
   - windows: `libedax-x64.dll`
   - linux: `libedax.so`
+  - android: `libedax-{arch}.so` (where {arch} is arm64-v8a, armeabi-v7a, x86_64, or x86)
 - (Optional) data for edax
   - `book.dat`
   - `eval.dat`
