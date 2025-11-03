@@ -61,7 +61,7 @@ jobs:
         env:
           dst: '.'
           libedax_build_command: ${{ matrix.libedax_build_command }}
-        run: ./scripts/build_libedax.sh
+        run: ./scripts/build_libedax_desktop.sh
 
       # - name: setup tmate session for DEBUG
       #   uses: mxschmitt/action-tmate@v3

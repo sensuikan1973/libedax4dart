@@ -7,7 +7,7 @@ set -euxo pipefail
 # dst: (e.g. build)
 #
 # example:
-# libedax_build_command="make libbuild ARCH=x64-modern COMP=gcc OS=osx" dst="." ./scripts/build_libedax.sh
+# libedax_build_command="make libbuild ARCH=x64-modern COMP=gcc OS=osx" dst="." ./scripts/build_libedax_desktop.sh
 
 rm -rf edax-reversi
 git clone https://github.com/sensuikan1973/edax-reversi
