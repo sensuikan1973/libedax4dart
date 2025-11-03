@@ -55,7 +55,7 @@ clang -arch x86_64 -isysroot "$SDK_ROOT_SIM" -mios-simulator-version-min=11.0 \
   -std=c99 -pedantic -W -Wall -D_GNU_SOURCE=1 -Wno-invalid-source-encoding \
   -O3 -flto -ffast-math -fomit-frame-pointer -DNDEBUG \
   -m64 -DUSE_GAS_X64 -DHAS_CPU_64 -DLIB_BUILD -fPIC \
-  -dynamiclib -install_name @rpath/libedax.dylib \
+  -dynamiclib -install_name @rpath/libedax.ios.dylib \
   all.c -o ../bin/libedax_sim.dylib -lm -lpthread
 
 # iOSデバイス用（arm64）のdylibをビルド
@@ -67,17 +67,17 @@ clang -arch arm64 -isysroot "$SDK_ROOT_IOS" -mios-version-min=11.0 \
   -std=c99 -pedantic -W -Wall -D_GNU_SOURCE=1 -Wno-invalid-source-encoding \
   -O3 -flto -ffast-math -fomit-frame-pointer -DNDEBUG \
   -DHAS_CPU_64 -DLIB_BUILD -fPIC \
-  -dynamiclib -install_name @rpath/libedax.dylib \
+  -dynamiclib -install_name @rpath/libedax.ios.dylib \
   all.c -o ../bin/libedax_device.dylib -lm -lpthread
 
 # ユニバーサルバイナリ（fat binary）を作成
 echo "Creating universal binary..."
-lipo -create ../bin/libedax_sim.dylib ../bin/libedax_device.dylib -output ../bin/libedax.dylib
+lipo -create ../bin/libedax_sim.dylib ../bin/libedax_device.dylib -output ../bin/libedax.ios.dylib
 
 # 作成されたライブラリの情報を表示
 echo "Universal library info:"
-lipo -info ../bin/libedax.dylib
-file ../bin/libedax.dylib
+lipo -info ../bin/libedax.ios.dylib
+file ../bin/libedax.ios.dylib
 
 cd ../../
 
@@ -92,6 +92,6 @@ cp -r edax-reversi/bin "${dst}/bin"
 cp -r edax-reversi/data "${dst}/data"
 
 echo "iOS用libedaxライブラリの生成が完了しました："
-echo "  - ユニバーサルライブラリ: ${dst}/bin/libedax.dylib"
+echo "  - ユニバーサルライブラリ: ${dst}/bin/libedax.ios.dylib"
 echo "  - アーキテクチャ: x86_64 (シミュレータ) + arm64 (デバイス)"
 echo "  - データファイル: ${dst}/data/"
