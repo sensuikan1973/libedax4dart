@@ -73,8 +73,8 @@ mkdir -p bin
 cd src
 
 # Custom build command for Android SO file
-$CC -std=c99 -O3 -DNDEBUG -DLIB_BUILD -DANDROID -fPIC -shared $ARCH_FLAGS \
-  all.c -o ../bin/$OUTPUT_NAME -lm -llog
+$CC -std=c99 -O3 -DNDEBUG -DLIB_BUILD -DANDROID -fPIC -shared "$ARCH_FLAGS" \
+  all.c -o "../bin/$OUTPUT_NAME" -lm -llog
 
 cd ../../
 
