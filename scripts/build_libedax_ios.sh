@@ -89,8 +89,16 @@ show_completion_message() {
 
 # 共通スクリプトの読み込みと実行
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-# shellcheck source=build_libedax_common.sh
-source "${SCRIPT_DIR}/build_libedax_common.sh"
+COMMON_SCRIPT="${SCRIPT_DIR}/build_libedax_common.sh"
+
+# Check if common script exists
+if [ ! -f "$COMMON_SCRIPT" ]; then
+    echo "Error: Common script not found at $COMMON_SCRIPT"
+    exit 1
+fi
+
+# shellcheck source=./build_libedax_common.sh
+source "$COMMON_SCRIPT"
 
 # メイン処理の実行
 main
