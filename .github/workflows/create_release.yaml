@@ -71,7 +71,7 @@ jobs:
 
   create_android_release:
     # See: .github/workflows/create_release_pr.yaml
-    if: ${{ github.head_ref == 'prepare_for_release' && github.event.pull_request.merged == true }}
+    # if: ${{ github.head_ref == 'prepare_for_release' && github.event.pull_request.merged == true }}
     env:
       OUTPUT_DIR: libedax_output
       PUBLISH_DIR: dst
