@@ -100,7 +100,8 @@ main() {
     cd src
     build_platform_specific
     
-    # 出力ディレクトリの準備
+    # 出力ディレクトリの準備（edax-reversiディレクトリから戻る）
+    cd ../..
     setup_output_directory
     
     # テスト用ファイルのクリーンアップ

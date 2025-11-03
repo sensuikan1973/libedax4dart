@@ -14,4 +14,4 @@ jobs:
       - uses: actions/checkout@v5
       - uses: ludeeus/action-shellcheck@master
         env:
-          SHELLCHECK_OPTS: -s bash # See: https://github.com/koalaman/shellcheck/issues/809
+          SHELLCHECK_OPTS: -x -s bash # See: https://github.com/koalaman/shellcheck/issues/809

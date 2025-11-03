@@ -1,13 +1,6 @@
 #!/bin/bash
-# shellcheck disable=SC2154,SC2086 source=build_libedax_common.sh
+# shellcheck disable=SC2154,SC2086
 set -euxo pipefail
-
-# Get script directory
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-# Source common build functions
-# shellcheck source=build_libedax_common.sh
-source "$SCRIPT_DIR/build_libedax_common.sh"
 
 # NOTE: require some environment variables.
 # android_abi: Android ABI (arm64-v8a, armeabi-v7a, x86_64, x86)
@@ -21,10 +14,11 @@ if [ -z "${android_abi:-}" ]; then
     exit 1
 fi
 
-echo "Building libedax for Android ABI: $android_abi"
-echo "Output directory: ${dst:-.}"
+# プラットフォーム固有の設定
+export PLATFORM_NAME="Android ($android_abi)"
+export DEFAULT_DST="build_android"
 
-# Setup platform-specific environment for Android
+# Android固有の環境設定
 setup_platform_environment() {
   # Set up Android NDK toolchain
   export ANDROID_NDK_ROOT=$ANDROID_NDK_LATEST_HOME
@@ -68,63 +62,50 @@ setup_platform_environment() {
   esac
 }
 
-# No makefile patching needed for Android (uses direct compilation)
-patch_makefile() {
-  return 0
-}
-
-# Android-specific build implementation
+# プラットフォーム固有のビルド処理
 build_platform_specific() {
-  echo "Building Android shared library with $CC..."
-  
-  # Build libedax for Android
-  mkdir -p bin
-  cd src
-
-  # Custom build command for Android SO file
-  $CC -std=c99 -O3 -DNDEBUG -DLIB_BUILD -DANDROID -fPIC -shared $ARCH_FLAGS \
-    all.c -o ../bin/$OUTPUT_NAME -lm -llog
-
-  cd ..
+    echo "Building libedax for Android ($android_abi)..."
+    
+    # Build libedax for Android (direct compilation)
+    mkdir -p bin
+    $CC -std=c99 -O3 -DNDEBUG -DLIB_BUILD -DANDROID -fPIC -shared $ARCH_FLAGS \
+      all.c -o bin/$OUTPUT_NAME -lm -llog
 }
 
-# Android-specific setup of output directory and file copying
-setup_output_directory_android() {
-  # Setup output directory structure
-  mkdir -p "${dst:-.}/android/$android_abi/bin"
-  mkdir -p "${dst:-.}/android/$android_abi/data"
-
-  # Copy built library and data
-  cp "bin/$OUTPUT_NAME" "${dst:-.}/android/$android_abi/bin/"
-  cp -r data/* "${dst:-.}/android/$android_abi/data/"
-
-  echo "Android libedax build completed for $android_abi"
-  echo "Output: ${dst:-.}/android/$android_abi/bin/$OUTPUT_NAME"
+# テスト用ファイルのクリーンアップ（Android特有の出力構造）
+cleanup_test_files() {
+    # Android builds don't need to copy to project root
+    return 0
 }
 
-# Main execution
-main() {
-  # Run common preparation steps
-  prepare_edax_reversi
-  prepare_data_files
-  
-  # Setup platform environment
-  setup_platform_environment
-  
-  # Enter build directory
-  cd edax-reversi
-  
-  # Patch makefile (no-op for Android)
-  patch_makefile
-  
-  # Build the library
-  build_platform_specific
-  
-  # Go back to script directory and setup outputs
-  cd ..
-  cd edax-reversi
-  setup_output_directory_android
+# 完了メッセージの表示
+show_completion_message() {
+    local output_dir="${dst:-$DEFAULT_DST}"
+    echo "  - 共有ライブラリ: ${output_dir}/android/$android_abi/bin/$OUTPUT_NAME"
+    echo "  - アーキテクチャ: $android_abi"
+    echo "  - データファイル: ${output_dir}/android/$android_abi/data/"
 }
 
-# Execute main function
+# Android固有の出力ディレクトリ設定をオーバーライド
+# shellcheck disable=SC2329  # Called indirectly by common script
+setup_output_directory() {
+    local output_dir="${dst:-$DEFAULT_DST}"
+    
+    echo "Setting up Android output directory: $output_dir"
+    
+    # Android固有のディレクトリ構造を作成
+    mkdir -p "$output_dir/android/$android_abi/bin"
+    mkdir -p "$output_dir/android/$android_abi/data"
+    
+    # ライブラリとデータをコピー
+    cp "bin/$OUTPUT_NAME" "$output_dir/android/$android_abi/bin/"
+    cp -r data/* "$output_dir/android/$android_abi/data/"
+}
+
+# 共通スクリプトの読み込みと実行
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=build_libedax_common.sh
+source "${SCRIPT_DIR}/build_libedax_common.sh"
+
+# メイン処理の実行
 main
