@@ -58,9 +58,6 @@ clang -arch x86_64 -isysroot "$SDK_ROOT_SIM" -mios-simulator-version-min=11.0 \
   -dynamiclib -install_name @rpath/libedax.dylib \
   all.c -o ../bin/libedax_sim.dylib -lm -lpthread
 
-# シミュレータ用dylibを一時保存
-# mv bin/libedax.dylib bin/libedax_sim.dylib  # 既に正しい名前でビルド済み
-
 # iOSデバイス用（arm64）のdylibをビルド
 echo "Building for iOS Device (arm64)..."
 make clean || true
@@ -72,9 +69,6 @@ clang -arch arm64 -isysroot "$SDK_ROOT_IOS" -mios-version-min=11.0 \
   -DHAS_CPU_64 -DLIB_BUILD -fPIC \
   -dynamiclib -install_name @rpath/libedax.dylib \
   all.c -o ../bin/libedax_device.dylib -lm -lpthread
-
-# デバイス用dylibを一時保存
-# mv bin/libedax.dylib bin/libedax_device.dylib  # 既に正しい名前でビルド済み
 
 # ユニバーサルバイナリ（fat binary）を作成
 echo "Creating universal binary..."
@@ -97,12 +91,7 @@ rm -rf "${dst}/data"
 cp -r edax-reversi/bin "${dst}/bin"
 cp -r edax-reversi/data "${dst}/data"
 
-# テスト用にルートディレクトリにもコピー
-rm -f ./libedax.*.dylib
-cp "${dst}/bin/libedax.dylib" ./libedax.ios.dylib
-
 echo "iOS用libedaxライブラリの生成が完了しました："
 echo "  - ユニバーサルライブラリ: ${dst}/bin/libedax.dylib"
 echo "  - アーキテクチャ: x86_64 (シミュレータ) + arm64 (デバイス)"
 echo "  - データファイル: ${dst}/data/"
-echo "  - テスト用コピー: ./libedax.ios.dylib"
