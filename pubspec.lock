@@ -93,10 +93,10 @@ packages:
     dependency: transitive
     description:
       name: crypto
-      sha256: "1e445881f28f22d6140f181e07737b22f1e099a5e1ff94b0af2f9e4a463f4855"
+      sha256: c8ea0233063ba03258fbcf2ca4d6dadfefe14f02fab57702265467a19f27fadf
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.6"
+    version: "3.0.7"
   csslib:
     dependency: transitive
     description:
@@ -125,10 +125,10 @@ packages:
     dependency: "direct dev"
     description:
       name: ffigen
-      sha256: "2bd9a420ca42cb5ce8cff5d80f88547b547a042ae26807704b1698714e4464a2"
+      sha256: c880c7cda18808b10304ecbd3e3867b29a8da0d58fd2d03080829e3b65bc567c
       url: "https://pub.dev"
     source: hosted
-    version: "19.1.0"
+    version: "20.0.0"
   file:
     dependency: transitive
     description:
