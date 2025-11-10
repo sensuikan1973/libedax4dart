@@ -8,17 +8,17 @@ on:
     types: [closed]
 
 jobs:
-  create_release:
+  build:
     # See: .github/workflows/create_release_pr.yaml
     if: ${{ github.head_ref == 'prepare_for_release' && github.event.pull_request.merged == true }}
     env:
       OUTPUT_DIR: libedax_output
       PUBLISH_DIR: dst
-      RELEASE_DESCRIPTION_TXT_FILE: release_description.txt
     runs-on: ${{ matrix.os }}
     timeout-minutes: 10
+    outputs:
+      version: ${{ steps.get_version.outputs.version }}
     strategy:
-      max-parallel: 1 # workaround for https://github.com/softprops/action-gh-release/issues/445
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         include:
@@ -34,9 +34,12 @@ jobs:
 
       - uses: dart-lang/setup-dart@v1
 
-      - name: inject current version
+      - name: get current version
+        id: get_version
         shell: bash # for windows
-        run: echo "CURRENT_VERSION=$(dart pub deps --style compact | grep "libedax4dart" | cut -c 14-)" >> $GITHUB_ENV
+        run: |
+          VERSION=$(dart pub deps --style compact | grep "libedax4dart" | cut -c 14-)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: workaround for https://github.com/sensuikan1973/libedax4dart/issues/828
         if: runner.os == 'Windows'
@@ -61,10 +64,26 @@ jobs:
         if: runner.os == 'macOS' || runner.os == 'Linux'
         run: mkdir -p ${{ env.PUBLISH_DIR }} && zip -r ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip ${{ env.OUTPUT_DIR }}
 
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ runner.os }}
+          path: ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
+
+  create_release:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
       - uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
-          tag_name: ${{ env.CURRENT_VERSION }}
-          files: ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
+          tag_name: ${{ needs.build.outputs.version }}
+          files: artifacts/*/*.zip
           generate_release_notes: true
