@@ -14,20 +14,27 @@ jobs:
     env:
       OUTPUT_DIR: libedax_output
       PUBLISH_DIR: dst
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.runs-on || matrix.os }}
     timeout-minutes: 10
     outputs:
       version: ${{ steps.get_version.outputs.version }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest, iOS]
         include:
           - os: ubuntu-latest
+            artifact_name: Linux
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=linux
           - os: windows-latest
+            artifact_name: Windows
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=windows
           - os: macos-latest
+            artifact_name: macOS
             libedax_build_command: make universal_osx_libbuild
+          - os: iOS
+            runs-on: macos-latest
+            artifact_name: iOS
+            libedax_build_command: ./scripts/build_libedax_ios.sh
 
     steps:
       - uses: actions/checkout@v5
@@ -50,8 +57,7 @@ jobs:
         shell: bash
         env:
           dst: ${{ env.OUTPUT_DIR }}
-          libedax_build_command: ${{ matrix.libedax_build_command }}
-        run: ./scripts/build_libedax.sh
+        run: ${{ matrix.libedax_build_command }}
 
       - name: output build info
         shell: bash
@@ -59,16 +65,16 @@ jobs:
 
       - name: compress files (Windows)
         if: runner.os == 'Windows'
-        run: mkdir -p ${{ env.PUBLISH_DIR }} && powershell Compress-Archive -Path ${{ env.OUTPUT_DIR }} -DestinationPath ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
-      - name: compress files (Linux, MacOS)
+        run: mkdir -p ${{ env.PUBLISH_DIR }} && powershell Compress-Archive -Path ${{ env.OUTPUT_DIR }} -DestinationPath ${{ env.PUBLISH_DIR }}/${{ matrix.artifact_name }}.zip
+      - name: compress files (Linux, MacOS, iOS)
         if: runner.os == 'macOS' || runner.os == 'Linux'
-        run: mkdir -p ${{ env.PUBLISH_DIR }} && zip -r ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip ${{ env.OUTPUT_DIR }}
+        run: mkdir -p ${{ env.PUBLISH_DIR }} && zip -r ${{ env.PUBLISH_DIR }}/${{ matrix.artifact_name }}.zip ${{ env.OUTPUT_DIR }}
 
       - name: upload artifact
         uses: actions/upload-artifact@v5
         with:
-          name: ${{ runner.os }}
-          path: ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
+          name: ${{ matrix.artifact_name }}
+          path: ${{ env.PUBLISH_DIR }}/${{ matrix.artifact_name }}.zip
 
   create_release:
     needs: build
