@@ -1,3 +1,7 @@
+# 7.59.0
+
+support iOS dylib.
+
 # 7.58.1
 
 fix release workflow.
