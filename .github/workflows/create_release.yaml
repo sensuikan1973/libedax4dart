@@ -20,7 +20,7 @@ jobs:
       version: ${{ steps.get_version.outputs.version }}
     strategy:
       matrix:
-        target_os: ["linux", "windows", "macos", "ios"]
+        target_os: ["Linux", "Windows", "macOS", "iOS"]
         include:
           - target_os: linux
             runner_os: ubuntu-latest
@@ -73,8 +73,8 @@ jobs:
       - name: upload artifact
         uses: actions/upload-artifact@v5
         with:
-          name: ${{ runner.os }}
-          path: ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
+          name: ${{ matrix.target_os }}
+          path: ${{ env.PUBLISH_DIR }}/${{ matrix.target_os }}.zip
 
   create_release:
     needs: build
