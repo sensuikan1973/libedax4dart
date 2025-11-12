@@ -48,7 +48,7 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: workaround for https://github.com/sensuikan1973/libedax4dart/issues/828
-        if: runner.os == 'Windows'
+        if: ${{ matrix.target_os }} == 'Windows'
         shell: bash
         run: git config --system core.longpaths true
 
@@ -64,11 +64,11 @@ jobs:
         run: .github/scripts/output_build_info.sh ${{ env.OUTPUT_DIR }}
 
       - name: compress files (Windows)
-        if: runner.os == 'Windows'
-        run: mkdir -p ${{ env.PUBLISH_DIR }} && powershell Compress-Archive -Path ${{ env.OUTPUT_DIR }} -DestinationPath ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
+        if: ${{ matrix.target_os }} == 'Windows'
+        run: mkdir -p ${{ env.PUBLISH_DIR }} && powershell Compress-Archive -Path ${{ env.OUTPUT_DIR }} -DestinationPath ${{ env.PUBLISH_DIR }}/${{ matrix.target_os }}.zip
       - name: compress files (Linux, MacOS)
-        if: runner.os == 'macOS' || runner.os == 'Linux'
-        run: mkdir -p ${{ env.PUBLISH_DIR }} && zip -r ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip ${{ env.OUTPUT_DIR }}
+        if: ${{ matrix.target_os }} == 'macOS' || ${{ matrix.target_os }} == 'Linux'
+        run: mkdir -p ${{ env.PUBLISH_DIR }} && zip -r ${{ env.PUBLISH_DIR }}/${{ matrix.target_os }}.zip ${{ env.OUTPUT_DIR }}
 
       - name: upload artifact
         uses: actions/upload-artifact@v5
