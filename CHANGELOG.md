@@ -1,3 +1,7 @@
+# 7.60.0
+
+loosen dependencies.
+
 # 7.59.3
 
 fix release workflow.
