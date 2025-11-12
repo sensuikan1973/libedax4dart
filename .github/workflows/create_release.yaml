@@ -22,16 +22,16 @@ jobs:
       matrix:
         target_os: ["Linux", "Windows", "macOS", "iOS"]
         include:
-          - target_os: linux
+          - target_os: Linux
             runner_os: ubuntu-latest
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=linux
-          - target_os: windows
+          - target_os: Windows
             runner_os: windows-latest
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=windows
-          - target_os: macos
+          - target_os: macOS
             runner_os: macos-latest
             libedax_build_command: make universal_osx_libbuild
-          - target_os: ios
+          - target_os: iOS
             runner_os: macos-latest
             libedax_build_command: make universal_ios_libbuild
 
