@@ -14,20 +14,26 @@ jobs:
     env:
       OUTPUT_DIR: libedax_output
       PUBLISH_DIR: dst
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.runner_os }}
     timeout-minutes: 10
     outputs:
       version: ${{ steps.get_version.outputs.version }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        target_os: ["Linux", "Windows", "macOS", "iOS"]
         include:
-          - os: ubuntu-latest
+          - target_os: linux
+            runner_os: ubuntu-latest
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=linux
-          - os: windows-latest
+          - target_os: windows
+            runner_os: windows-latest
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=windows
-          - os: macos-latest
+          - target_os: macos
+            runner_os: macos-latest
             libedax_build_command: make universal_osx_libbuild
+          - target_os: ios
+            runner_os: macos-latest
+            libedax_build_command: make universal_ios_libbuild
 
     steps:
       - uses: actions/checkout@v5
@@ -42,7 +48,7 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: workaround for https://github.com/sensuikan1973/libedax4dart/issues/828
-        if: runner.os == 'Windows'
+        if: ${{ matrix.target_os }} == 'Windows'
         shell: bash
         run: git config --system core.longpaths true
 
@@ -58,17 +64,17 @@ jobs:
         run: .github/scripts/output_build_info.sh ${{ env.OUTPUT_DIR }}
 
       - name: compress files (Windows)
-        if: runner.os == 'Windows'
-        run: mkdir -p ${{ env.PUBLISH_DIR }} && powershell Compress-Archive -Path ${{ env.OUTPUT_DIR }} -DestinationPath ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
+        if: ${{ matrix.target_os }} == 'Windows'
+        run: mkdir -p ${{ env.PUBLISH_DIR }} && powershell Compress-Archive -Path ${{ env.OUTPUT_DIR }} -DestinationPath ${{ env.PUBLISH_DIR }}/${{ matrix.target_os }}.zip
       - name: compress files (Linux, MacOS)
-        if: runner.os == 'macOS' || runner.os == 'Linux'
-        run: mkdir -p ${{ env.PUBLISH_DIR }} && zip -r ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip ${{ env.OUTPUT_DIR }}
+        if: ${{ matrix.target_os }} == 'macOS' || ${{ matrix.target_os }} == 'Linux'
+        run: mkdir -p ${{ env.PUBLISH_DIR }} && zip -r ${{ env.PUBLISH_DIR }}/${{ matrix.target_os }}.zip ${{ env.OUTPUT_DIR }}
 
       - name: upload artifact
         uses: actions/upload-artifact@v5
         with:
-          name: ${{ runner.os }}
-          path: ${{ env.PUBLISH_DIR }}/${{ runner.os }}.zip
+          name: ${{ matrix.target_os }}
+          path: ${{ env.PUBLISH_DIR }}/${{ matrix.target_os }}.zip
 
   create_release:
     needs: build
