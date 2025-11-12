@@ -14,6 +14,8 @@ With using libedax4dart, you can execute functions equivalent to [edax](https://
 
 - (Required) dynamic library
   - macos: `libedax.universal.dylib`
+  - ios: `libedax.ios.dylib`
+    - You must codesign.
   - windows: `libedax-x64.dll`
   - linux: `libedax.so`
 - (Optional) data for edax
