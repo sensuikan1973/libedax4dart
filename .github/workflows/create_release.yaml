@@ -20,14 +20,20 @@ jobs:
       version: ${{ steps.get_version.outputs.version }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        target_os: ["linux", "windows", "macos", "ios"]
         include:
-          - os: ubuntu-latest
+          - target_os: linux
+            os: ubuntu-latest
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=linux
-          - os: windows-latest
+          - target_os: windows
+            os: windows-latest
             libedax_build_command: make libbuild ARCH=x64 COMP=gcc OS=windows
-          - os: macos-latest
+          - target_os: macos
+            os: macos-latest
             libedax_build_command: make universal_osx_libbuild
+          - target_os: ios
+            os: macos-latest
+            libedax_build_command: make universal_ios_libbuild
 
     steps:
       - uses: actions/checkout@v5
