@@ -36,7 +36,7 @@ jobs:
             libedax_build_command: make universal_ios_libbuild
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - uses: dart-lang/setup-dart@v1
 
