@@ -19,7 +19,7 @@ dev_dependencies:
   coverage: ^1.15.0 # See: https://github.com/dart-lang/test/issues/1265
   ffigen: ^20.1.1
   pana: ^0.23.3
-  pedantic_sensuikan1973: ^5.15.0
+  pedantic_sensuikan1973: ^5.16.0
   test: ^1.28.0
 
 topics:
