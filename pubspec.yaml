@@ -15,10 +15,10 @@ dependencies:
   meta: ^1.18.0
 
 dev_dependencies:
-  analyzer: ^9.0.0
+  analyzer: ^10.0.1
   coverage: ^1.15.0 # See: https://github.com/dart-lang/test/issues/1265
   ffigen: ^20.1.1
-  pana: ^0.23.6
+  pana: ^0.23.8
   pedantic_sensuikan1973: ^5.16.0
   test: ^1.29.0
 
