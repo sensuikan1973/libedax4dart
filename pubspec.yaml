@@ -11,7 +11,7 @@ environment:
   sdk: '>=3.9.0 <4.0.0' # See: https://dart.dev/null-safety#enable-null-safety
 
 dependencies:
-  ffi: ^2.1.5
+  ffi: ^2.2.0
   meta: ^1.18.1
 
 dev_dependencies:
