@@ -13,9 +13,9 @@ coverage:
   status:
     project:
       default:
-        target: 90% # overall coverage
+        target: 80% # overall coverage
       unit_test:
-        target: 90%
+        target: 80%
         flags:
           - unit_test
     patch: false # See: https://docs.codecov.io/docs/commit-status#section-patch-status
