@@ -456,7 +456,7 @@ void main() {
     });
   });
 
-  group('non-ASCII book file path (Windows only)', () {
+  group('char code', () {
     test('initialize with non-ASCII book file path', () {
       final tempDir = Directory.systemTemp.createTempSync('非ASCII_');
       try {
