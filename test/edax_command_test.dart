@@ -456,26 +456,24 @@ void main() {
     });
   });
 
-  if (Platform.isWindows) {
-    group('non-ASCII path (Windows only)', () {
-      test('initialize with non-ASCII book file path', () {
-        final tempDir = Directory.systemTemp.createTempSync('非ASCII_');
-        try {
-          final nonAsciiBookFile = '${tempDir.path}/本.dat';
-          File(_testBookFile).copySync(nonAsciiBookFile);
-          final edax = LibEdax()
-            ..libedaxInitialize(['', '-book-file', nonAsciiBookFile]);
-          sleep(const Duration(seconds: 1));
-          edax.edaxInit();
-          final moveList = edax.edaxGetBookMove();
-          expect(moveList.isNotEmpty, true);
-          edax.libedaxTerminate();
-        } finally {
-          tempDir.deleteSync(recursive: true);
-        }
-      });
+  group('non-ASCII book file path (Windows only)', () {
+    test('initialize with non-ASCII book file path', () {
+      final tempDir = Directory.systemTemp.createTempSync('非ASCII_');
+      try {
+        final nonAsciiBookFile = '${tempDir.path}/本.dat';
+        File(_testBookFile).copySync(nonAsciiBookFile);
+        final edax = LibEdax()
+          ..libedaxInitialize(['', '-book-file', nonAsciiBookFile]);
+        sleep(const Duration(seconds: 1));
+        edax.edaxInit();
+        final moveList = edax.edaxGetBookMove();
+        expect(moveList.isNotEmpty, true);
+        edax.libedaxTerminate();
+      } finally {
+        tempDir.deleteSync(recursive: true);
+      }
     });
-  }
+  });
 
   group('util command', () {
     test('popCount', () {
