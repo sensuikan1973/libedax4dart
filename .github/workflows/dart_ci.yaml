@@ -69,7 +69,7 @@ jobs:
       - name: install dependencies
         run: dart pub get
       - name: test
-        run: dart run test . --coverage=coverage --concurrency 1
+        run: dart run test . --coverage=coverage --concurrency 1 --verbose-trace
       - name: coverage
         run: dart run coverage:format_coverage --lcov --in coverage --out lcov.info
       - uses: codecov/codecov-action@v5
