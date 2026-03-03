@@ -456,7 +456,7 @@ void main() {
     });
   });
 
-  if (Platform.isWindows)
+  if (Platform.isWindows) {
     group('non-ASCII path (Windows only)', () {
       test('initialize with non-ASCII book file path', () {
         final tempDir = Directory.systemTemp.createTempSync('非ASCII_');
@@ -475,6 +475,7 @@ void main() {
         }
       });
     });
+  }
 
   group('util command', () {
     test('popCount', () {
