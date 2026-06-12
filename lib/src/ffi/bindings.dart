@@ -5093,8 +5093,8 @@ const int OSATOMIC_DEPRECATED = 1;
 
 typedef OSAtomic_int64_aligned64_t = ffi.Int64;
 typedef DartOSAtomic_int64_aligned64_t = int;
-typedef OSFifoQueueHead = UnnamedStruct$11;
-typedef OSQueueHead = UnnamedStruct$10;
+typedef OSFifoQueueHead = UnnamedStruct$10;
+typedef OSQueueHead = UnnamedStruct$11;
 
 const int OSSPINLOCK_DEPRECATED = 1;
 
@@ -7368,18 +7368,18 @@ final class UnnamedStruct$1 extends ffi.Struct{
 final class UnnamedStruct$10 extends ffi.Struct{
   external ffi.Pointer<ffi.Void> opaque1;
 
-  @ffi.Long()
-  external int opaque2;
+  external ffi.Pointer<ffi.Void> opaque2;
+
+  @ffi.Int()
+  external int opaque3;
 
 }
 
 final class UnnamedStruct$11 extends ffi.Struct{
   external ffi.Pointer<ffi.Void> opaque1;
 
-  external ffi.Pointer<ffi.Void> opaque2;
-
-  @ffi.Int()
-  external int opaque3;
+  @ffi.Long()
+  external int opaque2;
 
 }
 
