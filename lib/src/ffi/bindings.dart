@@ -1879,7 +1879,7 @@ const int EISCONN = 56;
 const int EISDIR = 21;
 
 
-const int ELAST = 106;
+const int ELAST = 107;
 
 
 const int ELOOP = 62;
@@ -1970,6 +1970,9 @@ const int ENOSYS = 78;
 
 
 const int ENOTBLK = 15;
+
+
+const int ENOTCAPABLE = 107;
 
 
 const int ENOTCONN = 57;
@@ -3141,6 +3144,9 @@ const int IOPOL_DEFAULT = 0;
 const int IOPOL_IMPORTANT = 1;
 
 
+const int IOPOL_MATERIALIZE_DATALESS_FILES_BASIC_MASK = 3;
+
+
 const int IOPOL_MATERIALIZE_DATALESS_FILES_DEFAULT = 0;
 
 
@@ -3148,6 +3154,9 @@ const int IOPOL_MATERIALIZE_DATALESS_FILES_OFF = 1;
 
 
 const int IOPOL_MATERIALIZE_DATALESS_FILES_ON = 2;
+
+
+const int IOPOL_MATERIALIZE_DATALESS_FILES_ORIG = 4;
 
 
 const int IOPOL_NORMAL = 1;
@@ -3181,6 +3190,9 @@ const int IOPOL_TYPE_VFS_ATIME_UPDATES = 2;
 
 
 const int IOPOL_TYPE_VFS_DISALLOW_RW_FOR_O_EVTONLY = 10;
+
+
+const int IOPOL_TYPE_VFS_ENTITLED_RESERVE_ACCESS = 14;
 
 
 const int IOPOL_TYPE_VFS_IGNORE_CONTENT_PROTECTION = 6;
@@ -3220,6 +3232,12 @@ const int IOPOL_VFS_DISALLOW_RW_FOR_O_EVTONLY_DEFAULT = 0;
 
 
 const int IOPOL_VFS_DISALLOW_RW_FOR_O_EVTONLY_ON = 1;
+
+
+const int IOPOL_VFS_ENTITLED_RESERVE_ACCESS_OFF = 0;
+
+
+const int IOPOL_VFS_ENTITLED_RESERVE_ACCESS_ON = 1;
 
 
 const int IOPOL_VFS_IGNORE_PERMISSIONS_OFF = 0;
@@ -4512,6 +4530,30 @@ const int MAC_OS_VERSION_15_4 = 150400;
 const int MAC_OS_VERSION_15_5 = 150500;
 
 
+const int MAC_OS_VERSION_15_6 = 150600;
+
+
+const int MAC_OS_VERSION_16_0 = 160000;
+
+
+const int MAC_OS_VERSION_26_0 = 260000;
+
+
+const int MAC_OS_VERSION_26_1 = 260100;
+
+
+const int MAC_OS_VERSION_26_2 = 260200;
+
+
+const int MAC_OS_VERSION_26_3 = 260300;
+
+
+const int MAC_OS_VERSION_26_4 = 260400;
+
+
+const int MAC_OS_VERSION_26_5 = 260500;
+
+
 const int MAC_OS_X_VERSION_10_0 = 1000;
 
 
@@ -5093,8 +5135,8 @@ const int OSATOMIC_DEPRECATED = 1;
 
 typedef OSAtomic_int64_aligned64_t = ffi.Int64;
 typedef DartOSAtomic_int64_aligned64_t = int;
-typedef OSFifoQueueHead = UnnamedStruct$10;
-typedef OSQueueHead = UnnamedStruct$11;
+typedef OSFifoQueueHead = UnnamedStruct$11;
+typedef OSQueueHead = UnnamedStruct$10;
 
 const int OSSPINLOCK_DEPRECATED = 1;
 
@@ -5800,6 +5842,9 @@ const int RENAME_NOFOLLOW_ANY = 16;
 const int RENAME_RESERVED1 = 8;
 
 
+const int RENAME_RESOLVE_BENEATH = 32;
+
+
 const int RENAME_SECLUDE = 1;
 
 
@@ -6125,6 +6170,9 @@ const int SIGCONT = 19;
 
 
 const int SIGEMT = 7;
+
+
+const int SIGEV_KEVENT = 4;
 
 
 const int SIGEV_NONE = 0;
@@ -6899,13 +6947,22 @@ const int TCPOLEN_CC = 6;
 const int TCPOLEN_CC_APPA = 8;
 
 
+const int TCPOLEN_EOL = 1;
+
+
 const int TCPOLEN_FASTOPEN_REQ = 2;
 
 
 const int TCPOLEN_MAXSEG = 4;
 
 
+const int TCPOLEN_NOP = 1;
+
+
 const int TCPOLEN_SACK = 8;
+
+
+const int TCPOLEN_SACKHDR = 2;
 
 
 const int TCPOLEN_SACK_PERMITTED = 2;
@@ -7368,18 +7425,18 @@ final class UnnamedStruct$1 extends ffi.Struct{
 final class UnnamedStruct$10 extends ffi.Struct{
   external ffi.Pointer<ffi.Void> opaque1;
 
-  external ffi.Pointer<ffi.Void> opaque2;
-
-  @ffi.Int()
-  external int opaque3;
+  @ffi.Long()
+  external int opaque2;
 
 }
 
 final class UnnamedStruct$11 extends ffi.Struct{
   external ffi.Pointer<ffi.Void> opaque1;
 
-  @ffi.Long()
-  external int opaque2;
+  external ffi.Pointer<ffi.Void> opaque2;
+
+  @ffi.Int()
+  external int opaque3;
 
 }
 
@@ -7921,6 +7978,9 @@ const int _LC_LAST_MASK = 32;
 
 
 const int _LC_NUM_MASK = 6;
+
+
+const int _MALLOC_TYPE_MALLOC_BACKDEPLOY_PUBLIC = 1;
 
 
 const String _PATH_HEQUIV = '/etc/hosts.equiv';
@@ -9033,6 +9093,24 @@ const int __AVAILABILITY_VERSIONS_VERSION_HASH = 93585900;
 const String __AVAILABILITY_VERSIONS_VERSION_STRING = 'Local';
 
 
+const int __BRIDGEOS_10_0 = 100000;
+
+
+const int __BRIDGEOS_10_1 = 100100;
+
+
+const int __BRIDGEOS_10_2 = 100200;
+
+
+const int __BRIDGEOS_10_3 = 100300;
+
+
+const int __BRIDGEOS_10_4 = 100400;
+
+
+const int __BRIDGEOS_26_5 = 260500;
+
+
 const int __BRIDGEOS_2_0 = 20000;
 
 
@@ -9130,6 +9208,9 @@ const int __BRIDGEOS_9_4 = 90400;
 
 
 const int __BRIDGEOS_9_5 = 90500;
+
+
+const int __BRIDGEOS_9_6 = 90600;
 
 
 const int __DARWIN_64_BIT_INO_T = 1;
@@ -9279,6 +9360,27 @@ const int __DRIVERKIT_24_4 = 240400;
 const int __DRIVERKIT_24_5 = 240500;
 
 
+const int __DRIVERKIT_24_6 = 240600;
+
+
+const int __DRIVERKIT_25_0 = 250000;
+
+
+const int __DRIVERKIT_25_1 = 250100;
+
+
+const int __DRIVERKIT_25_2 = 250200;
+
+
+const int __DRIVERKIT_25_3 = 250300;
+
+
+const int __DRIVERKIT_25_4 = 250400;
+
+
+const int __DRIVERKIT_25_5 = 250500;
+
+
 const int __ENABLE_LEGACY_MAC_AVAILABILITY = 1;
 
 
@@ -9364,9 +9466,6 @@ const int __IPHONE_14_2 = 140200;
 
 
 const int __IPHONE_14_3 = 140300;
-
-
-const int __IPHONE_14_4 = 140400;
 
 
 const int __IPHONE_14_5 = 140500;
@@ -9472,6 +9571,30 @@ const int __IPHONE_18_4 = 180400;
 
 
 const int __IPHONE_18_5 = 180500;
+
+
+const int __IPHONE_18_6 = 180600;
+
+
+const int __IPHONE_19_0 = 190000;
+
+
+const int __IPHONE_26_0 = 260000;
+
+
+const int __IPHONE_26_1 = 260100;
+
+
+const int __IPHONE_26_2 = 260200;
+
+
+const int __IPHONE_26_3 = 260300;
+
+
+const int __IPHONE_26_4 = 260400;
+
+
+const int __IPHONE_26_5 = 260500;
 
 
 const int __IPHONE_2_0 = 20000;
@@ -9786,10 +9909,34 @@ const int __MAC_15_4 = 150400;
 const int __MAC_15_5 = 150500;
 
 
-const int __MAC_OS_X_VERSION_MAX_ALLOWED = 150500;
+const int __MAC_15_6 = 150600;
 
 
-const int __MAC_OS_X_VERSION_MIN_REQUIRED = 150000;
+const int __MAC_16_0 = 160000;
+
+
+const int __MAC_26_0 = 260000;
+
+
+const int __MAC_26_1 = 260100;
+
+
+const int __MAC_26_2 = 260200;
+
+
+const int __MAC_26_3 = 260300;
+
+
+const int __MAC_26_4 = 260400;
+
+
+const int __MAC_26_5 = 260500;
+
+
+const int __MAC_OS_X_VERSION_MAX_ALLOWED = 260500;
+
+
+const int __MAC_OS_X_VERSION_MIN_REQUIRED = 260000;
 
 
 const int __PTHREAD_ATTR_SIZE__ = 56;
@@ -10029,6 +10176,30 @@ const int __TVOS_18_4 = 180400;
 const int __TVOS_18_5 = 180500;
 
 
+const int __TVOS_18_6 = 180600;
+
+
+const int __TVOS_19_0 = 190000;
+
+
+const int __TVOS_26_0 = 260000;
+
+
+const int __TVOS_26_1 = 260100;
+
+
+const int __TVOS_26_2 = 260200;
+
+
+const int __TVOS_26_3 = 260300;
+
+
+const int __TVOS_26_4 = 260400;
+
+
+const int __TVOS_26_5 = 260500;
+
+
 const int __TVOS_9_0 = 90000;
 
 
@@ -10050,6 +10221,24 @@ const int __VISIONOS_1_2 = 10200;
 const int __VISIONOS_1_3 = 10300;
 
 
+const int __VISIONOS_26_0 = 260000;
+
+
+const int __VISIONOS_26_1 = 260100;
+
+
+const int __VISIONOS_26_2 = 260200;
+
+
+const int __VISIONOS_26_3 = 260300;
+
+
+const int __VISIONOS_26_4 = 260400;
+
+
+const int __VISIONOS_26_5 = 260500;
+
+
 const int __VISIONOS_2_0 = 20000;
 
 
@@ -10066,6 +10255,12 @@ const int __VISIONOS_2_4 = 20400;
 
 
 const int __VISIONOS_2_5 = 20500;
+
+
+const int __VISIONOS_2_6 = 20600;
+
+
+const int __VISIONOS_3_0 = 30000;
 
 
 const int __WATCHOS_10_0 = 100000;
@@ -10110,7 +10305,31 @@ const int __WATCHOS_11_4 = 110400;
 const int __WATCHOS_11_5 = 110500;
 
 
+const int __WATCHOS_11_6 = 110600;
+
+
+const int __WATCHOS_12_0 = 120000;
+
+
 const int __WATCHOS_1_0 = 10000;
+
+
+const int __WATCHOS_26_0 = 260000;
+
+
+const int __WATCHOS_26_1 = 260100;
+
+
+const int __WATCHOS_26_2 = 260200;
+
+
+const int __WATCHOS_26_3 = 260300;
+
+
+const int __WATCHOS_26_4 = 260400;
+
+
+const int __WATCHOS_26_5 = 260500;
 
 
 const int __WATCHOS_2_0 = 20000;
