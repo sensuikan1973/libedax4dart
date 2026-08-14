@@ -54,10 +54,11 @@
 
     <section class="multi-line-signature">
       
-<span class="returntype"><a href="https://api.dart.dev/stable/3.12.2/dart-ffi/Pointer-class.html">Pointer</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/UnnamedStruct$10-class.html">UnnamedStruct$10</a></span>&gt;</span></span>
-<span class="name ">$allocate</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="$allocate-param-$allocator"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.12.2/dart-ffi/Allocator-class.html">Allocator</a></span> <span class="parameter-name">$allocator</span>, {</span></li>
-<li><span class="parameter" id="$allocate-param-opaque1"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.12.2/dart-ffi/Pointer-class.html">Pointer</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/3.12.2/dart-ffi/Void-class.html">Void</a></span>&gt;</span></span> <span class="parameter-name">opaque1</span>, </span></li>
-<li><span class="parameter" id="$allocate-param-opaque2"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.12.2/dart-core/int-class.html">int</a></span> <span class="parameter-name">opaque2</span>, </span></li>
+<span class="returntype"><a href="https://api.dart.dev/stable/3.13.0/dart-ffi/Pointer-class.html">Pointer</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../file-___home_runner_work_libedax4dart_libedax4dart_lib_src_ffi_bindings/UnnamedStruct$10-class.html">UnnamedStruct$10</a></span>&gt;</span></span>
+<span class="name ">$allocate</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="$allocate-param-$allocator"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.13.0/dart-ffi/Allocator-class.html">Allocator</a></span> <span class="parameter-name">$allocator</span>, {</span></li>
+<li><span class="parameter" id="$allocate-param-opaque1"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.13.0/dart-ffi/Pointer-class.html">Pointer</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/3.13.0/dart-ffi/Void-class.html">Void</a></span>&gt;</span></span> <span class="parameter-name">opaque1</span>, </span></li>
+<li><span class="parameter" id="$allocate-param-opaque2"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.13.0/dart-ffi/Pointer-class.html">Pointer</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/3.13.0/dart-ffi/Void-class.html">Void</a></span>&gt;</span></span> <span class="parameter-name">opaque2</span>, </span></li>
+<li><span class="parameter" id="$allocate-param-opaque3"><span>required</span> <span class="type-annotation"><a href="https://api.dart.dev/stable/3.13.0/dart-core/int-class.html">int</a></span> <span class="parameter-name">opaque3</span>, </span></li>
 </ol>})
 
       
@@ -72,10 +73,12 @@
   <pre class="language-dart"><code class="language-dart">static ffi.Pointer&lt;UnnamedStruct$10&gt; $allocate(
 ffi.Allocator $allocator, {
 required ffi.Pointer&lt;ffi.Void&gt; opaque1,
-required int opaque2,
+required ffi.Pointer&lt;ffi.Void&gt; opaque2,
+required int opaque3,
 }) =&gt; $allocator&lt;UnnamedStruct$10&gt;()
 ..ref.opaque1 = opaque1
-..ref.opaque2 = opaque2;</code></pre>
+..ref.opaque2 = opaque2
+..ref.opaque3 = opaque3;</code></pre>
 </section>
 
 
