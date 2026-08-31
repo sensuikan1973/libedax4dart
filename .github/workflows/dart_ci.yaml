@@ -20,7 +20,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v7
-      - uses: dart-lang/setup-dart@v1.8.0
+      - uses: dart-lang/setup-dart@v1.8.1
       - name: install dependencies
         run: dart pub get
       - run: dart format . --set-exit-if-changed
@@ -30,7 +30,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v7
-      - uses: dart-lang/setup-dart@v1.8.0
+      - uses: dart-lang/setup-dart@v1.8.1
       - name: install dependencies
         run: dart pub get
       - run: dart analyze --fatal-infos --fatal-warnings .
@@ -51,7 +51,7 @@ jobs:
             libedax_build_command: make universal_osx_libbuild
     steps:
       - uses: actions/checkout@v7
-      - uses: dart-lang/setup-dart@v1.8.0
+      - uses: dart-lang/setup-dart@v1.8.1
       - name: workaround for https://github.com/sensuikan1973/libedax4dart/issues/828
         if: runner.os == 'Windows'
         shell: bash
@@ -91,7 +91,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v7
-      - uses: dart-lang/setup-dart@v1.8.0
+      - uses: dart-lang/setup-dart@v1.8.1
       - run: dart doc . --validate-links
 
   dart_pana:
@@ -100,7 +100,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v7
-      - uses: dart-lang/setup-dart@v1.8.0
+      - uses: dart-lang/setup-dart@v1.8.1
       - run: dart pub get
       - id: run_pana_step
         run: |
@@ -120,5 +120,5 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v7
-      - uses: dart-lang/setup-dart@v1.8.0
+      - uses: dart-lang/setup-dart@v1.8.1
       - run: dart pub publish --dry-run

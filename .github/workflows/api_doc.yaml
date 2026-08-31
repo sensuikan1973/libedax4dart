@@ -16,7 +16,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
-      - uses: dart-lang/setup-dart@v1.8.0
+      - uses: dart-lang/setup-dart@v1.8.1
       - name: generate dart docs
         run: dart doc . --validate-links
       - name: upload to GitHub Pages
