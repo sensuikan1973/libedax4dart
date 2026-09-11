@@ -1390,7 +1390,6 @@ const int BOOK = 1112493899;
 
 const int BOOK_DEBUG = 0;
 
-
 const int BOOK_INFO_RESOLUTION = 100000;
 
 
@@ -2185,15 +2184,12 @@ const int EUSERS = 68;
 const int EVAL = 1163280716;
 
 /// number of features
-
 const int EVAL_N_FEATURE = 47;
 
 /// number of plies
-
 const int EVAL_N_PLY = 61;
 
 /// number of (unpacked) weights
-
 const int EVAL_N_WEIGHT = 226315;
 
 
