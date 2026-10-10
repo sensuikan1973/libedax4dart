@@ -5405,8 +5405,8 @@ const int OSATOMIC_DEPRECATED = 1;
 
 typedef OSAtomic_int64_aligned64_t = ffi.Int64;
 typedef DartOSAtomic_int64_aligned64_t = int;
-typedef OSFifoQueueHead = UnnamedStruct$10;
-typedef OSQueueHead = UnnamedStruct$11;
+typedef OSFifoQueueHead = UnnamedStruct$11;
+typedef OSQueueHead = UnnamedStruct$10;
 
 const int OSSPINLOCK_DEPRECATED = 1;
 
@@ -7824,36 +7824,36 @@ final class UnnamedStruct$1 extends ffi.Struct{
 final class UnnamedStruct$10 extends ffi.Struct{
   external ffi.Pointer<ffi.Void> opaque1;
 
-  external ffi.Pointer<ffi.Void> opaque2;
-
-  @ffi.Int()
-  external int opaque3;
+  @ffi.Long()
+  external int opaque2;
 
  static ffi.Pointer<UnnamedStruct$10> $allocate(
  ffi.Allocator $allocator, {
  required ffi.Pointer<ffi.Void> opaque1,
- required ffi.Pointer<ffi.Void> opaque2,
- required int opaque3,
+ required int opaque2,
  }) => $allocator<UnnamedStruct$10>()
  ..ref.opaque1 = opaque1
- ..ref.opaque2 = opaque2
- ..ref.opaque3 = opaque3;
+ ..ref.opaque2 = opaque2;
 
 }
 
 final class UnnamedStruct$11 extends ffi.Struct{
   external ffi.Pointer<ffi.Void> opaque1;
 
-  @ffi.Long()
-  external int opaque2;
+  external ffi.Pointer<ffi.Void> opaque2;
+
+  @ffi.Int()
+  external int opaque3;
 
  static ffi.Pointer<UnnamedStruct$11> $allocate(
  ffi.Allocator $allocator, {
  required ffi.Pointer<ffi.Void> opaque1,
- required int opaque2,
+ required ffi.Pointer<ffi.Void> opaque2,
+ required int opaque3,
  }) => $allocator<UnnamedStruct$11>()
  ..ref.opaque1 = opaque1
- ..ref.opaque2 = opaque2;
+ ..ref.opaque2 = opaque2
+ ..ref.opaque3 = opaque3;
 
 }
 
@@ -11908,6 +11908,14 @@ final class in_pktinfo extends ffi.Struct{
 typedef in_port_t = __uint16_t;
 typedef ino64_t = __darwin_ino64_t;
 typedef ino_t = __darwin_ino_t;
+typedef int16_t = ffi.Short;
+typedef Dartint16_t = int;
+typedef int32_t = ffi.Int;
+typedef Dartint32_t = int;
+typedef int64_t = ffi.LongLong;
+typedef Dartint64_t = int;
+typedef int8_t = ffi.SignedChar;
+typedef Dartint8_t = int;
 typedef int_fast16_t = ffi.Int16;
 typedef Dartint_fast16_t = int;
 typedef int_fast32_t = ffi.Int32;
@@ -11926,6 +11934,7 @@ typedef int_least8_t = ffi.Int8;
 typedef Dartint_least8_t = int;
 typedef intmax_t = ffi.Long;
 typedef Dartintmax_t = int;
+typedef intptr_t = __darwin_intptr_t;
 final class iovec extends ffi.Struct{
   external ffi.Pointer<ffi.Void> iov_base;
 
@@ -13274,6 +13283,7 @@ final class sigvec extends ffi.Struct{
 
 }
 
+typedef size_t = __darwin_size_t;
 final class so_np_extensions extends ffi.Struct{
   @u_int32_t()
   external int npx_flags;
@@ -13598,6 +13608,14 @@ typedef ucontext_t = __darwin_ucontext;
 typedef uid_t = __darwin_uid_t;
 typedef uint = ffi.UnsignedInt;
 typedef Dartuint = int;
+typedef uint16_t = ffi.UnsignedShort;
+typedef Dartuint16_t = int;
+typedef uint32_t = ffi.UnsignedInt;
+typedef Dartuint32_t = int;
+typedef uint64_t = ffi.UnsignedLongLong;
+typedef Dartuint64_t = int;
+typedef uint8_t = ffi.UnsignedChar;
+typedef Dartuint8_t = int;
 typedef uint_fast16_t = ffi.Uint16;
 typedef Dartuint_fast16_t = int;
 typedef uint_fast32_t = ffi.Uint32;
@@ -13616,6 +13634,8 @@ typedef uint_least8_t = ffi.Uint8;
 typedef Dartuint_least8_t = int;
 typedef uintmax_t = ffi.UnsignedLong;
 typedef Dartuintmax_t = int;
+typedef uintptr_t = ffi.UnsignedLong;
+typedef Dartuintptr_t = int;
 typedef useconds_t = __darwin_useconds_t;
 typedef user_addr_t = u_int64_t;
 typedef user_long_t = ffi.Int64;
@@ -13634,4 +13654,5 @@ typedef va_list = __darwin_va_list;
 final class wait extends ffi.Opaque{
 }
 
+typedef wchar_t = __darwin_wchar_t;
 typedef wint_t = __darwin_wint_t;
