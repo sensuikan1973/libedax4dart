@@ -4573,6 +4573,12 @@ const int LLONG_MIN = -9223372036854775808;
 const int LONG_BIT = 64;
 
 
+const int LONG_LONG_MAX = 9223372036854775807;
+
+
+const int LONG_LONG_MIN = -9223372036854775808;
+
+
 const int LONG_MAX = 9223372036854775807;
 
 
@@ -5405,15 +5411,11 @@ const int OSATOMIC_DEPRECATED = 1;
 
 typedef OSAtomic_int64_aligned64_t = ffi.Int64;
 typedef DartOSAtomic_int64_aligned64_t = int;
-typedef OSFifoQueueHead = UnnamedStruct$11;
-typedef OSQueueHead = UnnamedStruct$10;
+typedef OSFifoQueueHead = UnnamedStruct$10;
+typedef OSQueueHead = UnnamedStruct$11;
 
 const int OSSPINLOCK_DEPRECATED = 1;
 
-/// ! @abstract Data type for a spinlock.
-/// @discussion
-/// You should always initialize a spinlock to {@link OS_SPINLOCK_INIT} before
-/// using it.
 typedef OSSpinLock = ffi.Int32;
 typedef DartOSSpinLock = int;
 
@@ -7735,6 +7737,9 @@ const int UI_XBOARD = 6;
 const int ULLONG_MAX = -1;
 
 
+const int ULONG_LONG_MAX = -1;
+
+
 const int ULONG_MAX = -1;
 
 
@@ -7824,36 +7829,36 @@ final class UnnamedStruct$1 extends ffi.Struct{
 final class UnnamedStruct$10 extends ffi.Struct{
   external ffi.Pointer<ffi.Void> opaque1;
 
-  @ffi.Long()
-  external int opaque2;
+  external ffi.Pointer<ffi.Void> opaque2;
+
+  @ffi.Int()
+  external int opaque3;
 
  static ffi.Pointer<UnnamedStruct$10> $allocate(
  ffi.Allocator $allocator, {
  required ffi.Pointer<ffi.Void> opaque1,
- required int opaque2,
+ required ffi.Pointer<ffi.Void> opaque2,
+ required int opaque3,
  }) => $allocator<UnnamedStruct$10>()
  ..ref.opaque1 = opaque1
- ..ref.opaque2 = opaque2;
+ ..ref.opaque2 = opaque2
+ ..ref.opaque3 = opaque3;
 
 }
 
 final class UnnamedStruct$11 extends ffi.Struct{
   external ffi.Pointer<ffi.Void> opaque1;
 
-  external ffi.Pointer<ffi.Void> opaque2;
-
-  @ffi.Int()
-  external int opaque3;
+  @ffi.Long()
+  external int opaque2;
 
  static ffi.Pointer<UnnamedStruct$11> $allocate(
  ffi.Allocator $allocator, {
  required ffi.Pointer<ffi.Void> opaque1,
- required ffi.Pointer<ffi.Void> opaque2,
- required int opaque3,
+ required int opaque2,
  }) => $allocator<UnnamedStruct$11>()
  ..ref.opaque1 = opaque1
- ..ref.opaque2 = opaque2
- ..ref.opaque3 = opaque3;
+ ..ref.opaque2 = opaque2;
 
 }
 
@@ -12351,19 +12356,6 @@ const int pseudo_AF_XTP = 19;
 typedef pthread_attr_t = __darwin_pthread_attr_t;
 typedef pthread_cond_t = __darwin_pthread_cond_t;
 typedef pthread_condattr_t = __darwin_pthread_condattr_t;
-/// !
-/// @typedef pthread_jit_write_callback_t
-/// The type of a function that can be supplied to {@link
-/// pthread_jit_write_with_callback_np} to write to the MAP_JIT region while it
-/// is writeable.
-/// 
-/// @param ctx
-/// A pointer to context that will be passed through to the callback function.
-/// 
-/// @result
-/// A result code to be returned to the caller of @{link
-/// pthread_jit_write_with_callback_np}.  The system does not interpret/act on
-/// the value of this result.
 typedef pthread_jit_write_callback_t = ffi.Pointer<ffi.NativeFunction<pthread_jit_write_callback_tFunction>>;
 typedef pthread_jit_write_callback_tFunction = ffi.Int Function(ffi.Pointer<ffi.Void> ctx);
 typedef Dartpthread_jit_write_callback_tFunction = int Function(ffi.Pointer<ffi.Void> ctx);
@@ -12374,30 +12366,12 @@ typedef pthread_once_t = __darwin_pthread_once_t;
 final class pthread_override_s extends ffi.Opaque{
 }
 
-/// !
-/// @typedef pthread_override_t
-/// 
-/// @abstract
-/// An opaque object representing a QOS class override of a thread.
-/// 
-/// @discussion
-/// A QOS class override of a target thread expresses that an item of pending
-/// work classified with a specific QOS class and relative priority depends on
-/// the completion of the work currently being executed by the thread (e.g. due
-/// to ordering requirements).
-/// 
-/// While overrides are in effect, the target thread will execute at the maximum
-/// QOS class and relative priority of all overrides and of the QOS class
-/// requested by the thread itself.
-/// 
-/// A QOS class override does not modify the target thread's requested QOS class
-/// value and the effect of an override is not visible to the qos_class_self()
-/// and pthread_get_qos_class_np() interfaces.
 typedef pthread_override_t = ffi.Pointer<pthread_override_s>;
 typedef pthread_rwlock_t = __darwin_pthread_rwlock_t;
 typedef pthread_rwlockattr_t = __darwin_pthread_rwlockattr_t;
 typedef pthread_t = __darwin_pthread_t;
-typedef ptrdiff_t = __darwin_ptrdiff_t;
+typedef ptrdiff_t = ffi.Long;
+typedef Dartptrdiff_t = int;
 typedef qaddr_t = ffi.Pointer<quad_t>;
 typedef qos_class_t = ffi.UnsignedInt;
 typedef Dartqos_class_t = int;
@@ -13651,6 +13625,7 @@ typedef user_ulong_t = u_int64_t;
 typedef ushort = ffi.UnsignedShort;
 typedef Dartushort = int;
 typedef va_list = __darwin_va_list;
+typedef va_list$1 = __builtin_va_list;
 final class wait extends ffi.Opaque{
 }
 
