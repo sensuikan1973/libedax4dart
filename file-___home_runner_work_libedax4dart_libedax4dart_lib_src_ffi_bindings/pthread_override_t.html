@@ -60,23 +60,6 @@
     </section>
 
     
-<section class="desc markdown">
-  <p>!
-@typedef pthread_override_t</p>
-<p>@abstract
-An opaque object representing a QOS class override of a thread.</p>
-<p>@discussion
-A QOS class override of a target thread expresses that an item of pending
-work classified with a specific QOS class and relative priority depends on
-the completion of the work currently being executed by the thread (e.g. due
-to ordering requirements).</p>
-<p>While overrides are in effect, the target thread will execute at the maximum
-QOS class and relative priority of all overrides and of the QOS class
-requested by the thread itself.</p>
-<p>A QOS class override does not modify the target thread's requested QOS class
-value and the effect of an override is not visible to the qos_class_self()
-and pthread_get_qos_class_np() interfaces.</p>
-</section>
 
     
 <section class="summary source-code" id="source">
