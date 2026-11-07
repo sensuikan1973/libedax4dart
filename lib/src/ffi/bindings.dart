@@ -13624,8 +13624,8 @@ typedef Dartuser_time_t = int;
 typedef user_ulong_t = u_int64_t;
 typedef ushort = ffi.UnsignedShort;
 typedef Dartushort = int;
-typedef va_list = __darwin_va_list;
-typedef va_list$1 = __builtin_va_list;
+typedef va_list = __builtin_va_list;
+typedef va_list$1 = __darwin_va_list;
 final class wait extends ffi.Opaque{
 }
 
